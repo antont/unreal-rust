@@ -285,7 +285,6 @@ fn spawn_camera(
         }
     }
 }
-
 fn update_camera(
     mut query: Query<(Entity, &ParentComponent, &CameraComponent)>,
     mut spatial_query: Query<&mut TransformComponent>,

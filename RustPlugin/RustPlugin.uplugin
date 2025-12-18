@@ -19,6 +19,11 @@
 			"Name": "RustPlugin",
 			"Type": "Runtime",
 			"LoadingPhase": "Default"
+		},
+		{
+			"Name": "RustEditor",
+			"Type": "Editor",
+			"LoadingPhase": "Default"
 		}
 	]
 }
