@@ -7,7 +7,7 @@ DerivedDataCache
 Intermediate
 Saved
 Script
-Plugins/RustPlugin/Intermediate
+RustPlugin/Binaries
 example/*
 rusttemp
 *.exe
