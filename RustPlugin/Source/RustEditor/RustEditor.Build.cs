@@ -22,7 +22,8 @@ public class RustEditor : ModuleRules
 				"SlateCore",
 				"ToolMenus",
 				"UnrealEd",
-				"Projects"
+				"Projects",
+				"JsonUtilities"
 			}
 		);
 	}
