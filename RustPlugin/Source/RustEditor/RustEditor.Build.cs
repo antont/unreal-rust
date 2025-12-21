@@ -23,6 +23,7 @@ public class RustEditor : ModuleRules
 				"ToolMenus",
 				"UnrealEd",
 				"Projects",
+				"Json",
 				"JsonUtilities"
 			}
 		);

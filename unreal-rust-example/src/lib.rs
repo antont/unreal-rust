@@ -113,6 +113,7 @@ fn register_class_resource(mut commands: Commands) {
             classes_resource.classes.insert(class_ptr, class);
         }
     }
+
     commands.insert_resource(classes_resource);
 }
 

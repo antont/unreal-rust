@@ -327,8 +327,205 @@ static TArray<FString> GetFunctionFlagStrings(UFunction* Function)
 	return ActiveFlags;
 }
 
+
+TUniquePtr<RustReflection_Type> FromUClass(UClass* Class)
+{
+	return MakeContainerType(TEXT("TSubclassOf"), MakeConcreteType(Class->GetPrefixCPP() + Class->GetName()));
+}
+
+TSharedPtr<FJsonObject> RustReflection_MapType::ToJson()
+{
+	auto Json = MakeShared<FJsonObject>();
+	Json->SetStringField(TEXT("Kind"), TEXT("Map"));
+	Json->SetObjectField(TEXT("KeyType"), KeyType->ToJson());
+	Json->SetObjectField(TEXT("ValueType"), ValueType->ToJson());
+
+	return Json;
+}
+
+TUniquePtr<RustReflection_ConcreteType> MakeConcreteType(FString Name)
+{
+	auto Type = MakeUnique<RustReflection_ConcreteType>();
+	Type->TypeName = Name;
+
+	return Type;
+}
+
+TUniquePtr<RustReflection_ContainerType> MakeContainerType(FString ContainerTypeName,
+                                                           TUniquePtr<RustReflection_Type> InnerType)
+{
+	auto ContainerType = MakeUnique<RustReflection_ContainerType>();
+	ContainerType->ContainerTypeName = ContainerTypeName;
+	ContainerType->InnerType = MoveTemp(InnerType);
+
+	return ContainerType;
+}
+
+TUniquePtr<RustReflection_Type> FromProperty(FProperty* Property)
+{
+	auto GetCppNameFromUClass = [](const UClass* Class) -> FString
+	{
+		return Class->GetPrefixCPP() + Class->GetName();
+	};
+
+	if (FArrayProperty* ArrayProperty = CastField<FArrayProperty>(Property))
+	{
+		return MakeContainerType(TEXT("TArray"), FromProperty(ArrayProperty->Inner));
+	}
+
+	if (auto* ClassProperty = CastField<FClassProperty>(Property))
+	{
+		return MakeContainerType(
+			TEXT("TSubclassOf"),
+			MakeConcreteType(GetCppNameFromUClass(ClassProperty->MetaClass)));
+	}
+
+	if (auto* ObjectProperty = CastField<FObjectProperty>(Property))
+	{
+		return MakeConcreteType(GetCppNameFromUClass(ObjectProperty->PropertyClass));
+	}
+
+	if (auto* InnerProperty = CastField<FBoolProperty>(Property))
+	{
+		return MakeConcreteType(TEXT("bool"));
+	}
+
+	if (auto* InnerProperty = CastField<FStrProperty>(Property))
+	{
+		return MakeConcreteType(TEXT("FString"));
+	}
+
+	if (auto* InnerProperty = CastField<FStructProperty>(Property))
+	{
+		return MakeConcreteType(InnerProperty->Struct->GetStructCPPName());
+	}
+
+	if (auto* InnerProperty = CastField<FFieldPathProperty>(Property))
+	{
+		return MakeContainerType(
+			TEXT("FIELDPATH"),
+			MakeConcreteType(FString::Printf(TEXT("F%s"), *InnerProperty->PropertyClass->GetName())));
+	}
+
+	if (auto* InnerProperty = CastField<FSetProperty>(Property))
+	{
+		return MakeContainerType(
+			TEXT("TSet"),
+			FromProperty(InnerProperty->ElementProp));
+	}
+
+	if (auto* InnerProperty = CastField<FMapProperty>(Property))
+	{
+		auto MapType = MakeUnique<RustReflection_MapType>();
+		MapType->KeyType = FromProperty(InnerProperty->KeyProp);
+		MapType->ValueType = FromProperty(InnerProperty->ValueProp);
+
+		return MapType;
+	}
+
+	if (auto* InnerProperty = CastField<FEnumProperty>(Property))
+	{
+		return MakeConcreteType(InnerProperty->GetNameCPP());
+	}
+
+	if (auto* InnerProperty = CastField<FOptionalProperty>(Property))
+	{
+		return MakeContainerType(
+			TEXT("TOptional"),
+			FromProperty(InnerProperty->GetValueProperty()));
+	}
+
+	if (auto* InnerProperty = CastField<FNameProperty>(Property))
+	{
+		return MakeConcreteType(TEXT("FName"));
+	}
+
+	if (auto* InnerProperty = CastField<FTextProperty>(Property))
+	{
+		return MakeConcreteType(TEXT("FText"));
+	}
+
+	if (auto* InnerProperty = CastField<FUtf8StrProperty>(Property))
+	{
+		return MakeConcreteType(TEXT("FUtf8String"));
+	}
+
+	if (auto* InnerProperty = CastField<FLazyObjectProperty>(Property))
+	{
+		return MakeContainerType(
+			TEXT("TLazyObjectPtr"),
+			MakeConcreteType(GetCppNameFromUClass(InnerProperty->PropertyClass)));
+	}
+
+	if (auto* InnerProperty = CastField<FSoftObjectProperty>(Property))
+	{
+		return MakeContainerType(
+			TEXT("TSoftObjectPtr"),
+			MakeConcreteType(GetCppNameFromUClass(InnerProperty->PropertyClass)));
+	}
+
+	if (auto* InnerProperty = CastField<FSoftClassProperty>(Property))
+	{
+		return MakeContainerType(
+			TEXT("TSoftClassPtr"),
+			MakeConcreteType(GetCppNameFromUClass(InnerProperty->MetaClass)));
+	}
+
+	if (auto* InnerProperty = CastField<FInterfaceProperty>(Property))
+	{
+		return MakeConcreteType(FString::Printf(TEXT("I%s"), *InnerProperty->InterfaceClass.GetName()));
+	}
+
+	if (auto* InnerProperty = CastField<FWeakObjectProperty>(Property))
+	{
+		return MakeContainerType(
+			TEXT("TWeakObjectPtr"),
+			MakeConcreteType(GetCppNameFromUClass(InnerProperty->PropertyClass)));
+	}
+
+	if (auto* InnerProperty = CastField<FMulticastDelegateProperty>(Property))
+	{
+		auto SignatureName = InnerProperty->SignatureFunction.GetName();
+		SignatureName.RemoveFromEnd(TEXT("__DelegateSignature"));
+
+		return MakeConcreteType(FString::Printf(TEXT("F%s"), *SignatureName));
+	}
+
+	if (auto* InnerProperty = CastField<FDelegateProperty>(Property))
+	{
+		auto SignatureName = InnerProperty->SignatureFunction.GetName();
+		SignatureName.RemoveFromEnd(TEXT("__DelegateSignature"));
+
+		return MakeConcreteType(FString::Printf(TEXT("F%s"), *SignatureName));
+	}
+
+	if (auto* InnerProperty = CastField<FByteProperty>(Property))
+	{
+		if (InnerProperty->Enum != nullptr)
+		{
+			return MakeContainerType(
+				TEXT("TEnumAsByte"),
+				MakeConcreteType(InnerProperty->Enum.GetName()));
+		}
+
+		return MakeConcreteType(TEXT("uint8"));
+	}
+
+	if (auto* InnerProperty = CastField<FNumericProperty>(Property))
+	{
+		return MakeConcreteType(InnerProperty->GetCPPType(nullptr, 0));
+	}
+
+	return MakeConcreteType(TEXT("GeneratorInvalidType"));
+}
+
 FRustReflection_Type FRustReflection_Type::FromProperty(FProperty* Property)
 {
+	auto GetCppNameFromUClass = [](const UClass* Class) -> FString
+	{
+		return Class->GetPrefixCPP() + Class->GetName();
+	};
+
 	if (FArrayProperty* ArrayProperty = CastField<FArrayProperty>(Property))
 	{
 		FRustReflection_Type Type;
@@ -352,14 +549,6 @@ FRustReflection_Type FRustReflection_Type::FromProperty(FProperty* Property)
 		return Type;
 	}
 
-
-	if (auto* InnerProperty = CastField<FIntProperty>(Property))
-	{
-		FRustReflection_Type Type;
-		Type.Type = TEXT("int");
-		return Type;
-	}
-
 	if (auto* InnerProperty = CastField<FBoolProperty>(Property))
 	{
 		FRustReflection_Type Type;
@@ -374,24 +563,18 @@ FRustReflection_Type FRustReflection_Type::FromProperty(FProperty* Property)
 		return Type;
 	}
 
-	if (auto* InnerProperty = CastField<FFloatProperty>(Property))
-	{
-		FRustReflection_Type Type;
-		Type.Type = TEXT("float");
-		return Type;
-	}
-
 	if (auto* InnerProperty = CastField<FStructProperty>(Property))
 	{
 		FRustReflection_Type Type;
-		Type.Type = InnerProperty->Struct->GetPrefixCPP() + InnerProperty->Struct.GetName();
+		Type.Type = InnerProperty->Struct->GetStructCPPName();
 		return Type;
 	}
+
 	if (auto* InnerProperty = CastField<FFieldPathProperty>(Property))
 	{
 		FRustReflection_Type Type;
-		// TODO: does everything need an F?
 		Type.Type = FString::Printf(TEXT("F%s"), *InnerProperty->PropertyClass->GetName());
+		Type.ContainerType = TEXT("FIELDPATH");
 		return Type;
 	}
 
@@ -447,10 +630,76 @@ FRustReflection_Type FRustReflection_Type::FromProperty(FProperty* Property)
 		return Type;
 	}
 
+	if (auto* InnerProperty = CastField<FUtf8StrProperty>(Property))
+	{
+		FRustReflection_Type Type;
+		Type.Type = TEXT("FUtf8String");
+
+		return Type;
+	}
+
+	if (auto* InnerProperty = CastField<FLazyObjectProperty>(Property))
+	{
+		FRustReflection_Type Type;
+		Type.Type = GetCppNameFromUClass(InnerProperty->PropertyClass);
+		Type.ContainerType = TEXT("TLazyObjectPtr");
+
+		return Type;
+	}
+
+	if (auto* InnerProperty = CastField<FSoftObjectProperty>(Property))
+	{
+		FRustReflection_Type Type;
+		Type.Type = GetCppNameFromUClass(InnerProperty->PropertyClass);
+		Type.ContainerType = TEXT("TSoftObjectPtr");
+
+		return Type;
+	}
+
+	if (auto* InnerProperty = CastField<FSoftClassProperty>(Property))
+	{
+		FRustReflection_Type Type;
+		Type.Type = GetCppNameFromUClass(InnerProperty->MetaClass);
+		Type.ContainerType = TEXT("TSoftClassPtr");
+
+		return Type;
+	}
+
 	if (auto* InnerProperty = CastField<FInterfaceProperty>(Property))
 	{
 		FRustReflection_Type Type;
 		Type.Type = FString::Printf(TEXT("I%s"), *InnerProperty->InterfaceClass.GetName());
+
+		return Type;
+	}
+
+	if (auto* InnerProperty = CastField<FWeakObjectProperty>(Property))
+	{
+		FRustReflection_Type Type;
+		Type.Type = GetCppNameFromUClass(InnerProperty->PropertyClass);
+		Type.ContainerType = TEXT("TWeakObjectPtr");
+
+		return Type;
+	}
+
+	if (auto* InnerProperty = CastField<FMulticastDelegateProperty>(Property))
+	{
+		FRustReflection_Type Type;
+		auto SignatureName = InnerProperty->SignatureFunction.GetName();
+		SignatureName.RemoveFromEnd(TEXT("__DelegateSignature"));
+
+		Type.Type = FString::Printf(TEXT("F%s"), *SignatureName);
+
+		return Type;
+	}
+
+	if (auto* InnerProperty = CastField<FDelegateProperty>(Property))
+	{
+		FRustReflection_Type Type;
+		auto SignatureName = InnerProperty->SignatureFunction.GetName();
+		SignatureName.RemoveFromEnd(TEXT("__DelegateSignature"));
+
+		Type.Type = FString::Printf(TEXT("F%s"), *SignatureName);
 
 		return Type;
 	}
@@ -473,9 +722,17 @@ FRustReflection_Type FRustReflection_Type::FromProperty(FProperty* Property)
 		}
 	}
 
+	if (auto* InnerProperty = CastField<FNumericProperty>(Property))
+	{
+		FRustReflection_Type Type;
+		Type.Type = InnerProperty->GetCPPType(nullptr, 0);
+
+		return Type;
+	}
+
 	// TODO
 	FRustReflection_Type Type;
-	Type.Type = TEXT("GeneratorUnknown");
+	Type.Type = TEXT("GeneratorUnknown_ERROR");
 
 	return Type;
 }
@@ -483,9 +740,10 @@ FRustReflection_Type FRustReflection_Type::FromProperty(FProperty* Property)
 FRustReflection_Property FRustReflection_Property::FromProperty(FProperty* Property)
 {
 	FRustReflection_Property PropertyReflection;
-	PropertyReflection.Name = Property->GetFName();
-	PropertyReflection.Type = FRustReflection_Type::FromProperty(Property);
+	PropertyReflection.Name = Property->GetName();
+	PropertyReflection.Type = ::FromProperty(Property);
 	PropertyReflection.PropertyFlags = GetPropertyFlagStrings(Property->GetPropertyFlags());
+	PropertyReflection.Offset = Property->GetOffset_ForUFunction();
 
 	auto DocText = Property->GetToolTipText();
 	if (!DocText.IsEmpty())
@@ -496,11 +754,30 @@ FRustReflection_Property FRustReflection_Property::FromProperty(FProperty* Prope
 	return PropertyReflection;
 }
 
+TSharedPtr<FJsonObject> RustReflection_ConcreteType::ToJson()
+{
+	auto Json = MakeShared<FJsonObject>();
+	Json->SetStringField(TEXT("Kind"), TEXT("Concrete"));
+	Json->SetStringField(TEXT("TypeName"), TypeName);
+
+	return Json;
+}
+
+TSharedPtr<FJsonObject> RustReflection_ContainerType::ToJson()
+{
+	auto Json = MakeShared<FJsonObject>();
+	Json->SetStringField(TEXT("Kind"), TEXT("Container"));
+	Json->SetStringField(TEXT("ContainerTypeName"), ContainerTypeName);
+	Json->SetObjectField(TEXT("InnerType"), InnerType->ToJson());
+
+	return Json;
+}
+
 FRustReflection_Param FRustReflection_Param::FromProperty(FProperty* Property)
 {
 	FRustReflection_Param ParamReflection;
-	ParamReflection.Name = Property->GetFName();
-	ParamReflection.Type = FRustReflection_Type::FromProperty(Property);
+	ParamReflection.Name = Property->GetName();
+	ParamReflection.Type = ::FromProperty(Property);
 
 	ParamReflection.bIsOut = Property->HasAnyPropertyFlags(CPF_OutParm);
 	ParamReflection.bIsReturn = Property->HasAnyPropertyFlags(CPF_ReturnParm);
@@ -519,7 +796,7 @@ FRustReflection_Function FRustReflection_Function::FromFunction(UFunction* Funct
 {
 	FRustReflection_Function ReflectionFunction;
 
-	ReflectionFunction.Name = Function->GetFName();
+	ReflectionFunction.Name = Function->GetName();
 	ReflectionFunction.FunctionFlags = GetFunctionFlagStrings(Function);
 	ReflectionFunction.Metadata = GetAllMetadata(Function);
 
@@ -537,6 +814,28 @@ FRustReflection_Function FRustReflection_Function::FromFunction(UFunction* Funct
 	return ReflectionFunction;
 }
 
+FRustReflection_UStruct FRustReflection_UStruct::FromStruct(UStruct* Struct)
+{
+	FRustReflection_UStruct ReflectionStruct;
+	// ReflectionStruct.StructFlags = GetClassFlagStrings(->ClassFlags);
+	ReflectionStruct.StructName = Struct->GetPrefixCPP() + Struct->GetName();
+
+	ReflectionStruct.Package = Struct->GetOutermost()->GetPackage()->GetName();
+
+	for (TFieldIterator<FProperty> ParamIt(Struct, EFieldIteratorFlags::ExcludeSuper); ParamIt; ++ParamIt)
+	{
+		ReflectionStruct.Properties.Add(FRustReflection_Property::FromProperty(*ParamIt));
+	}
+
+	auto DocText = Struct->GetToolTipText();
+	if (!DocText.IsEmpty())
+	{
+		ReflectionStruct.Documentation = Struct->GetToolTipText();
+	}
+
+	return ReflectionStruct;
+}
+
 FRustReflection_UClass FRustReflection_UClass::FromClass(UClass* Class)
 {
 	FRustReflection_UClass ClassReflection;
@@ -547,6 +846,8 @@ FRustReflection_UClass FRustReflection_UClass::FromClass(UClass* Class)
 	{
 		ClassReflection.SuperClassName = SuperClass->GetPrefixCPP() + SuperClass->GetName();
 	}
+
+	ClassReflection.Package = Class->GetOutermost()->GetPackage()->GetName();
 
 	for (TFieldIterator<FProperty> ParamIt(Class, EFieldIteratorFlags::ExcludeSuper); ParamIt; ++ParamIt)
 	{
@@ -609,16 +910,186 @@ FRustReflection_Enum FRustReflection_Enum::FromEnum(UEnum* Enum)
 FRustReflection_Root FRustReflection_Root::Collect()
 {
 	FRustReflection_Root Root;
+	auto Json = MakeShared<FJsonObject>();
 
 	for (TObjectIterator<UEnum> It; It; ++It)
 	{
-		Root.Enums.Add(FRustReflection_Enum::FromEnum(*It));
+		// Root.Enums.Add(FRustReflection_Enum::FromEnum(*It));
 	}
 
+
+	TArray<TSharedPtr<FJsonValue>> JsonStructs;
+	for (TObjectIterator<UStruct> It; It; ++It)
+	{
+		if (It->IsA<UClass>())
+		{
+			continue;
+		}
+
+		auto Struct = FRustReflection_UStruct::FromStruct(*It);
+		JsonStructs.Add(MakeShared<FJsonValueObject>(Struct.ToJson()));
+	}
+	Json->SetArrayField(TEXT("Structs"), JsonStructs);
+
+	TArray<TSharedPtr<FJsonValue>> JsonClasses;
 	for (TObjectIterator<UClass> It; It; ++It)
 	{
-		Root.Classes.Add(FRustReflection_UClass::FromClass(*It));
+		auto Class = FRustReflection_UClass::FromClass(*It);
+		JsonClasses.Add(MakeShared<FJsonValueObject>(Class.ToJson()));
 	}
 
+	Json->SetArrayField(TEXT("Classes"), JsonClasses);
+
+
+	FString OutputString;
+
+	TSharedRef<TJsonWriter<>> Writer = TJsonWriterFactory<>::Create(&OutputString);
+
+	FJsonSerializer::Serialize(Json, Writer);
+
+	FFileHelper::SaveStringToFile(OutputString, TEXT("C:\\Users\\maikk\\Documents\\unreal-rust\\api.json"));
+
 	return Root;
+}
+
+TSharedPtr<FJsonObject> FRustReflection_Function::ToJson()
+{
+	auto Json = MakeShared<FJsonObject>();
+	Json->SetStringField(TEXT("Name"), Name);
+
+	TArray<TSharedPtr<FJsonValue>> JsonFlags;
+	for (const FString& Flag : FunctionFlags)
+	{
+		JsonFlags.Add(MakeShared<FJsonValueString>(Flag));
+	}
+
+	TArray<TSharedPtr<FJsonObject>> JsonParams;
+	for (auto& Param : Parameters)
+	{
+		JsonParams.Add(Param.ToJson());
+	}
+
+	// 4. Metadata (Map: String -> String)
+	TSharedPtr<FJsonObject> JsonMetadata = MakeShared<FJsonObject>();
+	for (const auto& Elem : Metadata)
+	{
+		JsonMetadata->SetStringField(Elem.Key, Elem.Value);
+	}
+
+	Json->SetObjectField(TEXT("Metadata"), JsonMetadata);
+
+	if (Documentation.IsSet())
+	{
+		Json->SetStringField(TEXT("Documentation"), Documentation.GetValue().ToString());
+	}
+
+	return Json;
+}
+
+TSharedPtr<FJsonObject> FRustReflection_Property::ToJson()
+{
+	auto Json = MakeShared<FJsonObject>();
+	Json->SetStringField(TEXT("Name"), Name);
+	Json->SetObjectField(TEXT("Type"), Type->ToJson());
+
+	TArray<TSharedPtr<FJsonValue>> JsonFlags;
+	for (const FString& Flag : PropertyFlags)
+	{
+		JsonFlags.Add(MakeShared<FJsonValueString>(Flag));
+	}
+	Json->SetArrayField(TEXT("Flags"), JsonFlags);
+
+	if (Documentation.IsSet())
+	{
+		Json->SetStringField(TEXT("Documentation"), Documentation.GetValue().ToString());
+	}
+
+	Json->SetNumberField(TEXT("Offset"), Offset);
+
+	return Json;
+}
+
+TSharedPtr<FJsonObject> FRustReflection_Param::ToJson()
+{
+	auto Json = MakeShared<FJsonObject>();
+
+	Json->SetStringField(TEXT("Name"), Name);
+	Json->SetObjectField(TEXT("Type"), Type->ToJson());
+	if (Documentation.IsSet())
+	{
+		Json->SetStringField(TEXT("Documentation"), Documentation.GetValue().ToString());
+	}
+	return Json;
+}
+
+TSharedPtr<FJsonObject> FRustReflection_UStruct::ToJson()
+{
+	auto Json = MakeShared<FJsonObject>();
+
+	Json->SetStringField(TEXT("StructName"), StructName);
+
+	TArray<TSharedPtr<FJsonValue>> JsonFlags;
+	for (const FString& Flag : StructFlags)
+	{
+		JsonFlags.Add(MakeShared<FJsonValueString>(Flag));
+	}
+
+	Json->SetArrayField(TEXT("Flags"), JsonFlags);
+
+	if (SuperClassName.IsSet())
+	{
+		Json->SetStringField(TEXT("SuperClass"), SuperClassName.GetValue());
+	}
+	Json->SetStringField(TEXT("Package"), Package);
+
+	TArray<TSharedPtr<FJsonValue>> JsonProperties;
+	for (auto& Property : Properties)
+	{
+		JsonProperties.Add(MakeShared<FJsonValueObject>(Property.ToJson()));
+	}
+
+	Json->SetArrayField(TEXT("Properties"), JsonProperties);
+
+	if (Documentation.IsSet())
+	{
+		Json->SetStringField(TEXT("Documentation"), Documentation.GetValue().ToString());
+	}
+
+	return Json;
+}
+
+TSharedPtr<FJsonObject> FRustReflection_UClass::ToJson()
+{
+	auto Json = MakeShared<FJsonObject>();
+
+	Json->SetStringField(TEXT("ClassName"), ClassName);
+
+	TArray<TSharedPtr<FJsonValue>> JsonFlags;
+	for (const FString& Flag : ClassFlags)
+	{
+		JsonFlags.Add(MakeShared<FJsonValueString>(Flag));
+	}
+
+	Json->SetArrayField(TEXT("Flags"), JsonFlags);
+
+	if (SuperClassName.IsSet())
+	{
+		Json->SetStringField(TEXT("SuperClass"), SuperClassName.GetValue());
+	}
+	Json->SetStringField(TEXT("Package"), Package);
+
+	TArray<TSharedPtr<FJsonValue>> JsonProperties;
+	for (auto& Property : Properties)
+	{
+		JsonProperties.Add(MakeShared<FJsonValueObject>(Property.ToJson()));
+	}
+
+	Json->SetArrayField(TEXT("Properties"), JsonProperties);
+
+	if (Documentation.IsSet())
+	{
+		Json->SetStringField(TEXT("Documentation"), Documentation.GetValue().ToString());
+	}
+
+	return Json;
 }

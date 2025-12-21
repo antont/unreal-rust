@@ -40,12 +40,12 @@ void FRustEditorModule::RegisterMenu()
 void FRustEditorModule::OnDumpReflectionApi()
 {
 	auto Root = FRustReflection_Root::Collect();
-	FString JsonString;
-	if (FJsonObjectConverter::UStructToJsonObjectString(Root, JsonString))
-	{
-		FFileHelper::SaveStringToFile(JsonString, TEXT("C:\\Users\\maikk\\Documents\\unreal-rust\\api.json"));
-		// UE_LOG(LogTemp, Log, TEXT("%s"), *JsonString);
-	}
+	// FString JsonString;
+	// if (FJsonObjectConverter::UStructToJsonObjectString(Root, JsonString))
+	// {
+	// 	FFileHelper::SaveStringToFile(JsonString, TEXT("C:\\Users\\maikk\\Documents\\unreal-rust\\api.json"));
+	// 	// UE_LOG(LogTemp, Log, TEXT("%s"), *JsonString);
+	// }
 }
 
 void FRustEditorModule::RegisterCommands()

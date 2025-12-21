@@ -4,151 +4,167 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
-#include "Reflection.generated.h"
 
-USTRUCT()
+struct RustReflection_Type
+{
+	virtual ~RustReflection_Type() = default;
+	virtual TSharedPtr<FJsonObject> ToJson() = 0;
+	
+};
+
 struct FRustReflection_Type
 {
-	GENERATED_BODY()
-
-	UPROPERTY()
 	FString Type;
 
-	UPROPERTY()
 	TOptional<FString> ContainerType;
 
-	UPROPERTY()
 	TOptional<FString> KeyType;
 
 	static FRustReflection_Type FromProperty(FProperty* Property);
 };
 
-USTRUCT()
 struct FRustReflection_Property
 {
-	GENERATED_BODY()
+	FString Name;
 
-	UPROPERTY()
-	FName Name;
+	TUniquePtr<RustReflection_Type> Type;
 
-	UPROPERTY()
-	FRustReflection_Type Type;
-
-	UPROPERTY()
 	TArray<FString> PropertyFlags;
 
-	UPROPERTY()
 	TOptional<FText> Documentation;
+	
+	int32 Offset;
 
 	static FRustReflection_Property FromProperty(FProperty* Property);
+	TSharedPtr<FJsonObject> ToJson();
 };
 
-USTRUCT()
+struct RustReflection_ConcreteType : public RustReflection_Type
+{
+	FString TypeName;
+	virtual TSharedPtr<FJsonObject> ToJson() override;
+};
+
+struct RustReflection_ContainerType : public RustReflection_Type
+{
+	FString ContainerTypeName;
+	TUniquePtr<RustReflection_Type> InnerType;
+	
+	virtual TSharedPtr<FJsonObject> ToJson() override;
+};
+
+struct RustReflection_MapType : public RustReflection_Type
+{
+	FString ContainerName;
+	TUniquePtr<RustReflection_Type> ValueType;
+	TUniquePtr<RustReflection_Type> KeyType;
+	
+	virtual TSharedPtr<FJsonObject> ToJson() override;
+};
+
+
+static TUniquePtr<RustReflection_ConcreteType> MakeConcreteType(FString Name);
+static TUniquePtr<RustReflection_ContainerType> MakeContainerType(FString ContainerTypeName, TUniquePtr<RustReflection_Type> InnerType);
+static TUniquePtr<RustReflection_Type> FromProperty(FProperty* Property);
+static TUniquePtr<RustReflection_Type> FromUClass(UClass* Class);
+
 struct FRustReflection_Param
 {
-	GENERATED_BODY()
+	FString Name;
 
-	UPROPERTY()
-	FName Name;
-
-	UPROPERTY()
-	FRustReflection_Type Type;
+	TUniquePtr<RustReflection_Type> Type;
 
 	bool bIsRef = false;
 	bool bIsOut = false;
 	bool bIsReturn = false;
 
-	UPROPERTY()
 	TOptional<FText> Documentation;
 
 	static FRustReflection_Param FromProperty(FProperty* Property);
+	TSharedPtr<FJsonObject> ToJson();
 };
 
-USTRUCT()
 struct FRustReflection_Function
 {
-	GENERATED_BODY()
-	UPROPERTY()
-	FName Name;
+	FString Name;
 
-	UPROPERTY()
 	TArray<FString> FunctionFlags;
 
-	UPROPERTY()
 	TArray<FRustReflection_Param> Parameters;
 
-	UPROPERTY()
 	TOptional<FText> Documentation;
 
-	UPROPERTY()
 	TMap<FString, FString> Metadata;
 
 	static FRustReflection_Function FromFunction(UFunction* Function);
+	TSharedPtr<FJsonObject> ToJson();
 };
 
-USTRUCT()
-struct FRustReflection_UClass
+struct FRustReflection_UStruct
 {
-	GENERATED_BODY()
-	UPROPERTY()
-	FString ClassName;
+	FString StructName;
 
-	UPROPERTY()
 	TOptional<FString> SuperClassName;
 
-	UPROPERTY()
-	TArray<FString> ClassFlags;
+	TArray<FString> StructFlags;
+	
+	FString Package;
 
-	UPROPERTY()
 	TArray<FRustReflection_Property> Properties;
-	UPROPERTY()
+
+	TOptional<FText> Documentation;
+
+	static FRustReflection_UStruct FromStruct(UStruct* Struct);
+	TSharedPtr<FJsonObject> ToJson();
+};
+
+struct FRustReflection_UClass
+{
+	FString ClassName;
+
+	TOptional<FString> SuperClassName;
+
+	TArray<FString> ClassFlags;
+	
+	FString Package;
+
+	TArray<FRustReflection_Property> Properties;
 	TArray<FRustReflection_Function> Functions;
 
-	UPROPERTY()
 	TOptional<FText> Documentation;
 
 	static FRustReflection_UClass FromClass(UClass* Class);
+	TSharedPtr<FJsonObject> ToJson();
 };
 
-USTRUCT()
 struct FRustReflection_EnumEntry
 {
-	GENERATED_BODY()
-	
-	UPROPERTY()
 	FString Name;
 	
-	UPROPERTY()
 	int64 Value;
 	
-	UPROPERTY()
 	TOptional<FText> Documentation;
 };
 
-USTRUCT()
 struct FRustReflection_Enum
 {
-	GENERATED_BODY()
-
-	UPROPERTY()
 	FString Name;
 	
-	UPROPERTY()
 	TArray<FRustReflection_EnumEntry> Entries;
 	
 	static FRustReflection_Enum FromEnum(UEnum* Enum);
 };
 
-USTRUCT()
 struct FRustReflection_Root
 {
-	GENERATED_BODY()
-	
-	UPROPERTY()
-	TArray<FRustReflection_Enum> Enums;
-
-	UPROPERTY()
-	TArray<FRustReflection_UClass> Classes;
+	// UPROPERTY()
+	// TArray<FRustReflection_Enum> Enums;
+	//
+	// UPROPERTY()
+	// TArray<FRustReflection_UStruct> Structs;
+	//
+	// UPROPERTY()
+	// TArray<FRustReflection_UClass> Classes;
 	
 
 	static FRustReflection_Root Collect();
