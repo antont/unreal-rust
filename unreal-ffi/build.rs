@@ -28,5 +28,5 @@ fn main() {
         //})
         .generate()
         .expect("Unable to generate bindings")
-        .write_to_file("../RustPlugin/Source/RustPlugin/Public/Bindings.h");
+        .write_to_file("../RustPlugin/Source/RustPlugin/Bindings.h");
 }

@@ -3,6 +3,8 @@
 
 #include "Reflection.h"
 
+#include "GameplayTagsManager.h"
+
 TMap<FString, FString> GetAllMetadata(UObject* Object)
 {
 	TMap<FString, FString> Result;
@@ -403,7 +405,7 @@ TUniquePtr<RustReflection_Type> FromProperty(FProperty* Property)
 	if (auto* InnerProperty = CastField<FFieldPathProperty>(Property))
 	{
 		return MakeContainerType(
-			TEXT("FIELDPATH"),
+			TEXT("TFieldPath"),
 			MakeConcreteType(FString::Printf(TEXT("F%s"), *InnerProperty->PropertyClass->GetName())));
 	}
 
@@ -519,224 +521,6 @@ TUniquePtr<RustReflection_Type> FromProperty(FProperty* Property)
 	return MakeConcreteType(TEXT("GeneratorInvalidType"));
 }
 
-FRustReflection_Type FRustReflection_Type::FromProperty(FProperty* Property)
-{
-	auto GetCppNameFromUClass = [](const UClass* Class) -> FString
-	{
-		return Class->GetPrefixCPP() + Class->GetName();
-	};
-
-	if (FArrayProperty* ArrayProperty = CastField<FArrayProperty>(Property))
-	{
-		FRustReflection_Type Type;
-		Type.ContainerType = TEXT("TArray");
-		Type.Type = ArrayProperty->Inner->GetNameCPP();
-		return Type;
-	}
-
-	if (auto* ClassProperty = CastField<FClassProperty>(Property))
-	{
-		FRustReflection_Type Type;
-		Type.Type = ClassProperty->MetaClass->GetPrefixCPP() + ClassProperty->MetaClass->GetName();
-		Type.ContainerType = TEXT("TSubclassOf");
-		return Type;
-	}
-
-	if (auto* ObjectProperty = CastField<FObjectProperty>(Property))
-	{
-		FRustReflection_Type Type;
-		Type.Type = ObjectProperty->PropertyClass->GetPrefixCPP() + ObjectProperty->PropertyClass.GetName();
-		return Type;
-	}
-
-	if (auto* InnerProperty = CastField<FBoolProperty>(Property))
-	{
-		FRustReflection_Type Type;
-		Type.Type = TEXT("bool");
-		return Type;
-	}
-
-	if (auto* InnerProperty = CastField<FStrProperty>(Property))
-	{
-		FRustReflection_Type Type;
-		Type.Type = TEXT("FString");
-		return Type;
-	}
-
-	if (auto* InnerProperty = CastField<FStructProperty>(Property))
-	{
-		FRustReflection_Type Type;
-		Type.Type = InnerProperty->Struct->GetStructCPPName();
-		return Type;
-	}
-
-	if (auto* InnerProperty = CastField<FFieldPathProperty>(Property))
-	{
-		FRustReflection_Type Type;
-		Type.Type = FString::Printf(TEXT("F%s"), *InnerProperty->PropertyClass->GetName());
-		Type.ContainerType = TEXT("FIELDPATH");
-		return Type;
-	}
-
-	if (auto* InnerProperty = CastField<FSetProperty>(Property))
-	{
-		FRustReflection_Type Type;
-		Type.Type = InnerProperty->ElementProp->GetNameCPP();
-		Type.ContainerType = TEXT("TSet");
-
-		return Type;
-	}
-
-	if (auto* InnerProperty = CastField<FMapProperty>(Property))
-	{
-		FRustReflection_Type Type;
-		Type.Type = InnerProperty->ValueProp->GetNameCPP();
-		Type.KeyType = InnerProperty->KeyProp->GetNameCPP();
-		Type.ContainerType = TEXT("TMap");
-
-		return Type;
-	}
-
-	if (auto* InnerProperty = CastField<FEnumProperty>(Property))
-	{
-		FRustReflection_Type Type;
-		Type.Type = InnerProperty->GetNameCPP();
-
-		return Type;
-	}
-
-	if (auto* InnerProperty = CastField<FOptionalProperty>(Property))
-	{
-		FRustReflection_Type Type;
-		Type.Type = InnerProperty->GetValueProperty()->GetCPPType();
-		Type.ContainerType = TEXT("TOptional");
-
-		return Type;
-	}
-
-	if (auto* InnerProperty = CastField<FNameProperty>(Property))
-	{
-		FRustReflection_Type Type;
-		Type.Type = TEXT("FName");
-
-		return Type;
-	}
-
-	if (auto* InnerProperty = CastField<FTextProperty>(Property))
-	{
-		FRustReflection_Type Type;
-		Type.Type = TEXT("FText");
-
-		return Type;
-	}
-
-	if (auto* InnerProperty = CastField<FUtf8StrProperty>(Property))
-	{
-		FRustReflection_Type Type;
-		Type.Type = TEXT("FUtf8String");
-
-		return Type;
-	}
-
-	if (auto* InnerProperty = CastField<FLazyObjectProperty>(Property))
-	{
-		FRustReflection_Type Type;
-		Type.Type = GetCppNameFromUClass(InnerProperty->PropertyClass);
-		Type.ContainerType = TEXT("TLazyObjectPtr");
-
-		return Type;
-	}
-
-	if (auto* InnerProperty = CastField<FSoftObjectProperty>(Property))
-	{
-		FRustReflection_Type Type;
-		Type.Type = GetCppNameFromUClass(InnerProperty->PropertyClass);
-		Type.ContainerType = TEXT("TSoftObjectPtr");
-
-		return Type;
-	}
-
-	if (auto* InnerProperty = CastField<FSoftClassProperty>(Property))
-	{
-		FRustReflection_Type Type;
-		Type.Type = GetCppNameFromUClass(InnerProperty->MetaClass);
-		Type.ContainerType = TEXT("TSoftClassPtr");
-
-		return Type;
-	}
-
-	if (auto* InnerProperty = CastField<FInterfaceProperty>(Property))
-	{
-		FRustReflection_Type Type;
-		Type.Type = FString::Printf(TEXT("I%s"), *InnerProperty->InterfaceClass.GetName());
-
-		return Type;
-	}
-
-	if (auto* InnerProperty = CastField<FWeakObjectProperty>(Property))
-	{
-		FRustReflection_Type Type;
-		Type.Type = GetCppNameFromUClass(InnerProperty->PropertyClass);
-		Type.ContainerType = TEXT("TWeakObjectPtr");
-
-		return Type;
-	}
-
-	if (auto* InnerProperty = CastField<FMulticastDelegateProperty>(Property))
-	{
-		FRustReflection_Type Type;
-		auto SignatureName = InnerProperty->SignatureFunction.GetName();
-		SignatureName.RemoveFromEnd(TEXT("__DelegateSignature"));
-
-		Type.Type = FString::Printf(TEXT("F%s"), *SignatureName);
-
-		return Type;
-	}
-
-	if (auto* InnerProperty = CastField<FDelegateProperty>(Property))
-	{
-		FRustReflection_Type Type;
-		auto SignatureName = InnerProperty->SignatureFunction.GetName();
-		SignatureName.RemoveFromEnd(TEXT("__DelegateSignature"));
-
-		Type.Type = FString::Printf(TEXT("F%s"), *SignatureName);
-
-		return Type;
-	}
-
-	if (auto* InnerProperty = CastField<FByteProperty>(Property))
-	{
-		if (InnerProperty->Enum != nullptr)
-		{
-			FRustReflection_Type Type;
-			Type.Type = InnerProperty->Enum.GetName();
-			Type.ContainerType = TEXT("TEnumAsByte");
-			return Type;
-		}
-		else
-		{
-			FRustReflection_Type Type;
-			Type.Type = TEXT("uint8");
-
-			return Type;
-		}
-	}
-
-	if (auto* InnerProperty = CastField<FNumericProperty>(Property))
-	{
-		FRustReflection_Type Type;
-		Type.Type = InnerProperty->GetCPPType(nullptr, 0);
-
-		return Type;
-	}
-
-	// TODO
-	FRustReflection_Type Type;
-	Type.Type = TEXT("GeneratorUnknown_ERROR");
-
-	return Type;
-}
-
 FRustReflection_Property FRustReflection_Property::FromProperty(FProperty* Property)
 {
 	FRustReflection_Property PropertyReflection;
@@ -799,6 +583,7 @@ FRustReflection_Function FRustReflection_Function::FromFunction(UFunction* Funct
 	ReflectionFunction.Name = Function->GetName();
 	ReflectionFunction.FunctionFlags = GetFunctionFlagStrings(Function);
 	ReflectionFunction.Metadata = GetAllMetadata(Function);
+	ReflectionFunction.ParamSize = Function->ParmsSize;
 
 	for (TFieldIterator<FProperty> ParamIt(Function); ParamIt; ++ParamIt)
 	{
@@ -833,6 +618,17 @@ FRustReflection_UStruct FRustReflection_UStruct::FromStruct(UStruct* Struct)
 		ReflectionStruct.Documentation = Struct->GetToolTipText();
 	}
 
+	ReflectionStruct.MinAlignment = Struct->MinAlignment;
+	ReflectionStruct.PropertySizes = Struct->PropertiesSize;
+
+	if (auto ScriptStruct = Cast<UScriptStruct>(Struct))
+	{
+		if (auto Ops = ScriptStruct->GetCppStructOps())
+		{
+			ReflectionStruct.bIsPlainOldData = Ops->IsPlainOldData();
+		}
+	}
+
 	return ReflectionStruct;
 }
 
@@ -842,6 +638,9 @@ FRustReflection_UClass FRustReflection_UClass::FromClass(UClass* Class)
 
 	ClassReflection.ClassFlags = GetClassFlagStrings(Class->ClassFlags);
 	ClassReflection.ClassName = Class->GetPrefixCPP() + Class->GetName();
+
+	ClassReflection.MinAlignment = Class->MinAlignment;
+	ClassReflection.PropertySizes = Class->PropertiesSize;
 	if (auto SuperClass = Class->GetSuperClass())
 	{
 		ClassReflection.SuperClassName = SuperClass->GetPrefixCPP() + SuperClass->GetName();
@@ -907,51 +706,6 @@ FRustReflection_Enum FRustReflection_Enum::FromEnum(UEnum* Enum)
 	return ReflectionEnum;
 }
 
-FRustReflection_Root FRustReflection_Root::Collect()
-{
-	FRustReflection_Root Root;
-	auto Json = MakeShared<FJsonObject>();
-
-	for (TObjectIterator<UEnum> It; It; ++It)
-	{
-		// Root.Enums.Add(FRustReflection_Enum::FromEnum(*It));
-	}
-
-
-	TArray<TSharedPtr<FJsonValue>> JsonStructs;
-	for (TObjectIterator<UStruct> It; It; ++It)
-	{
-		if (It->IsA<UClass>())
-		{
-			continue;
-		}
-
-		auto Struct = FRustReflection_UStruct::FromStruct(*It);
-		JsonStructs.Add(MakeShared<FJsonValueObject>(Struct.ToJson()));
-	}
-	Json->SetArrayField(TEXT("Structs"), JsonStructs);
-
-	TArray<TSharedPtr<FJsonValue>> JsonClasses;
-	for (TObjectIterator<UClass> It; It; ++It)
-	{
-		auto Class = FRustReflection_UClass::FromClass(*It);
-		JsonClasses.Add(MakeShared<FJsonValueObject>(Class.ToJson()));
-	}
-
-	Json->SetArrayField(TEXT("Classes"), JsonClasses);
-
-
-	FString OutputString;
-
-	TSharedRef<TJsonWriter<>> Writer = TJsonWriterFactory<>::Create(&OutputString);
-
-	FJsonSerializer::Serialize(Json, Writer);
-
-	FFileHelper::SaveStringToFile(OutputString, TEXT("C:\\Users\\maikk\\Documents\\unreal-rust\\api.json"));
-
-	return Root;
-}
-
 TSharedPtr<FJsonObject> FRustReflection_Function::ToJson()
 {
 	auto Json = MakeShared<FJsonObject>();
@@ -962,6 +716,8 @@ TSharedPtr<FJsonObject> FRustReflection_Function::ToJson()
 	{
 		JsonFlags.Add(MakeShared<FJsonValueString>(Flag));
 	}
+	
+	Json->SetNumberField(TEXT("ParamSize"), ParamSize);
 
 	TArray<TSharedPtr<FJsonObject>> JsonParams;
 	for (auto& Param : Parameters)
@@ -1048,6 +804,10 @@ TSharedPtr<FJsonObject> FRustReflection_UStruct::ToJson()
 		JsonProperties.Add(MakeShared<FJsonValueObject>(Property.ToJson()));
 	}
 
+	Json->SetNumberField(TEXT("MinAlignment"), MinAlignment);
+	Json->SetNumberField(TEXT("PropertySizes"), PropertySizes);
+	Json->SetBoolField(TEXT("IsPlainOldData"), bIsPlainOldData);
+
 	Json->SetArrayField(TEXT("Properties"), JsonProperties);
 
 	if (Documentation.IsSet())
@@ -1078,11 +838,17 @@ TSharedPtr<FJsonObject> FRustReflection_UClass::ToJson()
 	}
 	Json->SetStringField(TEXT("Package"), Package);
 
+	Json->SetNumberField(TEXT("MinAlignment"), MinAlignment);
+	Json->SetNumberField(TEXT("PropertySizes"), PropertySizes);
+
 	TArray<TSharedPtr<FJsonValue>> JsonProperties;
 	for (auto& Property : Properties)
 	{
 		JsonProperties.Add(MakeShared<FJsonValueObject>(Property.ToJson()));
 	}
+
+	Json->SetNumberField(TEXT("MinAlignment"), MinAlignment);
+	Json->SetNumberField(TEXT("PropertySizes"), PropertySizes);
 
 	Json->SetArrayField(TEXT("Properties"), JsonProperties);
 
@@ -1092,4 +858,111 @@ TSharedPtr<FJsonObject> FRustReflection_UClass::ToJson()
 	}
 
 	return Json;
+}
+
+void FRustReflection_Root::ExportToJson_Classes(TSharedPtr<FJsonObject> Json)
+{
+	TArray<TSharedPtr<FJsonValue>> JsonClasses;
+	for (TObjectIterator<UClass> It; It; ++It)
+	{
+		if (!It->HasAnyClassFlags(CLASS_Native))
+		{
+			continue;
+		}
+		
+		auto Class = FRustReflection_UClass::FromClass(*It);
+		JsonClasses.Add(MakeShared<FJsonValueObject>(Class.ToJson()));
+	}
+
+	Json->SetArrayField(TEXT("Classes"), JsonClasses);
+}
+
+void FRustReflection_Root::ExportToJson_Structs(TSharedPtr<FJsonObject> Json)
+{
+	TArray<TSharedPtr<FJsonValue>> JsonStructs;
+	for (TObjectIterator<UStruct> It; It; ++It)
+	{
+		if (It->IsA<UClass>())
+		{
+			continue;
+		}
+		if (UScriptStruct* ScriptStruct = Cast<UScriptStruct>(*It))
+		{
+			if (!ScriptStruct->IsNative())
+			{
+				continue;
+			}
+		}
+
+		auto Struct = FRustReflection_UStruct::FromStruct(*It);
+		JsonStructs.Add(MakeShared<FJsonValueObject>(Struct.ToJson()));
+	}
+	Json->SetArrayField(TEXT("Structs"), JsonStructs);
+}
+
+void FRustReflection_Root::ExportToJson_Enum(TSharedPtr<FJsonObject> Json)
+{
+	for (TObjectIterator<UEnum> It; It; ++It)
+	{
+		// Root.Enums.Add(FRustReflection_Enum::FromEnum(*It));
+	}
+}
+
+void FRustReflection_Root::ExportToJson_GameplayTags(TSharedPtr<FJsonObject> Json)
+{
+	auto& Manager = UGameplayTagsManager::Get();
+	FGameplayTagContainer AllTags;
+	Manager.RequestAllGameplayTags(AllTags, true);
+
+	TArray<TSharedPtr<FJsonValue>> JsonTagsArray;
+	for (FGameplayTag Tag : AllTags)
+	{
+		auto JsonTagObject = MakeShared<FJsonObject>();
+		JsonTagObject->SetStringField(TEXT("Tag"), Tag.ToString());
+
+		JsonTagsArray.Add(MakeShared<FJsonValueObject>(JsonTagObject));
+	}
+
+	Json->SetArrayField(TEXT("Tags"), JsonTagsArray);
+}
+
+void FRustReflection_Root::ExportToJson_ConsoleVariables(TSharedPtr<FJsonObject> Json)
+{
+	// TArray<TSharedPtr<FJsonValue>> JsonVariablesArray;
+	// IConsoleManager& ConsoleMgr = IConsoleManager::Get();
+	// for (TObjectIterator<IConsoleObject> It; It; ++It)
+	// {
+	// 	IConsoleObject* Obj = *It;
+ //        
+	// 	// We only want Variables (CVars), not Commands (Funcs)
+	// 	if (IConsoleVariable* CVar = Obj->AsVariable())
+	// 	{
+	// 		auto JsonObject = MakeShared<FJsonObject>();
+	// 		Json->SetStringField(TEXT("Name"), CVar->GetString());
+	// 		JsonVariablesArray.Add(MakeShared<FJsonValueObject>(JsonObject));
+	// 	}
+	// }
+	// Json->SetArrayField(TEXT("ConsoleVariables"), JsonVariablesArray);
+}
+
+FRustReflection_Root FRustReflection_Root::Collect()
+{
+	FRustReflection_Root Root;
+	auto Json = MakeShared<FJsonObject>();
+
+	ExportToJson_ConsoleVariables(Json);
+	ExportToJson_GameplayTags(Json);
+	ExportToJson_Enum(Json);
+	ExportToJson_Structs(Json);
+	ExportToJson_Classes(Json);
+
+	FString OutputString;
+
+	TSharedRef<TJsonWriter<>> Writer = TJsonWriterFactory<>::Create(&OutputString);
+
+	FJsonSerializer::Serialize(Json, Writer);
+
+	FFileHelper::SaveStringToFile(OutputString, TEXT("C:\\Users\\maikk\\Documents\\unreal-rust\\api.json"));
+
+	return Root;
 }

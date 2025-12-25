@@ -22,6 +22,17 @@ UnrealBindings CreateBindings()
 	editor_component_fns.get_editor_components = &GetEditorComponentUuids;
 	editor_component_fns.get_serialized_json_component = GetSerializedJsonComponent;
 
+	CoreFns core_fns = {};
+	core_fns.get_all_uclasses = &GetAllUClasses;
+	core_fns.get_class_name = &GetClassName;
+	core_fns.get_cdo_from_class = &GetCDOFromClass;
+	core_fns.find_function_by_name = &FindFunctionByName;
+	core_fns.initialize_values_in_param_buffer = &InitializeValuesInParamBuffer;
+	core_fns.destroy_values_in_param_buffer = &DestroyValuesInParamBuffer;
+	core_fns.process_event = &ProcessEventFromRust;
+	core_fns.end_trace = &EndTrace;
+	core_fns.begin_trace = &BeginTrace;
+
 	PhysicsFns physics_fns = {};
 	physics_fns.add_force = &AddForce;
 	physics_fns.add_impulse = &AddImpulse;
@@ -60,6 +71,7 @@ UnrealBindings CreateBindings()
 	b.sound_fns = sound_fns;
 	b.physics_fns = physics_fns;
 	b.editor_component_fns = editor_component_fns;
+	b.core_fns = core_fns;
 	b.log = &Log;
 	b.iterate_actors = &IterateActors;
 	b.get_action_state = &GetActionState;

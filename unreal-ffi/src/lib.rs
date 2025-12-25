@@ -174,6 +174,7 @@ pub type AActorOpaque = c_void;
 pub type UPrimtiveOpaque = c_void;
 pub type UCapsuleOpaque = c_void;
 pub type UClassOpague = c_void;
+pub type UFunctionOpague = c_void;
 pub type UObjectOpague = c_void;
 pub type USoundBaseOpague = c_void;
 pub type USceneComponentOpague = c_void;
@@ -263,7 +264,9 @@ pub struct UnrealBindings {
     pub sound_fns: SoundFns,
     pub viewport_fns: ViewportFns,
     pub is_a: IsAFn,
+    pub core_fns: CoreFns,
 }
+
 unsafe impl Sync for UnrealBindings {}
 unsafe impl Send for UnrealBindings {}
 
@@ -579,4 +582,68 @@ pub struct EditorComponentFns {
     pub get_editor_component_float: GetEditorComponentFloatFn,
     pub get_editor_component_uobject: GetEditorComponentUObjectFn,
     pub get_serialized_json_component: GetSerializedJsonComponentFn,
+}
+
+pub type GetCDOFromClassCoreFn =
+    unsafe extern "C" fn(cdo_opague: *const UClassOpague, *mut *mut UObjectOpague) -> u32;
+pub type GetAllUClassesCoreFn = unsafe extern "C" fn(out: *mut RustAlloc) -> u32;
+pub type GetClassNameCoreFn =
+    unsafe extern "C" fn(opague_class: *const UClassOpague, out: *mut StrRustAlloc) -> u32;
+pub type FindFunctionByNameCoreFn = unsafe extern "C" fn(
+    class_opague: *const UClassOpague,
+    str: Utf8Str,
+    function_opague: *mut *mut UFunctionOpague,
+) -> u32;
+pub type InitializeValuesInParamBufferCoreFn =
+    unsafe extern "C" fn(function_opague: *const UFunctionOpague, buffer: *mut c_void) -> u32;
+pub type DestroyValuesInParamBufferCoreFn =
+    unsafe extern "C" fn(function_opague: *const UFunctionOpague, buffer: *mut c_void) -> u32;
+pub type ProcessEventsCoreFn = unsafe extern "C" fn(
+    class_opague: *mut UObjectOpague,
+    function_opague: *mut UFunctionOpague,
+    buffer: *mut c_void,
+) -> u32;
+pub type BeginTraceCoreFn = unsafe extern "C" fn(name: *const c_char);
+pub type EndTraceCoreFn = unsafe extern "C" fn();
+//
+extern "C" {
+    pub fn GetCDOFromClass(
+        class_opague: *const UClassOpague,
+        out_object: *mut *mut UObjectOpague,
+    ) -> u32;
+    pub fn GetAllUClasses(out: *mut RustAlloc) -> u32;
+    pub fn GetClassName(opague_class: *const UClassOpague, out: *mut StrRustAlloc) -> u32;
+    pub fn FindFunctionByName(
+        class_opague: *const UClassOpague,
+        name: Utf8Str,
+        function_opague: *mut *mut UFunctionOpague,
+    ) -> u32;
+    pub fn InitializeValuesInParamBuffer(
+        function_opague: *const UFunctionOpague,
+        buffer: *mut c_void,
+    ) -> u32;
+    pub fn DestroyValuesInParamBuffer(
+        function_opague: *const UFunctionOpague,
+        buffer: *mut c_void,
+    ) -> u32;
+    pub fn ProcessEventFromRust(
+        cdo_opague: *mut UObjectOpague,
+        function_opague: *mut UFunctionOpague,
+        buffer: *mut c_void,
+    ) -> u32;
+    pub fn BeginTrace(name: *const c_char);
+    pub fn EndTrace();
+}
+
+#[repr(C)]
+pub struct CoreFns {
+    pub get_cdo_from_class: GetCDOFromClassCoreFn,
+    pub get_all_uclasses: GetAllUClassesCoreFn,
+    pub get_class_name: GetClassNameCoreFn,
+    pub find_function_by_name: FindFunctionByNameCoreFn,
+    pub initialize_values_in_param_buffer: InitializeValuesInParamBufferCoreFn,
+    pub destroy_values_in_param_buffer: DestroyValuesInParamBufferCoreFn,
+    pub process_event: ProcessEventsCoreFn,
+    pub begin_trace: BeginTraceCoreFn,
+    pub end_trace: EndTraceCoreFn,
 }

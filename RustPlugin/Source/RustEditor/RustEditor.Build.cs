@@ -24,7 +24,8 @@ public class RustEditor : ModuleRules
 				"UnrealEd",
 				"Projects",
 				"Json",
-				"JsonUtilities"
+				"JsonUtilities",
+				"GameplayTags"
 			}
 		);
 	}

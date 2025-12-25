@@ -1,4 +1,7 @@
-use std::collections::{HashMap, HashSet};
+use std::{
+    collections::{HashMap, HashSet},
+    sync::OnceLock,
+};
 
 use bevy_ecs::{
     event::Event,
@@ -208,7 +211,8 @@ impl Default for Module {
 pub trait UserModule {
     fn initialize(&self, module: &mut Module);
 }
-pub static mut BINDINGS: Option<UnrealBindings> = None;
+
+pub static BINDINGS: OnceLock<UnrealBindings> = OnceLock::new();
 
 #[macro_export]
 macro_rules! implement_unreal_module {
@@ -239,7 +243,7 @@ macro_rules! implement_unreal_module {
                     log::error!("panic occurred");
                 }
             }));
-            $crate::module::BINDINGS = Some(bindings);
+            $crate::module::BINDINGS.set(bindings);
             let _ = $crate::log::init();
 
             let r = std::panic::catch_unwind(|| unsafe {
@@ -269,5 +273,5 @@ macro_rules! implement_unreal_module {
 }
 
 pub fn bindings() -> &'static UnrealBindings {
-    unsafe { BINDINGS.as_ref().unwrap() }
+    BINDINGS.wait()
 }

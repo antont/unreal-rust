@@ -114,6 +114,10 @@ struct StrRustAlloc {
   RustAlloc alloc;
 };
 
+using UClassOpague = void;
+
+using UFunctionOpague = void;
+
 struct Entity {
   uint64_t id;
 };
@@ -124,8 +128,6 @@ struct ActorComponentPtr {
 };
 
 using USceneComponentOpague = void;
-
-using UClassOpague = void;
 
 struct UnrealTransform {
   Vector3 position;
@@ -196,13 +198,21 @@ struct SoundSettings {
 
 using LocalPlayerId = uint32_t;
 
-using GetSpatialDataFn = void(*)(const AActorOpaque *actor, Vector3 *position, Quaternion *rotation, Vector3 *scale);
+using GetSpatialDataFn = void(*)(const AActorOpaque *actor,
+                                 Vector3 *position,
+                                 Quaternion *rotation,
+                                 Vector3 *scale);
 
-using SetSpatialDataFn = void(*)(AActorOpaque *actor, Vector3 position, Quaternion rotation, Vector3 scale);
+using SetSpatialDataFn = void(*)(AActorOpaque *actor,
+                                 Vector3 position,
+                                 Quaternion rotation,
+                                 Vector3 scale);
 
 using SetEntityForActorFn = void(*)(AActorOpaque *name, Entity entity);
 
-using GetActorComponentsFn = void(*)(const AActorOpaque *actor, ActorComponentPtr *data, uintptr_t *len);
+using GetActorComponentsFn = void(*)(const AActorOpaque *actor,
+                                     ActorComponentPtr *data,
+                                     uintptr_t *len);
 
 using RegisterActorOnOverlapFn = void(*)(AActorOpaque *actor);
 
@@ -226,7 +236,10 @@ using DestroyActorFn = void(*)(const AActorOpaque *actor);
 
 using GetParentActorFn = uint32_t(*)(const AActorOpaque *actor, AActorOpaque **parent);
 
-using SpawnActorWithClassFn = uint32_t(*)(const UClassOpague *actor_class, UnrealTransform transform, ActorSpawnOptions options, AActorOpaque **out);
+using SpawnActorWithClassFn = uint32_t(*)(const UClassOpague *actor_class,
+                                          UnrealTransform transform,
+                                          ActorSpawnOptions options,
+                                          AActorOpaque **out);
 
 struct ActorFns {
   GetSpatialDataFn get_spatial_data;
@@ -257,15 +270,34 @@ using AddForceFn = void(*)(UPrimtiveOpaque *actor, Vector3 force);
 
 using AddImpulseFn = void(*)(UPrimtiveOpaque *actor, Vector3 force);
 
-using LineTraceFn = uint32_t(*)(Vector3 start, Vector3 end, LineTraceParams params, HitResult *result);
+using LineTraceFn = uint32_t(*)(Vector3 start,
+                                Vector3 end,
+                                LineTraceParams params,
+                                HitResult *result);
 
 using GetBoundingBoxExtentFn = Vector3(*)(const UPrimtiveOpaque *primitive);
 
-using SweepFn = uint32_t(*)(Vector3 start, Vector3 end, Quaternion rotation, LineTraceParams params, CollisionShape collision_shape, HitResult *result);
+using SweepFn = uint32_t(*)(Vector3 start,
+                            Vector3 end,
+                            Quaternion rotation,
+                            LineTraceParams params,
+                            CollisionShape collision_shape,
+                            HitResult *result);
 
-using SweepMultiFn = uint32_t(*)(Vector3 start, Vector3 end, Quaternion rotation, LineTraceParams params, CollisionShape collision_shape, uintptr_t max_results, HitResult *results);
+using SweepMultiFn = uint32_t(*)(Vector3 start,
+                                 Vector3 end,
+                                 Quaternion rotation,
+                                 LineTraceParams params,
+                                 CollisionShape collision_shape,
+                                 uintptr_t max_results,
+                                 HitResult *results);
 
-using OverlapMultiFn = uint32_t(*)(CollisionShape collision_shape, Vector3 position, Quaternion rotation, LineTraceParams params, uintptr_t max_results, OverlapResult *result);
+using OverlapMultiFn = uint32_t(*)(CollisionShape collision_shape,
+                                   Vector3 position,
+                                   Quaternion rotation,
+                                   LineTraceParams params,
+                                   uintptr_t max_results,
+                                   OverlapResult *result);
 
 using GetCollisionShapeFn = uint32_t(*)(const UPrimtiveOpaque *primitive, CollisionShape *shape);
 
@@ -291,29 +323,63 @@ using GetActionStateFn = void(*)(const char *name, uintptr_t len, ActionState st
 
 using GetAxisValueFn = void(*)(const char *name, uintptr_t len, float *value);
 
-using SpawnActorFn = AActorOpaque*(*)(ActorClass actor_class, Vector3 position, Quaternion rotation, Vector3 scale);
+using SpawnActorFn = AActorOpaque*(*)(ActorClass actor_class,
+                                      Vector3 position,
+                                      Quaternion rotation,
+                                      Vector3 scale);
 
 using GetMouseDeltaFn = void(*)(float *x, float *y);
 
-using VisualLogSegmentFn = void(*)(const AActorOpaque *owner, Vector3 start, Vector3 end, Color color);
+using VisualLogSegmentFn = void(*)(const AActorOpaque *owner,
+                                   Vector3 start,
+                                   Vector3 end,
+                                   Color color);
 
-using VisualLogCapsuleFn = void(*)(Utf8Str category, const AActorOpaque *owner, Vector3 position, Quaternion rotation, float half_height, float radius, Color color);
+using VisualLogCapsuleFn = void(*)(Utf8Str category,
+                                   const AActorOpaque *owner,
+                                   Vector3 position,
+                                   Quaternion rotation,
+                                   float half_height,
+                                   float radius,
+                                   Color color);
 
-using VisualLogLocationFn = void(*)(Utf8Str category, const AActorOpaque *owner, Vector3 position, float radius, Color color);
+using VisualLogLocationFn = void(*)(Utf8Str category,
+                                    const AActorOpaque *owner,
+                                    Vector3 position,
+                                    float radius,
+                                    Color color);
 
 using GetEditorComponentUuidsFn = uint32_t(*)(const AActorOpaque *actor, Uuid *data, uintptr_t *len);
 
-using GetEditorComponentQuatFn = uint32_t(*)(const AActorOpaque *actor, Uuid uuid, Utf8Str field, Quaternion *out);
+using GetEditorComponentQuatFn = uint32_t(*)(const AActorOpaque *actor,
+                                             Uuid uuid,
+                                             Utf8Str field,
+                                             Quaternion *out);
 
-using GetEditorComponentVectorFn = uint32_t(*)(const AActorOpaque *actor, Uuid uuid, Utf8Str field, Vector3 *out);
+using GetEditorComponentVectorFn = uint32_t(*)(const AActorOpaque *actor,
+                                               Uuid uuid,
+                                               Utf8Str field,
+                                               Vector3 *out);
 
-using GetEditorComponentBoolFn = uint32_t(*)(const AActorOpaque *actor, Uuid uuid, Utf8Str field, uint32_t *out);
+using GetEditorComponentBoolFn = uint32_t(*)(const AActorOpaque *actor,
+                                             Uuid uuid,
+                                             Utf8Str field,
+                                             uint32_t *out);
 
-using GetEditorComponentFloatFn = uint32_t(*)(const AActorOpaque *actor, Uuid uuid, Utf8Str field, float *out);
+using GetEditorComponentFloatFn = uint32_t(*)(const AActorOpaque *actor,
+                                              Uuid uuid,
+                                              Utf8Str field,
+                                              float *out);
 
-using GetEditorComponentUObjectFn = uint32_t(*)(const AActorOpaque *actor, Uuid uuid, Utf8Str field, UObjectType ty, UObjectOpague **out);
+using GetEditorComponentUObjectFn = uint32_t(*)(const AActorOpaque *actor,
+                                                Uuid uuid,
+                                                Utf8Str field,
+                                                UObjectType ty,
+                                                UObjectOpague **out);
 
-using GetSerializedJsonComponentFn = uint32_t(*)(const AActorOpaque *actor, Uuid uuid, StrRustAlloc *out);
+using GetSerializedJsonComponentFn = uint32_t(*)(const AActorOpaque *actor,
+                                                 Uuid uuid,
+                                                 StrRustAlloc *out);
 
 struct EditorComponentFns {
   GetEditorComponentUuidsFn get_editor_components;
@@ -325,7 +391,10 @@ struct EditorComponentFns {
   GetSerializedJsonComponentFn get_serialized_json_component;
 };
 
-using PlaySoundAtLocationFn = void(*)(const USoundBaseOpague *sound, Vector3 location, Quaternion rotation, const SoundSettings *settings);
+using PlaySoundAtLocationFn = void(*)(const USoundBaseOpague *sound,
+                                      Vector3 location,
+                                      Quaternion rotation,
+                                      const SoundSettings *settings);
 
 struct SoundFns {
   PlaySoundAtLocationFn play_sound_at_location;
@@ -345,6 +414,42 @@ struct ViewportFns {
 
 using IsAFn = uint32_t(*)(UObjectOpague *object, UObjectType ty);
 
+using GetCDOFromClassCoreFn = uint32_t(*)(const UClassOpague *cdo_opague, UObjectOpague**);
+
+using GetAllUClassesCoreFn = uint32_t(*)(RustAlloc *out);
+
+using GetClassNameCoreFn = uint32_t(*)(const UClassOpague *opague_class, StrRustAlloc *out);
+
+using FindFunctionByNameCoreFn = uint32_t(*)(const UClassOpague *class_opague,
+                                             Utf8Str str,
+                                             UFunctionOpague **function_opague);
+
+using InitializeValuesInParamBufferCoreFn = uint32_t(*)(const UFunctionOpague *function_opague,
+                                                        void *buffer);
+
+using DestroyValuesInParamBufferCoreFn = uint32_t(*)(const UFunctionOpague *function_opague,
+                                                     void *buffer);
+
+using ProcessEventsCoreFn = uint32_t(*)(UObjectOpague *class_opague,
+                                        UFunctionOpague *function_opague,
+                                        void *buffer);
+
+using BeginTraceCoreFn = void(*)(const char *name);
+
+using EndTraceCoreFn = void(*)();
+
+struct CoreFns {
+  GetCDOFromClassCoreFn get_cdo_from_class;
+  GetAllUClassesCoreFn get_all_uclasses;
+  GetClassNameCoreFn get_class_name;
+  FindFunctionByNameCoreFn find_function_by_name;
+  InitializeValuesInParamBufferCoreFn initialize_values_in_param_buffer;
+  DestroyValuesInParamBufferCoreFn destroy_values_in_param_buffer;
+  ProcessEventsCoreFn process_event;
+  BeginTraceCoreFn begin_trace;
+  EndTraceCoreFn end_trace;
+};
+
 struct UnrealBindings {
   ActorFns actor_fns;
   PhysicsFns physics_fns;
@@ -361,6 +466,7 @@ struct UnrealBindings {
   SoundFns sound_fns;
   ViewportFns viewport_fns;
   IsAFn is_a;
+  CoreFns core_fns;
 };
 
 using RetrieveUuids = void(*)(Uuid *ptr, uintptr_t *len);
@@ -385,13 +491,19 @@ using GetFieldTypeFn = uint32_t(*)(Uuid uuid, uint32_t field_idx, ReflectionType
 
 using GetFieldNameFn = uint32_t(*)(Uuid uuid, uint32_t field_idx, Utf8Str *name);
 
-using GetFieldVector3ValueFn = uint32_t(*)(Uuid uuid, Entity entity, uint32_t field_idx, Vector3 *out);
+using GetFieldVector3ValueFn = uint32_t(*)(Uuid uuid,
+                                           Entity entity,
+                                           uint32_t field_idx,
+                                           Vector3 *out);
 
 using GetFieldBoolValueFn = uint32_t(*)(Uuid uuid, Entity entity, uint32_t field_idx, uint32_t *out);
 
 using GetFieldFloatValueFn = uint32_t(*)(Uuid uuid, Entity entity, uint32_t field_idx, float *out);
 
-using GetFieldQuatValueFn = uint32_t(*)(Uuid uuid, Entity entity, uint32_t field_idx, Quaternion *out);
+using GetFieldQuatValueFn = uint32_t(*)(Uuid uuid,
+                                        Entity entity,
+                                        uint32_t field_idx,
+                                        Quaternion *out);
 
 struct ReflectionFns {
   IsEventFn is_event;
@@ -517,6 +629,28 @@ extern uint32_t GetEditorComponentUObject(const AActorOpaque *actor,
                                           UObjectOpague **out);
 
 extern uint32_t GetSerializedJsonComponent(const AActorOpaque *actor, Uuid uuid, StrRustAlloc *out);
+
+extern uint32_t GetCDOFromClass(const UClassOpague *class_opague, UObjectOpague **out_object);
+
+extern uint32_t GetAllUClasses(RustAlloc *out);
+
+extern uint32_t GetClassName(const UClassOpague *opague_class, StrRustAlloc *out);
+
+extern uint32_t FindFunctionByName(const UClassOpague *class_opague,
+                                   Utf8Str name,
+                                   UFunctionOpague **function_opague);
+
+extern uint32_t InitializeValuesInParamBuffer(const UFunctionOpague *function_opague, void *buffer);
+
+extern uint32_t DestroyValuesInParamBuffer(const UFunctionOpague *function_opague, void *buffer);
+
+extern uint32_t ProcessEventFromRust(UObjectOpague *cdo_opague,
+                                     UFunctionOpague *function_opague,
+                                     void *buffer);
+
+extern void BeginTrace(const char *name);
+
+extern void EndTrace();
 
 extern void RegisterActorOnHit(AActorOpaque *actor);
 

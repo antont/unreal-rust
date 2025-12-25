@@ -688,10 +688,7 @@ impl<T> Default for UnrealPtr<T> {
 }
 impl<T> Clone for UnrealPtr<T> {
     fn clone(&self) -> Self {
-        Self {
-            ptr: self.ptr,
-            _m: self._m,
-        }
+        *self
     }
 }
 

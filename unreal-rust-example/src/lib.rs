@@ -1,8 +1,11 @@
 use std::collections::HashMap;
+use std::default;
+use std::ffi::c_void;
 
 use bevy_ecs::prelude::*;
 use unreal_api::api::UnrealApi;
 use unreal_api::core::{ActorHitEvent, Despawn};
+use unreal_api::ffi::{RustAlloc, StrRustAlloc, UFunctionOpague, Utf8Str};
 use unreal_api::registry::USound;
 use unreal_api::sound::{play_sound_at_location, SoundSettings};
 use unreal_api::{
@@ -38,6 +41,7 @@ impl Class {
 pub struct ClassesResource {
     classes: HashMap<*mut ffi::UClassOpague, Class>,
 }
+
 unsafe impl Send for ClassesResource {}
 unsafe impl Sync for ClassesResource {}
 
@@ -286,6 +290,78 @@ fn spawn_camera(
         }
     }
 }
+
+#[repr(C, align(16))]
+struct StackAlloc<const N: usize> {
+    stack: [u8; N],
+}
+
+impl<const N: usize> StackAlloc<N> {
+    pub fn new() -> Self {
+        Self { stack: [0; N] }
+    }
+
+    pub fn buffer_mut(&mut self) -> *mut c_void {
+        self as *mut Self as *mut c_void
+    }
+}
+
+fn update(query: Query<(Entity, &ActorComponent)>) {
+    // let mut alloc = RustAlloc::empty();
+    // unsafe {
+    //     (bindings().core_fns.get_all_uclasses)(&mut alloc);
+    // }
+    //
+    // let classes = unsafe {
+    //     std::slice::from_raw_parts(
+    //         alloc.ptr as *mut *mut UClassOpague,
+    //         alloc.size / std::mem::size_of::<*mut UClassOpague>(),
+    //     )
+    // };
+    //
+    // for &class in classes {
+    //     let mut str_alloc = StrRustAlloc::empty();
+    //     unsafe {
+    //         (bindings().core_fns.get_class_name)(class as *const UClassOpague, &mut str_alloc);
+    //     }
+    //
+    //     log::info!("{}", str_alloc.into_string());
+    // }
+
+    // unsafe {
+    //     alloc.free();
+    // }
+    #[derive(Copy, Clone, Debug)]
+    #[repr(C, align(8))]
+    struct FVector {
+        x: f64,
+        y: f64,
+        z: f64,
+    }
+
+    for (_entity, actor) in query.iter() {
+        let mut stack_alloc = StackAlloc::<24>::new();
+        let actor_ptr = actor.actor.0;
+        let actor_class = unsafe { (bindings().actor_fns.get_class)(actor_ptr) };
+        let fn_name = Utf8Str::from("K2_GetActorLocation");
+
+        let mut fn_ptr: *mut UFunctionOpague = std::ptr::null_mut();
+        unsafe {
+            (bindings().core_fns.begin_trace)(c"MyGetActorLocation".as_ptr());
+            (bindings().core_fns.find_function_by_name)(actor_class, fn_name, &raw mut fn_ptr);
+            (bindings().core_fns.initialize_values_in_param_buffer)(
+                fn_ptr,
+                stack_alloc.buffer_mut(),
+            );
+            (bindings().core_fns.process_event)(actor_ptr, fn_ptr, stack_alloc.buffer_mut());
+            let data = *stack_alloc.buffer_mut().cast::<FVector>();
+            log::info!("{:?}", data);
+            (bindings().core_fns.destroy_values_in_param_buffer)(fn_ptr, stack_alloc.buffer_mut());
+            (bindings().core_fns.end_trace)();
+        }
+    }
+}
+
 fn update_camera(
     mut query: Query<(Entity, &ParentComponent, &CameraComponent)>,
     mut spatial_query: Query<&mut TransformComponent>,
@@ -347,7 +423,8 @@ impl UserModule for MyModule {
                     .with_system(rotate_camera)
                     .with_system(update_camera.after(rotate_camera))
                     .with_system(toggle_camera)
-                    .with_system(play_sound_on_hit),
+                    .with_system(play_sound_on_hit)
+                    .with_system(update),
             );
     }
 }

@@ -81,11 +81,11 @@ impl Input {
     pub fn is_action_pressed(&self, binding: Binding) -> bool {
         self.action
             .get(binding)
-            .map_or(false, |state| matches!(state, Action::Pressed))
+            .is_some_and(|state| matches!(state, Action::Pressed))
     }
     pub fn is_action_released(&self, binding: Binding) -> bool {
         self.action
             .get(binding)
-            .map_or(false, |state| matches!(state, Action::Released))
+            .is_some_and(|state| matches!(state, Action::Released))
     }
 }
