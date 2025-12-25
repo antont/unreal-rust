@@ -9,7 +9,7 @@ use bevy_ecs::{
     schedule::{Schedule, StageLabel, SystemSet, SystemStage},
     system::Resource,
 };
-use unreal_reflect::{registry::ReflectDyn, uuid, TypeUuid, World};
+use unreal_reflect::{TypeUuid, World, registry::ReflectDyn, uuid};
 
 use crate::{
     core::{CoreStage, EntityEvent, SendEntityEvent, StartupStage, UnrealCore},
@@ -18,10 +18,18 @@ use crate::{
     plugin::Plugin,
 };
 
-pub static mut MODULE: Option<Global> = None;
 pub struct Global {
     pub core: UnrealCore,
     pub module: Box<dyn UserModule>,
+}
+
+pub static mut MODULE: Option<*mut Global> = None;
+
+pub fn with_global_mut<R>(f: impl FnOnce(&mut Global) -> R) -> R {
+    // TODO: VERY BAD needs to be fixed. I am running into dead locks if I switch to a rwlock so we
+    // do this for now. We will need to rewrite the whole unreal <-> rust flow with explicit sync
+    // points instead of the current "yolo call into unreal whenever" approach
+    unsafe { f(&mut *MODULE.unwrap()) }
 }
 
 pub trait InitUserModule {
@@ -208,7 +216,7 @@ impl Default for Module {
     }
 }
 
-pub trait UserModule {
+pub trait UserModule: Send + Sync {
     fn initialize(&self, module: &mut Module);
 }
 
@@ -217,7 +225,7 @@ pub static BINDINGS: OnceLock<UnrealBindings> = OnceLock::new();
 #[macro_export]
 macro_rules! implement_unreal_module {
     ($module: ty) => {
-        #[no_mangle]
+        #[unsafe(no_mangle)]
         pub unsafe extern "C" fn register_unreal_bindings(
             bindings: $crate::ffi::UnrealBindings,
             rust_bindings: *mut $crate::ffi::RustBindings,
@@ -250,7 +258,11 @@ macro_rules! implement_unreal_module {
                 let module = Box::new(<$module as $crate::module::InitUserModule>::initialize());
                 let core = $crate::core::UnrealCore::new(module.as_ref());
 
-                $crate::module::MODULE = Some($crate::module::Global { core, module });
+                $crate::module::MODULE =
+                    Some(&raw mut *Box::leak(Box::new($crate::module::Global {
+                        core,
+                        module,
+                    })));
                 $crate::ffi::RustBindings {
                     retrieve_uuids: $crate::core::retrieve_uuids,
                     tick: $crate::core::tick,

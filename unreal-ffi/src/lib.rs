@@ -7,7 +7,6 @@ pub mod sound;
 pub mod viewport;
 
 pub use actor::*;
-pub use events::*;
 pub use physics::*;
 pub use sound::*;
 pub use viewport::*;
@@ -330,6 +329,7 @@ pub type RetrieveUuids = unsafe extern "C" fn(ptr: *mut Uuid, len: *mut usize);
 pub type GetVelocityRustFn =
     unsafe extern "C" fn(actor: *const AActorOpaque, velocity: &mut Vector3);
 
+#[derive(Debug)]
 #[repr(u32)]
 pub enum EventType {
     ActorSpawned = 0,
@@ -469,13 +469,15 @@ impl RustAlloc {
     /// Only free if the ptr is not already in use
     /// Ptr must be valid, and allocated from the same allocator
     pub unsafe fn free(self) {
-        if self.size == 0 || self.ptr.is_null() {
-            return;
+        unsafe {
+            if self.size == 0 || self.ptr.is_null() {
+                return;
+            }
+            std::alloc::dealloc(
+                self.ptr,
+                std::alloc::Layout::from_size_align(self.size, self.align).unwrap(),
+            );
         }
-        std::alloc::dealloc(
-            self.ptr,
-            std::alloc::Layout::from_size_align(self.size, self.align).unwrap(),
-        );
     }
 }
 

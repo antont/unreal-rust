@@ -77,7 +77,7 @@ pub enum ReflectType {
     Composite,
 }
 
-pub trait ReflectDyn {
+pub trait ReflectDyn: Send + Sync {
     fn name(&self) -> &'static str;
     fn number_of_fields(&self) -> u32 {
         0

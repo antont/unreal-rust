@@ -6,18 +6,19 @@ use std::panic;
 use bevy_ecs::schedule::{StageLabel, SystemSet};
 use bevy_ecs::system::Command;
 use ffi::{EventType, Quaternion, StrRustAlloc};
-use unreal_api::{module::ReflectionRegistry, Component};
+use unreal_api::{Component, module::ReflectionRegistry};
 use unreal_reflect::{
-    registry::{ReflectType, ReflectValue},
     Entity, Uuid, World,
+    registry::{ReflectType, ReflectValue},
 };
 
+use crate::module::with_global_mut;
 use crate::{
     api::UnrealApi,
     ffi::{self, AActorOpaque},
     input::Input,
     math::{Quat, Vec3},
-    module::{bindings, Module, UserModule},
+    module::{Module, UserModule, bindings},
     physics::PhysicsComponent,
     plugin::Plugin,
     register_components,
@@ -103,23 +104,25 @@ impl UnrealCore {
 }
 
 pub unsafe extern "C" fn retrieve_uuids(ptr: *mut ffi::Uuid, len: *mut usize) {
-    if let Some(global) = crate::module::MODULE.as_mut() {
-        if ptr.is_null() {
-            *len = global.core.module.reflection_registry.uuid_set.len();
-        } else {
-            let slice = std::ptr::slice_from_raw_parts_mut(ptr, *len);
-            for (idx, uuid) in global
-                .core
-                .module
-                .reflection_registry
-                .uuid_set
-                .iter()
-                .take(*len)
-                .enumerate()
-            {
-                (*slice)[idx] = to_ffi_uuid(*uuid);
+    unsafe {
+        with_global_mut(|global| {
+            if ptr.is_null() {
+                *len = global.core.module.reflection_registry.uuid_set.len();
+            } else {
+                let slice = std::ptr::slice_from_raw_parts_mut(ptr, *len);
+                for (idx, uuid) in global
+                    .core
+                    .module
+                    .reflection_registry
+                    .uuid_set
+                    .iter()
+                    .take(*len)
+                    .enumerate()
+                {
+                    (*slice)[idx] = to_ffi_uuid(*uuid);
+                }
             }
-        }
+        });
     }
 }
 
@@ -152,7 +155,7 @@ pub struct EntityEvent<E> {
     pub event: E,
 }
 
-pub trait SendEntityEvent {
+pub trait SendEntityEvent: Send + Sync {
     fn send_entity_event(&self, world: &mut World, entity: Entity, json: &str);
 }
 
@@ -161,32 +164,38 @@ pub unsafe extern "C" fn send_actor_event(
     uuid: ffi::Uuid,
     json: ffi::Utf8Str,
 ) {
-    let _ = std::panic::catch_unwind(|| {
-        if let Some(global) = crate::module::MODULE.as_mut() {
-            if let Some(send_event) = global
-                .core
-                .module
-                .reflection_registry
-                .send_entity_event
-                .get(&from_ffi_uuid(uuid))
-            {
-                let api = global
+    unsafe {
+        let _ = std::panic::catch_unwind(|| {
+            with_global_mut(|global| {
+                if let Some(send_event) = global
                     .core
                     .module
-                    .world
-                    .get_resource::<UnrealApi>()
-                    .unwrap();
-                let entity = *api.actor_to_entity.get(&ActorPtr(actor as _)).unwrap();
+                    .reflection_registry
+                    .send_entity_event
+                    .get(&from_ffi_uuid(uuid))
+                {
+                    let api = global
+                        .core
+                        .module
+                        .world
+                        .get_resource::<UnrealApi>()
+                        .unwrap();
+                    let entity = *api.actor_to_entity.get(&ActorPtr(actor as _)).unwrap();
 
-                send_event.send_entity_event(&mut global.core.module.world, entity, json.as_str());
-            }
-        }
-    });
+                    send_event.send_entity_event(
+                        &mut global.core.module.world,
+                        entity,
+                        json.as_str(),
+                    );
+                }
+            });
+        });
+    }
 }
 
 pub unsafe extern "C" fn unreal_event(ty: *const EventType, data: *const c_void) {
-    if let Some(global) = crate::module::MODULE.as_mut() {
-        match *ty {
+    unsafe {
+        with_global_mut(|global| match *ty {
             EventType::ActorSpawned => {
                 let actor_spawned_event = data as *const ffi::ActorSpawnedEvent;
                 global.core.module.world.send_event(ActorSpawnedEvent {
@@ -225,7 +234,7 @@ pub unsafe extern "C" fn unreal_event(ty: *const EventType, data: *const c_void)
                     actor: ActorPtr((*destroy).actor),
                 });
             }
-        }
+        });
     }
 }
 extern "C" fn get_field_float_value(
@@ -304,72 +313,79 @@ extern "C" fn get_field_bool_value(
 
 fn get_field_value(uuid: ffi::Uuid, entity: ffi::Entity, idx: u32) -> Option<ReflectValue> {
     let uuid = from_ffi_uuid(uuid);
-    unsafe {
-        let global = crate::module::MODULE.as_mut()?;
-        let reflect = global.core.module.reflection_registry.reflect.get(&uuid)?;
+    with_global_mut(|global| {
+        let reflect = global.core.module.reflection_registry.reflect.get(&uuid);
 
         let entity = Entity::from_bits(entity.id);
-        reflect.get_field_value(&global.core.module.world, entity, idx)
-    }
+        reflect.and_then(|r| r.get_field_value(&global.core.module.world, entity, idx))
+    })
 }
 
 unsafe extern "C" fn number_of_fields(uuid: ffi::Uuid, out: *mut u32) -> u32 {
-    fn get_number_fields(uuid: ffi::Uuid) -> Option<u32> {
-        let global = unsafe { crate::module::MODULE.as_mut() }?;
-        let uuid = from_ffi_uuid(uuid);
-        let reflect = global.core.module.reflection_registry.reflect.get(&uuid)?;
-        Some(reflect.number_of_fields())
-    }
-    let result = panic::catch_unwind(|| {
-        if let Some(count) = get_number_fields(uuid) {
-            *out = count;
-            1
-        } else {
-            0
+    unsafe {
+        fn get_number_fields(uuid: ffi::Uuid) -> Option<u32> {
+            with_global_mut(|global| {
+                let uuid = from_ffi_uuid(uuid);
+                let reflect = global.core.module.reflection_registry.reflect.get(&uuid)?;
+                Some(reflect.number_of_fields())
+            })
         }
-    });
-    result.unwrap_or(0)
+        let result = panic::catch_unwind(|| {
+            if let Some(count) = get_number_fields(uuid) {
+                *out = count;
+                1
+            } else {
+                0
+            }
+        });
+        result.unwrap_or(0)
+    }
 }
 unsafe extern "C" fn get_type_name(uuid: ffi::Uuid, out: *mut ffi::Utf8Str) -> u32 {
-    fn get_type_name(uuid: ffi::Uuid) -> Option<&'static str> {
-        let global = unsafe { crate::module::MODULE.as_mut() }?;
-        let uuid = from_ffi_uuid(uuid);
-        let reflect = global.core.module.reflection_registry.reflect.get(&uuid)?;
-        Some(reflect.name())
-    }
-    let result = panic::catch_unwind(|| {
-        if let Some(name) = get_type_name(uuid) {
-            *out = ffi::Utf8Str::from(name);
-            1
-        } else {
-            0
+    unsafe {
+        fn get_type_name(uuid: ffi::Uuid) -> Option<&'static str> {
+            with_global_mut(|global| {
+                let uuid = from_ffi_uuid(uuid);
+                let reflect = global.core.module.reflection_registry.reflect.get(&uuid)?;
+                Some(reflect.name())
+            })
         }
-    });
-    result.unwrap_or(0)
+        let result = panic::catch_unwind(|| {
+            if let Some(name) = get_type_name(uuid) {
+                *out = ffi::Utf8Str::from(name);
+                1
+            } else {
+                0
+            }
+        });
+        result.unwrap_or(0)
+    }
 }
 unsafe extern "C" fn has_component(entity: ffi::Entity, uuid: ffi::Uuid) -> u32 {
     fn has_component(entity: ffi::Entity, uuid: ffi::Uuid) -> Option<u32> {
-        let global = unsafe { crate::module::MODULE.as_ref() }?;
-        let uuid = from_ffi_uuid(uuid);
-        let reflect = global.core.module.reflection_registry.reflect.get(&uuid)?;
-        let entity = Entity::from_bits(entity.id);
-        Some(reflect.has_component(&global.core.module.world, entity) as u32)
+        with_global_mut(|global| {
+            let uuid = from_ffi_uuid(uuid);
+            let reflect = global.core.module.reflection_registry.reflect.get(&uuid)?;
+            let entity = Entity::from_bits(entity.id);
+            Some(reflect.has_component(&global.core.module.world, entity) as u32)
+        })
     }
     let result = panic::catch_unwind(|| has_component(entity, uuid).unwrap_or(0));
     result.unwrap_or(0)
 }
 unsafe extern "C" fn is_event(uuid: ffi::Uuid) -> u32 {
     fn is_editor_component_inner(uuid: ffi::Uuid) -> Option<u32> {
-        let global = unsafe { crate::module::MODULE.as_mut() }?;
-        let uuid = from_ffi_uuid(uuid);
-        Some(u32::from(
-            global
-                .core
-                .module
-                .reflection_registry
-                .events
-                .contains(&uuid),
-        ))
+        with_global_mut(|global| {
+            let uuid = from_ffi_uuid(uuid);
+            Some(u32::from(
+                global
+                    .core
+                    .module
+                    .reflection_registry
+                    .events
+                    .contains(&uuid),
+            ))
+        })
     }
     let result = panic::catch_unwind(|| is_editor_component_inner(uuid).unwrap_or(0));
     result.unwrap_or(0)
@@ -377,67 +393,74 @@ unsafe extern "C" fn is_event(uuid: ffi::Uuid) -> u32 {
 
 unsafe extern "C" fn is_editor_component(uuid: ffi::Uuid) -> u32 {
     fn is_editor_component_inner(uuid: ffi::Uuid) -> Option<u32> {
-        let global = unsafe { crate::module::MODULE.as_mut() }?;
-        let uuid = from_ffi_uuid(uuid);
-        Some(u32::from(
-            global
-                .core
-                .module
-                .reflection_registry
-                .editor_components
-                .contains(&uuid),
-        ))
+        with_global_mut(|global| {
+            let uuid = from_ffi_uuid(uuid);
+            Some(u32::from(
+                global
+                    .core
+                    .module
+                    .reflection_registry
+                    .editor_components
+                    .contains(&uuid),
+            ))
+        })
     }
     let result = panic::catch_unwind(|| is_editor_component_inner(uuid).unwrap_or(0));
     result.unwrap_or(0)
 }
 
 unsafe extern "C" fn get_field_name(uuid: ffi::Uuid, idx: u32, out: *mut ffi::Utf8Str) -> u32 {
-    fn get_field_name(uuid: ffi::Uuid, idx: u32) -> Option<&'static str> {
-        let global = unsafe { crate::module::MODULE.as_mut() }?;
-        let uuid = from_ffi_uuid(uuid);
-        let reflect = global.core.module.reflection_registry.reflect.get(&uuid)?;
-        reflect.get_field_name(idx)
-    }
-    let result = panic::catch_unwind(|| {
-        if let Some(name) = get_field_name(uuid, idx) {
-            *out = ffi::Utf8Str::from(name);
-            1
-        } else {
-            0
+    unsafe {
+        fn get_field_name(uuid: ffi::Uuid, idx: u32) -> Option<&'static str> {
+            with_global_mut(|global| {
+                let uuid = from_ffi_uuid(uuid);
+                let reflect = global.core.module.reflection_registry.reflect.get(&uuid)?;
+                reflect.get_field_name(idx)
+            })
         }
-    });
-    result.unwrap_or(0)
+        let result = panic::catch_unwind(|| {
+            if let Some(name) = get_field_name(uuid, idx) {
+                *out = ffi::Utf8Str::from(name);
+                1
+            } else {
+                0
+            }
+        });
+        result.unwrap_or(0)
+    }
 }
 unsafe extern "C" fn get_field_type(
     uuid: ffi::Uuid,
     idx: u32,
     out: *mut ffi::ReflectionType,
 ) -> u32 {
-    fn get_field_type(uuid: ffi::Uuid, idx: u32) -> Option<ffi::ReflectionType> {
-        let global = unsafe { crate::module::MODULE.as_mut() }?;
-        let uuid = from_ffi_uuid(uuid);
-        let reflect = global.core.module.reflection_registry.reflect.get(&uuid)?;
-        let ty = reflect.get_field_type(idx)?;
-        Some(match ty {
-            ReflectType::Bool => ffi::ReflectionType::Bool,
-            ReflectType::Float => ffi::ReflectionType::Float,
-            ReflectType::Vector3 => ffi::ReflectionType::Vector3,
-            ReflectType::Quat => ffi::ReflectionType::Quaternion,
-            ReflectType::UClass => ffi::ReflectionType::UClass,
-            ReflectType::USound => ffi::ReflectionType::USound,
-            ReflectType::Composite => ffi::ReflectionType::Composite,
-        })
-    }
-    let result = panic::catch_unwind(|| {
-        if let Some(ty) = get_field_type(uuid, idx) {
-            *out = ty;
-            1
-        } else {
-            0
+    unsafe {
+        fn get_field_type(uuid: ffi::Uuid, idx: u32) -> Option<ffi::ReflectionType> {
+            with_global_mut(|global| {
+                let uuid = from_ffi_uuid(uuid);
+                let reflect = global.core.module.reflection_registry.reflect.get(&uuid)?;
+                let ty = reflect.get_field_type(idx)?;
+                Some(match ty {
+                    ReflectType::Bool => ffi::ReflectionType::Bool,
+                    ReflectType::Float => ffi::ReflectionType::Float,
+                    ReflectType::Vector3 => ffi::ReflectionType::Vector3,
+                    ReflectType::Quat => ffi::ReflectionType::Quaternion,
+                    ReflectType::UClass => ffi::ReflectionType::UClass,
+                    ReflectType::USound => ffi::ReflectionType::USound,
+                    ReflectType::Composite => ffi::ReflectionType::Composite,
+                })
+            })
         }
-    });
-    result.unwrap_or(0)
+        let result = panic::catch_unwind(|| {
+            if let Some(ty) = get_field_type(uuid, idx) {
+                *out = ty;
+                1
+            } else {
+                0
+            }
+        });
+        result.unwrap_or(0)
+    }
 }
 
 pub fn from_ffi_uuid(uuid: ffi::Uuid) -> Uuid {
@@ -470,20 +493,22 @@ pub fn create_reflection_fns() -> ffi::ReflectionFns {
 }
 
 unsafe extern "C" fn allocate(size: usize, align: usize, ptr: *mut ffi::RustAlloc) -> u32 {
-    use std::alloc::{alloc, Layout};
-    let layout = Layout::from_size_align(size, align);
-    match layout {
-        Ok(layout) => {
-            let alloc_ptr = alloc(layout);
-            *ptr = ffi::RustAlloc {
-                ptr: alloc_ptr,
-                size,
-                align,
-            };
+    unsafe {
+        use std::alloc::{Layout, alloc};
+        let layout = Layout::from_size_align(size, align);
+        match layout {
+            Ok(layout) => {
+                let alloc_ptr = alloc(layout);
+                *ptr = ffi::RustAlloc {
+                    ptr: alloc_ptr,
+                    size,
+                    align,
+                };
 
-            1
+                1
+            }
+            Err(_) => 0,
         }
-        Err(_) => 0,
     }
 }
 pub fn create_allocate_fns() -> ffi::AllocateFns {
@@ -491,8 +516,8 @@ pub fn create_allocate_fns() -> ffi::AllocateFns {
 }
 
 pub extern "C" fn tick(dt: f32) -> crate::ffi::ResultCode {
-    let r = panic::catch_unwind(|| unsafe {
-        UnrealCore::tick(&mut crate::module::MODULE.as_mut().unwrap().core, dt);
+    let r = panic::catch_unwind(|| {
+        with_global_mut(|global| UnrealCore::tick(&mut global.core, dt));
     });
     match r {
         Ok(_) => ffi::ResultCode::Success,
@@ -501,9 +526,10 @@ pub extern "C" fn tick(dt: f32) -> crate::ffi::ResultCode {
 }
 
 pub extern "C" fn begin_play() -> ffi::ResultCode {
-    let r = panic::catch_unwind(|| unsafe {
-        let global = crate::module::MODULE.as_mut().unwrap();
-        UnrealCore::begin_play(&mut global.core, global.module.as_ref());
+    let r = panic::catch_unwind(|| {
+        with_global_mut(|global| {
+            UnrealCore::begin_play(&mut global.core, global.module.as_ref());
+        });
     });
     match r {
         Ok(_) => ffi::ResultCode::Success,
@@ -791,7 +817,7 @@ fn process_actor_spawned(
     mut commands: Commands,
 ) {
     unsafe {
-        if let Some(global) = crate::module::MODULE.as_mut() {
+        with_global_mut(|global| {
             for &ActorSpawnedEvent { actor } in reader.iter() {
                 // If we have already entity for this actor, we just get their entity commands
                 let mut entity_cmds = if let Some(&entity) = api.actor_to_entity.get(&actor) {
@@ -873,6 +899,6 @@ fn process_actor_spawned(
                     },
                 );
             }
-        }
+        });
     }
 }

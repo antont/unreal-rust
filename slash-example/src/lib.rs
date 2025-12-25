@@ -4,15 +4,15 @@ use unreal_api::core::EntityEvent;
 use unreal_api::math::Vec2;
 use unreal_api::physics::PhysicsComponent;
 use unreal_api::registry::UClass;
+use unreal_api::{Component, Event, register_editor_components, register_events};
 use unreal_api::{
     core::{ActorComponent, ActorPtr, CoreStage, TransformComponent},
     ffi::{self},
     input::Input,
     math::{Quat, Vec3},
-    module::{bindings, InitUserModule, Module, UserModule},
+    module::{InitUserModule, Module, UserModule, bindings},
     register_components,
 };
-use unreal_api::{register_editor_components, register_events, Component, Event};
 use unreal_movement::{
     CharacterConfigComponent, CharacterControllerComponent, MovementPlugin,
     MovementVariablesComponent,

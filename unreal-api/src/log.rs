@@ -1,5 +1,5 @@
 use glam::{Quat, Vec3};
-use log::{set_boxed_logger, set_max_level, LevelFilter, Metadata, Record, SetLoggerError};
+use log::{LevelFilter, Metadata, Record, SetLoggerError, set_boxed_logger, set_max_level};
 use unreal_ffi as ffi;
 use unreal_ffi::Color;
 

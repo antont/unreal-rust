@@ -1,6 +1,7 @@
 use bevy_ecs::{prelude::*, query::WorldQuery};
 use unreal_api::api::{SweepHit, SweepParams, UnrealApi};
 use unreal_api::core::EntityEvent;
+use unreal_api::{Component, Event, register_editor_components, register_events};
 use unreal_api::{
     core::{ActorComponent, CoreStage, Frame, TransformComponent},
     ffi,
@@ -12,7 +13,6 @@ use unreal_api::{
     plugin::Plugin,
     register_components,
 };
-use unreal_api::{register_editor_components, register_events, Component, Event};
 fn project_onto_plane(dir: Vec3, normal: Vec3) -> Vec3 {
     dir - normal * Vec3::dot(dir, normal)
 }
@@ -22,7 +22,9 @@ fn project_onto_plane(dir: Vec3, normal: Vec3) -> Vec3 {
 pub struct JumpCommand {}
 
 #[derive(Debug, Copy, Clone)]
+#[derive(Default)]
 pub enum MovementState {
+    #[default]
     Walking,
     Falling,
     Gliding,
@@ -36,12 +38,6 @@ impl PlayerInput {
     pub const TURN_RIGHT: &'static str = "TurnRight";
     pub const TOGGLE_CAMERA: &'static str = "ToggleCamera";
     pub const JUMP: &'static str = "Jump";
-}
-
-impl Default for MovementState {
-    fn default() -> Self {
-        Self::Walking
-    }
 }
 
 #[derive(Default, Debug, Component)]

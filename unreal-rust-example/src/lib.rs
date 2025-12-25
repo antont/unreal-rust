@@ -7,16 +7,16 @@ use unreal_api::api::UnrealApi;
 use unreal_api::core::{ActorHitEvent, Despawn};
 use unreal_api::ffi::{RustAlloc, StrRustAlloc, UFunctionOpague, Utf8Str};
 use unreal_api::registry::USound;
-use unreal_api::sound::{play_sound_at_location, SoundSettings};
+use unreal_api::sound::{SoundSettings, play_sound_at_location};
+use unreal_api::{Component, register_editor_components};
 use unreal_api::{
     core::{ActorComponent, ActorPtr, CoreStage, ParentComponent, TransformComponent},
     ffi::{self, UClassOpague},
     input::Input,
     math::{Quat, Vec3},
-    module::{bindings, InitUserModule, Module, UserModule},
+    module::{InitUserModule, Module, UserModule, bindings},
     register_components,
 };
-use unreal_api::{register_editor_components, Component};
 use unreal_movement::{
     CharacterConfigComponent, CharacterControllerComponent, MovementPlugin,
     MovementVariablesComponent,

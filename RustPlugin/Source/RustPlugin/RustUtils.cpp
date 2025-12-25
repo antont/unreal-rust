@@ -7,11 +7,11 @@
 UnrealBindings CreateBindings()
 {
 	ViewportFns viewport_fns;
-	viewport_fns.get_mouse_position = GetMousePosition;
-	viewport_fns.set_mouse_state = SetMouseState;
-	viewport_fns.get_viewport_size = GetViewportSize;
+	viewport_fns.get_mouse_position = &GetMousePosition;
+	viewport_fns.set_mouse_state = &SetMouseState;
+	viewport_fns.get_viewport_size = &GetViewportSize;
 	SoundFns sound_fns;
-	sound_fns.play_sound_at_location = PlaySoundAtLocation;
+	sound_fns.play_sound_at_location = &PlaySoundAtLocation;
 
 	EditorComponentFns editor_component_fns;
 	editor_component_fns.get_editor_component_bool = &GetEditorComponentBool;
