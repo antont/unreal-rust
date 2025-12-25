@@ -14,7 +14,7 @@ impl Default for SoundSettings {
     }
 }
 
-extern "C" {
+unsafe extern "C" {
     pub fn PlaySoundAtLocation(
         sound: *const USoundBaseOpague,
         location: Vector3,

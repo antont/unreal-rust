@@ -6,7 +6,7 @@ pub enum MouseState {
 
 pub type LocalPlayerId = u32;
 
-extern "C" {
+unsafe extern "C" {
     pub fn GetViewportSize(player: LocalPlayerId, x: *mut f32, y: *mut f32);
     pub fn SetMouseState(player: LocalPlayerId, state: MouseState);
     pub fn GetMousePosition(player: LocalPlayerId, x: *mut f32, y: *mut f32);

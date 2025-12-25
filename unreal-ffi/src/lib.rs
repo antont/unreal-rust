@@ -213,7 +213,7 @@ pub type VisualLogLocationFn = unsafe extern "C" fn(
 
 pub type IsAFn = unsafe extern "C" fn(object: *mut UObjectOpague, ty: UObjectType) -> u32;
 
-extern "C" {
+unsafe extern "C" {
     pub fn IsA(object: *mut UObjectOpague, ty: UObjectType) -> u32;
     pub fn TickActor(actor: *mut AActorOpaque, dt: f32);
     pub fn Log(message: Utf8Str);
@@ -486,7 +486,7 @@ pub struct AllocateFns {
     pub allocate: AllocateFn,
 }
 
-extern "C" {
+unsafe extern "C" {
     pub fn GetEditorComponentUuids(
         actor: *const AActorOpaque,
         data: *mut Uuid,
@@ -606,7 +606,7 @@ pub type ProcessEventsCoreFn = unsafe extern "C" fn(
 pub type BeginTraceCoreFn = unsafe extern "C" fn(name: *const c_char);
 pub type EndTraceCoreFn = unsafe extern "C" fn();
 //
-extern "C" {
+unsafe extern "C" {
     pub fn GetCDOFromClass(
         class_opague: *const UClassOpague,
         out_object: *mut *mut UObjectOpague,

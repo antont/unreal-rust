@@ -157,7 +157,7 @@ pub type SweepMultiFn = unsafe extern "C" fn(
     results: *mut HitResult,
 ) -> u32;
 
-extern "C" {
+unsafe extern "C" {
     pub fn GetVelocity(primitive: *const UPrimtiveOpaque) -> Vector3;
 
     pub fn SetVelocity(primitive: *mut UPrimtiveOpaque, velocity: Vector3);

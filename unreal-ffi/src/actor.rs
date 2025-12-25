@@ -58,7 +58,7 @@ pub type SpawnActorWithClassFn = unsafe extern "C" fn(
     out: *mut *mut AActorOpaque,
 ) -> u32;
 
-extern "C" {
+unsafe extern "C" {
     pub fn RegisterActorOnHit(actor: *mut AActorOpaque);
     pub fn RegisterActorOnOverlap(actor: *mut AActorOpaque);
 

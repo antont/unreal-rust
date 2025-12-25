@@ -68,14 +68,7 @@ enum class UObjectType : uint32_t {
   UPrimtiveComponent,
 };
 
-using UObjectOpague = void;
-
 using AActorOpaque = void;
-
-struct Utf8Str {
-  const char *ptr;
-  uintptr_t len;
-};
 
 struct Vector3 {
   float x;
@@ -90,19 +83,46 @@ struct Quaternion {
   float w;
 };
 
-struct Color {
-  uint8_t r;
-  uint8_t g;
-  uint8_t b;
-  uint8_t a;
+using GetSpatialDataFn = void(*)(const AActorOpaque *actor,
+                                 Vector3 *position,
+                                 Quaternion *rotation,
+                                 Vector3 *scale);
+
+using SetSpatialDataFn = void(*)(AActorOpaque *actor,
+                                 Vector3 position,
+                                 Quaternion rotation,
+                                 Vector3 scale);
+
+struct Entity {
+  uint64_t id;
 };
 
-struct Uuid {
-  uint32_t a;
-  uint32_t b;
-  uint32_t c;
-  uint32_t d;
+using SetEntityForActorFn = void(*)(AActorOpaque *name, Entity entity);
+
+struct ActorComponentPtr {
+  ActorComponentType ty;
+  void *ptr;
 };
+
+using GetActorComponentsFn = void(*)(const AActorOpaque *actor,
+                                     ActorComponentPtr *data,
+                                     uintptr_t *len);
+
+using RegisterActorOnOverlapFn = void(*)(AActorOpaque *actor);
+
+using RegisterActorOnHitFn = void(*)(AActorOpaque *actor);
+
+using USceneComponentOpague = void;
+
+using GetRootComponentFn = void(*)(const AActorOpaque *actor, USceneComponentOpague **data);
+
+using UClassOpague = void;
+
+using GetRegisteredClassesFn = void(*)(UClassOpague **classes, uintptr_t *len);
+
+using GetClassFn = UClassOpague*(*)(const AActorOpaque *actor);
+
+using SetViewTargetFn = void(*)(const AActorOpaque *actor);
 
 struct RustAlloc {
   uint8_t *ptr;
@@ -110,24 +130,15 @@ struct RustAlloc {
   uintptr_t align;
 };
 
-struct StrRustAlloc {
-  RustAlloc alloc;
-};
+using GetActorNameFn = void(*)(const AActorOpaque *actor, RustAlloc *data);
 
-using UClassOpague = void;
+using SetOwnerFn = void(*)(AActorOpaque *actor, const AActorOpaque *new_owner);
 
-using UFunctionOpague = void;
+using IsMoveableFn = uint32_t(*)(const AActorOpaque *actor);
 
-struct Entity {
-  uint64_t id;
-};
+using DestroyActorFn = void(*)(const AActorOpaque *actor);
 
-struct ActorComponentPtr {
-  ActorComponentType ty;
-  void *ptr;
-};
-
-using USceneComponentOpague = void;
+using GetParentActorFn = uint32_t(*)(const AActorOpaque *actor, AActorOpaque **parent);
 
 struct UnrealTransform {
   Vector3 position;
@@ -139,7 +150,41 @@ struct ActorSpawnOptions {
   ActorPivot actor_pivot;
 };
 
+using SpawnActorWithClassFn = uint32_t(*)(const UClassOpague *actor_class,
+                                          UnrealTransform transform,
+                                          ActorSpawnOptions options,
+                                          AActorOpaque **out);
+
+struct ActorFns {
+  GetSpatialDataFn get_spatial_data;
+  SetSpatialDataFn set_spatial_data;
+  SetEntityForActorFn set_entity_for_actor;
+  GetActorComponentsFn get_actor_components;
+  RegisterActorOnOverlapFn register_actor_on_overlap;
+  RegisterActorOnHitFn register_actor_on_hit;
+  GetRootComponentFn get_root_component;
+  GetRegisteredClassesFn get_registered_classes;
+  GetClassFn get_class;
+  SetViewTargetFn set_view_target;
+  GetActorNameFn get_actor_name;
+  SetOwnerFn set_owner;
+  IsMoveableFn is_moveable;
+  DestroyActorFn destroy_actor;
+  GetParentActorFn get_parent_actor;
+  SpawnActorWithClassFn spawn_actor_with_class;
+};
+
 using UPrimtiveOpaque = void;
+
+using GetVelocityFn = Vector3(*)(const UPrimtiveOpaque *primitive);
+
+using SetVelocityFn = void(*)(UPrimtiveOpaque *primitive, Vector3 velocity);
+
+using IsSimulatingFn = uint32_t(*)(const UPrimtiveOpaque *primitive);
+
+using AddForceFn = void(*)(UPrimtiveOpaque *actor, Vector3 force);
+
+using AddImpulseFn = void(*)(UPrimtiveOpaque *actor, Vector3 force);
 
 struct LineTraceParams {
   AActorOpaque *const *ignored_actors;
@@ -157,6 +202,13 @@ struct HitResult {
   float pentration_depth;
   uint32_t start_penetrating;
 };
+
+using LineTraceFn = uint32_t(*)(Vector3 start,
+                                Vector3 end,
+                                LineTraceParams params,
+                                HitResult *result);
+
+using GetBoundingBoxExtentFn = Vector3(*)(const UPrimtiveOpaque *primitive);
 
 struct CollisionBox {
   float half_extent_x;
@@ -184,99 +236,6 @@ struct CollisionShape {
   CollisionShapeType ty;
 };
 
-struct OverlapResult {
-  AActorOpaque *actor;
-  UPrimtiveOpaque *primtive;
-};
-
-using USoundBaseOpague = void;
-
-struct SoundSettings {
-  float volume;
-  float pitch;
-};
-
-using LocalPlayerId = uint32_t;
-
-using GetSpatialDataFn = void(*)(const AActorOpaque *actor,
-                                 Vector3 *position,
-                                 Quaternion *rotation,
-                                 Vector3 *scale);
-
-using SetSpatialDataFn = void(*)(AActorOpaque *actor,
-                                 Vector3 position,
-                                 Quaternion rotation,
-                                 Vector3 scale);
-
-using SetEntityForActorFn = void(*)(AActorOpaque *name, Entity entity);
-
-using GetActorComponentsFn = void(*)(const AActorOpaque *actor,
-                                     ActorComponentPtr *data,
-                                     uintptr_t *len);
-
-using RegisterActorOnOverlapFn = void(*)(AActorOpaque *actor);
-
-using RegisterActorOnHitFn = void(*)(AActorOpaque *actor);
-
-using GetRootComponentFn = void(*)(const AActorOpaque *actor, USceneComponentOpague **data);
-
-using GetRegisteredClassesFn = void(*)(UClassOpague **classes, uintptr_t *len);
-
-using GetClassFn = UClassOpague*(*)(const AActorOpaque *actor);
-
-using SetViewTargetFn = void(*)(const AActorOpaque *actor);
-
-using GetActorNameFn = void(*)(const AActorOpaque *actor, RustAlloc *data);
-
-using SetOwnerFn = void(*)(AActorOpaque *actor, const AActorOpaque *new_owner);
-
-using IsMoveableFn = uint32_t(*)(const AActorOpaque *actor);
-
-using DestroyActorFn = void(*)(const AActorOpaque *actor);
-
-using GetParentActorFn = uint32_t(*)(const AActorOpaque *actor, AActorOpaque **parent);
-
-using SpawnActorWithClassFn = uint32_t(*)(const UClassOpague *actor_class,
-                                          UnrealTransform transform,
-                                          ActorSpawnOptions options,
-                                          AActorOpaque **out);
-
-struct ActorFns {
-  GetSpatialDataFn get_spatial_data;
-  SetSpatialDataFn set_spatial_data;
-  SetEntityForActorFn set_entity_for_actor;
-  GetActorComponentsFn get_actor_components;
-  RegisterActorOnOverlapFn register_actor_on_overlap;
-  RegisterActorOnHitFn register_actor_on_hit;
-  GetRootComponentFn get_root_component;
-  GetRegisteredClassesFn get_registered_classes;
-  GetClassFn get_class;
-  SetViewTargetFn set_view_target;
-  GetActorNameFn get_actor_name;
-  SetOwnerFn set_owner;
-  IsMoveableFn is_moveable;
-  DestroyActorFn destroy_actor;
-  GetParentActorFn get_parent_actor;
-  SpawnActorWithClassFn spawn_actor_with_class;
-};
-
-using GetVelocityFn = Vector3(*)(const UPrimtiveOpaque *primitive);
-
-using SetVelocityFn = void(*)(UPrimtiveOpaque *primitive, Vector3 velocity);
-
-using IsSimulatingFn = uint32_t(*)(const UPrimtiveOpaque *primitive);
-
-using AddForceFn = void(*)(UPrimtiveOpaque *actor, Vector3 force);
-
-using AddImpulseFn = void(*)(UPrimtiveOpaque *actor, Vector3 force);
-
-using LineTraceFn = uint32_t(*)(Vector3 start,
-                                Vector3 end,
-                                LineTraceParams params,
-                                HitResult *result);
-
-using GetBoundingBoxExtentFn = Vector3(*)(const UPrimtiveOpaque *primitive);
-
 using SweepFn = uint32_t(*)(Vector3 start,
                             Vector3 end,
                             Quaternion rotation,
@@ -291,6 +250,11 @@ using SweepMultiFn = uint32_t(*)(Vector3 start,
                                  CollisionShape collision_shape,
                                  uintptr_t max_results,
                                  HitResult *results);
+
+struct OverlapResult {
+  AActorOpaque *actor;
+  UPrimtiveOpaque *primtive;
+};
 
 using OverlapMultiFn = uint32_t(*)(CollisionShape collision_shape,
                                    Vector3 position,
@@ -315,6 +279,11 @@ struct PhysicsFns {
   GetCollisionShapeFn get_collision_shape;
 };
 
+struct Utf8Str {
+  const char *ptr;
+  uintptr_t len;
+};
+
 using LogFn = void(*)(Utf8Str message);
 
 using IterateActorsFn = void(*)(AActorOpaque **array, uint64_t *len);
@@ -329,6 +298,13 @@ using SpawnActorFn = AActorOpaque*(*)(ActorClass actor_class,
                                       Vector3 scale);
 
 using GetMouseDeltaFn = void(*)(float *x, float *y);
+
+struct Color {
+  uint8_t r;
+  uint8_t g;
+  uint8_t b;
+  uint8_t a;
+};
 
 using VisualLogSegmentFn = void(*)(const AActorOpaque *owner,
                                    Vector3 start,
@@ -348,6 +324,13 @@ using VisualLogLocationFn = void(*)(Utf8Str category,
                                     Vector3 position,
                                     float radius,
                                     Color color);
+
+struct Uuid {
+  uint32_t a;
+  uint32_t b;
+  uint32_t c;
+  uint32_t d;
+};
 
 using GetEditorComponentUuidsFn = uint32_t(*)(const AActorOpaque *actor, Uuid *data, uintptr_t *len);
 
@@ -371,11 +354,17 @@ using GetEditorComponentFloatFn = uint32_t(*)(const AActorOpaque *actor,
                                               Utf8Str field,
                                               float *out);
 
+using UObjectOpague = void;
+
 using GetEditorComponentUObjectFn = uint32_t(*)(const AActorOpaque *actor,
                                                 Uuid uuid,
                                                 Utf8Str field,
                                                 UObjectType ty,
                                                 UObjectOpague **out);
+
+struct StrRustAlloc {
+  RustAlloc alloc;
+};
 
 using GetSerializedJsonComponentFn = uint32_t(*)(const AActorOpaque *actor,
                                                  Uuid uuid,
@@ -391,6 +380,13 @@ struct EditorComponentFns {
   GetSerializedJsonComponentFn get_serialized_json_component;
 };
 
+using USoundBaseOpague = void;
+
+struct SoundSettings {
+  float volume;
+  float pitch;
+};
+
 using PlaySoundAtLocationFn = void(*)(const USoundBaseOpague *sound,
                                       Vector3 location,
                                       Quaternion rotation,
@@ -399,6 +395,8 @@ using PlaySoundAtLocationFn = void(*)(const USoundBaseOpague *sound,
 struct SoundFns {
   PlaySoundAtLocationFn play_sound_at_location;
 };
+
+using LocalPlayerId = uint32_t;
 
 using GetViewportSizeFn = void(*)(LocalPlayerId player, float *x, float *y);
 
@@ -419,6 +417,8 @@ using GetCDOFromClassCoreFn = uint32_t(*)(const UClassOpague *cdo_opague, UObjec
 using GetAllUClassesCoreFn = uint32_t(*)(RustAlloc *out);
 
 using GetClassNameCoreFn = uint32_t(*)(const UClassOpague *opague_class, StrRustAlloc *out);
+
+using UFunctionOpague = void;
 
 using FindFunctionByNameCoreFn = uint32_t(*)(const UClassOpague *class_opague,
                                              Utf8Str str,
@@ -562,184 +562,3 @@ struct ActorHitEvent {
 struct ActorDestroyEvent {
   AActorOpaque *actor;
 };
-
-extern "C" {
-
-extern uint32_t IsA(UObjectOpague *object, UObjectType ty);
-
-extern void TickActor(AActorOpaque *actor, float dt);
-
-extern void Log(Utf8Str message);
-
-extern void IterateActors(AActorOpaque **array, uint64_t *len);
-
-extern void GetActionState(const char *name, uintptr_t len, ActionState state, uint32_t *out);
-
-extern void GetAxisValue(const char *name, uintptr_t len, float *value);
-
-extern AActorOpaque *SpawnActor(ActorClass actor_class,
-                                Vector3 position,
-                                Quaternion rotation,
-                                Vector3 scale);
-
-extern void GetMouseDelta(float *x, float *y);
-
-extern void VisualLogSegment(const AActorOpaque *owner, Vector3 start, Vector3 end, Color color);
-
-extern void VisualLogCapsule(Utf8Str category,
-                             const AActorOpaque *owner,
-                             Vector3 position,
-                             Quaternion rotation,
-                             float half_height,
-                             float radius,
-                             Color color);
-
-extern void VisualLogLocation(Utf8Str category,
-                              const AActorOpaque *owner,
-                              Vector3 position,
-                              float radius,
-                              Color color);
-
-extern uint32_t GetEditorComponentUuids(const AActorOpaque *actor, Uuid *data, uintptr_t *len);
-
-extern uint32_t GetEditorComponentVector(const AActorOpaque *actor,
-                                         Uuid uuid,
-                                         Utf8Str field,
-                                         Vector3 *out);
-
-extern uint32_t GetEditorComponentFloat(const AActorOpaque *actor,
-                                        Uuid uuid,
-                                        Utf8Str field,
-                                        float *out);
-
-extern uint32_t GetEditorComponentBool(const AActorOpaque *actor,
-                                       Uuid uuid,
-                                       Utf8Str field,
-                                       uint32_t *out);
-
-extern uint32_t GetEditorComponentQuat(const AActorOpaque *actor,
-                                       Uuid uuid,
-                                       Utf8Str field,
-                                       Quaternion *out);
-
-extern uint32_t GetEditorComponentUObject(const AActorOpaque *actor,
-                                          Uuid uuid,
-                                          Utf8Str field,
-                                          UObjectType ty,
-                                          UObjectOpague **out);
-
-extern uint32_t GetSerializedJsonComponent(const AActorOpaque *actor, Uuid uuid, StrRustAlloc *out);
-
-extern uint32_t GetCDOFromClass(const UClassOpague *class_opague, UObjectOpague **out_object);
-
-extern uint32_t GetAllUClasses(RustAlloc *out);
-
-extern uint32_t GetClassName(const UClassOpague *opague_class, StrRustAlloc *out);
-
-extern uint32_t FindFunctionByName(const UClassOpague *class_opague,
-                                   Utf8Str name,
-                                   UFunctionOpague **function_opague);
-
-extern uint32_t InitializeValuesInParamBuffer(const UFunctionOpague *function_opague, void *buffer);
-
-extern uint32_t DestroyValuesInParamBuffer(const UFunctionOpague *function_opague, void *buffer);
-
-extern uint32_t ProcessEventFromRust(UObjectOpague *cdo_opague,
-                                     UFunctionOpague *function_opague,
-                                     void *buffer);
-
-extern void BeginTrace(const char *name);
-
-extern void EndTrace();
-
-extern void RegisterActorOnHit(AActorOpaque *actor);
-
-extern void RegisterActorOnOverlap(AActorOpaque *actor);
-
-extern void SetOwner(AActorOpaque *actor, const AActorOpaque *new_owner);
-
-extern void SetSpatialData(AActorOpaque *actor,
-                           Vector3 position,
-                           Quaternion rotation,
-                           Vector3 scale);
-
-extern void GetSpatialData(const AActorOpaque *actor,
-                           Vector3 *position,
-                           Quaternion *rotation,
-                           Vector3 *scale);
-
-extern void SetEntityForActor(AActorOpaque *name, Entity entity);
-
-extern void GetActorComponents(const AActorOpaque *actor, ActorComponentPtr *data, uintptr_t *len);
-
-extern void GetRootComponent(const AActorOpaque *actor, USceneComponentOpague **data);
-
-extern void GetRegisteredClasses(UClassOpague **classes, uintptr_t *len);
-
-extern UClassOpague *GetClass(const AActorOpaque *actor);
-
-extern uint32_t IsMoveable(const AActorOpaque *actor);
-
-extern void GetActorName(const AActorOpaque *actor, RustAlloc *data);
-
-extern void DestroyActor(const AActorOpaque *actor);
-
-extern void SetViewTarget(const AActorOpaque *actor);
-
-extern uint32_t GetParentActor(const AActorOpaque *actor, AActorOpaque **parent);
-
-extern uint32_t SpawnActorWithClass(const UClassOpague *actor_class,
-                                    UnrealTransform transform,
-                                    ActorSpawnOptions options,
-                                    AActorOpaque **out);
-
-extern Vector3 GetVelocity(const UPrimtiveOpaque *primitive);
-
-extern void SetVelocity(UPrimtiveOpaque *primitive, Vector3 velocity);
-
-extern uint32_t IsSimulating(const UPrimtiveOpaque *primitive);
-
-extern void AddForce(UPrimtiveOpaque *actor, Vector3 force);
-
-extern void AddImpulse(UPrimtiveOpaque *actor, Vector3 force);
-
-extern uint32_t LineTrace(Vector3 start, Vector3 end, LineTraceParams params, HitResult *result);
-
-extern Vector3 GetBoundingBoxExtent(const UPrimtiveOpaque *primitive);
-
-extern uint32_t Sweep(Vector3 start,
-                      Vector3 end,
-                      Quaternion rotation,
-                      LineTraceParams params,
-                      CollisionShape collision_shape,
-                      HitResult *result);
-
-extern uint32_t SweepMulti(Vector3 start,
-                           Vector3 end,
-                           Quaternion rotation,
-                           LineTraceParams params,
-                           CollisionShape collision_shape,
-                           uintptr_t max_results,
-                           HitResult *results);
-
-extern uint32_t OverlapMulti(CollisionShape collision_shape,
-                             Vector3 position,
-                             Quaternion rotation,
-                             LineTraceParams params,
-                             uintptr_t max_results,
-                             OverlapResult *result);
-
-extern uint32_t GetCollisionShape(const UPrimtiveOpaque *primitive, CollisionShape *shape);
-
-extern void PlaySoundAtLocation(const USoundBaseOpague *sound,
-                                Vector3 location,
-                                Quaternion rotation,
-                                const SoundSettings *settings);
-
-extern void GetViewportSize(LocalPlayerId player, float *x, float *y);
-
-extern void SetMouseState(LocalPlayerId player, MouseState state);
-
-extern void GetMousePosition(LocalPlayerId player, float *x, float *y);
-
-} // extern "C"

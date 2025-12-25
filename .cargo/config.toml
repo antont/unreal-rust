@@ -1,6 +1,7 @@
 [target.x86_64-pc-windows-msvc]
-rustflags = [
-    "-C", "link-args=-fuse-ld=lld-link"
-]
+linker = "rust-lld.exe"
+# rustflags = [
+#     "-C", "link-args=-fuse-ld=lld-link"
+# ]
 [target.x86_64-pc-windows-gnu]
 rustflags = ["-C", "link-arg=-fuse-ld=lld"]
