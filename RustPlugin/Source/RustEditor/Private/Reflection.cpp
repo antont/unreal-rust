@@ -666,16 +666,32 @@ FRustReflection_UClass FRustReflection_UClass::FromClass(UClass* Class)
 	return ClassReflection;
 }
 
-FRustReflection_Enum FRustReflection_Enum::FromEnum(UEnum* Enum)
+FRustReflection_Enum FRustReflection_Enum::FromEnum(FRustReflection_EnumWithType& EnumWithType)
 {
 	FRustReflection_Enum ReflectionEnum;
 
-	ReflectionEnum.Name = Enum->GetName();
+	ReflectionEnum.Name = EnumWithType.Enum->GetName();
+	ReflectionEnum.Type = MoveTemp(EnumWithType.Type);
 
-	for (int32 i = 0; i < Enum->NumEnums(); ++i)
+	switch (EnumWithType.Enum->GetCppForm())
+	{
+	case UEnum::ECppForm::Regular:
+		ReflectionEnum.Kind = FString(TEXT("Regular"));
+		break;
+	case UEnum::ECppForm::Namespaced:
+		ReflectionEnum.Kind = FString(TEXT("Namespaced"));
+		break;
+	case UEnum::ECppForm::EnumClass:
+		ReflectionEnum.Kind = FString(TEXT("EnumClass"));
+		break;
+	}
+
+	for (int32 i = 0; i < EnumWithType.Enum->NumEnums(); ++i)
 	{
 		FRustReflection_EnumEntry Entry;
-		FString EnumName = Enum->GetNameStringByIndex(i);
+
+
+		FString EnumName = EnumWithType.Enum->GetNameStringByIndex(i);
 
 		if (EnumName.Contains(TEXT("_MAX")))
 		{
@@ -692,9 +708,9 @@ FRustReflection_Enum FRustReflection_Enum::FromEnum(UEnum* Enum)
 
 		Entry.Name = EnumName;
 
-		Entry.Value = Enum->GetValueByIndex(i);
+		Entry.Value = EnumWithType.Enum->GetValueByIndex(i);
 
-		FText Documentation = Enum->GetToolTipTextByIndex(i);
+		FText Documentation = EnumWithType.Enum->GetToolTipTextByIndex(i);
 		if (!Documentation.IsEmpty())
 		{
 			Entry.Documentation = Documentation;
@@ -704,6 +720,31 @@ FRustReflection_Enum FRustReflection_Enum::FromEnum(UEnum* Enum)
 	}
 
 	return ReflectionEnum;
+}
+
+TSharedPtr<FJsonObject> FRustReflection_Enum::ToJson()
+{
+	auto Json = MakeShared<FJsonObject>();
+	Json->SetStringField(TEXT("Name"), Name);
+	Json->SetObjectField(TEXT("Type"), Type->ToJson());
+	Json->SetStringField(TEXT("Kind"), Kind);
+
+	TArray<TSharedPtr<FJsonValue>> JsonEntries;
+
+	for (auto& Entry : Entries)
+	{
+		auto JsonEntry = MakeShared<FJsonObject>();
+		JsonEntry->SetStringField(TEXT("Name"), Entry.Name);
+		JsonEntry->SetNumberField(TEXT("Value"), Entry.Value);
+		if (Entry.Documentation.IsSet())
+		{
+			JsonEntry->SetStringField(TEXT("Documentation"), Entry.Documentation.GetValue().ToString());
+		}
+
+		JsonEntries.Add(MakeShared<FJsonValueObject>(JsonEntry));
+	}
+	Json->SetArrayField(TEXT("Entries"), JsonEntries);
+	return Json;
 }
 
 TSharedPtr<FJsonObject> FRustReflection_Function::ToJson()
@@ -716,7 +757,7 @@ TSharedPtr<FJsonObject> FRustReflection_Function::ToJson()
 	{
 		JsonFlags.Add(MakeShared<FJsonValueString>(Flag));
 	}
-	
+
 	Json->SetNumberField(TEXT("ParamSize"), ParamSize);
 
 	TArray<TSharedPtr<FJsonObject>> JsonParams;
@@ -725,7 +766,6 @@ TSharedPtr<FJsonObject> FRustReflection_Function::ToJson()
 		JsonParams.Add(Param.ToJson());
 	}
 
-	// 4. Metadata (Map: String -> String)
 	TSharedPtr<FJsonObject> JsonMetadata = MakeShared<FJsonObject>();
 	for (const auto& Elem : Metadata)
 	{
@@ -869,7 +909,7 @@ void FRustReflection_Root::ExportToJson_Classes(TSharedPtr<FJsonObject> Json)
 		{
 			continue;
 		}
-		
+
 		auto Class = FRustReflection_UClass::FromClass(*It);
 		JsonClasses.Add(MakeShared<FJsonValueObject>(Class.ToJson()));
 	}
@@ -902,10 +942,47 @@ void FRustReflection_Root::ExportToJson_Structs(TSharedPtr<FJsonObject> Json)
 
 void FRustReflection_Root::ExportToJson_Enum(TSharedPtr<FJsonObject> Json)
 {
-	for (TObjectIterator<UEnum> It; It; ++It)
+	// This is really dumb. I don't have the size or type of the enum for a UEnum. So I need
+	// to discover all the used enums which then allows me to get their size
+	// I should maybe check that all found sizes are the same
+	TSet<UEnum*> FoundEnums;
+	TArray<FRustReflection_EnumWithType> EnumsWithType;
+	for (TObjectIterator<UStruct> StructIter; StructIter; ++StructIter)
 	{
-		// Root.Enums.Add(FRustReflection_Enum::FromEnum(*It));
+		for (TFieldIterator<FProperty> FieldIter(*StructIter); FieldIter; ++FieldIter)
+		{
+			UEnum* Enum = nullptr;
+			TUniquePtr<RustReflection_Type> Type;
+			if (auto EnumProperty = CastField<FEnumProperty>(*FieldIter))
+			{
+				Enum = EnumProperty->GetEnum();
+				Type = FromProperty(EnumProperty->GetUnderlyingProperty());
+			}
+			if (auto* InnerProperty = CastField<FByteProperty>(*FieldIter))
+			{
+				Enum = InnerProperty->Enum;
+				Type = MakeConcreteType(TEXT("uint8"));
+			}
+
+			if (Enum != nullptr && !FoundEnums.Contains(Enum))
+			{
+				FRustReflection_EnumWithType EnumWithType;
+				EnumWithType.Enum = Enum;
+				EnumWithType.Type = MoveTemp(Type);
+				EnumsWithType.Add(MoveTemp(EnumWithType));
+				FoundEnums.Add(Enum);
+			}
+		}
 	}
+	
+	TArray<TSharedPtr<FJsonValue>> JsonEnums;
+	for (auto& EnumWithType : EnumsWithType)
+	{
+		auto Enum = FRustReflection_Enum::FromEnum(EnumWithType);
+		JsonEnums.Add(MakeShared<FJsonValueObject>(Enum.ToJson()));
+	}
+
+	Json->SetArrayField(TEXT("Enums"), JsonEnums);
 }
 
 void FRustReflection_Root::ExportToJson_GameplayTags(TSharedPtr<FJsonObject> Json)
@@ -933,7 +1010,7 @@ void FRustReflection_Root::ExportToJson_ConsoleVariables(TSharedPtr<FJsonObject>
 	// for (TObjectIterator<IConsoleObject> It; It; ++It)
 	// {
 	// 	IConsoleObject* Obj = *It;
- //        
+	//        
 	// 	// We only want Variables (CVars), not Commands (Funcs)
 	// 	if (IConsoleVariable* CVar = Obj->AsVariable())
 	// 	{
@@ -950,9 +1027,9 @@ FRustReflection_Root FRustReflection_Root::Collect()
 	FRustReflection_Root Root;
 	auto Json = MakeShared<FJsonObject>();
 
+	ExportToJson_Enum(Json);
 	ExportToJson_ConsoleVariables(Json);
 	ExportToJson_GameplayTags(Json);
-	ExportToJson_Enum(Json);
 	ExportToJson_Structs(Json);
 	ExportToJson_Classes(Json);
 
@@ -962,7 +1039,8 @@ FRustReflection_Root FRustReflection_Root::Collect()
 
 	FJsonSerializer::Serialize(Json, Writer);
 
-	FFileHelper::SaveStringToFile(OutputString, TEXT("C:\\Users\\maikk\\Documents\\unreal-rust\\api.json"));
+	FFileHelper::SaveStringToFile(OutputString, TEXT("C:\\Users\\maikk\\Documents\\unreal-rust\\api.json"),
+	                              FFileHelper::EEncodingOptions::ForceUTF8);
 
 	return Root;
 }

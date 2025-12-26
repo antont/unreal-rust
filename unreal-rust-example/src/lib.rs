@@ -1,11 +1,10 @@
 use std::collections::HashMap;
-use std::default;
 use std::ffi::c_void;
 
 use bevy_ecs::prelude::*;
 use unreal_api::api::UnrealApi;
 use unreal_api::core::{ActorHitEvent, Despawn};
-use unreal_api::ffi::{RustAlloc, StrRustAlloc, UFunctionOpague, Utf8Str};
+use unreal_api::ffi::{UFunctionOpague, Utf8Str};
 use unreal_api::registry::USound;
 use unreal_api::sound::{SoundSettings, play_sound_at_location};
 use unreal_api::{Component, register_editor_components};
@@ -339,9 +338,35 @@ fn update(query: Query<(Entity, &ActorComponent)>) {
         z: f64,
     }
 
+    #[repr(transparent)]
+    struct Property<T> {
+        m: std::marker::PhantomData<T>,
+    }
+
+    impl<T: Copy> Property<T> {
+        fn read(&self) -> T {
+            let ptr_self = self as *const Self;
+            unsafe { *ptr_self.cast::<T>() }
+        }
+    }
+    #[repr(C, align(8))]
+    struct Actor {
+        #[doc(hidden)]
+        __padding: [u8; 448],
+        net_update_frequency: Property<f32>,
+        net_update_frequency2: Property<f32>,
+    }
+
     for (_entity, actor) in query.iter() {
         let mut stack_alloc = StackAlloc::<24>::new();
         let actor_ptr = actor.actor.0;
+        let aactor_ptr = unsafe { actor.actor.0.cast::<Actor>().as_ref().unwrap() };
+        log::info!(
+            "{} and {} {}",
+            std::mem::offset_of!(Actor, net_update_frequency),
+            std::mem::offset_of!(Actor, net_update_frequency2),
+            aactor_ptr.net_update_frequency.read()
+        );
         let actor_class = unsafe { (bindings().actor_fns.get_class)(actor_ptr) };
         let fn_name = Utf8Str::from("K2_GetActorLocation");
 
@@ -355,7 +380,6 @@ fn update(query: Query<(Entity, &ActorComponent)>) {
             );
             (bindings().core_fns.process_event)(actor_ptr, fn_ptr, stack_alloc.buffer_mut());
             let data = *stack_alloc.buffer_mut().cast::<FVector>();
-            log::info!("{:?}", data);
             (bindings().core_fns.destroy_values_in_param_buffer)(fn_ptr, stack_alloc.buffer_mut());
             (bindings().core_fns.end_trace)();
         }

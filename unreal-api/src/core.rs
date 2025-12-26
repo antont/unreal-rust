@@ -164,33 +164,27 @@ pub unsafe extern "C" fn send_actor_event(
     uuid: ffi::Uuid,
     json: ffi::Utf8Str,
 ) {
-    unsafe {
-        let _ = std::panic::catch_unwind(|| {
-            with_global_mut(|global| {
-                if let Some(send_event) = global
+    let _ = std::panic::catch_unwind(|| {
+        with_global_mut(|global| {
+            if let Some(send_event) = global
+                .core
+                .module
+                .reflection_registry
+                .send_entity_event
+                .get(&from_ffi_uuid(uuid))
+            {
+                let api = global
                     .core
                     .module
-                    .reflection_registry
-                    .send_entity_event
-                    .get(&from_ffi_uuid(uuid))
-                {
-                    let api = global
-                        .core
-                        .module
-                        .world
-                        .get_resource::<UnrealApi>()
-                        .unwrap();
-                    let entity = *api.actor_to_entity.get(&ActorPtr(actor as _)).unwrap();
+                    .world
+                    .get_resource::<UnrealApi>()
+                    .unwrap();
+                let entity = *api.actor_to_entity.get(&ActorPtr(actor as _)).unwrap();
 
-                    send_event.send_entity_event(
-                        &mut global.core.module.world,
-                        entity,
-                        json.as_str(),
-                    );
-                }
-            });
+                send_event.send_entity_event(&mut global.core.module.world, entity, json.as_str());
+            }
         });
-    }
+    });
 }
 
 pub unsafe extern "C" fn unreal_event(ty: *const EventType, data: *const c_void) {

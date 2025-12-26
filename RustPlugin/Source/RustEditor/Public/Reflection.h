@@ -145,14 +145,24 @@ struct FRustReflection_EnumEntry
 	TOptional<FText> Documentation;
 };
 
+struct FRustReflection_EnumWithType
+{
+	UEnum* Enum;
+	TUniquePtr<RustReflection_Type> Type;
+};
+
 struct FRustReflection_Enum
 {
 	FString Name;
+	TUniquePtr<RustReflection_Type> Type;
+	FString Kind;
 
 	TArray<FRustReflection_EnumEntry> Entries;
 
-	static FRustReflection_Enum FromEnum(UEnum* Enum);
+	static FRustReflection_Enum FromEnum(FRustReflection_EnumWithType& EnumWithType);
+	TSharedPtr<FJsonObject> ToJson();
 };
+
 
 struct FRustReflection_Root
 {
