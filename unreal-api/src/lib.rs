@@ -2,6 +2,7 @@
 extern crate self as unreal_api;
 
 pub mod bindings;
+pub mod core_data;
 pub mod api;
 pub use unreal_ffi as ffi;
 pub mod core;

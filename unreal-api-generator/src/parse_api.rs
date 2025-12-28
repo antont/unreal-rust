@@ -4,7 +4,7 @@ use serde::{Deserialize, Serialize};
 // 1. Enums for Flags (The new part)
 // ---------------------------------------------------------
 
-#[derive(Debug, Serialize, Deserialize, PartialEq)]
+#[derive(Debug, Clone, Copy, Serialize, Deserialize, PartialEq)]
 pub enum StructFlag {
     Native,
     Atomic,
@@ -16,7 +16,7 @@ pub enum StructFlag {
     Unknown,
 }
 
-#[derive(Debug, Serialize, Deserialize, PartialEq)]
+#[derive(Debug, Clone, Copy, Serialize, Deserialize, PartialEq)]
 pub enum PropertyFlag {
     EditAnywhere,
     EditDefaultsOnly,
@@ -32,7 +32,7 @@ pub enum PropertyFlag {
     Unknown,
 }
 
-#[derive(Debug, Serialize, Deserialize, PartialEq)]
+#[derive(Debug, Clone, Copy, Serialize, Deserialize, PartialEq)]
 pub enum ClassFlag {
     Abstract,
     DefaultConfig,
@@ -47,7 +47,7 @@ pub enum ClassFlag {
     Unknown,
 }
 
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(tag = "Kind")]
 pub enum Type {
     Concrete {
@@ -68,7 +68,7 @@ pub enum Type {
     },
 }
 
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct Property {
     #[serde(rename = "Name")]
     pub name: String,
@@ -76,7 +76,6 @@ pub struct Property {
     #[serde(rename = "Type")]
     pub data_type: Type,
 
-    // CHANGED: Now a Vec of Enums instead of Strings
     #[serde(rename = "Flags", default)]
     pub flags: Vec<PropertyFlag>,
 
@@ -115,7 +114,34 @@ pub struct EnumDefinition {
     pub entries: Vec<EnumDefinitionEntry>,
 }
 
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct ParameterDefinition {
+    #[serde(rename = "Name")]
+    pub name: String,
+    #[serde(rename = "Type")]
+    pub ty: Type,
+    #[serde(rename = "Documentation", default)]
+    pub documentation: Option<String>,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct Function {
+    #[serde(rename = "FunctionName")]
+    pub function_name: String,
+
+    // #[serde(rename = "Flags", default)]
+    // pub flags: Vec<StructFlag>,
+    #[serde(rename = "ParamSize")]
+    pub param_size: u16,
+
+    #[serde(rename = "Parameters")]
+    pub parameters: Vec<ParameterDefinition>,
+
+    #[serde(rename = "Documentation", default)]
+    pub documentation: Option<String>,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct StructDefinition {
     #[serde(rename = "StructName")]
     pub struct_name: String,
@@ -166,6 +192,9 @@ pub struct ClassDefinition {
 
     #[serde(rename = "Properties", default)]
     pub properties: Vec<Property>,
+
+    #[serde(rename = "Functions", default)]
+    pub functions: Vec<Function>,
 
     #[serde(rename = "Documentation", default)]
     pub documentation: Option<String>,

@@ -505,9 +505,7 @@ TUniquePtr<RustReflection_Type> FromProperty(FProperty* Property)
 	{
 		if (InnerProperty->Enum != nullptr)
 		{
-			return MakeContainerType(
-				TEXT("TEnumAsByte"),
-				MakeConcreteType(InnerProperty->Enum.GetName()));
+			return MakeConcreteType(InnerProperty->Enum.GetName());
 		}
 
 		return MakeConcreteType(TEXT("uint8"));
@@ -750,7 +748,7 @@ TSharedPtr<FJsonObject> FRustReflection_Enum::ToJson()
 TSharedPtr<FJsonObject> FRustReflection_Function::ToJson()
 {
 	auto Json = MakeShared<FJsonObject>();
-	Json->SetStringField(TEXT("Name"), Name);
+	Json->SetStringField(TEXT("FunctionName"), Name);
 
 	TArray<TSharedPtr<FJsonValue>> JsonFlags;
 	for (const FString& Flag : FunctionFlags)
@@ -760,11 +758,13 @@ TSharedPtr<FJsonObject> FRustReflection_Function::ToJson()
 
 	Json->SetNumberField(TEXT("ParamSize"), ParamSize);
 
-	TArray<TSharedPtr<FJsonObject>> JsonParams;
+	TArray<TSharedPtr<FJsonValue>> JsonParams;
 	for (auto& Param : Parameters)
 	{
-		JsonParams.Add(Param.ToJson());
+		JsonParams.Add(MakeShared<FJsonValueObject>(Param.ToJson()));
 	}
+
+	Json->SetArrayField(TEXT("Parameters"), JsonParams);
 
 	TSharedPtr<FJsonObject> JsonMetadata = MakeShared<FJsonObject>();
 	for (const auto& Elem : Metadata)
@@ -892,6 +892,14 @@ TSharedPtr<FJsonObject> FRustReflection_UClass::ToJson()
 
 	Json->SetArrayField(TEXT("Properties"), JsonProperties);
 
+	TArray<TSharedPtr<FJsonValue>> JsonFunctions;
+	for (auto& Function : Functions)
+	{
+		JsonFunctions.Add(MakeShared<FJsonValueObject>(Function.ToJson()));
+	}
+
+	Json->SetArrayField(TEXT("Functions"), JsonFunctions);
+
 	if (Documentation.IsSet())
 	{
 		Json->SetStringField(TEXT("Documentation"), Documentation.GetValue().ToString());
@@ -920,18 +928,11 @@ void FRustReflection_Root::ExportToJson_Classes(TSharedPtr<FJsonObject> Json)
 void FRustReflection_Root::ExportToJson_Structs(TSharedPtr<FJsonObject> Json)
 {
 	TArray<TSharedPtr<FJsonValue>> JsonStructs;
-	for (TObjectIterator<UStruct> It; It; ++It)
+	for (TObjectIterator<UScriptStruct> It; It; ++It)
 	{
-		if (It->IsA<UClass>())
+		if (!It->IsNative())
 		{
 			continue;
-		}
-		if (UScriptStruct* ScriptStruct = Cast<UScriptStruct>(*It))
-		{
-			if (!ScriptStruct->IsNative())
-			{
-				continue;
-			}
 		}
 
 		auto Struct = FRustReflection_UStruct::FromStruct(*It);
@@ -974,7 +975,7 @@ void FRustReflection_Root::ExportToJson_Enum(TSharedPtr<FJsonObject> Json)
 			}
 		}
 	}
-	
+
 	TArray<TSharedPtr<FJsonValue>> JsonEnums;
 	for (auto& EnumWithType : EnumsWithType)
 	{
