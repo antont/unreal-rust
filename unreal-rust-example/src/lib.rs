@@ -371,16 +371,32 @@ fn update(query: Query<(Entity, &ActorComponent)>) {
         let fn_name = Utf8Str::from("K2_GetActorLocation");
 
         let mut fn_ptr: *mut UFunctionOpague = std::ptr::null_mut();
+
+        #[repr(C)]
+        struct Params
+        {
+            out: FVector
+        }
+
         unsafe {
+            let mut params = Params{
+                out: FVector {x: 0.0, y: 0.0, z: 0.0}
+            };
+
             (bindings().core_fns.begin_trace)(c"MyGetActorLocation".as_ptr());
             (bindings().core_fns.find_function_by_name)(actor_class, fn_name, &raw mut fn_ptr);
-            (bindings().core_fns.initialize_values_in_param_buffer)(
-                fn_ptr,
-                stack_alloc.buffer_mut(),
-            );
-            (bindings().core_fns.process_event)(actor_ptr, fn_ptr, stack_alloc.buffer_mut());
-            let data = *stack_alloc.buffer_mut().cast::<FVector>();
-            (bindings().core_fns.destroy_values_in_param_buffer)(fn_ptr, stack_alloc.buffer_mut());
+            // (bindings().core_fns.initialize_values_in_param_buffer)(
+            //     fn_ptr,
+            //     stack_alloc.buffer_mut(),
+            // );
+            (bindings().core_fns.process_event)(actor_ptr, fn_ptr, &mut params as *mut _ as *mut c_void);
+            // (bindings().core_fns.process_event)(actor_ptr, fn_ptr, stack_alloc.buffer_mut());
+            // let data = *stack_alloc.buffer_mut().cast::<FVector>();
+            // (bindings().core_fns.destroy_values_in_param_buffer)(fn_ptr, stack_alloc.buffer_mut());
+            //
+            //
+            log::warn!("{:?}", params.out);
+
             (bindings().core_fns.end_trace)();
         }
     }

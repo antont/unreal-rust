@@ -345,10 +345,11 @@ TSharedPtr<FJsonObject> RustReflection_MapType::ToJson()
 	return Json;
 }
 
-TUniquePtr<RustReflection_ConcreteType> MakeConcreteType(FString Name)
+TUniquePtr<RustReflection_ConcreteType> MakeConcreteType(FString Name, TOptional<FString> Hint)
 {
 	auto Type = MakeUnique<RustReflection_ConcreteType>();
 	Type->TypeName = Name;
+	Type->Hint = Hint;
 
 	return Type;
 }
@@ -384,17 +385,33 @@ TUniquePtr<RustReflection_Type> FromProperty(FProperty* Property)
 
 	if (auto* ObjectProperty = CastField<FObjectProperty>(Property))
 	{
-		return MakeConcreteType(GetCppNameFromUClass(ObjectProperty->PropertyClass));
+		return MakeConcreteType(GetCppNameFromUClass(ObjectProperty->PropertyClass),
+		                        TOptional<FString>(TEXT("UObject")));
 	}
 
 	if (auto* InnerProperty = CastField<FBoolProperty>(Property))
 	{
-		return MakeConcreteType(TEXT("bool"));
+		if (InnerProperty->IsNativeBool())
+		{
+			return MakeConcreteType(TEXT("bool"));
+		}
+		else
+		{
+			auto Bitfield = MakeUnique<RustReflection_Bitfield>();
+			Bitfield->Offset = InnerProperty->GetByteOffset();
+			Bitfield->FieldMask = InnerProperty->GetFieldMask();
+			return Bitfield;
+		}
 	}
 
 	if (auto* InnerProperty = CastField<FStrProperty>(Property))
 	{
 		return MakeConcreteType(TEXT("FString"));
+	}
+
+	if (auto* InnerProperty = CastField<FAnsiStrProperty>(Property))
+	{
+		return MakeConcreteType(TEXT("FAnsiString"));
 	}
 
 	if (auto* InnerProperty = CastField<FStructProperty>(Property))
@@ -427,7 +444,7 @@ TUniquePtr<RustReflection_Type> FromProperty(FProperty* Property)
 
 	if (auto* InnerProperty = CastField<FEnumProperty>(Property))
 	{
-		return MakeConcreteType(InnerProperty->GetNameCPP());
+		return MakeConcreteType(InnerProperty->GetEnum()->CppType);
 	}
 
 	if (auto* InnerProperty = CastField<FOptionalProperty>(Property))
@@ -487,18 +504,18 @@ TUniquePtr<RustReflection_Type> FromProperty(FProperty* Property)
 
 	if (auto* InnerProperty = CastField<FMulticastDelegateProperty>(Property))
 	{
-		auto SignatureName = InnerProperty->SignatureFunction.GetName();
-		SignatureName.RemoveFromEnd(TEXT("__DelegateSignature"));
-
-		return MakeConcreteType(FString::Printf(TEXT("F%s"), *SignatureName));
+		auto OwningProperty = InnerProperty->GetOwnerStruct();
+		auto SignatureName = InnerProperty->GetName();
+		// SignatureName.RemoveFromEnd(TEXT("Delegate"));
+		return MakeConcreteType(FString::Printf(TEXT("F%s_%s"), *OwningProperty->GetName(), *SignatureName));
 	}
 
 	if (auto* InnerProperty = CastField<FDelegateProperty>(Property))
 	{
-		auto SignatureName = InnerProperty->SignatureFunction.GetName();
-		SignatureName.RemoveFromEnd(TEXT("__DelegateSignature"));
-
-		return MakeConcreteType(FString::Printf(TEXT("F%s"), *SignatureName));
+		auto OwningProperty = InnerProperty->GetOwnerStruct();
+		auto SignatureName = InnerProperty->GetName();
+		// SignatureName.RemoveFromEnd(TEXT("Delegate"));
+		return MakeConcreteType(FString::Printf(TEXT("F%s_%s"), *OwningProperty->GetName(), *SignatureName));
 	}
 
 	if (auto* InnerProperty = CastField<FByteProperty>(Property))
@@ -514,9 +531,8 @@ TUniquePtr<RustReflection_Type> FromProperty(FProperty* Property)
 	if (auto* InnerProperty = CastField<FNumericProperty>(Property))
 	{
 		return MakeConcreteType(InnerProperty->GetCPPType(nullptr, 0));
-	}
-
-	return MakeConcreteType(TEXT("GeneratorInvalidType"));
+	};
+	return MakeConcreteType(FString::Format(TEXT("GeneratorInvalid_ {0}"), {*Property->GetNameCPP()}));
 }
 
 FRustReflection_Property FRustReflection_Property::FromProperty(FProperty* Property)
@@ -541,7 +557,20 @@ TSharedPtr<FJsonObject> RustReflection_ConcreteType::ToJson()
 	auto Json = MakeShared<FJsonObject>();
 	Json->SetStringField(TEXT("Kind"), TEXT("Concrete"));
 	Json->SetStringField(TEXT("TypeName"), TypeName);
+	if (Hint.IsSet())
+	{
+		Json->SetStringField(TEXT("UsageHint"), Hint.GetValue());
+	}
 
+	return Json;
+}
+
+TSharedPtr<FJsonObject> RustReflection_Bitfield::ToJson()
+{
+	auto Json = MakeShared<FJsonObject>();
+	Json->SetStringField(TEXT("Kind"), TEXT("Bitfield"));
+	Json->SetNumberField(TEXT("Offset"), Offset);
+	Json->SetNumberField(TEXT("FieldMask"), FieldMask);
 	return Json;
 }
 
@@ -580,7 +609,7 @@ FRustReflection_Function FRustReflection_Function::FromFunction(UFunction* Funct
 
 	ReflectionFunction.Name = Function->GetName();
 	ReflectionFunction.FunctionFlags = GetFunctionFlagStrings(Function);
-	ReflectionFunction.Metadata = GetAllMetadata(Function);
+	// ReflectionFunction.Metadata = GetAllMetadata(Function);
 	ReflectionFunction.ParamSize = Function->ParmsSize;
 
 	for (TFieldIterator<FProperty> ParamIt(Function); ParamIt; ++ParamIt)
@@ -670,6 +699,7 @@ FRustReflection_Enum FRustReflection_Enum::FromEnum(FRustReflection_EnumWithType
 
 	ReflectionEnum.Name = EnumWithType.Enum->GetName();
 	ReflectionEnum.Type = MoveTemp(EnumWithType.Type);
+	ReflectionEnum.Metadata = GetAllMetadata(EnumWithType.Enum);
 
 	switch (EnumWithType.Enum->GetCppForm())
 	{
@@ -696,14 +726,14 @@ FRustReflection_Enum FRustReflection_Enum::FromEnum(FRustReflection_EnumWithType
 			continue;
 		}
 
-		FString Left;
-		FString Right;
-
-		if (EnumName.Split(TEXT("_"), &Left, &Right) && !Right.IsEmpty())
-		{
-			EnumName = *Right;
-		}
-
+		// FString Left;
+		// FString Right;
+		//
+		// if (EnumName.Split(TEXT("_"), &Left, &Right) && !Right.IsEmpty())
+		// {
+		// 	EnumName = *Right;
+		// }
+		//
 		Entry.Name = EnumName;
 
 		Entry.Value = EnumWithType.Enum->GetValueByIndex(i);
@@ -741,8 +771,40 @@ TSharedPtr<FJsonObject> FRustReflection_Enum::ToJson()
 
 		JsonEntries.Add(MakeShared<FJsonValueObject>(JsonEntry));
 	}
+
+	WriteMetadataField(Json, Metadata);
 	Json->SetArrayField(TEXT("Entries"), JsonEntries);
 	return Json;
+}
+
+TSharedPtr<FJsonObject> FRustReflection_Opague::ToJson()
+{
+	TSharedPtr<FJsonObject> Json = MakeShared<FJsonObject>();
+	Json->SetStringField(TEXT("Name"), Name);
+	Json->SetNumberField(TEXT("Alignment"), Alignment);
+	Json->SetNumberField(TEXT("Size"), Size);
+	return Json;
+}
+
+TSharedPtr<FJsonObject> FRustReflection_Delegate::ToJson()
+{
+	TSharedPtr<FJsonObject> Json = MakeShared<FJsonObject>();
+	Json->SetStringField(TEXT("Name"), Name);
+	Json->SetStringField(TEXT("Namespace"), Namespace);
+	Json->SetStringField(TEXT("Kind"), Kind);
+	Json->SetObjectField(TEXT("Function"), Function.ToJson());
+	return Json;
+}
+
+void WriteMetadataField(TSharedRef<FJsonObject> Json, TMap<FString, FString>& Metadata)
+{
+	TSharedPtr<FJsonObject> JsonMetadata = MakeShared<FJsonObject>();
+	for (const auto& Elem : Metadata)
+	{
+		JsonMetadata->SetStringField(Elem.Key, Elem.Value);
+	}
+
+	Json->SetObjectField(TEXT("Metadata"), JsonMetadata);
 }
 
 TSharedPtr<FJsonObject> FRustReflection_Function::ToJson()
@@ -766,13 +828,7 @@ TSharedPtr<FJsonObject> FRustReflection_Function::ToJson()
 
 	Json->SetArrayField(TEXT("Parameters"), JsonParams);
 
-	TSharedPtr<FJsonObject> JsonMetadata = MakeShared<FJsonObject>();
-	for (const auto& Elem : Metadata)
-	{
-		JsonMetadata->SetStringField(Elem.Key, Elem.Value);
-	}
-
-	Json->SetObjectField(TEXT("Metadata"), JsonMetadata);
+	WriteMetadataField(Json, Metadata);
 
 	if (Documentation.IsSet())
 	{
@@ -941,6 +997,130 @@ void FRustReflection_Root::ExportToJson_Structs(TSharedPtr<FJsonObject> Json)
 	Json->SetArrayField(TEXT("Structs"), JsonStructs);
 }
 
+static FProperty* FindPropertyRecursive(
+	FProperty* Prop,
+	TFunctionRef<bool(FProperty* /*Current*/)> Predicate)
+{
+	if (!Prop)
+		return nullptr;
+
+	if (Predicate(Prop))
+		return Prop;
+
+	if (FArrayProperty* Arr = CastField<FArrayProperty>(Prop))
+		return FindPropertyRecursive(Arr->Inner, Predicate);
+
+	if (FSetProperty* Set = CastField<FSetProperty>(Prop))
+		return FindPropertyRecursive(Set->ElementProp, Predicate);
+
+	if (FMapProperty* Map = CastField<FMapProperty>(Prop))
+	{
+		if (FProperty* Found = FindPropertyRecursive(Map->KeyProp, Predicate))
+			return Found;
+
+		if (FProperty* Found = FindPropertyRecursive(Map->ValueProp, Predicate))
+			return Found;
+
+		return nullptr;
+	}
+
+	if (FStructProperty* StructProp = CastField<FStructProperty>(Prop))
+	{
+		UStruct* Struct = StructProp->Struct;
+		for (FProperty* Field = Struct->PropertyLink; Field; Field = Field->PropertyLinkNext)
+		{
+			if (FProperty* Found = FindPropertyRecursive(Field, Predicate))
+				return Found;
+		}
+		return nullptr;
+	}
+
+	if (FDelegateProperty* Del = CastField<FDelegateProperty>(Prop))
+	{
+		if (UFunction* Sig = Del->SignatureFunction)
+		{
+			for (FProperty* P = Sig->PropertyLink; P; P = P->PropertyLinkNext)
+			{
+				if (FProperty* Found = FindPropertyRecursive(P, Predicate))
+					return Found;
+			}
+		}
+		return nullptr;
+	}
+
+	if (FMulticastDelegateProperty* Multi = CastField<FMulticastDelegateProperty>(Prop))
+	{
+		if (UFunction* Sig = Multi->SignatureFunction)
+		{
+			for (FProperty* P = Sig->PropertyLink; P; P = P->PropertyLinkNext)
+			{
+				if (FProperty* Found = FindPropertyRecursive(P, Predicate))
+					return Found;
+			}
+		}
+		return nullptr;
+	}
+
+	return nullptr;
+}
+
+void FRustReflection_Root::ExportToJson_Delegates(TSharedPtr<FJsonObject> Json)
+{
+	TArray<FRustReflection_Delegate> Delegates;
+	for (TObjectIterator<UStruct> StructIter; StructIter; ++StructIter)
+	{
+		UStruct* Struct = *StructIter;
+
+		for (TFieldIterator<FProperty> FieldIter(Struct, EFieldIteratorFlags::ExcludeSuper); FieldIter; ++
+		     FieldIter)
+		{
+			FProperty* DelegateProperty = FindPropertyRecursive(*FieldIter, [](FProperty* P)
+			{
+				return P->IsA<FDelegateProperty>() || P->IsA<FMulticastDelegateProperty>();
+			});
+
+			if (DelegateProperty == nullptr)
+			{
+				continue;
+			}
+
+			if (auto InnerProperty = CastField<FMulticastDelegateProperty>(DelegateProperty))
+			{
+				FRustReflection_Delegate Delegate;
+				Delegate.Name = FString::Format(TEXT("F{0}_{1}"), {
+					                                *Struct->GetName(), InnerProperty->GetName()
+				                                });
+				Delegate.Namespace = Struct->GetName();
+				Delegate.Kind = TEXT("Multicast");
+				Delegate.Function = FRustReflection_Function::FromFunction(
+					InnerProperty->SignatureFunction.Get());
+				Delegates.Add(MoveTemp(Delegate));
+			}
+
+			if (auto* InnerProperty = CastField<FDelegateProperty>(DelegateProperty))
+			{
+				FRustReflection_Delegate Delegate;
+				Delegate.Name = FString::Format(TEXT("F{0}_{1}"), {
+					                                *Struct->GetName(), InnerProperty->GetName()
+				                                });
+				Delegate.Namespace = Struct->GetName();
+				Delegate.Kind = TEXT("Single");
+				Delegate.Function = FRustReflection_Function::FromFunction(
+					InnerProperty->SignatureFunction.Get());
+				Delegates.Add(MoveTemp(Delegate));
+			}
+		}
+	};
+
+	TArray<TSharedPtr<FJsonValue>> JsonDelegates;
+	for (auto& Delegate : Delegates)
+	{
+		JsonDelegates.Add(MakeShared<FJsonValueObject>(Delegate.ToJson()));
+	}
+
+	Json->SetArrayField(TEXT("DelegateDefinitions"), JsonDelegates);
+}
+
 void FRustReflection_Root::ExportToJson_Enum(TSharedPtr<FJsonObject> Json)
 {
 	// This is really dumb. I don't have the size or type of the enum for a UEnum. So I need
@@ -950,16 +1130,36 @@ void FRustReflection_Root::ExportToJson_Enum(TSharedPtr<FJsonObject> Json)
 	TArray<FRustReflection_EnumWithType> EnumsWithType;
 	for (TObjectIterator<UStruct> StructIter; StructIter; ++StructIter)
 	{
-		for (TFieldIterator<FProperty> FieldIter(*StructIter); FieldIter; ++FieldIter)
+		for (TFieldIterator<FProperty> FieldIter(*StructIter, EFieldIteratorFlags::ExcludeSuper); FieldIter; ++
+		     FieldIter)
 		{
+			FProperty* FoundEnumProperty = FindPropertyRecursive(*FieldIter, [](FProperty* P)
+			{
+				if (P->IsA<FEnumProperty>())
+				{
+					return true;
+				}
+
+				if (auto* InnerProperty = CastField<FByteProperty>(P))
+				{
+					if (InnerProperty->Enum != nullptr)
+					{
+						return true;
+					}
+				}
+				return false;
+			});
+
 			UEnum* Enum = nullptr;
 			TUniquePtr<RustReflection_Type> Type;
-			if (auto EnumProperty = CastField<FEnumProperty>(*FieldIter))
+
+			if (auto EnumProperty = CastField<FEnumProperty>(FoundEnumProperty))
 			{
 				Enum = EnumProperty->GetEnum();
 				Type = FromProperty(EnumProperty->GetUnderlyingProperty());
 			}
-			if (auto* InnerProperty = CastField<FByteProperty>(*FieldIter))
+
+			if (auto* InnerProperty = CastField<FByteProperty>(FoundEnumProperty))
 			{
 				Enum = InnerProperty->Enum;
 				Type = MakeConcreteType(TEXT("uint8"));
@@ -1023,16 +1223,32 @@ void FRustReflection_Root::ExportToJson_ConsoleVariables(TSharedPtr<FJsonObject>
 	// Json->SetArrayField(TEXT("ConsoleVariables"), JsonVariablesArray);
 }
 
+void FRustReflection_Root::ExportToJson_OpagueTypes(TSharedPtr<FJsonObject> Json)
+{
+	TArray<TSharedPtr<FJsonValue>> JsonArray;
+
+	FRustReflection_Opague Text;
+	Text.Name = TEXT("FText");
+	Text.Alignment = alignof(FText);
+	Text.Size = sizeof(FText);
+
+	JsonArray.Add(MakeShared<FJsonValueObject>(Text.ToJson()));
+
+	Json->SetArrayField(TEXT("OpagueDefinitions"), JsonArray);
+}
+
 FRustReflection_Root FRustReflection_Root::Collect()
 {
 	FRustReflection_Root Root;
 	auto Json = MakeShared<FJsonObject>();
 
-	ExportToJson_Enum(Json);
-	ExportToJson_ConsoleVariables(Json);
-	ExportToJson_GameplayTags(Json);
-	ExportToJson_Structs(Json);
-	ExportToJson_Classes(Json);
+	TIME_SCOPE("ExportToJson_OpagueTypes", ExportToJson_OpagueTypes(Json));
+	TIME_SCOPE("ExportToJson_Delegates", ExportToJson_Delegates(Json));
+	TIME_SCOPE("ExportToJson_Enum", ExportToJson_Enum(Json));
+	TIME_SCOPE("ExportToJson_ConsoleVariables", ExportToJson_ConsoleVariables(Json));
+	TIME_SCOPE("ExportToJson_GameplayTags", ExportToJson_GameplayTags(Json));
+	TIME_SCOPE("ExportToJson_Structs", ExportToJson_Structs(Json));
+	TIME_SCOPE("ExportToJson_Classes", ExportToJson_Classes(Json));
 
 	FString OutputString;
 

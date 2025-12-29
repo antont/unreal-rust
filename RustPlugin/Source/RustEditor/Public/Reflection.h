@@ -5,6 +5,14 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 
+#define TIME_SCOPE(Name, Expr) \
+{ \
+const double StartTime = FPlatformTime::Seconds(); \
+Expr; \
+const double EndTime = FPlatformTime::Seconds(); \
+UE_LOG(LogTemp, Display, TEXT("%s took %.3f s\n"), TEXT(Name), (EndTime - StartTime)); \
+}
+
 struct RustReflection_Type
 {
 	virtual ~RustReflection_Type() = default;
@@ -30,6 +38,13 @@ struct FRustReflection_Property
 struct RustReflection_ConcreteType : public RustReflection_Type
 {
 	FString TypeName;
+	TOptional<FString> Hint;
+	virtual TSharedPtr<FJsonObject> ToJson() override;
+};
+struct RustReflection_Bitfield : public RustReflection_Type
+{
+	uint8 Offset;
+	uint8 FieldMask;
 	virtual TSharedPtr<FJsonObject> ToJson() override;
 };
 
@@ -50,7 +65,8 @@ struct RustReflection_MapType : public RustReflection_Type
 	virtual TSharedPtr<FJsonObject> ToJson() override;
 };
 
-static TUniquePtr<RustReflection_ConcreteType> MakeConcreteType(FString Name);
+static TUniquePtr<RustReflection_ConcreteType> MakeConcreteType(FString Name,
+                                                                TOptional<FString> Hint = TOptional<FString>());
 static TUniquePtr<RustReflection_ContainerType> MakeContainerType(FString ContainerTypeName,
                                                                   TUniquePtr<RustReflection_Type> InnerType);
 static TUniquePtr<RustReflection_Type> FromProperty(FProperty* Property);
@@ -77,7 +93,7 @@ struct FRustReflection_Function
 	FString Name;
 
 	TArray<FString> FunctionFlags;
-	
+
 	uint16 ParamSize;
 
 	TArray<FRustReflection_Param> Parameters;
@@ -157,12 +173,32 @@ struct FRustReflection_Enum
 	TUniquePtr<RustReflection_Type> Type;
 	FString Kind;
 
+	TMap<FString, FString> Metadata;
+
 	TArray<FRustReflection_EnumEntry> Entries;
 
 	static FRustReflection_Enum FromEnum(FRustReflection_EnumWithType& EnumWithType);
 	TSharedPtr<FJsonObject> ToJson();
 };
 
+struct FRustReflection_Opague
+{
+	FString Name;
+	int32 Size;
+	int16 Alignment;
+	TSharedPtr<FJsonObject> ToJson();
+};
+
+struct FRustReflection_Delegate
+{
+	FString Name;
+	FString Namespace;
+	FString Kind;
+	FRustReflection_Function Function;
+	TSharedPtr<FJsonObject> ToJson();
+};
+
+static void WriteMetadataField(TSharedRef<FJsonObject> Json, TMap<FString, FString>& Metadata);
 
 struct FRustReflection_Root
 {
@@ -179,7 +215,9 @@ struct FRustReflection_Root
 	static FRustReflection_Root Collect();
 	static void ExportToJson_Classes(TSharedPtr<FJsonObject> Json);
 	static void ExportToJson_Structs(TSharedPtr<FJsonObject> Json);
+	static void ExportToJson_Delegates(TSharedPtr<FJsonObject> Json);
 	static void ExportToJson_Enum(TSharedPtr<FJsonObject> Json);
 	static void ExportToJson_GameplayTags(TSharedPtr<FJsonObject> Json);
 	static void ExportToJson_ConsoleVariables(TSharedPtr<FJsonObject> Json);
+	static void ExportToJson_OpagueTypes(TSharedPtr<FJsonObject> Json);
 };

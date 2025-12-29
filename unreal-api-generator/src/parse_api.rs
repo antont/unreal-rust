@@ -47,12 +47,19 @@ pub enum ClassFlag {
     Unknown,
 }
 
+#[derive(Debug, Copy, Clone, Serialize, Deserialize)]
+pub enum TypeUsageHint {
+    UObject,
+}
+
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(tag = "Kind")]
 pub enum Type {
     Concrete {
         #[serde(rename = "TypeName")]
         type_name: String,
+        #[serde(rename = "UsageHint")]
+        usage_hint: Option<TypeUsageHint>,
     },
     Container {
         #[serde(rename = "ContainerTypeName")]
@@ -65,6 +72,12 @@ pub enum Type {
         key_type: Box<Type>,
         #[serde(rename = "ValueType")]
         value_type: Box<Type>,
+    },
+    Bitfield {
+        #[serde(rename = "Offset")]
+        offset: u8,
+        #[serde(rename = "FieldMask")]
+        field_maks: u8
     },
 }
 
@@ -87,11 +100,39 @@ pub struct Property {
 }
 
 #[derive(Debug, Serialize, Deserialize)]
+pub enum DelegateKind {
+    Single,
+    Multicast,
+}
+
+#[derive(Debug, Serialize, Deserialize)]
+pub struct DelegateDefinition {
+    #[serde(rename = "Name")]
+    pub name: String,
+    #[serde(rename = "Kind")]
+    pub kind: DelegateKind,
+    #[serde(rename = "Function")]
+    pub function: Function,
+}
+
+#[derive(Debug, Serialize, Deserialize)]
+pub struct OpagueDefinition {
+    #[serde(rename = "Name")]
+    pub name: String,
+    #[serde(rename = "Alignment")]
+    pub alignment: u32,
+    #[serde(rename = "Size")]
+    pub size: u32,
+}
+
+#[derive(Debug, Serialize, Deserialize)]
 pub struct EnumDefinitionEntry {
     #[serde(rename = "Name")]
     pub name: String,
     #[serde(rename = "Value")]
     pub value: i64,
+    #[serde(rename = "Documentation")]
+    pub documentation: Option<String>,
 }
 
 #[derive(Debug, Serialize, Deserialize)]
@@ -219,4 +260,8 @@ pub struct Api {
     pub classes: Vec<ClassDefinition>,
     #[serde(rename = "Enums", default)]
     pub enums: Vec<EnumDefinition>,
+    #[serde(rename = "OpagueDefinitions", default)]
+    pub opague_defs: Vec<OpagueDefinition>,
+    #[serde(rename = "DelegateDefinitions", default)]
+    pub delegate_defs: Vec<DelegateDefinition>,
 }
