@@ -1,0 +1,9 @@
+#![allow(dead_code)]
+#![allow(unused_imports)]
+#![allow(unused_variables)]
+#![allow(non_camel_case_types)]
+pub use crate::bindings::prelude::*;
+pub struct UTakeRecorderNamingTokens {
+    pub take_meta_data: TWeakObjectPtr<UTakeMetaData>,
+    pub context: UPtr<UTakeRecorderNamingTokensContext>,
+}

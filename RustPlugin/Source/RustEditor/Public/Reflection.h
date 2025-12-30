@@ -136,6 +136,7 @@ struct FRustReflection_UClass
 	TOptional<FString> SuperClassName;
 
 	TArray<FString> ClassFlags;
+	bool bIsInterface = false;
 
 	FString Package;
 

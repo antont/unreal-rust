@@ -82,6 +82,9 @@ pub struct FMapProperty;
 pub struct FInt64Property;
 pub struct FDoubleProperty;
 pub struct FProperty;
+pub struct FStructProperty;
+pub struct FArrayProperty;
+pub struct FMulticastDelegateProperty;
 
 #[repr(C)]
 pub struct TSubclassOf<T> {
@@ -102,6 +105,12 @@ pub struct TSoftObjectPtr<T> {
 }
 
 #[repr(transparent)]
+pub struct TLazyObjectPtr<T> {
+    // TODO: Layout
+    _marker: std::marker::PhantomData<T>,
+}
+
+#[repr(transparent)]
 pub struct FUtf8String {
     // TODO: Layout
 }
@@ -109,4 +118,17 @@ pub struct FUtf8String {
 #[repr(transparent)]
 pub struct FAnsiString {
     // TODO: Layout
+}
+
+#[repr(C)]
+pub struct FScriptInterface {
+    pub object: *mut c_void,
+    pub interface: *mut c_void,
+}
+
+#[repr(transparent)]
+pub struct TScriptInterface<T>
+{
+    interface: FScriptInterface,
+    _marker: std::marker::PhantomData<T>,
 }

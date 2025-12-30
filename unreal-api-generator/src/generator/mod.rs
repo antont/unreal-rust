@@ -11,7 +11,7 @@ use syn::Ident;
 
 use crate::parse_api::{
     Api, ClassDefinition, DelegateDefinition, EnumDefinition, OpagueDefinition, Property,
-    StructDefinition, Type, TypeUsageHint,
+    PropertyFlag, StructDefinition, Type, TypeUsageHint,
 };
 
 struct Context {
@@ -77,18 +77,26 @@ pub fn generate_class(
         .last()
         .unwrap()
         .to_snake_case();
-    let properties: Vec<TokenStream> = generate_properties(&class_def.properties);
-    let q = quote! {
-        pub struct #class_name {
-            #(
-                #properties,
-            )*
+
+    let tokens = if class_def.is_interface {
+        let interface_name = format_ident!("I{}", class_def.class_name.trim_start_matches("U"));
+        quote! {
+            pub struct #class_name {
+            }
+            pub struct #interface_name {
+            }
         }
-        // trait #trait_name {
-        //
-        // }
+    } else {
+        let properties: Vec<TokenStream> = generate_properties(&class_def.properties);
+        quote! {
+            pub struct #class_name {
+                #(
+                    #properties,
+                )*
+            }
+        }
     };
-    Ok((module_name, q))
+    Ok((module_name, tokens))
 }
 
 pub fn generate_type(ty: &Type) -> Result<TokenStream, Box<dyn Error>> {
@@ -113,10 +121,10 @@ pub fn generate_type(ty: &Type) -> Result<TokenStream, Box<dyn Error>> {
 
             let ty_name = format_ident!("{}", rust_ty_str);
 
-            if let Some(TypeUsageHint::UObject) = *usage_hint {
-                Ok(quote! {UPtr<#ty_name>})
-            } else {
-                Ok(ty_name.to_token_stream())
+            match *usage_hint {
+                Some(TypeUsageHint::UObject) => Ok(quote! {UPtr<#ty_name>}),
+                Some(TypeUsageHint::ScriptInterface) => Ok(quote! {TScriptInterface<#ty_name>}),
+                _ => Ok(ty_name.to_token_stream()),
             }
         }
         Type::Container {
@@ -156,9 +164,9 @@ pub fn sanitize_type_name(name: &str) -> &str {
 }
 
 pub fn sanitize_parameter_name(name: &str) -> &str {
-    let trimmed_name = name.trim_start_matches("b_");
+    // let trimmed_name = name.trim_start_matches("b_");
 
-    match trimmed_name {
+    match name {
         "struct" => "_struct",
         "type" => "ty",
         "enum" => "enum_",
@@ -171,6 +179,7 @@ pub fn sanitize_parameter_name(name: &str) -> &str {
         "async" => "async_",
         "true" => "true_",
         "false" => "false_",
+        "virtual" => "virtual_",
         name => name,
     }
 }
@@ -190,7 +199,13 @@ pub fn generate_properties(properies: &[Property]) -> Vec<TokenStream> {
                 format_ident!("flags_{}", property.offset)
             } else {
                 let snake_case_name = property.name.to_snake_case();
-                format_ident!("{}", sanitize_parameter_name(&snake_case_name))
+
+                let postfix = if property.flags.contains(&PropertyFlag::Deprecated) {
+                    "_deprecated"
+                } else {
+                    ""
+                };
+                format_ident!("{}{}", sanitize_parameter_name(&snake_case_name), postfix)
             };
 
             let ty = generate_type(&property.data_type).ok()?;
@@ -362,7 +377,72 @@ pub fn generate_crate(api: &Api, out_path: &Path) -> Result<(), Box<dyn Error>> 
 
     let enum_defs = generate_enums(api)?;
 
-    modules.retain(|name, _| name == "core_u_object" || name == "engine");
+    // for module in modules.keys() {
+    //     println!("{}", module);
+    // }
+
+    let allow_list = [
+        "core_u_object",
+        "engine",
+        "physics_core",
+        "chaos",
+        "chaos_vd_runtime",
+        "input_core",
+        "audio_extensions",
+        "developer_settings",
+        "field_notification",
+        "clothing_system_runtime_interface",
+        "slate_core",
+        "typed_element_runtime",
+        "slate",
+        "state_stream",
+    ];
+
+    // let allow_list = [
+    //     // Core runtime
+    //     "core",
+    //     "core_u_object",
+    //     "application_core",
+    //     "projects",
+    //     // Engine + rendering
+    //     "engine",
+    //     "render_core",
+    //     "rhi",
+    //     "trace_log",
+    //     // Slate + input
+    //     "slate_core",
+    //     "slate",
+    //     "input_core",
+    //     // Physics + Chaos
+    //     "physics_core",
+    //     "chaos",
+    //     "chaos_core",
+    //     "chaos_solver_engine",
+    //     "chaos_vd_runtime",
+    //     // Audio
+    //     "audio_extensions",
+    //     "audio_platform_configuration",
+    //     // Settings + notifications
+    //     "developer_settings",
+    //     "field_notification",
+    //     // Serialization
+    //     "json",
+    //     "json_utilities",
+    //     // Animation + clothing
+    //     "animation_core",
+    //     "clothing_system_runtime_interface",
+    //     // Networking (minimal required)
+    //     "net_core",
+    //     "sockets",
+    //     "packet_handlers",
+    //     "networking",
+    //     // Misc engine dependencies
+    //     "async",
+    //     "tasks",
+    //     "messaging",
+    //     "messaging_common",
+    // ];
+    // modules.retain(|name, _| allow_list.contains(&name.as_str()));
 
     for (module_name, all_tokens) in &modules {
         let tokens = quote! {
@@ -370,8 +450,7 @@ pub fn generate_crate(api: &Api, out_path: &Path) -> Result<(), Box<dyn Error>> 
             #![allow(unused_imports)]
             #![allow(unused_variables)]
             #![allow(non_camel_case_types)]
-            pub use super::*;
-            pub use super::super::core_data::*;
+            pub use crate::bindings::prelude::*;
             #(#all_tokens)*
         };
 
@@ -389,16 +468,23 @@ pub fn generate_crate(api: &Api, out_path: &Path) -> Result<(), Box<dyn Error>> 
     let mod_tokens = quote! {
         #(
             pub mod #used_module_idents;
-            pub use #used_module_idents::*;
         )*
         pub mod enum_definition;
-        pub use enum_definition::*;
 
         pub mod opague_definitions;
-        pub use opague_definitions::*;
 
         pub mod delegate_definitions;
-        pub use delegate_definitions::*;
+
+        pub mod prelude
+        {
+            pub use crate::bindings::enum_definition::*;
+            pub use crate::bindings::opague_definitions::*;
+            pub use crate::bindings::delegate_definitions::*;
+            pub use crate::core_data::*;
+        #(
+            pub use crate::bindings::#used_module_idents::*;
+        )*
+        }
     };
 
     let delegates = generate_delegates(api)?;

@@ -492,7 +492,16 @@ TUniquePtr<RustReflection_Type> FromProperty(FProperty* Property)
 
 	if (auto* InnerProperty = CastField<FInterfaceProperty>(Property))
 	{
-		return MakeConcreteType(FString::Printf(TEXT("I%s"), *InnerProperty->InterfaceClass.GetName()));
+		FString InterfaceName;
+		if (InnerProperty->InterfaceClass == UInterface::StaticClass())
+		{
+			return MakeConcreteType(TEXT("FScriptInterface"));
+		}
+		else
+		{
+			return MakeConcreteType(FString::Printf(TEXT("I%s"), *InnerProperty->InterfaceClass.GetName()),
+			                        TOptional<FString>((TEXT("ScriptInterface"))));
+		}
 	}
 
 	if (auto* InnerProperty = CastField<FWeakObjectProperty>(Property))
@@ -663,11 +672,16 @@ FRustReflection_UClass FRustReflection_UClass::FromClass(UClass* Class)
 {
 	FRustReflection_UClass ClassReflection;
 
+	FString Prefix = Class->GetPrefixCPP();
+	ClassReflection.bIsInterface = Class->IsChildOf(UInterface::StaticClass()) && Class != UInterface::StaticClass();
+
 	ClassReflection.ClassFlags = GetClassFlagStrings(Class->ClassFlags);
-	ClassReflection.ClassName = Class->GetPrefixCPP() + Class->GetName();
+	ClassReflection.ClassName = Prefix + Class->GetName();
 
 	ClassReflection.MinAlignment = Class->MinAlignment;
 	ClassReflection.PropertySizes = Class->PropertiesSize;
+
+
 	if (auto SuperClass = Class->GetSuperClass())
 	{
 		ClassReflection.SuperClassName = SuperClass->GetPrefixCPP() + SuperClass->GetName();
@@ -932,6 +946,8 @@ TSharedPtr<FJsonObject> FRustReflection_UClass::ToJson()
 	{
 		Json->SetStringField(TEXT("SuperClass"), SuperClassName.GetValue());
 	}
+	
+	Json->SetBoolField(TEXT("IsInterface"), bIsInterface);
 	Json->SetStringField(TEXT("Package"), Package);
 
 	Json->SetNumberField(TEXT("MinAlignment"), MinAlignment);
@@ -1066,6 +1082,7 @@ static FProperty* FindPropertyRecursive(
 
 void FRustReflection_Root::ExportToJson_Delegates(TSharedPtr<FJsonObject> Json)
 {
+	TSet<FString> DelegateNames;
 	TArray<FRustReflection_Delegate> Delegates;
 	for (TObjectIterator<UStruct> StructIter; StructIter; ++StructIter)
 	{
@@ -1090,10 +1107,15 @@ void FRustReflection_Root::ExportToJson_Delegates(TSharedPtr<FJsonObject> Json)
 				Delegate.Name = FString::Format(TEXT("F{0}_{1}"), {
 					                                *Struct->GetName(), InnerProperty->GetName()
 				                                });
+				if (DelegateNames.Contains(Delegate.Name))
+				{
+					continue;
+				}
 				Delegate.Namespace = Struct->GetName();
 				Delegate.Kind = TEXT("Multicast");
 				Delegate.Function = FRustReflection_Function::FromFunction(
 					InnerProperty->SignatureFunction.Get());
+				DelegateNames.Add(Delegate.Name);
 				Delegates.Add(MoveTemp(Delegate));
 			}
 
@@ -1103,10 +1125,19 @@ void FRustReflection_Root::ExportToJson_Delegates(TSharedPtr<FJsonObject> Json)
 				Delegate.Name = FString::Format(TEXT("F{0}_{1}"), {
 					                                *Struct->GetName(), InnerProperty->GetName()
 				                                });
+				if (DelegateNames.Contains(Delegate.Name))
+				{
+					continue;
+				}
 				Delegate.Namespace = Struct->GetName();
 				Delegate.Kind = TEXT("Single");
 				Delegate.Function = FRustReflection_Function::FromFunction(
 					InnerProperty->SignatureFunction.Get());
+				if (DelegateNames.Contains(Delegate.Name))
+				{
+					continue;
+				}
+				DelegateNames.Add(Delegate.Name);
 				Delegates.Add(MoveTemp(Delegate));
 			}
 		}

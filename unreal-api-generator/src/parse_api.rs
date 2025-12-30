@@ -16,6 +16,7 @@ pub enum StructFlag {
     Unknown,
 }
 
+// TODO This is terrible wrong ai code. Need to fix
 #[derive(Debug, Clone, Copy, Serialize, Deserialize, PartialEq)]
 pub enum PropertyFlag {
     EditAnywhere,
@@ -27,6 +28,8 @@ pub enum PropertyFlag {
     ConstParm,
     ReturnParm,
     OutParm,
+    Deprecated,
+    EditorOnly,
 
     #[serde(other)]
     Unknown,
@@ -50,6 +53,7 @@ pub enum ClassFlag {
 #[derive(Debug, Copy, Clone, Serialize, Deserialize)]
 pub enum TypeUsageHint {
     UObject,
+    ScriptInterface,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -77,7 +81,7 @@ pub enum Type {
         #[serde(rename = "Offset")]
         offset: u8,
         #[serde(rename = "FieldMask")]
-        field_maks: u8
+        field_maks: u8,
     },
 }
 
@@ -220,6 +224,9 @@ pub struct ClassDefinition {
     // NEW: Classes often have a Super Class
     #[serde(rename = "SuperClass", default)]
     pub super_class: Option<String>,
+
+    #[serde(rename = "IsInterface")]
+    pub is_interface: bool,
 
     #[serde(rename = "Flags", default)]
     pub flags: Vec<ClassFlag>,

@@ -374,6 +374,20 @@ impl ESwapAudioOutputDeviceResultState {
 }
 #[allow(non_camel_case_types)]
 #[repr(transparent)]
+pub struct ENiagaraSimCacheAttributeCaptureMode(pub u8);
+impl ENiagaraSimCacheAttributeCaptureMode {
+    pub const ALL: ENiagaraSimCacheAttributeCaptureMode = ENiagaraSimCacheAttributeCaptureMode(
+        0,
+    );
+    pub const RENDERING_ONLY: ENiagaraSimCacheAttributeCaptureMode = ENiagaraSimCacheAttributeCaptureMode(
+        1,
+    );
+    pub const EXPLICIT_ATTRIBUTES: ENiagaraSimCacheAttributeCaptureMode = ENiagaraSimCacheAttributeCaptureMode(
+        2,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
 pub struct EOnlineProxyStoreOfferDiscountType(pub u8);
 impl EOnlineProxyStoreOfferDiscountType {
     pub const NOT_ON_SALE: EOnlineProxyStoreOfferDiscountType = EOnlineProxyStoreOfferDiscountType(
@@ -387,20 +401,6 @@ impl EOnlineProxyStoreOfferDiscountType {
     );
     pub const PAY_AMOUNT: EOnlineProxyStoreOfferDiscountType = EOnlineProxyStoreOfferDiscountType(
         3,
-    );
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct ENiagaraSimCacheAttributeCaptureMode(pub u8);
-impl ENiagaraSimCacheAttributeCaptureMode {
-    pub const ALL: ENiagaraSimCacheAttributeCaptureMode = ENiagaraSimCacheAttributeCaptureMode(
-        0,
-    );
-    pub const RENDERING_ONLY: ENiagaraSimCacheAttributeCaptureMode = ENiagaraSimCacheAttributeCaptureMode(
-        1,
-    );
-    pub const EXPLICIT_ATTRIBUTES: ENiagaraSimCacheAttributeCaptureMode = ENiagaraSimCacheAttributeCaptureMode(
-        2,
     );
 }
 #[allow(non_camel_case_types)]
@@ -5845,59 +5845,63 @@ impl EVolumeLightingMethod {
 }
 #[allow(non_camel_case_types)]
 #[repr(transparent)]
-pub struct EShaderFundamentalType(pub u8);
-impl EShaderFundamentalType {
-    pub const BOOL: EShaderFundamentalType = EShaderFundamentalType(0);
-    pub const INT: EShaderFundamentalType = EShaderFundamentalType(1);
-    pub const UINT: EShaderFundamentalType = EShaderFundamentalType(2);
-    pub const FLOAT: EShaderFundamentalType = EShaderFundamentalType(3);
-    pub const STRUCT: EShaderFundamentalType = EShaderFundamentalType(4);
-    pub const NONE: EShaderFundamentalType = EShaderFundamentalType(255);
+pub struct EDatasmithImportLightmapMin(pub u8);
+impl EDatasmithImportLightmapMin {
+    pub const LIGHTMAP_16: EDatasmithImportLightmapMin = EDatasmithImportLightmapMin(0);
+    pub const LIGHTMAP_32: EDatasmithImportLightmapMin = EDatasmithImportLightmapMin(1);
+    pub const LIGHTMAP_64: EDatasmithImportLightmapMin = EDatasmithImportLightmapMin(2);
+    pub const LIGHTMAP_128: EDatasmithImportLightmapMin = EDatasmithImportLightmapMin(3);
+    pub const LIGHTMAP_256: EDatasmithImportLightmapMin = EDatasmithImportLightmapMin(4);
+    pub const LIGHTMAP_512: EDatasmithImportLightmapMin = EDatasmithImportLightmapMin(5);
 }
 #[allow(non_camel_case_types)]
 #[repr(transparent)]
-pub struct EShaderFundamentalDimensionType(pub u8);
-impl EShaderFundamentalDimensionType {
-    pub const SCALAR: EShaderFundamentalDimensionType = EShaderFundamentalDimensionType(
+pub struct EDatasmithImportLightmapMax(pub u8);
+impl EDatasmithImportLightmapMax {
+    pub const LIGHTMAP_64: EDatasmithImportLightmapMax = EDatasmithImportLightmapMax(0);
+    pub const LIGHTMAP_128: EDatasmithImportLightmapMax = EDatasmithImportLightmapMax(1);
+    pub const LIGHTMAP_256: EDatasmithImportLightmapMax = EDatasmithImportLightmapMax(2);
+    pub const LIGHTMAP_512: EDatasmithImportLightmapMax = EDatasmithImportLightmapMax(3);
+    pub const LIGHTMAP_1024: EDatasmithImportLightmapMax = EDatasmithImportLightmapMax(
+        4,
+    );
+    pub const LIGHTMAP_2048: EDatasmithImportLightmapMax = EDatasmithImportLightmapMax(
+        5,
+    );
+    pub const LIGHTMAP_4096: EDatasmithImportLightmapMax = EDatasmithImportLightmapMax(
+        6,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EDatasmithImportScene(pub u8);
+impl EDatasmithImportScene {
+    pub const NEW_LEVEL: EDatasmithImportScene = EDatasmithImportScene(0);
+    pub const CURRENT_LEVEL: EDatasmithImportScene = EDatasmithImportScene(1);
+    pub const ASSETS_ONLY: EDatasmithImportScene = EDatasmithImportScene(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EDatasmithCADStitchingTechnique(pub u8);
+impl EDatasmithCADStitchingTechnique {
+    pub const STITCHING_NONE: EDatasmithCADStitchingTechnique = EDatasmithCADStitchingTechnique(
         0,
     );
-    pub const VECTOR: EShaderFundamentalDimensionType = EShaderFundamentalDimensionType(
+    pub const STITCHING_HEAL: EDatasmithCADStitchingTechnique = EDatasmithCADStitchingTechnique(
         1,
     );
-    pub const MATRIX: EShaderFundamentalDimensionType = EShaderFundamentalDimensionType(
+    pub const STITCHING_SEW: EDatasmithCADStitchingTechnique = EDatasmithCADStitchingTechnique(
         2,
     );
 }
 #[allow(non_camel_case_types)]
 #[repr(transparent)]
-pub struct EShaderParamBindingType(pub u8);
-impl EShaderParamBindingType {
-    pub const NONE: EShaderParamBindingType = EShaderParamBindingType(0);
-    pub const CONSTANT_PARAMETER: EShaderParamBindingType = EShaderParamBindingType(1);
-    pub const READ_ONLY_RESOURCE: EShaderParamBindingType = EShaderParamBindingType(2);
-    pub const READ_WRITE_RESOURCE: EShaderParamBindingType = EShaderParamBindingType(3);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct EShaderResourceType(pub u8);
-impl EShaderResourceType {
-    pub const NONE: EShaderResourceType = EShaderResourceType(0);
-    pub const TEXTURE1_D: EShaderResourceType = EShaderResourceType(1);
-    pub const TEXTURE2_D: EShaderResourceType = EShaderResourceType(2);
-    pub const TEXTURE3_D: EShaderResourceType = EShaderResourceType(3);
-    pub const TEXTURE_CUBE: EShaderResourceType = EShaderResourceType(4);
-    pub const BUFFER: EShaderResourceType = EShaderResourceType(5);
-    pub const STRUCTURED_BUFFER: EShaderResourceType = EShaderResourceType(6);
-    pub const BYTE_ADDRESS_BUFFER: EShaderResourceType = EShaderResourceType(7);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct EShaderParamModifier(pub u8);
-impl EShaderParamModifier {
-    pub const NONE: EShaderParamModifier = EShaderParamModifier(0);
-    pub const IN: EShaderParamModifier = EShaderParamModifier(1);
-    pub const OUT: EShaderParamModifier = EShaderParamModifier(2);
-    pub const IN_OUT: EShaderParamModifier = EShaderParamModifier(3);
+pub struct EDatasmithCADRetessellationRule(pub u8);
+impl EDatasmithCADRetessellationRule {
+    pub const ALL: EDatasmithCADRetessellationRule = EDatasmithCADRetessellationRule(0);
+    pub const SKIP_DELETED_SURFACES: EDatasmithCADRetessellationRule = EDatasmithCADRetessellationRule(
+        1,
+    );
 }
 #[allow(non_camel_case_types)]
 #[repr(transparent)]
@@ -6829,66 +6833,6 @@ impl EGroomInterpolationWeight {
 }
 #[allow(non_camel_case_types)]
 #[repr(transparent)]
-pub struct EDatasmithImportLightmapMin(pub u8);
-impl EDatasmithImportLightmapMin {
-    pub const LIGHTMAP_16: EDatasmithImportLightmapMin = EDatasmithImportLightmapMin(0);
-    pub const LIGHTMAP_32: EDatasmithImportLightmapMin = EDatasmithImportLightmapMin(1);
-    pub const LIGHTMAP_64: EDatasmithImportLightmapMin = EDatasmithImportLightmapMin(2);
-    pub const LIGHTMAP_128: EDatasmithImportLightmapMin = EDatasmithImportLightmapMin(3);
-    pub const LIGHTMAP_256: EDatasmithImportLightmapMin = EDatasmithImportLightmapMin(4);
-    pub const LIGHTMAP_512: EDatasmithImportLightmapMin = EDatasmithImportLightmapMin(5);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct EDatasmithImportLightmapMax(pub u8);
-impl EDatasmithImportLightmapMax {
-    pub const LIGHTMAP_64: EDatasmithImportLightmapMax = EDatasmithImportLightmapMax(0);
-    pub const LIGHTMAP_128: EDatasmithImportLightmapMax = EDatasmithImportLightmapMax(1);
-    pub const LIGHTMAP_256: EDatasmithImportLightmapMax = EDatasmithImportLightmapMax(2);
-    pub const LIGHTMAP_512: EDatasmithImportLightmapMax = EDatasmithImportLightmapMax(3);
-    pub const LIGHTMAP_1024: EDatasmithImportLightmapMax = EDatasmithImportLightmapMax(
-        4,
-    );
-    pub const LIGHTMAP_2048: EDatasmithImportLightmapMax = EDatasmithImportLightmapMax(
-        5,
-    );
-    pub const LIGHTMAP_4096: EDatasmithImportLightmapMax = EDatasmithImportLightmapMax(
-        6,
-    );
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct EDatasmithImportScene(pub u8);
-impl EDatasmithImportScene {
-    pub const NEW_LEVEL: EDatasmithImportScene = EDatasmithImportScene(0);
-    pub const CURRENT_LEVEL: EDatasmithImportScene = EDatasmithImportScene(1);
-    pub const ASSETS_ONLY: EDatasmithImportScene = EDatasmithImportScene(2);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct EDatasmithCADStitchingTechnique(pub u8);
-impl EDatasmithCADStitchingTechnique {
-    pub const STITCHING_NONE: EDatasmithCADStitchingTechnique = EDatasmithCADStitchingTechnique(
-        0,
-    );
-    pub const STITCHING_HEAL: EDatasmithCADStitchingTechnique = EDatasmithCADStitchingTechnique(
-        1,
-    );
-    pub const STITCHING_SEW: EDatasmithCADStitchingTechnique = EDatasmithCADStitchingTechnique(
-        2,
-    );
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct EDatasmithCADRetessellationRule(pub u8);
-impl EDatasmithCADRetessellationRule {
-    pub const ALL: EDatasmithCADRetessellationRule = EDatasmithCADRetessellationRule(0);
-    pub const SKIP_DELETED_SURFACES: EDatasmithCADRetessellationRule = EDatasmithCADRetessellationRule(
-        1,
-    );
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
 pub struct EInterchangeAnimationPayLoadType(pub u8);
 impl EInterchangeAnimationPayLoadType {
     pub const NONE: EInterchangeAnimationPayLoadType = EInterchangeAnimationPayLoadType(
@@ -6946,6 +6890,62 @@ impl TextureAddress {
     pub const TA_WRAP: TextureAddress = TextureAddress(0);
     pub const TA_CLAMP: TextureAddress = TextureAddress(1);
     pub const TA_MIRROR: TextureAddress = TextureAddress(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EShaderFundamentalType(pub u8);
+impl EShaderFundamentalType {
+    pub const BOOL: EShaderFundamentalType = EShaderFundamentalType(0);
+    pub const INT: EShaderFundamentalType = EShaderFundamentalType(1);
+    pub const UINT: EShaderFundamentalType = EShaderFundamentalType(2);
+    pub const FLOAT: EShaderFundamentalType = EShaderFundamentalType(3);
+    pub const STRUCT: EShaderFundamentalType = EShaderFundamentalType(4);
+    pub const NONE: EShaderFundamentalType = EShaderFundamentalType(255);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EShaderFundamentalDimensionType(pub u8);
+impl EShaderFundamentalDimensionType {
+    pub const SCALAR: EShaderFundamentalDimensionType = EShaderFundamentalDimensionType(
+        0,
+    );
+    pub const VECTOR: EShaderFundamentalDimensionType = EShaderFundamentalDimensionType(
+        1,
+    );
+    pub const MATRIX: EShaderFundamentalDimensionType = EShaderFundamentalDimensionType(
+        2,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EShaderParamBindingType(pub u8);
+impl EShaderParamBindingType {
+    pub const NONE: EShaderParamBindingType = EShaderParamBindingType(0);
+    pub const CONSTANT_PARAMETER: EShaderParamBindingType = EShaderParamBindingType(1);
+    pub const READ_ONLY_RESOURCE: EShaderParamBindingType = EShaderParamBindingType(2);
+    pub const READ_WRITE_RESOURCE: EShaderParamBindingType = EShaderParamBindingType(3);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EShaderResourceType(pub u8);
+impl EShaderResourceType {
+    pub const NONE: EShaderResourceType = EShaderResourceType(0);
+    pub const TEXTURE1_D: EShaderResourceType = EShaderResourceType(1);
+    pub const TEXTURE2_D: EShaderResourceType = EShaderResourceType(2);
+    pub const TEXTURE3_D: EShaderResourceType = EShaderResourceType(3);
+    pub const TEXTURE_CUBE: EShaderResourceType = EShaderResourceType(4);
+    pub const BUFFER: EShaderResourceType = EShaderResourceType(5);
+    pub const STRUCTURED_BUFFER: EShaderResourceType = EShaderResourceType(6);
+    pub const BYTE_ADDRESS_BUFFER: EShaderResourceType = EShaderResourceType(7);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EShaderParamModifier(pub u8);
+impl EShaderParamModifier {
+    pub const NONE: EShaderParamModifier = EShaderParamModifier(0);
+    pub const IN: EShaderParamModifier = EShaderParamModifier(1);
+    pub const OUT: EShaderParamModifier = EShaderParamModifier(2);
+    pub const IN_OUT: EShaderParamModifier = EShaderParamModifier(3);
 }
 #[allow(non_camel_case_types)]
 #[repr(transparent)]
@@ -7877,6 +7877,52 @@ impl ENavigationToolFilterMode {
 }
 #[allow(non_camel_case_types)]
 #[repr(transparent)]
+pub struct ESpriteShapeType(pub u8);
+impl ESpriteShapeType {
+    pub const BOX: ESpriteShapeType = ESpriteShapeType(0);
+    pub const CIRCLE: ESpriteShapeType = ESpriteShapeType(1);
+    pub const POLYGON: ESpriteShapeType = ESpriteShapeType(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ESpritePolygonMode(pub u8);
+impl ESpritePolygonMode {
+    pub const SOURCE_BOUNDING_BOX: ESpritePolygonMode = ESpritePolygonMode(0);
+    pub const TIGHT_BOUNDING_BOX: ESpritePolygonMode = ESpritePolygonMode(1);
+    pub const SHRINK_WRAPPED: ESpritePolygonMode = ESpritePolygonMode(2);
+    pub const FULLY_CUSTOM: ESpritePolygonMode = ESpritePolygonMode(3);
+    pub const DICED: ESpritePolygonMode = ESpritePolygonMode(4);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EEncodeRootBoneAxis(pub u8);
+impl EEncodeRootBoneAxis {
+    pub const X: EEncodeRootBoneAxis = EEncodeRootBoneAxis(0);
+    pub const Y: EEncodeRootBoneAxis = EEncodeRootBoneAxis(1);
+    pub const Z: EEncodeRootBoneAxis = EEncodeRootBoneAxis(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EDetectionTechnique(pub u8);
+impl EDetectionTechnique {
+    pub const PASS_THROUGH_REFERENCE_BONE: EDetectionTechnique = EDetectionTechnique(0);
+    pub const FOOT_BONE_REACHES_GROUND: EDetectionTechnique = EDetectionTechnique(1);
+    pub const FOOT_BONE_SPEED: EDetectionTechnique = EDetectionTechnique(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ERigVMBlueprintLoadLogSeverity(pub u8);
+impl ERigVMBlueprintLoadLogSeverity {
+    pub const DISPLAY: ERigVMBlueprintLoadLogSeverity = ERigVMBlueprintLoadLogSeverity(
+        0,
+    );
+    pub const WARNING: ERigVMBlueprintLoadLogSeverity = ERigVMBlueprintLoadLogSeverity(
+        1,
+    );
+    pub const ERROR: ERigVMBlueprintLoadLogSeverity = ERigVMBlueprintLoadLogSeverity(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
 pub struct EOptimusDataDomainType(pub i32);
 impl EOptimusDataDomainType {
     pub const DIMENSIONAL: EOptimusDataDomainType = EOptimusDataDomainType(0);
@@ -7966,252 +8012,286 @@ impl EOptimusExecutionDomainType {
 }
 #[allow(non_camel_case_types)]
 #[repr(transparent)]
-pub struct EMetaSoundFrontendGraphCommentMoveMode(pub u8);
-impl EMetaSoundFrontendGraphCommentMoveMode {
-    pub const GROUP_MOVEMENT: EMetaSoundFrontendGraphCommentMoveMode = EMetaSoundFrontendGraphCommentMoveMode(
+pub struct EIKRigGoalTransformSource(pub u8);
+impl EIKRigGoalTransformSource {
+    pub const MANUAL: EIKRigGoalTransformSource = EIKRigGoalTransformSource(0);
+    pub const BONE: EIKRigGoalTransformSource = EIKRigGoalTransformSource(1);
+    pub const ACTOR_COMPONENT: EIKRigGoalTransformSource = EIKRigGoalTransformSource(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EIKRigGoalSpace(pub u8);
+impl EIKRigGoalSpace {
+    pub const COMPONENT: EIKRigGoalSpace = EIKRigGoalSpace(0);
+    pub const ADDITIVE: EIKRigGoalSpace = EIKRigGoalSpace(1);
+    pub const WORLD: EIKRigGoalSpace = EIKRigGoalSpace(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ERetargetSourceMode(pub u8);
+impl ERetargetSourceMode {
+    pub const PARENT_SKELETAL_MESH_COMPONENT: ERetargetSourceMode = ERetargetSourceMode(
         0,
     );
-    pub const NO_GROUP_MOVEMENT: EMetaSoundFrontendGraphCommentMoveMode = EMetaSoundFrontendGraphCommentMoveMode(
+    pub const CUSTOM_SKELETAL_MESH_COMPONENT: ERetargetSourceMode = ERetargetSourceMode(
+        1,
+    );
+    pub const SOURCE_POSE_PIN: ERetargetSourceMode = ERetargetSourceMode(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ERetargetRotationMode(pub u8);
+impl ERetargetRotationMode {
+    pub const INTERPOLATED: ERetargetRotationMode = ERetargetRotationMode(0);
+    pub const ONE_TO_ONE: ERetargetRotationMode = ERetargetRotationMode(1);
+    pub const ONE_TO_ONE_REVERSED: ERetargetRotationMode = ERetargetRotationMode(2);
+    pub const MATCH_CHAIN: ERetargetRotationMode = ERetargetRotationMode(3);
+    pub const MATCH_SCALED_CHAIN: ERetargetRotationMode = ERetargetRotationMode(4);
+    pub const NONE: ERetargetRotationMode = ERetargetRotationMode(5);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EWarpingDirectionSource(pub i32);
+impl EWarpingDirectionSource {
+    pub const GOALS: EWarpingDirectionSource = EWarpingDirectionSource(0);
+    pub const CHAIN: EWarpingDirectionSource = EWarpingDirectionSource(1);
+    pub const ROOT_BONE: EWarpingDirectionSource = EWarpingDirectionSource(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EBasicAxis(pub i32);
+impl EBasicAxis {
+    pub const X: EBasicAxis = EBasicAxis(0);
+    pub const Y: EBasicAxis = EBasicAxis(1);
+    pub const Z: EBasicAxis = EBasicAxis(2);
+    pub const NEG_X: EBasicAxis = EBasicAxis(3);
+    pub const NEG_Y: EBasicAxis = EBasicAxis(4);
+    pub const NEG_Z: EBasicAxis = EBasicAxis(5);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ERetargetTranslationMode(pub u8);
+impl ERetargetTranslationMode {
+    pub const NONE: ERetargetTranslationMode = ERetargetTranslationMode(0);
+    pub const GLOBALLY_SCALED: ERetargetTranslationMode = ERetargetTranslationMode(1);
+    pub const ABSOLUTE: ERetargetTranslationMode = ERetargetTranslationMode(2);
+    pub const STRETCH_BONE_LENGTH_UNIFORMLY: ERetargetTranslationMode = ERetargetTranslationMode(
+        3,
+    );
+    pub const STRETCH_BONE_LENGTH_NON_UNIFORMLY: ERetargetTranslationMode = ERetargetTranslationMode(
+        4,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EFKChainRotationMode(pub u8);
+impl EFKChainRotationMode {
+    pub const NONE: EFKChainRotationMode = EFKChainRotationMode(5);
+    pub const INTERPOLATED: EFKChainRotationMode = EFKChainRotationMode(0);
+    pub const ONE_TO_ONE: EFKChainRotationMode = EFKChainRotationMode(1);
+    pub const ONE_TO_ONE_REVERSED: EFKChainRotationMode = EFKChainRotationMode(2);
+    pub const MATCH_CHAIN: EFKChainRotationMode = EFKChainRotationMode(3);
+    pub const MATCH_SCALED_CHAIN: EFKChainRotationMode = EFKChainRotationMode(4);
+    pub const COPY_LOCAL: EFKChainRotationMode = EFKChainRotationMode(6);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EFKChainTranslationMode(pub u8);
+impl EFKChainTranslationMode {
+    pub const NONE: EFKChainTranslationMode = EFKChainTranslationMode(0);
+    pub const GLOBALLY_SCALED: EFKChainTranslationMode = EFKChainTranslationMode(1);
+    pub const ABSOLUTE: EFKChainTranslationMode = EFKChainTranslationMode(2);
+    pub const STRETCH_BONE_LENGTH_UNIFORMLY: EFKChainTranslationMode = EFKChainTranslationMode(
+        3,
+    );
+    pub const STRETCH_BONE_LENGTH_NON_UNIFORMLY: EFKChainTranslationMode = EFKChainTranslationMode(
+        4,
+    );
+    pub const ORIENT_AND_SCALE: EFKChainTranslationMode = EFKChainTranslationMode(5);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ERetargetSourceOrTarget(pub u8);
+impl ERetargetSourceOrTarget {
+    pub const SOURCE: ERetargetSourceOrTarget = ERetargetSourceOrTarget(0);
+    pub const TARGET: ERetargetSourceOrTarget = ERetargetSourceOrTarget(1);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EPinBoneTranslationMode(pub u8);
+impl EPinBoneTranslationMode {
+    pub const COPY_GLOBAL_POSITION: EPinBoneTranslationMode = EPinBoneTranslationMode(0);
+    pub const COPY_LOCAL_POSITION: EPinBoneTranslationMode = EPinBoneTranslationMode(1);
+    pub const COPY_LOCAL_POSITION_RELATIVE_OFFSET: EPinBoneTranslationMode = EPinBoneTranslationMode(
+        2,
+    );
+    pub const COPY_LOCAL_POSITION_RELATIVE_SCALED: EPinBoneTranslationMode = EPinBoneTranslationMode(
+        3,
+    );
+    pub const COPY_GLOBAL_POSITION_AND_MAINTAIN_OFFSET: EPinBoneTranslationMode = EPinBoneTranslationMode(
+        4,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EPinBoneRotationMode(pub u8);
+impl EPinBoneRotationMode {
+    pub const COPY_GLOBAL_ROTATION: EPinBoneRotationMode = EPinBoneRotationMode(0);
+    pub const MAINTAIN_OFFSET_FROM_BONE_TO_COPY_FROM: EPinBoneRotationMode = EPinBoneRotationMode(
         1,
     );
 }
 #[allow(non_camel_case_types)]
 #[repr(transparent)]
-pub struct EMetasoundFrontendLiteralType(pub u8);
-impl EMetasoundFrontendLiteralType {
-    pub const NONE: EMetasoundFrontendLiteralType = EMetasoundFrontendLiteralType(0);
-    pub const BOOLEAN: EMetasoundFrontendLiteralType = EMetasoundFrontendLiteralType(1);
-    pub const INTEGER: EMetasoundFrontendLiteralType = EMetasoundFrontendLiteralType(2);
-    pub const FLOAT: EMetasoundFrontendLiteralType = EMetasoundFrontendLiteralType(3);
-    pub const STRING: EMetasoundFrontendLiteralType = EMetasoundFrontendLiteralType(4);
-    pub const U_OBJECT: EMetasoundFrontendLiteralType = EMetasoundFrontendLiteralType(5);
-    pub const NONE_ARRAY: EMetasoundFrontendLiteralType = EMetasoundFrontendLiteralType(
-        6,
-    );
-    pub const BOOLEAN_ARRAY: EMetasoundFrontendLiteralType = EMetasoundFrontendLiteralType(
-        7,
-    );
-    pub const INTEGER_ARRAY: EMetasoundFrontendLiteralType = EMetasoundFrontendLiteralType(
-        8,
-    );
-    pub const FLOAT_ARRAY: EMetasoundFrontendLiteralType = EMetasoundFrontendLiteralType(
-        9,
-    );
-    pub const STRING_ARRAY: EMetasoundFrontendLiteralType = EMetasoundFrontendLiteralType(
-        10,
-    );
-    pub const U_OBJECT_ARRAY: EMetasoundFrontendLiteralType = EMetasoundFrontendLiteralType(
-        11,
-    );
-    pub const INVALID: EMetasoundFrontendLiteralType = EMetasoundFrontendLiteralType(12);
+pub struct ERootMotionSource(pub u8);
+impl ERootMotionSource {
+    pub const COPY_FROM_SOURCE_ROOT: ERootMotionSource = ERootMotionSource(0);
+    pub const GENERATE_FROM_TARGET_PELVIS: ERootMotionSource = ERootMotionSource(1);
 }
 #[allow(non_camel_case_types)]
 #[repr(transparent)]
-pub struct EMetasoundFrontendNodeStyleDisplayVisibility(pub u8);
-impl EMetasoundFrontendNodeStyleDisplayVisibility {
-    pub const VISIBLE: EMetasoundFrontendNodeStyleDisplayVisibility = EMetasoundFrontendNodeStyleDisplayVisibility(
+pub struct ERootMotionHeightSource(pub u8);
+impl ERootMotionHeightSource {
+    pub const COPY_HEIGHT_FROM_SOURCE: ERootMotionHeightSource = ERootMotionHeightSource(
         0,
     );
-    pub const HIDDEN: EMetasoundFrontendNodeStyleDisplayVisibility = EMetasoundFrontendNodeStyleDisplayVisibility(
-        1,
-    );
+    pub const SNAP_TO_GROUND: ERootMotionHeightSource = ERootMotionHeightSource(1);
 }
 #[allow(non_camel_case_types)]
 #[repr(transparent)]
-pub struct EMetasoundFrontendVertexAccessType(pub i32);
-impl EMetasoundFrontendVertexAccessType {
-    pub const REFERENCE: EMetasoundFrontendVertexAccessType = EMetasoundFrontendVertexAccessType(
+pub struct EScaleSourcePivot(pub u8);
+impl EScaleSourcePivot {
+    pub const COMPONENT_ORIGIN: EScaleSourcePivot = EScaleSourcePivot(0);
+    pub const BONE: EScaleSourcePivot = EScaleSourcePivot(1);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EStretchLimbRotationMode(pub u8);
+impl EStretchLimbRotationMode {
+    pub const NONE: EStretchLimbRotationMode = EStretchLimbRotationMode(0);
+    pub const ORIENT_TO_GOAL: EStretchLimbRotationMode = EStretchLimbRotationMode(1);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EStretchLimbSquashMode(pub u8);
+impl EStretchLimbSquashMode {
+    pub const NONE: EStretchLimbSquashMode = EStretchLimbSquashMode(0);
+    pub const UNIFORM: EStretchLimbSquashMode = EStretchLimbSquashMode(1);
+    pub const BULGE: EStretchLimbSquashMode = EStretchLimbSquashMode(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ETemplateSectionPropertyScaleType(pub i32);
+impl ETemplateSectionPropertyScaleType {
+    pub const FLOAT_PROPERTY: ETemplateSectionPropertyScaleType = ETemplateSectionPropertyScaleType(
         0,
     );
-    pub const VALUE: EMetasoundFrontendVertexAccessType = EMetasoundFrontendVertexAccessType(
+    pub const TRANSFORM_PROPERTY_LOCATION_ONLY: ETemplateSectionPropertyScaleType = ETemplateSectionPropertyScaleType(
         1,
     );
-    pub const UNSET: EMetasoundFrontendVertexAccessType = EMetasoundFrontendVertexAccessType(
+    pub const TRANSFORM_PROPERTY_ROTATION_ONLY: ETemplateSectionPropertyScaleType = ETemplateSectionPropertyScaleType(
         2,
     );
 }
 #[allow(non_camel_case_types)]
 #[repr(transparent)]
-pub struct EMetasoundFrontendClassType(pub u8);
-impl EMetasoundFrontendClassType {
-    pub const EXTERNAL: EMetasoundFrontendClassType = EMetasoundFrontendClassType(0);
-    pub const GRAPH: EMetasoundFrontendClassType = EMetasoundFrontendClassType(1);
-    pub const INPUT: EMetasoundFrontendClassType = EMetasoundFrontendClassType(2);
-    pub const OUTPUT: EMetasoundFrontendClassType = EMetasoundFrontendClassType(3);
-    pub const LITERAL: EMetasoundFrontendClassType = EMetasoundFrontendClassType(4);
-    pub const VARIABLE: EMetasoundFrontendClassType = EMetasoundFrontendClassType(5);
-    pub const VARIABLE_DEFERRED_ACCESSOR: EMetasoundFrontendClassType = EMetasoundFrontendClassType(
-        6,
-    );
-    pub const VARIABLE_ACCESSOR: EMetasoundFrontendClassType = EMetasoundFrontendClassType(
-        7,
-    );
-    pub const VARIABLE_MUTATOR: EMetasoundFrontendClassType = EMetasoundFrontendClassType(
-        8,
-    );
-    pub const TEMPLATE: EMetasoundFrontendClassType = EMetasoundFrontendClassType(9);
-    pub const INVALID: EMetasoundFrontendClassType = EMetasoundFrontendClassType(10);
+pub struct ECameraAnimationEasingType(pub u8);
+impl ECameraAnimationEasingType {
+    pub const LINEAR: ECameraAnimationEasingType = ECameraAnimationEasingType(0);
+    pub const SINUSOIDAL: ECameraAnimationEasingType = ECameraAnimationEasingType(1);
+    pub const QUADRATIC: ECameraAnimationEasingType = ECameraAnimationEasingType(2);
+    pub const CUBIC: ECameraAnimationEasingType = ECameraAnimationEasingType(3);
+    pub const QUARTIC: ECameraAnimationEasingType = ECameraAnimationEasingType(4);
+    pub const QUINTIC: ECameraAnimationEasingType = ECameraAnimationEasingType(5);
+    pub const EXPONENTIAL: ECameraAnimationEasingType = ECameraAnimationEasingType(6);
+    pub const CIRCULAR: ECameraAnimationEasingType = ECameraAnimationEasingType(7);
 }
 #[allow(non_camel_case_types)]
 #[repr(transparent)]
-pub struct EWaveTableBitDepth(pub u8);
-impl EWaveTableBitDepth {
-    pub const PCM_16: EWaveTableBitDepth = EWaveTableBitDepth(0);
-    pub const IEEE_FLOAT: EWaveTableBitDepth = EWaveTableBitDepth(1);
-    pub const COUNT: EWaveTableBitDepth = EWaveTableBitDepth(2);
+pub struct ECameraAnimationPlaySpace(pub u8);
+impl ECameraAnimationPlaySpace {
+    pub const CAMERA_LOCAL: ECameraAnimationPlaySpace = ECameraAnimationPlaySpace(0);
+    pub const WORLD: ECameraAnimationPlaySpace = ECameraAnimationPlaySpace(1);
+    pub const USER_DEFINED: ECameraAnimationPlaySpace = ECameraAnimationPlaySpace(2);
 }
 #[allow(non_camel_case_types)]
 #[repr(transparent)]
-pub struct EWaveTableCurve(pub u8);
-impl EWaveTableCurve {
-    pub const LINEAR: EWaveTableCurve = EWaveTableCurve(0);
-    pub const LINEAR_INV: EWaveTableCurve = EWaveTableCurve(1);
-    pub const EXP: EWaveTableCurve = EWaveTableCurve(2);
-    pub const EXP_INVERSE: EWaveTableCurve = EWaveTableCurve(3);
-    pub const LOG: EWaveTableCurve = EWaveTableCurve(4);
-    pub const SIN: EWaveTableCurve = EWaveTableCurve(5);
-    pub const SIN_FULL: EWaveTableCurve = EWaveTableCurve(6);
-    pub const S_CURVE: EWaveTableCurve = EWaveTableCurve(7);
-    pub const SHARED: EWaveTableCurve = EWaveTableCurve(8);
-    pub const CUSTOM: EWaveTableCurve = EWaveTableCurve(9);
-    pub const FILE: EWaveTableCurve = EWaveTableCurve(10);
-    pub const COUNT: EWaveTableCurve = EWaveTableCurve(11);
+pub struct EInitialOscillatorOffset(pub u8);
+impl EInitialOscillatorOffset {
+    pub const EOO_OFFSET_RANDOM: EInitialOscillatorOffset = EInitialOscillatorOffset(0);
+    pub const EOO_OFFSET_ZERO: EInitialOscillatorOffset = EInitialOscillatorOffset(1);
 }
 #[allow(non_camel_case_types)]
 #[repr(transparent)]
-pub struct EAudioMaterialEnvelopeType(pub u8);
-impl EAudioMaterialEnvelopeType {
-    pub const AD: EAudioMaterialEnvelopeType = EAudioMaterialEnvelopeType(0);
-    pub const ADSR: EAudioMaterialEnvelopeType = EAudioMaterialEnvelopeType(1);
+pub struct EOscillatorWaveform(pub u8);
+impl EOscillatorWaveform {
+    pub const SINE_WAVE: EOscillatorWaveform = EOscillatorWaveform(0);
+    pub const PERLIN_NOISE: EOscillatorWaveform = EOscillatorWaveform(1);
 }
 #[allow(non_camel_case_types)]
 #[repr(transparent)]
-pub struct EAudioSpectrumAnalyzerType(pub u8);
-impl EAudioSpectrumAnalyzerType {
-    pub const FFT: EAudioSpectrumAnalyzerType = EAudioSpectrumAnalyzerType(0);
-    pub const CQT: EAudioSpectrumAnalyzerType = EAudioSpectrumAnalyzerType(1);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct EFFTSize(pub u8);
-impl EFFTSize {
-    pub const DEFAULT_SIZE: EFFTSize = EFFTSize(0);
-    pub const MIN: EFFTSize = EFFTSize(1);
-    pub const SMALL: EFFTSize = EFFTSize(2);
-    pub const MEDIUM: EFFTSize = EFFTSize(3);
-    pub const LARGE: EFFTSize = EFFTSize(4);
-    pub const VERY_LARGE: EFFTSize = EFFTSize(5);
-    pub const MAX: EFFTSize = EFFTSize(6);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct EConstantQFFTSizeEnum(pub u8);
-impl EConstantQFFTSizeEnum {
-    pub const MIN: EConstantQFFTSizeEnum = EConstantQFFTSizeEnum(0);
-    pub const XX_SMALL: EConstantQFFTSizeEnum = EConstantQFFTSizeEnum(1);
-    pub const X_SMALL: EConstantQFFTSizeEnum = EConstantQFFTSizeEnum(2);
-    pub const SMALL: EConstantQFFTSizeEnum = EConstantQFFTSizeEnum(3);
-    pub const MEDIUM: EConstantQFFTSizeEnum = EConstantQFFTSizeEnum(4);
-    pub const LARGE: EConstantQFFTSizeEnum = EConstantQFFTSizeEnum(5);
-    pub const X_LARGE: EConstantQFFTSizeEnum = EConstantQFFTSizeEnum(6);
-    pub const XX_LARGE: EConstantQFFTSizeEnum = EConstantQFFTSizeEnum(7);
-    pub const MAX: EConstantQFFTSizeEnum = EConstantQFFTSizeEnum(8);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct EAudioSpectrogramFrequencyAxisPixelBucketMode(pub u8);
-impl EAudioSpectrogramFrequencyAxisPixelBucketMode {
-    pub const SAMPLE: EAudioSpectrogramFrequencyAxisPixelBucketMode = EAudioSpectrogramFrequencyAxisPixelBucketMode(
+pub struct EInitialWaveOscillatorOffsetType(pub u8);
+impl EInitialWaveOscillatorOffsetType {
+    pub const RANDOM: EInitialWaveOscillatorOffsetType = EInitialWaveOscillatorOffsetType(
         0,
     );
-    pub const PEAK: EAudioSpectrogramFrequencyAxisPixelBucketMode = EAudioSpectrogramFrequencyAxisPixelBucketMode(
-        1,
-    );
-    pub const AVERAGE: EAudioSpectrogramFrequencyAxisPixelBucketMode = EAudioSpectrogramFrequencyAxisPixelBucketMode(
-        2,
-    );
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct EAudioSpectrogramFrequencyAxisScale(pub u8);
-impl EAudioSpectrogramFrequencyAxisScale {
-    pub const LINEAR: EAudioSpectrogramFrequencyAxisScale = EAudioSpectrogramFrequencyAxisScale(
-        0,
-    );
-    pub const LOGARITHMIC: EAudioSpectrogramFrequencyAxisScale = EAudioSpectrogramFrequencyAxisScale(
+    pub const ZERO: EInitialWaveOscillatorOffsetType = EInitialWaveOscillatorOffsetType(
         1,
     );
 }
 #[allow(non_camel_case_types)]
 #[repr(transparent)]
-pub struct EAudioColorGradient(pub u8);
-impl EAudioColorGradient {
-    pub const BLACK_TO_WHITE: EAudioColorGradient = EAudioColorGradient(0);
-    pub const WHITE_TO_BLACK: EAudioColorGradient = EAudioColorGradient(1);
+pub struct EDirection(pub u8);
+impl EDirection {
+    pub const LEFT: EDirection = EDirection(0);
+    pub const RIGHT: EDirection = EDirection(1);
+    pub const UP: EDirection = EDirection(2);
+    pub const DOWN: EDirection = EDirection(3);
+    pub const FRONT: EDirection = EDirection(4);
+    pub const BACK: EDirection = EDirection(5);
 }
 #[allow(non_camel_case_types)]
 #[repr(transparent)]
-pub struct EOrientation(pub u8);
-impl EOrientation {
-    pub const ORIENT_HORIZONTAL: EOrientation = EOrientation(0);
-    pub const ORIENT_VERTICAL: EOrientation = EOrientation(1);
+pub struct ERigLogicCalculationType(pub u8);
+impl ERigLogicCalculationType {
+    pub const SCALAR: ERigLogicCalculationType = ERigLogicCalculationType(0);
+    pub const SSE: ERigLogicCalculationType = ERigLogicCalculationType(1);
+    pub const AVX: ERigLogicCalculationType = ERigLogicCalculationType(2);
+    pub const NEON: ERigLogicCalculationType = ERigLogicCalculationType(3);
+    pub const ANY_VECTOR: ERigLogicCalculationType = ERigLogicCalculationType(4);
 }
 #[allow(non_camel_case_types)]
 #[repr(transparent)]
-pub struct EAudioSpectrumAnalyzerBallistics(pub u8);
-impl EAudioSpectrumAnalyzerBallistics {
-    pub const ANALOG: EAudioSpectrumAnalyzerBallistics = EAudioSpectrumAnalyzerBallistics(
-        0,
-    );
-    pub const DIGITAL: EAudioSpectrumAnalyzerBallistics = EAudioSpectrumAnalyzerBallistics(
-        1,
-    );
+pub struct ERigLogicTranslationType(pub u8);
+impl ERigLogicTranslationType {
+    pub const NONE: ERigLogicTranslationType = ERigLogicTranslationType(0);
+    pub const VECTOR: ERigLogicTranslationType = ERigLogicTranslationType(3);
 }
 #[allow(non_camel_case_types)]
 #[repr(transparent)]
-pub struct EAudioSpectrumPlotTilt(pub u8);
-impl EAudioSpectrumPlotTilt {
-    pub const NO_TILT: EAudioSpectrumPlotTilt = EAudioSpectrumPlotTilt(0);
-    pub const PLUS1_5D_B_PER_OCTAVE: EAudioSpectrumPlotTilt = EAudioSpectrumPlotTilt(1);
-    pub const PLUS3D_B_PER_OCTAVE: EAudioSpectrumPlotTilt = EAudioSpectrumPlotTilt(2);
-    pub const PLUS4_5D_B_PER_OCTAVE: EAudioSpectrumPlotTilt = EAudioSpectrumPlotTilt(3);
-    pub const PLUS6D_B_PER_OCTAVE: EAudioSpectrumPlotTilt = EAudioSpectrumPlotTilt(4);
+pub struct ERigLogicRotationType(pub u8);
+impl ERigLogicRotationType {
+    pub const NONE: ERigLogicRotationType = ERigLogicRotationType(0);
+    pub const EULER_ANGLES: ERigLogicRotationType = ERigLogicRotationType(3);
+    pub const QUATERNIONS: ERigLogicRotationType = ERigLogicRotationType(4);
 }
 #[allow(non_camel_case_types)]
 #[repr(transparent)]
-pub struct EAudioSpectrumPlotFrequencyAxisPixelBucketMode(pub u8);
-impl EAudioSpectrumPlotFrequencyAxisPixelBucketMode {
-    pub const SAMPLE: EAudioSpectrumPlotFrequencyAxisPixelBucketMode = EAudioSpectrumPlotFrequencyAxisPixelBucketMode(
-        0,
-    );
-    pub const PEAK: EAudioSpectrumPlotFrequencyAxisPixelBucketMode = EAudioSpectrumPlotFrequencyAxisPixelBucketMode(
-        1,
-    );
-    pub const AVERAGE: EAudioSpectrumPlotFrequencyAxisPixelBucketMode = EAudioSpectrumPlotFrequencyAxisPixelBucketMode(
-        2,
-    );
+pub struct ERigLogicRotationOrder(pub u8);
+impl ERigLogicRotationOrder {
+    pub const XYZ: ERigLogicRotationOrder = ERigLogicRotationOrder(0);
+    pub const XZY: ERigLogicRotationOrder = ERigLogicRotationOrder(1);
+    pub const YXZ: ERigLogicRotationOrder = ERigLogicRotationOrder(2);
+    pub const YZX: ERigLogicRotationOrder = ERigLogicRotationOrder(3);
+    pub const ZXY: ERigLogicRotationOrder = ERigLogicRotationOrder(4);
+    pub const ZYX: ERigLogicRotationOrder = ERigLogicRotationOrder(5);
 }
 #[allow(non_camel_case_types)]
 #[repr(transparent)]
-pub struct EAudioSpectrumPlotFrequencyAxisScale(pub u8);
-impl EAudioSpectrumPlotFrequencyAxisScale {
-    pub const LINEAR: EAudioSpectrumPlotFrequencyAxisScale = EAudioSpectrumPlotFrequencyAxisScale(
-        0,
-    );
-    pub const LOGARITHMIC: EAudioSpectrumPlotFrequencyAxisScale = EAudioSpectrumPlotFrequencyAxisScale(
-        1,
-    );
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct EMetasoundActiveAnalyzerEnvelopeDirection(pub u8);
-impl EMetasoundActiveAnalyzerEnvelopeDirection {
-    pub const FROM_SOURCE_OUTPUT: EMetasoundActiveAnalyzerEnvelopeDirection = EMetasoundActiveAnalyzerEnvelopeDirection(
-        0,
-    );
-    pub const FROM_DESTINATION_INPUT: EMetasoundActiveAnalyzerEnvelopeDirection = EMetasoundActiveAnalyzerEnvelopeDirection(
-        1,
-    );
+pub struct ERigLogicScaleType(pub u8);
+impl ERigLogicScaleType {
+    pub const NONE: ERigLogicScaleType = ERigLogicScaleType(0);
+    pub const VECTOR: ERigLogicScaleType = ERigLogicScaleType(3);
 }
 #[allow(non_camel_case_types)]
 #[repr(transparent)]
@@ -8284,35 +8364,6 @@ impl EPropertyCopyType {
     pub const DEMOTE_DOUBLE_TO_INT32: EPropertyCopyType = EPropertyCopyType(29);
     pub const DEMOTE_DOUBLE_TO_INT64: EPropertyCopyType = EPropertyCopyType(30);
     pub const DEMOTE_DOUBLE_TO_FLOAT: EPropertyCopyType = EPropertyCopyType(31);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct ERaMaterialName(pub u8);
-impl ERaMaterialName {
-    pub const TRANSPARENT: ERaMaterialName = ERaMaterialName(0);
-    pub const ACOUSTIC_CEILING_TILES: ERaMaterialName = ERaMaterialName(1);
-    pub const BRICK_BARE: ERaMaterialName = ERaMaterialName(2);
-    pub const BRICK_PAINTED: ERaMaterialName = ERaMaterialName(3);
-    pub const CONCRETE_BLOCK_COARSE: ERaMaterialName = ERaMaterialName(4);
-    pub const CONCRETE_BLOCK_PAINTED: ERaMaterialName = ERaMaterialName(5);
-    pub const CURTAIN_HEAVY: ERaMaterialName = ERaMaterialName(6);
-    pub const FIBER_GLASS_INSULATION: ERaMaterialName = ERaMaterialName(7);
-    pub const GLASS_THIN: ERaMaterialName = ERaMaterialName(8);
-    pub const GLASS_THICK: ERaMaterialName = ERaMaterialName(9);
-    pub const GRASS: ERaMaterialName = ERaMaterialName(10);
-    pub const LINOLEUM_ON_CONCRETE: ERaMaterialName = ERaMaterialName(11);
-    pub const MARBLE: ERaMaterialName = ERaMaterialName(12);
-    pub const METAL: ERaMaterialName = ERaMaterialName(13);
-    pub const PARQUET_ONCONCRETE: ERaMaterialName = ERaMaterialName(14);
-    pub const PLASTER_ROUGH: ERaMaterialName = ERaMaterialName(15);
-    pub const PLASTER_SMOOTH: ERaMaterialName = ERaMaterialName(16);
-    pub const PLYWOOD_PANEL: ERaMaterialName = ERaMaterialName(17);
-    pub const POLISHED_CONCRETE_OR_TILE: ERaMaterialName = ERaMaterialName(18);
-    pub const SHEETROCK: ERaMaterialName = ERaMaterialName(19);
-    pub const WATER_OR_ICE_SURFACE: ERaMaterialName = ERaMaterialName(20);
-    pub const WOOD_CEILING: ERaMaterialName = ERaMaterialName(21);
-    pub const WOOD_PANEL: ERaMaterialName = ERaMaterialName(22);
-    pub const UNIFORM: ERaMaterialName = ERaMaterialName(23);
 }
 #[allow(non_camel_case_types)]
 #[repr(transparent)]
@@ -8631,423 +8682,218 @@ impl EStateTreeTransitionType {
 }
 #[allow(non_camel_case_types)]
 #[repr(transparent)]
-pub struct EStateTreeBreakpointType(pub u8);
-impl EStateTreeBreakpointType {
-    pub const UNSET: EStateTreeBreakpointType = EStateTreeBreakpointType(0);
-    pub const ON_ENTER: EStateTreeBreakpointType = EStateTreeBreakpointType(1);
-    pub const ON_EXIT: EStateTreeBreakpointType = EStateTreeBreakpointType(2);
-    pub const ON_TRANSITION: EStateTreeBreakpointType = EStateTreeBreakpointType(3);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct ESynth1PatchDestination(pub u8);
-impl ESynth1PatchDestination {
-    pub const OSC1_GAIN: ESynth1PatchDestination = ESynth1PatchDestination(0);
-    pub const OSC1_FREQUENCY: ESynth1PatchDestination = ESynth1PatchDestination(1);
-    pub const OSC1_PULSEWIDTH: ESynth1PatchDestination = ESynth1PatchDestination(2);
-    pub const OSC2_GAIN: ESynth1PatchDestination = ESynth1PatchDestination(3);
-    pub const OSC2_FREQUENCY: ESynth1PatchDestination = ESynth1PatchDestination(4);
-    pub const OSC2_PULSEWIDTH: ESynth1PatchDestination = ESynth1PatchDestination(5);
-    pub const FILTER_FREQUENCY: ESynth1PatchDestination = ESynth1PatchDestination(6);
-    pub const FILTER_Q: ESynth1PatchDestination = ESynth1PatchDestination(7);
-    pub const GAIN: ESynth1PatchDestination = ESynth1PatchDestination(8);
-    pub const PAN: ESynth1PatchDestination = ESynth1PatchDestination(9);
-    pub const LFO1_FREQUENCY: ESynth1PatchDestination = ESynth1PatchDestination(10);
-    pub const LFO1_GAIN: ESynth1PatchDestination = ESynth1PatchDestination(11);
-    pub const LFO2_FREQUENCY: ESynth1PatchDestination = ESynth1PatchDestination(12);
-    pub const LFO2_GAIN: ESynth1PatchDestination = ESynth1PatchDestination(13);
-    pub const COUNT: ESynth1PatchDestination = ESynth1PatchDestination(14);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct ESynth1PatchSource(pub u8);
-impl ESynth1PatchSource {
-    pub const LFO1: ESynth1PatchSource = ESynth1PatchSource(0);
-    pub const LFO2: ESynth1PatchSource = ESynth1PatchSource(1);
-    pub const ENVELOPE: ESynth1PatchSource = ESynth1PatchSource(2);
-    pub const BIAS_ENVELOPE: ESynth1PatchSource = ESynth1PatchSource(3);
-    pub const COUNT: ESynth1PatchSource = ESynth1PatchSource(4);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct ESynth1OscType(pub u8);
-impl ESynth1OscType {
-    pub const SINE: ESynth1OscType = ESynth1OscType(0);
-    pub const SAW: ESynth1OscType = ESynth1OscType(1);
-    pub const TRIANGLE: ESynth1OscType = ESynth1OscType(2);
-    pub const SQUARE: ESynth1OscType = ESynth1OscType(3);
-    pub const NOISE: ESynth1OscType = ESynth1OscType(4);
-    pub const COUNT: ESynth1OscType = ESynth1OscType(5);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct ESynthLFOType(pub u8);
-impl ESynthLFOType {
-    pub const SINE: ESynthLFOType = ESynthLFOType(0);
-    pub const UP_SAW: ESynthLFOType = ESynthLFOType(1);
-    pub const DOWN_SAW: ESynthLFOType = ESynthLFOType(2);
-    pub const SQUARE: ESynthLFOType = ESynthLFOType(3);
-    pub const TRIANGLE: ESynthLFOType = ESynthLFOType(4);
-    pub const EXPONENTIAL: ESynthLFOType = ESynthLFOType(5);
-    pub const RANDOM_SAMPLE_HOLD: ESynthLFOType = ESynthLFOType(6);
-    pub const COUNT: ESynthLFOType = ESynthLFOType(7);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct ESynthLFOMode(pub u8);
-impl ESynthLFOMode {
-    pub const SYNC: ESynthLFOMode = ESynthLFOMode(0);
-    pub const ONE_SHOT: ESynthLFOMode = ESynthLFOMode(1);
-    pub const FREE: ESynthLFOMode = ESynthLFOMode(2);
-    pub const COUNT: ESynthLFOMode = ESynthLFOMode(3);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct ESynthLFOPatchType(pub u8);
-impl ESynthLFOPatchType {
-    pub const PATCH_TO_NONE: ESynthLFOPatchType = ESynthLFOPatchType(0);
-    pub const PATCH_TO_GAIN: ESynthLFOPatchType = ESynthLFOPatchType(1);
-    pub const PATCH_TO_OSC_FREQ: ESynthLFOPatchType = ESynthLFOPatchType(2);
-    pub const PATCH_TO_FILTER_FREQ: ESynthLFOPatchType = ESynthLFOPatchType(3);
-    pub const PATCH_TO_FILTER_Q: ESynthLFOPatchType = ESynthLFOPatchType(4);
-    pub const PATCH_TO_OSC_PULSE_WIDTH: ESynthLFOPatchType = ESynthLFOPatchType(5);
-    pub const PATCH_TO_OSC_PAN: ESynthLFOPatchType = ESynthLFOPatchType(6);
-    pub const PATCH_LFO1_TO_LFO2_FREQUENCY: ESynthLFOPatchType = ESynthLFOPatchType(7);
-    pub const PATCH_LFO1_TO_LFO2_GAIN: ESynthLFOPatchType = ESynthLFOPatchType(8);
-    pub const COUNT: ESynthLFOPatchType = ESynthLFOPatchType(9);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct ESynthModEnvPatch(pub u8);
-impl ESynthModEnvPatch {
-    pub const PATCH_TO_NONE: ESynthModEnvPatch = ESynthModEnvPatch(0);
-    pub const PATCH_TO_OSC_FREQ: ESynthModEnvPatch = ESynthModEnvPatch(1);
-    pub const PATCH_TO_FILTER_FREQ: ESynthModEnvPatch = ESynthModEnvPatch(2);
-    pub const PATCH_TO_FILTER_Q: ESynthModEnvPatch = ESynthModEnvPatch(3);
-    pub const PATCH_TO_LFO1_GAIN: ESynthModEnvPatch = ESynthModEnvPatch(4);
-    pub const PATCH_TO_LFO2_GAIN: ESynthModEnvPatch = ESynthModEnvPatch(5);
-    pub const PATCH_TO_LFO1_FREQ: ESynthModEnvPatch = ESynthModEnvPatch(6);
-    pub const PATCH_TO_LFO2_FREQ: ESynthModEnvPatch = ESynthModEnvPatch(7);
-    pub const COUNT: ESynthModEnvPatch = ESynthModEnvPatch(8);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct ESynthModEnvBiasPatch(pub u8);
-impl ESynthModEnvBiasPatch {
-    pub const PATCH_TO_NONE: ESynthModEnvBiasPatch = ESynthModEnvBiasPatch(0);
-    pub const PATCH_TO_OSC_FREQ: ESynthModEnvBiasPatch = ESynthModEnvBiasPatch(1);
-    pub const PATCH_TO_FILTER_FREQ: ESynthModEnvBiasPatch = ESynthModEnvBiasPatch(2);
-    pub const PATCH_TO_FILTER_Q: ESynthModEnvBiasPatch = ESynthModEnvBiasPatch(3);
-    pub const PATCH_TO_LFO1_GAIN: ESynthModEnvBiasPatch = ESynthModEnvBiasPatch(4);
-    pub const PATCH_TO_LFO2_GAIN: ESynthModEnvBiasPatch = ESynthModEnvBiasPatch(5);
-    pub const PATCH_TO_LFO1_FREQ: ESynthModEnvBiasPatch = ESynthModEnvBiasPatch(6);
-    pub const PATCH_TO_LFO2_FREQ: ESynthModEnvBiasPatch = ESynthModEnvBiasPatch(7);
-    pub const COUNT: ESynthModEnvBiasPatch = ESynthModEnvBiasPatch(8);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct ESynthFilterType(pub u8);
-impl ESynthFilterType {
-    pub const LOW_PASS: ESynthFilterType = ESynthFilterType(0);
-    pub const HIGH_PASS: ESynthFilterType = ESynthFilterType(1);
-    pub const BAND_PASS: ESynthFilterType = ESynthFilterType(2);
-    pub const BAND_STOP: ESynthFilterType = ESynthFilterType(3);
-    pub const COUNT: ESynthFilterType = ESynthFilterType(4);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct ESynthFilterAlgorithm(pub u8);
-impl ESynthFilterAlgorithm {
-    pub const ONE_POLE: ESynthFilterAlgorithm = ESynthFilterAlgorithm(0);
-    pub const STATE_VARIABLE: ESynthFilterAlgorithm = ESynthFilterAlgorithm(1);
-    pub const LADDER: ESynthFilterAlgorithm = ESynthFilterAlgorithm(2);
-    pub const COUNT: ESynthFilterAlgorithm = ESynthFilterAlgorithm(3);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct ESynthStereoDelayMode(pub u8);
-impl ESynthStereoDelayMode {
-    pub const NORMAL: ESynthStereoDelayMode = ESynthStereoDelayMode(0);
-    pub const CROSS: ESynthStereoDelayMode = ESynthStereoDelayMode(1);
-    pub const PING_PONG: ESynthStereoDelayMode = ESynthStereoDelayMode(2);
-    pub const COUNT: ESynthStereoDelayMode = ESynthStereoDelayMode(3);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct ESourceEffectDynamicsProcessorType(pub u8);
-impl ESourceEffectDynamicsProcessorType {
-    pub const COMPRESSOR: ESourceEffectDynamicsProcessorType = ESourceEffectDynamicsProcessorType(
+pub struct ECameraObjectInterfaceParameterType(pub u8);
+impl ECameraObjectInterfaceParameterType {
+    pub const BLENDABLE: ECameraObjectInterfaceParameterType = ECameraObjectInterfaceParameterType(
         0,
     );
-    pub const LIMITER: ESourceEffectDynamicsProcessorType = ESourceEffectDynamicsProcessorType(
+    pub const DATA: ECameraObjectInterfaceParameterType = ECameraObjectInterfaceParameterType(
         1,
     );
-    pub const EXPANDER: ESourceEffectDynamicsProcessorType = ESourceEffectDynamicsProcessorType(
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ECameraVariableType(pub i32);
+impl ECameraVariableType {
+    pub const BOOLEAN: ECameraVariableType = ECameraVariableType(0);
+    pub const INTEGER32: ECameraVariableType = ECameraVariableType(1);
+    pub const FLOAT: ECameraVariableType = ECameraVariableType(2);
+    pub const DOUBLE: ECameraVariableType = ECameraVariableType(3);
+    pub const VECTOR2F: ECameraVariableType = ECameraVariableType(4);
+    pub const VECTOR2D: ECameraVariableType = ECameraVariableType(5);
+    pub const VECTOR3F: ECameraVariableType = ECameraVariableType(6);
+    pub const VECTOR3D: ECameraVariableType = ECameraVariableType(7);
+    pub const VECTOR4F: ECameraVariableType = ECameraVariableType(8);
+    pub const VECTOR4D: ECameraVariableType = ECameraVariableType(9);
+    pub const ROTATOR3F: ECameraVariableType = ECameraVariableType(10);
+    pub const ROTATOR3D: ECameraVariableType = ECameraVariableType(11);
+    pub const TRANSFORM3F: ECameraVariableType = ECameraVariableType(12);
+    pub const TRANSFORM3D: ECameraVariableType = ECameraVariableType(13);
+    pub const BLENDABLE_STRUCT: ECameraVariableType = ECameraVariableType(14);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ECameraContextDataType(pub i32);
+impl ECameraContextDataType {
+    pub const NAME: ECameraContextDataType = ECameraContextDataType(0);
+    pub const STRING: ECameraContextDataType = ECameraContextDataType(1);
+    pub const ENUM: ECameraContextDataType = ECameraContextDataType(2);
+    pub const STRUCT: ECameraContextDataType = ECameraContextDataType(3);
+    pub const OBJECT: ECameraContextDataType = ECameraContextDataType(4);
+    pub const CLASS: ECameraContextDataType = ECameraContextDataType(5);
+    pub const COUNT: ECameraContextDataType = ECameraContextDataType(6);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ECameraContextDataContainerType(pub i32);
+impl ECameraContextDataContainerType {
+    pub const NONE: ECameraContextDataContainerType = ECameraContextDataContainerType(0);
+    pub const ARRAY: ECameraContextDataContainerType = ECameraContextDataContainerType(
+        1,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ECameraRigLayer(pub u8);
+impl ECameraRigLayer {
+    pub const NONE: ECameraRigLayer = ECameraRigLayer(0);
+    pub const BASE: ECameraRigLayer = ECameraRigLayer(1);
+    pub const MAIN: ECameraRigLayer = ECameraRigLayer(2);
+    pub const GLOBAL: ECameraRigLayer = ECameraRigLayer(3);
+    pub const VISUAL: ECameraRigLayer = ECameraRigLayer(4);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ECameraTargetShape(pub u8);
+impl ECameraTargetShape {
+    pub const POINT: ECameraTargetShape = ECameraTargetShape(0);
+    pub const AUTOMATIC_BOUNDS: ECameraTargetShape = ECameraTargetShape(1);
+    pub const MANUAL_BOUNDS: ECameraTargetShape = ECameraTargetShape(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EUserAssetTagProviderMenuType(pub i32);
+impl EUserAssetTagProviderMenuType {
+    pub const SECTION: EUserAssetTagProviderMenuType = EUserAssetTagProviderMenuType(0);
+    pub const SUB_MENU: EUserAssetTagProviderMenuType = EUserAssetTagProviderMenuType(1);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENiagaraNamespaceMetadataOptions(pub i32);
+impl ENiagaraNamespaceMetadataOptions {
+    pub const HIDE_IN_SCRIPT: ENiagaraNamespaceMetadataOptions = ENiagaraNamespaceMetadataOptions(
+        0,
+    );
+    pub const HIDE_IN_SYSTEM: ENiagaraNamespaceMetadataOptions = ENiagaraNamespaceMetadataOptions(
+        1,
+    );
+    pub const ADVANCED_IN_SCRIPT: ENiagaraNamespaceMetadataOptions = ENiagaraNamespaceMetadataOptions(
         2,
     );
-    pub const GATE: ESourceEffectDynamicsProcessorType = ESourceEffectDynamicsProcessorType(
+    pub const ADVANCED_IN_SYSTEM: ENiagaraNamespaceMetadataOptions = ENiagaraNamespaceMetadataOptions(
         3,
     );
-    pub const UPWARDS_COMPRESSOR: ESourceEffectDynamicsProcessorType = ESourceEffectDynamicsProcessorType(
+    pub const PREVENT_EDITING_NAMESPACE: ENiagaraNamespaceMetadataOptions = ENiagaraNamespaceMetadataOptions(
         4,
     );
-    pub const COUNT: ESourceEffectDynamicsProcessorType = ESourceEffectDynamicsProcessorType(
+    pub const PREVENT_EDITING_NAMESPACE_MODIFIER: ENiagaraNamespaceMetadataOptions = ENiagaraNamespaceMetadataOptions(
         5,
     );
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct ESourceEffectDynamicsPeakMode(pub u8);
-impl ESourceEffectDynamicsPeakMode {
-    pub const MEAN_SQUARED: ESourceEffectDynamicsPeakMode = ESourceEffectDynamicsPeakMode(
-        0,
-    );
-    pub const ROOT_MEAN_SQUARED: ESourceEffectDynamicsPeakMode = ESourceEffectDynamicsPeakMode(
-        1,
-    );
-    pub const PEAK: ESourceEffectDynamicsPeakMode = ESourceEffectDynamicsPeakMode(2);
-    pub const COUNT: ESourceEffectDynamicsPeakMode = ESourceEffectDynamicsPeakMode(3);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct EEnvelopeFollowerPeakMode(pub u8);
-impl EEnvelopeFollowerPeakMode {
-    pub const MEAN_SQUARED: EEnvelopeFollowerPeakMode = EEnvelopeFollowerPeakMode(0);
-    pub const ROOT_MEAN_SQUARED: EEnvelopeFollowerPeakMode = EEnvelopeFollowerPeakMode(
-        1,
-    );
-    pub const PEAK: EEnvelopeFollowerPeakMode = EEnvelopeFollowerPeakMode(2);
-    pub const COUNT: EEnvelopeFollowerPeakMode = EEnvelopeFollowerPeakMode(3);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct ESourceEffectFilterParam(pub u8);
-impl ESourceEffectFilterParam {
-    pub const FILTER_FREQUENCY: ESourceEffectFilterParam = ESourceEffectFilterParam(0);
-    pub const FILTER_RESONANCE: ESourceEffectFilterParam = ESourceEffectFilterParam(1);
-    pub const COUNT: ESourceEffectFilterParam = ESourceEffectFilterParam(2);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct ESourceEffectFilterCircuit(pub u8);
-impl ESourceEffectFilterCircuit {
-    pub const ONE_POLE: ESourceEffectFilterCircuit = ESourceEffectFilterCircuit(0);
-    pub const STATE_VARIABLE: ESourceEffectFilterCircuit = ESourceEffectFilterCircuit(1);
-    pub const LADDER: ESourceEffectFilterCircuit = ESourceEffectFilterCircuit(2);
-    pub const COUNT: ESourceEffectFilterCircuit = ESourceEffectFilterCircuit(3);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct ESourceEffectFilterType(pub u8);
-impl ESourceEffectFilterType {
-    pub const LOW_PASS: ESourceEffectFilterType = ESourceEffectFilterType(0);
-    pub const HIGH_PASS: ESourceEffectFilterType = ESourceEffectFilterType(1);
-    pub const BAND_PASS: ESourceEffectFilterType = ESourceEffectFilterType(2);
-    pub const BAND_STOP: ESourceEffectFilterType = ESourceEffectFilterType(3);
-    pub const COUNT: ESourceEffectFilterType = ESourceEffectFilterType(4);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct EStereoChannelMode(pub u8);
-impl EStereoChannelMode {
-    pub const MID_SIDE: EStereoChannelMode = EStereoChannelMode(0);
-    pub const LEFT_RIGHT: EStereoChannelMode = EStereoChannelMode(1);
-    pub const COUNT: EStereoChannelMode = EStereoChannelMode(2);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct ESourceEffectMotionFilterCircuit(pub u8);
-impl ESourceEffectMotionFilterCircuit {
-    pub const ONE_POLE: ESourceEffectMotionFilterCircuit = ESourceEffectMotionFilterCircuit(
-        0,
-    );
-    pub const STATE_VARIABLE: ESourceEffectMotionFilterCircuit = ESourceEffectMotionFilterCircuit(
-        1,
-    );
-    pub const LADDER: ESourceEffectMotionFilterCircuit = ESourceEffectMotionFilterCircuit(
-        2,
-    );
-    pub const COUNT: ESourceEffectMotionFilterCircuit = ESourceEffectMotionFilterCircuit(
-        3,
-    );
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct ESourceEffectMotionFilterType(pub u8);
-impl ESourceEffectMotionFilterType {
-    pub const LOW_PASS: ESourceEffectMotionFilterType = ESourceEffectMotionFilterType(0);
-    pub const HIGH_PASS: ESourceEffectMotionFilterType = ESourceEffectMotionFilterType(
-        1,
-    );
-    pub const BAND_PASS: ESourceEffectMotionFilterType = ESourceEffectMotionFilterType(
-        2,
-    );
-    pub const BAND_STOP: ESourceEffectMotionFilterType = ESourceEffectMotionFilterType(
-        3,
-    );
-    pub const COUNT: ESourceEffectMotionFilterType = ESourceEffectMotionFilterType(4);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct ESourceEffectMotionFilterModSource(pub u8);
-impl ESourceEffectMotionFilterModSource {
-    pub const DISTANCE_FROM_LISTENER: ESourceEffectMotionFilterModSource = ESourceEffectMotionFilterModSource(
-        0,
-    );
-    pub const SPEED_RELATIVE_TO_LISTENER: ESourceEffectMotionFilterModSource = ESourceEffectMotionFilterModSource(
-        1,
-    );
-    pub const SPEED_OF_SOURCE_EMITTER: ESourceEffectMotionFilterModSource = ESourceEffectMotionFilterModSource(
-        2,
-    );
-    pub const SPEED_OF_LISTENER: ESourceEffectMotionFilterModSource = ESourceEffectMotionFilterModSource(
-        3,
-    );
-    pub const SPEED_OF_ANGLE_DELTA: ESourceEffectMotionFilterModSource = ESourceEffectMotionFilterModSource(
-        4,
-    );
-    pub const COUNT: ESourceEffectMotionFilterModSource = ESourceEffectMotionFilterModSource(
-        5,
-    );
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct ESourceEffectMotionFilterTopology(pub u8);
-impl ESourceEffectMotionFilterTopology {
-    pub const SERIAL_MODE: ESourceEffectMotionFilterTopology = ESourceEffectMotionFilterTopology(
-        0,
-    );
-    pub const PARALLEL_MODE: ESourceEffectMotionFilterTopology = ESourceEffectMotionFilterTopology(
-        1,
-    );
-    pub const COUNT: ESourceEffectMotionFilterTopology = ESourceEffectMotionFilterTopology(
-        2,
-    );
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct ESourceEffectMotionFilterModDestination(pub u8);
-impl ESourceEffectMotionFilterModDestination {
-    pub const FILTER_A_CUTOFF_FREQUENCY: ESourceEffectMotionFilterModDestination = ESourceEffectMotionFilterModDestination(
-        0,
-    );
-    pub const FILTER_A_RESONANCE: ESourceEffectMotionFilterModDestination = ESourceEffectMotionFilterModDestination(
-        1,
-    );
-    pub const FILTER_A_OUTPUT_VOLUME_DB: ESourceEffectMotionFilterModDestination = ESourceEffectMotionFilterModDestination(
-        2,
-    );
-    pub const FILTER_B_CUTOFF_FREQUENCY: ESourceEffectMotionFilterModDestination = ESourceEffectMotionFilterModDestination(
-        3,
-    );
-    pub const FILTER_B_RESONANCE: ESourceEffectMotionFilterModDestination = ESourceEffectMotionFilterModDestination(
-        4,
-    );
-    pub const FILTER_B_OUTPUT_VOLUME_DB: ESourceEffectMotionFilterModDestination = ESourceEffectMotionFilterModDestination(
-        5,
-    );
-    pub const FILTER_MIX: ESourceEffectMotionFilterModDestination = ESourceEffectMotionFilterModDestination(
+    pub const PREVENT_EDITING_NAME: ENiagaraNamespaceMetadataOptions = ENiagaraNamespaceMetadataOptions(
         6,
     );
-    pub const COUNT: ESourceEffectMotionFilterModDestination = ESourceEffectMotionFilterModDestination(
+    pub const PREVENT_CREATING_IN_SYSTEM_EDITOR: ENiagaraNamespaceMetadataOptions = ENiagaraNamespaceMetadataOptions(
         7,
     );
+    pub const HIDE_IN_DEFINITIONS: ENiagaraNamespaceMetadataOptions = ENiagaraNamespaceMetadataOptions(
+        8,
+    );
 }
 #[allow(non_camel_case_types)]
 #[repr(transparent)]
-pub struct EPhaserLFOType(pub u8);
-impl EPhaserLFOType {
-    pub const SINE: EPhaserLFOType = EPhaserLFOType(0);
-    pub const UP_SAW: EPhaserLFOType = EPhaserLFOType(1);
-    pub const DOWN_SAW: EPhaserLFOType = EPhaserLFOType(2);
-    pub const SQUARE: EPhaserLFOType = EPhaserLFOType(3);
-    pub const TRIANGLE: EPhaserLFOType = EPhaserLFOType(4);
-    pub const EXPONENTIAL: EPhaserLFOType = EPhaserLFOType(5);
-    pub const RANDOM_SAMPLE_HOLD: EPhaserLFOType = EPhaserLFOType(6);
-    pub const COUNT: EPhaserLFOType = EPhaserLFOType(7);
+pub struct ENiagaraMessageSeverity(pub u8);
+impl ENiagaraMessageSeverity {
+    pub const CRITICAL_ERROR: ENiagaraMessageSeverity = ENiagaraMessageSeverity(0);
+    pub const ERROR: ENiagaraMessageSeverity = ENiagaraMessageSeverity(1);
+    pub const PERFORMANCE_WARNING: ENiagaraMessageSeverity = ENiagaraMessageSeverity(2);
+    pub const WARNING: ENiagaraMessageSeverity = ENiagaraMessageSeverity(3);
+    pub const INFO: ENiagaraMessageSeverity = ENiagaraMessageSeverity(4);
 }
 #[allow(non_camel_case_types)]
 #[repr(transparent)]
-pub struct ERingModulatorTypeSourceEffect(pub u8);
-impl ERingModulatorTypeSourceEffect {
-    pub const SINE: ERingModulatorTypeSourceEffect = ERingModulatorTypeSourceEffect(0);
-    pub const SAW: ERingModulatorTypeSourceEffect = ERingModulatorTypeSourceEffect(1);
-    pub const TRIANGLE: ERingModulatorTypeSourceEffect = ERingModulatorTypeSourceEffect(
+pub struct ENiagaraStaticSwitchType(pub u8);
+impl ENiagaraStaticSwitchType {
+    pub const BOOL: ENiagaraStaticSwitchType = ENiagaraStaticSwitchType(0);
+    pub const INTEGER: ENiagaraStaticSwitchType = ENiagaraStaticSwitchType(1);
+    pub const ENUM: ENiagaraStaticSwitchType = ENiagaraStaticSwitchType(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENiagaraOutlinerViewModes(pub u8);
+impl ENiagaraOutlinerViewModes {
+    pub const STATE: ENiagaraOutlinerViewModes = ENiagaraOutlinerViewModes(0);
+    pub const PERFORMANCE: ENiagaraOutlinerViewModes = ENiagaraOutlinerViewModes(1);
+    pub const DEBUG: ENiagaraOutlinerViewModes = ENiagaraOutlinerViewModes(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENiagaraOutlinerSortMode(pub u8);
+impl ENiagaraOutlinerSortMode {
+    pub const AUTO: ENiagaraOutlinerSortMode = ENiagaraOutlinerSortMode(0);
+    pub const FILTER_MATCHES: ENiagaraOutlinerSortMode = ENiagaraOutlinerSortMode(1);
+    pub const AVERAGE_TIME: ENiagaraOutlinerSortMode = ENiagaraOutlinerSortMode(2);
+    pub const MAX_TIME: ENiagaraOutlinerSortMode = ENiagaraOutlinerSortMode(3);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENiagaraOutlinerTimeUnits(pub u8);
+impl ENiagaraOutlinerTimeUnits {
+    pub const MICROSECONDS: ENiagaraOutlinerTimeUnits = ENiagaraOutlinerTimeUnits(0);
+    pub const MILLISECONDS: ENiagaraOutlinerTimeUnits = ENiagaraOutlinerTimeUnits(1);
+    pub const SECONDS: ENiagaraOutlinerTimeUnits = ENiagaraOutlinerTimeUnits(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENiagaraDefaultMode(pub u8);
+impl ENiagaraDefaultMode {
+    pub const VALUE: ENiagaraDefaultMode = ENiagaraDefaultMode(0);
+    pub const BINDING: ENiagaraDefaultMode = ENiagaraDefaultMode(1);
+    pub const CUSTOM: ENiagaraDefaultMode = ENiagaraDefaultMode(2);
+    pub const FAIL_IF_PREVIOUSLY_NOT_SET: ENiagaraDefaultMode = ENiagaraDefaultMode(3);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EActorSequenceObjectReferenceType(pub u8);
+impl EActorSequenceObjectReferenceType {
+    pub const CONTEXT_ACTOR: EActorSequenceObjectReferenceType = EActorSequenceObjectReferenceType(
+        0,
+    );
+    pub const EXTERNAL_ACTOR: EActorSequenceObjectReferenceType = EActorSequenceObjectReferenceType(
+        1,
+    );
+    pub const COMPONENT: EActorSequenceObjectReferenceType = EActorSequenceObjectReferenceType(
         2,
     );
-    pub const SQUARE: ERingModulatorTypeSourceEffect = ERingModulatorTypeSourceEffect(3);
-    pub const COUNT: ERingModulatorTypeSourceEffect = ERingModulatorTypeSourceEffect(4);
 }
 #[allow(non_camel_case_types)]
 #[repr(transparent)]
-pub struct EStereoDelaySourceEffect(pub u8);
-impl EStereoDelaySourceEffect {
-    pub const NORMAL: EStereoDelaySourceEffect = EStereoDelaySourceEffect(0);
-    pub const CROSS: EStereoDelaySourceEffect = EStereoDelaySourceEffect(1);
-    pub const PING_PONG: EStereoDelaySourceEffect = EStereoDelaySourceEffect(2);
-    pub const COUNT: EStereoDelaySourceEffect = EStereoDelaySourceEffect(3);
+pub struct EPerQualityLevels(pub u8);
+impl EPerQualityLevels {
+    pub const LOW: EPerQualityLevels = EPerQualityLevels(0);
+    pub const MEDIUM: EPerQualityLevels = EPerQualityLevels(1);
+    pub const HIGH: EPerQualityLevels = EPerQualityLevels(2);
+    pub const EPIC: EPerQualityLevels = EPerQualityLevels(3);
+    pub const CINEMATIC: EPerQualityLevels = EPerQualityLevels(4);
+    pub const NUM: EPerQualityLevels = EPerQualityLevels(5);
 }
 #[allow(non_camel_case_types)]
 #[repr(transparent)]
-pub struct EStereoDelayFiltertype(pub u8);
-impl EStereoDelayFiltertype {
-    pub const LOWPASS: EStereoDelayFiltertype = EStereoDelayFiltertype(0);
-    pub const HIGHPASS: EStereoDelayFiltertype = EStereoDelayFiltertype(1);
-    pub const BANDPASS: EStereoDelayFiltertype = EStereoDelayFiltertype(2);
-    pub const NOTCH: EStereoDelayFiltertype = EStereoDelayFiltertype(3);
-    pub const COUNT: EStereoDelayFiltertype = EStereoDelayFiltertype(4);
+pub struct ENiagaraSimCacheSectionPlayMode(pub u8);
+impl ENiagaraSimCacheSectionPlayMode {
+    pub const SIM_WITHOUT_CACHE: ENiagaraSimCacheSectionPlayMode = ENiagaraSimCacheSectionPlayMode(
+        0,
+    );
+    pub const DISPLAY_CACHE_ONLY: ENiagaraSimCacheSectionPlayMode = ENiagaraSimCacheSectionPlayMode(
+        1,
+    );
 }
 #[allow(non_camel_case_types)]
 #[repr(transparent)]
-pub struct ESubmixFilterType(pub u8);
-impl ESubmixFilterType {
-    pub const LOW_PASS: ESubmixFilterType = ESubmixFilterType(0);
-    pub const HIGH_PASS: ESubmixFilterType = ESubmixFilterType(1);
-    pub const BAND_PASS: ESubmixFilterType = ESubmixFilterType(2);
-    pub const BAND_STOP: ESubmixFilterType = ESubmixFilterType(3);
-    pub const COUNT: ESubmixFilterType = ESubmixFilterType(4);
+pub struct ENiagaraSimCacheSectionStretchMode(pub u8);
+impl ENiagaraSimCacheSectionStretchMode {
+    pub const REPEAT: ENiagaraSimCacheSectionStretchMode = ENiagaraSimCacheSectionStretchMode(
+        0,
+    );
+    pub const TIME_DILATE: ENiagaraSimCacheSectionStretchMode = ENiagaraSimCacheSectionStretchMode(
+        1,
+    );
 }
 #[allow(non_camel_case_types)]
 #[repr(transparent)]
-pub struct ESubmixFilterAlgorithm(pub u8);
-impl ESubmixFilterAlgorithm {
-    pub const ONE_POLE: ESubmixFilterAlgorithm = ESubmixFilterAlgorithm(0);
-    pub const STATE_VARIABLE: ESubmixFilterAlgorithm = ESubmixFilterAlgorithm(1);
-    pub const LADDER: ESubmixFilterAlgorithm = ESubmixFilterAlgorithm(2);
-    pub const COUNT: ESubmixFilterAlgorithm = ESubmixFilterAlgorithm(3);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct ETapLineMode(pub u8);
-impl ETapLineMode {
-    pub const SEND_TO_CHANNEL: ETapLineMode = ETapLineMode(0);
-    pub const PANNING: ETapLineMode = ETapLineMode(1);
-    pub const DISABLED: ETapLineMode = ETapLineMode(2);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct ESynthKnobSize(pub u8);
-impl ESynthKnobSize {
-    pub const MEDIUM: ESynthKnobSize = ESynthKnobSize(0);
-    pub const LARGE: ESynthKnobSize = ESynthKnobSize(1);
-    pub const COUNT: ESynthKnobSize = ESynthKnobSize(2);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct ESynthSlateSizeType(pub u8);
-impl ESynthSlateSizeType {
-    pub const SMALL: ESynthSlateSizeType = ESynthSlateSizeType(0);
-    pub const MEDIUM: ESynthSlateSizeType = ESynthSlateSizeType(1);
-    pub const LARGE: ESynthSlateSizeType = ESynthSlateSizeType(2);
-    pub const COUNT: ESynthSlateSizeType = ESynthSlateSizeType(3);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct ESynthSlateColorStyle(pub u8);
-impl ESynthSlateColorStyle {
-    pub const LIGHT: ESynthSlateColorStyle = ESynthSlateColorStyle(0);
-    pub const DARK: ESynthSlateColorStyle = ESynthSlateColorStyle(1);
-    pub const COUNT: ESynthSlateColorStyle = ESynthSlateColorStyle(2);
+pub struct EExecutionMode(pub u8);
+impl EExecutionMode {
+    pub const SEQUENTIAL: EExecutionMode = EExecutionMode(0);
+    pub const PARALLEL: EExecutionMode = EExecutionMode(1);
 }
 #[allow(non_camel_case_types)]
 #[repr(transparent)]
@@ -9600,547 +9446,701 @@ impl EDataflowEditorToolMirrorDirection {
 }
 #[allow(non_camel_case_types)]
 #[repr(transparent)]
-pub struct ESpriteShapeType(pub u8);
-impl ESpriteShapeType {
-    pub const BOX: ESpriteShapeType = ESpriteShapeType(0);
-    pub const CIRCLE: ESpriteShapeType = ESpriteShapeType(1);
-    pub const POLYGON: ESpriteShapeType = ESpriteShapeType(2);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct ESpritePolygonMode(pub u8);
-impl ESpritePolygonMode {
-    pub const SOURCE_BOUNDING_BOX: ESpritePolygonMode = ESpritePolygonMode(0);
-    pub const TIGHT_BOUNDING_BOX: ESpritePolygonMode = ESpritePolygonMode(1);
-    pub const SHRINK_WRAPPED: ESpritePolygonMode = ESpritePolygonMode(2);
-    pub const FULLY_CUSTOM: ESpritePolygonMode = ESpritePolygonMode(3);
-    pub const DICED: ESpritePolygonMode = ESpritePolygonMode(4);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct EEncodeRootBoneAxis(pub u8);
-impl EEncodeRootBoneAxis {
-    pub const X: EEncodeRootBoneAxis = EEncodeRootBoneAxis(0);
-    pub const Y: EEncodeRootBoneAxis = EEncodeRootBoneAxis(1);
-    pub const Z: EEncodeRootBoneAxis = EEncodeRootBoneAxis(2);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct EDetectionTechnique(pub u8);
-impl EDetectionTechnique {
-    pub const PASS_THROUGH_REFERENCE_BONE: EDetectionTechnique = EDetectionTechnique(0);
-    pub const FOOT_BONE_REACHES_GROUND: EDetectionTechnique = EDetectionTechnique(1);
-    pub const FOOT_BONE_SPEED: EDetectionTechnique = EDetectionTechnique(2);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct ERigVMBlueprintLoadLogSeverity(pub u8);
-impl ERigVMBlueprintLoadLogSeverity {
-    pub const DISPLAY: ERigVMBlueprintLoadLogSeverity = ERigVMBlueprintLoadLogSeverity(
+pub struct EMetaSoundFrontendGraphCommentMoveMode(pub u8);
+impl EMetaSoundFrontendGraphCommentMoveMode {
+    pub const GROUP_MOVEMENT: EMetaSoundFrontendGraphCommentMoveMode = EMetaSoundFrontendGraphCommentMoveMode(
         0,
     );
-    pub const WARNING: ERigVMBlueprintLoadLogSeverity = ERigVMBlueprintLoadLogSeverity(
-        1,
-    );
-    pub const ERROR: ERigVMBlueprintLoadLogSeverity = ERigVMBlueprintLoadLogSeverity(2);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct EIKRigGoalTransformSource(pub u8);
-impl EIKRigGoalTransformSource {
-    pub const MANUAL: EIKRigGoalTransformSource = EIKRigGoalTransformSource(0);
-    pub const BONE: EIKRigGoalTransformSource = EIKRigGoalTransformSource(1);
-    pub const ACTOR_COMPONENT: EIKRigGoalTransformSource = EIKRigGoalTransformSource(2);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct EIKRigGoalSpace(pub u8);
-impl EIKRigGoalSpace {
-    pub const COMPONENT: EIKRigGoalSpace = EIKRigGoalSpace(0);
-    pub const ADDITIVE: EIKRigGoalSpace = EIKRigGoalSpace(1);
-    pub const WORLD: EIKRigGoalSpace = EIKRigGoalSpace(2);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct ERetargetSourceMode(pub u8);
-impl ERetargetSourceMode {
-    pub const PARENT_SKELETAL_MESH_COMPONENT: ERetargetSourceMode = ERetargetSourceMode(
-        0,
-    );
-    pub const CUSTOM_SKELETAL_MESH_COMPONENT: ERetargetSourceMode = ERetargetSourceMode(
-        1,
-    );
-    pub const SOURCE_POSE_PIN: ERetargetSourceMode = ERetargetSourceMode(2);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct ERetargetRotationMode(pub u8);
-impl ERetargetRotationMode {
-    pub const INTERPOLATED: ERetargetRotationMode = ERetargetRotationMode(0);
-    pub const ONE_TO_ONE: ERetargetRotationMode = ERetargetRotationMode(1);
-    pub const ONE_TO_ONE_REVERSED: ERetargetRotationMode = ERetargetRotationMode(2);
-    pub const MATCH_CHAIN: ERetargetRotationMode = ERetargetRotationMode(3);
-    pub const MATCH_SCALED_CHAIN: ERetargetRotationMode = ERetargetRotationMode(4);
-    pub const NONE: ERetargetRotationMode = ERetargetRotationMode(5);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct EWarpingDirectionSource(pub i32);
-impl EWarpingDirectionSource {
-    pub const GOALS: EWarpingDirectionSource = EWarpingDirectionSource(0);
-    pub const CHAIN: EWarpingDirectionSource = EWarpingDirectionSource(1);
-    pub const ROOT_BONE: EWarpingDirectionSource = EWarpingDirectionSource(2);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct EBasicAxis(pub i32);
-impl EBasicAxis {
-    pub const X: EBasicAxis = EBasicAxis(0);
-    pub const Y: EBasicAxis = EBasicAxis(1);
-    pub const Z: EBasicAxis = EBasicAxis(2);
-    pub const NEG_X: EBasicAxis = EBasicAxis(3);
-    pub const NEG_Y: EBasicAxis = EBasicAxis(4);
-    pub const NEG_Z: EBasicAxis = EBasicAxis(5);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct ERetargetTranslationMode(pub u8);
-impl ERetargetTranslationMode {
-    pub const NONE: ERetargetTranslationMode = ERetargetTranslationMode(0);
-    pub const GLOBALLY_SCALED: ERetargetTranslationMode = ERetargetTranslationMode(1);
-    pub const ABSOLUTE: ERetargetTranslationMode = ERetargetTranslationMode(2);
-    pub const STRETCH_BONE_LENGTH_UNIFORMLY: ERetargetTranslationMode = ERetargetTranslationMode(
-        3,
-    );
-    pub const STRETCH_BONE_LENGTH_NON_UNIFORMLY: ERetargetTranslationMode = ERetargetTranslationMode(
-        4,
-    );
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct EFKChainRotationMode(pub u8);
-impl EFKChainRotationMode {
-    pub const NONE: EFKChainRotationMode = EFKChainRotationMode(5);
-    pub const INTERPOLATED: EFKChainRotationMode = EFKChainRotationMode(0);
-    pub const ONE_TO_ONE: EFKChainRotationMode = EFKChainRotationMode(1);
-    pub const ONE_TO_ONE_REVERSED: EFKChainRotationMode = EFKChainRotationMode(2);
-    pub const MATCH_CHAIN: EFKChainRotationMode = EFKChainRotationMode(3);
-    pub const MATCH_SCALED_CHAIN: EFKChainRotationMode = EFKChainRotationMode(4);
-    pub const COPY_LOCAL: EFKChainRotationMode = EFKChainRotationMode(6);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct EFKChainTranslationMode(pub u8);
-impl EFKChainTranslationMode {
-    pub const NONE: EFKChainTranslationMode = EFKChainTranslationMode(0);
-    pub const GLOBALLY_SCALED: EFKChainTranslationMode = EFKChainTranslationMode(1);
-    pub const ABSOLUTE: EFKChainTranslationMode = EFKChainTranslationMode(2);
-    pub const STRETCH_BONE_LENGTH_UNIFORMLY: EFKChainTranslationMode = EFKChainTranslationMode(
-        3,
-    );
-    pub const STRETCH_BONE_LENGTH_NON_UNIFORMLY: EFKChainTranslationMode = EFKChainTranslationMode(
-        4,
-    );
-    pub const ORIENT_AND_SCALE: EFKChainTranslationMode = EFKChainTranslationMode(5);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct ERetargetSourceOrTarget(pub u8);
-impl ERetargetSourceOrTarget {
-    pub const SOURCE: ERetargetSourceOrTarget = ERetargetSourceOrTarget(0);
-    pub const TARGET: ERetargetSourceOrTarget = ERetargetSourceOrTarget(1);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct EPinBoneTranslationMode(pub u8);
-impl EPinBoneTranslationMode {
-    pub const COPY_GLOBAL_POSITION: EPinBoneTranslationMode = EPinBoneTranslationMode(0);
-    pub const COPY_LOCAL_POSITION: EPinBoneTranslationMode = EPinBoneTranslationMode(1);
-    pub const COPY_LOCAL_POSITION_RELATIVE_OFFSET: EPinBoneTranslationMode = EPinBoneTranslationMode(
-        2,
-    );
-    pub const COPY_LOCAL_POSITION_RELATIVE_SCALED: EPinBoneTranslationMode = EPinBoneTranslationMode(
-        3,
-    );
-    pub const COPY_GLOBAL_POSITION_AND_MAINTAIN_OFFSET: EPinBoneTranslationMode = EPinBoneTranslationMode(
-        4,
-    );
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct EPinBoneRotationMode(pub u8);
-impl EPinBoneRotationMode {
-    pub const COPY_GLOBAL_ROTATION: EPinBoneRotationMode = EPinBoneRotationMode(0);
-    pub const MAINTAIN_OFFSET_FROM_BONE_TO_COPY_FROM: EPinBoneRotationMode = EPinBoneRotationMode(
+    pub const NO_GROUP_MOVEMENT: EMetaSoundFrontendGraphCommentMoveMode = EMetaSoundFrontendGraphCommentMoveMode(
         1,
     );
 }
 #[allow(non_camel_case_types)]
 #[repr(transparent)]
-pub struct ERootMotionSource(pub u8);
-impl ERootMotionSource {
-    pub const COPY_FROM_SOURCE_ROOT: ERootMotionSource = ERootMotionSource(0);
-    pub const GENERATE_FROM_TARGET_PELVIS: ERootMotionSource = ERootMotionSource(1);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct ERootMotionHeightSource(pub u8);
-impl ERootMotionHeightSource {
-    pub const COPY_HEIGHT_FROM_SOURCE: ERootMotionHeightSource = ERootMotionHeightSource(
-        0,
-    );
-    pub const SNAP_TO_GROUND: ERootMotionHeightSource = ERootMotionHeightSource(1);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct EScaleSourcePivot(pub u8);
-impl EScaleSourcePivot {
-    pub const COMPONENT_ORIGIN: EScaleSourcePivot = EScaleSourcePivot(0);
-    pub const BONE: EScaleSourcePivot = EScaleSourcePivot(1);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct EStretchLimbRotationMode(pub u8);
-impl EStretchLimbRotationMode {
-    pub const NONE: EStretchLimbRotationMode = EStretchLimbRotationMode(0);
-    pub const ORIENT_TO_GOAL: EStretchLimbRotationMode = EStretchLimbRotationMode(1);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct EStretchLimbSquashMode(pub u8);
-impl EStretchLimbSquashMode {
-    pub const NONE: EStretchLimbSquashMode = EStretchLimbSquashMode(0);
-    pub const UNIFORM: EStretchLimbSquashMode = EStretchLimbSquashMode(1);
-    pub const BULGE: EStretchLimbSquashMode = EStretchLimbSquashMode(2);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct EDirection(pub u8);
-impl EDirection {
-    pub const LEFT: EDirection = EDirection(0);
-    pub const RIGHT: EDirection = EDirection(1);
-    pub const UP: EDirection = EDirection(2);
-    pub const DOWN: EDirection = EDirection(3);
-    pub const FRONT: EDirection = EDirection(4);
-    pub const BACK: EDirection = EDirection(5);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct ERigLogicCalculationType(pub u8);
-impl ERigLogicCalculationType {
-    pub const SCALAR: ERigLogicCalculationType = ERigLogicCalculationType(0);
-    pub const SSE: ERigLogicCalculationType = ERigLogicCalculationType(1);
-    pub const AVX: ERigLogicCalculationType = ERigLogicCalculationType(2);
-    pub const NEON: ERigLogicCalculationType = ERigLogicCalculationType(3);
-    pub const ANY_VECTOR: ERigLogicCalculationType = ERigLogicCalculationType(4);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct ERigLogicTranslationType(pub u8);
-impl ERigLogicTranslationType {
-    pub const NONE: ERigLogicTranslationType = ERigLogicTranslationType(0);
-    pub const VECTOR: ERigLogicTranslationType = ERigLogicTranslationType(3);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct ERigLogicRotationType(pub u8);
-impl ERigLogicRotationType {
-    pub const NONE: ERigLogicRotationType = ERigLogicRotationType(0);
-    pub const EULER_ANGLES: ERigLogicRotationType = ERigLogicRotationType(3);
-    pub const QUATERNIONS: ERigLogicRotationType = ERigLogicRotationType(4);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct ERigLogicRotationOrder(pub u8);
-impl ERigLogicRotationOrder {
-    pub const XYZ: ERigLogicRotationOrder = ERigLogicRotationOrder(0);
-    pub const XZY: ERigLogicRotationOrder = ERigLogicRotationOrder(1);
-    pub const YXZ: ERigLogicRotationOrder = ERigLogicRotationOrder(2);
-    pub const YZX: ERigLogicRotationOrder = ERigLogicRotationOrder(3);
-    pub const ZXY: ERigLogicRotationOrder = ERigLogicRotationOrder(4);
-    pub const ZYX: ERigLogicRotationOrder = ERigLogicRotationOrder(5);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct ERigLogicScaleType(pub u8);
-impl ERigLogicScaleType {
-    pub const NONE: ERigLogicScaleType = ERigLogicScaleType(0);
-    pub const VECTOR: ERigLogicScaleType = ERigLogicScaleType(3);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct ETemplateSectionPropertyScaleType(pub i32);
-impl ETemplateSectionPropertyScaleType {
-    pub const FLOAT_PROPERTY: ETemplateSectionPropertyScaleType = ETemplateSectionPropertyScaleType(
-        0,
-    );
-    pub const TRANSFORM_PROPERTY_LOCATION_ONLY: ETemplateSectionPropertyScaleType = ETemplateSectionPropertyScaleType(
-        1,
-    );
-    pub const TRANSFORM_PROPERTY_ROTATION_ONLY: ETemplateSectionPropertyScaleType = ETemplateSectionPropertyScaleType(
-        2,
-    );
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct ECameraAnimationEasingType(pub u8);
-impl ECameraAnimationEasingType {
-    pub const LINEAR: ECameraAnimationEasingType = ECameraAnimationEasingType(0);
-    pub const SINUSOIDAL: ECameraAnimationEasingType = ECameraAnimationEasingType(1);
-    pub const QUADRATIC: ECameraAnimationEasingType = ECameraAnimationEasingType(2);
-    pub const CUBIC: ECameraAnimationEasingType = ECameraAnimationEasingType(3);
-    pub const QUARTIC: ECameraAnimationEasingType = ECameraAnimationEasingType(4);
-    pub const QUINTIC: ECameraAnimationEasingType = ECameraAnimationEasingType(5);
-    pub const EXPONENTIAL: ECameraAnimationEasingType = ECameraAnimationEasingType(6);
-    pub const CIRCULAR: ECameraAnimationEasingType = ECameraAnimationEasingType(7);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct ECameraAnimationPlaySpace(pub u8);
-impl ECameraAnimationPlaySpace {
-    pub const CAMERA_LOCAL: ECameraAnimationPlaySpace = ECameraAnimationPlaySpace(0);
-    pub const WORLD: ECameraAnimationPlaySpace = ECameraAnimationPlaySpace(1);
-    pub const USER_DEFINED: ECameraAnimationPlaySpace = ECameraAnimationPlaySpace(2);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct EInitialOscillatorOffset(pub u8);
-impl EInitialOscillatorOffset {
-    pub const EOO_OFFSET_RANDOM: EInitialOscillatorOffset = EInitialOscillatorOffset(0);
-    pub const EOO_OFFSET_ZERO: EInitialOscillatorOffset = EInitialOscillatorOffset(1);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct EOscillatorWaveform(pub u8);
-impl EOscillatorWaveform {
-    pub const SINE_WAVE: EOscillatorWaveform = EOscillatorWaveform(0);
-    pub const PERLIN_NOISE: EOscillatorWaveform = EOscillatorWaveform(1);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct EInitialWaveOscillatorOffsetType(pub u8);
-impl EInitialWaveOscillatorOffsetType {
-    pub const RANDOM: EInitialWaveOscillatorOffsetType = EInitialWaveOscillatorOffsetType(
-        0,
-    );
-    pub const ZERO: EInitialWaveOscillatorOffsetType = EInitialWaveOscillatorOffsetType(
-        1,
-    );
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct ECameraObjectInterfaceParameterType(pub u8);
-impl ECameraObjectInterfaceParameterType {
-    pub const BLENDABLE: ECameraObjectInterfaceParameterType = ECameraObjectInterfaceParameterType(
-        0,
-    );
-    pub const DATA: ECameraObjectInterfaceParameterType = ECameraObjectInterfaceParameterType(
-        1,
-    );
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct ECameraVariableType(pub i32);
-impl ECameraVariableType {
-    pub const BOOLEAN: ECameraVariableType = ECameraVariableType(0);
-    pub const INTEGER32: ECameraVariableType = ECameraVariableType(1);
-    pub const FLOAT: ECameraVariableType = ECameraVariableType(2);
-    pub const DOUBLE: ECameraVariableType = ECameraVariableType(3);
-    pub const VECTOR2F: ECameraVariableType = ECameraVariableType(4);
-    pub const VECTOR2D: ECameraVariableType = ECameraVariableType(5);
-    pub const VECTOR3F: ECameraVariableType = ECameraVariableType(6);
-    pub const VECTOR3D: ECameraVariableType = ECameraVariableType(7);
-    pub const VECTOR4F: ECameraVariableType = ECameraVariableType(8);
-    pub const VECTOR4D: ECameraVariableType = ECameraVariableType(9);
-    pub const ROTATOR3F: ECameraVariableType = ECameraVariableType(10);
-    pub const ROTATOR3D: ECameraVariableType = ECameraVariableType(11);
-    pub const TRANSFORM3F: ECameraVariableType = ECameraVariableType(12);
-    pub const TRANSFORM3D: ECameraVariableType = ECameraVariableType(13);
-    pub const BLENDABLE_STRUCT: ECameraVariableType = ECameraVariableType(14);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct ECameraContextDataType(pub i32);
-impl ECameraContextDataType {
-    pub const NAME: ECameraContextDataType = ECameraContextDataType(0);
-    pub const STRING: ECameraContextDataType = ECameraContextDataType(1);
-    pub const ENUM: ECameraContextDataType = ECameraContextDataType(2);
-    pub const STRUCT: ECameraContextDataType = ECameraContextDataType(3);
-    pub const OBJECT: ECameraContextDataType = ECameraContextDataType(4);
-    pub const CLASS: ECameraContextDataType = ECameraContextDataType(5);
-    pub const COUNT: ECameraContextDataType = ECameraContextDataType(6);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct ECameraContextDataContainerType(pub i32);
-impl ECameraContextDataContainerType {
-    pub const NONE: ECameraContextDataContainerType = ECameraContextDataContainerType(0);
-    pub const ARRAY: ECameraContextDataContainerType = ECameraContextDataContainerType(
-        1,
-    );
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct ECameraRigLayer(pub u8);
-impl ECameraRigLayer {
-    pub const NONE: ECameraRigLayer = ECameraRigLayer(0);
-    pub const BASE: ECameraRigLayer = ECameraRigLayer(1);
-    pub const MAIN: ECameraRigLayer = ECameraRigLayer(2);
-    pub const GLOBAL: ECameraRigLayer = ECameraRigLayer(3);
-    pub const VISUAL: ECameraRigLayer = ECameraRigLayer(4);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct ECameraTargetShape(pub u8);
-impl ECameraTargetShape {
-    pub const POINT: ECameraTargetShape = ECameraTargetShape(0);
-    pub const AUTOMATIC_BOUNDS: ECameraTargetShape = ECameraTargetShape(1);
-    pub const MANUAL_BOUNDS: ECameraTargetShape = ECameraTargetShape(2);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct EUserAssetTagProviderMenuType(pub i32);
-impl EUserAssetTagProviderMenuType {
-    pub const SECTION: EUserAssetTagProviderMenuType = EUserAssetTagProviderMenuType(0);
-    pub const SUB_MENU: EUserAssetTagProviderMenuType = EUserAssetTagProviderMenuType(1);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct ENiagaraNamespaceMetadataOptions(pub i32);
-impl ENiagaraNamespaceMetadataOptions {
-    pub const HIDE_IN_SCRIPT: ENiagaraNamespaceMetadataOptions = ENiagaraNamespaceMetadataOptions(
-        0,
-    );
-    pub const HIDE_IN_SYSTEM: ENiagaraNamespaceMetadataOptions = ENiagaraNamespaceMetadataOptions(
-        1,
-    );
-    pub const ADVANCED_IN_SCRIPT: ENiagaraNamespaceMetadataOptions = ENiagaraNamespaceMetadataOptions(
-        2,
-    );
-    pub const ADVANCED_IN_SYSTEM: ENiagaraNamespaceMetadataOptions = ENiagaraNamespaceMetadataOptions(
-        3,
-    );
-    pub const PREVENT_EDITING_NAMESPACE: ENiagaraNamespaceMetadataOptions = ENiagaraNamespaceMetadataOptions(
-        4,
-    );
-    pub const PREVENT_EDITING_NAMESPACE_MODIFIER: ENiagaraNamespaceMetadataOptions = ENiagaraNamespaceMetadataOptions(
-        5,
-    );
-    pub const PREVENT_EDITING_NAME: ENiagaraNamespaceMetadataOptions = ENiagaraNamespaceMetadataOptions(
+pub struct EMetasoundFrontendLiteralType(pub u8);
+impl EMetasoundFrontendLiteralType {
+    pub const NONE: EMetasoundFrontendLiteralType = EMetasoundFrontendLiteralType(0);
+    pub const BOOLEAN: EMetasoundFrontendLiteralType = EMetasoundFrontendLiteralType(1);
+    pub const INTEGER: EMetasoundFrontendLiteralType = EMetasoundFrontendLiteralType(2);
+    pub const FLOAT: EMetasoundFrontendLiteralType = EMetasoundFrontendLiteralType(3);
+    pub const STRING: EMetasoundFrontendLiteralType = EMetasoundFrontendLiteralType(4);
+    pub const U_OBJECT: EMetasoundFrontendLiteralType = EMetasoundFrontendLiteralType(5);
+    pub const NONE_ARRAY: EMetasoundFrontendLiteralType = EMetasoundFrontendLiteralType(
         6,
     );
-    pub const PREVENT_CREATING_IN_SYSTEM_EDITOR: ENiagaraNamespaceMetadataOptions = ENiagaraNamespaceMetadataOptions(
+    pub const BOOLEAN_ARRAY: EMetasoundFrontendLiteralType = EMetasoundFrontendLiteralType(
         7,
     );
-    pub const HIDE_IN_DEFINITIONS: ENiagaraNamespaceMetadataOptions = ENiagaraNamespaceMetadataOptions(
+    pub const INTEGER_ARRAY: EMetasoundFrontendLiteralType = EMetasoundFrontendLiteralType(
         8,
     );
+    pub const FLOAT_ARRAY: EMetasoundFrontendLiteralType = EMetasoundFrontendLiteralType(
+        9,
+    );
+    pub const STRING_ARRAY: EMetasoundFrontendLiteralType = EMetasoundFrontendLiteralType(
+        10,
+    );
+    pub const U_OBJECT_ARRAY: EMetasoundFrontendLiteralType = EMetasoundFrontendLiteralType(
+        11,
+    );
+    pub const INVALID: EMetasoundFrontendLiteralType = EMetasoundFrontendLiteralType(12);
 }
 #[allow(non_camel_case_types)]
 #[repr(transparent)]
-pub struct ENiagaraMessageSeverity(pub u8);
-impl ENiagaraMessageSeverity {
-    pub const CRITICAL_ERROR: ENiagaraMessageSeverity = ENiagaraMessageSeverity(0);
-    pub const ERROR: ENiagaraMessageSeverity = ENiagaraMessageSeverity(1);
-    pub const PERFORMANCE_WARNING: ENiagaraMessageSeverity = ENiagaraMessageSeverity(2);
-    pub const WARNING: ENiagaraMessageSeverity = ENiagaraMessageSeverity(3);
-    pub const INFO: ENiagaraMessageSeverity = ENiagaraMessageSeverity(4);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct ENiagaraStaticSwitchType(pub u8);
-impl ENiagaraStaticSwitchType {
-    pub const BOOL: ENiagaraStaticSwitchType = ENiagaraStaticSwitchType(0);
-    pub const INTEGER: ENiagaraStaticSwitchType = ENiagaraStaticSwitchType(1);
-    pub const ENUM: ENiagaraStaticSwitchType = ENiagaraStaticSwitchType(2);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct ENiagaraOutlinerViewModes(pub u8);
-impl ENiagaraOutlinerViewModes {
-    pub const STATE: ENiagaraOutlinerViewModes = ENiagaraOutlinerViewModes(0);
-    pub const PERFORMANCE: ENiagaraOutlinerViewModes = ENiagaraOutlinerViewModes(1);
-    pub const DEBUG: ENiagaraOutlinerViewModes = ENiagaraOutlinerViewModes(2);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct ENiagaraOutlinerSortMode(pub u8);
-impl ENiagaraOutlinerSortMode {
-    pub const AUTO: ENiagaraOutlinerSortMode = ENiagaraOutlinerSortMode(0);
-    pub const FILTER_MATCHES: ENiagaraOutlinerSortMode = ENiagaraOutlinerSortMode(1);
-    pub const AVERAGE_TIME: ENiagaraOutlinerSortMode = ENiagaraOutlinerSortMode(2);
-    pub const MAX_TIME: ENiagaraOutlinerSortMode = ENiagaraOutlinerSortMode(3);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct ENiagaraOutlinerTimeUnits(pub u8);
-impl ENiagaraOutlinerTimeUnits {
-    pub const MICROSECONDS: ENiagaraOutlinerTimeUnits = ENiagaraOutlinerTimeUnits(0);
-    pub const MILLISECONDS: ENiagaraOutlinerTimeUnits = ENiagaraOutlinerTimeUnits(1);
-    pub const SECONDS: ENiagaraOutlinerTimeUnits = ENiagaraOutlinerTimeUnits(2);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct ENiagaraDefaultMode(pub u8);
-impl ENiagaraDefaultMode {
-    pub const VALUE: ENiagaraDefaultMode = ENiagaraDefaultMode(0);
-    pub const BINDING: ENiagaraDefaultMode = ENiagaraDefaultMode(1);
-    pub const CUSTOM: ENiagaraDefaultMode = ENiagaraDefaultMode(2);
-    pub const FAIL_IF_PREVIOUSLY_NOT_SET: ENiagaraDefaultMode = ENiagaraDefaultMode(3);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct EPerQualityLevels(pub u8);
-impl EPerQualityLevels {
-    pub const LOW: EPerQualityLevels = EPerQualityLevels(0);
-    pub const MEDIUM: EPerQualityLevels = EPerQualityLevels(1);
-    pub const HIGH: EPerQualityLevels = EPerQualityLevels(2);
-    pub const EPIC: EPerQualityLevels = EPerQualityLevels(3);
-    pub const CINEMATIC: EPerQualityLevels = EPerQualityLevels(4);
-    pub const NUM: EPerQualityLevels = EPerQualityLevels(5);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct ENiagaraSimCacheSectionPlayMode(pub u8);
-impl ENiagaraSimCacheSectionPlayMode {
-    pub const SIM_WITHOUT_CACHE: ENiagaraSimCacheSectionPlayMode = ENiagaraSimCacheSectionPlayMode(
+pub struct EMetasoundFrontendNodeStyleDisplayVisibility(pub u8);
+impl EMetasoundFrontendNodeStyleDisplayVisibility {
+    pub const VISIBLE: EMetasoundFrontendNodeStyleDisplayVisibility = EMetasoundFrontendNodeStyleDisplayVisibility(
         0,
     );
-    pub const DISPLAY_CACHE_ONLY: ENiagaraSimCacheSectionPlayMode = ENiagaraSimCacheSectionPlayMode(
+    pub const HIDDEN: EMetasoundFrontendNodeStyleDisplayVisibility = EMetasoundFrontendNodeStyleDisplayVisibility(
         1,
     );
 }
 #[allow(non_camel_case_types)]
 #[repr(transparent)]
-pub struct ENiagaraSimCacheSectionStretchMode(pub u8);
-impl ENiagaraSimCacheSectionStretchMode {
-    pub const REPEAT: ENiagaraSimCacheSectionStretchMode = ENiagaraSimCacheSectionStretchMode(
+pub struct EMetasoundFrontendVertexAccessType(pub i32);
+impl EMetasoundFrontendVertexAccessType {
+    pub const REFERENCE: EMetasoundFrontendVertexAccessType = EMetasoundFrontendVertexAccessType(
         0,
     );
-    pub const TIME_DILATE: ENiagaraSimCacheSectionStretchMode = ENiagaraSimCacheSectionStretchMode(
+    pub const VALUE: EMetasoundFrontendVertexAccessType = EMetasoundFrontendVertexAccessType(
         1,
     );
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct EActorSequenceObjectReferenceType(pub u8);
-impl EActorSequenceObjectReferenceType {
-    pub const CONTEXT_ACTOR: EActorSequenceObjectReferenceType = EActorSequenceObjectReferenceType(
-        0,
-    );
-    pub const EXTERNAL_ACTOR: EActorSequenceObjectReferenceType = EActorSequenceObjectReferenceType(
-        1,
-    );
-    pub const COMPONENT: EActorSequenceObjectReferenceType = EActorSequenceObjectReferenceType(
+    pub const UNSET: EMetasoundFrontendVertexAccessType = EMetasoundFrontendVertexAccessType(
         2,
     );
 }
 #[allow(non_camel_case_types)]
 #[repr(transparent)]
-pub struct EExecutionMode(pub u8);
-impl EExecutionMode {
-    pub const SEQUENTIAL: EExecutionMode = EExecutionMode(0);
-    pub const PARALLEL: EExecutionMode = EExecutionMode(1);
+pub struct EMetasoundFrontendClassType(pub u8);
+impl EMetasoundFrontendClassType {
+    pub const EXTERNAL: EMetasoundFrontendClassType = EMetasoundFrontendClassType(0);
+    pub const GRAPH: EMetasoundFrontendClassType = EMetasoundFrontendClassType(1);
+    pub const INPUT: EMetasoundFrontendClassType = EMetasoundFrontendClassType(2);
+    pub const OUTPUT: EMetasoundFrontendClassType = EMetasoundFrontendClassType(3);
+    pub const LITERAL: EMetasoundFrontendClassType = EMetasoundFrontendClassType(4);
+    pub const VARIABLE: EMetasoundFrontendClassType = EMetasoundFrontendClassType(5);
+    pub const VARIABLE_DEFERRED_ACCESSOR: EMetasoundFrontendClassType = EMetasoundFrontendClassType(
+        6,
+    );
+    pub const VARIABLE_ACCESSOR: EMetasoundFrontendClassType = EMetasoundFrontendClassType(
+        7,
+    );
+    pub const VARIABLE_MUTATOR: EMetasoundFrontendClassType = EMetasoundFrontendClassType(
+        8,
+    );
+    pub const TEMPLATE: EMetasoundFrontendClassType = EMetasoundFrontendClassType(9);
+    pub const INVALID: EMetasoundFrontendClassType = EMetasoundFrontendClassType(10);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EWaveTableBitDepth(pub u8);
+impl EWaveTableBitDepth {
+    pub const PCM_16: EWaveTableBitDepth = EWaveTableBitDepth(0);
+    pub const IEEE_FLOAT: EWaveTableBitDepth = EWaveTableBitDepth(1);
+    pub const COUNT: EWaveTableBitDepth = EWaveTableBitDepth(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EWaveTableCurve(pub u8);
+impl EWaveTableCurve {
+    pub const LINEAR: EWaveTableCurve = EWaveTableCurve(0);
+    pub const LINEAR_INV: EWaveTableCurve = EWaveTableCurve(1);
+    pub const EXP: EWaveTableCurve = EWaveTableCurve(2);
+    pub const EXP_INVERSE: EWaveTableCurve = EWaveTableCurve(3);
+    pub const LOG: EWaveTableCurve = EWaveTableCurve(4);
+    pub const SIN: EWaveTableCurve = EWaveTableCurve(5);
+    pub const SIN_FULL: EWaveTableCurve = EWaveTableCurve(6);
+    pub const S_CURVE: EWaveTableCurve = EWaveTableCurve(7);
+    pub const SHARED: EWaveTableCurve = EWaveTableCurve(8);
+    pub const CUSTOM: EWaveTableCurve = EWaveTableCurve(9);
+    pub const FILE: EWaveTableCurve = EWaveTableCurve(10);
+    pub const COUNT: EWaveTableCurve = EWaveTableCurve(11);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EAudioMaterialEnvelopeType(pub u8);
+impl EAudioMaterialEnvelopeType {
+    pub const AD: EAudioMaterialEnvelopeType = EAudioMaterialEnvelopeType(0);
+    pub const ADSR: EAudioMaterialEnvelopeType = EAudioMaterialEnvelopeType(1);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EAudioSpectrumAnalyzerType(pub u8);
+impl EAudioSpectrumAnalyzerType {
+    pub const FFT: EAudioSpectrumAnalyzerType = EAudioSpectrumAnalyzerType(0);
+    pub const CQT: EAudioSpectrumAnalyzerType = EAudioSpectrumAnalyzerType(1);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EFFTSize(pub u8);
+impl EFFTSize {
+    pub const DEFAULT_SIZE: EFFTSize = EFFTSize(0);
+    pub const MIN: EFFTSize = EFFTSize(1);
+    pub const SMALL: EFFTSize = EFFTSize(2);
+    pub const MEDIUM: EFFTSize = EFFTSize(3);
+    pub const LARGE: EFFTSize = EFFTSize(4);
+    pub const VERY_LARGE: EFFTSize = EFFTSize(5);
+    pub const MAX: EFFTSize = EFFTSize(6);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EConstantQFFTSizeEnum(pub u8);
+impl EConstantQFFTSizeEnum {
+    pub const MIN: EConstantQFFTSizeEnum = EConstantQFFTSizeEnum(0);
+    pub const XX_SMALL: EConstantQFFTSizeEnum = EConstantQFFTSizeEnum(1);
+    pub const X_SMALL: EConstantQFFTSizeEnum = EConstantQFFTSizeEnum(2);
+    pub const SMALL: EConstantQFFTSizeEnum = EConstantQFFTSizeEnum(3);
+    pub const MEDIUM: EConstantQFFTSizeEnum = EConstantQFFTSizeEnum(4);
+    pub const LARGE: EConstantQFFTSizeEnum = EConstantQFFTSizeEnum(5);
+    pub const X_LARGE: EConstantQFFTSizeEnum = EConstantQFFTSizeEnum(6);
+    pub const XX_LARGE: EConstantQFFTSizeEnum = EConstantQFFTSizeEnum(7);
+    pub const MAX: EConstantQFFTSizeEnum = EConstantQFFTSizeEnum(8);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EAudioSpectrogramFrequencyAxisPixelBucketMode(pub u8);
+impl EAudioSpectrogramFrequencyAxisPixelBucketMode {
+    pub const SAMPLE: EAudioSpectrogramFrequencyAxisPixelBucketMode = EAudioSpectrogramFrequencyAxisPixelBucketMode(
+        0,
+    );
+    pub const PEAK: EAudioSpectrogramFrequencyAxisPixelBucketMode = EAudioSpectrogramFrequencyAxisPixelBucketMode(
+        1,
+    );
+    pub const AVERAGE: EAudioSpectrogramFrequencyAxisPixelBucketMode = EAudioSpectrogramFrequencyAxisPixelBucketMode(
+        2,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EAudioSpectrogramFrequencyAxisScale(pub u8);
+impl EAudioSpectrogramFrequencyAxisScale {
+    pub const LINEAR: EAudioSpectrogramFrequencyAxisScale = EAudioSpectrogramFrequencyAxisScale(
+        0,
+    );
+    pub const LOGARITHMIC: EAudioSpectrogramFrequencyAxisScale = EAudioSpectrogramFrequencyAxisScale(
+        1,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EAudioColorGradient(pub u8);
+impl EAudioColorGradient {
+    pub const BLACK_TO_WHITE: EAudioColorGradient = EAudioColorGradient(0);
+    pub const WHITE_TO_BLACK: EAudioColorGradient = EAudioColorGradient(1);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EOrientation(pub u8);
+impl EOrientation {
+    pub const ORIENT_HORIZONTAL: EOrientation = EOrientation(0);
+    pub const ORIENT_VERTICAL: EOrientation = EOrientation(1);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EAudioSpectrumAnalyzerBallistics(pub u8);
+impl EAudioSpectrumAnalyzerBallistics {
+    pub const ANALOG: EAudioSpectrumAnalyzerBallistics = EAudioSpectrumAnalyzerBallistics(
+        0,
+    );
+    pub const DIGITAL: EAudioSpectrumAnalyzerBallistics = EAudioSpectrumAnalyzerBallistics(
+        1,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EAudioSpectrumPlotTilt(pub u8);
+impl EAudioSpectrumPlotTilt {
+    pub const NO_TILT: EAudioSpectrumPlotTilt = EAudioSpectrumPlotTilt(0);
+    pub const PLUS1_5D_B_PER_OCTAVE: EAudioSpectrumPlotTilt = EAudioSpectrumPlotTilt(1);
+    pub const PLUS3D_B_PER_OCTAVE: EAudioSpectrumPlotTilt = EAudioSpectrumPlotTilt(2);
+    pub const PLUS4_5D_B_PER_OCTAVE: EAudioSpectrumPlotTilt = EAudioSpectrumPlotTilt(3);
+    pub const PLUS6D_B_PER_OCTAVE: EAudioSpectrumPlotTilt = EAudioSpectrumPlotTilt(4);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EAudioSpectrumPlotFrequencyAxisPixelBucketMode(pub u8);
+impl EAudioSpectrumPlotFrequencyAxisPixelBucketMode {
+    pub const SAMPLE: EAudioSpectrumPlotFrequencyAxisPixelBucketMode = EAudioSpectrumPlotFrequencyAxisPixelBucketMode(
+        0,
+    );
+    pub const PEAK: EAudioSpectrumPlotFrequencyAxisPixelBucketMode = EAudioSpectrumPlotFrequencyAxisPixelBucketMode(
+        1,
+    );
+    pub const AVERAGE: EAudioSpectrumPlotFrequencyAxisPixelBucketMode = EAudioSpectrumPlotFrequencyAxisPixelBucketMode(
+        2,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EAudioSpectrumPlotFrequencyAxisScale(pub u8);
+impl EAudioSpectrumPlotFrequencyAxisScale {
+    pub const LINEAR: EAudioSpectrumPlotFrequencyAxisScale = EAudioSpectrumPlotFrequencyAxisScale(
+        0,
+    );
+    pub const LOGARITHMIC: EAudioSpectrumPlotFrequencyAxisScale = EAudioSpectrumPlotFrequencyAxisScale(
+        1,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EMetasoundActiveAnalyzerEnvelopeDirection(pub u8);
+impl EMetasoundActiveAnalyzerEnvelopeDirection {
+    pub const FROM_SOURCE_OUTPUT: EMetasoundActiveAnalyzerEnvelopeDirection = EMetasoundActiveAnalyzerEnvelopeDirection(
+        0,
+    );
+    pub const FROM_DESTINATION_INPUT: EMetasoundActiveAnalyzerEnvelopeDirection = EMetasoundActiveAnalyzerEnvelopeDirection(
+        1,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ERaMaterialName(pub u8);
+impl ERaMaterialName {
+    pub const TRANSPARENT: ERaMaterialName = ERaMaterialName(0);
+    pub const ACOUSTIC_CEILING_TILES: ERaMaterialName = ERaMaterialName(1);
+    pub const BRICK_BARE: ERaMaterialName = ERaMaterialName(2);
+    pub const BRICK_PAINTED: ERaMaterialName = ERaMaterialName(3);
+    pub const CONCRETE_BLOCK_COARSE: ERaMaterialName = ERaMaterialName(4);
+    pub const CONCRETE_BLOCK_PAINTED: ERaMaterialName = ERaMaterialName(5);
+    pub const CURTAIN_HEAVY: ERaMaterialName = ERaMaterialName(6);
+    pub const FIBER_GLASS_INSULATION: ERaMaterialName = ERaMaterialName(7);
+    pub const GLASS_THIN: ERaMaterialName = ERaMaterialName(8);
+    pub const GLASS_THICK: ERaMaterialName = ERaMaterialName(9);
+    pub const GRASS: ERaMaterialName = ERaMaterialName(10);
+    pub const LINOLEUM_ON_CONCRETE: ERaMaterialName = ERaMaterialName(11);
+    pub const MARBLE: ERaMaterialName = ERaMaterialName(12);
+    pub const METAL: ERaMaterialName = ERaMaterialName(13);
+    pub const PARQUET_ONCONCRETE: ERaMaterialName = ERaMaterialName(14);
+    pub const PLASTER_ROUGH: ERaMaterialName = ERaMaterialName(15);
+    pub const PLASTER_SMOOTH: ERaMaterialName = ERaMaterialName(16);
+    pub const PLYWOOD_PANEL: ERaMaterialName = ERaMaterialName(17);
+    pub const POLISHED_CONCRETE_OR_TILE: ERaMaterialName = ERaMaterialName(18);
+    pub const SHEETROCK: ERaMaterialName = ERaMaterialName(19);
+    pub const WATER_OR_ICE_SURFACE: ERaMaterialName = ERaMaterialName(20);
+    pub const WOOD_CEILING: ERaMaterialName = ERaMaterialName(21);
+    pub const WOOD_PANEL: ERaMaterialName = ERaMaterialName(22);
+    pub const UNIFORM: ERaMaterialName = ERaMaterialName(23);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EStateTreeBreakpointType(pub u8);
+impl EStateTreeBreakpointType {
+    pub const UNSET: EStateTreeBreakpointType = EStateTreeBreakpointType(0);
+    pub const ON_ENTER: EStateTreeBreakpointType = EStateTreeBreakpointType(1);
+    pub const ON_EXIT: EStateTreeBreakpointType = EStateTreeBreakpointType(2);
+    pub const ON_TRANSITION: EStateTreeBreakpointType = EStateTreeBreakpointType(3);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ESynth1PatchDestination(pub u8);
+impl ESynth1PatchDestination {
+    pub const OSC1_GAIN: ESynth1PatchDestination = ESynth1PatchDestination(0);
+    pub const OSC1_FREQUENCY: ESynth1PatchDestination = ESynth1PatchDestination(1);
+    pub const OSC1_PULSEWIDTH: ESynth1PatchDestination = ESynth1PatchDestination(2);
+    pub const OSC2_GAIN: ESynth1PatchDestination = ESynth1PatchDestination(3);
+    pub const OSC2_FREQUENCY: ESynth1PatchDestination = ESynth1PatchDestination(4);
+    pub const OSC2_PULSEWIDTH: ESynth1PatchDestination = ESynth1PatchDestination(5);
+    pub const FILTER_FREQUENCY: ESynth1PatchDestination = ESynth1PatchDestination(6);
+    pub const FILTER_Q: ESynth1PatchDestination = ESynth1PatchDestination(7);
+    pub const GAIN: ESynth1PatchDestination = ESynth1PatchDestination(8);
+    pub const PAN: ESynth1PatchDestination = ESynth1PatchDestination(9);
+    pub const LFO1_FREQUENCY: ESynth1PatchDestination = ESynth1PatchDestination(10);
+    pub const LFO1_GAIN: ESynth1PatchDestination = ESynth1PatchDestination(11);
+    pub const LFO2_FREQUENCY: ESynth1PatchDestination = ESynth1PatchDestination(12);
+    pub const LFO2_GAIN: ESynth1PatchDestination = ESynth1PatchDestination(13);
+    pub const COUNT: ESynth1PatchDestination = ESynth1PatchDestination(14);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ESynth1PatchSource(pub u8);
+impl ESynth1PatchSource {
+    pub const LFO1: ESynth1PatchSource = ESynth1PatchSource(0);
+    pub const LFO2: ESynth1PatchSource = ESynth1PatchSource(1);
+    pub const ENVELOPE: ESynth1PatchSource = ESynth1PatchSource(2);
+    pub const BIAS_ENVELOPE: ESynth1PatchSource = ESynth1PatchSource(3);
+    pub const COUNT: ESynth1PatchSource = ESynth1PatchSource(4);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ESynth1OscType(pub u8);
+impl ESynth1OscType {
+    pub const SINE: ESynth1OscType = ESynth1OscType(0);
+    pub const SAW: ESynth1OscType = ESynth1OscType(1);
+    pub const TRIANGLE: ESynth1OscType = ESynth1OscType(2);
+    pub const SQUARE: ESynth1OscType = ESynth1OscType(3);
+    pub const NOISE: ESynth1OscType = ESynth1OscType(4);
+    pub const COUNT: ESynth1OscType = ESynth1OscType(5);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ESynthLFOType(pub u8);
+impl ESynthLFOType {
+    pub const SINE: ESynthLFOType = ESynthLFOType(0);
+    pub const UP_SAW: ESynthLFOType = ESynthLFOType(1);
+    pub const DOWN_SAW: ESynthLFOType = ESynthLFOType(2);
+    pub const SQUARE: ESynthLFOType = ESynthLFOType(3);
+    pub const TRIANGLE: ESynthLFOType = ESynthLFOType(4);
+    pub const EXPONENTIAL: ESynthLFOType = ESynthLFOType(5);
+    pub const RANDOM_SAMPLE_HOLD: ESynthLFOType = ESynthLFOType(6);
+    pub const COUNT: ESynthLFOType = ESynthLFOType(7);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ESynthLFOMode(pub u8);
+impl ESynthLFOMode {
+    pub const SYNC: ESynthLFOMode = ESynthLFOMode(0);
+    pub const ONE_SHOT: ESynthLFOMode = ESynthLFOMode(1);
+    pub const FREE: ESynthLFOMode = ESynthLFOMode(2);
+    pub const COUNT: ESynthLFOMode = ESynthLFOMode(3);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ESynthLFOPatchType(pub u8);
+impl ESynthLFOPatchType {
+    pub const PATCH_TO_NONE: ESynthLFOPatchType = ESynthLFOPatchType(0);
+    pub const PATCH_TO_GAIN: ESynthLFOPatchType = ESynthLFOPatchType(1);
+    pub const PATCH_TO_OSC_FREQ: ESynthLFOPatchType = ESynthLFOPatchType(2);
+    pub const PATCH_TO_FILTER_FREQ: ESynthLFOPatchType = ESynthLFOPatchType(3);
+    pub const PATCH_TO_FILTER_Q: ESynthLFOPatchType = ESynthLFOPatchType(4);
+    pub const PATCH_TO_OSC_PULSE_WIDTH: ESynthLFOPatchType = ESynthLFOPatchType(5);
+    pub const PATCH_TO_OSC_PAN: ESynthLFOPatchType = ESynthLFOPatchType(6);
+    pub const PATCH_LFO1_TO_LFO2_FREQUENCY: ESynthLFOPatchType = ESynthLFOPatchType(7);
+    pub const PATCH_LFO1_TO_LFO2_GAIN: ESynthLFOPatchType = ESynthLFOPatchType(8);
+    pub const COUNT: ESynthLFOPatchType = ESynthLFOPatchType(9);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ESynthModEnvPatch(pub u8);
+impl ESynthModEnvPatch {
+    pub const PATCH_TO_NONE: ESynthModEnvPatch = ESynthModEnvPatch(0);
+    pub const PATCH_TO_OSC_FREQ: ESynthModEnvPatch = ESynthModEnvPatch(1);
+    pub const PATCH_TO_FILTER_FREQ: ESynthModEnvPatch = ESynthModEnvPatch(2);
+    pub const PATCH_TO_FILTER_Q: ESynthModEnvPatch = ESynthModEnvPatch(3);
+    pub const PATCH_TO_LFO1_GAIN: ESynthModEnvPatch = ESynthModEnvPatch(4);
+    pub const PATCH_TO_LFO2_GAIN: ESynthModEnvPatch = ESynthModEnvPatch(5);
+    pub const PATCH_TO_LFO1_FREQ: ESynthModEnvPatch = ESynthModEnvPatch(6);
+    pub const PATCH_TO_LFO2_FREQ: ESynthModEnvPatch = ESynthModEnvPatch(7);
+    pub const COUNT: ESynthModEnvPatch = ESynthModEnvPatch(8);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ESynthModEnvBiasPatch(pub u8);
+impl ESynthModEnvBiasPatch {
+    pub const PATCH_TO_NONE: ESynthModEnvBiasPatch = ESynthModEnvBiasPatch(0);
+    pub const PATCH_TO_OSC_FREQ: ESynthModEnvBiasPatch = ESynthModEnvBiasPatch(1);
+    pub const PATCH_TO_FILTER_FREQ: ESynthModEnvBiasPatch = ESynthModEnvBiasPatch(2);
+    pub const PATCH_TO_FILTER_Q: ESynthModEnvBiasPatch = ESynthModEnvBiasPatch(3);
+    pub const PATCH_TO_LFO1_GAIN: ESynthModEnvBiasPatch = ESynthModEnvBiasPatch(4);
+    pub const PATCH_TO_LFO2_GAIN: ESynthModEnvBiasPatch = ESynthModEnvBiasPatch(5);
+    pub const PATCH_TO_LFO1_FREQ: ESynthModEnvBiasPatch = ESynthModEnvBiasPatch(6);
+    pub const PATCH_TO_LFO2_FREQ: ESynthModEnvBiasPatch = ESynthModEnvBiasPatch(7);
+    pub const COUNT: ESynthModEnvBiasPatch = ESynthModEnvBiasPatch(8);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ESynthFilterType(pub u8);
+impl ESynthFilterType {
+    pub const LOW_PASS: ESynthFilterType = ESynthFilterType(0);
+    pub const HIGH_PASS: ESynthFilterType = ESynthFilterType(1);
+    pub const BAND_PASS: ESynthFilterType = ESynthFilterType(2);
+    pub const BAND_STOP: ESynthFilterType = ESynthFilterType(3);
+    pub const COUNT: ESynthFilterType = ESynthFilterType(4);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ESynthFilterAlgorithm(pub u8);
+impl ESynthFilterAlgorithm {
+    pub const ONE_POLE: ESynthFilterAlgorithm = ESynthFilterAlgorithm(0);
+    pub const STATE_VARIABLE: ESynthFilterAlgorithm = ESynthFilterAlgorithm(1);
+    pub const LADDER: ESynthFilterAlgorithm = ESynthFilterAlgorithm(2);
+    pub const COUNT: ESynthFilterAlgorithm = ESynthFilterAlgorithm(3);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ESynthStereoDelayMode(pub u8);
+impl ESynthStereoDelayMode {
+    pub const NORMAL: ESynthStereoDelayMode = ESynthStereoDelayMode(0);
+    pub const CROSS: ESynthStereoDelayMode = ESynthStereoDelayMode(1);
+    pub const PING_PONG: ESynthStereoDelayMode = ESynthStereoDelayMode(2);
+    pub const COUNT: ESynthStereoDelayMode = ESynthStereoDelayMode(3);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ESourceEffectDynamicsProcessorType(pub u8);
+impl ESourceEffectDynamicsProcessorType {
+    pub const COMPRESSOR: ESourceEffectDynamicsProcessorType = ESourceEffectDynamicsProcessorType(
+        0,
+    );
+    pub const LIMITER: ESourceEffectDynamicsProcessorType = ESourceEffectDynamicsProcessorType(
+        1,
+    );
+    pub const EXPANDER: ESourceEffectDynamicsProcessorType = ESourceEffectDynamicsProcessorType(
+        2,
+    );
+    pub const GATE: ESourceEffectDynamicsProcessorType = ESourceEffectDynamicsProcessorType(
+        3,
+    );
+    pub const UPWARDS_COMPRESSOR: ESourceEffectDynamicsProcessorType = ESourceEffectDynamicsProcessorType(
+        4,
+    );
+    pub const COUNT: ESourceEffectDynamicsProcessorType = ESourceEffectDynamicsProcessorType(
+        5,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ESourceEffectDynamicsPeakMode(pub u8);
+impl ESourceEffectDynamicsPeakMode {
+    pub const MEAN_SQUARED: ESourceEffectDynamicsPeakMode = ESourceEffectDynamicsPeakMode(
+        0,
+    );
+    pub const ROOT_MEAN_SQUARED: ESourceEffectDynamicsPeakMode = ESourceEffectDynamicsPeakMode(
+        1,
+    );
+    pub const PEAK: ESourceEffectDynamicsPeakMode = ESourceEffectDynamicsPeakMode(2);
+    pub const COUNT: ESourceEffectDynamicsPeakMode = ESourceEffectDynamicsPeakMode(3);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EEnvelopeFollowerPeakMode(pub u8);
+impl EEnvelopeFollowerPeakMode {
+    pub const MEAN_SQUARED: EEnvelopeFollowerPeakMode = EEnvelopeFollowerPeakMode(0);
+    pub const ROOT_MEAN_SQUARED: EEnvelopeFollowerPeakMode = EEnvelopeFollowerPeakMode(
+        1,
+    );
+    pub const PEAK: EEnvelopeFollowerPeakMode = EEnvelopeFollowerPeakMode(2);
+    pub const COUNT: EEnvelopeFollowerPeakMode = EEnvelopeFollowerPeakMode(3);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ESourceEffectFilterParam(pub u8);
+impl ESourceEffectFilterParam {
+    pub const FILTER_FREQUENCY: ESourceEffectFilterParam = ESourceEffectFilterParam(0);
+    pub const FILTER_RESONANCE: ESourceEffectFilterParam = ESourceEffectFilterParam(1);
+    pub const COUNT: ESourceEffectFilterParam = ESourceEffectFilterParam(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ESourceEffectFilterCircuit(pub u8);
+impl ESourceEffectFilterCircuit {
+    pub const ONE_POLE: ESourceEffectFilterCircuit = ESourceEffectFilterCircuit(0);
+    pub const STATE_VARIABLE: ESourceEffectFilterCircuit = ESourceEffectFilterCircuit(1);
+    pub const LADDER: ESourceEffectFilterCircuit = ESourceEffectFilterCircuit(2);
+    pub const COUNT: ESourceEffectFilterCircuit = ESourceEffectFilterCircuit(3);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ESourceEffectFilterType(pub u8);
+impl ESourceEffectFilterType {
+    pub const LOW_PASS: ESourceEffectFilterType = ESourceEffectFilterType(0);
+    pub const HIGH_PASS: ESourceEffectFilterType = ESourceEffectFilterType(1);
+    pub const BAND_PASS: ESourceEffectFilterType = ESourceEffectFilterType(2);
+    pub const BAND_STOP: ESourceEffectFilterType = ESourceEffectFilterType(3);
+    pub const COUNT: ESourceEffectFilterType = ESourceEffectFilterType(4);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EStereoChannelMode(pub u8);
+impl EStereoChannelMode {
+    pub const MID_SIDE: EStereoChannelMode = EStereoChannelMode(0);
+    pub const LEFT_RIGHT: EStereoChannelMode = EStereoChannelMode(1);
+    pub const COUNT: EStereoChannelMode = EStereoChannelMode(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ESourceEffectMotionFilterCircuit(pub u8);
+impl ESourceEffectMotionFilterCircuit {
+    pub const ONE_POLE: ESourceEffectMotionFilterCircuit = ESourceEffectMotionFilterCircuit(
+        0,
+    );
+    pub const STATE_VARIABLE: ESourceEffectMotionFilterCircuit = ESourceEffectMotionFilterCircuit(
+        1,
+    );
+    pub const LADDER: ESourceEffectMotionFilterCircuit = ESourceEffectMotionFilterCircuit(
+        2,
+    );
+    pub const COUNT: ESourceEffectMotionFilterCircuit = ESourceEffectMotionFilterCircuit(
+        3,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ESourceEffectMotionFilterType(pub u8);
+impl ESourceEffectMotionFilterType {
+    pub const LOW_PASS: ESourceEffectMotionFilterType = ESourceEffectMotionFilterType(0);
+    pub const HIGH_PASS: ESourceEffectMotionFilterType = ESourceEffectMotionFilterType(
+        1,
+    );
+    pub const BAND_PASS: ESourceEffectMotionFilterType = ESourceEffectMotionFilterType(
+        2,
+    );
+    pub const BAND_STOP: ESourceEffectMotionFilterType = ESourceEffectMotionFilterType(
+        3,
+    );
+    pub const COUNT: ESourceEffectMotionFilterType = ESourceEffectMotionFilterType(4);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ESourceEffectMotionFilterModSource(pub u8);
+impl ESourceEffectMotionFilterModSource {
+    pub const DISTANCE_FROM_LISTENER: ESourceEffectMotionFilterModSource = ESourceEffectMotionFilterModSource(
+        0,
+    );
+    pub const SPEED_RELATIVE_TO_LISTENER: ESourceEffectMotionFilterModSource = ESourceEffectMotionFilterModSource(
+        1,
+    );
+    pub const SPEED_OF_SOURCE_EMITTER: ESourceEffectMotionFilterModSource = ESourceEffectMotionFilterModSource(
+        2,
+    );
+    pub const SPEED_OF_LISTENER: ESourceEffectMotionFilterModSource = ESourceEffectMotionFilterModSource(
+        3,
+    );
+    pub const SPEED_OF_ANGLE_DELTA: ESourceEffectMotionFilterModSource = ESourceEffectMotionFilterModSource(
+        4,
+    );
+    pub const COUNT: ESourceEffectMotionFilterModSource = ESourceEffectMotionFilterModSource(
+        5,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ESourceEffectMotionFilterTopology(pub u8);
+impl ESourceEffectMotionFilterTopology {
+    pub const SERIAL_MODE: ESourceEffectMotionFilterTopology = ESourceEffectMotionFilterTopology(
+        0,
+    );
+    pub const PARALLEL_MODE: ESourceEffectMotionFilterTopology = ESourceEffectMotionFilterTopology(
+        1,
+    );
+    pub const COUNT: ESourceEffectMotionFilterTopology = ESourceEffectMotionFilterTopology(
+        2,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ESourceEffectMotionFilterModDestination(pub u8);
+impl ESourceEffectMotionFilterModDestination {
+    pub const FILTER_A_CUTOFF_FREQUENCY: ESourceEffectMotionFilterModDestination = ESourceEffectMotionFilterModDestination(
+        0,
+    );
+    pub const FILTER_A_RESONANCE: ESourceEffectMotionFilterModDestination = ESourceEffectMotionFilterModDestination(
+        1,
+    );
+    pub const FILTER_A_OUTPUT_VOLUME_DB: ESourceEffectMotionFilterModDestination = ESourceEffectMotionFilterModDestination(
+        2,
+    );
+    pub const FILTER_B_CUTOFF_FREQUENCY: ESourceEffectMotionFilterModDestination = ESourceEffectMotionFilterModDestination(
+        3,
+    );
+    pub const FILTER_B_RESONANCE: ESourceEffectMotionFilterModDestination = ESourceEffectMotionFilterModDestination(
+        4,
+    );
+    pub const FILTER_B_OUTPUT_VOLUME_DB: ESourceEffectMotionFilterModDestination = ESourceEffectMotionFilterModDestination(
+        5,
+    );
+    pub const FILTER_MIX: ESourceEffectMotionFilterModDestination = ESourceEffectMotionFilterModDestination(
+        6,
+    );
+    pub const COUNT: ESourceEffectMotionFilterModDestination = ESourceEffectMotionFilterModDestination(
+        7,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EPhaserLFOType(pub u8);
+impl EPhaserLFOType {
+    pub const SINE: EPhaserLFOType = EPhaserLFOType(0);
+    pub const UP_SAW: EPhaserLFOType = EPhaserLFOType(1);
+    pub const DOWN_SAW: EPhaserLFOType = EPhaserLFOType(2);
+    pub const SQUARE: EPhaserLFOType = EPhaserLFOType(3);
+    pub const TRIANGLE: EPhaserLFOType = EPhaserLFOType(4);
+    pub const EXPONENTIAL: EPhaserLFOType = EPhaserLFOType(5);
+    pub const RANDOM_SAMPLE_HOLD: EPhaserLFOType = EPhaserLFOType(6);
+    pub const COUNT: EPhaserLFOType = EPhaserLFOType(7);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ERingModulatorTypeSourceEffect(pub u8);
+impl ERingModulatorTypeSourceEffect {
+    pub const SINE: ERingModulatorTypeSourceEffect = ERingModulatorTypeSourceEffect(0);
+    pub const SAW: ERingModulatorTypeSourceEffect = ERingModulatorTypeSourceEffect(1);
+    pub const TRIANGLE: ERingModulatorTypeSourceEffect = ERingModulatorTypeSourceEffect(
+        2,
+    );
+    pub const SQUARE: ERingModulatorTypeSourceEffect = ERingModulatorTypeSourceEffect(3);
+    pub const COUNT: ERingModulatorTypeSourceEffect = ERingModulatorTypeSourceEffect(4);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EStereoDelaySourceEffect(pub u8);
+impl EStereoDelaySourceEffect {
+    pub const NORMAL: EStereoDelaySourceEffect = EStereoDelaySourceEffect(0);
+    pub const CROSS: EStereoDelaySourceEffect = EStereoDelaySourceEffect(1);
+    pub const PING_PONG: EStereoDelaySourceEffect = EStereoDelaySourceEffect(2);
+    pub const COUNT: EStereoDelaySourceEffect = EStereoDelaySourceEffect(3);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EStereoDelayFiltertype(pub u8);
+impl EStereoDelayFiltertype {
+    pub const LOWPASS: EStereoDelayFiltertype = EStereoDelayFiltertype(0);
+    pub const HIGHPASS: EStereoDelayFiltertype = EStereoDelayFiltertype(1);
+    pub const BANDPASS: EStereoDelayFiltertype = EStereoDelayFiltertype(2);
+    pub const NOTCH: EStereoDelayFiltertype = EStereoDelayFiltertype(3);
+    pub const COUNT: EStereoDelayFiltertype = EStereoDelayFiltertype(4);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ESubmixFilterType(pub u8);
+impl ESubmixFilterType {
+    pub const LOW_PASS: ESubmixFilterType = ESubmixFilterType(0);
+    pub const HIGH_PASS: ESubmixFilterType = ESubmixFilterType(1);
+    pub const BAND_PASS: ESubmixFilterType = ESubmixFilterType(2);
+    pub const BAND_STOP: ESubmixFilterType = ESubmixFilterType(3);
+    pub const COUNT: ESubmixFilterType = ESubmixFilterType(4);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ESubmixFilterAlgorithm(pub u8);
+impl ESubmixFilterAlgorithm {
+    pub const ONE_POLE: ESubmixFilterAlgorithm = ESubmixFilterAlgorithm(0);
+    pub const STATE_VARIABLE: ESubmixFilterAlgorithm = ESubmixFilterAlgorithm(1);
+    pub const LADDER: ESubmixFilterAlgorithm = ESubmixFilterAlgorithm(2);
+    pub const COUNT: ESubmixFilterAlgorithm = ESubmixFilterAlgorithm(3);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ETapLineMode(pub u8);
+impl ETapLineMode {
+    pub const SEND_TO_CHANNEL: ETapLineMode = ETapLineMode(0);
+    pub const PANNING: ETapLineMode = ETapLineMode(1);
+    pub const DISABLED: ETapLineMode = ETapLineMode(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ESynthKnobSize(pub u8);
+impl ESynthKnobSize {
+    pub const MEDIUM: ESynthKnobSize = ESynthKnobSize(0);
+    pub const LARGE: ESynthKnobSize = ESynthKnobSize(1);
+    pub const COUNT: ESynthKnobSize = ESynthKnobSize(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ESynthSlateSizeType(pub u8);
+impl ESynthSlateSizeType {
+    pub const SMALL: ESynthSlateSizeType = ESynthSlateSizeType(0);
+    pub const MEDIUM: ESynthSlateSizeType = ESynthSlateSizeType(1);
+    pub const LARGE: ESynthSlateSizeType = ESynthSlateSizeType(2);
+    pub const COUNT: ESynthSlateSizeType = ESynthSlateSizeType(3);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ESynthSlateColorStyle(pub u8);
+impl ESynthSlateColorStyle {
+    pub const LIGHT: ESynthSlateColorStyle = ESynthSlateColorStyle(0);
+    pub const DARK: ESynthSlateColorStyle = ESynthSlateColorStyle(1);
+    pub const COUNT: ESynthSlateColorStyle = ESynthSlateColorStyle(2);
 }
 #[allow(non_camel_case_types)]
 #[repr(transparent)]
@@ -10204,6 +10204,66 @@ impl EChaosVDMeshComponent {
     pub const STATIC: EChaosVDMeshComponent = EChaosVDMeshComponent(1);
     pub const INSTANCED_STATIC: EChaosVDMeshComponent = EChaosVDMeshComponent(2);
     pub const DYNAMIC: EChaosVDMeshComponent = EChaosVDMeshComponent(3);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EListViewColumnType(pub i32);
+impl EListViewColumnType {
+    pub const BUILT_IN: EListViewColumnType = EListViewColumnType(0);
+    pub const PROPERTY_GENERATED: EListViewColumnType = EListViewColumnType(1);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EMultiScalePivotType(pub u8);
+impl EMultiScalePivotType {
+    pub const AVERAGE: EMultiScalePivotType = EMultiScalePivotType(0);
+    pub const BOUND_CENTER: EMultiScalePivotType = EMultiScalePivotType(1);
+    pub const FIRST_KEY: EMultiScalePivotType = EMultiScalePivotType(2);
+    pub const LAST_KEY: EMultiScalePivotType = EMultiScalePivotType(3);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EToolTransformInterpType(pub u8);
+impl EToolTransformInterpType {
+    pub const LINEAR: EToolTransformInterpType = EToolTransformInterpType(0);
+    pub const SINUSOIDAL: EToolTransformInterpType = EToolTransformInterpType(1);
+    pub const CUBIC: EToolTransformInterpType = EToolTransformInterpType(2);
+    pub const CIRCULAR_IN: EToolTransformInterpType = EToolTransformInterpType(3);
+    pub const CIRCULAR_OUT: EToolTransformInterpType = EToolTransformInterpType(4);
+    pub const EXP_IN: EToolTransformInterpType = EToolTransformInterpType(5);
+    pub const EXP_OUT: EToolTransformInterpType = EToolTransformInterpType(6);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EControlRigInteractionTransformSpace(pub i32);
+impl EControlRigInteractionTransformSpace {
+    pub const WORLD: EControlRigInteractionTransformSpace = EControlRigInteractionTransformSpace(
+        0,
+    );
+    pub const LOCAL: EControlRigInteractionTransformSpace = EControlRigInteractionTransformSpace(
+        1,
+    );
+    pub const PARENT: EControlRigInteractionTransformSpace = EControlRigInteractionTransformSpace(
+        2,
+    );
+    pub const EXPLICIT: EControlRigInteractionTransformSpace = EControlRigInteractionTransformSpace(
+        3,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EMovieSceneTimeUnit(pub u8);
+impl EMovieSceneTimeUnit {
+    pub const DISPLAY_RATE: EMovieSceneTimeUnit = EMovieSceneTimeUnit(0);
+    pub const TICK_RESOLUTION: EMovieSceneTimeUnit = EMovieSceneTimeUnit(1);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EControlRigConstrainTab(pub u8);
+impl EControlRigConstrainTab {
+    pub const SPACES: EControlRigConstrainTab = EControlRigConstrainTab(0);
+    pub const CONSTRAINTS: EControlRigConstrainTab = EControlRigConstrainTab(1);
+    pub const SNAPPER: EControlRigConstrainTab = EControlRigConstrainTab(2);
 }
 #[allow(non_camel_case_types)]
 #[repr(transparent)]
@@ -11136,6 +11196,45 @@ impl EMeshBooleanOperationEnum {
 }
 #[allow(non_camel_case_types)]
 #[repr(transparent)]
+pub struct EBaseCalculationType(pub u8);
+impl EBaseCalculationType {
+    pub const NONE: EBaseCalculationType = EBaseCalculationType(0);
+    pub const PERCENTAGE_BASED: EBaseCalculationType = EBaseCalculationType(1);
+    pub const FIXED_NUMBER: EBaseCalculationType = EBaseCalculationType(2);
+    pub const NO_COMPRESSION: EBaseCalculationType = EBaseCalculationType(3);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EAlembicSamplingType(pub u8);
+impl EAlembicSamplingType {
+    pub const PER_FRAME: EAlembicSamplingType = EAlembicSamplingType(0);
+    pub const PER_X_FRAMES: EAlembicSamplingType = EAlembicSamplingType(1);
+    pub const PER_TIME_STEP: EAlembicSamplingType = EAlembicSamplingType(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EAbcConversionPreset(pub u8);
+impl EAbcConversionPreset {
+    pub const MAYA: EAbcConversionPreset = EAbcConversionPreset(0);
+    pub const MAX: EAbcConversionPreset = EAbcConversionPreset(1);
+    pub const CUSTOM: EAbcConversionPreset = EAbcConversionPreset(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EAbcGeometryCacheMotionVectorsImport(pub u8);
+impl EAbcGeometryCacheMotionVectorsImport {
+    pub const NO_MOTION_VECTORS: EAbcGeometryCacheMotionVectorsImport = EAbcGeometryCacheMotionVectorsImport(
+        0,
+    );
+    pub const IMPORT_ABC_VELOCITIES_AS_MOTION_VECTORS: EAbcGeometryCacheMotionVectorsImport = EAbcGeometryCacheMotionVectorsImport(
+        1,
+    );
+    pub const CALCULATE_MOTION_VECTORS_DURING_IMPORT: EAbcGeometryCacheMotionVectorsImport = EAbcGeometryCacheMotionVectorsImport(
+        2,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
 pub struct EMediaSourceEncoding(pub u8);
 impl EMediaSourceEncoding {
     pub const MSE_NONE: EMediaSourceEncoding = EMediaSourceEncoding(0);
@@ -11182,34 +11281,6 @@ impl EMediaPlayerRecordingImageFormat {
 }
 #[allow(non_camel_case_types)]
 #[repr(transparent)]
-pub struct EGroomCollectionType(pub u8);
-impl EGroomCollectionType {
-    pub const STRANDS: EGroomCollectionType = EGroomCollectionType(0);
-    pub const GUIDES: EGroomCollectionType = EGroomCollectionType(1);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct EGroomAttributeType(pub u8);
-impl EGroomAttributeType {
-    pub const KINEMATIC_WEIGHTS: EGroomAttributeType = EGroomAttributeType(0);
-    pub const BONE_INDICES: EGroomAttributeType = EGroomAttributeType(1);
-    pub const BONE_WEIGHTS: EGroomAttributeType = EGroomAttributeType(2);
-    pub const CURVE_PARENTS: EGroomAttributeType = EGroomAttributeType(3);
-    pub const CURVE_LODS: EGroomAttributeType = EGroomAttributeType(4);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct EGroomNumPoints(pub u8);
-impl EGroomNumPoints {
-    pub const DEFAULT: EGroomNumPoints = EGroomNumPoints(0);
-    pub const SIZE4: EGroomNumPoints = EGroomNumPoints(4);
-    pub const SIZE8: EGroomNumPoints = EGroomNumPoints(8);
-    pub const SIZE16: EGroomNumPoints = EGroomNumPoints(16);
-    pub const SIZE32: EGroomNumPoints = EGroomNumPoints(32);
-    pub const SIZE64: EGroomNumPoints = EGroomNumPoints(64);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
 pub struct EMetaHumanQualityLevel(pub u8);
 impl EMetaHumanQualityLevel {
     pub const LOW: EMetaHumanQualityLevel = EMetaHumanQualityLevel(0);
@@ -11235,105 +11306,6 @@ impl ESplineType {
     pub const B_SPLINE: ESplineType = ESplineType(0);
     pub const HERMITE: ESplineType = ESplineType(1);
     pub const MAX: ESplineType = ESplineType(2);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct EMultiScalePivotType(pub u8);
-impl EMultiScalePivotType {
-    pub const AVERAGE: EMultiScalePivotType = EMultiScalePivotType(0);
-    pub const BOUND_CENTER: EMultiScalePivotType = EMultiScalePivotType(1);
-    pub const FIRST_KEY: EMultiScalePivotType = EMultiScalePivotType(2);
-    pub const LAST_KEY: EMultiScalePivotType = EMultiScalePivotType(3);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct EToolTransformInterpType(pub u8);
-impl EToolTransformInterpType {
-    pub const LINEAR: EToolTransformInterpType = EToolTransformInterpType(0);
-    pub const SINUSOIDAL: EToolTransformInterpType = EToolTransformInterpType(1);
-    pub const CUBIC: EToolTransformInterpType = EToolTransformInterpType(2);
-    pub const CIRCULAR_IN: EToolTransformInterpType = EToolTransformInterpType(3);
-    pub const CIRCULAR_OUT: EToolTransformInterpType = EToolTransformInterpType(4);
-    pub const EXP_IN: EToolTransformInterpType = EToolTransformInterpType(5);
-    pub const EXP_OUT: EToolTransformInterpType = EToolTransformInterpType(6);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct EListViewColumnType(pub i32);
-impl EListViewColumnType {
-    pub const BUILT_IN: EListViewColumnType = EListViewColumnType(0);
-    pub const PROPERTY_GENERATED: EListViewColumnType = EListViewColumnType(1);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct EControlRigInteractionTransformSpace(pub i32);
-impl EControlRigInteractionTransformSpace {
-    pub const WORLD: EControlRigInteractionTransformSpace = EControlRigInteractionTransformSpace(
-        0,
-    );
-    pub const LOCAL: EControlRigInteractionTransformSpace = EControlRigInteractionTransformSpace(
-        1,
-    );
-    pub const PARENT: EControlRigInteractionTransformSpace = EControlRigInteractionTransformSpace(
-        2,
-    );
-    pub const EXPLICIT: EControlRigInteractionTransformSpace = EControlRigInteractionTransformSpace(
-        3,
-    );
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct EMovieSceneTimeUnit(pub u8);
-impl EMovieSceneTimeUnit {
-    pub const DISPLAY_RATE: EMovieSceneTimeUnit = EMovieSceneTimeUnit(0);
-    pub const TICK_RESOLUTION: EMovieSceneTimeUnit = EMovieSceneTimeUnit(1);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct EControlRigConstrainTab(pub u8);
-impl EControlRigConstrainTab {
-    pub const SPACES: EControlRigConstrainTab = EControlRigConstrainTab(0);
-    pub const CONSTRAINTS: EControlRigConstrainTab = EControlRigConstrainTab(1);
-    pub const SNAPPER: EControlRigConstrainTab = EControlRigConstrainTab(2);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct EBaseCalculationType(pub u8);
-impl EBaseCalculationType {
-    pub const NONE: EBaseCalculationType = EBaseCalculationType(0);
-    pub const PERCENTAGE_BASED: EBaseCalculationType = EBaseCalculationType(1);
-    pub const FIXED_NUMBER: EBaseCalculationType = EBaseCalculationType(2);
-    pub const NO_COMPRESSION: EBaseCalculationType = EBaseCalculationType(3);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct EAlembicSamplingType(pub u8);
-impl EAlembicSamplingType {
-    pub const PER_FRAME: EAlembicSamplingType = EAlembicSamplingType(0);
-    pub const PER_X_FRAMES: EAlembicSamplingType = EAlembicSamplingType(1);
-    pub const PER_TIME_STEP: EAlembicSamplingType = EAlembicSamplingType(2);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct EAbcConversionPreset(pub u8);
-impl EAbcConversionPreset {
-    pub const MAYA: EAbcConversionPreset = EAbcConversionPreset(0);
-    pub const MAX: EAbcConversionPreset = EAbcConversionPreset(1);
-    pub const CUSTOM: EAbcConversionPreset = EAbcConversionPreset(2);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct EAbcGeometryCacheMotionVectorsImport(pub u8);
-impl EAbcGeometryCacheMotionVectorsImport {
-    pub const NO_MOTION_VECTORS: EAbcGeometryCacheMotionVectorsImport = EAbcGeometryCacheMotionVectorsImport(
-        0,
-    );
-    pub const IMPORT_ABC_VELOCITIES_AS_MOTION_VECTORS: EAbcGeometryCacheMotionVectorsImport = EAbcGeometryCacheMotionVectorsImport(
-        1,
-    );
-    pub const CALCULATE_MOTION_VECTORS_DURING_IMPORT: EAbcGeometryCacheMotionVectorsImport = EAbcGeometryCacheMotionVectorsImport(
-        2,
-    );
 }
 #[allow(non_camel_case_types)]
 #[repr(transparent)]
@@ -11365,6 +11337,34 @@ impl ETemporalInputResourceName {
 pub struct ETemporalOutputResourceName(pub u8);
 impl ETemporalOutputResourceName {
     pub const OUTPUT: ETemporalOutputResourceName = ETemporalOutputResourceName(0);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EGroomCollectionType(pub u8);
+impl EGroomCollectionType {
+    pub const STRANDS: EGroomCollectionType = EGroomCollectionType(0);
+    pub const GUIDES: EGroomCollectionType = EGroomCollectionType(1);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EGroomAttributeType(pub u8);
+impl EGroomAttributeType {
+    pub const KINEMATIC_WEIGHTS: EGroomAttributeType = EGroomAttributeType(0);
+    pub const BONE_INDICES: EGroomAttributeType = EGroomAttributeType(1);
+    pub const BONE_WEIGHTS: EGroomAttributeType = EGroomAttributeType(2);
+    pub const CURVE_PARENTS: EGroomAttributeType = EGroomAttributeType(3);
+    pub const CURVE_LODS: EGroomAttributeType = EGroomAttributeType(4);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EGroomNumPoints(pub u8);
+impl EGroomNumPoints {
+    pub const DEFAULT: EGroomNumPoints = EGroomNumPoints(0);
+    pub const SIZE4: EGroomNumPoints = EGroomNumPoints(4);
+    pub const SIZE8: EGroomNumPoints = EGroomNumPoints(8);
+    pub const SIZE16: EGroomNumPoints = EGroomNumPoints(16);
+    pub const SIZE32: EGroomNumPoints = EGroomNumPoints(32);
+    pub const SIZE64: EGroomNumPoints = EGroomNumPoints(64);
 }
 #[allow(non_camel_case_types)]
 #[repr(transparent)]
@@ -13362,110 +13362,6 @@ impl EWorldPartitionRuntimeCellState {
 }
 #[allow(non_camel_case_types)]
 #[repr(transparent)]
-pub struct EMPMatchOutcome(pub u8);
-impl EMPMatchOutcome {
-    pub const NONE: EMPMatchOutcome = EMPMatchOutcome(0);
-    pub const QUIT: EMPMatchOutcome = EMPMatchOutcome(1);
-    pub const WON: EMPMatchOutcome = EMPMatchOutcome(2);
-    pub const LOST: EMPMatchOutcome = EMPMatchOutcome(3);
-    pub const TIED: EMPMatchOutcome = EMPMatchOutcome(4);
-    pub const TIME_EXPIRED: EMPMatchOutcome = EMPMatchOutcome(5);
-    pub const FIRST: EMPMatchOutcome = EMPMatchOutcome(6);
-    pub const SECOND: EMPMatchOutcome = EMPMatchOutcome(7);
-    pub const THIRD: EMPMatchOutcome = EMPMatchOutcome(8);
-    pub const FOURTH: EMPMatchOutcome = EMPMatchOutcome(9);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct EPartyReservationResult(pub u8);
-impl EPartyReservationResult {
-    pub const NO_RESULT: EPartyReservationResult = EPartyReservationResult(0);
-    pub const REQUEST_PENDING: EPartyReservationResult = EPartyReservationResult(1);
-    pub const GENERAL_ERROR: EPartyReservationResult = EPartyReservationResult(2);
-    pub const PARTY_LIMIT_REACHED: EPartyReservationResult = EPartyReservationResult(3);
-    pub const INCORRECT_PLAYER_COUNT: EPartyReservationResult = EPartyReservationResult(
-        4,
-    );
-    pub const REQUEST_TIMED_OUT: EPartyReservationResult = EPartyReservationResult(5);
-    pub const RESERVATION_DUPLICATE: EPartyReservationResult = EPartyReservationResult(
-        6,
-    );
-    pub const RESERVATION_NOT_FOUND: EPartyReservationResult = EPartyReservationResult(
-        7,
-    );
-    pub const RESERVATION_ACCEPTED: EPartyReservationResult = EPartyReservationResult(8);
-    pub const RESERVATION_DENIED: EPartyReservationResult = EPartyReservationResult(9);
-    pub const RESERVATION_DENIED_CROSS_PLAY_RESTRICTION: EPartyReservationResult = EPartyReservationResult(
-        10,
-    );
-    pub const RESERVATION_DENIED_BANNED: EPartyReservationResult = EPartyReservationResult(
-        11,
-    );
-    pub const RESERVATION_REQUEST_CANCELED: EPartyReservationResult = EPartyReservationResult(
-        12,
-    );
-    pub const RESERVATION_INVALID: EPartyReservationResult = EPartyReservationResult(13);
-    pub const BAD_SESSION_ID: EPartyReservationResult = EPartyReservationResult(14);
-    pub const RESERVATION_DENIED_CONTAINS_EXISTING_PLAYERS: EPartyReservationResult = EPartyReservationResult(
-        15,
-    );
-    pub const RESERVATION_DENIED_VALIDATION_FAILED: EPartyReservationResult = EPartyReservationResult(
-        16,
-    );
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct ESpectatorReservationResult(pub u8);
-impl ESpectatorReservationResult {
-    pub const NO_RESULT: ESpectatorReservationResult = ESpectatorReservationResult(0);
-    pub const REQUEST_PENDING: ESpectatorReservationResult = ESpectatorReservationResult(
-        1,
-    );
-    pub const GENERAL_ERROR: ESpectatorReservationResult = ESpectatorReservationResult(
-        2,
-    );
-    pub const SPECTATOR_LIMIT_REACHED: ESpectatorReservationResult = ESpectatorReservationResult(
-        3,
-    );
-    pub const INCORRECT_PLAYER_COUNT: ESpectatorReservationResult = ESpectatorReservationResult(
-        4,
-    );
-    pub const REQUEST_TIMED_OUT: ESpectatorReservationResult = ESpectatorReservationResult(
-        5,
-    );
-    pub const RESERVATION_DUPLICATE: ESpectatorReservationResult = ESpectatorReservationResult(
-        6,
-    );
-    pub const RESERVATION_NOT_FOUND: ESpectatorReservationResult = ESpectatorReservationResult(
-        7,
-    );
-    pub const RESERVATION_ACCEPTED: ESpectatorReservationResult = ESpectatorReservationResult(
-        8,
-    );
-    pub const RESERVATION_DENIED: ESpectatorReservationResult = ESpectatorReservationResult(
-        9,
-    );
-    pub const RESERVATION_DENIED_CROSS_PLAY_RESTRICTION: ESpectatorReservationResult = ESpectatorReservationResult(
-        10,
-    );
-    pub const RESERVATION_DENIED_BANNED: ESpectatorReservationResult = ESpectatorReservationResult(
-        11,
-    );
-    pub const RESERVATION_REQUEST_CANCELED: ESpectatorReservationResult = ESpectatorReservationResult(
-        12,
-    );
-    pub const RESERVATION_INVALID: ESpectatorReservationResult = ESpectatorReservationResult(
-        13,
-    );
-    pub const BAD_SESSION_ID: ESpectatorReservationResult = ESpectatorReservationResult(
-        14,
-    );
-    pub const RESERVATION_DENIED_CONTAINS_EXISTING_PLAYERS: ESpectatorReservationResult = ESpectatorReservationResult(
-        15,
-    );
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
 pub struct ENiagaraOcclusionQueryMode(pub u8);
 impl ENiagaraOcclusionQueryMode {
     pub const DEFAULT: ENiagaraOcclusionQueryMode = ENiagaraOcclusionQueryMode(0);
@@ -13533,26 +13429,6 @@ pub struct EGroomBindingMeshType(pub u8);
 impl EGroomBindingMeshType {
     pub const SKELETAL_MESH: EGroomBindingMeshType = EGroomBindingMeshType(0);
     pub const GEOMETRY_CACHE: EGroomBindingMeshType = EGroomBindingMeshType(1);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct ACLVisualFidelity(pub u8);
-impl ACLVisualFidelity {
-    pub const HIGHEST: ACLVisualFidelity = ACLVisualFidelity(0);
-    pub const MEDIUM: ACLVisualFidelity = ACLVisualFidelity(1);
-    pub const LOWEST: ACLVisualFidelity = ACLVisualFidelity(2);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct ACLVisualFidelityChangeResult(pub u8);
-impl ACLVisualFidelityChangeResult {
-    pub const DISPATCHED: ACLVisualFidelityChangeResult = ACLVisualFidelityChangeResult(
-        0,
-    );
-    pub const COMPLETED: ACLVisualFidelityChangeResult = ACLVisualFidelityChangeResult(
-        1,
-    );
-    pub const FAILED: ACLVisualFidelityChangeResult = ACLVisualFidelityChangeResult(2);
 }
 #[allow(non_camel_case_types)]
 #[repr(transparent)]
@@ -14745,6 +14621,130 @@ impl EInterchangeSparseVolumeTextureFormat {
 }
 #[allow(non_camel_case_types)]
 #[repr(transparent)]
+pub struct EMPMatchOutcome(pub u8);
+impl EMPMatchOutcome {
+    pub const NONE: EMPMatchOutcome = EMPMatchOutcome(0);
+    pub const QUIT: EMPMatchOutcome = EMPMatchOutcome(1);
+    pub const WON: EMPMatchOutcome = EMPMatchOutcome(2);
+    pub const LOST: EMPMatchOutcome = EMPMatchOutcome(3);
+    pub const TIED: EMPMatchOutcome = EMPMatchOutcome(4);
+    pub const TIME_EXPIRED: EMPMatchOutcome = EMPMatchOutcome(5);
+    pub const FIRST: EMPMatchOutcome = EMPMatchOutcome(6);
+    pub const SECOND: EMPMatchOutcome = EMPMatchOutcome(7);
+    pub const THIRD: EMPMatchOutcome = EMPMatchOutcome(8);
+    pub const FOURTH: EMPMatchOutcome = EMPMatchOutcome(9);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EPartyReservationResult(pub u8);
+impl EPartyReservationResult {
+    pub const NO_RESULT: EPartyReservationResult = EPartyReservationResult(0);
+    pub const REQUEST_PENDING: EPartyReservationResult = EPartyReservationResult(1);
+    pub const GENERAL_ERROR: EPartyReservationResult = EPartyReservationResult(2);
+    pub const PARTY_LIMIT_REACHED: EPartyReservationResult = EPartyReservationResult(3);
+    pub const INCORRECT_PLAYER_COUNT: EPartyReservationResult = EPartyReservationResult(
+        4,
+    );
+    pub const REQUEST_TIMED_OUT: EPartyReservationResult = EPartyReservationResult(5);
+    pub const RESERVATION_DUPLICATE: EPartyReservationResult = EPartyReservationResult(
+        6,
+    );
+    pub const RESERVATION_NOT_FOUND: EPartyReservationResult = EPartyReservationResult(
+        7,
+    );
+    pub const RESERVATION_ACCEPTED: EPartyReservationResult = EPartyReservationResult(8);
+    pub const RESERVATION_DENIED: EPartyReservationResult = EPartyReservationResult(9);
+    pub const RESERVATION_DENIED_CROSS_PLAY_RESTRICTION: EPartyReservationResult = EPartyReservationResult(
+        10,
+    );
+    pub const RESERVATION_DENIED_BANNED: EPartyReservationResult = EPartyReservationResult(
+        11,
+    );
+    pub const RESERVATION_REQUEST_CANCELED: EPartyReservationResult = EPartyReservationResult(
+        12,
+    );
+    pub const RESERVATION_INVALID: EPartyReservationResult = EPartyReservationResult(13);
+    pub const BAD_SESSION_ID: EPartyReservationResult = EPartyReservationResult(14);
+    pub const RESERVATION_DENIED_CONTAINS_EXISTING_PLAYERS: EPartyReservationResult = EPartyReservationResult(
+        15,
+    );
+    pub const RESERVATION_DENIED_VALIDATION_FAILED: EPartyReservationResult = EPartyReservationResult(
+        16,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ESpectatorReservationResult(pub u8);
+impl ESpectatorReservationResult {
+    pub const NO_RESULT: ESpectatorReservationResult = ESpectatorReservationResult(0);
+    pub const REQUEST_PENDING: ESpectatorReservationResult = ESpectatorReservationResult(
+        1,
+    );
+    pub const GENERAL_ERROR: ESpectatorReservationResult = ESpectatorReservationResult(
+        2,
+    );
+    pub const SPECTATOR_LIMIT_REACHED: ESpectatorReservationResult = ESpectatorReservationResult(
+        3,
+    );
+    pub const INCORRECT_PLAYER_COUNT: ESpectatorReservationResult = ESpectatorReservationResult(
+        4,
+    );
+    pub const REQUEST_TIMED_OUT: ESpectatorReservationResult = ESpectatorReservationResult(
+        5,
+    );
+    pub const RESERVATION_DUPLICATE: ESpectatorReservationResult = ESpectatorReservationResult(
+        6,
+    );
+    pub const RESERVATION_NOT_FOUND: ESpectatorReservationResult = ESpectatorReservationResult(
+        7,
+    );
+    pub const RESERVATION_ACCEPTED: ESpectatorReservationResult = ESpectatorReservationResult(
+        8,
+    );
+    pub const RESERVATION_DENIED: ESpectatorReservationResult = ESpectatorReservationResult(
+        9,
+    );
+    pub const RESERVATION_DENIED_CROSS_PLAY_RESTRICTION: ESpectatorReservationResult = ESpectatorReservationResult(
+        10,
+    );
+    pub const RESERVATION_DENIED_BANNED: ESpectatorReservationResult = ESpectatorReservationResult(
+        11,
+    );
+    pub const RESERVATION_REQUEST_CANCELED: ESpectatorReservationResult = ESpectatorReservationResult(
+        12,
+    );
+    pub const RESERVATION_INVALID: ESpectatorReservationResult = ESpectatorReservationResult(
+        13,
+    );
+    pub const BAD_SESSION_ID: ESpectatorReservationResult = ESpectatorReservationResult(
+        14,
+    );
+    pub const RESERVATION_DENIED_CONTAINS_EXISTING_PLAYERS: ESpectatorReservationResult = ESpectatorReservationResult(
+        15,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ACLVisualFidelity(pub u8);
+impl ACLVisualFidelity {
+    pub const HIGHEST: ACLVisualFidelity = ACLVisualFidelity(0);
+    pub const MEDIUM: ACLVisualFidelity = ACLVisualFidelity(1);
+    pub const LOWEST: ACLVisualFidelity = ACLVisualFidelity(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ACLVisualFidelityChangeResult(pub u8);
+impl ACLVisualFidelityChangeResult {
+    pub const DISPATCHED: ACLVisualFidelityChangeResult = ACLVisualFidelityChangeResult(
+        0,
+    );
+    pub const COMPLETED: ACLVisualFidelityChangeResult = ACLVisualFidelityChangeResult(
+        1,
+    );
+    pub const FAILED: ACLVisualFidelityChangeResult = ACLVisualFidelityChangeResult(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
 pub struct EComparisonMethod(pub u8);
 impl EComparisonMethod {
     pub const EQUAL_TO: EComparisonMethod = EComparisonMethod(0);
@@ -14831,6 +14831,16 @@ impl EDataValidationResult {
 }
 #[allow(non_camel_case_types)]
 #[repr(transparent)]
+pub struct EMainSectionMenu(pub u8);
+impl EMainSectionMenu {
+    pub const NONE: EMainSectionMenu = EMainSectionMenu(0);
+    pub const HOME: EMainSectionMenu = EMainSectionMenu(1);
+    pub const NEWS: EMainSectionMenu = EMainSectionMenu(2);
+    pub const GETTING_STARTED: EMainSectionMenu = EMainSectionMenu(3);
+    pub const SAMPLE_PROJECTS: EMainSectionMenu = EMainSectionMenu(4);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
 pub struct ETakeRecorderState(pub u8);
 impl ETakeRecorderState {
     pub const PRE_INITIALIZATION: ETakeRecorderState = ETakeRecorderState(0);
@@ -14849,16 +14859,6 @@ impl ETakeRecorderPanelMode {
     pub const RECORDING_INTO: ETakeRecorderPanelMode = ETakeRecorderPanelMode(1);
     pub const EDITING_PRESET: ETakeRecorderPanelMode = ETakeRecorderPanelMode(2);
     pub const REVIEWING_RECORDING: ETakeRecorderPanelMode = ETakeRecorderPanelMode(3);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct EMainSectionMenu(pub u8);
-impl EMainSectionMenu {
-    pub const NONE: EMainSectionMenu = EMainSectionMenu(0);
-    pub const HOME: EMainSectionMenu = EMainSectionMenu(1);
-    pub const NEWS: EMainSectionMenu = EMainSectionMenu(2);
-    pub const GETTING_STARTED: EMainSectionMenu = EMainSectionMenu(3);
-    pub const SAMPLE_PROJECTS: EMainSectionMenu = EMainSectionMenu(4);
 }
 #[allow(non_camel_case_types)]
 #[repr(transparent)]
@@ -14903,65 +14903,30 @@ impl EPythonFileExecutionScope {
 }
 #[allow(non_camel_case_types)]
 #[repr(transparent)]
-pub struct ESetParamResult(pub u8);
-impl ESetParamResult {
-    pub const SUCCEEDED: ESetParamResult = ESetParamResult(0);
-    pub const FAILED: ESetParamResult = ESetParamResult(1);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct EMetaSoundBuilderResult(pub u8);
-impl EMetaSoundBuilderResult {
-    pub const SUCCEEDED: EMetaSoundBuilderResult = EMetaSoundBuilderResult(0);
-    pub const FAILED: EMetaSoundBuilderResult = EMetaSoundBuilderResult(1);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct EMetaSoundOutputAudioFormat(pub u8);
-impl EMetaSoundOutputAudioFormat {
-    pub const MONO: EMetaSoundOutputAudioFormat = EMetaSoundOutputAudioFormat(0);
-    pub const STEREO: EMetaSoundOutputAudioFormat = EMetaSoundOutputAudioFormat(1);
-    pub const QUAD: EMetaSoundOutputAudioFormat = EMetaSoundOutputAudioFormat(2);
-    pub const FIVE_DOT_ONE: EMetaSoundOutputAudioFormat = EMetaSoundOutputAudioFormat(3);
-    pub const SEVEN_DOT_ONE: EMetaSoundOutputAudioFormat = EMetaSoundOutputAudioFormat(
-        4,
+pub struct EMotionExtractor_MotionType(pub u8);
+impl EMotionExtractor_MotionType {
+    pub const NONE: EMotionExtractor_MotionType = EMotionExtractor_MotionType(0);
+    pub const TRANSLATION: EMotionExtractor_MotionType = EMotionExtractor_MotionType(1);
+    pub const ROTATION: EMotionExtractor_MotionType = EMotionExtractor_MotionType(2);
+    pub const SCALE: EMotionExtractor_MotionType = EMotionExtractor_MotionType(4);
+    pub const TRANSLATION_SPEED: EMotionExtractor_MotionType = EMotionExtractor_MotionType(
+        8,
     );
-    pub const COUNT: EMetaSoundOutputAudioFormat = EMetaSoundOutputAudioFormat(5);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct EAudioRadialSliderLayout(pub u8);
-impl EAudioRadialSliderLayout {
-    pub const LAYOUT_LABEL_TOP: EAudioRadialSliderLayout = EAudioRadialSliderLayout(0);
-    pub const LAYOUT_LABEL_CENTER: EAudioRadialSliderLayout = EAudioRadialSliderLayout(
-        1,
-    );
-    pub const LAYOUT_LABEL_BOTTOM: EAudioRadialSliderLayout = EAudioRadialSliderLayout(
-        2,
+    pub const ROTATION_SPEED: EMotionExtractor_MotionType = EMotionExtractor_MotionType(
+        16,
     );
 }
 #[allow(non_camel_case_types)]
 #[repr(transparent)]
-pub struct ELocationAccuracy(pub u8);
-impl ELocationAccuracy {
-    pub const LA_THREE_KILOMETERS: ELocationAccuracy = ELocationAccuracy(0);
-    pub const LA_ONE_KILOMETER: ELocationAccuracy = ELocationAccuracy(1);
-    pub const LA_HUNDRED_METERS: ELocationAccuracy = ELocationAccuracy(2);
-    pub const LA_TEN_METERS: ELocationAccuracy = ELocationAccuracy(3);
-    pub const LA_BEST: ELocationAccuracy = ELocationAccuracy(4);
-    pub const LA_NAVIGATION: ELocationAccuracy = ELocationAccuracy(5);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct EProcMeshSliceCapOption(pub u8);
-impl EProcMeshSliceCapOption {
-    pub const NO_CAP: EProcMeshSliceCapOption = EProcMeshSliceCapOption(0);
-    pub const CREATE_NEW_SECTION_FOR_CAP: EProcMeshSliceCapOption = EProcMeshSliceCapOption(
-        1,
-    );
-    pub const USE_LAST_SECTION_FOR_CAP: EProcMeshSliceCapOption = EProcMeshSliceCapOption(
-        2,
-    );
+pub struct EMotionExtractor_Axis(pub u8);
+impl EMotionExtractor_Axis {
+    pub const X: EMotionExtractor_Axis = EMotionExtractor_Axis(0);
+    pub const Y: EMotionExtractor_Axis = EMotionExtractor_Axis(1);
+    pub const Z: EMotionExtractor_Axis = EMotionExtractor_Axis(2);
+    pub const XY: EMotionExtractor_Axis = EMotionExtractor_Axis(3);
+    pub const XZ: EMotionExtractor_Axis = EMotionExtractor_Axis(4);
+    pub const YZ: EMotionExtractor_Axis = EMotionExtractor_Axis(5);
+    pub const XYZ: EMotionExtractor_Axis = EMotionExtractor_Axis(6);
 }
 #[allow(non_camel_case_types)]
 #[repr(transparent)]
@@ -14972,60 +14937,36 @@ impl EStateTreeNodeFormatting {
 }
 #[allow(non_camel_case_types)]
 #[repr(transparent)]
-pub struct EGranularSynthEnvelopeType(pub u8);
-impl EGranularSynthEnvelopeType {
-    pub const RECTANGULAR: EGranularSynthEnvelopeType = EGranularSynthEnvelopeType(0);
-    pub const TRIANGLE: EGranularSynthEnvelopeType = EGranularSynthEnvelopeType(1);
-    pub const DOWNWARD_TRIANGLE: EGranularSynthEnvelopeType = EGranularSynthEnvelopeType(
+pub struct ECameraEvaluationDataCondition(pub u8);
+impl ECameraEvaluationDataCondition {
+    pub const ACTIVE_CAMERA_RIG: ECameraEvaluationDataCondition = ECameraEvaluationDataCondition(
+        0,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EGameplayCameraComponentActivationMode(pub u8);
+impl EGameplayCameraComponentActivationMode {
+    pub const PUSH: EGameplayCameraComponentActivationMode = EGameplayCameraComponentActivationMode(
+        0,
+    );
+    pub const PUSH_AND_INSERT: EGameplayCameraComponentActivationMode = EGameplayCameraComponentActivationMode(
+        1,
+    );
+    pub const INSERT_OR_PUSH: EGameplayCameraComponentActivationMode = EGameplayCameraComponentActivationMode(
         2,
     );
-    pub const UPWARD_TRIANGLE: EGranularSynthEnvelopeType = EGranularSynthEnvelopeType(
-        3,
-    );
-    pub const EXPONENTIAL_DECAY: EGranularSynthEnvelopeType = EGranularSynthEnvelopeType(
-        4,
-    );
-    pub const EXPONENTIAL_INCREASE: EGranularSynthEnvelopeType = EGranularSynthEnvelopeType(
-        5,
-    );
-    pub const GAUSSIAN: EGranularSynthEnvelopeType = EGranularSynthEnvelopeType(6);
-    pub const HANNING: EGranularSynthEnvelopeType = EGranularSynthEnvelopeType(7);
-    pub const LANCZOS: EGranularSynthEnvelopeType = EGranularSynthEnvelopeType(8);
-    pub const COSINE: EGranularSynthEnvelopeType = EGranularSynthEnvelopeType(9);
-    pub const COSINE_SQUARED: EGranularSynthEnvelopeType = EGranularSynthEnvelopeType(
-        10,
-    );
-    pub const WELCH: EGranularSynthEnvelopeType = EGranularSynthEnvelopeType(11);
-    pub const BLACKMAN: EGranularSynthEnvelopeType = EGranularSynthEnvelopeType(12);
-    pub const BLACKMAN_HARRIS: EGranularSynthEnvelopeType = EGranularSynthEnvelopeType(
-        13,
-    );
-    pub const COUNT: EGranularSynthEnvelopeType = EGranularSynthEnvelopeType(14);
 }
 #[allow(non_camel_case_types)]
 #[repr(transparent)]
-pub struct EGranularSynthSeekType(pub u8);
-impl EGranularSynthSeekType {
-    pub const FROM_BEGINNING: EGranularSynthSeekType = EGranularSynthSeekType(0);
-    pub const FROM_CURRENT_POSITION: EGranularSynthSeekType = EGranularSynthSeekType(1);
-    pub const COUNT: EGranularSynthSeekType = EGranularSynthSeekType(2);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct CurveInterpolationType(pub u8);
-impl CurveInterpolationType {
-    pub const AUTOINTERP: CurveInterpolationType = CurveInterpolationType(0);
-    pub const LINEAR: CurveInterpolationType = CurveInterpolationType(1);
-    pub const CONSTANT: CurveInterpolationType = CurveInterpolationType(2);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct ESamplePlayerSeekType(pub u8);
-impl ESamplePlayerSeekType {
-    pub const FROM_BEGINNING: ESamplePlayerSeekType = ESamplePlayerSeekType(0);
-    pub const FROM_CURRENT_POSITION: ESamplePlayerSeekType = ESamplePlayerSeekType(1);
-    pub const FROM_END: ESamplePlayerSeekType = ESamplePlayerSeekType(2);
-    pub const COUNT: ESamplePlayerSeekType = ESamplePlayerSeekType(3);
+pub struct ECacheTrackRecorderState(pub u8);
+impl ECacheTrackRecorderState {
+    pub const STARTING: ECacheTrackRecorderState = ECacheTrackRecorderState(0);
+    pub const PRE_RECORD: ECacheTrackRecorderState = ECacheTrackRecorderState(1);
+    pub const TICKING_AFTER_PRE: ECacheTrackRecorderState = ECacheTrackRecorderState(2);
+    pub const STARTED: ECacheTrackRecorderState = ECacheTrackRecorderState(3);
+    pub const STOPPED: ECacheTrackRecorderState = ECacheTrackRecorderState(4);
+    pub const CANCELLED: ECacheTrackRecorderState = ECacheTrackRecorderState(5);
 }
 #[allow(non_camel_case_types)]
 #[repr(transparent)]
@@ -15178,63 +15119,216 @@ impl EEditorScriptingFilterType {
 }
 #[allow(non_camel_case_types)]
 #[repr(transparent)]
-pub struct EMotionExtractor_MotionType(pub u8);
-impl EMotionExtractor_MotionType {
-    pub const NONE: EMotionExtractor_MotionType = EMotionExtractor_MotionType(0);
-    pub const TRANSLATION: EMotionExtractor_MotionType = EMotionExtractor_MotionType(1);
-    pub const ROTATION: EMotionExtractor_MotionType = EMotionExtractor_MotionType(2);
-    pub const SCALE: EMotionExtractor_MotionType = EMotionExtractor_MotionType(4);
-    pub const TRANSLATION_SPEED: EMotionExtractor_MotionType = EMotionExtractor_MotionType(
-        8,
-    );
-    pub const ROTATION_SPEED: EMotionExtractor_MotionType = EMotionExtractor_MotionType(
-        16,
-    );
+pub struct ELocationAccuracy(pub u8);
+impl ELocationAccuracy {
+    pub const LA_THREE_KILOMETERS: ELocationAccuracy = ELocationAccuracy(0);
+    pub const LA_ONE_KILOMETER: ELocationAccuracy = ELocationAccuracy(1);
+    pub const LA_HUNDRED_METERS: ELocationAccuracy = ELocationAccuracy(2);
+    pub const LA_TEN_METERS: ELocationAccuracy = ELocationAccuracy(3);
+    pub const LA_BEST: ELocationAccuracy = ELocationAccuracy(4);
+    pub const LA_NAVIGATION: ELocationAccuracy = ELocationAccuracy(5);
 }
 #[allow(non_camel_case_types)]
 #[repr(transparent)]
-pub struct EMotionExtractor_Axis(pub u8);
-impl EMotionExtractor_Axis {
-    pub const X: EMotionExtractor_Axis = EMotionExtractor_Axis(0);
-    pub const Y: EMotionExtractor_Axis = EMotionExtractor_Axis(1);
-    pub const Z: EMotionExtractor_Axis = EMotionExtractor_Axis(2);
-    pub const XY: EMotionExtractor_Axis = EMotionExtractor_Axis(3);
-    pub const XZ: EMotionExtractor_Axis = EMotionExtractor_Axis(4);
-    pub const YZ: EMotionExtractor_Axis = EMotionExtractor_Axis(5);
-    pub const XYZ: EMotionExtractor_Axis = EMotionExtractor_Axis(6);
+pub struct ESetParamResult(pub u8);
+impl ESetParamResult {
+    pub const SUCCEEDED: ESetParamResult = ESetParamResult(0);
+    pub const FAILED: ESetParamResult = ESetParamResult(1);
 }
 #[allow(non_camel_case_types)]
 #[repr(transparent)]
-pub struct ECameraEvaluationDataCondition(pub u8);
-impl ECameraEvaluationDataCondition {
-    pub const ACTIVE_CAMERA_RIG: ECameraEvaluationDataCondition = ECameraEvaluationDataCondition(
-        0,
-    );
+pub struct EMetaSoundBuilderResult(pub u8);
+impl EMetaSoundBuilderResult {
+    pub const SUCCEEDED: EMetaSoundBuilderResult = EMetaSoundBuilderResult(0);
+    pub const FAILED: EMetaSoundBuilderResult = EMetaSoundBuilderResult(1);
 }
 #[allow(non_camel_case_types)]
 #[repr(transparent)]
-pub struct EGameplayCameraComponentActivationMode(pub u8);
-impl EGameplayCameraComponentActivationMode {
-    pub const PUSH: EGameplayCameraComponentActivationMode = EGameplayCameraComponentActivationMode(
-        0,
+pub struct EMetaSoundOutputAudioFormat(pub u8);
+impl EMetaSoundOutputAudioFormat {
+    pub const MONO: EMetaSoundOutputAudioFormat = EMetaSoundOutputAudioFormat(0);
+    pub const STEREO: EMetaSoundOutputAudioFormat = EMetaSoundOutputAudioFormat(1);
+    pub const QUAD: EMetaSoundOutputAudioFormat = EMetaSoundOutputAudioFormat(2);
+    pub const FIVE_DOT_ONE: EMetaSoundOutputAudioFormat = EMetaSoundOutputAudioFormat(3);
+    pub const SEVEN_DOT_ONE: EMetaSoundOutputAudioFormat = EMetaSoundOutputAudioFormat(
+        4,
     );
-    pub const PUSH_AND_INSERT: EGameplayCameraComponentActivationMode = EGameplayCameraComponentActivationMode(
+    pub const COUNT: EMetaSoundOutputAudioFormat = EMetaSoundOutputAudioFormat(5);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EAudioRadialSliderLayout(pub u8);
+impl EAudioRadialSliderLayout {
+    pub const LAYOUT_LABEL_TOP: EAudioRadialSliderLayout = EAudioRadialSliderLayout(0);
+    pub const LAYOUT_LABEL_CENTER: EAudioRadialSliderLayout = EAudioRadialSliderLayout(
         1,
     );
-    pub const INSERT_OR_PUSH: EGameplayCameraComponentActivationMode = EGameplayCameraComponentActivationMode(
+    pub const LAYOUT_LABEL_BOTTOM: EAudioRadialSliderLayout = EAudioRadialSliderLayout(
         2,
     );
 }
 #[allow(non_camel_case_types)]
 #[repr(transparent)]
-pub struct ECacheTrackRecorderState(pub u8);
-impl ECacheTrackRecorderState {
-    pub const STARTING: ECacheTrackRecorderState = ECacheTrackRecorderState(0);
-    pub const PRE_RECORD: ECacheTrackRecorderState = ECacheTrackRecorderState(1);
-    pub const TICKING_AFTER_PRE: ECacheTrackRecorderState = ECacheTrackRecorderState(2);
-    pub const STARTED: ECacheTrackRecorderState = ECacheTrackRecorderState(3);
-    pub const STOPPED: ECacheTrackRecorderState = ECacheTrackRecorderState(4);
-    pub const CANCELLED: ECacheTrackRecorderState = ECacheTrackRecorderState(5);
+pub struct EProcMeshSliceCapOption(pub u8);
+impl EProcMeshSliceCapOption {
+    pub const NO_CAP: EProcMeshSliceCapOption = EProcMeshSliceCapOption(0);
+    pub const CREATE_NEW_SECTION_FOR_CAP: EProcMeshSliceCapOption = EProcMeshSliceCapOption(
+        1,
+    );
+    pub const USE_LAST_SECTION_FOR_CAP: EProcMeshSliceCapOption = EProcMeshSliceCapOption(
+        2,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EGranularSynthEnvelopeType(pub u8);
+impl EGranularSynthEnvelopeType {
+    pub const RECTANGULAR: EGranularSynthEnvelopeType = EGranularSynthEnvelopeType(0);
+    pub const TRIANGLE: EGranularSynthEnvelopeType = EGranularSynthEnvelopeType(1);
+    pub const DOWNWARD_TRIANGLE: EGranularSynthEnvelopeType = EGranularSynthEnvelopeType(
+        2,
+    );
+    pub const UPWARD_TRIANGLE: EGranularSynthEnvelopeType = EGranularSynthEnvelopeType(
+        3,
+    );
+    pub const EXPONENTIAL_DECAY: EGranularSynthEnvelopeType = EGranularSynthEnvelopeType(
+        4,
+    );
+    pub const EXPONENTIAL_INCREASE: EGranularSynthEnvelopeType = EGranularSynthEnvelopeType(
+        5,
+    );
+    pub const GAUSSIAN: EGranularSynthEnvelopeType = EGranularSynthEnvelopeType(6);
+    pub const HANNING: EGranularSynthEnvelopeType = EGranularSynthEnvelopeType(7);
+    pub const LANCZOS: EGranularSynthEnvelopeType = EGranularSynthEnvelopeType(8);
+    pub const COSINE: EGranularSynthEnvelopeType = EGranularSynthEnvelopeType(9);
+    pub const COSINE_SQUARED: EGranularSynthEnvelopeType = EGranularSynthEnvelopeType(
+        10,
+    );
+    pub const WELCH: EGranularSynthEnvelopeType = EGranularSynthEnvelopeType(11);
+    pub const BLACKMAN: EGranularSynthEnvelopeType = EGranularSynthEnvelopeType(12);
+    pub const BLACKMAN_HARRIS: EGranularSynthEnvelopeType = EGranularSynthEnvelopeType(
+        13,
+    );
+    pub const COUNT: EGranularSynthEnvelopeType = EGranularSynthEnvelopeType(14);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EGranularSynthSeekType(pub u8);
+impl EGranularSynthSeekType {
+    pub const FROM_BEGINNING: EGranularSynthSeekType = EGranularSynthSeekType(0);
+    pub const FROM_CURRENT_POSITION: EGranularSynthSeekType = EGranularSynthSeekType(1);
+    pub const COUNT: EGranularSynthSeekType = EGranularSynthSeekType(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct CurveInterpolationType(pub u8);
+impl CurveInterpolationType {
+    pub const AUTOINTERP: CurveInterpolationType = CurveInterpolationType(0);
+    pub const LINEAR: CurveInterpolationType = CurveInterpolationType(1);
+    pub const CONSTANT: CurveInterpolationType = CurveInterpolationType(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ESamplePlayerSeekType(pub u8);
+impl ESamplePlayerSeekType {
+    pub const FROM_BEGINNING: ESamplePlayerSeekType = ESamplePlayerSeekType(0);
+    pub const FROM_CURRENT_POSITION: ESamplePlayerSeekType = ESamplePlayerSeekType(1);
+    pub const FROM_END: ESamplePlayerSeekType = ESamplePlayerSeekType(2);
+    pub const COUNT: ESamplePlayerSeekType = ESamplePlayerSeekType(3);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EObjectMixerInheritanceInclusionOptions(pub u8);
+impl EObjectMixerInheritanceInclusionOptions {
+    pub const NONE: EObjectMixerInheritanceInclusionOptions = EObjectMixerInheritanceInclusionOptions(
+        0,
+    );
+    pub const INCLUDE_ONLY_IMMEDIATE_PARENT: EObjectMixerInheritanceInclusionOptions = EObjectMixerInheritanceInclusionOptions(
+        1,
+    );
+    pub const INCLUDE_ONLY_IMMEDIATE_CHILDREN: EObjectMixerInheritanceInclusionOptions = EObjectMixerInheritanceInclusionOptions(
+        2,
+    );
+    pub const INCLUDE_ONLY_IMMEDIATE_PARENT_AND_CHILDREN: EObjectMixerInheritanceInclusionOptions = EObjectMixerInheritanceInclusionOptions(
+        3,
+    );
+    pub const INCLUDE_ALL_PARENTS: EObjectMixerInheritanceInclusionOptions = EObjectMixerInheritanceInclusionOptions(
+        4,
+    );
+    pub const INCLUDE_ALL_CHILDREN: EObjectMixerInheritanceInclusionOptions = EObjectMixerInheritanceInclusionOptions(
+        5,
+    );
+    pub const INCLUDE_ALL_PARENTS_AND_CHILDREN: EObjectMixerInheritanceInclusionOptions = EObjectMixerInheritanceInclusionOptions(
+        6,
+    );
+    pub const INCLUDE_ALL_PARENTS_AND_ONLY_IMMEDIATE_CHILDREN: EObjectMixerInheritanceInclusionOptions = EObjectMixerInheritanceInclusionOptions(
+        7,
+    );
+    pub const INCLUDE_ONLY_IMMEDIATE_PARENT_AND_ALL_CHILDREN: EObjectMixerInheritanceInclusionOptions = EObjectMixerInheritanceInclusionOptions(
+        8,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EParticleKey(pub u8);
+impl EParticleKey {
+    pub const ACTIVATE: EParticleKey = EParticleKey(0);
+    pub const DEACTIVATE: EParticleKey = EParticleKey(1);
+    pub const TRIGGER: EParticleKey = EParticleKey(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EMovieSceneEvaluationType(pub u8);
+impl EMovieSceneEvaluationType {
+    pub const FRAME_LOCKED: EMovieSceneEvaluationType = EMovieSceneEvaluationType(0);
+    pub const WITH_SUB_FRAMES: EMovieSceneEvaluationType = EMovieSceneEvaluationType(1);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ESequencerLoopMode(pub u8);
+impl ESequencerLoopMode {
+    pub const SLM_NO_LOOP: ESequencerLoopMode = ESequencerLoopMode(0);
+    pub const SLM_LOOP: ESequencerLoopMode = ESequencerLoopMode(1);
+    pub const SLM_LOOP_SELECTION_RANGE: ESequencerLoopMode = ESequencerLoopMode(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ECastToControlRigBlueprintCases(pub u8);
+impl ECastToControlRigBlueprintCases {
+    pub const CAST_SUCCEEDED: ECastToControlRigBlueprintCases = ECastToControlRigBlueprintCases(
+        0,
+    );
+    pub const CAST_FAILED: ECastToControlRigBlueprintCases = ECastToControlRigBlueprintCases(
+        1,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EAnimToolBlendOperation(pub u8);
+impl EAnimToolBlendOperation {
+    pub const TWEEN: EAnimToolBlendOperation = EAnimToolBlendOperation(0);
+    pub const BLEND_TO_NEIGHBOR: EAnimToolBlendOperation = EAnimToolBlendOperation(1);
+    pub const PUSH_PULL: EAnimToolBlendOperation = EAnimToolBlendOperation(2);
+    pub const BLEND_RELATIVE: EAnimToolBlendOperation = EAnimToolBlendOperation(3);
+    pub const BLEND_TO_EASE: EAnimToolBlendOperation = EAnimToolBlendOperation(4);
+    pub const SMOOTH_ROUGH: EAnimToolBlendOperation = EAnimToolBlendOperation(5);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EControlRigFKRigExecuteMode(pub u8);
+impl EControlRigFKRigExecuteMode {
+    pub const REPLACE: EControlRigFKRigExecuteMode = EControlRigFKRigExecuteMode(0);
+    pub const ADDITIVE: EControlRigFKRigExecuteMode = EControlRigFKRigExecuteMode(1);
+    pub const DIRECT: EControlRigFKRigExecuteMode = EControlRigFKRigExecuteMode(2);
+    pub const MAX: EControlRigFKRigExecuteMode = EControlRigFKRigExecuteMode(3);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EAnimLayerType(pub u8);
+impl EAnimLayerType {
+    pub const BASE: EAnimLayerType = EAnimLayerType(0);
+    pub const ADDITIVE: EAnimLayerType = EAnimLayerType(1);
+    pub const OVERRIDE: EAnimLayerType = EAnimLayerType(2);
 }
 #[allow(non_camel_case_types)]
 #[repr(transparent)]
@@ -15250,6 +15344,13 @@ impl EMediaPlateEventState {
     pub const NEXT: EMediaPlateEventState = EMediaPlateEventState(7);
     pub const PREVIOUS: EMediaPlateEventState = EMediaPlateEventState(8);
     pub const MAX: EMediaPlateEventState = EMediaPlateEventState(9);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EMetaHumanOperationResult(pub u8);
+impl EMetaHumanOperationResult {
+    pub const SUCCESS: EMetaHumanOperationResult = EMetaHumanOperationResult(0);
+    pub const FAILURE: EMetaHumanOperationResult = EMetaHumanOperationResult(1);
 }
 #[allow(non_camel_case_types)]
 #[repr(transparent)]
@@ -15397,107 +15498,6 @@ impl EGooglePADStorageMethod {
     pub const ASSET_PACK_STORAGE_NOT_INSTALLED: EGooglePADStorageMethod = EGooglePADStorageMethod(
         3,
     );
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct EMetaHumanOperationResult(pub u8);
-impl EMetaHumanOperationResult {
-    pub const SUCCESS: EMetaHumanOperationResult = EMetaHumanOperationResult(0);
-    pub const FAILURE: EMetaHumanOperationResult = EMetaHumanOperationResult(1);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct EObjectMixerInheritanceInclusionOptions(pub u8);
-impl EObjectMixerInheritanceInclusionOptions {
-    pub const NONE: EObjectMixerInheritanceInclusionOptions = EObjectMixerInheritanceInclusionOptions(
-        0,
-    );
-    pub const INCLUDE_ONLY_IMMEDIATE_PARENT: EObjectMixerInheritanceInclusionOptions = EObjectMixerInheritanceInclusionOptions(
-        1,
-    );
-    pub const INCLUDE_ONLY_IMMEDIATE_CHILDREN: EObjectMixerInheritanceInclusionOptions = EObjectMixerInheritanceInclusionOptions(
-        2,
-    );
-    pub const INCLUDE_ONLY_IMMEDIATE_PARENT_AND_CHILDREN: EObjectMixerInheritanceInclusionOptions = EObjectMixerInheritanceInclusionOptions(
-        3,
-    );
-    pub const INCLUDE_ALL_PARENTS: EObjectMixerInheritanceInclusionOptions = EObjectMixerInheritanceInclusionOptions(
-        4,
-    );
-    pub const INCLUDE_ALL_CHILDREN: EObjectMixerInheritanceInclusionOptions = EObjectMixerInheritanceInclusionOptions(
-        5,
-    );
-    pub const INCLUDE_ALL_PARENTS_AND_CHILDREN: EObjectMixerInheritanceInclusionOptions = EObjectMixerInheritanceInclusionOptions(
-        6,
-    );
-    pub const INCLUDE_ALL_PARENTS_AND_ONLY_IMMEDIATE_CHILDREN: EObjectMixerInheritanceInclusionOptions = EObjectMixerInheritanceInclusionOptions(
-        7,
-    );
-    pub const INCLUDE_ONLY_IMMEDIATE_PARENT_AND_ALL_CHILDREN: EObjectMixerInheritanceInclusionOptions = EObjectMixerInheritanceInclusionOptions(
-        8,
-    );
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct EParticleKey(pub u8);
-impl EParticleKey {
-    pub const ACTIVATE: EParticleKey = EParticleKey(0);
-    pub const DEACTIVATE: EParticleKey = EParticleKey(1);
-    pub const TRIGGER: EParticleKey = EParticleKey(2);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct EMovieSceneEvaluationType(pub u8);
-impl EMovieSceneEvaluationType {
-    pub const FRAME_LOCKED: EMovieSceneEvaluationType = EMovieSceneEvaluationType(0);
-    pub const WITH_SUB_FRAMES: EMovieSceneEvaluationType = EMovieSceneEvaluationType(1);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct ESequencerLoopMode(pub u8);
-impl ESequencerLoopMode {
-    pub const SLM_NO_LOOP: ESequencerLoopMode = ESequencerLoopMode(0);
-    pub const SLM_LOOP: ESequencerLoopMode = ESequencerLoopMode(1);
-    pub const SLM_LOOP_SELECTION_RANGE: ESequencerLoopMode = ESequencerLoopMode(2);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct ECastToControlRigBlueprintCases(pub u8);
-impl ECastToControlRigBlueprintCases {
-    pub const CAST_SUCCEEDED: ECastToControlRigBlueprintCases = ECastToControlRigBlueprintCases(
-        0,
-    );
-    pub const CAST_FAILED: ECastToControlRigBlueprintCases = ECastToControlRigBlueprintCases(
-        1,
-    );
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct EAnimToolBlendOperation(pub u8);
-impl EAnimToolBlendOperation {
-    pub const TWEEN: EAnimToolBlendOperation = EAnimToolBlendOperation(0);
-    pub const BLEND_TO_NEIGHBOR: EAnimToolBlendOperation = EAnimToolBlendOperation(1);
-    pub const PUSH_PULL: EAnimToolBlendOperation = EAnimToolBlendOperation(2);
-    pub const BLEND_RELATIVE: EAnimToolBlendOperation = EAnimToolBlendOperation(3);
-    pub const BLEND_TO_EASE: EAnimToolBlendOperation = EAnimToolBlendOperation(4);
-    pub const SMOOTH_ROUGH: EAnimToolBlendOperation = EAnimToolBlendOperation(5);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct EControlRigFKRigExecuteMode(pub u8);
-impl EControlRigFKRigExecuteMode {
-    pub const REPLACE: EControlRigFKRigExecuteMode = EControlRigFKRigExecuteMode(0);
-    pub const ADDITIVE: EControlRigFKRigExecuteMode = EControlRigFKRigExecuteMode(1);
-    pub const DIRECT: EControlRigFKRigExecuteMode = EControlRigFKRigExecuteMode(2);
-    pub const MAX: EControlRigFKRigExecuteMode = EControlRigFKRigExecuteMode(3);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct EAnimLayerType(pub u8);
-impl EAnimLayerType {
-    pub const BASE: EAnimLayerType = EAnimLayerType(0);
-    pub const ADDITIVE: EAnimLayerType = EAnimLayerType(1);
-    pub const OVERRIDE: EAnimLayerType = EAnimLayerType(2);
 }
 #[allow(non_camel_case_types)]
 #[repr(transparent)]
@@ -21000,53 +21000,90 @@ impl EChaosClothTetherMode {
 }
 #[allow(non_camel_case_types)]
 #[repr(transparent)]
-pub struct EInAppPurchaseStatus(pub u8);
-impl EInAppPurchaseStatus {
-    pub const INVALID: EInAppPurchaseStatus = EInAppPurchaseStatus(0);
-    pub const FAILED: EInAppPurchaseStatus = EInAppPurchaseStatus(1);
-    pub const DEFERRED: EInAppPurchaseStatus = EInAppPurchaseStatus(2);
-    pub const CANCELED: EInAppPurchaseStatus = EInAppPurchaseStatus(3);
-    pub const PURCHASED: EInAppPurchaseStatus = EInAppPurchaseStatus(4);
-    pub const RESTORED: EInAppPurchaseStatus = EInAppPurchaseStatus(5);
+pub struct EPropertyValueCategory(pub u8);
+impl EPropertyValueCategory {
+    pub const UNDEFINED: EPropertyValueCategory = EPropertyValueCategory(0);
+    pub const GENERIC: EPropertyValueCategory = EPropertyValueCategory(1);
+    pub const RELATIVE_LOCATION: EPropertyValueCategory = EPropertyValueCategory(2);
+    pub const RELATIVE_ROTATION: EPropertyValueCategory = EPropertyValueCategory(4);
+    pub const RELATIVE_SCALE3_D: EPropertyValueCategory = EPropertyValueCategory(8);
+    pub const VISIBILITY: EPropertyValueCategory = EPropertyValueCategory(16);
+    pub const MATERIAL: EPropertyValueCategory = EPropertyValueCategory(32);
+    pub const COLOR: EPropertyValueCategory = EPropertyValueCategory(64);
+    pub const OPTION: EPropertyValueCategory = EPropertyValueCategory(128);
 }
 #[allow(non_camel_case_types)]
 #[repr(transparent)]
-pub struct EBeaconConnectionState(pub u8);
-impl EBeaconConnectionState {
-    pub const INVALID: EBeaconConnectionState = EBeaconConnectionState(0);
-    pub const CLOSED: EBeaconConnectionState = EBeaconConnectionState(1);
-    pub const PENDING: EBeaconConnectionState = EBeaconConnectionState(2);
-    pub const OPEN: EBeaconConnectionState = EBeaconConnectionState(3);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct EClientRequestType(pub u8);
-impl EClientRequestType {
-    pub const NONE_PENDING: EClientRequestType = EClientRequestType(0);
-    pub const EXISTING_SESSION_RESERVATION: EClientRequestType = EClientRequestType(1);
-    pub const RESERVATION_UPDATE: EClientRequestType = EClientRequestType(2);
-    pub const EMPTY_SERVER_RESERVATION: EClientRequestType = EClientRequestType(3);
-    pub const RECONNECT: EClientRequestType = EClientRequestType(4);
-    pub const ABANDON: EClientRequestType = EClientRequestType(5);
-    pub const RESERVATION_REMOVE_MEMBERS: EClientRequestType = EClientRequestType(6);
-    pub const ADD_OR_UPDATE_RESERVATION: EClientRequestType = EClientRequestType(7);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct ESpectatorClientRequestType(pub u8);
-impl ESpectatorClientRequestType {
-    pub const NONE_PENDING: ESpectatorClientRequestType = ESpectatorClientRequestType(0);
-    pub const EXISTING_SESSION_RESERVATION: ESpectatorClientRequestType = ESpectatorClientRequestType(
-        1,
-    );
-    pub const RESERVATION_UPDATE: ESpectatorClientRequestType = ESpectatorClientRequestType(
+pub struct EDatasmithAreaLightActorType(pub u8);
+impl EDatasmithAreaLightActorType {
+    pub const POINT: EDatasmithAreaLightActorType = EDatasmithAreaLightActorType(0);
+    pub const SPOT: EDatasmithAreaLightActorType = EDatasmithAreaLightActorType(1);
+    pub const IES_DEPRECATED: EDatasmithAreaLightActorType = EDatasmithAreaLightActorType(
         2,
     );
-    pub const EMPTY_SERVER_RESERVATION: ESpectatorClientRequestType = ESpectatorClientRequestType(
+    pub const RECT: EDatasmithAreaLightActorType = EDatasmithAreaLightActorType(3);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EDatasmithAreaLightActorShape(pub u8);
+impl EDatasmithAreaLightActorShape {
+    pub const RECTANGLE: EDatasmithAreaLightActorShape = EDatasmithAreaLightActorShape(
+        0,
+    );
+    pub const DISC: EDatasmithAreaLightActorShape = EDatasmithAreaLightActorShape(1);
+    pub const SPHERE: EDatasmithAreaLightActorShape = EDatasmithAreaLightActorShape(2);
+    pub const CYLINDER: EDatasmithAreaLightActorShape = EDatasmithAreaLightActorShape(3);
+    pub const NONE: EDatasmithAreaLightActorShape = EDatasmithAreaLightActorShape(4);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EDatasmithImportSearchPackagePolicy(pub u8);
+impl EDatasmithImportSearchPackagePolicy {
+    pub const CURRENT: EDatasmithImportSearchPackagePolicy = EDatasmithImportSearchPackagePolicy(
+        0,
+    );
+    pub const ALL: EDatasmithImportSearchPackagePolicy = EDatasmithImportSearchPackagePolicy(
+        1,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EDatasmithImportAssetConflictPolicy(pub u8);
+impl EDatasmithImportAssetConflictPolicy {
+    pub const REPLACE: EDatasmithImportAssetConflictPolicy = EDatasmithImportAssetConflictPolicy(
+        0,
+    );
+    pub const UPDATE: EDatasmithImportAssetConflictPolicy = EDatasmithImportAssetConflictPolicy(
+        1,
+    );
+    pub const USE: EDatasmithImportAssetConflictPolicy = EDatasmithImportAssetConflictPolicy(
+        2,
+    );
+    pub const IGNORE: EDatasmithImportAssetConflictPolicy = EDatasmithImportAssetConflictPolicy(
         3,
     );
-    pub const RECONNECT: ESpectatorClientRequestType = ESpectatorClientRequestType(4);
-    pub const ABANDON: ESpectatorClientRequestType = ESpectatorClientRequestType(5);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EDatasmithImportActorPolicy(pub u8);
+impl EDatasmithImportActorPolicy {
+    pub const UPDATE: EDatasmithImportActorPolicy = EDatasmithImportActorPolicy(0);
+    pub const FULL: EDatasmithImportActorPolicy = EDatasmithImportActorPolicy(1);
+    pub const IGNORE: EDatasmithImportActorPolicy = EDatasmithImportActorPolicy(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EDatasmithImportMaterialQuality(pub u8);
+impl EDatasmithImportMaterialQuality {
+    pub const USE_NO_FRESNEL_CURVES: EDatasmithImportMaterialQuality = EDatasmithImportMaterialQuality(
+        0,
+    );
+    pub const USE_SIMPLIFIER_FRESNEL_CURVES: EDatasmithImportMaterialQuality = EDatasmithImportMaterialQuality(
+        1,
+    );
+    pub const USE_REAL_FRESNEL_CURVES: EDatasmithImportMaterialQuality = EDatasmithImportMaterialQuality(
+        2,
+    );
 }
 #[allow(non_camel_case_types)]
 #[repr(transparent)]
@@ -21740,135 +21777,6 @@ impl EStrandsTexturesMeshType {
 }
 #[allow(non_camel_case_types)]
 #[repr(transparent)]
-pub struct ACLCompressionLevel(pub u8);
-impl ACLCompressionLevel {
-    pub const ACLCL_LOWEST: ACLCompressionLevel = ACLCompressionLevel(0);
-    pub const ACLCL_LOW: ACLCompressionLevel = ACLCompressionLevel(1);
-    pub const ACLCL_MEDIUM: ACLCompressionLevel = ACLCompressionLevel(2);
-    pub const ACLCL_HIGH: ACLCompressionLevel = ACLCompressionLevel(3);
-    pub const ACLCL_HIGHEST: ACLCompressionLevel = ACLCompressionLevel(4);
-    pub const ACLCL_AUTOMATIC: ACLCompressionLevel = ACLCompressionLevel(5);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct ACLPhantomTrackMode(pub u8);
-impl ACLPhantomTrackMode {
-    pub const IGNORE: ACLPhantomTrackMode = ACLPhantomTrackMode(0);
-    pub const STRIP: ACLPhantomTrackMode = ACLPhantomTrackMode(1);
-    pub const WARN: ACLPhantomTrackMode = ACLPhantomTrackMode(2);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct ACLRotationFormat(pub u8);
-impl ACLRotationFormat {
-    pub const ACLRF_QUAT_128: ACLRotationFormat = ACLRotationFormat(0);
-    pub const ACLRF_QUAT_DROP_W_96: ACLRotationFormat = ACLRotationFormat(1);
-    pub const ACLRF_QUAT_DROP_W_VARIABLE: ACLRotationFormat = ACLRotationFormat(2);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct ACLVectorFormat(pub u8);
-impl ACLVectorFormat {
-    pub const ACLVF_VECTOR3_96: ACLVectorFormat = ACLVectorFormat(0);
-    pub const ACLVF_VECTOR3_VARIABLE: ACLVectorFormat = ACLVectorFormat(1);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct EOptimusDefaultDeformerMode(pub u8);
-impl EOptimusDefaultDeformerMode {
-    pub const NEVER: EOptimusDefaultDeformerMode = EOptimusDefaultDeformerMode(0);
-    pub const OPT_IN: EOptimusDefaultDeformerMode = EOptimusDefaultDeformerMode(1);
-    pub const ALWAYS: EOptimusDefaultDeformerMode = EOptimusDefaultDeformerMode(2);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct EPropertyValueCategory(pub u8);
-impl EPropertyValueCategory {
-    pub const UNDEFINED: EPropertyValueCategory = EPropertyValueCategory(0);
-    pub const GENERIC: EPropertyValueCategory = EPropertyValueCategory(1);
-    pub const RELATIVE_LOCATION: EPropertyValueCategory = EPropertyValueCategory(2);
-    pub const RELATIVE_ROTATION: EPropertyValueCategory = EPropertyValueCategory(4);
-    pub const RELATIVE_SCALE3_D: EPropertyValueCategory = EPropertyValueCategory(8);
-    pub const VISIBILITY: EPropertyValueCategory = EPropertyValueCategory(16);
-    pub const MATERIAL: EPropertyValueCategory = EPropertyValueCategory(32);
-    pub const COLOR: EPropertyValueCategory = EPropertyValueCategory(64);
-    pub const OPTION: EPropertyValueCategory = EPropertyValueCategory(128);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct EDatasmithAreaLightActorType(pub u8);
-impl EDatasmithAreaLightActorType {
-    pub const POINT: EDatasmithAreaLightActorType = EDatasmithAreaLightActorType(0);
-    pub const SPOT: EDatasmithAreaLightActorType = EDatasmithAreaLightActorType(1);
-    pub const IES_DEPRECATED: EDatasmithAreaLightActorType = EDatasmithAreaLightActorType(
-        2,
-    );
-    pub const RECT: EDatasmithAreaLightActorType = EDatasmithAreaLightActorType(3);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct EDatasmithAreaLightActorShape(pub u8);
-impl EDatasmithAreaLightActorShape {
-    pub const RECTANGLE: EDatasmithAreaLightActorShape = EDatasmithAreaLightActorShape(
-        0,
-    );
-    pub const DISC: EDatasmithAreaLightActorShape = EDatasmithAreaLightActorShape(1);
-    pub const SPHERE: EDatasmithAreaLightActorShape = EDatasmithAreaLightActorShape(2);
-    pub const CYLINDER: EDatasmithAreaLightActorShape = EDatasmithAreaLightActorShape(3);
-    pub const NONE: EDatasmithAreaLightActorShape = EDatasmithAreaLightActorShape(4);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct EDatasmithImportSearchPackagePolicy(pub u8);
-impl EDatasmithImportSearchPackagePolicy {
-    pub const CURRENT: EDatasmithImportSearchPackagePolicy = EDatasmithImportSearchPackagePolicy(
-        0,
-    );
-    pub const ALL: EDatasmithImportSearchPackagePolicy = EDatasmithImportSearchPackagePolicy(
-        1,
-    );
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct EDatasmithImportAssetConflictPolicy(pub u8);
-impl EDatasmithImportAssetConflictPolicy {
-    pub const REPLACE: EDatasmithImportAssetConflictPolicy = EDatasmithImportAssetConflictPolicy(
-        0,
-    );
-    pub const UPDATE: EDatasmithImportAssetConflictPolicy = EDatasmithImportAssetConflictPolicy(
-        1,
-    );
-    pub const USE: EDatasmithImportAssetConflictPolicy = EDatasmithImportAssetConflictPolicy(
-        2,
-    );
-    pub const IGNORE: EDatasmithImportAssetConflictPolicy = EDatasmithImportAssetConflictPolicy(
-        3,
-    );
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct EDatasmithImportActorPolicy(pub u8);
-impl EDatasmithImportActorPolicy {
-    pub const UPDATE: EDatasmithImportActorPolicy = EDatasmithImportActorPolicy(0);
-    pub const FULL: EDatasmithImportActorPolicy = EDatasmithImportActorPolicy(1);
-    pub const IGNORE: EDatasmithImportActorPolicy = EDatasmithImportActorPolicy(2);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct EDatasmithImportMaterialQuality(pub u8);
-impl EDatasmithImportMaterialQuality {
-    pub const USE_NO_FRESNEL_CURVES: EDatasmithImportMaterialQuality = EDatasmithImportMaterialQuality(
-        0,
-    );
-    pub const USE_SIMPLIFIER_FRESNEL_CURVES: EDatasmithImportMaterialQuality = EDatasmithImportMaterialQuality(
-        1,
-    );
-    pub const USE_REAL_FRESNEL_CURVES: EDatasmithImportMaterialQuality = EDatasmithImportMaterialQuality(
-        2,
-    );
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
 pub struct EGLTFMaterialBakeMode(pub u8);
 impl EGLTFMaterialBakeMode {
     pub const DISABLED: EGLTFMaterialBakeMode = EGLTFMaterialBakeMode(0);
@@ -21913,6 +21821,98 @@ impl EGLTFMaterialVariantMode {
     pub const NONE: EGLTFMaterialVariantMode = EGLTFMaterialVariantMode(0);
     pub const SIMPLE: EGLTFMaterialVariantMode = EGLTFMaterialVariantMode(1);
     pub const USE_MESH_DATA: EGLTFMaterialVariantMode = EGLTFMaterialVariantMode(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EInAppPurchaseStatus(pub u8);
+impl EInAppPurchaseStatus {
+    pub const INVALID: EInAppPurchaseStatus = EInAppPurchaseStatus(0);
+    pub const FAILED: EInAppPurchaseStatus = EInAppPurchaseStatus(1);
+    pub const DEFERRED: EInAppPurchaseStatus = EInAppPurchaseStatus(2);
+    pub const CANCELED: EInAppPurchaseStatus = EInAppPurchaseStatus(3);
+    pub const PURCHASED: EInAppPurchaseStatus = EInAppPurchaseStatus(4);
+    pub const RESTORED: EInAppPurchaseStatus = EInAppPurchaseStatus(5);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EBeaconConnectionState(pub u8);
+impl EBeaconConnectionState {
+    pub const INVALID: EBeaconConnectionState = EBeaconConnectionState(0);
+    pub const CLOSED: EBeaconConnectionState = EBeaconConnectionState(1);
+    pub const PENDING: EBeaconConnectionState = EBeaconConnectionState(2);
+    pub const OPEN: EBeaconConnectionState = EBeaconConnectionState(3);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EClientRequestType(pub u8);
+impl EClientRequestType {
+    pub const NONE_PENDING: EClientRequestType = EClientRequestType(0);
+    pub const EXISTING_SESSION_RESERVATION: EClientRequestType = EClientRequestType(1);
+    pub const RESERVATION_UPDATE: EClientRequestType = EClientRequestType(2);
+    pub const EMPTY_SERVER_RESERVATION: EClientRequestType = EClientRequestType(3);
+    pub const RECONNECT: EClientRequestType = EClientRequestType(4);
+    pub const ABANDON: EClientRequestType = EClientRequestType(5);
+    pub const RESERVATION_REMOVE_MEMBERS: EClientRequestType = EClientRequestType(6);
+    pub const ADD_OR_UPDATE_RESERVATION: EClientRequestType = EClientRequestType(7);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ESpectatorClientRequestType(pub u8);
+impl ESpectatorClientRequestType {
+    pub const NONE_PENDING: ESpectatorClientRequestType = ESpectatorClientRequestType(0);
+    pub const EXISTING_SESSION_RESERVATION: ESpectatorClientRequestType = ESpectatorClientRequestType(
+        1,
+    );
+    pub const RESERVATION_UPDATE: ESpectatorClientRequestType = ESpectatorClientRequestType(
+        2,
+    );
+    pub const EMPTY_SERVER_RESERVATION: ESpectatorClientRequestType = ESpectatorClientRequestType(
+        3,
+    );
+    pub const RECONNECT: ESpectatorClientRequestType = ESpectatorClientRequestType(4);
+    pub const ABANDON: ESpectatorClientRequestType = ESpectatorClientRequestType(5);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ACLCompressionLevel(pub u8);
+impl ACLCompressionLevel {
+    pub const ACLCL_LOWEST: ACLCompressionLevel = ACLCompressionLevel(0);
+    pub const ACLCL_LOW: ACLCompressionLevel = ACLCompressionLevel(1);
+    pub const ACLCL_MEDIUM: ACLCompressionLevel = ACLCompressionLevel(2);
+    pub const ACLCL_HIGH: ACLCompressionLevel = ACLCompressionLevel(3);
+    pub const ACLCL_HIGHEST: ACLCompressionLevel = ACLCompressionLevel(4);
+    pub const ACLCL_AUTOMATIC: ACLCompressionLevel = ACLCompressionLevel(5);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ACLPhantomTrackMode(pub u8);
+impl ACLPhantomTrackMode {
+    pub const IGNORE: ACLPhantomTrackMode = ACLPhantomTrackMode(0);
+    pub const STRIP: ACLPhantomTrackMode = ACLPhantomTrackMode(1);
+    pub const WARN: ACLPhantomTrackMode = ACLPhantomTrackMode(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ACLRotationFormat(pub u8);
+impl ACLRotationFormat {
+    pub const ACLRF_QUAT_128: ACLRotationFormat = ACLRotationFormat(0);
+    pub const ACLRF_QUAT_DROP_W_96: ACLRotationFormat = ACLRotationFormat(1);
+    pub const ACLRF_QUAT_DROP_W_VARIABLE: ACLRotationFormat = ACLRotationFormat(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ACLVectorFormat(pub u8);
+impl ACLVectorFormat {
+    pub const ACLVF_VECTOR3_96: ACLVectorFormat = ACLVectorFormat(0);
+    pub const ACLVF_VECTOR3_VARIABLE: ACLVectorFormat = ACLVectorFormat(1);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EOptimusDefaultDeformerMode(pub u8);
+impl EOptimusDefaultDeformerMode {
+    pub const NEVER: EOptimusDefaultDeformerMode = EOptimusDefaultDeformerMode(0);
+    pub const OPT_IN: EOptimusDefaultDeformerMode = EOptimusDefaultDeformerMode(1);
+    pub const ALWAYS: EOptimusDefaultDeformerMode = EOptimusDefaultDeformerMode(2);
 }
 #[allow(non_camel_case_types)]
 #[repr(transparent)]
@@ -22210,6 +22210,26 @@ impl EInputAxisSwizzle {
 }
 #[allow(non_camel_case_types)]
 #[repr(transparent)]
+pub struct EEditorOnlyReferenceFilterType(pub i32);
+impl EEditorOnlyReferenceFilterType {
+    pub const GAME: EEditorOnlyReferenceFilterType = EEditorOnlyReferenceFilterType(0);
+    pub const PROPAGATION: EEditorOnlyReferenceFilterType = EEditorOnlyReferenceFilterType(
+        1,
+    );
+    pub const EDITOR_ONLY: EEditorOnlyReferenceFilterType = EEditorOnlyReferenceFilterType(
+        2,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ESizeMapDependencyType(pub i32);
+impl ESizeMapDependencyType {
+    pub const ALL: ESizeMapDependencyType = ESizeMapDependencyType(0);
+    pub const GAME: ESizeMapDependencyType = ESizeMapDependencyType(1);
+    pub const EDITOR_ONLY: ESizeMapDependencyType = ESizeMapDependencyType(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
 pub struct EAutoLoadProject(pub i32);
 impl EAutoLoadProject {
     pub const HOME_SCREEN: EAutoLoadProject = EAutoLoadProject(0);
@@ -22428,46 +22448,86 @@ impl ENavigationToolItemViewMode {
 }
 #[allow(non_camel_case_types)]
 #[repr(transparent)]
-pub struct EConstantQNormalizationEnum(pub u8);
-impl EConstantQNormalizationEnum {
-    pub const EQUAL_EUCLIDEAN_NORM: EConstantQNormalizationEnum = EConstantQNormalizationEnum(
-        0,
+pub struct EUdpMessageFormat(pub u8);
+impl EUdpMessageFormat {
+    pub const NONE: EUdpMessageFormat = EUdpMessageFormat(0);
+    pub const JSON: EUdpMessageFormat = EUdpMessageFormat(1);
+    pub const TAGGED_PROPERTY: EUdpMessageFormat = EUdpMessageFormat(2);
+    pub const CBOR_PLATFORM_ENDIANNESS: EUdpMessageFormat = EUdpMessageFormat(3);
+    pub const CBOR_STANDARD_ENDIANNESS: EUdpMessageFormat = EUdpMessageFormat(4);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EFlipbookCollisionMode(pub u8);
+impl EFlipbookCollisionMode {
+    pub const NO_COLLISION: EFlipbookCollisionMode = EFlipbookCollisionMode(0);
+    pub const FIRST_FRAME_COLLISION: EFlipbookCollisionMode = EFlipbookCollisionMode(1);
+    pub const EACH_FRAME_COLLISION: EFlipbookCollisionMode = EFlipbookCollisionMode(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ESpriteCollisionMode(pub u8);
+impl ESpriteCollisionMode {
+    pub const NONE: ESpriteCollisionMode = ESpriteCollisionMode(0);
+    pub const USE2_D_PHYSICS: ESpriteCollisionMode = ESpriteCollisionMode(1);
+    pub const USE3_D_PHYSICS: ESpriteCollisionMode = ESpriteCollisionMode(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ESpritePivotMode(pub u8);
+impl ESpritePivotMode {
+    pub const TOP_LEFT: ESpritePivotMode = ESpritePivotMode(0);
+    pub const TOP_CENTER: ESpritePivotMode = ESpritePivotMode(1);
+    pub const TOP_RIGHT: ESpritePivotMode = ESpritePivotMode(2);
+    pub const CENTER_LEFT: ESpritePivotMode = ESpritePivotMode(3);
+    pub const CENTER_CENTER: ESpritePivotMode = ESpritePivotMode(4);
+    pub const CENTER_RIGHT: ESpritePivotMode = ESpritePivotMode(5);
+    pub const BOTTOM_LEFT: ESpritePivotMode = ESpritePivotMode(6);
+    pub const BOTTOM_CENTER: ESpritePivotMode = ESpritePivotMode(7);
+    pub const BOTTOM_RIGHT: ESpritePivotMode = ESpritePivotMode(8);
+    pub const CUSTOM: ESpritePivotMode = ESpritePivotMode(9);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EPaperSpriteAtlasPadding(pub u8);
+impl EPaperSpriteAtlasPadding {
+    pub const DILATE_BORDER: EPaperSpriteAtlasPadding = EPaperSpriteAtlasPadding(0);
+    pub const PAD_WITH_ZERO: EPaperSpriteAtlasPadding = EPaperSpriteAtlasPadding(1);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ETileMapProjectionMode(pub u8);
+impl ETileMapProjectionMode {
+    pub const ORTHOGONAL: ETileMapProjectionMode = ETileMapProjectionMode(0);
+    pub const ISOMETRIC_DIAMOND: ETileMapProjectionMode = ETileMapProjectionMode(1);
+    pub const ISOMETRIC_STAGGERED: ETileMapProjectionMode = ETileMapProjectionMode(2);
+    pub const HEXAGONAL_STAGGERED: ETileMapProjectionMode = ETileMapProjectionMode(3);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EMotionExtractor_Space(pub u8);
+impl EMotionExtractor_Space {
+    pub const COMPONENT_SPACE: EMotionExtractor_Space = EMotionExtractor_Space(0);
+    pub const LOCAL_SPACE: EMotionExtractor_Space = EMotionExtractor_Space(1);
+    pub const RELATIVE_TO_BONE: EMotionExtractor_Space = EMotionExtractor_Space(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EMotionExtractor_MathOperation(pub u8);
+impl EMotionExtractor_MathOperation {
+    pub const NONE: EMotionExtractor_MathOperation = EMotionExtractor_MathOperation(0);
+    pub const ADDITION: EMotionExtractor_MathOperation = EMotionExtractor_MathOperation(
+        1,
     );
-    pub const EQUAL_ENERGY: EConstantQNormalizationEnum = EConstantQNormalizationEnum(1);
-    pub const EQUAL_AMPLITUDE: EConstantQNormalizationEnum = EConstantQNormalizationEnum(
+    pub const SUBTRACTION: EMotionExtractor_MathOperation = EMotionExtractor_MathOperation(
         2,
     );
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct ELoudnessCurveTypeEnum(pub u8);
-impl ELoudnessCurveTypeEnum {
-    pub const A: ELoudnessCurveTypeEnum = ELoudnessCurveTypeEnum(0);
-    pub const B: ELoudnessCurveTypeEnum = ELoudnessCurveTypeEnum(1);
-    pub const C: ELoudnessCurveTypeEnum = ELoudnessCurveTypeEnum(2);
-    pub const D: ELoudnessCurveTypeEnum = ELoudnessCurveTypeEnum(3);
-    pub const K: ELoudnessCurveTypeEnum = ELoudnessCurveTypeEnum(4);
-    pub const NONE: ELoudnessCurveTypeEnum = ELoudnessCurveTypeEnum(5);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct ELoudnessNRTCurveTypeEnum(pub u8);
-impl ELoudnessNRTCurveTypeEnum {
-    pub const A: ELoudnessNRTCurveTypeEnum = ELoudnessNRTCurveTypeEnum(0);
-    pub const B: ELoudnessNRTCurveTypeEnum = ELoudnessNRTCurveTypeEnum(1);
-    pub const C: ELoudnessNRTCurveTypeEnum = ELoudnessNRTCurveTypeEnum(2);
-    pub const D: ELoudnessNRTCurveTypeEnum = ELoudnessNRTCurveTypeEnum(3);
-    pub const K: ELoudnessNRTCurveTypeEnum = ELoudnessNRTCurveTypeEnum(4);
-    pub const NONE: ELoudnessNRTCurveTypeEnum = ELoudnessNRTCurveTypeEnum(5);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct EMeterPeakType(pub u8);
-impl EMeterPeakType {
-    pub const MEAN_SQUARED: EMeterPeakType = EMeterPeakType(0);
-    pub const ROOT_MEAN_SQUARED: EMeterPeakType = EMeterPeakType(1);
-    pub const PEAK: EMeterPeakType = EMeterPeakType(2);
-    pub const COUNT: EMeterPeakType = EMeterPeakType(3);
+    pub const DIVISION: EMotionExtractor_MathOperation = EMotionExtractor_MathOperation(
+        3,
+    );
+    pub const MULTIPLICATION: EMotionExtractor_MathOperation = EMotionExtractor_MathOperation(
+        4,
+    );
 }
 #[allow(non_camel_case_types)]
 #[repr(transparent)]
@@ -22530,185 +22590,19 @@ impl EOptimusNodePinStorageType {
 }
 #[allow(non_camel_case_types)]
 #[repr(transparent)]
-pub struct EOptimusGroomExecDomain(pub u8);
-impl EOptimusGroomExecDomain {
-    pub const NONE: EOptimusGroomExecDomain = EOptimusGroomExecDomain(0);
-    pub const CONTROL_POINT: EOptimusGroomExecDomain = EOptimusGroomExecDomain(1);
-    pub const CURVE: EOptimusGroomExecDomain = EOptimusGroomExecDomain(2);
-    pub const STRANDS_EDGES: EOptimusGroomExecDomain = EOptimusGroomExecDomain(3);
-    pub const STRANDS_OBJECTS: EOptimusGroomExecDomain = EOptimusGroomExecDomain(4);
-    pub const GUIDES_POINTS: EOptimusGroomExecDomain = EOptimusGroomExecDomain(5);
-    pub const GUIDES_CURVES: EOptimusGroomExecDomain = EOptimusGroomExecDomain(6);
-    pub const GUIDES_EDGES: EOptimusGroomExecDomain = EOptimusGroomExecDomain(7);
-    pub const GUIDES_OBJECTS: EOptimusGroomExecDomain = EOptimusGroomExecDomain(8);
+pub struct EPinBoneType(pub u8);
+impl EPinBoneType {
+    pub const FULL_TRANSFORM: EPinBoneType = EPinBoneType(0);
+    pub const TRANSLATE_ONLY: EPinBoneType = EPinBoneType(1);
+    pub const ROTATE_ONLY: EPinBoneType = EPinBoneType(2);
+    pub const SCALE_ONLY: EPinBoneType = EPinBoneType(3);
 }
 #[allow(non_camel_case_types)]
 #[repr(transparent)]
-pub struct EOptimusGroomAttributeTypes(pub u8);
-impl EOptimusGroomAttributeTypes {
-    pub const NONE: EOptimusGroomAttributeTypes = EOptimusGroomAttributeTypes(0);
-    pub const BOOL: EOptimusGroomAttributeTypes = EOptimusGroomAttributeTypes(1);
-    pub const INT: EOptimusGroomAttributeTypes = EOptimusGroomAttributeTypes(2);
-    pub const INT_VECTOR2: EOptimusGroomAttributeTypes = EOptimusGroomAttributeTypes(3);
-    pub const INT_VECTOR3: EOptimusGroomAttributeTypes = EOptimusGroomAttributeTypes(4);
-    pub const INT_VECTOR4: EOptimusGroomAttributeTypes = EOptimusGroomAttributeTypes(5);
-    pub const UINT: EOptimusGroomAttributeTypes = EOptimusGroomAttributeTypes(6);
-    pub const FLOAT: EOptimusGroomAttributeTypes = EOptimusGroomAttributeTypes(7);
-    pub const VECTOR2: EOptimusGroomAttributeTypes = EOptimusGroomAttributeTypes(8);
-    pub const VECTOR3: EOptimusGroomAttributeTypes = EOptimusGroomAttributeTypes(9);
-    pub const VECTOR4: EOptimusGroomAttributeTypes = EOptimusGroomAttributeTypes(10);
-    pub const LINEAR_COLOR: EOptimusGroomAttributeTypes = EOptimusGroomAttributeTypes(
-        11,
-    );
-    pub const QUAT: EOptimusGroomAttributeTypes = EOptimusGroomAttributeTypes(12);
-    pub const ROTATOR: EOptimusGroomAttributeTypes = EOptimusGroomAttributeTypes(13);
-    pub const TRANSFORM: EOptimusGroomAttributeTypes = EOptimusGroomAttributeTypes(14);
-    pub const MATRIX3X4: EOptimusGroomAttributeTypes = EOptimusGroomAttributeTypes(15);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct EWaveTableSamplingMode(pub u8);
-impl EWaveTableSamplingMode {
-    pub const FIXED_SAMPLE_RATE: EWaveTableSamplingMode = EWaveTableSamplingMode(0);
-    pub const FIXED_RESOLUTION: EWaveTableSamplingMode = EWaveTableSamplingMode(1);
-    pub const COUNT: EWaveTableSamplingMode = EWaveTableSamplingMode(2);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct EWaveTableResolution(pub u8);
-impl EWaveTableResolution {
-    pub const NONE: EWaveTableResolution = EWaveTableResolution(0);
-    pub const RES_8: EWaveTableResolution = EWaveTableResolution(3);
-    pub const RES_16: EWaveTableResolution = EWaveTableResolution(4);
-    pub const RES_32: EWaveTableResolution = EWaveTableResolution(5);
-    pub const RES_64: EWaveTableResolution = EWaveTableResolution(6);
-    pub const RES_128: EWaveTableResolution = EWaveTableResolution(7);
-    pub const RES_256: EWaveTableResolution = EWaveTableResolution(8);
-    pub const RES_512: EWaveTableResolution = EWaveTableResolution(9);
-    pub const RES_1024: EWaveTableResolution = EWaveTableResolution(10);
-    pub const RES_2048: EWaveTableResolution = EWaveTableResolution(11);
-    pub const RES_4096: EWaveTableResolution = EWaveTableResolution(12);
-    pub const MAXIMUM: EWaveTableResolution = EWaveTableResolution(13);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct EXAxisLabelsUnit(pub u8);
-impl EXAxisLabelsUnit {
-    pub const SAMPLES: EXAxisLabelsUnit = EXAxisLabelsUnit(0);
-    pub const SECONDS: EXAxisLabelsUnit = EXAxisLabelsUnit(1);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct EYAxisLabelsUnit(pub u8);
-impl EYAxisLabelsUnit {
-    pub const LINEAR: EYAxisLabelsUnit = EYAxisLabelsUnit(0);
-    pub const DB: EYAxisLabelsUnit = EYAxisLabelsUnit(1);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct EAudioOscilloscopeTriggerMode(pub u8);
-impl EAudioOscilloscopeTriggerMode {
-    pub const NONE: EAudioOscilloscopeTriggerMode = EAudioOscilloscopeTriggerMode(0);
-    pub const RISING: EAudioOscilloscopeTriggerMode = EAudioOscilloscopeTriggerMode(1);
-    pub const FALLING: EAudioOscilloscopeTriggerMode = EAudioOscilloscopeTriggerMode(2);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct EAudioPanelLayoutType(pub u8);
-impl EAudioPanelLayoutType {
-    pub const BASIC: EAudioPanelLayoutType = EAudioPanelLayoutType(0);
-    pub const ADVANCED: EAudioPanelLayoutType = EAudioPanelLayoutType(1);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct EMetasoundBoolMemberDefaultWidget(pub u8);
-impl EMetasoundBoolMemberDefaultWidget {
-    pub const NONE: EMetasoundBoolMemberDefaultWidget = EMetasoundBoolMemberDefaultWidget(
-        0,
-    );
-    pub const BUTTON: EMetasoundBoolMemberDefaultWidget = EMetasoundBoolMemberDefaultWidget(
-        1,
-    );
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct EMetasoundMemberDefaultWidget(pub u8);
-impl EMetasoundMemberDefaultWidget {
-    pub const NONE: EMetasoundMemberDefaultWidget = EMetasoundMemberDefaultWidget(0);
-    pub const SLIDER: EMetasoundMemberDefaultWidget = EMetasoundMemberDefaultWidget(1);
-    pub const RADIAL_SLIDER: EMetasoundMemberDefaultWidget = EMetasoundMemberDefaultWidget(
-        2,
-    );
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct EMetasoundMemberDefaultWidgetValueType(pub u8);
-impl EMetasoundMemberDefaultWidgetValueType {
-    pub const LINEAR: EMetasoundMemberDefaultWidgetValueType = EMetasoundMemberDefaultWidgetValueType(
-        0,
-    );
-    pub const FREQUENCY: EMetasoundMemberDefaultWidgetValueType = EMetasoundMemberDefaultWidgetValueType(
-        1,
-    );
-    pub const VOLUME: EMetasoundMemberDefaultWidgetValueType = EMetasoundMemberDefaultWidgetValueType(
-        2,
-    );
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct EAudioUnitsValueType(pub u8);
-impl EAudioUnitsValueType {
-    pub const LINEAR: EAudioUnitsValueType = EAudioUnitsValueType(0);
-    pub const FREQUENCY: EAudioUnitsValueType = EAudioUnitsValueType(1);
-    pub const VOLUME: EAudioUnitsValueType = EAudioUnitsValueType(2);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct EAuditionPageMode(pub u8);
-impl EAuditionPageMode {
-    pub const FOCUSED: EAuditionPageMode = EAuditionPageMode(0);
-    pub const USER: EAuditionPageMode = EAuditionPageMode(1);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct EMetasoundActiveDetailView(pub u8);
-impl EMetasoundActiveDetailView {
-    pub const METASOUND: EMetasoundActiveDetailView = EMetasoundActiveDetailView(0);
-    pub const GENERAL: EMetasoundActiveDetailView = EMetasoundActiveDetailView(1);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct EResonanceRenderMode(pub u8);
-impl EResonanceRenderMode {
-    pub const STEREO_PANNING: EResonanceRenderMode = EResonanceRenderMode(0);
-    pub const BINAURAL_LOW_QUALITY: EResonanceRenderMode = EResonanceRenderMode(1);
-    pub const BINAURAL_MEDIUM_QUALITY: EResonanceRenderMode = EResonanceRenderMode(2);
-    pub const BINAURAL_HIGH_QUALITY: EResonanceRenderMode = EResonanceRenderMode(3);
-    pub const ROOM_EFFECTS_ONLY: EResonanceRenderMode = EResonanceRenderMode(4);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct ERaQualityMode(pub u8);
-impl ERaQualityMode {
-    pub const STEREO_PANNING: ERaQualityMode = ERaQualityMode(0);
-    pub const BINAURAL_LOW: ERaQualityMode = ERaQualityMode(1);
-    pub const BINAURAL_MEDIUM: ERaQualityMode = ERaQualityMode(2);
-    pub const BINAURAL_HIGH: ERaQualityMode = ERaQualityMode(3);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct ERaSpatializationMethod(pub u8);
-impl ERaSpatializationMethod {
-    pub const STEREO_PANNING: ERaSpatializationMethod = ERaSpatializationMethod(0);
-    pub const HRTF: ERaSpatializationMethod = ERaSpatializationMethod(1);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct ERaDistanceRolloffModel(pub u8);
-impl ERaDistanceRolloffModel {
-    pub const LOGARITHMIC: ERaDistanceRolloffModel = ERaDistanceRolloffModel(0);
-    pub const LINEAR: ERaDistanceRolloffModel = ERaDistanceRolloffModel(1);
-    pub const NONE: ERaDistanceRolloffModel = ERaDistanceRolloffModel(2);
+pub struct EIKRigGoalPreviewMode(pub u8);
+impl EIKRigGoalPreviewMode {
+    pub const ADDITIVE: EIKRigGoalPreviewMode = EIKRigGoalPreviewMode(0);
+    pub const ABSOLUTE: EIKRigGoalPreviewMode = EIKRigGoalPreviewMode(1);
 }
 #[allow(non_camel_case_types)]
 #[repr(transparent)]
@@ -22723,59 +22617,313 @@ impl EStateTreeParameterDataType {
 }
 #[allow(non_camel_case_types)]
 #[repr(transparent)]
-pub struct EStateTreeSaveOnCompile(pub u8);
-impl EStateTreeSaveOnCompile {
-    pub const NEVER: EStateTreeSaveOnCompile = EStateTreeSaveOnCompile(0);
-    pub const SUCCESS_ONLY: EStateTreeSaveOnCompile = EStateTreeSaveOnCompile(1);
-    pub const ALWAYS: EStateTreeSaveOnCompile = EStateTreeSaveOnCompile(2);
+pub struct ECameraBlendStackType(pub i32);
+impl ECameraBlendStackType {
+    pub const ISOLATED_TRANSIENT: ECameraBlendStackType = ECameraBlendStackType(0);
+    pub const ADDITIVE_PERSISTENT: ECameraBlendStackType = ECameraBlendStackType(1);
 }
 #[allow(non_camel_case_types)]
 #[repr(transparent)]
-pub struct EStateTreeEditorUserSettingsNodeType(pub u8);
-impl EStateTreeEditorUserSettingsNodeType {
-    pub const CONDITION: EStateTreeEditorUserSettingsNodeType = EStateTreeEditorUserSettingsNodeType(
+pub struct ECameraBuildStatus(pub u8);
+impl ECameraBuildStatus {
+    pub const CLEAN: ECameraBuildStatus = ECameraBuildStatus(0);
+    pub const CLEAN_WITH_WARNINGS: ECameraBuildStatus = ECameraBuildStatus(1);
+    pub const WITH_ERRORS: ECameraBuildStatus = ECameraBuildStatus(2);
+    pub const DIRTY: ECameraBuildStatus = ECameraBuildStatus(3);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ECameraRigInitialOrientation(pub i32);
+impl ECameraRigInitialOrientation {
+    pub const NONE: ECameraRigInitialOrientation = ECameraRigInitialOrientation(0);
+    pub const CONTEXT_YAW_PITCH: ECameraRigInitialOrientation = ECameraRigInitialOrientation(
         1,
     );
-    pub const TASK: EStateTreeEditorUserSettingsNodeType = EStateTreeEditorUserSettingsNodeType(
+    pub const PREVIOUS_YAW_PITCH: ECameraRigInitialOrientation = ECameraRigInitialOrientation(
         2,
     );
-    pub const TRANSITION: EStateTreeEditorUserSettingsNodeType = EStateTreeEditorUserSettingsNodeType(
+    pub const PREVIOUS_ABSOLUTE_TARGET: ECameraRigInitialOrientation = ECameraRigInitialOrientation(
+        3,
+    );
+    pub const PREVIOUS_RELATIVE_TARGET: ECameraRigInitialOrientation = ECameraRigInitialOrientation(
         4,
-    );
-    pub const FLAG: EStateTreeEditorUserSettingsNodeType = EStateTreeEditorUserSettingsNodeType(
-        8,
-    );
-    pub const ALL: EStateTreeEditorUserSettingsNodeType = EStateTreeEditorUserSettingsNodeType(
-        15,
     );
 }
 #[allow(non_camel_case_types)]
 #[repr(transparent)]
-pub struct EStateTreeStateSelectionRules(pub u32);
-impl EStateTreeStateSelectionRules {
-    pub const NONE: EStateTreeStateSelectionRules = EStateTreeStateSelectionRules(0);
-    pub const COMPLETED_TRANSITION_STATES_CREATE_NEW_STATES: EStateTreeStateSelectionRules = EStateTreeStateSelectionRules(
-        1,
-    );
-    pub const COMPLETED_STATE_BEFORE_TRANSITION_SOURCE_FAILS_TRANSITION: EStateTreeStateSelectionRules = EStateTreeStateSelectionRules(
+pub struct ECameraVariableSetterBlendType(pub u8);
+impl ECameraVariableSetterBlendType {
+    pub const NONE: ECameraVariableSetterBlendType = ECameraVariableSetterBlendType(0);
+    pub const LINEAR: ECameraVariableSetterBlendType = ECameraVariableSetterBlendType(1);
+    pub const SMOOTH_STEP: ECameraVariableSetterBlendType = ECameraVariableSetterBlendType(
         2,
     );
-    pub const RESELECTED_STATE_CREATES_NEW_STATES: EStateTreeStateSelectionRules = EStateTreeStateSelectionRules(
-        4,
+    pub const SMOOTHER_STEP: ECameraVariableSetterBlendType = ECameraVariableSetterBlendType(
+        3,
     );
-    pub const DEFAULT: EStateTreeStateSelectionRules = EStateTreeStateSelectionRules(3);
 }
 #[allow(non_camel_case_types)]
 #[repr(transparent)]
-pub struct ESubmixEffectConvolutionReverbBlockSize(pub u8);
-impl ESubmixEffectConvolutionReverbBlockSize {
-    pub const BLOCK_SIZE256: ESubmixEffectConvolutionReverbBlockSize = ESubmixEffectConvolutionReverbBlockSize(
+pub struct EGameplayCamerasViewRotationMode(pub i32);
+impl EGameplayCamerasViewRotationMode {
+    pub const NONE: EGameplayCamerasViewRotationMode = EGameplayCamerasViewRotationMode(
         0,
     );
-    pub const BLOCK_SIZE512: ESubmixEffectConvolutionReverbBlockSize = ESubmixEffectConvolutionReverbBlockSize(
+    pub const PREVIEW_UPDATE: EGameplayCamerasViewRotationMode = EGameplayCamerasViewRotationMode(
         1,
     );
-    pub const BLOCK_SIZE1024: ESubmixEffectConvolutionReverbBlockSize = ESubmixEffectConvolutionReverbBlockSize(
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ESmoothCameraBlendType(pub i32);
+impl ESmoothCameraBlendType {
+    pub const SMOOTH_STEP: ESmoothCameraBlendType = ESmoothCameraBlendType(0);
+    pub const SMOOTHER_STEP: ESmoothCameraBlendType = ESmoothCameraBlendType(1);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ECollisionSafePosition(pub u8);
+impl ECollisionSafePosition {
+    pub const ACTIVE_CONTEXT: ECollisionSafePosition = ECollisionSafePosition(0);
+    pub const OWNING_CONTEXT: ECollisionSafePosition = ECollisionSafePosition(1);
+    pub const PIVOT: ECollisionSafePosition = ECollisionSafePosition(2);
+    pub const PAWN: ECollisionSafePosition = ECollisionSafePosition(3);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ECollisionSafePositionOffsetSpace(pub u8);
+impl ECollisionSafePositionOffsetSpace {
+    pub const ACTIVE_CONTEXT: ECollisionSafePositionOffsetSpace = ECollisionSafePositionOffsetSpace(
+        0,
+    );
+    pub const OWNING_CONTEXT: ECollisionSafePositionOffsetSpace = ECollisionSafePositionOffsetSpace(
+        1,
+    );
+    pub const PIVOT: ECollisionSafePositionOffsetSpace = ECollisionSafePositionOffsetSpace(
+        2,
+    );
+    pub const CAMERA_POSE: ECollisionSafePositionOffsetSpace = ECollisionSafePositionOffsetSpace(
+        3,
+    );
+    pub const PAWN: ECollisionSafePositionOffsetSpace = ECollisionSafePositionOffsetSpace(
+        4,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ECameraNodeOriginPosition(pub u8);
+impl ECameraNodeOriginPosition {
+    pub const CAMERA_POSE: ECameraNodeOriginPosition = ECameraNodeOriginPosition(0);
+    pub const ACTIVE_CONTEXT: ECameraNodeOriginPosition = ECameraNodeOriginPosition(1);
+    pub const OWNING_CONTEXT: ECameraNodeOriginPosition = ECameraNodeOriginPosition(2);
+    pub const PIVOT: ECameraNodeOriginPosition = ECameraNodeOriginPosition(3);
+    pub const PAWN: ECameraNodeOriginPosition = ECameraNodeOriginPosition(4);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ECameraNodeSpace(pub u8);
+impl ECameraNodeSpace {
+    pub const CAMERA_POSE: ECameraNodeSpace = ECameraNodeSpace(0);
+    pub const ACTIVE_CONTEXT: ECameraNodeSpace = ECameraNodeSpace(1);
+    pub const OWNING_CONTEXT: ECameraNodeSpace = ECameraNodeSpace(2);
+    pub const PIVOT: ECameraNodeSpace = ECameraNodeSpace(3);
+    pub const PAWN: ECameraNodeSpace = ECameraNodeSpace(4);
+    pub const WORLD: ECameraNodeSpace = ECameraNodeSpace(5);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ECameraAutoRotateDirection(pub i32);
+impl ECameraAutoRotateDirection {
+    pub const FACING: ECameraAutoRotateDirection = ECameraAutoRotateDirection(0);
+    pub const MOVEMENT: ECameraAutoRotateDirection = ECameraAutoRotateDirection(1);
+    pub const MOVEMENT_OR_FACING: ECameraAutoRotateDirection = ECameraAutoRotateDirection(
+        2,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EBuiltInDoubleCameraVariable(pub i32);
+impl EBuiltInDoubleCameraVariable {
+    pub const NONE: EBuiltInDoubleCameraVariable = EBuiltInDoubleCameraVariable(0);
+    pub const YAW: EBuiltInDoubleCameraVariable = EBuiltInDoubleCameraVariable(1);
+    pub const PITCH: EBuiltInDoubleCameraVariable = EBuiltInDoubleCameraVariable(2);
+    pub const ROLL: EBuiltInDoubleCameraVariable = EBuiltInDoubleCameraVariable(3);
+    pub const ZOOM: EBuiltInDoubleCameraVariable = EBuiltInDoubleCameraVariable(4);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EBuiltInVector2dCameraVariable(pub i32);
+impl EBuiltInVector2dCameraVariable {
+    pub const NONE: EBuiltInVector2dCameraVariable = EBuiltInVector2dCameraVariable(0);
+    pub const YAW_PITCH: EBuiltInVector2dCameraVariable = EBuiltInVector2dCameraVariable(
+        1,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ECameraShakeEvaluationMode(pub u8);
+impl ECameraShakeEvaluationMode {
+    pub const INLINE: ECameraShakeEvaluationMode = ECameraShakeEvaluationMode(0);
+    pub const VISUAL_LAYER: ECameraShakeEvaluationMode = ECameraShakeEvaluationMode(1);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENDIMemoryBufferViewType(pub i32);
+impl ENDIMemoryBufferViewType {
+    pub const FLOAT: ENDIMemoryBufferViewType = ENDIMemoryBufferViewType(0);
+    pub const INTEGER: ENDIMemoryBufferViewType = ENDIMemoryBufferViewType(1);
+    pub const UNSIGNED_INTEGER: ENDIMemoryBufferViewType = ENDIMemoryBufferViewType(2);
+    pub const HEX: ENDIMemoryBufferViewType = ENDIMemoryBufferViewType(3);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENiagaraClipboardFunctionInputValueMode(pub i32);
+impl ENiagaraClipboardFunctionInputValueMode {
+    pub const LOCAL: ENiagaraClipboardFunctionInputValueMode = ENiagaraClipboardFunctionInputValueMode(
+        0,
+    );
+    pub const LINKED: ENiagaraClipboardFunctionInputValueMode = ENiagaraClipboardFunctionInputValueMode(
+        1,
+    );
+    pub const DATA: ENiagaraClipboardFunctionInputValueMode = ENiagaraClipboardFunctionInputValueMode(
+        2,
+    );
+    pub const OBJECT_ASSET: ENiagaraClipboardFunctionInputValueMode = ENiagaraClipboardFunctionInputValueMode(
+        3,
+    );
+    pub const EXPRESSION: ENiagaraClipboardFunctionInputValueMode = ENiagaraClipboardFunctionInputValueMode(
+        4,
+    );
+    pub const DYNAMIC: ENiagaraClipboardFunctionInputValueMode = ENiagaraClipboardFunctionInputValueMode(
+        5,
+    );
+    pub const RESET_TO_DEFAULT: ENiagaraClipboardFunctionInputValueMode = ENiagaraClipboardFunctionInputValueMode(
+        6,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENiagaraClipboardFunctionScriptMode(pub i32);
+impl ENiagaraClipboardFunctionScriptMode {
+    pub const SCRIPT_ASSET: ENiagaraClipboardFunctionScriptMode = ENiagaraClipboardFunctionScriptMode(
+        0,
+    );
+    pub const ASSIGNMENT: ENiagaraClipboardFunctionScriptMode = ENiagaraClipboardFunctionScriptMode(
+        1,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENiagaraCategoryExpandState(pub u8);
+impl ENiagaraCategoryExpandState {
+    pub const DEFAULT: ENiagaraCategoryExpandState = ENiagaraCategoryExpandState(0);
+    pub const DEFAULT_EXPAND_MODIFIED: ENiagaraCategoryExpandState = ENiagaraCategoryExpandState(
+        1,
+    );
+    pub const COLLAPSE_ALL: ENiagaraCategoryExpandState = ENiagaraCategoryExpandState(2);
+    pub const EXPAND_ALL: ENiagaraCategoryExpandState = ENiagaraCategoryExpandState(3);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENiagaraAddDefaultsTrackMode(pub u8);
+impl ENiagaraAddDefaultsTrackMode {
+    pub const NO_SUBTRACKS: ENiagaraAddDefaultsTrackMode = ENiagaraAddDefaultsTrackMode(
+        0,
+    );
+    pub const COMPONENT_TRACK_ONLY: ENiagaraAddDefaultsTrackMode = ENiagaraAddDefaultsTrackMode(
+        1,
+    );
+    pub const LIFECYCLE_TRACK: ENiagaraAddDefaultsTrackMode = ENiagaraAddDefaultsTrackMode(
+        2,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EGraphZoomLimitHandling(pub u8);
+impl EGraphZoomLimitHandling {
+    pub const DEFAULT: EGraphZoomLimitHandling = EGraphZoomLimitHandling(0);
+    pub const ALLOW_LIMIT_BREAK: EGraphZoomLimitHandling = EGraphZoomLimitHandling(1);
+    pub const DISALLOW_LIMIT_BREAK: EGraphZoomLimitHandling = EGraphZoomLimitHandling(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENiagaraFunctionDebugState(pub u8);
+impl ENiagaraFunctionDebugState {
+    pub const NO_DEBUG: ENiagaraFunctionDebugState = ENiagaraFunctionDebugState(0);
+    pub const BASIC: ENiagaraFunctionDebugState = ENiagaraFunctionDebugState(1);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENiagaraInputNodeUsage(pub u8);
+impl ENiagaraInputNodeUsage {
+    pub const UNDEFINED: ENiagaraInputNodeUsage = ENiagaraInputNodeUsage(0);
+    pub const PARAMETER: ENiagaraInputNodeUsage = ENiagaraInputNodeUsage(1);
+    pub const ATTRIBUTE: ENiagaraInputNodeUsage = ENiagaraInputNodeUsage(2);
+    pub const SYSTEM_CONSTANT: ENiagaraInputNodeUsage = ENiagaraInputNodeUsage(3);
+    pub const TRANSLATOR_CONSTANT: ENiagaraInputNodeUsage = ENiagaraInputNodeUsage(4);
+    pub const RAPID_ITERATION_PARAMETER: ENiagaraInputNodeUsage = ENiagaraInputNodeUsage(
+        5,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENiagaraStackEntryInlineDisplayMode(pub i32);
+impl ENiagaraStackEntryInlineDisplayMode {
+    pub const EXPRESSION: ENiagaraStackEntryInlineDisplayMode = ENiagaraStackEntryInlineDisplayMode(
+        0,
+    );
+    pub const GRAPH_HORIZONTAL: ENiagaraStackEntryInlineDisplayMode = ENiagaraStackEntryInlineDisplayMode(
+        1,
+    );
+    pub const GRAPH_VERTICAL: ENiagaraStackEntryInlineDisplayMode = ENiagaraStackEntryInlineDisplayMode(
+        2,
+    );
+    pub const GRAPH_HYBRID: ENiagaraStackEntryInlineDisplayMode = ENiagaraStackEntryInlineDisplayMode(
+        3,
+    );
+    pub const NONE: ENiagaraStackEntryInlineDisplayMode = ENiagaraStackEntryInlineDisplayMode(
+        4,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENiagaraValidationSeverity(pub i32);
+impl ENiagaraValidationSeverity {
+    pub const INFO: ENiagaraValidationSeverity = ENiagaraValidationSeverity(0);
+    pub const WARNING: ENiagaraValidationSeverity = ENiagaraValidationSeverity(1);
+    pub const ERROR: ENiagaraValidationSeverity = ENiagaraValidationSeverity(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENiagaraDataChanneSpawnModuleMode(pub u8);
+impl ENiagaraDataChanneSpawnModuleMode {
+    pub const CONDITIONAL_SPAWN: ENiagaraDataChanneSpawnModuleMode = ENiagaraDataChanneSpawnModuleMode(
+        0,
+    );
+    pub const DIRECT_SPAWN: ENiagaraDataChanneSpawnModuleMode = ENiagaraDataChanneSpawnModuleMode(
+        1,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENiagaraDataChanneWriteModuleMode(pub u8);
+impl ENiagaraDataChanneWriteModuleMode {
+    pub const APPEND_NEW_ELEMENT: ENiagaraDataChanneWriteModuleMode = ENiagaraDataChanneWriteModuleMode(
+        0,
+    );
+    pub const WRITE_TO_EXISTING_ELEMENT: ENiagaraDataChanneWriteModuleMode = ENiagaraDataChanneWriteModuleMode(
+        1,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENiagaraAnimNotifyProgressType(pub u8);
+impl ENiagaraAnimNotifyProgressType {
+    pub const NONE: ENiagaraAnimNotifyProgressType = ENiagaraAnimNotifyProgressType(0);
+    pub const FORWARD: ENiagaraAnimNotifyProgressType = ENiagaraAnimNotifyProgressType(
+        1,
+    );
+    pub const REVERSE: ENiagaraAnimNotifyProgressType = ENiagaraAnimNotifyProgressType(
         2,
     );
 }
@@ -25052,434 +25200,286 @@ impl EInterchangeMaterialXVDF {
 }
 #[allow(non_camel_case_types)]
 #[repr(transparent)]
-pub struct EFlipbookCollisionMode(pub u8);
-impl EFlipbookCollisionMode {
-    pub const NO_COLLISION: EFlipbookCollisionMode = EFlipbookCollisionMode(0);
-    pub const FIRST_FRAME_COLLISION: EFlipbookCollisionMode = EFlipbookCollisionMode(1);
-    pub const EACH_FRAME_COLLISION: EFlipbookCollisionMode = EFlipbookCollisionMode(2);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct ESpriteCollisionMode(pub u8);
-impl ESpriteCollisionMode {
-    pub const NONE: ESpriteCollisionMode = ESpriteCollisionMode(0);
-    pub const USE2_D_PHYSICS: ESpriteCollisionMode = ESpriteCollisionMode(1);
-    pub const USE3_D_PHYSICS: ESpriteCollisionMode = ESpriteCollisionMode(2);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct ESpritePivotMode(pub u8);
-impl ESpritePivotMode {
-    pub const TOP_LEFT: ESpritePivotMode = ESpritePivotMode(0);
-    pub const TOP_CENTER: ESpritePivotMode = ESpritePivotMode(1);
-    pub const TOP_RIGHT: ESpritePivotMode = ESpritePivotMode(2);
-    pub const CENTER_LEFT: ESpritePivotMode = ESpritePivotMode(3);
-    pub const CENTER_CENTER: ESpritePivotMode = ESpritePivotMode(4);
-    pub const CENTER_RIGHT: ESpritePivotMode = ESpritePivotMode(5);
-    pub const BOTTOM_LEFT: ESpritePivotMode = ESpritePivotMode(6);
-    pub const BOTTOM_CENTER: ESpritePivotMode = ESpritePivotMode(7);
-    pub const BOTTOM_RIGHT: ESpritePivotMode = ESpritePivotMode(8);
-    pub const CUSTOM: ESpritePivotMode = ESpritePivotMode(9);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct EPaperSpriteAtlasPadding(pub u8);
-impl EPaperSpriteAtlasPadding {
-    pub const DILATE_BORDER: EPaperSpriteAtlasPadding = EPaperSpriteAtlasPadding(0);
-    pub const PAD_WITH_ZERO: EPaperSpriteAtlasPadding = EPaperSpriteAtlasPadding(1);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct ETileMapProjectionMode(pub u8);
-impl ETileMapProjectionMode {
-    pub const ORTHOGONAL: ETileMapProjectionMode = ETileMapProjectionMode(0);
-    pub const ISOMETRIC_DIAMOND: ETileMapProjectionMode = ETileMapProjectionMode(1);
-    pub const ISOMETRIC_STAGGERED: ETileMapProjectionMode = ETileMapProjectionMode(2);
-    pub const HEXAGONAL_STAGGERED: ETileMapProjectionMode = ETileMapProjectionMode(3);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct EMotionExtractor_Space(pub u8);
-impl EMotionExtractor_Space {
-    pub const COMPONENT_SPACE: EMotionExtractor_Space = EMotionExtractor_Space(0);
-    pub const LOCAL_SPACE: EMotionExtractor_Space = EMotionExtractor_Space(1);
-    pub const RELATIVE_TO_BONE: EMotionExtractor_Space = EMotionExtractor_Space(2);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct EMotionExtractor_MathOperation(pub u8);
-impl EMotionExtractor_MathOperation {
-    pub const NONE: EMotionExtractor_MathOperation = EMotionExtractor_MathOperation(0);
-    pub const ADDITION: EMotionExtractor_MathOperation = EMotionExtractor_MathOperation(
-        1,
+pub struct EConstantQNormalizationEnum(pub u8);
+impl EConstantQNormalizationEnum {
+    pub const EQUAL_EUCLIDEAN_NORM: EConstantQNormalizationEnum = EConstantQNormalizationEnum(
+        0,
     );
-    pub const SUBTRACTION: EMotionExtractor_MathOperation = EMotionExtractor_MathOperation(
+    pub const EQUAL_ENERGY: EConstantQNormalizationEnum = EConstantQNormalizationEnum(1);
+    pub const EQUAL_AMPLITUDE: EConstantQNormalizationEnum = EConstantQNormalizationEnum(
         2,
     );
-    pub const DIVISION: EMotionExtractor_MathOperation = EMotionExtractor_MathOperation(
-        3,
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ELoudnessCurveTypeEnum(pub u8);
+impl ELoudnessCurveTypeEnum {
+    pub const A: ELoudnessCurveTypeEnum = ELoudnessCurveTypeEnum(0);
+    pub const B: ELoudnessCurveTypeEnum = ELoudnessCurveTypeEnum(1);
+    pub const C: ELoudnessCurveTypeEnum = ELoudnessCurveTypeEnum(2);
+    pub const D: ELoudnessCurveTypeEnum = ELoudnessCurveTypeEnum(3);
+    pub const K: ELoudnessCurveTypeEnum = ELoudnessCurveTypeEnum(4);
+    pub const NONE: ELoudnessCurveTypeEnum = ELoudnessCurveTypeEnum(5);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ELoudnessNRTCurveTypeEnum(pub u8);
+impl ELoudnessNRTCurveTypeEnum {
+    pub const A: ELoudnessNRTCurveTypeEnum = ELoudnessNRTCurveTypeEnum(0);
+    pub const B: ELoudnessNRTCurveTypeEnum = ELoudnessNRTCurveTypeEnum(1);
+    pub const C: ELoudnessNRTCurveTypeEnum = ELoudnessNRTCurveTypeEnum(2);
+    pub const D: ELoudnessNRTCurveTypeEnum = ELoudnessNRTCurveTypeEnum(3);
+    pub const K: ELoudnessNRTCurveTypeEnum = ELoudnessNRTCurveTypeEnum(4);
+    pub const NONE: ELoudnessNRTCurveTypeEnum = ELoudnessNRTCurveTypeEnum(5);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EMeterPeakType(pub u8);
+impl EMeterPeakType {
+    pub const MEAN_SQUARED: EMeterPeakType = EMeterPeakType(0);
+    pub const ROOT_MEAN_SQUARED: EMeterPeakType = EMeterPeakType(1);
+    pub const PEAK: EMeterPeakType = EMeterPeakType(2);
+    pub const COUNT: EMeterPeakType = EMeterPeakType(3);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EOptimusGroomExecDomain(pub u8);
+impl EOptimusGroomExecDomain {
+    pub const NONE: EOptimusGroomExecDomain = EOptimusGroomExecDomain(0);
+    pub const CONTROL_POINT: EOptimusGroomExecDomain = EOptimusGroomExecDomain(1);
+    pub const CURVE: EOptimusGroomExecDomain = EOptimusGroomExecDomain(2);
+    pub const STRANDS_EDGES: EOptimusGroomExecDomain = EOptimusGroomExecDomain(3);
+    pub const STRANDS_OBJECTS: EOptimusGroomExecDomain = EOptimusGroomExecDomain(4);
+    pub const GUIDES_POINTS: EOptimusGroomExecDomain = EOptimusGroomExecDomain(5);
+    pub const GUIDES_CURVES: EOptimusGroomExecDomain = EOptimusGroomExecDomain(6);
+    pub const GUIDES_EDGES: EOptimusGroomExecDomain = EOptimusGroomExecDomain(7);
+    pub const GUIDES_OBJECTS: EOptimusGroomExecDomain = EOptimusGroomExecDomain(8);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EOptimusGroomAttributeTypes(pub u8);
+impl EOptimusGroomAttributeTypes {
+    pub const NONE: EOptimusGroomAttributeTypes = EOptimusGroomAttributeTypes(0);
+    pub const BOOL: EOptimusGroomAttributeTypes = EOptimusGroomAttributeTypes(1);
+    pub const INT: EOptimusGroomAttributeTypes = EOptimusGroomAttributeTypes(2);
+    pub const INT_VECTOR2: EOptimusGroomAttributeTypes = EOptimusGroomAttributeTypes(3);
+    pub const INT_VECTOR3: EOptimusGroomAttributeTypes = EOptimusGroomAttributeTypes(4);
+    pub const INT_VECTOR4: EOptimusGroomAttributeTypes = EOptimusGroomAttributeTypes(5);
+    pub const UINT: EOptimusGroomAttributeTypes = EOptimusGroomAttributeTypes(6);
+    pub const FLOAT: EOptimusGroomAttributeTypes = EOptimusGroomAttributeTypes(7);
+    pub const VECTOR2: EOptimusGroomAttributeTypes = EOptimusGroomAttributeTypes(8);
+    pub const VECTOR3: EOptimusGroomAttributeTypes = EOptimusGroomAttributeTypes(9);
+    pub const VECTOR4: EOptimusGroomAttributeTypes = EOptimusGroomAttributeTypes(10);
+    pub const LINEAR_COLOR: EOptimusGroomAttributeTypes = EOptimusGroomAttributeTypes(
+        11,
     );
-    pub const MULTIPLICATION: EMotionExtractor_MathOperation = EMotionExtractor_MathOperation(
+    pub const QUAT: EOptimusGroomAttributeTypes = EOptimusGroomAttributeTypes(12);
+    pub const ROTATOR: EOptimusGroomAttributeTypes = EOptimusGroomAttributeTypes(13);
+    pub const TRANSFORM: EOptimusGroomAttributeTypes = EOptimusGroomAttributeTypes(14);
+    pub const MATRIX3X4: EOptimusGroomAttributeTypes = EOptimusGroomAttributeTypes(15);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EWaveTableSamplingMode(pub u8);
+impl EWaveTableSamplingMode {
+    pub const FIXED_SAMPLE_RATE: EWaveTableSamplingMode = EWaveTableSamplingMode(0);
+    pub const FIXED_RESOLUTION: EWaveTableSamplingMode = EWaveTableSamplingMode(1);
+    pub const COUNT: EWaveTableSamplingMode = EWaveTableSamplingMode(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EWaveTableResolution(pub u8);
+impl EWaveTableResolution {
+    pub const NONE: EWaveTableResolution = EWaveTableResolution(0);
+    pub const RES_8: EWaveTableResolution = EWaveTableResolution(3);
+    pub const RES_16: EWaveTableResolution = EWaveTableResolution(4);
+    pub const RES_32: EWaveTableResolution = EWaveTableResolution(5);
+    pub const RES_64: EWaveTableResolution = EWaveTableResolution(6);
+    pub const RES_128: EWaveTableResolution = EWaveTableResolution(7);
+    pub const RES_256: EWaveTableResolution = EWaveTableResolution(8);
+    pub const RES_512: EWaveTableResolution = EWaveTableResolution(9);
+    pub const RES_1024: EWaveTableResolution = EWaveTableResolution(10);
+    pub const RES_2048: EWaveTableResolution = EWaveTableResolution(11);
+    pub const RES_4096: EWaveTableResolution = EWaveTableResolution(12);
+    pub const MAXIMUM: EWaveTableResolution = EWaveTableResolution(13);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EXAxisLabelsUnit(pub u8);
+impl EXAxisLabelsUnit {
+    pub const SAMPLES: EXAxisLabelsUnit = EXAxisLabelsUnit(0);
+    pub const SECONDS: EXAxisLabelsUnit = EXAxisLabelsUnit(1);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EYAxisLabelsUnit(pub u8);
+impl EYAxisLabelsUnit {
+    pub const LINEAR: EYAxisLabelsUnit = EYAxisLabelsUnit(0);
+    pub const DB: EYAxisLabelsUnit = EYAxisLabelsUnit(1);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EAudioOscilloscopeTriggerMode(pub u8);
+impl EAudioOscilloscopeTriggerMode {
+    pub const NONE: EAudioOscilloscopeTriggerMode = EAudioOscilloscopeTriggerMode(0);
+    pub const RISING: EAudioOscilloscopeTriggerMode = EAudioOscilloscopeTriggerMode(1);
+    pub const FALLING: EAudioOscilloscopeTriggerMode = EAudioOscilloscopeTriggerMode(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EAudioPanelLayoutType(pub u8);
+impl EAudioPanelLayoutType {
+    pub const BASIC: EAudioPanelLayoutType = EAudioPanelLayoutType(0);
+    pub const ADVANCED: EAudioPanelLayoutType = EAudioPanelLayoutType(1);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EMetasoundBoolMemberDefaultWidget(pub u8);
+impl EMetasoundBoolMemberDefaultWidget {
+    pub const NONE: EMetasoundBoolMemberDefaultWidget = EMetasoundBoolMemberDefaultWidget(
+        0,
+    );
+    pub const BUTTON: EMetasoundBoolMemberDefaultWidget = EMetasoundBoolMemberDefaultWidget(
+        1,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EMetasoundMemberDefaultWidget(pub u8);
+impl EMetasoundMemberDefaultWidget {
+    pub const NONE: EMetasoundMemberDefaultWidget = EMetasoundMemberDefaultWidget(0);
+    pub const SLIDER: EMetasoundMemberDefaultWidget = EMetasoundMemberDefaultWidget(1);
+    pub const RADIAL_SLIDER: EMetasoundMemberDefaultWidget = EMetasoundMemberDefaultWidget(
+        2,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EMetasoundMemberDefaultWidgetValueType(pub u8);
+impl EMetasoundMemberDefaultWidgetValueType {
+    pub const LINEAR: EMetasoundMemberDefaultWidgetValueType = EMetasoundMemberDefaultWidgetValueType(
+        0,
+    );
+    pub const FREQUENCY: EMetasoundMemberDefaultWidgetValueType = EMetasoundMemberDefaultWidgetValueType(
+        1,
+    );
+    pub const VOLUME: EMetasoundMemberDefaultWidgetValueType = EMetasoundMemberDefaultWidgetValueType(
+        2,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EAudioUnitsValueType(pub u8);
+impl EAudioUnitsValueType {
+    pub const LINEAR: EAudioUnitsValueType = EAudioUnitsValueType(0);
+    pub const FREQUENCY: EAudioUnitsValueType = EAudioUnitsValueType(1);
+    pub const VOLUME: EAudioUnitsValueType = EAudioUnitsValueType(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EAuditionPageMode(pub u8);
+impl EAuditionPageMode {
+    pub const FOCUSED: EAuditionPageMode = EAuditionPageMode(0);
+    pub const USER: EAuditionPageMode = EAuditionPageMode(1);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EMetasoundActiveDetailView(pub u8);
+impl EMetasoundActiveDetailView {
+    pub const METASOUND: EMetasoundActiveDetailView = EMetasoundActiveDetailView(0);
+    pub const GENERAL: EMetasoundActiveDetailView = EMetasoundActiveDetailView(1);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EResonanceRenderMode(pub u8);
+impl EResonanceRenderMode {
+    pub const STEREO_PANNING: EResonanceRenderMode = EResonanceRenderMode(0);
+    pub const BINAURAL_LOW_QUALITY: EResonanceRenderMode = EResonanceRenderMode(1);
+    pub const BINAURAL_MEDIUM_QUALITY: EResonanceRenderMode = EResonanceRenderMode(2);
+    pub const BINAURAL_HIGH_QUALITY: EResonanceRenderMode = EResonanceRenderMode(3);
+    pub const ROOM_EFFECTS_ONLY: EResonanceRenderMode = EResonanceRenderMode(4);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ERaQualityMode(pub u8);
+impl ERaQualityMode {
+    pub const STEREO_PANNING: ERaQualityMode = ERaQualityMode(0);
+    pub const BINAURAL_LOW: ERaQualityMode = ERaQualityMode(1);
+    pub const BINAURAL_MEDIUM: ERaQualityMode = ERaQualityMode(2);
+    pub const BINAURAL_HIGH: ERaQualityMode = ERaQualityMode(3);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ERaSpatializationMethod(pub u8);
+impl ERaSpatializationMethod {
+    pub const STEREO_PANNING: ERaSpatializationMethod = ERaSpatializationMethod(0);
+    pub const HRTF: ERaSpatializationMethod = ERaSpatializationMethod(1);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ERaDistanceRolloffModel(pub u8);
+impl ERaDistanceRolloffModel {
+    pub const LOGARITHMIC: ERaDistanceRolloffModel = ERaDistanceRolloffModel(0);
+    pub const LINEAR: ERaDistanceRolloffModel = ERaDistanceRolloffModel(1);
+    pub const NONE: ERaDistanceRolloffModel = ERaDistanceRolloffModel(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EStateTreeSaveOnCompile(pub u8);
+impl EStateTreeSaveOnCompile {
+    pub const NEVER: EStateTreeSaveOnCompile = EStateTreeSaveOnCompile(0);
+    pub const SUCCESS_ONLY: EStateTreeSaveOnCompile = EStateTreeSaveOnCompile(1);
+    pub const ALWAYS: EStateTreeSaveOnCompile = EStateTreeSaveOnCompile(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EStateTreeEditorUserSettingsNodeType(pub u8);
+impl EStateTreeEditorUserSettingsNodeType {
+    pub const CONDITION: EStateTreeEditorUserSettingsNodeType = EStateTreeEditorUserSettingsNodeType(
+        1,
+    );
+    pub const TASK: EStateTreeEditorUserSettingsNodeType = EStateTreeEditorUserSettingsNodeType(
+        2,
+    );
+    pub const TRANSITION: EStateTreeEditorUserSettingsNodeType = EStateTreeEditorUserSettingsNodeType(
         4,
     );
+    pub const FLAG: EStateTreeEditorUserSettingsNodeType = EStateTreeEditorUserSettingsNodeType(
+        8,
+    );
+    pub const ALL: EStateTreeEditorUserSettingsNodeType = EStateTreeEditorUserSettingsNodeType(
+        15,
+    );
 }
 #[allow(non_camel_case_types)]
 #[repr(transparent)]
-pub struct EPinBoneType(pub u8);
-impl EPinBoneType {
-    pub const FULL_TRANSFORM: EPinBoneType = EPinBoneType(0);
-    pub const TRANSLATE_ONLY: EPinBoneType = EPinBoneType(1);
-    pub const ROTATE_ONLY: EPinBoneType = EPinBoneType(2);
-    pub const SCALE_ONLY: EPinBoneType = EPinBoneType(3);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct EIKRigGoalPreviewMode(pub u8);
-impl EIKRigGoalPreviewMode {
-    pub const ADDITIVE: EIKRigGoalPreviewMode = EIKRigGoalPreviewMode(0);
-    pub const ABSOLUTE: EIKRigGoalPreviewMode = EIKRigGoalPreviewMode(1);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct ECameraBlendStackType(pub i32);
-impl ECameraBlendStackType {
-    pub const ISOLATED_TRANSIENT: ECameraBlendStackType = ECameraBlendStackType(0);
-    pub const ADDITIVE_PERSISTENT: ECameraBlendStackType = ECameraBlendStackType(1);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct ECameraBuildStatus(pub u8);
-impl ECameraBuildStatus {
-    pub const CLEAN: ECameraBuildStatus = ECameraBuildStatus(0);
-    pub const CLEAN_WITH_WARNINGS: ECameraBuildStatus = ECameraBuildStatus(1);
-    pub const WITH_ERRORS: ECameraBuildStatus = ECameraBuildStatus(2);
-    pub const DIRTY: ECameraBuildStatus = ECameraBuildStatus(3);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct ECameraRigInitialOrientation(pub i32);
-impl ECameraRigInitialOrientation {
-    pub const NONE: ECameraRigInitialOrientation = ECameraRigInitialOrientation(0);
-    pub const CONTEXT_YAW_PITCH: ECameraRigInitialOrientation = ECameraRigInitialOrientation(
+pub struct EStateTreeStateSelectionRules(pub u32);
+impl EStateTreeStateSelectionRules {
+    pub const NONE: EStateTreeStateSelectionRules = EStateTreeStateSelectionRules(0);
+    pub const COMPLETED_TRANSITION_STATES_CREATE_NEW_STATES: EStateTreeStateSelectionRules = EStateTreeStateSelectionRules(
         1,
     );
-    pub const PREVIOUS_YAW_PITCH: ECameraRigInitialOrientation = ECameraRigInitialOrientation(
+    pub const COMPLETED_STATE_BEFORE_TRANSITION_SOURCE_FAILS_TRANSITION: EStateTreeStateSelectionRules = EStateTreeStateSelectionRules(
         2,
     );
-    pub const PREVIOUS_ABSOLUTE_TARGET: ECameraRigInitialOrientation = ECameraRigInitialOrientation(
-        3,
-    );
-    pub const PREVIOUS_RELATIVE_TARGET: ECameraRigInitialOrientation = ECameraRigInitialOrientation(
+    pub const RESELECTED_STATE_CREATES_NEW_STATES: EStateTreeStateSelectionRules = EStateTreeStateSelectionRules(
         4,
     );
+    pub const DEFAULT: EStateTreeStateSelectionRules = EStateTreeStateSelectionRules(3);
 }
 #[allow(non_camel_case_types)]
 #[repr(transparent)]
-pub struct ECameraVariableSetterBlendType(pub u8);
-impl ECameraVariableSetterBlendType {
-    pub const NONE: ECameraVariableSetterBlendType = ECameraVariableSetterBlendType(0);
-    pub const LINEAR: ECameraVariableSetterBlendType = ECameraVariableSetterBlendType(1);
-    pub const SMOOTH_STEP: ECameraVariableSetterBlendType = ECameraVariableSetterBlendType(
-        2,
-    );
-    pub const SMOOTHER_STEP: ECameraVariableSetterBlendType = ECameraVariableSetterBlendType(
-        3,
-    );
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct EGameplayCamerasViewRotationMode(pub i32);
-impl EGameplayCamerasViewRotationMode {
-    pub const NONE: EGameplayCamerasViewRotationMode = EGameplayCamerasViewRotationMode(
+pub struct ESubmixEffectConvolutionReverbBlockSize(pub u8);
+impl ESubmixEffectConvolutionReverbBlockSize {
+    pub const BLOCK_SIZE256: ESubmixEffectConvolutionReverbBlockSize = ESubmixEffectConvolutionReverbBlockSize(
         0,
     );
-    pub const PREVIEW_UPDATE: EGameplayCamerasViewRotationMode = EGameplayCamerasViewRotationMode(
+    pub const BLOCK_SIZE512: ESubmixEffectConvolutionReverbBlockSize = ESubmixEffectConvolutionReverbBlockSize(
         1,
     );
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct ESmoothCameraBlendType(pub i32);
-impl ESmoothCameraBlendType {
-    pub const SMOOTH_STEP: ESmoothCameraBlendType = ESmoothCameraBlendType(0);
-    pub const SMOOTHER_STEP: ESmoothCameraBlendType = ESmoothCameraBlendType(1);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct ECollisionSafePosition(pub u8);
-impl ECollisionSafePosition {
-    pub const ACTIVE_CONTEXT: ECollisionSafePosition = ECollisionSafePosition(0);
-    pub const OWNING_CONTEXT: ECollisionSafePosition = ECollisionSafePosition(1);
-    pub const PIVOT: ECollisionSafePosition = ECollisionSafePosition(2);
-    pub const PAWN: ECollisionSafePosition = ECollisionSafePosition(3);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct ECollisionSafePositionOffsetSpace(pub u8);
-impl ECollisionSafePositionOffsetSpace {
-    pub const ACTIVE_CONTEXT: ECollisionSafePositionOffsetSpace = ECollisionSafePositionOffsetSpace(
-        0,
-    );
-    pub const OWNING_CONTEXT: ECollisionSafePositionOffsetSpace = ECollisionSafePositionOffsetSpace(
-        1,
-    );
-    pub const PIVOT: ECollisionSafePositionOffsetSpace = ECollisionSafePositionOffsetSpace(
+    pub const BLOCK_SIZE1024: ESubmixEffectConvolutionReverbBlockSize = ESubmixEffectConvolutionReverbBlockSize(
         2,
     );
-    pub const CAMERA_POSE: ECollisionSafePositionOffsetSpace = ECollisionSafePositionOffsetSpace(
-        3,
-    );
-    pub const PAWN: ECollisionSafePositionOffsetSpace = ECollisionSafePositionOffsetSpace(
-        4,
-    );
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct ECameraNodeOriginPosition(pub u8);
-impl ECameraNodeOriginPosition {
-    pub const CAMERA_POSE: ECameraNodeOriginPosition = ECameraNodeOriginPosition(0);
-    pub const ACTIVE_CONTEXT: ECameraNodeOriginPosition = ECameraNodeOriginPosition(1);
-    pub const OWNING_CONTEXT: ECameraNodeOriginPosition = ECameraNodeOriginPosition(2);
-    pub const PIVOT: ECameraNodeOriginPosition = ECameraNodeOriginPosition(3);
-    pub const PAWN: ECameraNodeOriginPosition = ECameraNodeOriginPosition(4);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct ECameraNodeSpace(pub u8);
-impl ECameraNodeSpace {
-    pub const CAMERA_POSE: ECameraNodeSpace = ECameraNodeSpace(0);
-    pub const ACTIVE_CONTEXT: ECameraNodeSpace = ECameraNodeSpace(1);
-    pub const OWNING_CONTEXT: ECameraNodeSpace = ECameraNodeSpace(2);
-    pub const PIVOT: ECameraNodeSpace = ECameraNodeSpace(3);
-    pub const PAWN: ECameraNodeSpace = ECameraNodeSpace(4);
-    pub const WORLD: ECameraNodeSpace = ECameraNodeSpace(5);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct ECameraAutoRotateDirection(pub i32);
-impl ECameraAutoRotateDirection {
-    pub const FACING: ECameraAutoRotateDirection = ECameraAutoRotateDirection(0);
-    pub const MOVEMENT: ECameraAutoRotateDirection = ECameraAutoRotateDirection(1);
-    pub const MOVEMENT_OR_FACING: ECameraAutoRotateDirection = ECameraAutoRotateDirection(
-        2,
-    );
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct EBuiltInDoubleCameraVariable(pub i32);
-impl EBuiltInDoubleCameraVariable {
-    pub const NONE: EBuiltInDoubleCameraVariable = EBuiltInDoubleCameraVariable(0);
-    pub const YAW: EBuiltInDoubleCameraVariable = EBuiltInDoubleCameraVariable(1);
-    pub const PITCH: EBuiltInDoubleCameraVariable = EBuiltInDoubleCameraVariable(2);
-    pub const ROLL: EBuiltInDoubleCameraVariable = EBuiltInDoubleCameraVariable(3);
-    pub const ZOOM: EBuiltInDoubleCameraVariable = EBuiltInDoubleCameraVariable(4);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct EBuiltInVector2dCameraVariable(pub i32);
-impl EBuiltInVector2dCameraVariable {
-    pub const NONE: EBuiltInVector2dCameraVariable = EBuiltInVector2dCameraVariable(0);
-    pub const YAW_PITCH: EBuiltInVector2dCameraVariable = EBuiltInVector2dCameraVariable(
-        1,
-    );
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct ECameraShakeEvaluationMode(pub u8);
-impl ECameraShakeEvaluationMode {
-    pub const INLINE: ECameraShakeEvaluationMode = ECameraShakeEvaluationMode(0);
-    pub const VISUAL_LAYER: ECameraShakeEvaluationMode = ECameraShakeEvaluationMode(1);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct EEditorOnlyReferenceFilterType(pub i32);
-impl EEditorOnlyReferenceFilterType {
-    pub const GAME: EEditorOnlyReferenceFilterType = EEditorOnlyReferenceFilterType(0);
-    pub const PROPAGATION: EEditorOnlyReferenceFilterType = EEditorOnlyReferenceFilterType(
-        1,
-    );
-    pub const EDITOR_ONLY: EEditorOnlyReferenceFilterType = EEditorOnlyReferenceFilterType(
-        2,
-    );
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct ESizeMapDependencyType(pub i32);
-impl ESizeMapDependencyType {
-    pub const ALL: ESizeMapDependencyType = ESizeMapDependencyType(0);
-    pub const GAME: ESizeMapDependencyType = ESizeMapDependencyType(1);
-    pub const EDITOR_ONLY: ESizeMapDependencyType = ESizeMapDependencyType(2);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct ENDIMemoryBufferViewType(pub i32);
-impl ENDIMemoryBufferViewType {
-    pub const FLOAT: ENDIMemoryBufferViewType = ENDIMemoryBufferViewType(0);
-    pub const INTEGER: ENDIMemoryBufferViewType = ENDIMemoryBufferViewType(1);
-    pub const UNSIGNED_INTEGER: ENDIMemoryBufferViewType = ENDIMemoryBufferViewType(2);
-    pub const HEX: ENDIMemoryBufferViewType = ENDIMemoryBufferViewType(3);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct ENiagaraClipboardFunctionInputValueMode(pub i32);
-impl ENiagaraClipboardFunctionInputValueMode {
-    pub const LOCAL: ENiagaraClipboardFunctionInputValueMode = ENiagaraClipboardFunctionInputValueMode(
-        0,
-    );
-    pub const LINKED: ENiagaraClipboardFunctionInputValueMode = ENiagaraClipboardFunctionInputValueMode(
-        1,
-    );
-    pub const DATA: ENiagaraClipboardFunctionInputValueMode = ENiagaraClipboardFunctionInputValueMode(
-        2,
-    );
-    pub const OBJECT_ASSET: ENiagaraClipboardFunctionInputValueMode = ENiagaraClipboardFunctionInputValueMode(
-        3,
-    );
-    pub const EXPRESSION: ENiagaraClipboardFunctionInputValueMode = ENiagaraClipboardFunctionInputValueMode(
-        4,
-    );
-    pub const DYNAMIC: ENiagaraClipboardFunctionInputValueMode = ENiagaraClipboardFunctionInputValueMode(
-        5,
-    );
-    pub const RESET_TO_DEFAULT: ENiagaraClipboardFunctionInputValueMode = ENiagaraClipboardFunctionInputValueMode(
-        6,
-    );
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct ENiagaraClipboardFunctionScriptMode(pub i32);
-impl ENiagaraClipboardFunctionScriptMode {
-    pub const SCRIPT_ASSET: ENiagaraClipboardFunctionScriptMode = ENiagaraClipboardFunctionScriptMode(
-        0,
-    );
-    pub const ASSIGNMENT: ENiagaraClipboardFunctionScriptMode = ENiagaraClipboardFunctionScriptMode(
-        1,
-    );
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct ENiagaraCategoryExpandState(pub u8);
-impl ENiagaraCategoryExpandState {
-    pub const DEFAULT: ENiagaraCategoryExpandState = ENiagaraCategoryExpandState(0);
-    pub const DEFAULT_EXPAND_MODIFIED: ENiagaraCategoryExpandState = ENiagaraCategoryExpandState(
-        1,
-    );
-    pub const COLLAPSE_ALL: ENiagaraCategoryExpandState = ENiagaraCategoryExpandState(2);
-    pub const EXPAND_ALL: ENiagaraCategoryExpandState = ENiagaraCategoryExpandState(3);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct ENiagaraAddDefaultsTrackMode(pub u8);
-impl ENiagaraAddDefaultsTrackMode {
-    pub const NO_SUBTRACKS: ENiagaraAddDefaultsTrackMode = ENiagaraAddDefaultsTrackMode(
-        0,
-    );
-    pub const COMPONENT_TRACK_ONLY: ENiagaraAddDefaultsTrackMode = ENiagaraAddDefaultsTrackMode(
-        1,
-    );
-    pub const LIFECYCLE_TRACK: ENiagaraAddDefaultsTrackMode = ENiagaraAddDefaultsTrackMode(
-        2,
-    );
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct EGraphZoomLimitHandling(pub u8);
-impl EGraphZoomLimitHandling {
-    pub const DEFAULT: EGraphZoomLimitHandling = EGraphZoomLimitHandling(0);
-    pub const ALLOW_LIMIT_BREAK: EGraphZoomLimitHandling = EGraphZoomLimitHandling(1);
-    pub const DISALLOW_LIMIT_BREAK: EGraphZoomLimitHandling = EGraphZoomLimitHandling(2);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct ENiagaraFunctionDebugState(pub u8);
-impl ENiagaraFunctionDebugState {
-    pub const NO_DEBUG: ENiagaraFunctionDebugState = ENiagaraFunctionDebugState(0);
-    pub const BASIC: ENiagaraFunctionDebugState = ENiagaraFunctionDebugState(1);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct ENiagaraInputNodeUsage(pub u8);
-impl ENiagaraInputNodeUsage {
-    pub const UNDEFINED: ENiagaraInputNodeUsage = ENiagaraInputNodeUsage(0);
-    pub const PARAMETER: ENiagaraInputNodeUsage = ENiagaraInputNodeUsage(1);
-    pub const ATTRIBUTE: ENiagaraInputNodeUsage = ENiagaraInputNodeUsage(2);
-    pub const SYSTEM_CONSTANT: ENiagaraInputNodeUsage = ENiagaraInputNodeUsage(3);
-    pub const TRANSLATOR_CONSTANT: ENiagaraInputNodeUsage = ENiagaraInputNodeUsage(4);
-    pub const RAPID_ITERATION_PARAMETER: ENiagaraInputNodeUsage = ENiagaraInputNodeUsage(
-        5,
-    );
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct ENiagaraStackEntryInlineDisplayMode(pub i32);
-impl ENiagaraStackEntryInlineDisplayMode {
-    pub const EXPRESSION: ENiagaraStackEntryInlineDisplayMode = ENiagaraStackEntryInlineDisplayMode(
-        0,
-    );
-    pub const GRAPH_HORIZONTAL: ENiagaraStackEntryInlineDisplayMode = ENiagaraStackEntryInlineDisplayMode(
-        1,
-    );
-    pub const GRAPH_VERTICAL: ENiagaraStackEntryInlineDisplayMode = ENiagaraStackEntryInlineDisplayMode(
-        2,
-    );
-    pub const GRAPH_HYBRID: ENiagaraStackEntryInlineDisplayMode = ENiagaraStackEntryInlineDisplayMode(
-        3,
-    );
-    pub const NONE: ENiagaraStackEntryInlineDisplayMode = ENiagaraStackEntryInlineDisplayMode(
-        4,
-    );
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct ENiagaraValidationSeverity(pub i32);
-impl ENiagaraValidationSeverity {
-    pub const INFO: ENiagaraValidationSeverity = ENiagaraValidationSeverity(0);
-    pub const WARNING: ENiagaraValidationSeverity = ENiagaraValidationSeverity(1);
-    pub const ERROR: ENiagaraValidationSeverity = ENiagaraValidationSeverity(2);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct ENiagaraDataChanneSpawnModuleMode(pub u8);
-impl ENiagaraDataChanneSpawnModuleMode {
-    pub const CONDITIONAL_SPAWN: ENiagaraDataChanneSpawnModuleMode = ENiagaraDataChanneSpawnModuleMode(
-        0,
-    );
-    pub const DIRECT_SPAWN: ENiagaraDataChanneSpawnModuleMode = ENiagaraDataChanneSpawnModuleMode(
-        1,
-    );
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct ENiagaraDataChanneWriteModuleMode(pub u8);
-impl ENiagaraDataChanneWriteModuleMode {
-    pub const APPEND_NEW_ELEMENT: ENiagaraDataChanneWriteModuleMode = ENiagaraDataChanneWriteModuleMode(
-        0,
-    );
-    pub const WRITE_TO_EXISTING_ELEMENT: ENiagaraDataChanneWriteModuleMode = ENiagaraDataChanneWriteModuleMode(
-        1,
-    );
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct ENiagaraAnimNotifyProgressType(pub u8);
-impl ENiagaraAnimNotifyProgressType {
-    pub const NONE: ENiagaraAnimNotifyProgressType = ENiagaraAnimNotifyProgressType(0);
-    pub const FORWARD: ENiagaraAnimNotifyProgressType = ENiagaraAnimNotifyProgressType(
-        1,
-    );
-    pub const REVERSE: ENiagaraAnimNotifyProgressType = ENiagaraAnimNotifyProgressType(
-        2,
-    );
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct EUdpMessageFormat(pub u8);
-impl EUdpMessageFormat {
-    pub const NONE: EUdpMessageFormat = EUdpMessageFormat(0);
-    pub const JSON: EUdpMessageFormat = EUdpMessageFormat(1);
-    pub const TAGGED_PROPERTY: EUdpMessageFormat = EUdpMessageFormat(2);
-    pub const CBOR_PLATFORM_ENDIANNESS: EUdpMessageFormat = EUdpMessageFormat(3);
-    pub const CBOR_STANDARD_ENDIANNESS: EUdpMessageFormat = EUdpMessageFormat(4);
 }
 #[allow(non_camel_case_types)]
 #[repr(transparent)]
@@ -25558,6 +25558,171 @@ impl EMeshPaintDataColorViewMode {
     pub const RED: EMeshPaintDataColorViewMode = EMeshPaintDataColorViewMode(3);
     pub const GREEN: EMeshPaintDataColorViewMode = EMeshPaintDataColorViewMode(4);
     pub const BLUE: EMeshPaintDataColorViewMode = EMeshPaintDataColorViewMode(5);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EHeaderViewSortMethod(pub u8);
+impl EHeaderViewSortMethod {
+    pub const NONE: EHeaderViewSortMethod = EHeaderViewSortMethod(0);
+    pub const SORT_BY_ACCESS_SPECIFIER: EHeaderViewSortMethod = EHeaderViewSortMethod(1);
+    pub const SORT_FOR_OPTIMAL_PADDING: EHeaderViewSortMethod = EHeaderViewSortMethod(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EObjectMixerHybridMode(pub u8);
+impl EObjectMixerHybridMode {
+    pub const HYBRID_ACTOR: EObjectMixerHybridMode = EObjectMixerHybridMode(0);
+    pub const HYBRID_COMPONENT: EObjectMixerHybridMode = EObjectMixerHybridMode(1);
+    pub const HYBRID_NONE: EObjectMixerHybridMode = EObjectMixerHybridMode(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ECurveEditorFFTFilterType(pub u8);
+impl ECurveEditorFFTFilterType {
+    pub const LOWPASS: ECurveEditorFFTFilterType = ECurveEditorFFTFilterType(0);
+    pub const HIGHPASS: ECurveEditorFFTFilterType = ECurveEditorFFTFilterType(1);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ECurveEditorFFTFilterClass(pub u8);
+impl ECurveEditorFFTFilterClass {
+    pub const BUTTERWORTH: ECurveEditorFFTFilterClass = ECurveEditorFFTFilterClass(0);
+    pub const CHEBYSHEV: ECurveEditorFFTFilterClass = ECurveEditorFFTFilterClass(1);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EImportGeometryType(pub u8);
+impl EImportGeometryType {
+    pub const IGT_3D: EImportGeometryType = EImportGeometryType(0);
+    pub const IGT_BILLBOARDS: EImportGeometryType = EImportGeometryType(1);
+    pub const IGT_BOTH: EImportGeometryType = EImportGeometryType(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EImportLODType(pub u8);
+impl EImportLODType {
+    pub const ILT_PAINTED_FOLIAGE: EImportLODType = EImportLODType(0);
+    pub const ILT_INDIVIDUAL_ACTORS: EImportLODType = EImportLODType(1);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EUVEditorTranslationMode(pub i32);
+impl EUVEditorTranslationMode {
+    pub const RELATIVE: EUVEditorTranslationMode = EUVEditorTranslationMode(0);
+    pub const ABSOLUTE: EUVEditorTranslationMode = EUVEditorTranslationMode(1);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EUVEditorPivotType(pub i32);
+impl EUVEditorPivotType {
+    pub const BOUNDING_BOX_CENTER: EUVEditorPivotType = EUVEditorPivotType(0);
+    pub const ORIGIN: EUVEditorPivotType = EUVEditorPivotType(1);
+    pub const INDIVIDUAL_BOUNDING_BOX_CENTER: EUVEditorPivotType = EUVEditorPivotType(2);
+    pub const MANUAL: EUVEditorPivotType = EUVEditorPivotType(3);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EUVEditorAlignAnchor(pub i32);
+impl EUVEditorAlignAnchor {
+    pub const BOUNDING_BOX: EUVEditorAlignAnchor = EUVEditorAlignAnchor(0);
+    pub const UDIM_TILE: EUVEditorAlignAnchor = EUVEditorAlignAnchor(1);
+    pub const MANUAL: EUVEditorAlignAnchor = EUVEditorAlignAnchor(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EUVEditorAlignDirection(pub i32);
+impl EUVEditorAlignDirection {
+    pub const NONE: EUVEditorAlignDirection = EUVEditorAlignDirection(0);
+    pub const TOP: EUVEditorAlignDirection = EUVEditorAlignDirection(1);
+    pub const BOTTOM: EUVEditorAlignDirection = EUVEditorAlignDirection(2);
+    pub const LEFT: EUVEditorAlignDirection = EUVEditorAlignDirection(3);
+    pub const RIGHT: EUVEditorAlignDirection = EUVEditorAlignDirection(4);
+    pub const CENTER_VERTICALLY: EUVEditorAlignDirection = EUVEditorAlignDirection(5);
+    pub const CENTER_HORIZONTALLY: EUVEditorAlignDirection = EUVEditorAlignDirection(6);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EUVEditorAlignDistributeGroupingMode(pub u8);
+impl EUVEditorAlignDistributeGroupingMode {
+    pub const INDIVIDUAL_BOUNDING_BOXES: EUVEditorAlignDistributeGroupingMode = EUVEditorAlignDistributeGroupingMode(
+        0,
+    );
+    pub const ENCLOSING_BOUNDING_BOX: EUVEditorAlignDistributeGroupingMode = EUVEditorAlignDistributeGroupingMode(
+        1,
+    );
+    pub const INDIVIDUAL_VERTICES: EUVEditorAlignDistributeGroupingMode = EUVEditorAlignDistributeGroupingMode(
+        2,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EUVEditorDistributeMode(pub u16);
+impl EUVEditorDistributeMode {
+    pub const NONE: EUVEditorDistributeMode = EUVEditorDistributeMode(0);
+    pub const VERTICAL_SPACE: EUVEditorDistributeMode = EUVEditorDistributeMode(1);
+    pub const HORIZONTAL_SPACE: EUVEditorDistributeMode = EUVEditorDistributeMode(2);
+    pub const TOP_EDGES: EUVEditorDistributeMode = EUVEditorDistributeMode(3);
+    pub const BOTTOM_EDGES: EUVEditorDistributeMode = EUVEditorDistributeMode(4);
+    pub const LEFT_EDGES: EUVEditorDistributeMode = EUVEditorDistributeMode(5);
+    pub const RIGHT_EDGES: EUVEditorDistributeMode = EUVEditorDistributeMode(6);
+    pub const CENTERS_VERTICALLY: EUVEditorDistributeMode = EUVEditorDistributeMode(7);
+    pub const CENTERS_HORIZONTALLY: EUVEditorDistributeMode = EUVEditorDistributeMode(8);
+    pub const MINIMALLY_REMOVE_OVERLAP: EUVEditorDistributeMode = EUVEditorDistributeMode(
+        9,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EChannelEditToolAction(pub i32);
+impl EChannelEditToolAction {
+    pub const NO_ACTION: EChannelEditToolAction = EChannelEditToolAction(0);
+    pub const ADD: EChannelEditToolAction = EChannelEditToolAction(1);
+    pub const COPY: EChannelEditToolAction = EChannelEditToolAction(2);
+    pub const DELETE: EChannelEditToolAction = EChannelEditToolAction(3);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EUVEditorSeamMode(pub u8);
+impl EUVEditorSeamMode {
+    pub const CUT: EUVEditorSeamMode = EUVEditorSeamMode(0);
+    pub const JOIN: EUVEditorSeamMode = EUVEditorSeamMode(1);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EUVEditorBackgroundSourceType(pub i32);
+impl EUVEditorBackgroundSourceType {
+    pub const CHECKERBOARD: EUVEditorBackgroundSourceType = EUVEditorBackgroundSourceType(
+        0,
+    );
+    pub const TEXTURE: EUVEditorBackgroundSourceType = EUVEditorBackgroundSourceType(1);
+    pub const MATERIAL: EUVEditorBackgroundSourceType = EUVEditorBackgroundSourceType(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EDistortionMetric(pub u8);
+impl EDistortionMetric {
+    pub const REED_BETA: EDistortionMetric = EDistortionMetric(0);
+    pub const SANDER_L2: EDistortionMetric = EDistortionMetric(1);
+    pub const SANDER_L_INF: EDistortionMetric = EDistortionMetric(2);
+    pub const TEXEL_DENSITY: EDistortionMetric = EDistortionMetric(3);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EInstanceFilteringType(pub u8);
+impl EInstanceFilteringType {
+    pub const FILTER_NONE: EInstanceFilteringType = EInstanceFilteringType(0);
+    pub const FILTER_MINIMUM_EXTENT: EInstanceFilteringType = EInstanceFilteringType(1);
+    pub const FILTER_MINIMUM_AREA: EInstanceFilteringType = EInstanceFilteringType(2);
+    pub const FILTER_MINIMUM_VOLUME: EInstanceFilteringType = EInstanceFilteringType(3);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EVariantManagerTestEnum(pub u8);
+impl EVariantManagerTestEnum {
+    pub const NONE: EVariantManagerTestEnum = EVariantManagerTestEnum(0);
+    pub const FIRST_OPTION: EVariantManagerTestEnum = EVariantManagerTestEnum(1);
+    pub const SECOND_OPTION: EVariantManagerTestEnum = EVariantManagerTestEnum(3);
+    pub const THIRD_OPTION: EVariantManagerTestEnum = EVariantManagerTestEnum(45);
 }
 #[allow(non_camel_case_types)]
 #[repr(transparent)]
@@ -25953,6 +26118,14 @@ impl EChunkMemorySize {
 }
 #[allow(non_camel_case_types)]
 #[repr(transparent)]
+pub struct EAlembicImportType(pub u8);
+impl EAlembicImportType {
+    pub const STATIC_MESH: EAlembicImportType = EAlembicImportType(0);
+    pub const GEOMETRY_CACHE: EAlembicImportType = EAlembicImportType(1);
+    pub const SKELETAL: EAlembicImportType = EAlembicImportType(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
 pub struct EMediaTextureVisibleMipsTiles(pub u8);
 impl EMediaTextureVisibleMipsTiles {
     pub const NONE: EMediaTextureVisibleMipsTiles = EMediaTextureVisibleMipsTiles(0);
@@ -26052,179 +26225,6 @@ impl EK2Node_CameraParameterType {
     pub const UNKNOWN: EK2Node_CameraParameterType = EK2Node_CameraParameterType(0);
     pub const BLENDABLE: EK2Node_CameraParameterType = EK2Node_CameraParameterType(1);
     pub const DATA: EK2Node_CameraParameterType = EK2Node_CameraParameterType(2);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct EHeaderViewSortMethod(pub u8);
-impl EHeaderViewSortMethod {
-    pub const NONE: EHeaderViewSortMethod = EHeaderViewSortMethod(0);
-    pub const SORT_BY_ACCESS_SPECIFIER: EHeaderViewSortMethod = EHeaderViewSortMethod(1);
-    pub const SORT_FOR_OPTIMAL_PADDING: EHeaderViewSortMethod = EHeaderViewSortMethod(2);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct ECurveEditorFFTFilterType(pub u8);
-impl ECurveEditorFFTFilterType {
-    pub const LOWPASS: ECurveEditorFFTFilterType = ECurveEditorFFTFilterType(0);
-    pub const HIGHPASS: ECurveEditorFFTFilterType = ECurveEditorFFTFilterType(1);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct ECurveEditorFFTFilterClass(pub u8);
-impl ECurveEditorFFTFilterClass {
-    pub const BUTTERWORTH: ECurveEditorFFTFilterClass = ECurveEditorFFTFilterClass(0);
-    pub const CHEBYSHEV: ECurveEditorFFTFilterClass = ECurveEditorFFTFilterClass(1);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct EObjectMixerHybridMode(pub u8);
-impl EObjectMixerHybridMode {
-    pub const HYBRID_ACTOR: EObjectMixerHybridMode = EObjectMixerHybridMode(0);
-    pub const HYBRID_COMPONENT: EObjectMixerHybridMode = EObjectMixerHybridMode(1);
-    pub const HYBRID_NONE: EObjectMixerHybridMode = EObjectMixerHybridMode(2);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct EImportGeometryType(pub u8);
-impl EImportGeometryType {
-    pub const IGT_3D: EImportGeometryType = EImportGeometryType(0);
-    pub const IGT_BILLBOARDS: EImportGeometryType = EImportGeometryType(1);
-    pub const IGT_BOTH: EImportGeometryType = EImportGeometryType(2);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct EImportLODType(pub u8);
-impl EImportLODType {
-    pub const ILT_PAINTED_FOLIAGE: EImportLODType = EImportLODType(0);
-    pub const ILT_INDIVIDUAL_ACTORS: EImportLODType = EImportLODType(1);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct EUVEditorTranslationMode(pub i32);
-impl EUVEditorTranslationMode {
-    pub const RELATIVE: EUVEditorTranslationMode = EUVEditorTranslationMode(0);
-    pub const ABSOLUTE: EUVEditorTranslationMode = EUVEditorTranslationMode(1);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct EUVEditorPivotType(pub i32);
-impl EUVEditorPivotType {
-    pub const BOUNDING_BOX_CENTER: EUVEditorPivotType = EUVEditorPivotType(0);
-    pub const ORIGIN: EUVEditorPivotType = EUVEditorPivotType(1);
-    pub const INDIVIDUAL_BOUNDING_BOX_CENTER: EUVEditorPivotType = EUVEditorPivotType(2);
-    pub const MANUAL: EUVEditorPivotType = EUVEditorPivotType(3);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct EUVEditorAlignAnchor(pub i32);
-impl EUVEditorAlignAnchor {
-    pub const BOUNDING_BOX: EUVEditorAlignAnchor = EUVEditorAlignAnchor(0);
-    pub const UDIM_TILE: EUVEditorAlignAnchor = EUVEditorAlignAnchor(1);
-    pub const MANUAL: EUVEditorAlignAnchor = EUVEditorAlignAnchor(2);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct EUVEditorAlignDirection(pub i32);
-impl EUVEditorAlignDirection {
-    pub const NONE: EUVEditorAlignDirection = EUVEditorAlignDirection(0);
-    pub const TOP: EUVEditorAlignDirection = EUVEditorAlignDirection(1);
-    pub const BOTTOM: EUVEditorAlignDirection = EUVEditorAlignDirection(2);
-    pub const LEFT: EUVEditorAlignDirection = EUVEditorAlignDirection(3);
-    pub const RIGHT: EUVEditorAlignDirection = EUVEditorAlignDirection(4);
-    pub const CENTER_VERTICALLY: EUVEditorAlignDirection = EUVEditorAlignDirection(5);
-    pub const CENTER_HORIZONTALLY: EUVEditorAlignDirection = EUVEditorAlignDirection(6);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct EUVEditorAlignDistributeGroupingMode(pub u8);
-impl EUVEditorAlignDistributeGroupingMode {
-    pub const INDIVIDUAL_BOUNDING_BOXES: EUVEditorAlignDistributeGroupingMode = EUVEditorAlignDistributeGroupingMode(
-        0,
-    );
-    pub const ENCLOSING_BOUNDING_BOX: EUVEditorAlignDistributeGroupingMode = EUVEditorAlignDistributeGroupingMode(
-        1,
-    );
-    pub const INDIVIDUAL_VERTICES: EUVEditorAlignDistributeGroupingMode = EUVEditorAlignDistributeGroupingMode(
-        2,
-    );
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct EUVEditorDistributeMode(pub u16);
-impl EUVEditorDistributeMode {
-    pub const NONE: EUVEditorDistributeMode = EUVEditorDistributeMode(0);
-    pub const VERTICAL_SPACE: EUVEditorDistributeMode = EUVEditorDistributeMode(1);
-    pub const HORIZONTAL_SPACE: EUVEditorDistributeMode = EUVEditorDistributeMode(2);
-    pub const TOP_EDGES: EUVEditorDistributeMode = EUVEditorDistributeMode(3);
-    pub const BOTTOM_EDGES: EUVEditorDistributeMode = EUVEditorDistributeMode(4);
-    pub const LEFT_EDGES: EUVEditorDistributeMode = EUVEditorDistributeMode(5);
-    pub const RIGHT_EDGES: EUVEditorDistributeMode = EUVEditorDistributeMode(6);
-    pub const CENTERS_VERTICALLY: EUVEditorDistributeMode = EUVEditorDistributeMode(7);
-    pub const CENTERS_HORIZONTALLY: EUVEditorDistributeMode = EUVEditorDistributeMode(8);
-    pub const MINIMALLY_REMOVE_OVERLAP: EUVEditorDistributeMode = EUVEditorDistributeMode(
-        9,
-    );
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct EChannelEditToolAction(pub i32);
-impl EChannelEditToolAction {
-    pub const NO_ACTION: EChannelEditToolAction = EChannelEditToolAction(0);
-    pub const ADD: EChannelEditToolAction = EChannelEditToolAction(1);
-    pub const COPY: EChannelEditToolAction = EChannelEditToolAction(2);
-    pub const DELETE: EChannelEditToolAction = EChannelEditToolAction(3);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct EUVEditorSeamMode(pub u8);
-impl EUVEditorSeamMode {
-    pub const CUT: EUVEditorSeamMode = EUVEditorSeamMode(0);
-    pub const JOIN: EUVEditorSeamMode = EUVEditorSeamMode(1);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct EUVEditorBackgroundSourceType(pub i32);
-impl EUVEditorBackgroundSourceType {
-    pub const CHECKERBOARD: EUVEditorBackgroundSourceType = EUVEditorBackgroundSourceType(
-        0,
-    );
-    pub const TEXTURE: EUVEditorBackgroundSourceType = EUVEditorBackgroundSourceType(1);
-    pub const MATERIAL: EUVEditorBackgroundSourceType = EUVEditorBackgroundSourceType(2);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct EDistortionMetric(pub u8);
-impl EDistortionMetric {
-    pub const REED_BETA: EDistortionMetric = EDistortionMetric(0);
-    pub const SANDER_L2: EDistortionMetric = EDistortionMetric(1);
-    pub const SANDER_L_INF: EDistortionMetric = EDistortionMetric(2);
-    pub const TEXEL_DENSITY: EDistortionMetric = EDistortionMetric(3);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct EInstanceFilteringType(pub u8);
-impl EInstanceFilteringType {
-    pub const FILTER_NONE: EInstanceFilteringType = EInstanceFilteringType(0);
-    pub const FILTER_MINIMUM_EXTENT: EInstanceFilteringType = EInstanceFilteringType(1);
-    pub const FILTER_MINIMUM_AREA: EInstanceFilteringType = EInstanceFilteringType(2);
-    pub const FILTER_MINIMUM_VOLUME: EInstanceFilteringType = EInstanceFilteringType(3);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct EVariantManagerTestEnum(pub u8);
-impl EVariantManagerTestEnum {
-    pub const NONE: EVariantManagerTestEnum = EVariantManagerTestEnum(0);
-    pub const FIRST_OPTION: EVariantManagerTestEnum = EVariantManagerTestEnum(1);
-    pub const SECOND_OPTION: EVariantManagerTestEnum = EVariantManagerTestEnum(3);
-    pub const THIRD_OPTION: EVariantManagerTestEnum = EVariantManagerTestEnum(45);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
-pub struct EAlembicImportType(pub u8);
-impl EAlembicImportType {
-    pub const STATIC_MESH: EAlembicImportType = EAlembicImportType(0);
-    pub const GEOMETRY_CACHE: EAlembicImportType = EAlembicImportType(1);
-    pub const SKELETAL: EAlembicImportType = EAlembicImportType(2);
 }
 #[allow(non_camel_case_types)]
 #[repr(transparent)]
@@ -26428,14 +26428,6 @@ impl EAndroidGraphicsDebugger {
 }
 #[allow(non_camel_case_types)]
 #[repr(transparent)]
-pub struct EAFSConnectionType(pub u8);
-impl EAFSConnectionType {
-    pub const USB_ONLY: EAFSConnectionType = EAFSConnectionType(0);
-    pub const NETWORK_ONLY: EAFSConnectionType = EAFSConnectionType(1);
-    pub const COMBINED: EAFSConnectionType = EAFSConnectionType(2);
-}
-#[allow(non_camel_case_types)]
-#[repr(transparent)]
 pub struct ERewindDebuggerCameraMode(pub u8);
 impl ERewindDebuggerCameraMode {
     pub const REPLAY: ERewindDebuggerCameraMode = ERewindDebuggerCameraMode(0);
@@ -26443,6 +26435,14 @@ impl ERewindDebuggerCameraMode {
         1,
     );
     pub const DISABLED: ERewindDebuggerCameraMode = ERewindDebuggerCameraMode(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EAFSConnectionType(pub u8);
+impl EAFSConnectionType {
+    pub const USB_ONLY: EAFSConnectionType = EAFSConnectionType(0);
+    pub const NETWORK_ONLY: EAFSConnectionType = EAFSConnectionType(1);
+    pub const COMBINED: EAFSConnectionType = EAFSConnectionType(2);
 }
 #[allow(non_camel_case_types)]
 #[repr(transparent)]

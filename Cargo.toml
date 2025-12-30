@@ -12,6 +12,8 @@ members = [
 #[profile.release]
 #debug = true
 
+[profile.dev]
+incremental=true
 [profile.release]
 # Needed so pdb isn't generated which might block the compilation
 strip = "debuginfo"

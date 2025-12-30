@@ -2,8 +2,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
-pub use super::*;
-pub use super::super::core_data::*;
+pub use crate::bindings::prelude::*;
 #[repr(C, align(8))]
 pub struct FMaterialInput {
     pub expression: UPtr<UMaterialExpression>,
@@ -123,7 +122,7 @@ pub struct FChaosBreakEvent {
     pub extents: FVector,
     pub mass: f32,
     pub index: i32,
-    pub from_crumble: bool,
+    pub b_from_crumble: bool,
 }
 #[repr(C, align(8))]
 pub struct FCollisionChaosEvent {
@@ -193,7 +192,7 @@ pub struct FSubtitleCue {
 }
 #[repr(C, align(8))]
 pub struct FPlatformInterfaceDelegateResult {
-    pub successful: bool,
+    pub b_successful: bool,
     pub data: FPlatformInterfaceData,
 }
 #[repr(C, align(8))]
@@ -231,7 +230,7 @@ pub struct FActorComponentTickFunction {}
 #[repr(C, align(8))]
 pub struct FInterpControlPoint {
     pub position_control_point: FVector,
-    pub position_is_relative: bool,
+    pub b_position_is_relative: bool,
 }
 #[repr(C, align(8))]
 pub struct FDebugFloatHistory {
@@ -239,7 +238,7 @@ pub struct FDebugFloatHistory {
     pub max_samples: i32,
     pub min_value: f32,
     pub max_value: f32,
-    pub auto_adjust_min_max: bool,
+    pub b_auto_adjust_min_max: bool,
 }
 #[repr(C, align(8))]
 pub struct FBaseComponentReference {
@@ -323,7 +322,7 @@ pub struct FBodyInstance {
     pub flags_62: u8,
     pub solver_async_delta_time: f32,
     pub collision_profile_name: FName,
-    pub response_to_channels: FCollisionResponseContainer,
+    pub response_to_channels_deprecated: FCollisionResponseContainer,
     pub collision_responses: FCollisionResponse,
     pub max_depenetration_velocity: f32,
     pub mass_in_kg_override: f32,
@@ -454,7 +453,7 @@ pub struct FPostProcessSettings {
     pub flags_52: u8,
     pub bloom_method: EBloomMethod,
     pub auto_exposure_method: EAutoExposureMethod,
-    pub depth_of_field_method: EDepthOfFieldMethod,
+    pub depth_of_field_method_deprecated: EDepthOfFieldMethod,
     pub temperature_type: ETemperatureMethod,
     pub white_temp: f32,
     pub white_tint: f32,
@@ -513,7 +512,7 @@ pub struct FPostProcessSettings {
     pub bloom_convolution_size: f32,
     pub bloom_convolution_texture: UPtr<UTexture2D>,
     pub bloom_convolution_center_uv: FVector2D,
-    pub bloom_convolution_pre_filter: FVector3f,
+    pub bloom_convolution_pre_filter_deprecated: FVector3f,
     pub bloom_convolution_pre_filter_min: f32,
     pub bloom_convolution_pre_filter_max: f32,
     pub bloom_convolution_pre_filter_mult: f32,
@@ -539,7 +538,7 @@ pub struct FPostProcessSettings {
     pub lumen_full_skylight_leaking_distance: f32,
     pub lumen_surface_cache_resolution: f32,
     pub reflection_method: EReflectionMethod,
-    pub reflections_type: EReflectionsType,
+    pub reflections_type_deprecated: EReflectionsType,
     pub lumen_reflection_quality: f32,
     pub flags_1120: u8,
     pub lumen_max_roughness_to_trace_reflections: f32,
@@ -571,9 +570,9 @@ pub struct FPostProcessSettings {
     pub auto_exposure_speed_down: f32,
     pub histogram_log_min: f32,
     pub histogram_log_max: f32,
-    pub auto_exposure_calibration_constant: f32,
+    pub auto_exposure_calibration_constant_deprecated: f32,
     pub local_exposure_method: ELocalExposureMethod,
-    pub local_exposure_contrast_scale: f32,
+    pub local_exposure_contrast_scale_deprecated: f32,
     pub local_exposure_highlight_contrast_scale: f32,
     pub local_exposure_shadow_contrast_scale: f32,
     pub local_exposure_highlight_contrast_curve: UPtr<UCurveFloat>,
@@ -594,8 +593,8 @@ pub struct FPostProcessSettings {
     pub lens_flare_tints: FLinearColor,
     pub vignette_intensity: f32,
     pub sharpen: f32,
-    pub grain_jitter: f32,
-    pub grain_intensity: f32,
+    pub grain_jitter_deprecated: f32,
+    pub grain_intensity_deprecated: f32,
     pub film_grain_intensity: f32,
     pub film_grain_intensity_shadows: f32,
     pub film_grain_intensity_midtones: f32,
@@ -611,7 +610,7 @@ pub struct FPostProcessSettings {
     pub flags_1580: u8,
     pub ambient_occlusion_fade_distance: f32,
     pub ambient_occlusion_fade_radius: f32,
-    pub ambient_occlusion_distance: f32,
+    pub ambient_occlusion_distance_deprecated: f32,
     pub ambient_occlusion_power: f32,
     pub ambient_occlusion_bias: f32,
     pub ambient_occlusion_quality: f32,
@@ -652,19 +651,19 @@ pub struct FPostProcessSettings {
     pub motion_blur_max: f32,
     pub motion_blur_target_fps: i32,
     pub motion_blur_per_object_size: f32,
-    pub lpv_intensity: f32,
-    pub lpv_vpl_injection_bias: f32,
-    pub lpv_size: f32,
-    pub lpv_secondary_occlusion_intensity: f32,
-    pub lpv_secondary_bounce_intensity: f32,
-    pub lpv_geometry_volume_bias: f32,
-    pub lpv_emissive_injection_intensity: f32,
-    pub lpv_directional_occlusion_intensity: f32,
-    pub lpv_directional_occlusion_radius: f32,
-    pub lpv_diffuse_occlusion_exponent: f32,
-    pub lpv_specular_occlusion_exponent: f32,
-    pub lpv_diffuse_occlusion_intensity: f32,
-    pub lpv_specular_occlusion_intensity: f32,
+    pub lpv_intensity_deprecated: f32,
+    pub lpv_vpl_injection_bias_deprecated: f32,
+    pub lpv_size_deprecated: f32,
+    pub lpv_secondary_occlusion_intensity_deprecated: f32,
+    pub lpv_secondary_bounce_intensity_deprecated: f32,
+    pub lpv_geometry_volume_bias_deprecated: f32,
+    pub lpv_emissive_injection_intensity_deprecated: f32,
+    pub lpv_directional_occlusion_intensity_deprecated: f32,
+    pub lpv_directional_occlusion_radius_deprecated: f32,
+    pub lpv_diffuse_occlusion_exponent_deprecated: f32,
+    pub lpv_specular_occlusion_exponent_deprecated: f32,
+    pub lpv_diffuse_occlusion_intensity_deprecated: f32,
+    pub lpv_specular_occlusion_intensity_deprecated: f32,
     pub translucency_type: ETranslucencyType,
     pub ray_tracing_translucency_max_roughness: f32,
     pub ray_tracing_translucency_refraction_rays: i32,
@@ -678,13 +677,13 @@ pub struct FPostProcessSettings {
     pub path_tracing_max_path_intensity: f32,
     pub flags_1892: u8,
     pub flags_1893: u8,
-    pub lpv_fade_range: f32,
-    pub lpv_directional_occlusion_fade_range: f32,
-    pub screen_percentage: f32,
+    pub lpv_fade_range_deprecated: f32,
+    pub lpv_directional_occlusion_fade_range_deprecated: f32,
+    pub screen_percentage_deprecated: f32,
     pub user_flags: i32,
     pub weighted_blendables: FWeightedBlendables,
     pub preview_blendable: UPtr<UObject>,
-    pub blendables: TArray<UPtr<UObject>>,
+    pub blendables_deprecated: TArray<UPtr<UObject>>,
 }
 #[repr(C, align(8))]
 pub struct FWeightedBlendables {
@@ -781,9 +780,9 @@ pub struct FEdGraphTerminalType {
     pub terminal_category: FName,
     pub terminal_sub_category: FName,
     pub terminal_sub_category_object: TWeakObjectPtr<UObject>,
-    pub terminal_is_const: bool,
-    pub terminal_is_weak_pointer: bool,
-    pub terminal_is_u_object_wrapper: bool,
+    pub b_terminal_is_const: bool,
+    pub b_terminal_is_weak_pointer: bool,
+    pub b_terminal_is_u_object_wrapper: bool,
 }
 #[repr(C, align(16))]
 pub struct FAnimInstanceProxy {
@@ -796,11 +795,11 @@ pub struct FAnimInstanceProxy {
 pub struct FInertializationRequest {
     pub duration: f32,
     pub blend_profile: UPtr<UBlendProfile>,
-    pub use_blend_mode: bool,
+    pub b_use_blend_mode: bool,
     pub blend_mode: EAlphaBlendOption,
     pub custom_blend_curve: UPtr<UCurveFloat>,
     pub tag: FName,
-    pub description: FText,
+    pub description_deprecated: FText,
     pub description_string: FString,
     pub node_id: i32,
     pub anim_instance: UPtr<UObject>,
@@ -832,13 +831,13 @@ pub struct FAnimNode_Root {
     pub result: FPoseLink,
     pub name: FName,
     pub layer_group: FName,
-    pub group: FName,
+    pub group_deprecated: FName,
 }
 #[repr(C, align(4))]
 pub struct FInputScaleBiasClamp {
-    pub map_range: bool,
-    pub clamp_result: bool,
-    pub interp_result: bool,
+    pub b_map_range: bool,
+    pub b_clamp_result: bool,
+    pub b_interp_result: bool,
     pub in_range: FInputRange,
     pub out_range: FInputRange,
     pub scale: f32,
@@ -858,7 +857,7 @@ pub struct FInputAlphaBoolBlend {
     pub blend_in_time: f32,
     pub blend_out_time: f32,
     pub blend_option: EAlphaBlendOption,
-    pub initialized: bool,
+    pub b_initialized: bool,
     pub custom_curve: UPtr<UCurveFloat>,
     pub alpha_blend: FAlphaBlend,
 }
@@ -885,8 +884,8 @@ pub struct FAnimNodeReference {}
 pub struct FAnimNode_AssetPlayerRelevancyBase {}
 #[repr(C, align(8))]
 pub struct FAnimNode_AssetPlayerBase {
-    pub group_index: i32,
-    pub group_scope: EAnimSyncGroupScope,
+    pub group_index_deprecated: i32,
+    pub group_scope_deprecated: EAnimSyncGroupScope,
     pub blend_weight: f32,
     pub internal_time_accumulator: f32,
 }
@@ -910,11 +909,11 @@ pub struct FPoseSnapshot {
     pub bone_names: TArray<FName>,
     pub skeletal_mesh_name: FName,
     pub snapshot_name: FName,
-    pub is_valid: bool,
+    pub b_is_valid: bool,
 }
 #[repr(C, align(16))]
 pub struct FBoneSocketTarget {
-    pub use_socket: bool,
+    pub b_use_socket: bool,
     pub bone_reference: FBoneReference,
     pub socket_reference: FSocketReference,
 }
@@ -982,7 +981,7 @@ pub struct FActorContainerID {
 #[repr(C, align(4))]
 pub struct FExposureSettings {
     pub fixed_ev100: f32,
-    pub fixed: bool,
+    pub b_fixed: bool,
 }
 #[repr(C, align(8))]
 pub struct FLevelViewportInfo {
@@ -1041,7 +1040,7 @@ pub struct FKTaperedCapsuleElem {
     pub radius0: f32,
     pub radius1: f32,
     pub length: f32,
-    pub one_sided_collision: bool,
+    pub b_one_sided_collision: bool,
 }
 #[repr(C, align(16))]
 pub struct FKConvexElem {
@@ -1052,8 +1051,8 @@ pub struct FKConvexElem {
 }
 #[repr(C, align(16))]
 pub struct FKSphylElem {
-    pub tm: FMatrix,
-    pub orientation: FQuat,
+    pub tm_deprecated: FMatrix,
+    pub orientation_deprecated: FQuat,
     pub center: FVector,
     pub rotation: FRotator,
     pub radius: f32,
@@ -1061,8 +1060,8 @@ pub struct FKSphylElem {
 }
 #[repr(C, align(16))]
 pub struct FKBoxElem {
-    pub tm: FMatrix,
-    pub orientation: FQuat,
+    pub tm_deprecated: FMatrix,
+    pub orientation_deprecated: FQuat,
     pub center: FVector,
     pub rotation: FRotator,
     pub x: f32,
@@ -1071,7 +1070,7 @@ pub struct FKBoxElem {
 }
 #[repr(C, align(16))]
 pub struct FKSphereElem {
-    pub tm: FMatrix,
+    pub tm_deprecated: FMatrix,
     pub center: FVector,
     pub radius: f32,
 }
@@ -1107,8 +1106,8 @@ pub struct FComponentSpacePose {
 }
 #[repr(C, align(1))]
 pub struct FAnimCurveType {
-    pub material: bool,
-    pub morphtarget: bool,
+    pub b_material: bool,
+    pub b_morphtarget: bool,
 }
 #[repr(C, align(8))]
 pub struct FCurveMetaData {
@@ -1149,7 +1148,7 @@ pub struct FCurvePayload {
 }
 #[repr(C, align(4))]
 pub struct FAnimationCurveIdentifier {
-    pub internal_name: FSmartName,
+    pub internal_name_deprecated: FSmartName,
     pub curve_name: FName,
     pub curve_type: ERawCurveTrackTypes,
     pub channel: ETransformCurveChannel,
@@ -1186,7 +1185,7 @@ pub struct FAnimationAttributeIdentifier {
 }
 #[repr(C, align(8))]
 pub struct FAnimNodeConstantData {
-    pub anim_class_interface: IAnimClassInterface,
+    pub anim_class_interface: TScriptInterface<IAnimClassInterface>,
     pub node_index: i32,
 }
 #[repr(C, align(8))]
@@ -1216,7 +1215,7 @@ pub struct FPrimaryAssetRulesOverride {
 pub struct FPrimaryAssetRules {
     pub priority: i32,
     pub chunk_id: i32,
-    pub apply_recursively: bool,
+    pub b_apply_recursively: bool,
     pub cook_rule: EPrimaryAssetCookRule,
 }
 #[repr(C, align(8))]
@@ -1249,10 +1248,10 @@ pub struct FMinimalViewInfo {
     pub first_person_fov: f32,
     pub first_person_scale: f32,
     pub ortho_width: f32,
-    pub auto_calculate_ortho_planes: bool,
+    pub b_auto_calculate_ortho_planes: bool,
     pub auto_plane_shift: f32,
-    pub update_ortho_planes: bool,
-    pub use_camera_height_as_view_target: bool,
+    pub b_update_ortho_planes: bool,
+    pub b_use_camera_height_as_view_target: bool,
     pub ortho_near_clip_plane: f32,
     pub ortho_far_clip_plane: f32,
     pub perspective_near_clip_plane: f32,
@@ -1337,7 +1336,7 @@ pub struct FBakedIntegerCustomAttribute {
 pub struct FIntegralCurve {
     pub keys: TArray<FIntegralKey>,
     pub default_value: i32,
-    pub use_default_value_before_first_key: bool,
+    pub b_use_default_value_before_first_key: bool,
 }
 #[repr(C, align(4))]
 pub struct FIntegralKey {
@@ -1368,7 +1367,7 @@ pub struct FBakedCustomAttributePerBoneData {
 }
 #[repr(C, align(8))]
 pub struct FDataLayerInstanceNames {
-    pub is_first_data_layer_external: bool,
+    pub b_is_first_data_layer_external: bool,
     pub data_layers: TArray<FName>,
 }
 #[repr(C, align(8))]
@@ -1429,7 +1428,7 @@ pub struct FIrisNetDriverConfig {
     pub net_driver_definition: FName,
     pub net_driver_name: FName,
     pub net_driver_wildcard_name: FString,
-    pub can_use_iris: bool,
+    pub b_can_use_iris: bool,
 }
 #[repr(C, align(8))]
 pub struct FNamedNetDriver {
@@ -1540,7 +1539,7 @@ pub struct FExponentialHeightFogDynamicState {
     pub start_distance: f32,
     pub end_distance: f32,
     pub fog_cutoff_distance: f32,
-    pub enable_volumetric_fog: bool,
+    pub b_enable_volumetric_fog: bool,
     pub volumetric_fog_scattering_distribution: f32,
     pub volumetric_fog_albedo: FColor,
     pub volumetric_fog_emissive: FLinearColor,
@@ -1549,7 +1548,7 @@ pub struct FExponentialHeightFogDynamicState {
     pub volumetric_fog_start_distance: f32,
     pub volumetric_fog_near_fade_in_distance: f32,
     pub volumetric_fog_static_lighting_scattering_intensity: f32,
-    pub override_light_colors_with_fog_inscattering_colors: bool,
+    pub b_override_light_colors_with_fog_inscattering_colors: bool,
     pub flags_181: u8,
     pub height: f32,
 }
@@ -1600,18 +1599,18 @@ pub struct FForceFeedbackAttenuationSettings {}
 #[repr(C, align(4))]
 pub struct FForceFeedbackParameters {
     pub tag: FName,
-    pub looping: bool,
-    pub ignore_time_dilation: bool,
-    pub play_while_paused: bool,
+    pub b_looping: bool,
+    pub b_ignore_time_dilation: bool,
+    pub b_play_while_paused: bool,
 }
 #[repr(C, align(8))]
 pub struct FPredictProjectilePathParams {
     pub start_location: FVector,
     pub launch_velocity: FVector,
-    pub trace_with_collision: bool,
+    pub b_trace_with_collision: bool,
     pub projectile_radius: f32,
     pub max_sim_time: f32,
-    pub trace_with_channel: bool,
+    pub b_trace_with_channel: bool,
     pub trace_channel: ECollisionChannel,
     pub object_types: TArray<EObjectTypeQuery>,
     pub actors_to_ignore: TArray<UPtr<AActor>>,
@@ -1619,7 +1618,7 @@ pub struct FPredictProjectilePathParams {
     pub override_gravity_z: f32,
     pub draw_debug_type: EDrawDebugTrace,
     pub draw_debug_time: f32,
-    pub trace_complex: bool,
+    pub b_trace_complex: bool,
 }
 #[repr(C, align(8))]
 pub struct FPredictProjectilePathPointData {
@@ -1677,7 +1676,7 @@ pub struct FInstancedStaticMeshRandomSeed {
 }
 #[repr(C, align(8))]
 pub struct FBoundsCacheElement {
-    pub is_valid: bool,
+    pub b_is_valid: bool,
     pub hash: u32,
     pub value: FBoxSphereBounds,
 }
@@ -1693,7 +1692,7 @@ pub struct FInstancedStaticMeshComponentInstanceData {
     pub per_instance_sm_data: TArray<FInstancedStaticMeshInstanceData>,
     pub instancing_random_seed: i32,
     pub additional_random_seeds: TArray<FInstancedStaticMeshRandomSeed>,
-    pub has_per_instance_hit_proxies: bool,
+    pub b_has_per_instance_hit_proxies: bool,
 }
 #[repr(C, align(8))]
 pub struct FUniqueNetIdReplNetSerializerStringStruct {
@@ -1715,22 +1714,22 @@ pub struct FNewLevelInstanceParams {
     pub ty: ELevelInstanceCreationType,
     pub pivot_type: ELevelInstancePivotType,
     pub pivot_actor: UPtr<AActor>,
-    pub always_show_dialog: bool,
+    pub b_always_show_dialog: bool,
     pub template_world: UPtr<UWorld>,
     pub level_package_name: FString,
-    pub prompt_for_save: bool,
+    pub b_prompt_for_save: bool,
     pub level_instance_class: TSubclassOf<AActor>,
-    pub enable_streaming: bool,
-    pub external_actors: bool,
-    pub force_external_actors: bool,
-    pub hide_creation_type: bool,
+    pub b_enable_streaming: bool,
+    pub b_external_actors: bool,
+    pub b_force_external_actors: bool,
+    pub b_hide_creation_type: bool,
 }
 #[repr(C, align(8))]
 pub struct FMaterialCacheLayer {
     pub render_format: EPixelFormat,
     pub compressed_format: EPixelFormat,
     pub component_count: u8,
-    pub is_srgb: bool,
+    pub b_is_srgb: bool,
     pub identity: EMaterialCacheAttributeIdentity,
     pub attributes: TArray<EMaterialCacheAttribute>,
 }
@@ -1857,13 +1856,13 @@ pub struct FMaterialLayersFunctionsRuntimeData {
 #[repr(C, align(8))]
 pub struct FMaterialLayersFunctions {
     pub editor_only: FMaterialLayersFunctionsEditorOnlyData,
-    pub layer_states: TArray<bool>,
-    pub layer_names: TArray<FText>,
-    pub restrict_to_layer_relatives: TArray<bool>,
-    pub restrict_to_blend_relatives: TArray<bool>,
-    pub layer_guids: TArray<FGuid>,
-    pub layer_link_states: TArray<EMaterialLayerLinkState>,
-    pub deleted_parent_layer_guids: TArray<FGuid>,
+    pub layer_states_deprecated: TArray<bool>,
+    pub layer_names_deprecated: TArray<FText>,
+    pub restrict_to_layer_relatives_deprecated: TArray<bool>,
+    pub restrict_to_blend_relatives_deprecated: TArray<bool>,
+    pub layer_guids_deprecated: TArray<FGuid>,
+    pub layer_link_states_deprecated: TArray<EMaterialLayerLinkState>,
+    pub deleted_parent_layer_guids_deprecated: TArray<FGuid>,
 }
 #[repr(C, align(1))]
 pub struct FStaticComponentMaskValue {
@@ -1889,8 +1888,8 @@ pub struct FMeshDrawCommandStatsBudgetTotals {
 }
 #[repr(C, align(4))]
 pub struct FMeshUVChannelInfo {
-    pub initialized: bool,
-    pub override_densities: bool,
+    pub b_initialized: bool,
+    pub b_override_densities: bool,
     pub local_uv_densities: f32,
 }
 #[repr(C, align(8))]
@@ -1989,7 +1988,7 @@ pub struct FNavigationSegmentLink {
 pub struct FVector_NetQuantize10 {}
 #[repr(C, align(8))]
 pub struct FOverlapInfo {
-    pub from_sweep: bool,
+    pub b_from_sweep: bool,
     pub overlap_info: FHitResult,
 }
 #[repr(C, align(8))]
@@ -2173,8 +2172,8 @@ pub struct FSkeletalMeshOptimizationSettings {
     pub volume_importance: f32,
     pub flags_60: u8,
     pub base_lod: i32,
-    pub bones_to_remove: TArray<FBoneReference>,
-    pub bake_pose: UPtr<UAnimSequence>,
+    pub bones_to_remove_deprecated: TArray<FBoneReference>,
+    pub bake_pose_deprecated: UPtr<UAnimSequence>,
 }
 #[repr(C, align(8))]
 pub struct FSkinnedMeshStaticState {
@@ -2264,7 +2263,7 @@ pub struct FSoundWaveTimecodeInfo {
     pub originator_description: FString,
     pub originator_reference: FString,
     pub timecode_rate: FFrameRate,
-    pub timecode_is_drop_frame: bool,
+    pub b_timecode_is_drop_frame: bool,
 }
 #[repr(C, align(8))]
 pub struct FStaticMeshComponentLODInfo {}
@@ -2283,7 +2282,7 @@ pub struct FStaticMeshHandle {}
 #[repr(C, align(4))]
 pub struct FStaticParameterBase {
     pub parameter_info: FMaterialParameterInfo,
-    pub override_: bool,
+    pub b_override: bool,
     pub expression_guid: FGuid,
 }
 #[repr(C, align(4))]
@@ -2299,13 +2298,13 @@ pub struct FStaticComponentMaskParameter {
 }
 #[repr(C, align(4))]
 pub struct FStaticTerrainLayerWeightParameter {
-    pub parameter_info: FMaterialParameterInfo,
-    pub expression_guid: FGuid,
-    pub override_: bool,
+    pub parameter_info_deprecated: FMaterialParameterInfo,
+    pub expression_guid_deprecated: FGuid,
+    pub b_override_deprecated: bool,
     pub layer_name: FName,
     pub weightmap_index: i32,
-    pub is_repeated_layer: bool,
-    pub weight_based_blend: bool,
+    pub b_is_repeated_layer: bool,
+    pub b_weight_based_blend: bool,
 }
 #[repr(C, align(8))]
 pub struct FStaticMaterialLayersParameter {
@@ -2319,7 +2318,7 @@ pub struct FStaticParameterSetRuntimeData {
 }
 #[repr(C, align(8))]
 pub struct FStaticParameterSetEditorOnlyData {
-    pub static_switch_parameters: TArray<FStaticSwitchParameter>,
+    pub static_switch_parameters_deprecated: TArray<FStaticSwitchParameter>,
     pub static_component_mask_parameters: TArray<FStaticComponentMaskParameter>,
     pub terrain_layer_weight_parameters: TArray<FStaticTerrainLayerWeightParameter>,
     pub material_layers: FMaterialLayersFunctionsEditorOnlyData,
@@ -2327,10 +2326,14 @@ pub struct FStaticParameterSetEditorOnlyData {
 #[repr(C, align(8))]
 pub struct FStaticParameterSet {
     pub editor_only: FStaticParameterSetEditorOnlyData,
-    pub material_layers_parameters: TArray<FStaticMaterialLayersParameter>,
-    pub static_switch_parameters: TArray<FStaticSwitchParameter>,
-    pub static_component_mask_parameters: TArray<FStaticComponentMaskParameter>,
-    pub terrain_layer_weight_parameters: TArray<FStaticTerrainLayerWeightParameter>,
+    pub material_layers_parameters_deprecated: TArray<FStaticMaterialLayersParameter>,
+    pub static_switch_parameters_deprecated: TArray<FStaticSwitchParameter>,
+    pub static_component_mask_parameters_deprecated: TArray<
+        FStaticComponentMaskParameter,
+    >,
+    pub terrain_layer_weight_parameters_deprecated: TArray<
+        FStaticTerrainLayerWeightParameter,
+    >,
 }
 #[repr(C, align(8))]
 pub struct FStreamingRenderAssetPrimitiveInfo {
@@ -2402,7 +2405,7 @@ pub struct FAttributeCurve {
     pub keys: TArray<FAttributeKey>,
     pub script_struct_path: FSoftObjectPath,
     pub script_struct: UPtr<UScriptStruct>,
-    pub should_interpolate: bool,
+    pub b_should_interpolate: bool,
 }
 #[repr(C, align(4))]
 pub struct FQuartzPulseOverrideStep {
@@ -2425,17 +2428,17 @@ pub struct FQuartzTransportTimeStamp {
 #[repr(C, align(8))]
 pub struct FQuartzClockSettings {
     pub time_signature: FQuartzTimeSignature,
-    pub ignore_level_change: bool,
+    pub b_ignore_level_change: bool,
 }
 #[repr(C, align(8))]
 pub struct FQuartzQuantizationBoundary {
     pub quantization: EQuartzCommandQuantization,
     pub multiplier: f32,
     pub counting_reference_point: EQuarztQuantizationReference,
-    pub fire_on_clock_start: bool,
-    pub cancel_command_if_clock_is_not_running: bool,
-    pub reset_clock_on_queued: bool,
-    pub resume_clock_on_queued: bool,
+    pub b_fire_on_clock_start: bool,
+    pub b_cancel_command_if_clock_is_not_running: bool,
+    pub b_reset_clock_on_queued: bool,
+    pub b_resume_clock_on_queued: bool,
 }
 #[repr(C, align(8))]
 pub struct FNavAvoidanceData {}
@@ -2446,10 +2449,10 @@ pub struct FMovementProperties {
 #[repr(C, align(4))]
 pub struct FNavMovementProperties {
     pub fixed_path_braking_distance: f32,
-    pub update_nav_agent_with_owners_collision: bool,
-    pub use_acceleration_for_paths: bool,
-    pub use_fixed_braking_distance_for_paths: bool,
-    pub stop_movement_abort_paths: bool,
+    pub b_update_nav_agent_with_owners_collision: bool,
+    pub b_use_acceleration_for_paths: bool,
+    pub b_use_fixed_braking_distance_for_paths: bool,
+    pub b_stop_movement_abort_paths: bool,
 }
 #[repr(C, align(8))]
 pub struct FNavAgentProperties {
@@ -2498,7 +2501,7 @@ pub struct FAnimTickRecord {
 pub struct FAnimGroupInstance {}
 #[repr(C, align(16))]
 pub struct FRootMotionMovementParams {
-    pub has_root_motion: bool,
+    pub b_has_root_motion: bool,
     pub blend_weight: f32,
     pub root_motion_transform: FTransform,
 }
@@ -2512,19 +2515,19 @@ pub struct FAnimationGroupReference {
 pub struct FEncounteredStateMachineStack {}
 #[repr(C, align(8))]
 pub struct FAnimationRecordingSettings {
-    pub record_in_world_space: bool,
-    pub remove_root_animation: bool,
-    pub auto_save_asset: bool,
+    pub b_record_in_world_space: bool,
+    pub b_remove_root_animation: bool,
+    pub b_auto_save_asset: bool,
     pub sample_frame_rate: FFrameRate,
     pub length: f32,
     pub interpolation: EAnimInterpolationType,
     pub interp_mode: ERichCurveInterpMode,
     pub tangent_mode: ERichCurveTangentMode,
-    pub record_transforms: bool,
-    pub record_morph_targets: bool,
-    pub record_attribute_curves: bool,
-    pub record_material_curves: bool,
-    pub transact_recording: bool,
+    pub b_record_transforms: bool,
+    pub b_record_morph_targets: bool,
+    pub b_record_attribute_curves: bool,
+    pub b_record_material_curves: bool,
+    pub b_transact_recording: bool,
     pub include_animation_names: TArray<FString>,
     pub exclude_animation_names: TArray<FString>,
 }
@@ -2556,11 +2559,11 @@ pub struct FSkinnedMeshComponentDescriptorBase {
     pub instance_end_cull_distance: i32,
     pub flags_36: u8,
     pub flags_37: u8,
-    pub visible_in_ray_tracing: bool,
-    pub affect_dynamic_indirect_lighting: bool,
-    pub affect_distance_field_lighting: bool,
+    pub b_visible_in_ray_tracing: bool,
+    pub b_affect_dynamic_indirect_lighting: bool,
+    pub b_affect_distance_field_lighting: bool,
     pub primitive_bounds_override: FBox,
-    pub is_instance_data_gpu_only: bool,
+    pub b_is_instance_data_gpu_only: bool,
     pub num_instances_gpu_only: i32,
     pub num_custom_data_floats_gpu_only: i32,
     pub flags_116: u8,
@@ -2595,7 +2598,7 @@ pub struct FAnimBlueprintFunction {
     pub output_pose_node_index: i32,
     pub input_pose_names: TArray<FName>,
     pub input_pose_node_indices: TArray<i32>,
-    pub implemented: bool,
+    pub b_implemented: bool,
 }
 #[repr(C, align(8))]
 pub struct FCachedPoseIndices {
@@ -2640,8 +2643,8 @@ pub struct FAnimCompressedCurveIndexedName {
 }
 #[repr(C, align(8))]
 pub struct FAnimCurveBase {
-    pub last_observed_name: FName,
-    pub name: FSmartName,
+    pub last_observed_name_deprecated: FName,
+    pub name_deprecated: FSmartName,
     pub color: FLinearColor,
     pub comment: FString,
     pub curve_name: FName,
@@ -2726,7 +2729,7 @@ pub struct FAnimLinkableElement {
 #[repr(C, align(8))]
 pub struct FCompositeSection {
     pub section_name: FName,
-    pub start_time: f32,
+    pub start_time_deprecated: f32,
     pub next_section_name: FName,
     pub meta_data: TArray<UPtr<UAnimMetaData>>,
 }
@@ -2738,7 +2741,7 @@ pub struct FSlotAnimationTrack {
 #[repr(C, align(8))]
 pub struct FBranchingPoint {
     pub event_name: FName,
-    pub display_time: f32,
+    pub display_time_deprecated: f32,
     pub trigger_time_offset: f32,
 }
 #[repr(C, align(4))]
@@ -2756,7 +2759,7 @@ pub struct FMontageBlendSettings {
 #[repr(C, align(8))]
 pub struct FAnimMontageInstance {
     pub montage: UPtr<UAnimMontage>,
-    pub playing: bool,
+    pub b_playing: bool,
     pub default_blend_time_multiplier: f32,
     pub next_sections: TArray<i32>,
     pub prev_sections: TArray<i32>,
@@ -2768,7 +2771,7 @@ pub struct FAnimMontageInstance {
 }
 #[repr(C, align(8))]
 pub struct FAnimNotifyEvent {
-    pub display_time: f32,
+    pub display_time_deprecated: f32,
     pub trigger_time_offset: f32,
     pub end_trigger_time_offset: f32,
     pub trigger_weight_threshold: f32,
@@ -2777,21 +2780,21 @@ pub struct FAnimNotifyEvent {
     pub notify_state_class: UPtr<UAnimNotifyState>,
     pub duration: f32,
     pub end_link: FAnimLinkableElement,
-    pub converted_from_branching_point: bool,
+    pub b_converted_from_branching_point: bool,
     pub montage_tick_type: EMontageNotifyTickType,
     pub notify_trigger_chance: f32,
     pub notify_filter_type: ENotifyFilterType,
     pub notify_filter_lod: i32,
-    pub can_be_filtered_via_request: bool,
-    pub trigger_on_dedicated_server: bool,
-    pub trigger_on_follower: bool,
+    pub b_can_be_filtered_via_request: bool,
+    pub b_trigger_on_dedicated_server: bool,
+    pub b_trigger_on_follower: bool,
     pub notify_color: FColor,
     pub guid: FGuid,
     pub track_index: i32,
 }
 #[repr(C, align(8))]
 pub struct FAnimNodeData {
-    pub anim_class_interface: IAnimClassInterface,
+    pub anim_class_interface: TScriptInterface<IAnimClassInterface>,
     pub entries: TArray<u32>,
     pub node_index: i32,
     pub flags: u32,
@@ -2833,13 +2836,13 @@ pub struct FAnimNode_CustomProperty {
 #[repr(C, align(16))]
 pub struct FAnimNode_DeadBlending {
     pub source: FPoseLink,
-    pub always_use_default_blend_settings: bool,
+    pub b_always_use_default_blend_settings: bool,
     pub default_blend_duration: f32,
     pub default_blend_profile: UPtr<UBlendProfile>,
     pub default_blend_mode: EAlphaBlendOption,
     pub default_custom_blend_curve: UPtr<UCurveFloat>,
     pub blend_time_multiplier: f32,
-    pub linearly_interpolate_scales: bool,
+    pub b_linearly_interpolate_scales: bool,
     pub filtered_curves: TArray<FName>,
     pub extrapolation_filtered_curves: TArray<FName>,
     pub filtered_bones: TArray<FBoneReference>,
@@ -2850,10 +2853,10 @@ pub struct FAnimNode_DeadBlending {
     pub maximum_rotation_velocity: f32,
     pub maximum_scale_velocity: f32,
     pub maximum_curve_velocity: f32,
-    pub reset_on_becoming_relevant: bool,
-    pub forward_requests_through_skipped_cached_pose_nodes: bool,
+    pub b_reset_on_becoming_relevant: bool,
+    pub b_forward_requests_through_skipped_cached_pose_nodes: bool,
     pub tag: FName,
-    pub show_extrapolations: bool,
+    pub b_show_extrapolations: bool,
     pub request_queue: TArray<FInertializationRequest>,
     pub inertialization_custom_blend_curve: UPtr<UCurveFloat>,
     pub inertialization_request_anim_instance: UPtr<UObject>,
@@ -2870,9 +2873,9 @@ pub struct FAnimNode_Inertialization {
     pub default_blend_profile: UPtr<UBlendProfile>,
     pub filtered_curves: TArray<FName>,
     pub filtered_bones: TArray<FBoneReference>,
-    pub preallocate_memory: bool,
-    pub reset_on_becoming_relevant: bool,
-    pub forward_requests_through_skipped_cached_pose_nodes: bool,
+    pub b_preallocate_memory_deprecated: bool,
+    pub b_reset_on_becoming_relevant: bool,
+    pub b_forward_requests_through_skipped_cached_pose_nodes: bool,
     pub tag: FName,
     pub request_queue: TArray<FInertializationRequest>,
     pub inertialization_request_anim_instance: UPtr<UObject>,
@@ -2882,7 +2885,7 @@ pub struct FAnimNode_LinkedAnimGraph {
     pub input_poses: TArray<FPoseLink>,
     pub input_pose_names: TArray<FName>,
     pub instance_class: TSubclassOf<UAnimInstance>,
-    pub tag: FName,
+    pub tag_deprecated: FName,
     pub pending_blend_out_profile: UPtr<UBlendProfile>,
     pub pending_blend_in_profile: UPtr<UBlendProfile>,
     pub flags_320: u8,
@@ -2914,23 +2917,23 @@ pub struct FInputScaleBiasClampState {}
 pub struct FAnimNode_SequencePlayer {
     pub group_name: FName,
     pub group_role: EAnimGroupRole,
-    pub override_position_when_joining_sync_group_as_leader: bool,
+    pub b_override_position_when_joining_sync_group_as_leader: bool,
     pub method: EAnimSyncMethod,
-    pub ignore_for_relevancy_test: bool,
+    pub b_ignore_for_relevancy_test: bool,
     pub sequence: UPtr<UAnimSequenceBase>,
     pub play_rate_basis: f32,
     pub play_rate: f32,
     pub play_rate_scale_bias_clamp_constants: FInputScaleBiasClampConstants,
-    pub play_rate_scale_bias_clamp: FInputScaleBiasClamp,
+    pub play_rate_scale_bias_clamp_deprecated: FInputScaleBiasClamp,
     pub start_position: f32,
-    pub loop_animation: bool,
-    pub start_from_matching_pose: bool,
+    pub b_loop_animation: bool,
+    pub b_start_from_matching_pose: bool,
 }
 #[repr(C, align(4))]
 pub struct FInputScaleBiasClampConstants {
-    pub map_range: bool,
-    pub clamp_result: bool,
-    pub interp_result: bool,
+    pub b_map_range: bool,
+    pub b_clamp_result: bool,
+    pub b_interp_result: bool,
     pub in_range: FInputRange,
     pub out_range: FInputRange,
     pub scale: f32,
@@ -2944,16 +2947,16 @@ pub struct FInputScaleBiasClampConstants {
 pub struct FAnimNode_SequencePlayer_Standalone {
     pub group_name: FName,
     pub group_role: EAnimGroupRole,
-    pub override_position_when_joining_sync_group_as_leader: bool,
+    pub b_override_position_when_joining_sync_group_as_leader: bool,
     pub method: EAnimSyncMethod,
-    pub ignore_for_relevancy_test: bool,
+    pub b_ignore_for_relevancy_test: bool,
     pub sequence: UPtr<UAnimSequenceBase>,
     pub play_rate_basis: f32,
     pub play_rate: f32,
     pub play_rate_scale_bias_clamp_constants: FInputScaleBiasClampConstants,
     pub start_position: f32,
-    pub loop_animation: bool,
-    pub start_from_matching_pose: bool,
+    pub b_loop_animation: bool,
+    pub b_start_from_matching_pose: bool,
 }
 #[repr(C, align(8))]
 pub struct FAnimationActiveTransitionEntry {
@@ -2966,10 +2969,10 @@ pub struct FAnimNode_StateMachine {
     pub state_machine_index_in_class: i32,
     pub max_transitions_per_frame: i32,
     pub max_transitions_requests: i32,
-    pub skip_first_update_transition: bool,
-    pub reinitialize_on_becoming_relevant: bool,
-    pub create_notify_meta_data: bool,
-    pub allow_conduit_entry_states: bool,
+    pub b_skip_first_update_transition: bool,
+    pub b_reinitialize_on_becoming_relevant: bool,
+    pub b_create_notify_meta_data: bool,
+    pub b_allow_conduit_entry_states: bool,
 }
 #[repr(C, align(8))]
 pub struct FAnimNode_StateResult {
@@ -2987,7 +2990,7 @@ pub struct FAnimNode_TransitionPoseEvaluator {
 }
 #[repr(C, align(8))]
 pub struct FAnimNode_TransitionResult {
-    pub can_enter_transition: bool,
+    pub b_can_enter_transition: bool,
 }
 #[repr(C, align(8))]
 pub struct FAnimNode_UseCachedPose {
@@ -3089,8 +3092,8 @@ pub struct FBakedStateExitTransition {
     pub can_take_delegate_index: i32,
     pub custom_result_node_index: i32,
     pub transition_index: i32,
-    pub desired_transition_return_value: bool,
-    pub automatic_remaining_time_rule: bool,
+    pub b_desired_transition_return_value: bool,
+    pub b_automatic_remaining_time_rule: bool,
     pub automatic_rule_trigger_time: f32,
     pub sync_group_name_to_require_valid_markers_rule: FName,
     pub pose_evaluator_links: TArray<i32>,
@@ -3106,8 +3109,8 @@ pub struct FBakedAnimationState {
     pub end_notify: i32,
     pub fully_blended_notify: i32,
     pub entry_rule_node_index: i32,
-    pub always_reset_on_entry: bool,
-    pub is_a_conduit: bool,
+    pub b_always_reset_on_entry: bool,
+    pub b_is_a_conduit: bool,
 }
 #[repr(C, align(8))]
 pub struct FBakedAnimationStateMachine {
@@ -3129,7 +3132,7 @@ pub struct FPropertyAccessLibrary {
     pub path_segments: TArray<FPropertyAccessSegment>,
     pub src_paths: TArray<FPropertyAccessPath>,
     pub dest_paths: TArray<FPropertyAccessPath>,
-    pub copy_batches: FPropertyAccessCopyBatch,
+    pub copy_batches_deprecated: FPropertyAccessCopyBatch,
     pub copy_batch_array: TArray<FPropertyAccessCopyBatch>,
 }
 #[repr(C, align(8))]
@@ -3215,8 +3218,8 @@ pub struct FBlendProfileBoneEntry {
 }
 #[repr(C, align(8))]
 pub struct FBlendProfileInterfaceWrapper {
-    pub is_skeleton_blend_profile: bool,
-    pub blend_profile_provider: IBlendProfileProviderInterface,
+    pub b_is_skeleton_blend_profile: bool,
+    pub blend_profile_provider: TScriptInterface<IBlendProfileProviderInterface>,
     pub blend_profile: UPtr<UBlendProfile>,
 }
 #[repr(C, align(8))]
@@ -3237,15 +3240,15 @@ pub struct FBlendParameter {
     pub min: f32,
     pub max: f32,
     pub grid_num: i32,
-    pub snap_to_grid: bool,
-    pub wrap_input: bool,
+    pub b_snap_to_grid: bool,
+    pub b_wrap_input: bool,
 }
 #[repr(C, align(8))]
 pub struct FBlendSample {
     pub animation: UPtr<UAnimSequence>,
     pub sample_value: FVector,
     pub rate_scale: f32,
-    pub use_single_frame_for_blending: bool,
+    pub b_use_single_frame_for_blending: bool,
     pub frame_index_to_sample: u32,
     pub flags_44: u8,
 }
@@ -3326,7 +3329,7 @@ pub struct FNamedCurveValue {
 pub struct FExposedValueCopyRecord {
     pub copy_index: i32,
     pub post_copy_operation: EPostCopyOperation,
-    pub only_update_when_active: bool,
+    pub b_only_update_when_active: bool,
 }
 #[repr(C, align(8))]
 pub struct FExposedValueHandler {}
@@ -3343,8 +3346,8 @@ pub struct FAnimNodeExposedValueHandler_PropertyAccess {
 }
 #[repr(C, align(4))]
 pub struct FInputClampConstants {
-    pub clamp_result: bool,
-    pub interp_result: bool,
+    pub b_clamp_result: bool,
+    pub b_interp_result: bool,
     pub clamp_min: f32,
     pub clamp_max: f32,
     pub interp_speed_increasing: f32,
@@ -3393,7 +3396,7 @@ pub struct FPoseAssetInfluences {
 }
 #[repr(C, align(8))]
 pub struct FPoseDataContainer {
-    pub pose_names: TArray<FSmartName>,
+    pub pose_names_deprecated: TArray<FSmartName>,
     pub pose_f_names: TArray<FName>,
     pub tracks: TArray<FName>,
     pub track_bone_indices: TArray<i32>,
@@ -3404,7 +3407,7 @@ pub struct FPoseDataContainer {
 #[repr(C, align(8))]
 pub struct FPreviewAttachedObjectPair {
     pub attached_object: TSoftObjectPtr<UObject>,
-    pub object: UPtr<UObject>,
+    pub object_deprecated: UPtr<UObject>,
     pub attached_to: FName,
 }
 #[repr(C, align(8))]
@@ -3429,8 +3432,8 @@ pub struct FSkeletonToMeshLinkup {
 }
 #[repr(C, align(4))]
 pub struct FBoneNode {
-    pub name: FName,
-    pub parent_index: i32,
+    pub name_deprecated: FName,
+    pub parent_index_deprecated: i32,
     pub translation_retargeting_mode: EBoneTranslationRetargetingMode,
 }
 #[repr(C, align(8))]
@@ -3486,7 +3489,7 @@ pub struct FTimeStretchCurve {
 }
 #[repr(C, align(8))]
 pub struct FTimeStretchCurveInstance {
-    pub has_valid_data: bool,
+    pub b_has_valid_data: bool,
 }
 #[repr(C, align(16))]
 pub struct FTransformTrajectorySample {
@@ -3517,13 +3520,13 @@ pub struct FPrimaryAssetTypeInfo {
     pub primary_asset_type: FName,
     pub asset_base_class: TSoftObjectPtr<UClass>,
     pub asset_base_class_loaded: TSubclassOf<UObject>,
-    pub has_blueprint_classes: bool,
-    pub is_editor_only: bool,
+    pub b_has_blueprint_classes: bool,
+    pub b_is_editor_only: bool,
     pub directories: TArray<FDirectoryPath>,
     pub specific_assets: TArray<FSoftObjectPath>,
     pub rules: FPrimaryAssetRules,
     pub asset_scan_paths: TArray<FString>,
-    pub is_dynamic_asset: bool,
+    pub b_is_dynamic_asset: bool,
     pub number_of_assets: i32,
 }
 #[repr(C, align(8))]
@@ -3532,10 +3535,10 @@ pub struct FAssetManagerSearchRules {
     pub include_patterns: TArray<FString>,
     pub exclude_patterns: TArray<FString>,
     pub asset_base_class: TSubclassOf<UObject>,
-    pub has_blueprint_classes: bool,
-    pub force_synchronous_scan: bool,
-    pub skip_virtual_path_expansion: bool,
-    pub skip_manager_include_check: bool,
+    pub b_has_blueprint_classes: bool,
+    pub b_force_synchronous_scan: bool,
+    pub b_skip_virtual_path_expansion: bool,
+    pub b_skip_manager_include_check: bool,
 }
 #[repr(C, align(8))]
 pub struct FAudioCookOutputs {
@@ -3567,7 +3570,7 @@ pub struct FDefaultAudioBusSettings {
 #[repr(C, align(8))]
 pub struct FAudioVolumeSubmixSendSettings {
     pub listener_location_state: EAudioVolumeLocationState,
-    pub source_location_state: EAudioVolumeLocationState,
+    pub source_location_state_deprecated: EAudioVolumeLocationState,
     pub submix_sends: TArray<FSoundSubmixSendInfo>,
 }
 #[repr(C, align(8))]
@@ -3594,7 +3597,7 @@ pub struct FAudioVolumeSubmixOverrideSettings {
 }
 #[repr(C, align(4))]
 pub struct FInteriorSettings {
-    pub is_world_settings: bool,
+    pub b_is_world_settings: bool,
     pub exterior_volume: f32,
     pub exterior_time: f32,
     pub exterior_lpf: f32,
@@ -3634,7 +3637,7 @@ pub struct FEditedDocumentInfo {
     pub edited_object_path: FSoftObjectPath,
     pub saved_view_offset: FDeprecateSlateVector2D,
     pub saved_zoom_amount: f32,
-    pub edited_object: UPtr<UObject>,
+    pub edited_object_deprecated: UPtr<UObject>,
 }
 #[repr(C, align(8))]
 pub struct FBPEditorBookmarkNode {
@@ -3664,7 +3667,7 @@ pub struct FBlueprintComponentChangedPropertyInfo {
 #[repr(C, align(8))]
 pub struct FBlueprintCookedComponentInstancingData {
     pub changed_property_list: TArray<FBlueprintComponentChangedPropertyInfo>,
-    pub has_valid_cooked_data: bool,
+    pub b_has_valid_cooked_data: bool,
 }
 #[repr(C, align(8))]
 pub struct FBPComponentClassOverride {
@@ -3698,12 +3701,12 @@ pub struct FPooledCameraShakes {
 pub struct FActiveCameraShakeInfo {
     pub shake_instance: UPtr<UCameraShakeBase>,
     pub shake_source: TWeakObjectPtr<UCameraShakeSourceComponent>,
-    pub is_custom_initialized: bool,
+    pub b_is_custom_initialized: bool,
 }
 #[repr(C, align(4))]
 pub struct FCameraShakePatternStartParams {
-    pub is_restarting: bool,
-    pub override_duration: bool,
+    pub b_is_restarting: bool,
+    pub b_override_duration: bool,
     pub duration_override: f32,
 }
 #[repr(C, align(16))]
@@ -3724,7 +3727,7 @@ pub struct FCameraShakePatternScrubParams {
 pub struct FCameraShakePatternUpdateResult {}
 #[repr(C, align(1))]
 pub struct FCameraShakePatternStopParams {
-    pub immediately: bool,
+    pub b_immediately: bool,
 }
 #[repr(C, align(4))]
 pub struct FCameraShakeDuration {
@@ -3742,9 +3745,9 @@ pub struct FDummySpacerCameraTypes {}
 #[repr(C, align(8))]
 pub struct FRepRootMotionMontage {
     pub animation: UPtr<UAnimSequenceBase>,
-    pub is_active: bool,
-    pub relative_position: bool,
-    pub relative_rotation: bool,
+    pub b_is_active: bool,
+    pub b_relative_position: bool,
+    pub b_relative_rotation: bool,
     pub position: f32,
     pub location: FVector_NetQuantize100,
     pub rotation: FRotator,
@@ -3789,7 +3792,7 @@ pub struct FFindFloorResult {
 pub struct FCollisionResponseTemplate {
     pub name: FName,
     pub collision_enabled: ECollisionEnabled,
-    pub can_modify: bool,
+    pub b_can_modify: bool,
     pub object_type_name: FName,
     pub custom_responses: TArray<FResponseChannel>,
     pub help_message: FString,
@@ -3798,8 +3801,8 @@ pub struct FCollisionResponseTemplate {
 pub struct FCustomChannelSetup {
     pub channel: ECollisionChannel,
     pub default_response: ECollisionResponse,
-    pub trace_type: bool,
-    pub static_object: bool,
+    pub b_trace_type: bool,
+    pub b_static_object: bool,
     pub name: FName,
 }
 #[repr(C, align(8))]
@@ -3856,9 +3859,9 @@ pub struct FSkinnedMeshInstanceData {
 pub struct FInstancedSkinnedMeshComponentInstanceData {
     pub skinned_asset: UPtr<USkinnedAsset>,
     pub instance_data: TArray<FSkinnedMeshInstanceData>,
-    pub has_per_instance_hit_proxies: bool,
+    pub b_has_per_instance_hit_proxies: bool,
     pub primitive_bounds_override: FBox,
-    pub is_instance_data_gpu_only: bool,
+    pub b_is_instance_data_gpu_only: bool,
     pub num_instances_gpu_only: i32,
 }
 #[repr(C, align(16))]
@@ -3964,7 +3967,7 @@ pub struct FSplineCurves {
     pub rotation: FInterpCurveQuat,
     pub scale: FInterpCurveVector,
     pub reparam_table: FInterpCurveFloat,
-    pub metadata: UPtr<USplineMetadata>,
+    pub metadata_deprecated: UPtr<USplineMetadata>,
     pub version: u32,
 }
 #[repr(C, align(8))]
@@ -3979,16 +3982,16 @@ pub struct FSplinePoint {
 }
 #[repr(C, align(8))]
 pub struct FSplineInstanceData {
-    pub spline_has_been_edited: bool,
+    pub b_spline_has_been_edited: bool,
     pub spline_curves: FSplineCurves,
-    pub closed_loop: bool,
+    pub b_closed_loop: bool,
     pub spline_curves_pre_ucs: FSplineCurves,
 }
 #[repr(C, align(8))]
 pub struct FSplineComponentInstanceData {
-    pub spline_has_been_edited: bool,
+    pub b_spline_has_been_edited: bool,
     pub spline: FSpline,
-    pub closed_loop: bool,
+    pub b_closed_loop: bool,
     pub spline_pre_ucs: FSpline,
 }
 #[repr(C, align(8))]
@@ -4119,14 +4122,14 @@ pub struct FRollbackNetStartupActorInfo {
 #[repr(C, align(8))]
 pub struct FMulticastRecordOptions {
     pub func_path_name: FString,
-    pub server_skip: bool,
-    pub client_skip: bool,
+    pub b_server_skip: bool,
+    pub b_client_skip: bool,
 }
 #[repr(C, align(8))]
 pub struct FSelectedFragmentProperties {
     pub tag: FName,
     pub fragment: FString,
-    pub enabled: bool,
+    pub b_enabled: bool,
 }
 #[repr(C, align(8))]
 pub struct FDPMatchingIfCondition {
@@ -4208,14 +4211,14 @@ pub struct FAssetImportInfo {}
 #[repr(C, align(8))]
 pub struct FTypedElementPasteOptions {
     pub selection_set_to_modify: UPtr<UTypedElementSelectionSet>,
-    pub paste_at_location: bool,
+    pub b_paste_at_location: bool,
     pub paste_location: FVector,
 }
 #[repr(C, align(1))]
 pub struct FTypedElementDeletionOptions {
-    pub verify_deletion_can_happen: bool,
-    pub warn_about_references: bool,
-    pub warn_about_soft_references: bool,
+    pub b_verify_deletion_can_happen: bool,
+    pub b_warn_about_references: bool,
+    pub b_warn_about_soft_references: bool,
 }
 #[repr(C, align(1))]
 pub struct FViewLightingChannels {
@@ -4246,7 +4249,7 @@ pub struct FRigidBodyContactInfo {
     pub contact_position: FVector,
     pub contact_normal: FVector,
     pub contact_penetration: f32,
-    pub contact_probe: bool,
+    pub b_contact_probe: bool,
     pub phys_material: UPtr<UPhysicalMaterial>,
 }
 #[repr(C, align(8))]
@@ -4254,7 +4257,7 @@ pub struct FCollisionImpactData {
     pub contact_infos: TArray<FRigidBodyContactInfo>,
     pub total_normal_impulse: FVector,
     pub total_friction_impulse: FVector,
-    pub is_velocity_delta_under_threshold: bool,
+    pub b_is_velocity_delta_under_threshold: bool,
 }
 #[repr(C, align(8))]
 pub struct FFractureEffect {
@@ -4273,7 +4276,7 @@ pub struct FBasedPosition {
 pub struct FLightmassLightSettings {
     pub indirect_lighting_saturation: f32,
     pub shadow_exponent: f32,
-    pub use_area_shadows_for_stationary_light: bool,
+    pub b_use_area_shadows_for_stationary_light: bool,
 }
 #[repr(C, align(4))]
 pub struct FLightmassPointLightSettings {}
@@ -4340,10 +4343,10 @@ pub struct FMeshBuildSettings {
     pub min_lightmap_resolution: i32,
     pub src_lightmap_index: i32,
     pub dst_lightmap_index: i32,
-    pub build_scale: f32,
+    pub build_scale_deprecated: f32,
     pub build_scale3_d: FVector,
     pub distance_field_resolution_scale: f32,
-    pub distance_field_bias: f32,
+    pub distance_field_bias_deprecated: f32,
     pub distance_field_replacement_mesh: UPtr<UStaticMesh>,
     pub max_lumen_mesh_cards: i32,
 }
@@ -4511,20 +4514,20 @@ pub struct FForceFeedbackEffectOverridenChannelDetails {
 }
 #[repr(C, align(4))]
 pub struct FDeviceColorData {
-    pub enable: bool,
-    pub reset_after_completion: bool,
+    pub b_enable: bool,
+    pub b_reset_after_completion: bool,
     pub light_color: FColor,
 }
 #[repr(C, align(8))]
 pub struct FDeviceColorCurveData {
-    pub enable: bool,
-    pub reset_after_completion: bool,
+    pub b_enable: bool,
+    pub b_reset_after_completion: bool,
     pub device_color_curve: UPtr<UCurveLinearColor>,
 }
 #[repr(C, align(1))]
 pub struct FDeviceTriggerBaseData {
     pub affected_triggers: EInputDeviceTriggerMask,
-    pub reset_upon_completion: bool,
+    pub b_reset_upon_completion: bool,
 }
 #[repr(C, align(8))]
 pub struct FDeviceTriggerFeedbackData {
@@ -4580,7 +4583,7 @@ pub struct FRootMotionSource {
     pub status: FRootMotionSourceStatus,
     pub settings: FRootMotionSourceSettings,
     pub accumulate_mode: ERootMotionAccumulateMode,
-    pub in_local_space: bool,
+    pub b_in_local_space: bool,
     pub root_motion_params: FRootMotionMovementParams,
     pub finish_velocity_params: FRootMotionFinishVelocitySettings,
 }
@@ -4595,18 +4598,18 @@ pub struct FRootMotionSource_RadialForce {
     pub location_actor: UPtr<AActor>,
     pub radius: f32,
     pub strength: f32,
-    pub is_push: bool,
-    pub no_z_force: bool,
+    pub b_is_push: bool,
+    pub b_no_z_force: bool,
     pub strength_distance_falloff: UPtr<UCurveFloat>,
     pub strength_over_time: UPtr<UCurveFloat>,
-    pub use_fixed_world_direction: bool,
+    pub b_use_fixed_world_direction: bool,
     pub fixed_world_direction: FRotator,
 }
 #[repr(C, align(16))]
 pub struct FRootMotionSource_MoveToForce {
     pub start_location: FVector,
     pub target_location: FVector,
-    pub restrict_speed_to_expected: bool,
+    pub b_restrict_speed_to_expected: bool,
     pub path_offset_curve: UPtr<UCurveVector>,
 }
 #[repr(C, align(16))]
@@ -4614,7 +4617,7 @@ pub struct FRootMotionSource_MoveToDynamicForce {
     pub start_location: FVector,
     pub initial_target_location: FVector,
     pub target_location: FVector,
-    pub restrict_speed_to_expected: bool,
+    pub b_restrict_speed_to_expected: bool,
     pub path_offset_curve: UPtr<UCurveVector>,
     pub time_mapping_curve: UPtr<UCurveFloat>,
 }
@@ -4623,7 +4626,7 @@ pub struct FRootMotionSource_JumpForce {
     pub rotation: FRotator,
     pub distance: f32,
     pub height: f32,
-    pub disable_timeout: bool,
+    pub b_disable_timeout: bool,
     pub path_offset_curve: UPtr<UCurveVector>,
     pub time_mapping_curve: UPtr<UCurveFloat>,
 }
@@ -4631,7 +4634,7 @@ pub struct FRootMotionSource_JumpForce {
 pub struct FRootMotionSourceGroupNetSerializerConfig {}
 #[repr(C, align(8))]
 pub struct FTouchInputControl {
-    pub treat_as_button: bool,
+    pub b_treat_as_button: bool,
     pub image1: UPtr<UTexture2D>,
     pub image2: UPtr<UTexture2D>,
     pub center: FVector2D,
@@ -4692,46 +4695,46 @@ pub struct FMeshApproximationSettings {
     pub output_type: EMeshApproximationType,
     pub approximation_accuracy: f32,
     pub clamp_voxel_dimension: i32,
-    pub attempt_auto_thickening: bool,
+    pub b_attempt_auto_thickening: bool,
     pub target_min_thickness_multiplier: f32,
-    pub ignore_tiny_parts: bool,
+    pub b_ignore_tiny_parts: bool,
     pub tiny_part_size_multiplier: f32,
     pub base_capping: EMeshApproximationBaseCappingType,
     pub winding_threshold: f32,
-    pub fill_gaps: bool,
+    pub b_fill_gaps: bool,
     pub gap_distance: f32,
     pub occlusion_method: EOccludedGeometryFilteringPolicy,
-    pub occlude_from_bottom: bool,
+    pub b_occlude_from_bottom: bool,
     pub simplify_method: EMeshApproximationSimplificationPolicy,
     pub target_tri_count: i32,
     pub triangles_per_m: f32,
     pub geometric_deviation: f32,
     pub ground_clipping: EMeshApproximationGroundPlaneClippingPolicy,
     pub ground_clipping_z_height: f32,
-    pub estimate_hard_normals: bool,
+    pub b_estimate_hard_normals: bool,
     pub hard_normal_angle: f32,
     pub uv_generation_method: EMeshApproximationUVGenerationPolicy,
     pub initial_patch_count: i32,
     pub curvature_alignment: f32,
     pub merging_threshold: f32,
     pub max_angle_deviation: f32,
-    pub generate_nanite_enabled_mesh: bool,
+    pub b_generate_nanite_enabled_mesh: bool,
     pub nanite_fallback_target: ENaniteFallbackTarget,
     pub nanite_fallback_percent_triangles: f32,
     pub nanite_fallback_relative_error: f32,
-    pub support_ray_tracing: bool,
-    pub allow_distance_field: bool,
+    pub b_support_ray_tracing: bool,
+    pub b_allow_distance_field: bool,
     pub multi_sampling_aa: i32,
     pub render_capture_resolution: i32,
     pub material_settings: FMaterialProxySettings,
     pub capture_field_of_view: f32,
     pub near_plane_dist: f32,
-    pub use_render_lod_meshes: bool,
-    pub enable_simplify_pre_pass: bool,
-    pub enable_parallel_baking: bool,
-    pub print_debug_messages: bool,
-    pub emit_full_debug_mesh: bool,
-    pub nanite_proxy_triangle_percent: f32,
+    pub b_use_render_lod_meshes: bool,
+    pub b_enable_simplify_pre_pass: bool,
+    pub b_enable_parallel_baking: bool,
+    pub b_print_debug_messages: bool,
+    pub b_emit_full_debug_mesh: bool,
+    pub nanite_proxy_triangle_percent_deprecated: f32,
 }
 #[repr(C, align(8))]
 pub struct FMaterialProxySettings {
@@ -4776,20 +4779,20 @@ pub struct FMeshMergingSettings {
     pub flags_189: u8,
     pub nanite_settings: FMeshNaniteSettings,
     pub flags_304: u8,
-    pub merged_material_atlas_resolution: i32,
-    pub export_specific_lod: i32,
+    pub merged_material_atlas_resolution_deprecated: i32,
+    pub export_specific_lod_deprecated: i32,
     pub flags_316: u8,
-    pub nanite_fallback_triangle_percent: f32,
+    pub nanite_fallback_triangle_percent_deprecated: f32,
 }
 #[repr(C, align(8))]
 pub struct FMeshProxySettings {
     pub screen_size: i32,
     pub voxel_size: f32,
     pub material_settings: FMaterialProxySettings,
-    pub texture_width: i32,
-    pub texture_height: i32,
+    pub texture_width_deprecated: i32,
+    pub texture_height_deprecated: i32,
     pub flags_176: u8,
-    pub nanite_proxy_triangle_percent: f32,
+    pub nanite_proxy_triangle_percent_deprecated: f32,
     pub merge_distance: f32,
     pub unresolved_geometry_color: FColor,
     pub max_ray_cast_dist: f32,
@@ -4850,10 +4853,10 @@ pub struct FCurveEdEntry {
     pub curve_object: UPtr<UObject>,
     pub curve_color: FColor,
     pub curve_name: FString,
-    pub hide_curve: i32,
-    pub color_curve: i32,
-    pub floating_point_color_curve: i32,
-    pub clamp: i32,
+    pub b_hide_curve: i32,
+    pub b_color_curve: i32,
+    pub b_floating_point_color_curve: i32,
+    pub b_clamp: i32,
     pub clamp_low: f32,
     pub clamp_high: f32,
 }
@@ -4896,7 +4899,7 @@ pub struct FISMComponentDescriptorBase {
     pub lighting_channels: FLightingChannels,
     pub ray_tracing_group_id: i32,
     pub ray_tracing_group_culling_priority: ERayTracingGroupCullingPriority,
-    pub has_custom_navigable_geometry: EHasCustomNavigableGeometry,
+    pub b_has_custom_navigable_geometry: EHasCustomNavigableGeometry,
     pub custom_depth_stencil_write_mask: ERendererStencilMask,
     pub body_instance: FBodyInstance,
     pub instance_min_draw_distance: i32,
@@ -4983,7 +4986,7 @@ pub struct FImportanceTexture {
     pub num_mips: i32,
     pub marginal_cdf: TArray<f32>,
     pub conditional_cdf: TArray<f32>,
-    pub texture_data: TArray<FColor>,
+    pub texture_data_deprecated: TArray<FColor>,
     pub linear_texture_data: TArray<FLinearColor>,
     pub texture: TWeakObjectPtr<UTexture2D>,
     pub weighting: EImportanceWeight,
@@ -5004,19 +5007,19 @@ pub struct FStreamableTextureInstance {}
 #[repr(C, align(8))]
 pub struct FDynamicTextureInstance {
     pub texture: UPtr<UTexture2D>,
-    pub attached: bool,
+    pub b_attached: bool,
     pub original_radius: f32,
 }
 #[repr(C, align(8))]
 pub struct FLevelSimplificationDetails {
-    pub create_package_per_asset: bool,
+    pub b_create_package_per_asset: bool,
     pub details_percentage: f32,
     pub static_mesh_material_settings: FMaterialProxySettings,
-    pub override_landscape_export_lod: bool,
+    pub b_override_landscape_export_lod: bool,
     pub landscape_export_lod: i32,
     pub landscape_material_settings: FMaterialProxySettings,
-    pub bake_foliage_to_landscape: bool,
-    pub bake_grass_to_landscape: bool,
+    pub b_bake_foliage_to_landscape: bool,
+    pub b_bake_grass_to_landscape: bool,
 }
 #[repr(C, align(8))]
 pub struct FReplicatedStaticActorDestructionInfo {
@@ -5079,7 +5082,7 @@ pub struct FMaterialCachedParameterEditorEntry {
 pub struct FMaterialCachedExpressionEditorOnlyData {
     pub editor_only_entries: FMaterialCachedParameterEntry,
     pub editor_entries: FMaterialCachedParameterEditorEntry,
-    pub static_switch_values: TArray<bool>,
+    pub static_switch_values_deprecated: TArray<bool>,
     pub static_component_mask_values: TArray<FStaticComponentMaskValue>,
     pub scalar_min_max_values: TArray<FVector2D>,
     pub scalar_enumeration_values: TArray<TSoftObjectPtr<UObject>>,
@@ -5129,7 +5132,7 @@ pub struct FMaterialCachedExpressionData {
     pub material_cache_uv_coordinates_used_mask: u64,
     pub flags_1256: u8,
     pub flags_1257: u8,
-    pub property_connected_bitmask: u32,
+    pub property_connected_bitmask_deprecated: u32,
     pub property_connected_mask: u64,
 }
 #[repr(C, align(8))]
@@ -5157,13 +5160,13 @@ pub struct FMaterialExternalCodeDeclaration {
 }
 #[repr(C, align(8))]
 pub struct FScalarParameterAtlasInstanceData {
-    pub is_used_as_atlas_position: bool,
+    pub b_is_used_as_atlas_position: bool,
     pub curve: TSoftObjectPtr<UCurveLinearColor>,
     pub atlas: TSoftObjectPtr<UCurveLinearColorAtlas>,
 }
 #[repr(C, align(8))]
 pub struct FScalarParameterValue {
-    pub parameter_name: FName,
+    pub parameter_name_deprecated: FName,
     pub atlas_data: FScalarParameterAtlasInstanceData,
     pub parameter_info: FMaterialParameterInfo,
     pub parameter_value: f32,
@@ -5171,7 +5174,7 @@ pub struct FScalarParameterValue {
 }
 #[repr(C, align(4))]
 pub struct FVectorParameterValue {
-    pub parameter_name: FName,
+    pub parameter_name_deprecated: FName,
     pub parameter_info: FMaterialParameterInfo,
     pub parameter_value: FLinearColor,
     pub expression_guid: FGuid,
@@ -5184,7 +5187,7 @@ pub struct FDoubleVectorParameterValue {
 }
 #[repr(C, align(8))]
 pub struct FTextureParameterValue {
-    pub parameter_name: FName,
+    pub parameter_name_deprecated: FName,
     pub parameter_info: FMaterialParameterInfo,
     pub parameter_value: UPtr<UTexture>,
     pub expression_guid: FGuid,
@@ -5215,7 +5218,7 @@ pub struct FSparseVolumeTextureParameterValue {
 }
 #[repr(C, align(8))]
 pub struct FFontParameterValue {
-    pub parameter_name: FName,
+    pub parameter_name_deprecated: FName,
     pub parameter_info: FMaterialParameterInfo,
     pub font_value: UPtr<UFont>,
     pub font_page: i32,
@@ -5255,7 +5258,7 @@ pub struct FMaterialCachedTexturesSamplingInfo {
 }
 #[repr(C, align(8))]
 pub struct FMaterialOverrideNanite {
-    pub enable_override: bool,
+    pub b_enable_override: bool,
     pub override_material_editor: UPtr<UMaterialInterface>,
     pub override_material: UPtr<UMaterialInterface>,
     pub override_material_ref: TSoftObjectPtr<UMaterialInterface>,
@@ -5279,8 +5282,8 @@ pub struct FMemberReference {
     pub member_scope: FString,
     pub member_name: FName,
     pub member_guid: FGuid,
-    pub self_context: bool,
-    pub was_deprecated: bool,
+    pub b_self_context: bool,
+    pub b_was_deprecated: bool,
 }
 #[repr(C, align(8))]
 pub struct FStaticMeshBudgetInfo {
@@ -5291,8 +5294,8 @@ pub struct FStaticMeshBudgetInfo {
 pub struct FMeshInstancingSettings {
     pub actor_class_to_use: TSubclassOf<AActor>,
     pub instance_replacement_threshold: i32,
-    pub skip_meshes_with_vertex_colors: bool,
-    pub use_hlod_volumes: bool,
+    pub b_skip_meshes_with_vertex_colors: bool,
+    pub b_use_hlod_volumes: bool,
     pub ism_component_to_use: TSubclassOf<UInstancedStaticMeshComponent>,
 }
 #[repr(C, align(4))]
@@ -5348,7 +5351,7 @@ pub struct FNetDriverReplicationSystemConfig {
     pub max_replication_writer_object_count: u32,
     pub max_delta_compressed_object_count: u32,
     pub max_net_object_group_count: u32,
-    pub allow_parallel_tasks: bool,
+    pub b_allow_parallel_tasks: bool,
 }
 #[repr(C, align(8))]
 pub struct FChannelDefinition {
@@ -5405,10 +5408,10 @@ pub struct FNetworkMetricsMutatorOutPacketLoss {}
 pub struct FNetworkMetricsMutatorInPacketLoss {}
 #[repr(C, align(8))]
 pub struct FRPCDoSState {
-    pub log_escalate: bool,
-    pub send_escalate_analytics: bool,
-    pub kick_player: bool,
-    pub track_recent_rp_cs: bool,
+    pub b_log_escalate: bool,
+    pub b_send_escalate_analytics: bool,
+    pub b_kick_player: bool,
+    pub b_track_recent_rp_cs: bool,
     pub escalate_quota_rp_cs_per_frame: i16,
     pub escalate_time_quota_ms_per_frame: i16,
     pub escalate_quota_rp_cs_per_period: i16,
@@ -5473,11 +5476,11 @@ pub struct FFXSystemSpawnParameters {
     pub attach_to_component: UPtr<USceneComponent>,
     pub attach_point_name: FName,
     pub location_type: EAttachLocation,
-    pub auto_destroy: bool,
-    pub auto_activate: bool,
+    pub b_auto_destroy: bool,
+    pub b_auto_activate: bool,
     pub pooling_method: EPSCPoolMethod,
-    pub pre_cull_check: bool,
-    pub is_player_effect: bool,
+    pub b_pre_cull_check: bool,
+    pub b_is_player_effect: bool,
 }
 #[repr(C, align(8))]
 pub struct FParticleSystemWorldManagerTickFunction {}
@@ -5501,17 +5504,17 @@ pub struct FClusteredComponentData {
         UClusterUnionReplicatedProxyComponent,
     >,
     pub owner: TWeakObjectPtr<AActor>,
-    pub was_replicating: bool,
-    pub pending_deletion: bool,
+    pub b_was_replicating: bool,
+    pub b_pending_deletion: bool,
 }
 #[repr(C, align(8))]
 pub struct FClusteredActorData {
-    pub was_replicating_movement: bool,
+    pub b_was_replicating_movement: bool,
 }
 #[repr(C, align(1))]
 pub struct FClusterUnionReplicatedData {
     pub object_state: u8,
-    pub is_anchored: bool,
+    pub b_is_anchored: bool,
 }
 #[repr(C, align(8))]
 pub struct FClusterUnionPendingAddData {
@@ -5539,7 +5542,7 @@ pub struct FLinearDriveConstraint {
     pub x_drive: FConstraintDrive,
     pub y_drive: FConstraintDrive,
     pub z_drive: FConstraintDrive,
-    pub acceleration_mode: bool,
+    pub b_acceleration_mode: bool,
     pub flags_97: u8,
 }
 #[repr(C, align(8))]
@@ -5550,7 +5553,7 @@ pub struct FAngularDriveConstraint {
     pub orientation_target: FRotator,
     pub angular_velocity_target: FVector,
     pub angular_drive_mode: EAngularDriveMode,
-    pub acceleration_mode: bool,
+    pub b_acceleration_mode: bool,
 }
 #[repr(C, align(8))]
 pub struct FConstraintProfileProperties {
@@ -5617,45 +5620,45 @@ pub struct FConstraintInstance {
     pub flags_304: u8,
     pub profile_instance: FConstraintProfileProperties,
     pub flags_680: u8,
-    pub projection_linear_tolerance: f32,
-    pub projection_angular_tolerance: f32,
-    pub linear_x_motion: ELinearConstraintMotion,
-    pub linear_y_motion: ELinearConstraintMotion,
-    pub linear_z_motion: ELinearConstraintMotion,
-    pub linear_limit_size: f32,
+    pub projection_linear_tolerance_deprecated: f32,
+    pub projection_angular_tolerance_deprecated: f32,
+    pub linear_x_motion_deprecated: ELinearConstraintMotion,
+    pub linear_y_motion_deprecated: ELinearConstraintMotion,
+    pub linear_z_motion_deprecated: ELinearConstraintMotion,
+    pub linear_limit_size_deprecated: f32,
     pub flags_700: u8,
-    pub linear_limit_stiffness: f32,
-    pub linear_limit_damping: f32,
+    pub linear_limit_stiffness_deprecated: f32,
+    pub linear_limit_damping_deprecated: f32,
     pub flags_712: u8,
-    pub linear_break_threshold: f32,
-    pub angular_swing1_motion: EAngularConstraintMotion,
-    pub angular_twist_motion: EAngularConstraintMotion,
-    pub angular_swing2_motion: EAngularConstraintMotion,
+    pub linear_break_threshold_deprecated: f32,
+    pub angular_swing1_motion_deprecated: EAngularConstraintMotion,
+    pub angular_twist_motion_deprecated: EAngularConstraintMotion,
+    pub angular_swing2_motion_deprecated: EAngularConstraintMotion,
     pub flags_724: u8,
-    pub swing1_limit_angle: f32,
-    pub twist_limit_angle: f32,
-    pub swing2_limit_angle: f32,
-    pub swing_limit_stiffness: f32,
-    pub swing_limit_damping: f32,
-    pub twist_limit_stiffness: f32,
-    pub twist_limit_damping: f32,
+    pub swing1_limit_angle_deprecated: f32,
+    pub twist_limit_angle_deprecated: f32,
+    pub swing2_limit_angle_deprecated: f32,
+    pub swing_limit_stiffness_deprecated: f32,
+    pub swing_limit_damping_deprecated: f32,
+    pub twist_limit_stiffness_deprecated: f32,
+    pub twist_limit_damping_deprecated: f32,
     pub flags_756: u8,
-    pub angular_break_threshold: f32,
+    pub angular_break_threshold_deprecated: f32,
     pub flags_764: u8,
-    pub linear_position_target: FVector,
-    pub linear_velocity_target: FVector,
-    pub linear_drive_spring: f32,
-    pub linear_drive_damping: f32,
-    pub linear_drive_force_limit: f32,
+    pub linear_position_target_deprecated: FVector,
+    pub linear_velocity_target_deprecated: FVector,
+    pub linear_drive_spring_deprecated: f32,
+    pub linear_drive_damping_deprecated: f32,
+    pub linear_drive_force_limit_deprecated: f32,
     pub flags_828: u8,
     pub flags_829: u8,
-    pub angular_position_target: FQuat,
-    pub angular_drive_mode: EAngularDriveMode,
-    pub angular_orientation_target: FRotator,
-    pub angular_velocity_target: FVector,
-    pub angular_drive_spring: f32,
-    pub angular_drive_damping: f32,
-    pub angular_drive_force_limit: f32,
+    pub angular_position_target_deprecated: FQuat,
+    pub angular_drive_mode_deprecated: EAngularDriveMode,
+    pub angular_orientation_target_deprecated: FRotator,
+    pub angular_velocity_target_deprecated: FVector,
+    pub angular_drive_spring_deprecated: f32,
+    pub angular_drive_damping_deprecated: f32,
+    pub angular_drive_force_limit_deprecated: f32,
 }
 #[repr(C, align(16))]
 pub struct FConstraintInstanceAccessor {
@@ -5690,22 +5693,22 @@ pub struct FNetworkPhysicsDataCollection {
 }
 #[repr(C, align(8))]
 pub struct FNetworkPhysicsData {
-    pub input_frame: i32,
+    pub input_frame_deprecated: i32,
 }
 #[repr(C, align(4))]
 pub struct FNetworkPhysicsSettings {
-    pub override_sim_proxy_rep_mode: bool,
+    pub b_override_sim_proxy_rep_mode: bool,
     pub sim_proxy_rep_mode: EPhysicsReplicationMode,
-    pub focal_particle_in_physics_replication_lod: bool,
+    pub b_focal_particle_in_physics_replication_lod: bool,
     pub event_scheduling_min_delay_seconds: f32,
 }
 #[repr(C, align(4))]
 pub struct FNetworkPhysicsSettingsDefaultReplication {
     pub flags_0: u8,
     pub max_linear_hard_snap_distance: f32,
-    pub hardsnap_in_physics_thread: bool,
-    pub correct_connected_bodies: bool,
-    pub correct_connected_bodies_friction: bool,
+    pub b_hardsnap_in_physics_thread: bool,
+    pub b_correct_connected_bodies: bool,
+    pub b_correct_connected_bodies_friction: bool,
 }
 #[repr(C, align(4))]
 pub struct FNetworkPhysicsSettingsPredictiveInterpolation {
@@ -5721,12 +5724,12 @@ pub struct FNetworkPhysicsSettingsPredictiveInterpolation {
     pub rot_interpolation_time_multiplier: f32,
     pub soft_snap_pos_strength: f32,
     pub soft_snap_rot_strength: f32,
-    pub soft_snap_to_source: bool,
-    pub disable_soft_snap: bool,
-    pub skip_velocity_rep_on_pos_early_out: bool,
-    pub post_resim_wait_for_update: bool,
-    pub correct_connected_bodies: bool,
-    pub correct_connected_bodies_friction: bool,
+    pub b_soft_snap_to_source: bool,
+    pub b_disable_soft_snap: bool,
+    pub b_skip_velocity_rep_on_pos_early_out: bool,
+    pub b_post_resim_wait_for_update: bool,
+    pub b_correct_connected_bodies: bool,
+    pub b_correct_connected_bodies_friction: bool,
 }
 #[repr(C, align(4))]
 pub struct FNetworkPhysicsSettingsResimulationErrorCorrection {
@@ -5735,7 +5738,7 @@ pub struct FNetworkPhysicsSettingsResimulationErrorCorrection {
     pub resim_error_maximum_distance_before_snapping: f32,
     pub resim_error_maximum_desync_time_before_snapping: f32,
     pub resim_error_directional_decay_multiplier: f32,
-    pub render_interp_apply_exponential_decay: bool,
+    pub b_render_interp_apply_exponential_decay: bool,
     pub render_interp_exponential_decay_linear_half_life: f32,
     pub render_interp_exponential_decay_angular_half_life: f32,
     pub render_interp_minimum_linear_threshold: f32,
@@ -5745,14 +5748,14 @@ pub struct FNetworkPhysicsSettingsResimulationErrorCorrection {
 pub struct FNetworkPhysicsSettingsResimulation {
     pub flags_0: u8,
     pub flags_1: u8,
-    pub resimulation_error_threshold: u32,
+    pub resimulation_error_threshold_deprecated: u32,
     pub resimulation_error_position_threshold: f32,
     pub resimulation_error_rotation_threshold: f32,
     pub resimulation_error_linear_velocity_threshold: f32,
     pub resimulation_error_angular_velocity_threshold: f32,
-    pub runtime_correction_enabled: bool,
-    pub runtime_velocity_correction: bool,
-    pub runtime_correct_connected_bodies: bool,
+    pub b_runtime_correction_enabled: bool,
+    pub b_runtime_velocity_correction: bool,
+    pub b_runtime_correct_connected_bodies: bool,
     pub pos_stability_multiplier: f32,
     pub rot_stability_multiplier: f32,
     pub vel_stability_multiplier: f32,
@@ -5766,18 +5769,18 @@ pub struct FNetworkPhysicsSettingsNetworkPhysicsComponent {
     pub redundant_inputs: u16,
     pub redundant_remote_inputs: u16,
     pub redundant_states: u16,
-    pub compare_state_to_trigger_rewind: bool,
-    pub compare_state_to_trigger_rewind_include_sim_proxies: bool,
-    pub compare_input_to_trigger_rewind: bool,
-    pub enable_unreliable_flow: bool,
-    pub enable_reliable_flow: bool,
-    pub apply_data_instead_of_merge_data: bool,
-    pub allow_input_extrapolation: bool,
-    pub validate_data_on_game_thread: bool,
-    pub apply_sim_proxy_state_at_runtime: bool,
-    pub apply_sim_proxy_input_at_runtime: bool,
-    pub trigger_resim_on_input_receive: bool,
-    pub apply_input_decay_over_set_time: bool,
+    pub b_compare_state_to_trigger_rewind: bool,
+    pub b_compare_state_to_trigger_rewind_include_sim_proxies: bool,
+    pub b_compare_input_to_trigger_rewind: bool,
+    pub b_enable_unreliable_flow: bool,
+    pub b_enable_reliable_flow: bool,
+    pub b_apply_data_instead_of_merge_data: bool,
+    pub b_allow_input_extrapolation: bool,
+    pub b_validate_data_on_game_thread: bool,
+    pub b_apply_sim_proxy_state_at_runtime: bool,
+    pub b_apply_sim_proxy_input_at_runtime: bool,
+    pub b_trigger_resim_on_input_receive: bool,
+    pub b_apply_input_decay_over_set_time: bool,
     pub input_decay_set_time: f32,
     pub input_decay_curve: FRuntimeFloatCurve,
 }
@@ -5808,8 +5811,8 @@ pub struct FPhysicsAssetSolverSettings {
     pub cull_distance: f32,
     pub max_depenetration_velocity: f32,
     pub fixed_time_step: f32,
-    pub use_linear_joint_solver: bool,
-    pub use_manifolds: bool,
+    pub b_use_linear_joint_solver: bool,
+    pub b_use_manifolds: bool,
 }
 #[repr(C, align(4))]
 pub struct FSolverIterations {
@@ -5838,18 +5841,18 @@ pub struct FChaosPhysicsSettings {
 }
 #[repr(C, align(4))]
 pub struct FPhysicsReplicationResimulationSettings {
-    pub enable_resimulation_error_position_threshold: bool,
+    pub b_enable_resimulation_error_position_threshold: bool,
     pub resimulation_error_position_threshold: f32,
-    pub enable_resimulation_error_rotation_threshold: bool,
+    pub b_enable_resimulation_error_rotation_threshold: bool,
     pub resimulation_error_rotation_threshold: f32,
-    pub enable_resimulation_error_linear_velocity_threshold: bool,
+    pub b_enable_resimulation_error_linear_velocity_threshold: bool,
     pub resimulation_error_linear_velocity_threshold: f32,
-    pub enable_resimulation_error_angular_velocity_threshold: bool,
+    pub b_enable_resimulation_error_angular_velocity_threshold: bool,
     pub resimulation_error_angular_velocity_threshold: f32,
 }
 #[repr(C, align(4))]
 pub struct FPhysicsReplicationLODSettings {
-    pub enable_physics_replication_lod: bool,
+    pub b_enable_physics_replication_lod: bool,
     pub minimum_base_distance: f32,
     pub base_distance_radius_multiplier: f32,
     pub base_distances_for_resimulation_mode: f32,
@@ -5858,10 +5861,10 @@ pub struct FPhysicsReplicationLODSettings {
 }
 #[repr(C, align(4))]
 pub struct FPhysicsPredictionSettings {
-    pub enable_physics_resimulation: bool,
-    pub resimulation_error_threshold: f32,
-    pub enable_physics_prediction: bool,
-    pub enable_physics_history_capture: bool,
+    pub b_enable_physics_resimulation_deprecated: bool,
+    pub resimulation_error_threshold_deprecated: f32,
+    pub b_enable_physics_prediction: bool,
+    pub b_enable_physics_history_capture: bool,
     pub max_supported_latency_prediction: f32,
     pub resimulation_settings: FPhysicsReplicationResimulationSettings,
     pub physics_replication_lod_settings: FPhysicsReplicationLODSettings,
@@ -5893,10 +5896,10 @@ pub struct FViewTargetTransitionParams {
 pub struct FUpdateLevelStreamingLevelStatus {
     pub package_name: FName,
     pub lod_index: i32,
-    pub new_should_be_loaded: bool,
-    pub new_should_be_visible: bool,
-    pub new_should_block_on_load: bool,
-    pub new_should_block_on_unload: bool,
+    pub b_new_should_be_loaded: bool,
+    pub b_new_should_be_visible: bool,
+    pub b_new_should_block_on_load: bool,
+    pub b_new_should_block_on_unload: bool,
 }
 #[repr(C, align(4))]
 pub struct FAsyncPhysicsTimestamp {
@@ -5905,7 +5908,7 @@ pub struct FAsyncPhysicsTimestamp {
 }
 #[repr(C, align(8))]
 pub struct FPlayerMuteList {
-    pub has_voice_handshake_completed: bool,
+    pub b_has_voice_handshake_completed: bool,
     pub voice_channel_idx: i32,
 }
 #[repr(C, align(8))]
@@ -5951,8 +5954,8 @@ pub struct FSubsurfaceProfileStruct {
     pub mean_free_path_color: FLinearColor,
     pub mean_free_path_distance: f32,
     pub world_unit_scale: f32,
-    pub enable_burley: bool,
-    pub enable_mean_free_path: bool,
+    pub b_enable_burley: bool,
+    pub b_enable_mean_free_path: bool,
     pub tint: FLinearColor,
     pub scatter_radius: f32,
     pub subsurface_color: FLinearColor,
@@ -5977,8 +5980,8 @@ pub struct FLevelNameAndTime {
 pub struct FRepMovementNetSerializerConfig {}
 #[repr(C, align(8))]
 pub struct FReverbSettings {
-    pub apply_reverb: bool,
-    pub reverb_type: ReverbPreset,
+    pub b_apply_reverb: bool,
+    pub reverb_type_deprecated: ReverbPreset,
     pub reverb_effect: UPtr<UReverbEffect>,
     pub reverb_plugin_effect: UPtr<USoundEffectSubmixPreset>,
     pub volume: f32,
@@ -6169,11 +6172,11 @@ pub struct FBoneMirrorExport {
 pub struct FSkeletalMeshClothBuildParams {
     pub target_asset: TWeakObjectPtr<UClothingAssetBase>,
     pub target_lod: i32,
-    pub remap_parameters: bool,
+    pub b_remap_parameters: bool,
     pub asset_name: FString,
     pub lod_index: i32,
     pub source_section: i32,
-    pub remove_from_mesh: bool,
+    pub b_remove_from_mesh: bool,
     pub physics_asset: TSoftObjectPtr<UPhysicsAsset>,
 }
 #[repr(C, align(4))]
@@ -6203,12 +6206,12 @@ pub struct FClothPhysicsProperties_Legacy {
 pub struct FClothingAssetData_Legacy {
     pub asset_name: FName,
     pub apex_file_name: FString,
-    pub cloth_properties_changed: bool,
+    pub b_cloth_properties_changed: bool,
     pub physics_properties: FClothPhysicsProperties_Legacy,
 }
 #[repr(C, align(4))]
 pub struct FBoneFilter {
-    pub exclude_self: bool,
+    pub b_exclude_self: bool,
     pub bone_name: FName,
 }
 #[repr(C, align(8))]
@@ -6222,7 +6225,7 @@ pub struct FSkeletalMeshLODGroupSettings {
     pub weight_of_prioritization: f32,
     pub bake_pose: UPtr<UAnimSequence>,
     pub reduction_settings: FSkeletalMeshOptimizationSettings,
-    pub allow_mesh_deformer: bool,
+    pub b_allow_mesh_deformer: bool,
 }
 #[repr(C, align(8))]
 pub struct FSkelMeshMergeSectionMapping {
@@ -6272,8 +6275,8 @@ pub struct FSkeletalMeshLODInfo {
     pub screen_size: FPerPlatformFloat,
     pub lod_hysteresis: f32,
     pub lod_material_map: TArray<i32>,
-    pub enable_shadow_casting: TArray<bool>,
-    pub removed_bones: TArray<FName>,
+    pub b_enable_shadow_casting_deprecated: TArray<bool>,
+    pub removed_bones_deprecated: TArray<FName>,
     pub build_settings: FSkeletalMeshBuildSettings,
     pub reduction_settings: FSkeletalMeshOptimizationSettings,
     pub bones_to_remove: TArray<FBoneReference>,
@@ -6316,8 +6319,8 @@ pub struct FSkeletalMeshSourceModel {
 pub struct FSkeletalMaterial {
     pub material_interface: UPtr<UMaterialInterface>,
     pub material_slot_name: FName,
-    pub enable_shadow_casting: bool,
-    pub recompute_tangent: bool,
+    pub b_enable_shadow_casting_deprecated: bool,
+    pub b_recompute_tangent_deprecated: bool,
     pub imported_material_slot_name: FName,
     pub uv_channel_data: FMeshUVChannelInfo,
     pub overlay_material_interface: UPtr<UMaterialInterface>,
@@ -6350,15 +6353,17 @@ pub struct FSoundAttenuationSettings {
     pub occlusion_trace_channel: ECollisionChannel,
     pub reverb_send_method: EReverbSendMethod,
     pub priority_attenuation_method: EPriorityAttenuationMethod,
-    pub distance_type: ESoundDistanceCalc,
-    pub omni_radius: f32,
+    pub distance_type_deprecated: ESoundDistanceCalc,
+    pub omni_radius_deprecated: f32,
     pub non_spatialized_radius_start: f32,
     pub non_spatialized_radius_end: f32,
     pub non_spatialized_radius_mode: ENonSpatializedRadiusSpeakerMapMode,
     pub stereo_spread: f32,
-    pub spatialization_plugin_settings: UPtr<USpatializationPluginSourceSettingsBase>,
-    pub radius_min: f32,
-    pub radius_max: f32,
+    pub spatialization_plugin_settings_deprecated: UPtr<
+        USpatializationPluginSourceSettingsBase,
+    >,
+    pub radius_min_deprecated: f32,
+    pub radius_max_deprecated: f32,
     pub lpf_radius_min: f32,
     pub lpf_radius_max: f32,
     pub lpf_frequency_at_min: f32,
@@ -6378,8 +6383,8 @@ pub struct FSoundAttenuationSettings {
     pub occlusion_low_pass_filter_frequency: f32,
     pub occlusion_volume_attenuation: f32,
     pub occlusion_interpolation_time: f32,
-    pub occlusion_plugin_settings: UPtr<UOcclusionPluginSourceSettingsBase>,
-    pub reverb_plugin_settings: UPtr<UReverbPluginSourceSettingsBase>,
+    pub occlusion_plugin_settings_deprecated: UPtr<UOcclusionPluginSourceSettingsBase>,
+    pub reverb_plugin_settings_deprecated: UPtr<UReverbPluginSourceSettingsBase>,
     pub reverb_wet_level_min: f32,
     pub reverb_wet_level_max: f32,
     pub reverb_distance_min: f32,
@@ -6429,7 +6434,7 @@ pub struct FSoundModulationDefaultSettings {
 #[repr(C, align(8))]
 pub struct FSoundModulationDestinationSettings {
     pub value: f32,
-    pub enable_modulation: bool,
+    pub b_enable_modulation: bool,
     pub modulator: UPtr<USoundModulatorBase>,
     pub modulators: TSet<UPtr<USoundModulatorBase>>,
 }
@@ -6566,7 +6571,7 @@ pub struct FSplineMeshComponentDescriptorBase {
     pub lighting_channels: FLightingChannels,
     pub ray_tracing_group_id: i32,
     pub ray_tracing_group_culling_priority: ERayTracingGroupCullingPriority,
-    pub has_custom_navigable_geometry: EHasCustomNavigableGeometry,
+    pub b_has_custom_navigable_geometry: EHasCustomNavigableGeometry,
     pub custom_depth_stencil_write_mask: ERendererStencilMask,
     pub body_instance: FBodyInstance,
     pub virtual_texture_cull_mips: i32,
@@ -6602,7 +6607,7 @@ pub struct FStaticMeshOptimizationSettings {
     pub num_of_triangles_percentage: f32,
     pub max_deviation_percentage: f32,
     pub welding_threshold: f32,
-    pub recalc_normals: bool,
+    pub b_recalc_normals: bool,
     pub normals_threshold: f32,
     pub silhouette_importance: u8,
     pub texture_importance: u8,
@@ -6611,11 +6616,11 @@ pub struct FStaticMeshOptimizationSettings {
 #[repr(C, align(4))]
 pub struct FMeshSectionInfo {
     pub material_index: i32,
-    pub enable_collision: bool,
-    pub cast_shadow: bool,
-    pub visible_in_ray_tracing: bool,
-    pub affect_distance_field_lighting: bool,
-    pub force_opaque: bool,
+    pub b_enable_collision: bool,
+    pub b_cast_shadow: bool,
+    pub b_visible_in_ray_tracing: bool,
+    pub b_affect_distance_field_lighting: bool,
+    pub b_force_opaque: bool,
 }
 #[repr(C, align(8))]
 pub struct FMeshSectionInfoMap {
@@ -6623,7 +6628,7 @@ pub struct FMeshSectionInfoMap {
 }
 #[repr(C, align(8))]
 pub struct FAssetEditorOrbitCameraPosition {
-    pub is_set: bool,
+    pub b_is_set: bool,
     pub cam_orbit_point: FVector,
     pub cam_orbit_zoom: FVector,
     pub cam_orbit_rotation: FRotator,
@@ -6650,10 +6655,10 @@ pub struct FStaticMeshSourceModel {
     pub reduction_settings: FMeshReductionSettings,
     pub cache_mesh_description_triangles_count: u32,
     pub cache_mesh_description_vertices_count: u32,
-    pub lod_distance: f32,
+    pub lod_distance_deprecated: f32,
     pub screen_size: FPerPlatformFloat,
     pub source_import_filename: FString,
-    pub import_with_base_mesh: bool,
+    pub b_import_with_base_mesh: bool,
 }
 #[repr(C, align(8))]
 pub struct FStreamableTexture {
@@ -6664,7 +6669,7 @@ pub struct FStreamableTexture {
 pub struct FSubtitleAssetData {
     pub text: FText,
     pub subtitle_duration_type: ESubtitleDurationType,
-    pub can_edit_duration: bool,
+    pub b_can_edit_duration: bool,
     pub duration: f32,
     pub start_offset: f32,
     pub priority: f32,
@@ -6698,7 +6703,7 @@ pub struct FImportFactorySettingValues {
 pub struct FEditorImportExportTestDefinition {
     pub import_file_path: FFilePath,
     pub export_file_extension: FString,
-    pub skip_export: bool,
+    pub b_skip_export: bool,
     pub factory_settings: TArray<FImportFactorySettingValues>,
 }
 #[repr(C, align(8))]
@@ -6798,10 +6803,10 @@ pub struct FTextureSource {
     pub num_slices: i32,
     pub num_mips: i32,
     pub num_layers: i32,
-    pub png_compressed: bool,
-    pub long_lat_cubemap: bool,
+    pub b_png_compressed_deprecated: bool,
+    pub b_long_lat_cubemap: bool,
     pub compression_format: ETextureSourceCompressionFormat,
-    pub guid_is_hash: bool,
+    pub b_guid_is_hash: bool,
     pub layer_color_info_lock_protected: TArray<FTextureSourceLayerColorInfo>,
     pub format: ETextureSourceFormat,
     pub layer_format: TArray<ETextureSourceFormat>,
@@ -6856,9 +6861,9 @@ pub struct FTextureLODGroup {
 #[repr(C, align(8))]
 pub struct FTTTrackBase {
     pub track_name: FName,
-    pub is_external_curve: bool,
-    pub is_expanded: bool,
-    pub is_curve_view_synchronized: bool,
+    pub b_is_external_curve: bool,
+    pub b_is_expanded: bool,
+    pub b_is_curve_view_synchronized: bool,
 }
 #[repr(C, align(4))]
 pub struct FTTTrackId {
@@ -6982,9 +6987,9 @@ pub struct FVirtualTextureSpacePoolConfig {
     pub min_tile_size: i32,
     pub max_tile_size: i32,
     pub size_in_megabyte: i32,
-    pub enable_residency_mip_map_bias: bool,
+    pub b_enable_residency_mip_map_bias: bool,
     pub residency_mip_map_bias_group: i32,
-    pub allow_size_scale: bool,
+    pub b_allow_size_scale: bool,
     pub min_scaled_size_in_megabyte: i32,
     pub max_scaled_size_in_megabyte: i32,
 }
@@ -7013,8 +7018,8 @@ pub struct FActorDesc {
     pub label: FName,
     pub bounds: FBox,
     pub runtime_grid: FName,
-    pub is_spatially_loaded: bool,
-    pub actor_is_editor_only: bool,
+    pub b_is_spatially_loaded: bool,
+    pub b_actor_is_editor_only: bool,
     pub actor_package: FName,
     pub actor_path: FName,
     pub data_layer_assets: TArray<FSoftObjectPath>,
@@ -7091,7 +7096,7 @@ pub struct FRuntimePartitionHLODSetup {
     pub hlod_layers: TArray<UPtr<UHLODLayer>>,
     pub row_display_name: FName,
     pub partition_layer: UPtr<URuntimePartition>,
-    pub is_spatially_loaded: bool,
+    pub b_is_spatially_loaded: bool,
 }
 #[repr(C, align(8))]
 pub struct FRuntimePartitionDesc {
@@ -7142,7 +7147,7 @@ pub struct FSubObjectPropertyOverride {
 pub struct FPropertyOverrideReferenceTable {
     pub soft_object_path_table: TArray<FSoftObjectPath>,
     pub object_references: TSet<UPtr<UObject>>,
-    pub is_valid: bool,
+    pub b_is_valid: bool,
 }
 #[repr(C, align(8))]
 pub struct FActorPropertyOverride {
@@ -7174,7 +7179,7 @@ pub struct FWorldPartitionRuntimeCellObjectMapping {
     pub world_package: FName,
     pub actor_instance_guid: FGuid,
     pub loaded_path: FName,
-    pub is_editor_only: bool,
+    pub b_is_editor_only: bool,
     pub property_overrides: TArray<FWorldPartitionRuntimeCellPropertyOverride>,
 }
 #[repr(C, align(8))]
@@ -7207,10 +7212,10 @@ pub struct FWorldPartitionRuntimeCellStreamingData {
 }
 #[repr(C, align(1))]
 pub struct FSpatialHashSettings {
-    pub use_aligned_grid_levels: bool,
-    pub snap_non_aligned_grid_levels_to_lower_levels: bool,
-    pub place_small_actors_using_location: bool,
-    pub place_partition_actors_using_location: bool,
+    pub b_use_aligned_grid_levels: bool,
+    pub b_snap_non_aligned_grid_levels_to_lower_levels: bool,
+    pub b_place_small_actors_using_location: bool,
+    pub b_place_partition_actors_using_location: bool,
 }
 #[repr(C, align(8))]
 pub struct FSpatialHashStreamingGridLayerCell {
@@ -7227,11 +7232,11 @@ pub struct FSpatialHashStreamingGrid {
     pub origin: FVector,
     pub cell_size: i32,
     pub loading_range: f32,
-    pub block_on_slow_streaming: bool,
+    pub b_block_on_slow_streaming: bool,
     pub debug_color: FLinearColor,
     pub grid_levels: TArray<FSpatialHashStreamingGridLevel>,
     pub world_bounds: FBox,
-    pub client_only_visible: bool,
+    pub b_client_only_visible: bool,
     pub grid_index: i32,
     pub settings: FSpatialHashSettings,
     pub injected_grid_levels: TArray<FSpatialHashStreamingGridLevel>,
@@ -7241,11 +7246,11 @@ pub struct FSpatialHashRuntimeGrid {
     pub grid_name: FName,
     pub cell_size: i32,
     pub loading_range: f32,
-    pub block_on_slow_streaming: bool,
+    pub b_block_on_slow_streaming: bool,
     pub origin: FVector2D,
     pub priority: i32,
     pub debug_color: FLinearColor,
-    pub client_only_visible: bool,
+    pub b_client_only_visible: bool,
     pub hlod_layer: UPtr<UHLODLayer>,
 }
 #[repr(C, align(8))]
@@ -7276,10 +7281,10 @@ pub struct FWorldPartitionUpdateStreamingCurrentState {
 }
 #[repr(C, align(8))]
 pub struct FStreamingSourceShape {
-    pub use_grid_loading_range: bool,
+    pub b_use_grid_loading_range: bool,
     pub loading_range_scale: f32,
     pub radius: f32,
-    pub is_sector: bool,
+    pub b_is_sector: bool,
     pub sector_angle: f32,
     pub location: FVector,
     pub rotation: FRotator,
@@ -7288,10 +7293,10 @@ pub struct FStreamingSourceShape {
 pub struct FWorldPartitionStreamingQuerySource {
     pub location: FVector,
     pub radius: f32,
-    pub use_grid_loading_range: bool,
+    pub b_use_grid_loading_range: bool,
     pub data_layers: TArray<FName>,
-    pub data_layers_only: bool,
-    pub spatial_query: bool,
+    pub b_data_layers_only: bool,
+    pub b_spatial_query: bool,
 }
 #[repr(C, align(4))]
 pub struct FLightmassWorldInfoSettings {
@@ -7316,7 +7321,7 @@ pub struct FLightmassWorldInfoSettings {
     pub occlusion_exponent: f32,
     pub fully_occluded_samples_fraction: f32,
     pub max_occlusion_distance: f32,
-    pub world_partition: bool,
+    pub b_world_partition: bool,
 }
 #[repr(C, align(8))]
 pub struct FNetViewer {
@@ -7328,13 +7333,13 @@ pub struct FNetViewer {
 }
 #[repr(C, align(1))]
 pub struct FNaniteSettings {
-    pub allow_masked_materials: bool,
+    pub b_allow_masked_materials: bool,
 }
 #[repr(C, align(8))]
 pub struct FBroadphaseSettings {
-    pub use_mbp_on_client: bool,
-    pub use_mbp_on_server: bool,
-    pub use_mbp_outer_bounds: bool,
+    pub b_use_mbp_on_client: bool,
+    pub b_use_mbp_on_server: bool,
+    pub b_use_mbp_outer_bounds: bool,
     pub mbp_bounds: FBox,
     pub mbp_outer_bounds: FBox,
     pub mbp_num_subdivs: u32,
@@ -7373,7 +7378,7 @@ pub struct UMaterialExpressionFirstPersonOutput {
     pub const_first_person_interpolation_alpha: f32,
 }
 pub struct UMaterialExpressionMaterialCache {
-    pub is_sample: bool,
+    pub b_is_sample: bool,
     pub tag: UPtr<UMaterialCacheVirtualTextureTag>,
     pub attributes: TArray<FMaterialExpressionMaterialCacheAttribute>,
     pub primitive: FExpressionInput,
@@ -7431,7 +7436,7 @@ pub struct AActor {
     pub initial_life_span: f32,
     pub custom_time_dilation: f32,
     pub ray_tracing_group_id: i32,
-    pub grid_placement: EActorGridPlacement,
+    pub grid_placement_deprecated: EActorGridPlacement,
     pub runtime_grid: FName,
     pub attachment_replication: FRepAttachment,
     pub replicated_movement: FRepMovement,
@@ -7456,7 +7461,7 @@ pub struct AActor {
     pub hlod_layer: UPtr<UHLODLayer>,
     pub objects_detached_from_external_package: TArray<UPtr<UObject>>,
     pub layers: TArray<FName>,
-    pub parent_component_actor: TWeakObjectPtr<AActor>,
+    pub parent_component_actor_deprecated: TWeakObjectPtr<AActor>,
     pub parent_component: TWeakObjectPtr<UChildActorComponent>,
     pub actor_guid: FGuid,
     pub actor_instance_guid: FGuid,
@@ -7504,7 +7509,7 @@ pub struct UActorComponent {
     pub creation_method: EComponentCreationMethod,
     pub on_component_activated: FActorComponent_OnComponentActivated,
     pub on_component_deactivated: FActorComponent_OnComponentDeactivated,
-    pub ucs_modified_properties: TArray<FSimpleMemberReference>,
+    pub ucs_modified_properties_deprecated: TArray<FSimpleMemberReference>,
 }
 pub struct USceneComponent {
     pub physics_volume: TWeakObjectPtr<APhysicsVolume>,
@@ -7545,10 +7550,10 @@ pub struct UPrimitiveComponent {
     pub flags_706: u8,
     pub first_person_primitive_type: EFirstPersonPrimitiveType,
     pub flags_708: u8,
-    pub has_custom_navigable_geometry: EHasCustomNavigableGeometry,
+    pub b_has_custom_navigable_geometry: EHasCustomNavigableGeometry,
     pub hit_proxy_priority: EHitProxyPriority,
-    pub exclude_for_specific_hlod_levels: TArray<i32>,
-    pub can_be_character_base: ECanBeCharacterBase,
+    pub exclude_for_specific_hlod_levels_deprecated: TArray<i32>,
+    pub can_be_character_base_deprecated: ECanBeCharacterBase,
     pub flags_737: u8,
     pub can_character_step_up_on: ECanBeCharacterBase,
     pub lighting_channels: FLightingChannels,
@@ -7622,7 +7627,7 @@ pub struct UStaticMeshComponent {
     pub distance_field_self_shadow_bias: f32,
     pub streaming_distance_multiplier: f32,
     pub nanite_pixel_programmable_distance: f32,
-    pub irrelevant_lights: TArray<FGuid>,
+    pub irrelevant_lights_deprecated: TArray<FGuid>,
     pub lod_data: TArray<FStaticMeshComponentLODInfo>,
     pub streaming_texture_data: TArray<FStreamingTextureBuildInfo>,
     pub static_mesh_derived_data_key: FString,
@@ -7647,7 +7652,7 @@ pub struct AController {
 pub struct UAISystemBase {
     pub ai_system_class_name: FSoftClassPath,
     pub ai_system_module_name: FName,
-    pub instantiate_ai_system_on_client: bool,
+    pub b_instantiate_ai_system_on_client: bool,
 }
 pub struct APawn {
     pub flags_1144: u8,
@@ -7716,9 +7721,9 @@ pub struct UWorld {
     pub thumbnail_info: UPtr<UThumbnailInfo>,
     pub persistent_level: UPtr<ULevel>,
     pub net_driver: UPtr<UNetDriver>,
-    pub line_batcher: UPtr<ULineBatchComponent>,
-    pub persistent_line_batcher: UPtr<ULineBatchComponent>,
-    pub foreground_line_batcher: UPtr<ULineBatchComponent>,
+    pub line_batcher_deprecated: UPtr<ULineBatchComponent>,
+    pub persistent_line_batcher_deprecated: UPtr<ULineBatchComponent>,
+    pub foreground_line_batcher_deprecated: UPtr<ULineBatchComponent>,
     pub network_manager: UPtr<AGameNetworkManager>,
     pub physics_collision_handler: UPtr<UPhysicsCollisionHandler>,
     pub physics_query_handler: UPtr<UPhysicsQueryHandler>,
@@ -7800,30 +7805,30 @@ pub struct ACameraActor {
     pub camera_component: UPtr<UCameraComponent>,
     pub scene_component: UPtr<USceneComponent>,
     pub flags_1160: u8,
-    pub aspect_ratio: f32,
-    pub fov_angle: f32,
-    pub post_process_blend_weight: f32,
-    pub post_process_settings: FPostProcessSettings,
+    pub aspect_ratio_deprecated: f32,
+    pub fov_angle_deprecated: f32,
+    pub post_process_blend_weight_deprecated: f32,
+    pub post_process_settings_deprecated: FPostProcessSettings,
 }
 pub struct UCameraComponent {
     pub field_of_view: f32,
     pub first_person_field_of_view: f32,
     pub first_person_scale: f32,
     pub ortho_width: f32,
-    pub auto_calculate_ortho_planes: bool,
+    pub b_auto_calculate_ortho_planes: bool,
     pub auto_plane_shift: f32,
     pub ortho_near_clip_plane: f32,
     pub ortho_far_clip_plane: f32,
-    pub update_ortho_planes: bool,
-    pub use_camera_height_as_view_target: bool,
+    pub b_update_ortho_planes: bool,
+    pub b_use_camera_height_as_view_target: bool,
     pub aspect_ratio: f32,
     pub aspect_ratio_axis_constraint: EAspectRatioAxisConstraint,
     pub flags_697: u8,
     pub overscan: f32,
     pub asymmetric_overscan: FVector4f,
-    pub scale_resolution_with_overscan: bool,
-    pub crop_overscan: bool,
-    pub draw_frustum_allowed: bool,
+    pub b_scale_resolution_with_overscan: bool,
+    pub b_crop_overscan: bool,
+    pub b_draw_frustum_allowed: bool,
     pub flags_723: u8,
     pub projection_mode: ECameraProjectionMode,
     pub camera_mesh: UPtr<UStaticMesh>,
@@ -7835,12 +7840,12 @@ pub struct UAssetExportTask {
     pub object: UPtr<UObject>,
     pub exporter: UPtr<UExporter>,
     pub filename: FString,
-    pub selected: bool,
-    pub replace_identical: bool,
-    pub prompt: bool,
-    pub automated: bool,
-    pub use_file_archive: bool,
-    pub write_empty_files: bool,
+    pub b_selected: bool,
+    pub b_replace_identical: bool,
+    pub b_prompt: bool,
+    pub b_automated: bool,
+    pub b_use_file_archive: bool,
+    pub b_write_empty_files: bool,
     pub ignore_object_list: TArray<UPtr<UObject>>,
     pub options: UPtr<UObject>,
     pub errors: TArray<FString>,
@@ -7850,7 +7855,7 @@ pub struct UBlueprintAsyncActionBase {}
 pub struct UBlueprintCore {
     pub skeleton_generated_class: TSubclassOf<UObject>,
     pub generated_class: TSubclassOf<UObject>,
-    pub legacy_need_to_purge_skel_refs: bool,
+    pub b_legacy_need_to_purge_skel_refs: bool,
     pub blueprint_guid: FGuid,
 }
 pub struct UBlueprint {
@@ -7887,8 +7892,8 @@ pub struct UBlueprint {
     pub last_edited_documents: TArray<FEditedDocumentInfo>,
     pub bookmarks: TMap<FGuid, FEditedDocumentInfo>,
     pub bookmark_nodes: TArray<FBPEditorBookmarkNode>,
-    pub breakpoints: TArray<UPtr<UDEPRECATED_Breakpoint>>,
-    pub watched_pins: TArray<FEdGraphPinReference>,
+    pub breakpoints_deprecated: TArray<UPtr<UDEPRECATED_Breakpoint>>,
+    pub watched_pins_deprecated: TArray<FEdGraphPinReference>,
     pub deprecated_pin_watches: TArray<UPtr<UEdGraphPin_Deprecated>>,
     pub component_template_name_index: TMap<FName, i32>,
     pub old_to_new_component_template_names: TMap<FName, FName>,
@@ -7896,7 +7901,7 @@ pub struct UBlueprint {
     pub thumbnail_info: UPtr<UThumbnailInfo>,
     pub crc_last_compiled_cdo: u32,
     pub crc_last_compiled_signature: u32,
-    pub cached_dependencies_up_to_date: bool,
+    pub b_cached_dependencies_up_to_date: bool,
     pub cached_dependencies: TSet<TWeakObjectPtr<UBlueprint>>,
     pub cached_dependents: TSet<TWeakObjectPtr<UBlueprint>>,
     pub cached_uds_dependencies: TSet<TWeakObjectPtr<UStruct>>,
@@ -7914,7 +7919,7 @@ pub struct UBlueprintGeneratedClass {
     pub simple_construction_script: UPtr<USimpleConstructionScript>,
     pub inheritable_component_handler: UPtr<UInheritableComponentHandler>,
     pub uber_graph_function: UPtr<UFunction>,
-    pub fast_call_pairs: TArray<FEventGraphFastCallPair>,
+    pub fast_call_pairs_deprecated: TArray<FEventGraphFastCallPair>,
     pub overriden_archetype_for_cdo: UPtr<UObject>,
     pub property_guids: TMap<FName, FGuid>,
     pub called_functions: TArray<UPtr<UFunction>>,
@@ -7934,8 +7939,8 @@ pub struct UGameInstance {
     pub on_user_input_device_pairing_change: FGameInstance_OnUserInputDevicePairingChange,
 }
 pub struct UAssetImportData {
-    pub source_file_path: FString,
-    pub source_file_timestamp: FString,
+    pub source_file_path_deprecated: FString,
+    pub source_file_timestamp_deprecated: FString,
     pub source_data: FAssetImportInfo,
 }
 pub struct USkinnedMeshComponent {
@@ -7943,13 +7948,13 @@ pub struct USkinnedMeshComponent {
     pub skinned_asset: UPtr<USkinnedAsset>,
     pub leader_pose_component: TWeakObjectPtr<USkinnedMeshComponent>,
     pub skin_cache_usage: TArray<ESkinCacheUsage>,
-    pub set_mesh_deformer: bool,
+    pub b_set_mesh_deformer: bool,
     pub mesh_deformer: UPtr<UMeshDeformer>,
-    pub always_use_mesh_deformer: bool,
+    pub b_always_use_mesh_deformer: bool,
     pub mesh_deformer_instance_settings: UPtr<UMeshDeformerInstanceSettings>,
-    pub mesh_deformer_instance: UPtr<UMeshDeformerInstance>,
+    pub mesh_deformer_instance_deprecated: UPtr<UMeshDeformerInstance>,
     pub mesh_deformer_instances: FMeshDeformerInstanceSet,
-    pub wireframe_color: FColor,
+    pub wireframe_color_deprecated: FColor,
     pub physics_asset_override: UPtr<UPhysicsAsset>,
     pub forced_lod_model: i32,
     pub min_lod_model: i32,
@@ -7968,7 +7973,7 @@ pub struct USkinnedMeshComponent {
 }
 pub struct USkeletalMeshComponent {
     pub skeletal_mesh_asset: UPtr<USkeletalMesh>,
-    pub animation_blueprint: UPtr<UAnimBlueprint>,
+    pub animation_blueprint_deprecated: UPtr<UAnimBlueprint>,
     pub anim_blueprint_generated_class: TSubclassOf<UObject>,
     pub anim_class: TSubclassOf<UAnimInstance>,
     pub anim_script_instance: UPtr<UAnimInstance>,
@@ -7997,8 +8002,8 @@ pub struct USkeletalMeshComponent {
     pub flags_3043: u8,
     pub cached_anim_curve_uid_version: u16,
     pub cloth_blend_weight: f32,
-    pub wait_for_parallel_cloth_task: bool,
-    pub filtered_anim_curves_is_allow_list: bool,
+    pub b_wait_for_parallel_cloth_task: bool,
+    pub b_filtered_anim_curves_is_allow_list: bool,
     pub cached_mesh_curve_meta_data_version: u16,
     pub filtered_anim_curves: TArray<FName>,
     pub body_setup: UPtr<UBodySetup>,
@@ -8013,11 +8018,11 @@ pub struct USkeletalMeshComponent {
     pub clothing_simulation_instances: TArray<FClothingSimulationInstance>,
     pub morph_target_curves: TMap<FName, f32>,
     pub on_anim_initialized: FSkeletalMeshComponent_OnAnimInitialized,
-    pub sequence_to_play: UPtr<UAnimSequence>,
-    pub anim_to_play: UPtr<UAnimationAsset>,
+    pub sequence_to_play_deprecated: UPtr<UAnimSequence>,
+    pub anim_to_play_deprecated: UPtr<UAnimationAsset>,
     pub flags_4248: u8,
-    pub default_position: f32,
-    pub default_play_rate: f32,
+    pub default_position_deprecated: f32,
+    pub default_play_rate_deprecated: f32,
     pub default_animating_rig_override: TSoftObjectPtr<UObject>,
     pub last_pose_tick_frame: u32,
 }
@@ -8047,11 +8052,11 @@ pub struct UAnimSingleNodeInstance {
 }
 pub struct UAnimNotify {
     pub notify_color: FColor,
-    pub should_fire_in_editor: bool,
+    pub b_should_fire_in_editor: bool,
 }
 pub struct UAnimNotifyState {
     pub notify_color: FColor,
-    pub should_fire_in_editor: bool,
+    pub b_should_fire_in_editor: bool,
 }
 pub struct UEngineCustomTimeStep {}
 pub struct UTimecodeProvider {
@@ -8064,11 +8069,11 @@ pub struct USoundBase {
     pub flags_73: u8,
     pub flags_74: u8,
     pub virtualization_mode: EVirtualizationMode,
-    pub max_concurrent_resolution_rule: EMaxConcurrentResolutionRule,
-    pub sound_concurrency_settings: UPtr<USoundConcurrency>,
+    pub max_concurrent_resolution_rule_deprecated: EMaxConcurrentResolutionRule,
+    pub sound_concurrency_settings_deprecated: UPtr<USoundConcurrency>,
     pub concurrency_set: TSet<UPtr<USoundConcurrency>>,
     pub concurrency_overrides: FSoundConcurrencySettings,
-    pub max_concurrent_play_count: i32,
+    pub max_concurrent_play_count_deprecated: i32,
     pub duration: f32,
     pub max_distance: f32,
     pub total_samples: f32,
@@ -8104,12 +8109,12 @@ pub struct USoundWave {
     pub frequencies_to_analyze: TArray<f32>,
     pub cooked_spectral_time_data: TArray<FSoundWaveSpectralTimeData>,
     pub cooked_envelope_time_data: TArray<FSoundWaveEnvelopeTimeData>,
-    pub initial_chunk_size: i32,
+    pub initial_chunk_size_deprecated: i32,
     pub flags_1084: u8,
     pub flags_1085: u8,
     pub loading_behavior: ESoundWaveLoadingBehavior,
     pub size_of_first_audio_chunk_in_seconds: FPerPlatformFloat,
-    pub spoken_text: FString,
+    pub spoken_text_deprecated: FString,
     pub subtitle_priority: f32,
     pub volume: f32,
     pub pitch: f32,
@@ -8125,8 +8130,8 @@ pub struct USoundWave {
     pub subtitles: TArray<FSubtitleCue>,
     pub comment: FString,
     pub timecode_info: FSoundWaveTimecodeInfo,
-    pub source_file_path: FString,
-    pub source_file_timestamp: FString,
+    pub source_file_path_deprecated: FString,
+    pub source_file_timestamp_deprecated: FString,
     pub asset_import_data: UPtr<UAssetImportData>,
     pub curves: UPtr<UCurveTable>,
     pub internal_curves: UPtr<UCurveTable>,
@@ -8147,7 +8152,7 @@ pub struct UStreamableRenderAsset {
 pub struct UTexture {
     pub source: FTextureSource,
     pub lighting_guid: FGuid,
-    pub source_file_path: FString,
+    pub source_file_path_deprecated: FString,
     pub asset_import_data: UPtr<UAssetImportData>,
     pub adjust_brightness: f32,
     pub adjust_brightness_curve: f32,
@@ -8164,16 +8169,16 @@ pub struct UTexture {
     pub compression_quality: ETextureCompressionQuality,
     pub compression_cache_id: FGuid,
     pub flags_740: u8,
-    pub do_scale_mips_for_alpha_coverage: bool,
+    pub b_do_scale_mips_for_alpha_coverage: bool,
     pub alpha_coverage_thresholds: FVector4,
-    pub use_new_mip_filter: bool,
+    pub b_use_new_mip_filter: bool,
     pub flags_788: u8,
     pub power_of_two_mode: ETexturePowerOfTwoSetting,
     pub padding_color: FColor,
-    pub pad_with_border_color: bool,
+    pub b_pad_with_border_color: bool,
     pub resize_during_build_x: i32,
     pub resize_during_build_y: i32,
-    pub chroma_key_texture: bool,
+    pub b_chroma_key_texture: bool,
     pub chroma_key_threshold: f32,
     pub chroma_key_color: FColor,
     pub mip_gen_settings: TextureMipGenSettings,
@@ -8189,7 +8194,7 @@ pub struct UTexture {
     pub virtual_texture_streaming_priority: EVTProducerPriority,
     pub virtual_texture_prefetch_mips: u8,
     pub cook_platform_tiling_settings: TextureCookPlatformTilingSettings,
-    pub oodle_preserve_extremes: bool,
+    pub b_oodle_preserve_extremes: bool,
     pub lod_group: TextureGroup,
     pub downscale: FPerPlatformFloat,
     pub downscale_options: ETextureDownscaleOptions,
@@ -8464,7 +8469,7 @@ pub struct UEngine {
     pub custom_time_step_class_name: FSoftClassPath,
     pub timecode_provider: UPtr<UTimecodeProvider>,
     pub timecode_provider_class_name: FSoftClassPath,
-    pub generate_default_timecode: bool,
+    pub b_generate_default_timecode: bool,
     pub generate_default_timecode_frame_rate: FFrameRate,
     pub generate_default_timecode_frame_delay: f32,
     pub flags_4760: u8,
@@ -8508,9 +8513,9 @@ pub struct UEngine {
     pub selection_outline_color: FLinearColor,
     pub subdued_selection_outline_color: FLinearColor,
     pub selected_material_color_override: FLinearColor,
-    pub is_overriding_selected_color: bool,
+    pub b_is_overriding_selected_color: bool,
     pub flags_5024: u8,
-    pub enable_visual_log_recording_on_start: u32,
+    pub b_enable_visual_log_recording_on_start: u32,
     pub screen_saver_inhibitor_semaphore: i32,
     pub flags_5036: u8,
     pub particle_event_manager_class_path: FString,
@@ -8547,7 +8552,7 @@ pub struct UMaterialInterface {
     pub specular_profiles: TArray<UPtr<USpecularProfile>>,
     pub neural_profile: UPtr<UNeuralProfile>,
     pub lightmass_settings: FLightmassMaterialInterfaceSettings,
-    pub texture_streaming_data_sorted: bool,
+    pub b_texture_streaming_data_sorted: bool,
     pub texture_streaming_data_version: i32,
     pub texture_streaming_data: TArray<FMaterialTextureInfo>,
     pub asset_user_data: TArray<UPtr<UAssetUserData>>,
@@ -8624,7 +8629,7 @@ pub struct UMaterial {
     pub stencil_compare: EMaterialStencilCompare,
     pub stencil_ref_value: u8,
     pub neural_profile_id: i8,
-    pub refraction_mode: ERefractionMode,
+    pub refraction_mode_deprecated: ERefractionMode,
     pub refraction_method: ERefractionMode,
     pub refraction_coverage_mode: ERefractionCoverageMode,
     pub pixel_depth_offset_mode: EPixelDepthOffsetMode,
@@ -8634,36 +8639,36 @@ pub struct UMaterial {
     pub usage_flag_warnings: u32,
     pub refraction_depth_bias: f32,
     pub max_world_position_offset_displacement: f32,
-    pub always_evaluate_world_position_offset: bool,
+    pub b_always_evaluate_world_position_offset: bool,
     pub state_id: FGuid,
-    pub saved_cached_expression_data: bool,
+    pub b_saved_cached_expression_data_deprecated: bool,
     pub referenced_texture_guids: TArray<FGuid>,
-    pub editor_comments: TArray<UPtr<UMaterialExpressionComment>>,
-    pub expressions: TArray<UPtr<UMaterialExpression>>,
-    pub parameter_group_data: TArray<FParameterGroupData>,
-    pub diffuse_color: FColorMaterialInput,
-    pub specular_color: FColorMaterialInput,
-    pub base_color: FColorMaterialInput,
-    pub metallic: FScalarMaterialInput,
-    pub specular: FScalarMaterialInput,
-    pub roughness: FScalarMaterialInput,
-    pub anisotropy: FScalarMaterialInput,
-    pub normal: FVectorMaterialInput,
-    pub tangent: FVectorMaterialInput,
-    pub emissive_color: FColorMaterialInput,
-    pub opacity: FScalarMaterialInput,
-    pub opacity_mask: FScalarMaterialInput,
-    pub world_position_offset: FVectorMaterialInput,
-    pub subsurface_color: FColorMaterialInput,
-    pub clear_coat: FScalarMaterialInput,
-    pub clear_coat_roughness: FScalarMaterialInput,
-    pub ambient_occlusion: FScalarMaterialInput,
-    pub refraction: FScalarMaterialInput,
-    pub customized_u_vs: FVector2MaterialInput,
-    pub material_attributes: FMaterialAttributesInput,
-    pub pixel_depth_offset: FScalarMaterialInput,
-    pub shading_model_from_material_expression: FShadingModelMaterialInput,
-    pub front_material: FSubstrateMaterialInput,
+    pub editor_comments_deprecated: TArray<UPtr<UMaterialExpressionComment>>,
+    pub expressions_deprecated: TArray<UPtr<UMaterialExpression>>,
+    pub parameter_group_data_deprecated: TArray<FParameterGroupData>,
+    pub diffuse_color_deprecated: FColorMaterialInput,
+    pub specular_color_deprecated: FColorMaterialInput,
+    pub base_color_deprecated: FColorMaterialInput,
+    pub metallic_deprecated: FScalarMaterialInput,
+    pub specular_deprecated: FScalarMaterialInput,
+    pub roughness_deprecated: FScalarMaterialInput,
+    pub anisotropy_deprecated: FScalarMaterialInput,
+    pub normal_deprecated: FVectorMaterialInput,
+    pub tangent_deprecated: FVectorMaterialInput,
+    pub emissive_color_deprecated: FColorMaterialInput,
+    pub opacity_deprecated: FScalarMaterialInput,
+    pub opacity_mask_deprecated: FScalarMaterialInput,
+    pub world_position_offset_deprecated: FVectorMaterialInput,
+    pub subsurface_color_deprecated: FColorMaterialInput,
+    pub clear_coat_deprecated: FScalarMaterialInput,
+    pub clear_coat_roughness_deprecated: FScalarMaterialInput,
+    pub ambient_occlusion_deprecated: FScalarMaterialInput,
+    pub refraction_deprecated: FScalarMaterialInput,
+    pub customized_u_vs_deprecated: FVector2MaterialInput,
+    pub material_attributes_deprecated: FMaterialAttributesInput,
+    pub pixel_depth_offset_deprecated: FScalarMaterialInput,
+    pub shading_model_from_material_expression_deprecated: FShadingModelMaterialInput,
+    pub front_material_deprecated: FSubstrateMaterialInput,
 }
 pub struct ASkeletalMeshActor {
     pub flags_1136: u8,
@@ -8716,7 +8721,7 @@ pub struct AISMPartitionActor {
 }
 pub struct AStaticMeshActor {
     pub static_mesh_component: UPtr<UStaticMeshComponent>,
-    pub static_mesh_replicate_movement: bool,
+    pub b_static_mesh_replicate_movement: bool,
     pub static_mesh_physics_replication_mode: EPhysicsReplicationMode,
     pub navigation_geometry_gathering_mode: ENavDataGatheringMode,
 }
@@ -8748,13 +8753,13 @@ pub struct UMaterialInstance {
     >,
     pub font_parameter_values: TArray<FFontParameterValue>,
     pub user_scene_texture_overrides: TArray<FUserSceneTextureOverride>,
-    pub override_base_properties: bool,
+    pub b_override_base_properties_deprecated: bool,
     pub enumeration_objects: TArray<TSoftObjectPtr<UObject>>,
     pub base_property_overrides: FMaterialInstanceBasePropertyOverrides,
     pub static_parameters_runtime: FStaticParameterSetRuntimeData,
     pub referenced_texture_guids: TArray<FGuid>,
-    pub static_parameters: FStaticParameterSet,
-    pub saved_cached_data: bool,
+    pub static_parameters_deprecated: FStaticParameterSet,
+    pub b_saved_cached_data_deprecated: bool,
 }
 pub struct UMaterialInstanceConstant {
     pub parameter_state_id: FGuid,
@@ -8780,6 +8785,7 @@ pub struct UHLODBuilder {
 pub struct UTextureMipDataProviderFactory {}
 pub struct UTextureAllMipDataProviderFactory {}
 pub struct UActiveSoundUpdateInterface {}
+pub struct IActiveSoundUpdateInterface {}
 pub struct UChannel {
     pub connection: UPtr<UNetConnection>,
 }
@@ -8788,24 +8794,27 @@ pub struct UActorChannel {
     pub create_sub_objects: TArray<UPtr<UObject>>,
 }
 pub struct UActorInstanceManagerInterface {}
+pub struct IActorInstanceManagerInterface {}
 pub struct UAnimationAssetExtensions {}
 pub struct UAnimBlueprintClassSubsystem_PropertyAccess {}
 pub struct UInterface_AnimCurveMetaData {}
+pub struct IInterface_AnimCurveMetaData {}
 pub struct UAnimCurveMetaData {
     pub curve_meta_data: TMap<FName, FCurveMetaData>,
 }
 pub struct UAnimationDataModelNotifiesExtensions {}
 pub struct UAnimLayerInterface {}
+pub struct IAnimLayerInterface {}
 pub struct UAssetManagerSettings {
     pub primary_asset_types_to_scan: TArray<FPrimaryAssetTypeInfo>,
     pub directories_to_exclude: TArray<FDirectoryPath>,
     pub primary_asset_rules: TArray<FPrimaryAssetRulesOverride>,
     pub custom_primary_asset_rules: TArray<FPrimaryAssetRulesCustomOverride>,
-    pub only_cook_production_assets: bool,
-    pub should_manager_determine_type_and_name: bool,
-    pub should_guess_type_and_name_in_editor: bool,
-    pub should_acquire_missing_chunks_on_load: bool,
-    pub should_warn_about_invalid_assets: bool,
+    pub b_only_cook_production_assets: bool,
+    pub b_should_manager_determine_type_and_name: bool,
+    pub b_should_guess_type_and_name_in_editor: bool,
+    pub b_should_acquire_missing_chunks_on_load: bool,
+    pub b_should_warn_about_invalid_assets: bool,
     pub primary_asset_id_redirects: TArray<FAssetManagerRedirect>,
     pub primary_asset_type_redirects: TArray<FAssetManagerRedirect>,
     pub asset_path_redirects: TArray<FAssetManagerRedirect>,
@@ -8816,6 +8825,7 @@ pub struct UAsyncPhysicsData {
     pub replication_redundancy: i32,
 }
 pub struct UAudioPanelWidgetInterface {}
+pub struct IAudioPanelWidgetInterface {}
 pub struct AAutoRTFMTestActor {
     pub my_property: i32,
 }
@@ -8826,13 +8836,13 @@ pub struct UBodySetup {
     pub flags_225: u8,
     pub phys_material: UPtr<UPhysicalMaterial>,
     pub walkable_slope_override: FWalkableSlopeOverride,
-    pub build_scale: f32,
+    pub build_scale_deprecated: f32,
     pub default_instance: FBodyInstance,
     pub build_scale3_d: FVector,
 }
 pub struct UAutoRTFMTestBodySetup {}
 pub struct UCameraShakeBase {
-    pub single_instance: bool,
+    pub b_single_instance: bool,
     pub shake_scale: f32,
     pub root_shake_pattern: UPtr<UCameraShakePattern>,
     pub camera_manager: UPtr<APlayerCameraManager>,
@@ -8847,7 +8857,7 @@ pub struct UChildActorComponent {
 }
 pub struct UAutoRTFMTestChildActorComponent {}
 pub struct ULevel {
-    pub use_external_actors: bool,
+    pub b_use_external_actors: bool,
     pub owning_world: UPtr<UWorld>,
     pub model: UPtr<UModel>,
     pub model_components: TArray<UPtr<UModelComponent>>,
@@ -8873,8 +8883,8 @@ pub struct ULevel {
     pub flags_635: u8,
     pub level_simplification: FLevelSimplificationDetails,
     pub level_color: FLinearColor,
-    pub prompt_when_adding_to_level_before_checkout: bool,
-    pub prompt_when_adding_to_level_outside_bounds: bool,
+    pub b_prompt_when_adding_to_level_before_checkout: bool,
+    pub b_prompt_when_adding_to_level_outside_bounds: bool,
     pub actor_packaging_scheme: EActorPackagingScheme,
     pub world_settings: UPtr<AWorldSettings>,
     pub world_data_layers: UPtr<AWorldDataLayers>,
@@ -8883,7 +8893,7 @@ pub struct ULevel {
     pub destroyed_replicated_static_actors: TArray<
         FReplicatedStaticActorDestructionInfo,
     >,
-    pub use_actor_folders: bool,
+    pub b_use_actor_folders: bool,
     pub actor_folders: TMap<FGuid, UPtr<UActorFolder>>,
     pub folder_label_to_actor_folders: TMap<FString, FActorFolderSet>,
     pub loaded_external_actor_folders: TArray<UPtr<UActorFolder>>,
@@ -8893,6 +8903,7 @@ pub struct UAutoRTFMTestLevel {}
 pub struct UAutoRTFMTestObject {}
 pub struct UAutoRTFMTestPrimitiveComponent {}
 pub struct UBlendableInterface {}
+pub struct IBlendableInterface {}
 pub struct UBlueprintSpringMathLibrary {}
 pub struct UBookmarkBase {}
 pub struct UBookMark2D {
@@ -9052,7 +9063,7 @@ pub struct AEmitterCameraLensEffectBase {
     pub base_fov: f32,
     pub flags_1396: u8,
     pub emitters_to_treat_as_same: TArray<TSubclassOf<AActor>>,
-    pub dist_from_camera: f32,
+    pub dist_from_camera_deprecated: f32,
 }
 pub struct UViewModeUtils {}
 pub struct UEngineBaseTypes {}
@@ -9081,40 +9092,54 @@ pub struct UHapticFeedbackEffect_Curve {
 }
 pub struct UHapticFeedbackEffect_SoundWave {
     pub sound_wave: UPtr<USoundWave>,
-    pub use_stereo: bool,
+    pub b_use_stereo: bool,
 }
 pub struct UAssetRegistryTagProviderInterface {}
+pub struct IAssetRegistryTagProviderInterface {}
 pub struct UInGameAdManager {
     pub flags_64: u8,
     pub clicked_banner_delegates: TArray<FInGameAdManager_ClickedBannerDelegates>,
     pub closed_ad_delegates: TArray<FInGameAdManager_ClosedAdDelegates>,
 }
 pub struct UInterface_ActorSubobject {}
+pub struct IInterface_ActorSubobject {}
 pub struct UInterface_AssetUserData {}
+pub struct IInterface_AssetUserData {}
 pub struct UInterface_AsyncCompilation {}
+pub struct IInterface_AsyncCompilation {}
 pub struct UBoneReferenceSkeletonProvider {}
+pub struct IBoneReferenceSkeletonProvider {}
 pub struct UInterface_CollisionDataProvider {}
+pub struct IInterface_CollisionDataProvider {}
 pub struct UInterface_PostProcessVolume {}
+pub struct IInterface_PostProcessVolume {}
 pub struct UInterface_PreviewMeshProvider {}
+pub struct IInterface_PreviewMeshProvider {}
 pub struct UPhysicsComponent {}
+pub struct IPhysicsComponent {}
 pub struct UISMPartitionInstanceManager {}
+pub struct IISMPartitionInstanceManager {}
 pub struct UISMPartitionInstanceManagerProvider {}
+pub struct IISMPartitionInstanceManagerProvider {}
 pub struct UViewportSelectableObject {}
+pub struct IViewportSelectableObject {}
 pub struct UWorldPartitionObjectResolver {}
+pub struct IWorldPartitionObjectResolver {}
 pub struct ULevelInstanceEditorPivotInterface {}
+pub struct ILevelInstanceEditorPivotInterface {}
 pub struct ULevelStreaming {
-    pub package_name: FName,
+    pub package_name_deprecated: FName,
     pub world_asset: TSoftObjectPtr<UWorld>,
     pub streaming_priority: i32,
     pub package_name_to_load: FName,
     pub lod_package_names: TArray<FName>,
     pub level_transform: FTransform,
-    pub client_only_visible: bool,
+    pub b_client_only_visible: bool,
     pub editor_path_owner: TWeakObjectPtr<UObject>,
     pub level_lod_index: i32,
     pub flags_288: u8,
     pub flags_346: u8,
-    pub draw_color: FColor,
+    pub draw_color_deprecated: FColor,
     pub level_color: FLinearColor,
     pub editor_streaming_volumes: TArray<UPtr<ALevelStreamingVolume>>,
     pub min_time_between_volume_unload_requests: f32,
@@ -9135,7 +9160,7 @@ pub struct ULevelStreamingPersistent {}
 pub struct ULightComponentBase {
     pub original_light_guid: FGuid,
     pub light_guid: FGuid,
-    pub brightness: f32,
+    pub brightness_deprecated: f32,
     pub intensity: f32,
     pub light_color: FColor,
     pub flags_700: u8,
@@ -9313,7 +9338,7 @@ pub struct UMaterialExpressionParameter {
 }
 pub struct UMaterialExpressionVectorParameter {
     pub default_value: FLinearColor,
-    pub use_custom_primitive_data: bool,
+    pub b_use_custom_primitive_data: bool,
     pub primitive_data_index: u8,
     pub channel_names: FParameterChannelNames,
 }
@@ -9357,7 +9382,7 @@ pub struct UMaterialExpressionComment {
     pub comment_color: FLinearColor,
     pub font_size: i32,
     pub flags_244: u8,
-    pub group_mode: bool,
+    pub b_group_mode: bool,
 }
 pub struct UMaterialExpressionComponentMask {
     pub input: FExpressionInput,
@@ -9407,7 +9432,7 @@ pub struct UMaterialExpressionScalarParameter {
     pub slider_max: f32,
     pub enumeration: TSoftObjectPtr<UObject>,
     pub enumeration_index: u8,
-    pub use_custom_primitive_data: bool,
+    pub b_use_custom_primitive_data: bool,
     pub primitive_data_index: u8,
 }
 pub struct UMaterialExpressionCurveAtlasRowParameter {
@@ -9616,7 +9641,7 @@ pub struct UMaterialExpressionIf {
     pub a_less_than_b: FExpressionInput,
     pub equals_threshold: f32,
     pub const_b: f32,
-    pub const_a_equals_b: f32,
+    pub const_a_equals_b_deprecated: f32,
 }
 pub struct UMaterialExpressionIfThenElse {
     pub condition: FExpressionInput,
@@ -9630,7 +9655,7 @@ pub struct UMaterialExpressionInverseLinearInterpolate {
     pub const_a: f32,
     pub const_b: f32,
     pub const_value: f32,
-    pub clamp_result: bool,
+    pub b_clamp_result: bool,
 }
 pub struct UMaterialExpressionIsFirstPerson {}
 pub struct UMaterialExpressionIsOrthographic {}
@@ -9697,7 +9722,7 @@ pub struct UMaterialExpressionMaterialAttributeLayers {
     pub blend_callers: TArray<UPtr<UMaterialExpressionMaterialFunctionCall>>,
     pub num_active_blend_callers: i32,
     pub output_caller: UPtr<UMaterialExpressionMaterialFunctionCall>,
-    pub is_layer_graph_built: bool,
+    pub b_is_layer_graph_built: bool,
 }
 pub struct UMaterialExpressionMaterialFunctionCall {
     pub material_function: UPtr<UMaterialFunctionInterface>,
@@ -9788,7 +9813,7 @@ pub struct UMaterialExpressionPanner {
     pub speed_x: f32,
     pub speed_y: f32,
     pub const_coordinate: u32,
-    pub fractional_part: bool,
+    pub b_fractional_part: bool,
 }
 pub struct UMaterialExpressionParticleColor {}
 pub struct UMaterialExpressionParticleDirection {}
@@ -9930,12 +9955,12 @@ pub struct UMaterialExpressionRuntimeVirtualTextureSample {
     pub ddy: FExpressionInput,
     pub virtual_texture: UPtr<URuntimeVirtualTexture>,
     pub material_type: ERuntimeVirtualTextureMaterialType,
-    pub single_physical_space: bool,
-    pub adaptive: bool,
+    pub b_single_physical_space: bool,
+    pub b_adaptive: bool,
     pub world_position_origin_type: EPositionOrigin,
     pub texture_address_mode: ERuntimeVirtualTextureTextureAddressMode,
     pub mip_value_mode: ERuntimeVirtualTextureMipValueMode,
-    pub enable_feedback: bool,
+    pub b_enable_feedback: bool,
 }
 pub struct UMaterialExpressionRuntimeVirtualTextureSampleParameter {
     pub parameter_name: FName,
@@ -9964,13 +9989,13 @@ pub struct UMaterialExpressionSaturate {
 pub struct UMaterialExpressionSceneColor {
     pub input_mode: EMaterialSceneAttributeInputMode,
     pub input: FExpressionInput,
-    pub offset_fraction: FExpressionInput,
+    pub offset_fraction_deprecated: FExpressionInput,
     pub const_input: FVector2D,
 }
 pub struct UMaterialExpressionSceneDepth {
     pub input_mode: EMaterialSceneAttributeInputMode,
     pub input: FExpressionInput,
-    pub coordinates: FExpressionInput,
+    pub coordinates_deprecated: FExpressionInput,
     pub const_input: FVector2D,
 }
 pub struct UMaterialExpressionSceneDepthWithoutWater {
@@ -9983,7 +10008,7 @@ pub struct UMaterialExpressionSceneTexelSize {}
 pub struct UMaterialExpressionSceneTexture {
     pub coordinates: FExpressionInput,
     pub scene_texture_id: ESceneTextureId,
-    pub filtered: bool,
+    pub b_filtered: bool,
 }
 pub struct UMaterialExpressionScreenPosition {}
 pub struct UMaterialExpressionSetMaterialAttributes {
@@ -10090,7 +10115,7 @@ pub struct UMaterialExpressionSpeedTree {
     pub wind_type: ESpeedTreeWindType,
     pub lod_type: ESpeedTreeLODType,
     pub billboard_threshold: f32,
-    pub accurate_wind_velocities: bool,
+    pub b_accurate_wind_velocities: bool,
 }
 pub struct UMaterialExpressionSphereMask {
     pub a: FExpressionInput,
@@ -10216,8 +10241,8 @@ pub struct UMaterialExpressionTransformPosition {
     pub first_person_interpolation_alpha: FExpressionInput,
     pub const_periodic_world_tile_size: f32,
     pub const_first_person_interpolation_alpha: f32,
-    pub uses_periodic_world_position: bool,
-    pub uses_first_person_interpolation_alpha: bool,
+    pub b_uses_periodic_world_position: bool,
+    pub b_uses_first_person_interpolation_alpha: bool,
 }
 pub struct UMaterialExpressionTruncate {
     pub input: FExpressionInput,
@@ -10229,8 +10254,8 @@ pub struct UMaterialExpressionTwoSidedSign {}
 pub struct UMaterialExpressionUserSceneTexture {
     pub coordinates: FExpressionInput,
     pub user_scene_texture: FName,
-    pub filtered: bool,
-    pub clamped: bool,
+    pub b_filtered: bool,
+    pub b_clamped: bool,
 }
 pub struct UMaterialExpressionVectorNoise {
     pub position: FExpressionInput,
@@ -10272,10 +10297,10 @@ pub struct UMaterialExpressionVolumetricAdvancedMaterialOutput {
     pub const_multi_scattering_contribution: f32,
     pub const_multi_scattering_occlusion: f32,
     pub const_multi_scattering_eccentricity: f32,
-    pub ground_contribution: bool,
-    pub gray_scale_material: bool,
-    pub ray_march_volume_shadow: bool,
-    pub clamp_multi_scattering_contribution: bool,
+    pub b_ground_contribution: bool,
+    pub b_gray_scale_material: bool,
+    pub b_ray_march_volume_shadow: bool,
+    pub b_clamp_multi_scattering_contribution: bool,
 }
 pub struct UMaterialExpressionVolumetricCloudEmptySpaceSkippingOutput {
     pub contains_matter: FExpressionInput,
@@ -10300,7 +10325,7 @@ pub struct UMaterialFunction {
     pub description: FString,
     pub user_exposed_caption: FString,
     pub flags_144: u8,
-    pub library_categories: TArray<FString>,
+    pub library_categories_deprecated: TArray<FString>,
     pub library_categories_text: TArray<FText>,
     pub preview_material: UPtr<UMaterial>,
     pub dependent_function_expression_candidates: TArray<
@@ -10309,8 +10334,8 @@ pub struct UMaterialFunction {
     pub preview_blend_mode: EBlendMode,
     pub preview_material_domain: EMaterialDomain,
     pub flags_232: u8,
-    pub function_expressions: TArray<UPtr<UMaterialExpression>>,
-    pub function_editor_comments: TArray<UPtr<UMaterialExpressionComment>>,
+    pub function_expressions_deprecated: TArray<UPtr<UMaterialExpression>>,
+    pub function_editor_comments_deprecated: TArray<UPtr<UMaterialExpressionComment>>,
 }
 pub struct UMaterialFunctionInstance {
     pub parent: UPtr<UMaterialFunctionInterface>,
@@ -10345,6 +10370,7 @@ pub struct UMeshDeformer {}
 pub struct UMeshDeformerInstanceSettings {}
 pub struct UMeshDeformerInstance {}
 pub struct UMeshDeformerProducer {}
+pub struct IMeshDeformerProducer {}
 pub struct UMeshDrawCommandStatsSettings {
     pub budgets: TArray<FMeshDrawCommandStatsBudget>,
     pub budget_totals: TArray<FMeshDrawCommandStatsBudgetTotals>,
@@ -10356,12 +10382,19 @@ pub struct UMicroTransactionBase {
     pub last_error_solution: FString,
 }
 pub struct UNavAgentInterface {}
+pub struct INavAgentInterface {}
 pub struct UNavEdgeProviderInterface {}
+pub struct INavEdgeProviderInterface {}
 pub struct UNavigationDataInterface {}
+pub struct INavigationDataInterface {}
 pub struct UNavigationInvokerInterface {}
+pub struct INavigationInvokerInterface {}
 pub struct UNavPathObserverInterface {}
+pub struct INavPathObserverInterface {}
 pub struct UNavRelevantInterface {}
+pub struct INavRelevantInterface {}
 pub struct UNetworkPredictionInterface {}
+pub struct INetworkPredictionInterface {}
 pub struct UFXSystemAsset {
     pub max_pool_size: u32,
     pub pool_prime_size: u32,
@@ -10424,11 +10457,11 @@ pub struct UParticleModuleAccelerationConstant {
     pub acceleration: FVector,
 }
 pub struct UParticleModuleAccelerationDrag {
-    pub drag_coefficient: UPtr<UDistributionFloat>,
+    pub drag_coefficient_deprecated: UPtr<UDistributionFloat>,
     pub drag_coefficient_raw: FRawDistributionFloat,
 }
 pub struct UParticleModuleAccelerationDragScaleOverLife {
-    pub drag_scale: UPtr<UDistributionFloat>,
+    pub drag_scale_deprecated: UPtr<UDistributionFloat>,
     pub drag_scale_raw: FRawDistributionFloat,
 }
 pub struct UParticleModuleAccelerationOverLifetime {
@@ -10461,7 +10494,7 @@ pub struct UParticleModuleAttractorPoint {
 pub struct UParticleModuleAttractorPointGravity {
     pub position: FVector,
     pub radius: f32,
-    pub strength: UPtr<UDistributionFloat>,
+    pub strength_deprecated: UPtr<UDistributionFloat>,
     pub strength_raw: FRawDistributionFloat,
 }
 pub struct UParticleModuleBeamBase {}
@@ -10610,10 +10643,10 @@ pub struct UParticleModuleLifetime_Seeded {
 }
 pub struct UParticleModuleLightBase {}
 pub struct UParticleModuleLight {
-    pub use_inverse_squared_falloff: bool,
-    pub affects_translucency: bool,
+    pub b_use_inverse_squared_falloff: bool,
+    pub b_affects_translucency: bool,
     pub flags_60: u8,
-    pub preview_light_radius: bool,
+    pub b_preview_light_radius: bool,
     pub spawn_fraction: f32,
     pub color_scale_over_life: FRawDistributionVector,
     pub brightness_over_life: FRawDistributionFloat,
@@ -10622,8 +10655,8 @@ pub struct UParticleModuleLight {
     pub inverse_exposure_blend: f32,
     pub lighting_channels: FLightingChannels,
     pub volumetric_scattering_intensity: f32,
-    pub high_quality_lights: bool,
-    pub shadow_casting_lights: bool,
+    pub b_high_quality_lights: bool,
+    pub b_shadow_casting_lights: bool,
 }
 pub struct UParticleModuleLight_Seeded {
     pub random_seed_info: FParticleRandomSeedInfo,
@@ -10927,7 +10960,7 @@ pub struct UParticleModuleTypeDataMesh {
     pub roll_pitch_yaw_range: FRawDistributionVector,
     pub axis_lock_option: EParticleAxisLock,
     pub flags_177: u8,
-    pub camera_facing_up_axis_option: EMeshCameraFacingUpAxis,
+    pub camera_facing_up_axis_option_deprecated: EMeshCameraFacingUpAxis,
     pub camera_facing_option: EMeshCameraFacingOptions,
     pub flags_180: u8,
 }
@@ -10968,11 +11001,11 @@ pub struct UParticleModuleVectorFieldRotationRate {
     pub rotation_rate: FVector,
 }
 pub struct UParticleModuleVectorFieldScale {
-    pub vector_field_scale: UPtr<UDistributionFloat>,
+    pub vector_field_scale_deprecated: UPtr<UDistributionFloat>,
     pub vector_field_scale_raw: FRawDistributionFloat,
 }
 pub struct UParticleModuleVectorFieldScaleOverLife {
-    pub vector_field_scale_over_life: UPtr<UDistributionFloat>,
+    pub vector_field_scale_over_life_deprecated: UPtr<UDistributionFloat>,
     pub vector_field_scale_over_life_raw: FRawDistributionFloat,
 }
 pub struct UParticleModuleVelocityBase {
@@ -11017,13 +11050,14 @@ pub struct UParticleSystemReplay {
     pub clip_id_number: i32,
 }
 pub struct UPathFollowingAgentInterface {}
+pub struct IPathFollowingAgentInterface {}
 pub struct UPhysicsSpringComponent {
     pub spring_stiffness: f32,
     pub spring_damping: f32,
     pub spring_length_at_rest: f32,
     pub spring_radius: f32,
     pub spring_channel: ECollisionChannel,
-    pub ignore_self: bool,
+    pub b_ignore_self: bool,
     pub spring_compression: f32,
 }
 pub struct UPhysicsThreadLibrary {}
@@ -11037,19 +11071,19 @@ pub struct UPieFixupTestObject {
     pub array: TArray<FPieFixupStructWithSoftObjectPath>,
 }
 pub struct ASceneCapture {
-    pub mesh_comp: UPtr<UStaticMeshComponent>,
+    pub mesh_comp_deprecated: UPtr<UStaticMeshComponent>,
     pub scene_component: UPtr<USceneComponent>,
 }
 pub struct APlanarReflection {
     pub planar_reflection_component: UPtr<UPlanarReflectionComponent>,
     pub sprite_component: UPtr<UBillboardComponent>,
-    pub show_preview_plane: bool,
+    pub b_show_preview_plane_deprecated: bool,
 }
 pub struct USceneCaptureComponent {
     pub primitive_render_mode: ESceneCapturePrimitiveRenderMode,
     pub capture_source: ESceneCaptureSource,
     pub flags_658: u8,
-    pub always_persist_rendering_state: bool,
+    pub b_always_persist_rendering_state: bool,
     pub hidden_components: TArray<TWeakObjectPtr<UPrimitiveComponent>>,
     pub hidden_actors: TArray<UPtr<AActor>>,
     pub show_only_components: TArray<TWeakObjectPtr<UPrimitiveComponent>>,
@@ -11057,7 +11091,7 @@ pub struct USceneCaptureComponent {
     pub lod_distance_factor: f32,
     pub max_view_distance_override: f32,
     pub capture_sort_priority: i32,
-    pub use_ray_tracing_if_enabled: bool,
+    pub b_use_ray_tracing_if_enabled: bool,
     pub collection_transform: UPtr<UMaterialParameterCollection>,
     pub collection_transform_world_to_local: FName,
     pub collection_transform_projection: FName,
@@ -11072,14 +11106,14 @@ pub struct UPlanarReflectionComponent {
     pub prefilter_roughness_distance: f32,
     pub screen_percentage: i32,
     pub extra_fov: f32,
-    pub distance_from_plane_fade_start: f32,
-    pub distance_from_plane_fade_end: f32,
+    pub distance_from_plane_fade_start_deprecated: f32,
+    pub distance_from_plane_fade_end_deprecated: f32,
     pub distance_from_plane_fadeout_start: f32,
     pub distance_from_plane_fadeout_end: f32,
     pub angle_from_plane_fade_start: f32,
     pub angle_from_plane_fade_end: f32,
-    pub show_preview_plane: bool,
-    pub render_scene_two_sided: bool,
+    pub b_show_preview_plane: bool,
+    pub b_render_scene_two_sided: bool,
 }
 pub struct APlaneReflectionCapture {}
 pub struct UPlaneReflectionCaptureComponent {
@@ -11111,6 +11145,7 @@ pub struct ARadialForceActor {
 pub struct UReplicationDriver {}
 pub struct UReplicationConnectionDriver {}
 pub struct URVOAvoidanceInterface {}
+pub struct IRVOAvoidanceInterface {}
 pub struct ASceneCapture2D {
     pub capture_component2_d: UPtr<USceneCaptureComponent2D>,
 }
@@ -11120,10 +11155,10 @@ pub struct USceneCaptureComponent2D {
     pub first_person_field_of_view: f32,
     pub first_person_scale: f32,
     pub ortho_width: f32,
-    pub auto_calculate_ortho_planes: bool,
+    pub b_auto_calculate_ortho_planes: bool,
     pub auto_plane_shift: f32,
-    pub update_ortho_planes: bool,
-    pub use_camera_height_as_view_target: bool,
+    pub b_update_ortho_planes: bool,
+    pub b_use_camera_height_as_view_target: bool,
     pub overscan: f32,
     pub texture_target: UPtr<UTextureRenderTarget2D>,
     pub composite_mode: ESceneCaptureCompositeMode,
@@ -11131,16 +11166,16 @@ pub struct USceneCaptureComponent2D {
     pub post_process_blend_weight: f32,
     pub flags_2964: u8,
     pub custom_near_clipping_plane: f32,
-    pub use_custom_projection_matrix: bool,
+    pub b_use_custom_projection_matrix: bool,
     pub custom_projection_matrix: FMatrix,
-    pub use_faux_ortho_view_pos: bool,
-    pub enable_orthographic_tiling: bool,
+    pub b_use_faux_ortho_view_pos: bool,
+    pub b_enable_orthographic_tiling: bool,
     pub num_x_tiles: i32,
     pub num_y_tiles: i32,
-    pub enable_clip_plane: bool,
+    pub b_enable_clip_plane: bool,
     pub clip_plane_base: FVector,
     pub clip_plane_normal: FVector,
-    pub render_in_main_renderer: bool,
+    pub b_render_in_main_renderer: bool,
     pub unlit_viewmode: ESceneCaptureUnlitViewmode,
     pub flags_3172: u8,
     pub flags_3173: u8,
@@ -11151,7 +11186,7 @@ pub struct USceneCaptureComponent2D {
 }
 pub struct USceneCaptureComponentCube {
     pub texture_target: UPtr<UTextureRenderTargetCube>,
-    pub capture_rotation: bool,
+    pub b_capture_rotation: bool,
     pub post_process_settings: FPostProcessSettings,
     pub post_process_blend_weight: f32,
 }
@@ -11167,25 +11202,29 @@ pub struct USkeletalMeshSocket {
     pub relative_location: FVector,
     pub relative_rotation: FRotator,
     pub relative_scale: FVector,
-    pub force_always_animated: bool,
+    pub b_force_always_animated: bool,
 }
 pub struct ASkyLight {
     pub light_component: UPtr<USkyLightComponent>,
     pub flags_1152: u8,
 }
 pub struct USMInstanceManager {}
+pub struct ISMInstanceManager {}
 pub struct USMInstanceManagerProvider {}
+pub struct ISMInstanceManagerProvider {}
 pub struct USoundAttenuationEditorSettings {
-    pub enable_reverb_send: bool,
-    pub enable_send_to_audio_link: bool,
+    pub b_enable_reverb_send: bool,
+    pub b_enable_send_to_audio_link: bool,
 }
 pub struct USoundEffectPresetWidgetInterface {}
+pub struct ISoundEffectPresetWidgetInterface {}
 pub struct USoundEffectSourcePreset {}
 pub struct USoundEffectSourcePresetChain {
     pub chain: TArray<FSourceEffectChainEntry>,
     pub flags_64: u8,
 }
 pub struct USoundSubmixWidgetInterface {}
+pub struct ISoundSubmixWidgetInterface {}
 pub struct ASphereReflectionCapture {
     pub draw_capture_radius: UPtr<UDrawSphereComponent>,
 }
@@ -11201,10 +11240,12 @@ pub struct UStaticMeshSocket {
     pub relative_scale: FVector,
     pub tag: FString,
     pub preview_static_mesh: UPtr<UStaticMesh>,
-    pub socket_created_at_import: bool,
+    pub b_socket_created_at_import: bool,
 }
 pub struct UStreamingWorldSubsystemInterface {}
+pub struct IStreamingWorldSubsystemInterface {}
 pub struct UTedsTypedElementBridgeInterface {}
+pub struct ITedsTypedElementBridgeInterface {}
 pub struct UTextPropertyTestObject {
     pub defaulted_text: FText,
     pub undefaulted_text: FText,
@@ -11234,7 +11275,7 @@ pub struct UTimelineComponent {
     pub flags_440: u8,
 }
 pub struct UTransformProviderData {
-    pub enabled: bool,
+    pub b_enabled: bool,
 }
 pub struct ATriggerBase {
     pub collision_component: UPtr<UShapeComponent>,
@@ -11273,11 +11314,12 @@ pub struct UVectorFieldStatic {
     pub size_x: i32,
     pub size_y: i32,
     pub size_z: i32,
-    pub allow_cpu_access: bool,
-    pub source_file_path: FString,
+    pub b_allow_cpu_access: bool,
+    pub source_file_path_deprecated: FString,
     pub asset_import_data: UPtr<UAssetImportData>,
 }
 pub struct UVisualLoggerDebugSnapshotInterface {}
+pub struct IVisualLoggerDebugSnapshotInterface {}
 pub struct UWindDirectionalSourceComponent {
     pub strength: f32,
     pub speed: f32,
@@ -11292,7 +11334,7 @@ pub struct UTexture2DArray {
     pub address_y: TextureAddress,
     pub address_z: TextureAddress,
     pub source_textures: TArray<UPtr<UTexture2D>>,
-    pub source_generated_from_source_textures_array: bool,
+    pub b_source_generated_from_source_textures_array: bool,
 }
 pub struct UMaterialExpressionMaterialSample {
     pub material_reference: UPtr<UMaterialInterface>,
@@ -11301,8 +11343,8 @@ pub struct UActorFolder {
     pub parent_folder_guid: FGuid,
     pub folder_guid: FGuid,
     pub folder_label: FString,
-    pub folder_initially_expanded: bool,
-    pub is_deleted: bool,
+    pub b_folder_initially_expanded: bool,
+    pub b_is_deleted: bool,
 }
 pub struct UActorPartitionSubsystem {}
 pub struct UNullNavSysConfig {}
@@ -11312,7 +11354,7 @@ pub struct UAvoidanceManager {
     pub lock_time_after_clean: f32,
     pub delta_time_to_predict: f32,
     pub artificial_radius_expansion: f32,
-    pub test_height_difference: f32,
+    pub test_height_difference_deprecated: f32,
     pub height_check_margin: f32,
 }
 pub struct AAmbientSound {
@@ -11330,19 +11372,19 @@ pub struct UAnimationAsset {
     pub preview_skeletal_mesh: TSoftObjectPtr<USkeletalMesh>,
 }
 pub struct UBlendSpace {
-    pub contains_rotation_offset_mesh_space_samples: bool,
+    pub b_contains_rotation_offset_mesh_space_samples: bool,
     pub interpolation_param: FInterpolationParameter,
     pub analysis_properties: UPtr<UAnalysisProperties>,
     pub target_weight_interpolation_speed_per_sec: f32,
-    pub target_weight_interpolation_ease_in_out: bool,
-    pub allow_mesh_space_blending: bool,
-    pub loop_: bool,
-    pub allow_marker_based_sync: bool,
-    pub should_match_sync_phases: bool,
+    pub b_target_weight_interpolation_ease_in_out: bool,
+    pub b_allow_mesh_space_blending: bool,
+    pub b_loop: bool,
+    pub b_allow_marker_based_sync: bool,
+    pub b_should_match_sync_phases: bool,
     pub preview_base_pose: UPtr<UAnimSequence>,
     pub anim_length: f32,
     pub notify_trigger_mode: ENotifyTriggerMode,
-    pub interpolate_using_grid: bool,
+    pub b_interpolate_using_grid: bool,
     pub preferred_triangulation_direction: EPreferredTriangulationDirection,
     pub per_bone_blend_mode: EBlendSpacePerBoneBlendMode,
     pub manual_per_bone_overrides: TArray<FPerBoneInterpolation>,
@@ -11357,20 +11399,20 @@ pub struct UBlendSpace {
 }
 pub struct UAimOffsetBlendSpace {}
 pub struct UBlendSpace1D {
-    pub display_editor_vertically: bool,
-    pub scale_animation: bool,
+    pub b_display_editor_vertically_deprecated: bool,
+    pub b_scale_animation: bool,
 }
 pub struct UAimOffsetBlendSpace1D {}
 pub struct UAnimationSettings {
     pub compress_commandlet_version: i32,
     pub key_end_effectors_match_name_array: TArray<FString>,
     pub force_recompression: bool,
-    pub force_below_threshold: bool,
-    pub first_recompress_using_current_or_default: bool,
-    pub raise_max_error_to_existing: bool,
-    pub enable_performance_log: bool,
-    pub strip_animation_data_on_dedicated_server: bool,
-    pub tick_animation_on_skeletal_mesh_init: bool,
+    pub b_force_below_threshold: bool,
+    pub b_first_recompress_using_current_or_default: bool,
+    pub b_raise_max_error_to_existing: bool,
+    pub b_enable_performance_log: bool,
+    pub b_strip_animation_data_on_dedicated_server: bool,
+    pub b_tick_animation_on_skeletal_mesh_init: bool,
     pub bone_timecode_custom_attribute_name_settings: FTimecodeCustomAttributeNameSettings,
     pub bone_custom_attributes_names: TArray<FCustomAttributeSetting>,
     pub bone_names_with_custom_attributes: TArray<FString>,
@@ -11380,7 +11422,7 @@ pub struct UAnimationSettings {
     pub user_defined_struct_attributes: TArray<TSoftObjectPtr<UUserDefinedStruct>>,
     pub mirror_find_replace_expressions: TArray<FMirrorFindReplaceExpression>,
     pub default_frame_rate: FFrameRate,
-    pub enforce_supported_frame_rates: bool,
+    pub b_enforce_supported_frame_rates: bool,
 }
 pub struct UAnimBank {
     pub sequences: TArray<FAnimBankSequence>,
@@ -11396,7 +11438,7 @@ pub struct UAnimBlueprintGeneratedClass {
     pub anim_notifies: TArray<FAnimNotifyEvent>,
     pub ordered_saved_pose_indices_map: TMap<FName, FCachedPoseIndices>,
     pub sync_group_names: TArray<FName>,
-    pub evaluate_graph_exposed_inputs: TArray<FExposedValueHandler>,
+    pub evaluate_graph_exposed_inputs_deprecated: TArray<FExposedValueHandler>,
     pub graph_asset_player_information: TMap<FName, FGraphAssetPlayerInformation>,
     pub graph_blend_options: TMap<FName, FAnimGraphBlendOptions>,
     pub anim_node_data: TArray<FAnimNodeData>,
@@ -11408,19 +11450,20 @@ pub struct UAnimBoneCompressionCodec {
 pub struct UAnimBoneCompressionSettings {
     pub codecs: TArray<UPtr<UAnimBoneCompressionCodec>>,
     pub error_threshold: f32,
-    pub force_below_threshold: bool,
+    pub b_force_below_threshold: bool,
 }
 pub struct UAnimClassInterface {}
+pub struct IAnimClassInterface {}
 pub struct UAnimSequenceBase {
     pub notifies: TArray<FAnimNotifyEvent>,
     pub sequence_length: f32,
     pub raw_curve_data: FRawCurveTracks,
     pub rate_scale: f32,
-    pub loop_: bool,
+    pub b_loop: bool,
     pub anim_notify_tracks: TArray<FAnimNotifyTrack>,
     pub data_model: UPtr<UAnimDataModel>,
-    pub data_model_interface: IAnimationDataModel,
-    pub controller: IAnimationDataController,
+    pub data_model_interface: TScriptInterface<IAnimationDataModel>,
+    pub controller: TScriptInterface<IAnimationDataController>,
 }
 pub struct UAnimCompositeBase {
     pub common_target_frame_rate: FFrameRate,
@@ -11502,28 +11545,30 @@ pub struct UAnimDataModel {
     pub number_of_keys: i32,
     pub curve_data: FAnimationCurveData,
     pub animated_bone_attributes: TArray<FAnimatedBoneAttribute>,
-    pub populated: bool,
+    pub b_populated: bool,
 }
 pub struct UAnimationDataController {}
+pub struct IAnimationDataController {}
 pub struct UAnimationDataModel {}
+pub struct IAnimationDataModel {}
 pub struct UAnimMetaData {}
 pub struct UAnimMontage {
     pub blend_mode_in: EMontageBlendMode,
     pub blend_mode_out: EMontageBlendMode,
     pub blend_in: FAlphaBlend,
-    pub blend_in_time: f32,
+    pub blend_in_time_deprecated: f32,
     pub blend_out: FAlphaBlend,
-    pub blend_out_time: f32,
+    pub blend_out_time_deprecated: f32,
     pub blend_out_trigger_time: f32,
     pub sync_group: FName,
     pub sync_slot_index: i32,
     pub marker_data: FMarkerSyncData,
     pub composite_sections: TArray<FCompositeSection>,
     pub slot_anim_tracks: TArray<FSlotAnimationTrack>,
-    pub branching_points: TArray<FBranchingPoint>,
-    pub enable_root_motion_translation: bool,
-    pub enable_root_motion_rotation: bool,
-    pub enable_auto_blend_out: bool,
+    pub branching_points_deprecated: TArray<FBranchingPoint>,
+    pub b_enable_root_motion_translation: bool,
+    pub b_enable_root_motion_rotation: bool,
+    pub b_enable_auto_blend_out: bool,
     pub blend_profile_in: UPtr<UBlendProfile>,
     pub blend_profile_out: UPtr<UBlendProfile>,
     pub root_motion_root_lock: ERootMotionRootLock,
@@ -11542,7 +11587,7 @@ pub struct UAnimNotifyState_TimedParticleEffect {
     pub socket_name: FName,
     pub location_offset: FVector,
     pub rotation_offset: FRotator,
-    pub destroy_at_end: bool,
+    pub b_destroy_at_end: bool,
     pub previous_ps_templates: TArray<UPtr<UParticleSystem>>,
     pub previous_socket_names: TArray<FName>,
 }
@@ -11581,7 +11626,7 @@ pub struct UAnimSequence {
     pub sampling_frame_rate: FFrameRate,
     pub raw_data_guid: FGuid,
     pub animation_track_names: TArray<FName>,
-    pub allow_frame_stripping: bool,
+    pub b_allow_frame_stripping: bool,
     pub compression_error_threshold_scale: f32,
     pub bone_compression_settings: UPtr<UAnimBoneCompressionSettings>,
     pub curve_compression_settings: UPtr<UAnimCurveCompressionSettings>,
@@ -11594,16 +11639,16 @@ pub struct UAnimSequence {
     pub retarget_source_asset: TSoftObjectPtr<USkeletalMesh>,
     pub retarget_source_asset_reference_pose: TArray<FTransform>,
     pub interpolation: EAnimInterpolationType,
-    pub enable_root_motion: bool,
+    pub b_enable_root_motion: bool,
     pub root_motion_root_lock: ERootMotionRootLock,
-    pub force_root_lock: bool,
-    pub use_normalized_root_motion_scale: bool,
-    pub root_motion_settings_copied_from_montage: bool,
+    pub b_force_root_lock: bool,
+    pub b_use_normalized_root_motion_scale: bool,
+    pub b_root_motion_settings_copied_from_montage: bool,
     pub compress_commandlet_version: i32,
     pub flags_948: u8,
     pub asset_import_data: UPtr<UAssetImportData>,
-    pub source_file_path: FString,
-    pub source_file_timestamp: FString,
+    pub source_file_path_deprecated: FString,
+    pub source_file_timestamp_deprecated: FString,
     pub strip_anim_data_on_dedicated_server: EStripAnimDataOnDedicatedServerSettings,
     pub authored_sync_markers: TArray<FAnimSyncMarker>,
     pub platform_target_frame_rate: FPerPlatformFrameRate,
@@ -11640,10 +11685,10 @@ pub struct UAnimStreamable {
     pub bone_compression_settings: UPtr<UAnimBoneCompressionSettings>,
     pub curve_compression_settings: UPtr<UAnimCurveCompressionSettings>,
     pub variable_frame_stripping_settings: UPtr<UVariableFrameStrippingSettings>,
-    pub enable_root_motion: bool,
+    pub b_enable_root_motion: bool,
     pub root_motion_root_lock: ERootMotionRootLock,
-    pub force_root_lock: bool,
-    pub use_normalized_root_motion_scale: bool,
+    pub b_force_root_lock: bool,
+    pub b_use_normalized_root_motion_scale: bool,
 }
 pub struct URawAnimSequenceTrackExtensions {}
 pub struct UAssetMappingTable {
@@ -11651,6 +11696,7 @@ pub struct UAssetMappingTable {
 }
 pub struct UAnimationAttributeIdentifierExtensions {}
 pub struct UBlendProfileProviderInterface {}
+pub struct IBlendProfileProviderInterface {}
 pub struct UBlendProfile {
     pub owning_skeleton: UPtr<USkeleton>,
     pub profile_entries: TArray<FBlendProfileBoneEntry>,
@@ -11665,6 +11711,7 @@ pub struct UBoneMaskFilter {
 pub struct UCachedAnimDataLibrary {}
 pub struct UAnimationCurveIdentifierExtensions {}
 pub struct UCurveSourceInterface {}
+pub struct ICurveSourceInterface {}
 pub struct UMeshDeformerCollection {
     pub description: FString,
     pub mesh_deformers: TArray<TSoftObjectPtr<UMeshDeformer>>,
@@ -11675,8 +11722,8 @@ pub struct UDataTable {
     pub flags_136: u8,
     pub import_key_field: FString,
     pub asset_import_data: UPtr<UAssetImportData>,
-    pub import_path: FString,
-    pub row_struct_name: FName,
+    pub import_path_deprecated: FString,
+    pub row_struct_name_deprecated: FName,
     pub row_struct_path_name: FTopLevelAssetPath,
     pub rows_serialized_with_tags: TArray<u8>,
     pub temporarily_referenced_objects: TSet<UPtr<UObject>>,
@@ -11684,7 +11731,7 @@ pub struct UDataTable {
 pub struct UMirrorDataTable {
     pub mirror_find_replace_expressions: TArray<FMirrorFindReplaceExpression>,
     pub mirror_axis: EAxis,
-    pub mirror_root_motion: bool,
+    pub b_mirror_root_motion: bool,
     pub skeleton: UPtr<USkeleton>,
 }
 pub struct UNodeMappingContainer {
@@ -11695,9 +11742,10 @@ pub struct UNodeMappingContainer {
     pub target_asset: TSoftObjectPtr<UObject>,
 }
 pub struct UNodeMappingProviderInterface {}
+pub struct INodeMappingProviderInterface {}
 pub struct UPoseAsset {
     pub pose_container: FPoseDataContainer,
-    pub additive_pose: bool,
+    pub b_additive_pose: bool,
     pub base_pose_index: i32,
     pub retarget_source: FName,
     pub retarget_source_asset: TSoftObjectPtr<USkeletalMesh>,
@@ -11706,20 +11754,21 @@ pub struct UPoseAsset {
     pub source_animation_raw_data_guid: FGuid,
 }
 pub struct UPreviewCollectionInterface {}
+pub struct IPreviewCollectionInterface {}
 pub struct UPreviewMeshCollection {
     pub skeleton: UPtr<USkeleton>,
     pub skeletal_meshes: TArray<FPreviewMeshCollectionEntry>,
 }
 pub struct USkeleton {
     pub bone_tree: TArray<FBoneNode>,
-    pub ref_local_poses: TArray<FTransform>,
+    pub ref_local_poses_deprecated: TArray<FTransform>,
     pub preview_forward_axis: EAxis,
     pub virtual_bone_guid: FGuid,
     pub virtual_bones: TArray<FVirtualBone>,
     pub compatible_skeletons: TArray<TSoftObjectPtr<USkeleton>>,
-    pub use_retarget_modes_from_compatible_skeleton: bool,
+    pub b_use_retarget_modes_from_compatible_skeleton: bool,
     pub sockets: TArray<UPtr<USkeletalMeshSocket>>,
-    pub smart_names: FSmartNameContainer,
+    pub smart_names_deprecated: FSmartNameContainer,
     pub blend_profiles: TArray<UPtr<UBlendProfile>>,
     pub slot_groups: TArray<FAnimSlotGroup>,
     pub preview_skeletal_mesh: TSoftObjectPtr<USkeletalMesh>,
@@ -11737,9 +11786,9 @@ pub struct UVariableFrameStrippingSettings {
 pub struct UAnimBlueprint {
     pub target_skeleton: UPtr<USkeleton>,
     pub groups: TArray<FAnimGroupInfo>,
-    pub is_template: bool,
-    pub use_multi_threaded_animation_update: bool,
-    pub warn_about_blueprint_usage: bool,
+    pub b_is_template: bool,
+    pub b_use_multi_threaded_animation_update: bool,
+    pub b_warn_about_blueprint_usage: bool,
     pub flags_1467: u8,
     pub parent_asset_overrides: TArray<FAnimParentNodeAssetOverride>,
     pub pose_watch_folders: TArray<UPtr<UPoseWatchFolder>>,
@@ -11752,18 +11801,18 @@ pub struct UAnimBlueprint {
 }
 pub struct UAssetManager {
     pub object_reference_list: TArray<UPtr<UObject>>,
-    pub is_global_async_scan_environment: bool,
-    pub should_guess_type_and_name: bool,
-    pub should_use_synchronous_load: bool,
-    pub is_loading_from_pak_files: bool,
-    pub should_acquire_missing_chunks_on_load: bool,
-    pub only_cook_production_assets: bool,
+    pub b_is_global_async_scan_environment: bool,
+    pub b_should_guess_type_and_name: bool,
+    pub b_should_use_synchronous_load: bool,
+    pub b_is_loading_from_pak_files: bool,
+    pub b_should_acquire_missing_chunks_on_load: bool,
+    pub b_only_cook_production_assets: bool,
     pub num_bulk_scan_requests: i32,
-    pub is_primary_asset_directory_current: bool,
-    pub is_management_database_current: bool,
-    pub update_management_database_after_scan: bool,
-    pub include_only_on_disk_assets: bool,
-    pub has_completed_initial_scan: bool,
+    pub b_is_primary_asset_directory_current: bool,
+    pub b_is_management_database_current: bool,
+    pub b_update_management_database_after_scan: bool,
+    pub b_include_only_on_disk_assets: bool,
+    pub b_has_completed_initial_scan: bool,
     pub number_of_spawned_notifications: i32,
 }
 pub struct UAsyncActionLoadPrimaryAssetBase {}
@@ -11812,7 +11861,7 @@ pub struct USkyAtmosphereComponent {
     pub transmittance_min_light_elevation_angle: f32,
     pub aerial_perspective_start_depth: f32,
     pub flags_832: u8,
-    pub static_lighting_built_guid: FGuid,
+    pub b_static_lighting_built_guid: FGuid,
 }
 pub struct UAtmosphericFogComponent {}
 pub struct UAudioBus {
@@ -11831,8 +11880,8 @@ pub struct UAudioSettings {
     pub voi_p_sample_rate: EVoiceSampleRate,
     pub default_audio_compression_type: EDefaultAudioCompressionType,
     pub default_occlusion_check_interval: FPerPlatformFloat,
-    pub default_compression_quality: i32,
-    pub default_reverb_send_level: f32,
+    pub default_compression_quality_deprecated: i32,
+    pub default_reverb_send_level_deprecated: f32,
     pub maximum_concurrent_streams: i32,
     pub global_min_pitch_scale: f32,
     pub global_max_pitch_scale: f32,
@@ -11844,7 +11893,7 @@ pub struct UAudioSettings {
     pub dialogue_filename_format: FString,
     pub debug_sounds: TArray<FSoundDebugEntry>,
     pub default_audio_buses: TArray<FDefaultAudioBusSettings>,
-    pub enable_legacy_asset_types: bool,
+    pub b_enable_legacy_asset_types: bool,
     pub default_sound_class: UPtr<USoundClass>,
     pub default_media_sound_class: UPtr<USoundClass>,
     pub default_sound_concurrency: UPtr<USoundConcurrency>,
@@ -11858,8 +11907,10 @@ pub struct AAudioVolume {
     pub submix_override_settings: TArray<FAudioVolumeSubmixOverrideSettings>,
 }
 pub struct UActorSoundParameterInterface {}
+pub struct IActorSoundParameterInterface {}
 pub struct UAudioWidgetSubsystem {}
 pub struct USoundParameterControllerInterface {}
+pub struct ISoundParameterControllerInterface {}
 pub struct UAudioParameterConversionStatics {}
 pub struct ABlockingVolume {}
 pub struct UDEPRECATED_Breakpoint {}
@@ -11875,6 +11926,7 @@ pub struct ABrushShape {}
 pub struct ACameraBlockingVolume {}
 pub struct UCameraProxyMeshComponent {}
 pub struct UCameraLensEffectInterface {}
+pub struct ICameraLensEffectInterface {}
 pub struct UCameraLensEffectInterfaceClassSupportLibrary {}
 pub struct UCameraModifier {
     pub flags_48: u8,
@@ -11901,7 +11953,7 @@ pub struct UCameraShakeSourceComponent {
     pub inner_attenuation_radius: f32,
     pub outer_attenuation_radius: f32,
     pub camera_shake: TSubclassOf<UCameraShakeBase>,
-    pub auto_start: bool,
+    pub b_auto_start: bool,
     pub editor_sprite_texture: UPtr<UTexture2D>,
     pub editor_sprite_texture_scale: f32,
 }
@@ -11926,7 +11978,7 @@ pub struct UCanvasRenderTarget2D {
     pub on_canvas_render_target_update: FCanvasRenderTarget2D_OnCanvasRenderTargetUpdate,
     pub world: TWeakObjectPtr<UWorld>,
     pub sample_count: ETextureRenderTargetSampleCount,
-    pub should_clear_render_target_on_receive_update: bool,
+    pub b_should_clear_render_target_on_receive_update: bool,
 }
 pub struct APlayerController {
     pub player: UPtr<UPlayer>,
@@ -11934,7 +11986,7 @@ pub struct APlayerController {
     pub my_hud: UPtr<AHUD>,
     pub player_camera_manager: UPtr<APlayerCameraManager>,
     pub player_camera_manager_class: TSubclassOf<APlayerCameraManager>,
-    pub auto_manage_active_camera_target: bool,
+    pub b_auto_manage_active_camera_target: bool,
     pub target_view_rotation: FRotator,
     pub smooth_target_view_rotation_speed: f32,
     pub hidden_actors: TArray<UPtr<AActor>>,
@@ -11951,9 +12003,9 @@ pub struct APlayerController {
     pub net_player_index: u8,
     pub pending_swap_connection: UPtr<UNetConnection>,
     pub net_connection: UPtr<UNetConnection>,
-    pub input_yaw_scale: f32,
-    pub input_pitch_scale: f32,
-    pub input_roll_scale: f32,
+    pub input_yaw_scale_deprecated: f32,
+    pub input_pitch_scale_deprecated: f32,
+    pub input_roll_scale_deprecated: f32,
     pub flags_1860: u8,
     pub flags_1861: u8,
     pub streaming_source_priority: EStreamingSourcePriority,
@@ -11973,7 +12025,7 @@ pub struct APlayerController {
     pub current_touch_interface: UPtr<UTouchInterface>,
     pub override_player_input_class: TSubclassOf<UPlayerInput>,
     pub spectator_pawn: UPtr<ASpectatorPawn>,
-    pub is_local_player_controller: bool,
+    pub b_is_local_player_controller: bool,
     pub spawn_location: FVector,
     pub cached_connection_player_id: FUniqueNetIdRepl,
     pub client_handshake_id: u32,
@@ -12013,10 +12065,10 @@ pub struct UArrowComponent {
     pub arrow_length: f32,
     pub screen_size: f32,
     pub flags_1520: u8,
-    pub sprite_category_name: FName,
+    pub sprite_category_name_deprecated: FName,
     pub sprite_info: FSpriteCategoryInfo,
     pub flags_1584: u8,
-    pub use_in_editor_scaling: bool,
+    pub b_use_in_editor_scaling: bool,
 }
 pub struct UInitialActiveSoundParams {
     pub audio_params: TArray<FAudioParameter>,
@@ -12040,14 +12092,14 @@ pub struct UAudioComponent {
     pub priority: f32,
     pub subtitle_priority: f32,
     pub source_effect_chain: UPtr<USoundEffectSourcePresetChain>,
-    pub volume_weighted_priority_scale: f32,
-    pub high_frequency_gain_multiplier: f32,
+    pub volume_weighted_priority_scale_deprecated: f32,
+    pub high_frequency_gain_multiplier_deprecated: f32,
     pub pitch_multiplier: f32,
     pub low_pass_filter_frequency: f32,
     pub high_pass_filter_frequency: f32,
     pub attenuation_settings: UPtr<USoundAttenuation>,
     pub attenuation_overrides: FSoundAttenuationSettings,
-    pub concurrency_settings: UPtr<USoundConcurrency>,
+    pub concurrency_settings_deprecated: UPtr<USoundConcurrency>,
     pub concurrency_set: TSet<UPtr<USoundConcurrency>>,
     pub occlusion_check_interval: f32,
     pub auto_attach_location_rule: EAttachmentRule,
@@ -12073,20 +12125,20 @@ pub struct UBillboardComponent {
     pub v: f32,
     pub vl: f32,
     pub opacity_mask_ref_val: f32,
-    pub sprite_category_name: FName,
+    pub sprite_category_name_deprecated: FName,
     pub sprite_info: FSpriteCategoryInfo,
-    pub use_in_editor_scaling: bool,
-    pub show_locked_location: bool,
+    pub b_use_in_editor_scaling: bool,
+    pub b_show_locked_location: bool,
 }
 pub struct UBoundsCopyComponent {
     pub bounds_source_actor: TSoftObjectPtr<AActor>,
-    pub use_colliding_components_for_source_bounds: bool,
-    pub keep_own_bounds_scale: bool,
-    pub use_colliding_components_for_own_bounds: bool,
+    pub b_use_colliding_components_for_source_bounds: bool,
+    pub b_keep_own_bounds_scale: bool,
+    pub b_use_colliding_components_for_own_bounds: bool,
     pub post_transform: FTransform,
-    pub copy_x_bounds: bool,
-    pub copy_y_bounds: bool,
-    pub copy_z_bounds: bool,
+    pub b_copy_x_bounds: bool,
+    pub b_copy_y_bounds: bool,
+    pub b_copy_z_bounds: bool,
 }
 pub struct UShapeComponent {
     pub shape_body_setup: UPtr<UBodySetup>,
@@ -12102,12 +12154,12 @@ pub struct UBoxComponent {
 pub struct UBrushComponent {
     pub brush: UPtr<UModel>,
     pub brush_body_setup: UPtr<UBodySetup>,
-    pub pre_pivot: FVector,
+    pub pre_pivot_deprecated: FVector,
 }
 pub struct UCapsuleComponent {
     pub capsule_half_height: f32,
     pub capsule_radius: f32,
-    pub capsule_height: f32,
+    pub capsule_height_deprecated: f32,
 }
 pub struct UMovementComponent {
     pub updated_component: UPtr<USceneComponent>,
@@ -12119,7 +12171,7 @@ pub struct UMovementComponent {
     pub plane_constraint_axis_setting: EPlaneConstraintAxisSetting,
 }
 pub struct UNavMovementComponent {
-    pub fixed_path_braking_distance: f32,
+    pub fixed_path_braking_distance_deprecated: f32,
     pub flags_356: u8,
     pub nav_movement_properties: FNavMovementProperties,
     pub nav_agent_props: FNavAgentProperties,
@@ -12186,8 +12238,8 @@ pub struct UCharacterMovementComponent {
     pub max_touch_force: f32,
     pub repulsion_force: f32,
     pub flags_868: u8,
-    pub crouched_speed_multiplier: f32,
-    pub upper_impact_normal_scale: f32,
+    pub crouched_speed_multiplier_deprecated: f32,
+    pub upper_impact_normal_scale_deprecated: f32,
     pub acceleration: FVector,
     pub last_update_rotation: FQuat,
     pub last_update_location: FVector,
@@ -12244,9 +12296,9 @@ pub struct UCharacterMovementComponent {
     pub nav_mesh_projection_height_scale_up: f32,
     pub nav_mesh_projection_height_scale_down: f32,
     pub nav_walking_floor_dist_tolerance: f32,
-    pub based_movement_ignore_physics_base: bool,
-    pub base_on_attachment_root: bool,
-    pub stay_based_in_air: bool,
+    pub b_based_movement_ignore_physics_base: bool,
+    pub b_base_on_attachment_root: bool,
+    pub b_stay_based_in_air: bool,
     pub stay_based_in_air_height: f32,
     pub post_physics_tick_function: FCharacterMovementComponentPostPhysicsTickFunction,
     pub min_time_between_time_stamp_resets: f32,
@@ -12272,9 +12324,9 @@ pub struct ULightComponent {
     pub max_draw_distance: f32,
     pub max_distance_fade_range: f32,
     pub flags_772: u8,
-    pub shadow_map_channel: i32,
+    pub shadow_map_channel_deprecated: i32,
     pub preview_shadow_map_channel: i32,
-    pub min_roughness: f32,
+    pub min_roughness_deprecated: f32,
     pub specular_scale: f32,
     pub diffuse_scale: f32,
     pub shadow_resolution_scale: f32,
@@ -12304,7 +12356,7 @@ pub struct ULightComponent {
     pub bloom_threshold: f32,
     pub bloom_max_brightness: f32,
     pub bloom_tint: FColor,
-    pub use_ray_traced_distance_field_shadows: bool,
+    pub b_use_ray_traced_distance_field_shadows: bool,
     pub ray_start_offset_depth_scale: f32,
 }
 pub struct UDirectionalLightComponent {
@@ -12313,7 +12365,7 @@ pub struct UDirectionalLightComponent {
     pub occlusion_mask_darkness: f32,
     pub occlusion_depth_range: f32,
     pub light_shaft_override_direction: FVector,
-    pub whole_scene_dynamic_shadow_radius: f32,
+    pub whole_scene_dynamic_shadow_radius_deprecated: f32,
     pub dynamic_shadow_distance_movable_light: f32,
     pub dynamic_shadow_distance_stationary_light: f32,
     pub dynamic_shadow_cascades: i32,
@@ -12347,7 +12399,7 @@ pub struct UDirectionalLightComponent {
     pub shadow_amount: f32,
 }
 pub struct UDrawFrustumComponent {
-    pub frustum_enabled: bool,
+    pub b_frustum_enabled: bool,
     pub frustum_color: FColor,
     pub frustum_angle: f32,
     pub frustum_aspect_ratio: f32,
@@ -12363,7 +12415,7 @@ pub struct UExponentialHeightFogComponent {
     pub fog_density: f32,
     pub fog_height_falloff: f32,
     pub second_fog_data: FExponentialHeightFogData,
-    pub fog_inscattering_color: FLinearColor,
+    pub fog_inscattering_color_deprecated: FLinearColor,
     pub fog_inscattering_luminance: FLinearColor,
     pub sky_atmosphere_ambient_contribution_color_scale: FLinearColor,
     pub inscattering_color_cubemap: UPtr<UTextureCube>,
@@ -12373,13 +12425,13 @@ pub struct UExponentialHeightFogComponent {
     pub non_directional_inscattering_color_distance: f32,
     pub directional_inscattering_exponent: f32,
     pub directional_inscattering_start_distance: f32,
-    pub directional_inscattering_color: FLinearColor,
+    pub directional_inscattering_color_deprecated: FLinearColor,
     pub directional_inscattering_luminance: FLinearColor,
     pub fog_max_opacity: f32,
     pub start_distance: f32,
     pub end_distance: f32,
     pub fog_cutoff_distance: f32,
-    pub enable_volumetric_fog: bool,
+    pub b_enable_volumetric_fog: bool,
     pub volumetric_fog_scattering_distribution: f32,
     pub volumetric_fog_albedo: FColor,
     pub volumetric_fog_emissive: FLinearColor,
@@ -12388,7 +12440,7 @@ pub struct UExponentialHeightFogComponent {
     pub volumetric_fog_start_distance: f32,
     pub volumetric_fog_near_fade_in_distance: f32,
     pub volumetric_fog_static_lighting_scattering_intensity: f32,
-    pub override_light_colors_with_fog_inscattering_colors: bool,
+    pub b_override_light_colors_with_fog_inscattering_colors: bool,
     pub flags_869: u8,
 }
 pub struct UForceFeedbackComponent {
@@ -12432,16 +12484,16 @@ pub struct UInstancedSkinnedMeshComponent {
     pub instance_end_cull_distance: i32,
     pub flags_2656: u8,
     pub primitive_bounds_override: FBox,
-    pub is_instance_data_gpu_only: bool,
+    pub b_is_instance_data_gpu_only: bool,
     pub num_instances_gpu_only: i32,
 }
 pub struct UInterpToMovementComponent {
     pub duration: f32,
     pub flags_348: u8,
-    pub sweep: bool,
+    pub b_sweep: bool,
     pub teleport_type: ETeleportType,
     pub behaviour_type: EInterpToBehaviourType,
-    pub check_if_still_in_world: bool,
+    pub b_check_if_still_in_world: bool,
     pub flags_356: u8,
     pub on_interp_to_reverse: FInterpToMovementComponent_OnInterpToReverse,
     pub on_interp_to_stop: FInterpToMovementComponent_OnInterpToStop,
@@ -12467,7 +12519,7 @@ pub struct ULocalFogVolumeComponent {
 pub struct ULocalLightComponent {
     pub intensity_units: ELightUnits,
     pub inverse_exposure_blend: f32,
-    pub radius: f32,
+    pub radius_deprecated: f32,
     pub attenuation_radius: f32,
     pub lightmass_settings: FLightmassPointLightSettings,
 }
@@ -12556,7 +12608,7 @@ pub struct URectLightComponent {
     pub source_texture: UPtr<UTexture>,
     pub source_texture_scale: FVector2f,
     pub source_texture_offset: FVector2f,
-    pub light_requires_broken_ev_math: bool,
+    pub b_light_requires_broken_ev_math: bool,
 }
 pub struct URotatingMovementComponent {
     pub rotation_rate: FRotator,
@@ -12565,40 +12617,40 @@ pub struct URotatingMovementComponent {
 }
 pub struct URuntimeVirtualTextureComponent {
     pub bounds_align_actor: TSoftObjectPtr<AActor>,
-    pub set_bounds_button: bool,
-    pub snap_bounds_to_landscape: bool,
+    pub b_set_bounds_button: bool,
+    pub b_snap_bounds_to_landscape: bool,
     pub expand_bounds: f32,
     pub virtual_texture: UPtr<URuntimeVirtualTexture>,
     pub enable_in_game_per_platform: FPerPlatformBool,
-    pub enable_for_nanite_only: bool,
-    pub use_min_material_quality: bool,
+    pub b_enable_for_nanite_only: bool,
+    pub b_use_min_material_quality: bool,
     pub min_in_game_material_quality: ERuntimeVirtualTextureMaterialQuality,
-    pub enable_scalability: bool,
+    pub b_enable_scalability: bool,
     pub scalability_group: u32,
-    pub hide_primitives: bool,
+    pub b_hide_primitives: bool,
     pub streaming_texture: UPtr<UVirtualTextureBuilder>,
     pub stream_low_mips: i32,
-    pub build_streaming_mips_button: bool,
+    pub b_build_streaming_mips_button: bool,
     pub lossy_compression_amount: ETextureLossyCompressionAmount,
-    pub use_streaming_mips_fixed_color: bool,
+    pub b_use_streaming_mips_fixed_color: bool,
     pub streaming_mips_fixed_color: FLinearColor,
-    pub use_streaming_mips_only: bool,
+    pub b_use_streaming_mips_only: bool,
     pub use_streaming_mips_in_editor_mode: ERuntimeVirtualTextureUseStreamingMipsInEditorMode,
-    pub use_streaming_mips_in_editor: bool,
+    pub b_use_streaming_mips_in_editor_deprecated: bool,
 }
 pub struct ASkyAtmosphere {
     pub sky_atmosphere_component: UPtr<USkyAtmosphereComponent>,
     pub arrow_component: UPtr<UArrowComponent>,
 }
 pub struct USkyLightComponent {
-    pub real_time_capture: bool,
+    pub b_real_time_capture: bool,
     pub source_type: ESkyLightSourceType,
     pub cubemap: UPtr<UTextureCube>,
     pub source_cubemap_angle: f32,
     pub cubemap_resolution: i32,
     pub sky_distance_threshold: f32,
-    pub capture_emissive_only: bool,
-    pub lower_hemisphere_is_black: bool,
+    pub b_capture_emissive_only: bool,
+    pub b_lower_hemisphere_is_black: bool,
     pub lower_hemisphere_color: FLinearColor,
     pub occlusion_max_distance: f32,
     pub contrast: f32,
@@ -12617,20 +12669,20 @@ pub struct USplineMetadata {}
 pub struct USplineComponent {
     pub spline: FSpline,
     pub spline_curves: FSplineCurves,
-    pub spline_info: FInterpCurveVector,
-    pub spline_rot_info: FInterpCurveQuat,
-    pub spline_scale_info: FInterpCurveVector,
-    pub spline_reparam_table: FInterpCurveFloat,
-    pub allow_spline_editing_per_instance: bool,
+    pub spline_info_deprecated: FInterpCurveVector,
+    pub spline_rot_info_deprecated: FInterpCurveQuat,
+    pub spline_scale_info_deprecated: FInterpCurveVector,
+    pub spline_reparam_table_deprecated: FInterpCurveFloat,
+    pub b_allow_spline_editing_per_instance_deprecated: bool,
     pub reparam_steps_per_segment: i32,
     pub duration: f32,
-    pub stationary_endpoints: bool,
-    pub spline_has_been_edited: bool,
-    pub modified_by_construction_script: bool,
-    pub input_spline_points_to_construction_script: bool,
-    pub draw_debug: bool,
-    pub closed_loop: bool,
-    pub loop_position_override: bool,
+    pub b_stationary_endpoints: bool,
+    pub b_spline_has_been_edited: bool,
+    pub b_modified_by_construction_script: bool,
+    pub b_input_spline_points_to_construction_script: bool,
+    pub b_draw_debug: bool,
+    pub b_closed_loop: bool,
+    pub b_loop_position_override: bool,
     pub loop_position: f32,
     pub line_material: TSoftObjectPtr<UMaterialInterface>,
     pub point_material: TSoftObjectPtr<UMaterialInterface>,
@@ -12640,9 +12692,9 @@ pub struct USplineComponent {
     pub editor_unselected_spline_segment_color: FLinearColor,
     pub editor_selected_spline_segment_color: FLinearColor,
     pub editor_tangent_color: FLinearColor,
-    pub allow_discontinuous_spline: bool,
-    pub adjust_tangents_on_snap: bool,
-    pub should_visualize_scale: bool,
+    pub b_allow_discontinuous_spline: bool,
+    pub b_adjust_tangents_on_snap: bool,
+    pub b_should_visualize_scale: bool,
     pub scale_visualization_width: f32,
     pub last_authority: ELastAuthority,
 }
@@ -12720,12 +12772,12 @@ pub struct UVolumetricCloudComponent {
     pub sky_light_cloud_bottom_occlusion: f32,
     pub view_sample_count_scale: f32,
     pub reflection_view_sample_count_scale_value: f32,
-    pub reflection_view_sample_count_scale: f32,
-    pub reflection_sample_count_scale: f32,
+    pub reflection_view_sample_count_scale_deprecated: f32,
+    pub reflection_sample_count_scale_deprecated: f32,
     pub shadow_view_sample_count_scale: f32,
     pub shadow_reflection_view_sample_count_scale_value: f32,
-    pub shadow_reflection_view_sample_count_scale: f32,
-    pub shadow_reflection_sample_count_scale: f32,
+    pub shadow_reflection_view_sample_count_scale_deprecated: f32,
+    pub shadow_reflection_sample_count_scale_deprecated: f32,
     pub shadow_tracing_distance: f32,
     pub stop_tracing_transmittance_threshold: f32,
     pub aerial_pespective_rayleigh_scattering_start_distance: f32,
@@ -12742,18 +12794,18 @@ pub struct UWorldPartitionStreamingSourceComponent {
     pub default_visualizer_loading_range: f32,
     pub target_behavior: EStreamingSourceTargetBehavior,
     pub target_grids: TArray<FName>,
-    pub target_grid: FName,
+    pub target_grid_deprecated: FName,
     pub debug_color: FColor,
-    pub target_hlod_layers: TArray<UPtr<UHLODLayer>>,
-    pub target_hlod_layer: UPtr<UHLODLayer>,
+    pub target_hlod_layers_deprecated: TArray<UPtr<UHLODLayer>>,
+    pub target_hlod_layer_deprecated: UPtr<UHLODLayer>,
     pub shapes: TArray<FStreamingSourceShape>,
     pub priority: EStreamingSourcePriority,
-    pub streaming_source_enabled: bool,
+    pub b_streaming_source_enabled: bool,
     pub target_state: EStreamingSourceTargetState,
 }
 pub struct UCurveTable {
     pub asset_import_data: UPtr<UAssetImportData>,
-    pub import_path: FString,
+    pub import_path_deprecated: FString,
 }
 pub struct UCompositeCurveTable {
     pub parent_tables: TArray<UPtr<UCurveTable>>,
@@ -12795,12 +12847,12 @@ pub struct ACullDistanceVolume {
 }
 pub struct UCurveBase {
     pub asset_import_data: UPtr<UAssetImportData>,
-    pub import_path: FString,
+    pub import_path_deprecated: FString,
 }
 pub struct UDEPRECATED_CurveEdPresetCurve {}
 pub struct UCurveFloat {
     pub float_curve: FRichCurve,
-    pub is_event_curve: bool,
+    pub b_is_event_curve: bool,
 }
 pub struct UCurveLinearColor {
     pub float_curves: FRichCurve,
@@ -12877,7 +12929,7 @@ pub struct ADecalActor {
     pub decal: UPtr<UDecalComponent>,
     pub arrow_component: UPtr<UArrowComponent>,
     pub sprite_component: UPtr<UBillboardComponent>,
-    pub box_component: UPtr<UBoxComponent>,
+    pub box_component_deprecated: UPtr<UBoxComponent>,
 }
 pub struct ADefaultPawn {
     pub base_turn_rate: f32,
@@ -12895,6 +12947,7 @@ pub struct APhysicsVolume {
 }
 pub struct ADefaultPhysicsVolume {}
 pub struct UDeformableInterface {}
+pub struct IDeformableInterface {}
 pub struct UDeletedObjectPlaceholder {
     pub display_name: FString,
     pub external_data_layer_uid: u32,
@@ -12938,7 +12991,7 @@ pub struct UNetDriver {
     pub flags_825: u8,
     pub flags_826: u8,
     pub replication_driver: UPtr<UReplicationDriver>,
-    pub send_immediate_acks: bool,
+    pub b_send_immediate_acks: bool,
 }
 pub struct UDemoNetDriver {
     pub rollback_net_startup_actors: TMap<FString, FRollbackNetStartupActorInfo>,
@@ -12947,6 +13000,7 @@ pub struct UDemoNetDriver {
     pub spectator_controllers: TArray<UPtr<APlayerController>>,
 }
 pub struct UDestructibleInterface {}
+pub struct IDestructibleInterface {}
 pub struct UTextureLODSettings {
     pub texture_lod_groups: TArray<FTextureLODGroup>,
 }
@@ -12984,7 +13038,7 @@ pub struct UGraphNodeContextMenuContext {
     pub blueprint: UPtr<UBlueprint>,
     pub graph: UPtr<UEdGraph>,
     pub node: UPtr<UEdGraphNode>,
-    pub is_debugging: bool,
+    pub b_is_debugging: bool,
 }
 pub struct UEdGraphNode_Documentation {
     pub link: FString,
@@ -13017,6 +13071,7 @@ pub struct UComponentElementObjectInterface {}
 pub struct UEngineElementsLibrary {}
 pub struct UTypedElementCommonActions {}
 pub struct UTypedElementWorldInterface {}
+pub struct ITypedElementWorldInterface {}
 pub struct UObjectElementAssetDataInterface {}
 pub struct UObjectElementCounterInterface {}
 pub struct UObjectElementObjectInterface {}
@@ -13041,15 +13096,16 @@ pub struct UAutoDestroySubsystem {
 }
 pub struct UCancellableAsyncAction {}
 pub struct ULODSyncInterface {}
+pub struct ILODSyncInterface {}
 pub struct UPoseWatchFolder {
     pub label: FText,
     pub parent: TWeakObjectPtr<UPoseWatchFolder>,
-    pub is_visible: bool,
-    pub is_expanded: bool,
+    pub b_is_visible: bool,
+    pub b_is_expanded: bool,
 }
 pub struct UPoseWatchElement {
-    pub is_visible: bool,
-    pub has_color: bool,
+    pub b_is_visible: bool,
+    pub b_has_color: bool,
     pub color: FColor,
     pub label: FText,
     pub icon_name: FName,
@@ -13057,29 +13113,29 @@ pub struct UPoseWatchElement {
 }
 pub struct UPoseWatchPoseElement {
     pub viewport_mask: UPtr<UBlendProfile>,
-    pub invert_viewport_mask: bool,
+    pub b_invert_viewport_mask: bool,
     pub blend_scale_threshold: f32,
     pub viewport_offset: FVector3d,
 }
 pub struct UPoseWatch {
     pub node: TWeakObjectPtr<UEdGraphNode>,
-    pub viewport_mask: UPtr<UBlendProfile>,
-    pub invert_viewport_mask: bool,
-    pub blend_scale_threshold: f32,
-    pub viewport_offset: FVector3d,
+    pub viewport_mask_deprecated: UPtr<UBlendProfile>,
+    pub b_invert_viewport_mask_deprecated: bool,
+    pub blend_scale_threshold_deprecated: f32,
+    pub viewport_offset_deprecated: FVector3d,
     pub elements: TArray<UPtr<UPoseWatchElement>>,
-    pub delete_on_deselection: bool,
-    pub is_visible: bool,
-    pub is_node_enabled: bool,
-    pub is_expanded: bool,
-    pub color: FColor,
+    pub b_delete_on_deselection: bool,
+    pub b_is_visible: bool,
+    pub b_is_node_enabled: bool,
+    pub b_is_expanded: bool,
+    pub color_deprecated: FColor,
     pub label: FText,
-    pub icon_name: FName,
+    pub icon_name_deprecated: FName,
     pub parent: TWeakObjectPtr<UPoseWatchFolder>,
 }
 pub struct AServerStatReplicator {
-    pub update_stat_net: bool,
-    pub overwrite_client_stats: bool,
+    pub b_update_stat_net: bool,
+    pub b_overwrite_client_stats: bool,
     pub channels: u32,
     pub in_rate: u32,
     pub out_rate: u32,
@@ -13130,8 +13186,8 @@ pub struct AServerStatReplicator {
 }
 pub struct USystemTimeTimecodeProvider {
     pub frame_rate: FFrameRate,
-    pub generate_full_frame: bool,
-    pub use_high_performance_clock: bool,
+    pub b_generate_full_frame: bool,
+    pub b_use_high_performance_clock: bool,
 }
 pub struct UViewportStatsSubsystem {}
 pub struct UFieldNotificationLibrary {}
@@ -13167,13 +13223,13 @@ pub struct UFontFace {
     pub loading_policy: EFontLoadingPolicy,
     pub layout_method: EFontLayoutMethod,
     pub ascend_overridden_value: i32,
-    pub is_ascend_overridden: bool,
+    pub b_is_ascend_overridden: bool,
     pub descend_overridden_value: i32,
-    pub is_descend_overridden: bool,
+    pub b_is_descend_overridden: bool,
     pub strike_brush_height_percentage: i32,
-    pub font_face_data: TArray<u8>,
+    pub font_face_data_deprecated: TArray<u8>,
     pub sub_faces: TArray<FString>,
-    pub enable_distance_field_rendering: bool,
+    pub b_enable_distance_field_rendering: bool,
     pub min_distance_field_ppem: i32,
     pub mid_distance_field_ppem: i32,
     pub max_distance_field_ppem: i32,
@@ -13266,7 +13322,7 @@ pub struct UTouchInterface {
     pub time_until_deactive: f32,
     pub time_until_reset: f32,
     pub activation_delay: f32,
-    pub prevent_recenter: bool,
+    pub b_prevent_recenter: bool,
     pub startup_delay: f32,
 }
 pub struct AGameModeBase {
@@ -13299,7 +13355,7 @@ pub struct AGameMode {
     pub inactive_player_array: TArray<UPtr<APlayerState>>,
     pub inactive_player_state_life_span: f32,
     pub max_inactive_players: i32,
-    pub handle_dedicated_server_replays: bool,
+    pub b_handle_dedicated_server_replays: bool,
 }
 pub struct AGameNetworkManager {
     pub bad_packet_loss_threshold: f32,
@@ -13337,14 +13393,14 @@ pub struct AGameNetworkManager {
     pub client_net_cam_update_delta_time: f32,
     pub client_net_cam_update_position_limit: f32,
     pub client_authorative_position: bool,
-    pub movement_time_discrepancy_detection: bool,
-    pub movement_time_discrepancy_resolution: bool,
+    pub b_movement_time_discrepancy_detection: bool,
+    pub b_movement_time_discrepancy_resolution: bool,
     pub movement_time_discrepancy_max_time_margin: f32,
     pub movement_time_discrepancy_min_time_margin: f32,
     pub movement_time_discrepancy_resolution_rate: f32,
     pub movement_time_discrepancy_drift_allowance: f32,
-    pub movement_time_discrepancy_force_corrections_during_resolution: bool,
-    pub use_distance_based_relevancy: bool,
+    pub b_movement_time_discrepancy_force_corrections_during_resolution: bool,
+    pub b_use_distance_based_relevancy: bool,
 }
 pub struct UGameplayStatics {}
 pub struct AGameSession {
@@ -13352,7 +13408,7 @@ pub struct AGameSession {
     pub max_players: i32,
     pub max_party_size: i32,
     pub max_splitscreens_per_connection: u8,
-    pub requires_push_to_talk: bool,
+    pub b_requires_push_to_talk: bool,
     pub session_name: FName,
 }
 pub struct AGameStateBase {
@@ -13360,7 +13416,7 @@ pub struct AGameStateBase {
     pub authority_game_mode: UPtr<AGameModeBase>,
     pub spectator_class: TSubclassOf<ASpectatorPawn>,
     pub player_array: TArray<UPtr<APlayerState>>,
-    pub replicated_has_begun_play: bool,
+    pub b_replicated_has_begun_play: bool,
     pub replicated_world_time_seconds_double: f64,
     pub server_world_time_seconds_delta: f32,
     pub server_world_time_seconds_update_frequency: f32,
@@ -13371,14 +13427,14 @@ pub struct AGameState {
     pub elapsed_time: i32,
 }
 pub struct UGameUserSettings {
-    pub use_v_sync: bool,
-    pub use_dynamic_resolution: bool,
+    pub b_use_v_sync: bool,
+    pub b_use_dynamic_resolution: bool,
     pub resolution_size_x: u32,
     pub resolution_size_y: u32,
     pub last_user_confirmed_resolution_size_x: u32,
     pub last_user_confirmed_resolution_size_y: u32,
-    pub window_pos_x: i32,
-    pub window_pos_y: i32,
+    pub window_pos_x_deprecated: i32,
+    pub window_pos_y_deprecated: i32,
     pub window_positions: TArray<FIntPoint>,
     pub fullscreen_mode: i32,
     pub last_confirmed_fullscreen_mode: i32,
@@ -13388,7 +13444,7 @@ pub struct UGameUserSettings {
     pub last_confirmed_audio_quality_level: i32,
     pub frame_rate_limit: f32,
     pub desired_screen_width: i32,
-    pub use_desired_screen_height: bool,
+    pub b_use_desired_screen_height: bool,
     pub desired_screen_height: i32,
     pub last_user_confirmed_desired_screen_width: i32,
     pub last_user_confirmed_desired_screen_height: i32,
@@ -13399,7 +13455,7 @@ pub struct UGameUserSettings {
     pub last_cpu_benchmark_steps: TArray<f32>,
     pub last_gpu_benchmark_steps: TArray<f32>,
     pub last_gpu_benchmark_multiplier: f32,
-    pub use_hdr_display_output: bool,
+    pub b_use_hdr_display_output: bool,
     pub hdr_display_output_nits: i32,
     pub on_game_user_settings_ui_needs_update: FGameUserSettings_OnGameUserSettingsUINeedsUpdate,
 }
@@ -13425,11 +13481,11 @@ pub struct UHLODProxyDesc {
     pub static_mesh: UPtr<UStaticMesh>,
     pub ism_components_desc: TArray<FHLODISMComponentDesc>,
     pub lod_draw_distance: f32,
-    pub override_material_merge_settings: bool,
+    pub b_override_material_merge_settings: bool,
     pub material_settings: FMaterialProxySettings,
-    pub override_transition_screen_size: bool,
+    pub b_override_transition_screen_size: bool,
     pub transition_screen_size: f32,
-    pub override_screen_size: bool,
+    pub b_override_screen_size: bool,
     pub screen_size: i32,
     pub key: FName,
     pub lod_level: i32,
@@ -13443,6 +13499,7 @@ pub struct UHierarchicalLODSetup {
     pub override_base_material: TSoftObjectPtr<UMaterialInterface>,
 }
 pub struct UImportantToggleSettingInterface {}
+pub struct IImportantToggleSettingInterface {}
 pub struct UInheritableComponentHandler {
     pub records: TArray<FComponentOverrideRecord>,
     pub unnecessary_components: TArray<UPtr<UActorComponent>>,
@@ -13529,7 +13586,7 @@ pub struct ULevelActorContainer {
 }
 pub struct ALevelBounds {
     pub box_component: UPtr<UBoxComponent>,
-    pub auto_update_bounds: bool,
+    pub b_auto_update_bounds: bool,
 }
 pub struct ALevelInstance {
     pub world_asset: TSoftObjectPtr<UWorld>,
@@ -13547,7 +13604,7 @@ pub struct ULevelInstanceComponent {
 pub struct ALevelInstanceEditorInstanceActor {}
 pub struct ULevelStreamingLevelInstanceEditor {}
 pub struct ULevelInstanceEditorObject {
-    pub moved_actors: bool,
+    pub b_moved_actors: bool,
     pub other_packages_to_save: TArray<TWeakObjectPtr<UPackage>>,
 }
 pub struct ALevelInstancePivot {}
@@ -13555,6 +13612,7 @@ pub struct ULevelStreamingLevelInstanceEditorPropertyOverride {
     pub archetype_world: UPtr<UWorld>,
 }
 pub struct ULevelInstanceInterface {}
+pub struct ILevelInstanceInterface {}
 pub struct ULevelStreamingLevelInstance {}
 pub struct UWorldPartitionPropertyOverride {
     pub property_overrides_per_container: TMap<
@@ -13564,14 +13622,14 @@ pub struct UWorldPartitionPropertyOverride {
 }
 pub struct ULevelInstancePropertyOverrideAsset {
     pub world_asset: TSoftObjectPtr<UWorld>,
-    pub saving_override_edit: bool,
+    pub b_saving_override_edit: bool,
 }
 pub struct UWorldPartitionPropertyOverridePolicy {}
 pub struct ULevelInstancePropertyOverridePolicy {}
 pub struct ULevelInstanceSettings {
     pub property_override_policy_class: FString,
     pub property_override_policy: UPtr<ULevelInstancePropertyOverridePolicy>,
-    pub is_level_instance_disabled: bool,
+    pub b_is_level_instance_disabled: bool,
 }
 pub struct ULevelInstanceSubsystem {}
 pub struct ULevelInstancePropertyOverrideSamplePolicy {}
@@ -13606,7 +13664,9 @@ pub struct ALightWeightInstanceManager {
 }
 pub struct ALightWeightInstanceStaticMeshManager {
     pub static_mesh: TSoftObjectPtr<UStaticMesh>,
-    pub instanced_static_mesh_component: UPtr<UHierarchicalInstancedStaticMeshComponent>,
+    pub instanced_static_mesh_component_deprecated: UPtr<
+        UHierarchicalInstancedStaticMeshComponent,
+    >,
     pub ism_component: UPtr<UInstancedStaticMeshComponent>,
     pub rendering_indices_to_data_indices: TArray<i32>,
     pub data_indices_to_rendering_indices: TArray<i32>,
@@ -13635,11 +13695,11 @@ pub struct ALODActor {
     pub cached_num_hlod_levels: u8,
     pub num_triangles_in_sub_actors: u32,
     pub num_triangles_in_merged_mesh: u32,
-    pub override_material_merge_settings: bool,
+    pub b_override_material_merge_settings: bool,
     pub material_settings: FMaterialProxySettings,
-    pub override_transition_screen_size: bool,
+    pub b_override_transition_screen_size: bool,
     pub transition_screen_size: f32,
-    pub override_screen_size: bool,
+    pub b_override_screen_size: bool,
     pub screen_size: i32,
     pub lod_actor_tag: FString,
     pub flags_1504: u8,
@@ -13689,12 +13749,13 @@ pub struct UMaterialEditorOnlyData {
     pub parameter_group_data: TArray<FParameterGroupData>,
     pub substrate_conversion_version: i32,
     pub substrate_version: i32,
-    pub is_subsutrate_auto_converted_and_not_saved: bool,
+    pub b_is_subsutrate_auto_converted_and_not_saved: bool,
 }
 pub struct UMaterialAggregate {
     pub attributes: TArray<FMaterialAggregateAttribute>,
 }
 pub struct UMaterialEnumerationProvider {}
+pub struct IMaterialEnumerationProvider {}
 pub struct UMaterialExpressionLayerStack {
     pub layer_inputs: TArray<FMaterialLayerInput>,
     pub available_layers: TSet<UPtr<UMaterialFunctionInterface>>,
@@ -13910,13 +13971,13 @@ pub struct UMaterialParameterCollection {
     pub vector_parameter_base_overrides: TMap<FGuid, FLinearColor>,
 }
 pub struct UMeshBudgetProjectSettings {
-    pub enable_static_mesh_budget: bool,
+    pub b_enable_static_mesh_budget: bool,
     pub static_mesh_budget_infos: TArray<FStaticMeshBudgetInfo>,
 }
 pub struct AMeshMergeCullingVolume {}
 pub struct UMeshSimplificationSettings {
     pub mesh_reduction_module_name: FName,
-    pub mesh_reduction_backward_compatible: bool,
+    pub b_mesh_reduction_backward_compatible: bool,
 }
 pub struct UMeshVertexPainterKismetLibrary {}
 pub struct UModel {
@@ -13933,6 +13994,7 @@ pub struct ANavigationObjectBase {
     pub flags_1168: u8,
 }
 pub struct UNavMovementInterface {}
+pub struct INavMovementInterface {}
 pub struct USimulatedClientNetConnection {}
 pub struct UNetworkSettings {
     pub flags_104: u8,
@@ -13965,9 +14027,10 @@ pub struct UNetworkMetricsCSV_Replication {}
 pub struct UNetworkMetricsPerfCounters {}
 pub struct UNetworkMetricsStats {}
 pub struct UReplicatedObjectInterface {}
+pub struct IReplicatedObjectInterface {}
 pub struct URPCDoSDetectionConfig {
-    pub rpc_do_s_detection: bool,
-    pub rpc_do_s_analytics: bool,
+    pub b_rpc_do_s_detection: bool,
+    pub b_rpc_do_s_analytics: bool,
     pub hitch_time_quota_ms: i32,
     pub hitch_suspend_detection_time_ms: i32,
     pub detection_severity: TArray<FString>,
@@ -13989,11 +14052,11 @@ pub struct UValkyrieMetaData {
 }
 pub struct UObjectLibrary {
     pub object_base_class: TSubclassOf<UObject>,
-    pub has_blueprint_classes: bool,
+    pub b_has_blueprint_classes: bool,
     pub objects: TArray<UPtr<UObject>>,
     pub weak_objects: TArray<TWeakObjectPtr<UObject>>,
-    pub use_weak_references: bool,
-    pub is_fully_loaded: bool,
+    pub b_use_weak_references: bool,
+    pub b_is_fully_loaded: bool,
 }
 pub struct UObjectReferencer {
     pub referenced_objects: TArray<UPtr<UObject>>,
@@ -14047,7 +14110,7 @@ pub struct UParticleSystemComponent {
     pub on_particle_burst: FParticleSystemComponent_OnParticleBurst,
     pub on_particle_death: FParticleSystemComponent_OnParticleDeath,
     pub on_particle_collide: FParticleSystemComponent_OnParticleCollide,
-    pub old_position_valid: bool,
+    pub b_old_position_valid: bool,
     pub old_position: FVector,
     pub part_sys_velocity: FVector,
     pub warmup_time: f32,
@@ -14060,7 +14123,7 @@ pub struct UParticleSystemComponent {
     pub custom_time_dilation: f32,
     pub auto_attach_parent: TWeakObjectPtr<USceneComponent>,
     pub auto_attach_socket_name: FName,
-    pub auto_attach_location_type: EAttachLocation,
+    pub auto_attach_location_type_deprecated: EAttachLocation,
     pub auto_attach_location_rule: EAttachmentRule,
     pub auto_attach_rotation_rule: EAttachmentRule,
     pub auto_attach_scale_rule: EAttachmentRule,
@@ -14084,7 +14147,7 @@ pub struct AClusterUnionActor {
     pub cluster_union: UPtr<UClusterUnionComponent>,
 }
 pub struct UClusterUnionComponent {
-    pub enable_damage_from_collision: bool,
+    pub b_enable_damage_from_collision: bool,
     pub on_component_added_event: FClusterUnionComponent_OnComponentAddedEvent,
     pub on_component_removed_event: FClusterUnionComponent_OnComponentRemovedEvent,
     pub on_component_bounds_changed_event: FClusterUnionComponent_OnComponentBoundsChangedEvent,
@@ -14097,11 +14160,11 @@ pub struct UClusterUnionReplicatedProxyComponent {
     pub child_clustered_component: TWeakObjectPtr<UPrimitiveComponent>,
     pub particle_bone_ids: TArray<i32>,
     pub particle_child_to_parents: TArray<FTransform>,
-    pub net_update_parent_cluster_union: bool,
-    pub net_update_child_clustered_component: bool,
-    pub net_update_particle_bone_ids: bool,
-    pub net_update_particle_child_to_parents: bool,
-    pub is_pending_deletion: bool,
+    pub b_net_update_parent_cluster_union: bool,
+    pub b_net_update_child_clustered_component: bool,
+    pub b_net_update_particle_bone_ids: bool,
+    pub b_net_update_particle_child_to_parents: bool,
+    pub b_is_pending_deletion: bool,
 }
 pub struct UConstraintInstanceBlueprintLibrary {}
 pub struct UPhysicsQueryHandler {}
@@ -14150,7 +14213,7 @@ pub struct UPhysicalMaterialMask {
     pub address_y: TextureAddress,
 }
 pub struct UPhysicsAsset {
-    pub default_skel_mesh: UPtr<USkeletalMesh>,
+    pub default_skel_mesh_deprecated: UPtr<USkeletalMesh>,
     pub preview_skeletal_mesh: TSoftObjectPtr<USkeletalMesh>,
     pub physical_animation_profiles: TArray<FName>,
     pub constraint_profiles: TArray<FName>,
@@ -14165,10 +14228,11 @@ pub struct UPhysicsAsset {
     pub solver_type: EPhysicsAssetSolverType,
     pub flags_293: u8,
     pub thumbnail_info: UPtr<UThumbnailInfo>,
-    pub body_setup: TArray<UPtr<UBodySetup>>,
+    pub body_setup_deprecated: TArray<UPtr<UBodySetup>>,
     pub asset_user_data: TArray<UPtr<UAssetUserData>>,
 }
 pub struct UPhysicsBodyInstanceOwnerResolver {}
+pub struct IPhysicsBodyInstanceOwnerResolver {}
 pub struct UPhysicsCollisionHandler {
     pub impact_threshold: f32,
     pub impact_re_fire_delay: f32,
@@ -14177,8 +14241,8 @@ pub struct UPhysicsCollisionHandler {
 }
 pub struct APhysicsConstraintActor {
     pub constraint_comp: UPtr<UPhysicsConstraintComponent>,
-    pub constraint_actor1: UPtr<AActor>,
-    pub constraint_actor2: UPtr<AActor>,
+    pub constraint_actor1_deprecated: UPtr<AActor>,
+    pub constraint_actor2_deprecated: UPtr<AActor>,
     pub flags_1160: u8,
 }
 pub struct UPhysicsConstraintComponent {
@@ -14186,7 +14250,7 @@ pub struct UPhysicsConstraintComponent {
     pub component_name1: FConstrainComponentPropName,
     pub constraint_actor2: UPtr<AActor>,
     pub component_name2: FConstrainComponentPropName,
-    pub constraint_setup: UPtr<UPhysicsConstraintTemplate>,
+    pub constraint_setup_deprecated: UPtr<UPhysicsConstraintTemplate>,
     pub on_constraint_broken: FPhysicsConstraintComponent_OnConstraintBroken,
     pub on_plastic_deformation: FPhysicsConstraintComponent_OnPlasticDeformation,
     pub constraint_instance: FConstraintInstance,
@@ -14195,40 +14259,40 @@ pub struct UPhysicsConstraintTemplate {
     pub default_instance: FConstraintInstance,
     pub profile_handles: TArray<FPhysicsConstraintProfileHandle>,
     pub default_profile: FConstraintProfileProperties,
-    pub joint_name: FName,
-    pub constraint_bone1: FName,
-    pub constraint_bone2: FName,
-    pub pos1: FVector,
-    pub pri_axis1: FVector,
-    pub sec_axis1: FVector,
-    pub pos2: FVector,
-    pub pri_axis2: FVector,
-    pub sec_axis2: FVector,
+    pub joint_name_deprecated: FName,
+    pub constraint_bone1_deprecated: FName,
+    pub constraint_bone2_deprecated: FName,
+    pub pos1_deprecated: FVector,
+    pub pri_axis1_deprecated: FVector,
+    pub sec_axis1_deprecated: FVector,
+    pub pos2_deprecated: FVector,
+    pub pri_axis2_deprecated: FVector,
+    pub sec_axis2_deprecated: FVector,
     pub flags_1544: u8,
-    pub projection_linear_tolerance: f32,
-    pub projection_angular_tolerance: f32,
-    pub linear_x_motion: ELinearConstraintMotion,
-    pub linear_y_motion: ELinearConstraintMotion,
-    pub linear_z_motion: ELinearConstraintMotion,
-    pub linear_limit_size: f32,
+    pub projection_linear_tolerance_deprecated: f32,
+    pub projection_angular_tolerance_deprecated: f32,
+    pub linear_x_motion_deprecated: ELinearConstraintMotion,
+    pub linear_y_motion_deprecated: ELinearConstraintMotion,
+    pub linear_z_motion_deprecated: ELinearConstraintMotion,
+    pub linear_limit_size_deprecated: f32,
     pub flags_1564: u8,
-    pub linear_limit_stiffness: f32,
-    pub linear_limit_damping: f32,
+    pub linear_limit_stiffness_deprecated: f32,
+    pub linear_limit_damping_deprecated: f32,
     pub flags_1576: u8,
-    pub linear_break_threshold: f32,
-    pub angular_swing1_motion: EAngularConstraintMotion,
-    pub angular_swing2_motion: EAngularConstraintMotion,
-    pub angular_twist_motion: EAngularConstraintMotion,
+    pub linear_break_threshold_deprecated: f32,
+    pub angular_swing1_motion_deprecated: EAngularConstraintMotion,
+    pub angular_swing2_motion_deprecated: EAngularConstraintMotion,
+    pub angular_twist_motion_deprecated: EAngularConstraintMotion,
     pub flags_1588: u8,
-    pub swing1_limit_angle: f32,
-    pub swing2_limit_angle: f32,
-    pub twist_limit_angle: f32,
-    pub swing_limit_stiffness: f32,
-    pub swing_limit_damping: f32,
-    pub twist_limit_stiffness: f32,
-    pub twist_limit_damping: f32,
+    pub swing1_limit_angle_deprecated: f32,
+    pub swing2_limit_angle_deprecated: f32,
+    pub twist_limit_angle_deprecated: f32,
+    pub swing_limit_stiffness_deprecated: f32,
+    pub swing_limit_damping_deprecated: f32,
+    pub twist_limit_stiffness_deprecated: f32,
+    pub twist_limit_damping_deprecated: f32,
     pub flags_1620: u8,
-    pub angular_break_threshold: f32,
+    pub angular_break_threshold_deprecated: f32,
 }
 pub struct UPhysicsHandleComponent {
     pub grabbed_component: UPtr<UPrimitiveComponent>,
@@ -14243,21 +14307,21 @@ pub struct UPhysicsObjectBlueprintLibrary {}
 pub struct UPhysicsSettings {
     pub physics_prediction: FPhysicsPredictionSettings,
     pub physic_error_correction: FRigidBodyErrorCorrection,
-    pub locked_axis: ESettingsLockedAxis,
+    pub locked_axis_deprecated: ESettingsLockedAxis,
     pub default_degrees_of_freedom: ESettingsDOF,
-    pub suppress_face_remap_table: bool,
-    pub support_uv_from_hit_results: bool,
-    pub disable_active_actors: bool,
-    pub disable_kinematic_static_pairs: bool,
-    pub disable_kinematic_kinematic_pairs: bool,
-    pub disable_ccd: bool,
+    pub b_suppress_face_remap_table: bool,
+    pub b_support_uv_from_hit_results: bool,
+    pub b_disable_active_actors: bool,
+    pub b_disable_kinematic_static_pairs: bool,
+    pub b_disable_kinematic_kinematic_pairs: bool,
+    pub b_disable_ccd: bool,
     pub anim_physics_min_delta_time: f32,
-    pub simulate_anim_physics_after_reset: bool,
+    pub b_simulate_anim_physics_after_reset: bool,
     pub min_physics_delta_time: f32,
     pub max_physics_delta_time: f32,
-    pub substepping: bool,
-    pub substepping_async: bool,
-    pub tick_physics_async: bool,
+    pub b_substepping: bool,
+    pub b_substepping_async: bool,
+    pub b_tick_physics_async: bool,
     pub async_fixed_time_step_size: f32,
     pub max_substep_delta_time: f32,
     pub max_substeps: i32,
@@ -14284,7 +14348,7 @@ pub struct URadialForceComponent {
 }
 pub struct USkeletalBodySetup {
     pub current_physical_animation_profile: FPhysicalAnimationProfile,
-    pub skip_scale_from_animation: bool,
+    pub b_skip_scale_from_animation: bool,
     pub physical_animation_data: TArray<FPhysicalAnimationProfile>,
 }
 pub struct UPhysicsFieldComponent {}
@@ -14305,7 +14369,7 @@ pub struct APlayerCameraManager {
     pub free_cam_offset: FVector,
     pub view_target_offset: FVector,
     pub on_audio_fade_change_event: FPlayerCameraManager_OnAudioFadeChangeEvent,
-    pub camera_lens_effects: TArray<ICameraLensEffectInterface>,
+    pub camera_lens_effects: TArray<TScriptInterface<ICameraLensEffectInterface>>,
     pub cached_camera_shake_mod: UPtr<UCameraModifier_CameraShake>,
     pub post_process_blend_cache: TArray<FPostProcessSettings>,
     pub anim_camera_actor: UPtr<ACameraActor>,
@@ -14369,9 +14433,9 @@ pub struct URendererSettings {
     pub mobile_shading_path: EMobileShadingPath,
     pub mobile_anti_aliasing: EMobileAntiAliasingMethod,
     pub mobile_float_precision_mode: EMobileFloatPrecisionMode,
-    pub mobile_allow_dithered_lod_transition: bool,
+    pub b_mobile_allow_dithered_lod_transition: bool,
     pub flags_108: u8,
-    pub shader_compression_format: EShaderCompressionFormat,
+    pub shader_compression_format_deprecated: EShaderCompressionFormat,
     pub flags_116: u8,
     pub min_screen_radius_for_lights: f32,
     pub min_screen_radius_for_early_z_pass: f32,
@@ -14385,13 +14449,13 @@ pub struct URendererSettings {
     pub mesh_paint_default_on_static_mesh: bool,
     pub mesh_paint_default_texels_per_vertex: i32,
     pub mesh_paint_virtual_texture_max_texture_size: i32,
-    pub enable_rvt_base_color: bool,
-    pub enable_rvt_base_color_roughness: bool,
-    pub enable_rvt_base_color_specular: bool,
-    pub enable_rvt_mask4: bool,
-    pub enable_rvt_world_height: bool,
-    pub enable_rvt_displacement: bool,
-    pub use_high_quality_rvt_height_sampling: bool,
+    pub b_enable_rvt_base_color: bool,
+    pub b_enable_rvt_base_color_roughness: bool,
+    pub b_enable_rvt_base_color_specular: bool,
+    pub b_enable_rvt_mask4: bool,
+    pub b_enable_rvt_world_height: bool,
+    pub b_enable_rvt_displacement: bool,
+    pub b_use_high_quality_rvt_height_sampling: bool,
     pub working_color_space_choice: EWorkingColorSpace,
     pub red_chromaticity_coordinate: FVector2D,
     pub green_chromaticity_coordinate: FVector2D,
@@ -14470,8 +14534,8 @@ pub struct URendererSettings {
     pub max_skin_bones: FPerPlatformInt,
     pub mobile_planar_reflection_mode: u8,
     pub flags_676: u8,
-    pub stream_skeletal_mesh_lo_ds: FPerPlatformBool,
-    pub discard_skeletal_mesh_optional_lo_ds: FPerPlatformBool,
+    pub b_stream_skeletal_mesh_lo_ds: FPerPlatformBool,
+    pub b_discard_skeletal_mesh_optional_lo_ds: FPerPlatformBool,
     pub visualize_calibration_color_material_path: FSoftObjectPath,
     pub visualize_calibration_custom_material_path: FSoftObjectPath,
     pub visualize_calibration_grayscale_material_path: FSoftObjectPath,
@@ -14484,6 +14548,7 @@ pub struct UNeuralProfile {
     pub guid: FGuid,
 }
 pub struct USkeletalMeshHalfEdgeBufferAccessor {}
+pub struct ISkeletalMeshHalfEdgeBufferAccessor {}
 pub struct USpecularProfile {
     pub settings: FSpecularProfileStruct,
     pub guid: FGuid,
@@ -14495,14 +14560,14 @@ pub struct USubsurfaceProfile {
 pub struct UReplayNetConnection {}
 pub struct UGameInstanceSubsystem {}
 pub struct UReplaySubsystem {
-    pub load_default_map_on_stop: bool,
+    pub b_load_default_map_on_stop: bool,
 }
 pub struct UReverbEffect {
-    pub bypass_early_reflections: bool,
+    pub b_bypass_early_reflections: bool,
     pub reflections_delay: f32,
     pub gain_hf: f32,
     pub reflections_gain: f32,
-    pub bypass_late_reflections: bool,
+    pub b_bypass_late_reflections: bool,
     pub late_delay: f32,
     pub decay_time: f32,
     pub density: f32,
@@ -14524,21 +14589,21 @@ pub struct USCS_Node {
     pub attach_to_name: FName,
     pub parent_component_or_variable_name: FName,
     pub parent_component_owner_class_name: FName,
-    pub is_parent_component_native: bool,
+    pub b_is_parent_component_native: bool,
     pub child_nodes: TArray<UPtr<USCS_Node>>,
     pub meta_data_array: TArray<FBPVariableMetaDataEntry>,
     pub variable_guid: FGuid,
-    pub is_native: bool,
-    pub native_component_name: FName,
-    pub variable_name_auto_generated: bool,
+    pub b_is_native_deprecated: bool,
+    pub native_component_name_deprecated: FName,
+    pub b_variable_name_auto_generated_deprecated: bool,
     pub internal_variable_name: FName,
 }
 pub struct USimpleConstructionScript {
     pub root_nodes: TArray<UPtr<USCS_Node>>,
     pub all_nodes: TArray<UPtr<USCS_Node>>,
     pub default_scene_root_node: UPtr<USCS_Node>,
-    pub root_node: UPtr<USCS_Node>,
-    pub actor_component_nodes: TArray<UPtr<USCS_Node>>,
+    pub root_node_deprecated: UPtr<USCS_Node>,
+    pub actor_component_nodes_deprecated: TArray<UPtr<USCS_Node>>,
 }
 pub struct USkinnedAsset {}
 pub struct USkeletalMesh {
@@ -14555,8 +14620,8 @@ pub struct USkeletalMesh {
     pub min_quality_level_lod: FPerQualityLevelInt,
     pub min_lod: FPerPlatformInt,
     pub disable_below_min_lod_stripping: FPerPlatformBool,
-    pub override_lod_streaming_settings: bool,
-    pub support_lod_streaming: FPerPlatformBool,
+    pub b_override_lod_streaming_settings: bool,
+    pub b_support_lod_streaming: FPerPlatformBool,
     pub max_num_streamed_lo_ds: FPerPlatformInt,
     pub max_num_optional_lo_ds: FPerPlatformInt,
     pub lod_settings: UPtr<USkeletalMeshLODSettings>,
@@ -14570,10 +14635,10 @@ pub struct USkeletalMesh {
     pub shadow_physics_asset: UPtr<UPhysicsAsset>,
     pub node_mapping_data: TArray<UPtr<UNodeMappingContainer>>,
     pub asset_import_data: UPtr<UAssetImportData>,
-    pub source_file_path: FString,
-    pub source_file_timestamp: FString,
+    pub source_file_path_deprecated: FString,
+    pub source_file_timestamp_deprecated: FString,
     pub thumbnail_info: UPtr<UThumbnailInfo>,
-    pub has_custom_default_editor_camera: bool,
+    pub b_has_custom_default_editor_camera: bool,
     pub default_editor_camera_location: FVector,
     pub default_editor_camera_rotation: FRotator,
     pub default_editor_camera_look_at: FVector,
@@ -14584,7 +14649,7 @@ pub struct USkeletalMesh {
     pub cloth_lod_bias_mode: EClothLODBiasMode,
     pub morph_targets: TArray<UPtr<UMorphTarget>>,
     pub floor_offset: f32,
-    pub clothing_assets: TArray<FClothingAssetData_Legacy>,
+    pub clothing_assets_deprecated: TArray<FClothingAssetData_Legacy>,
     pub bone_draw_size: f32,
     pub post_process_anim_blueprint: TSubclassOf<UAnimInstance>,
     pub post_process_anim_bplod_threshold: i32,
@@ -14599,16 +14664,16 @@ pub struct USkeletalMesh {
     pub overlay_material: UPtr<UMaterialInterface>,
     pub overlay_material_max_draw_distance: f32,
     pub forward_axis: EAxis,
-    pub mesh_editor_data_object: UPtr<USkeletalMeshEditorData>,
-    pub lod_info: TArray<FSkeletalMeshLODInfo>,
+    pub mesh_editor_data_object_deprecated: UPtr<USkeletalMeshEditorData>,
+    pub lod_info_deprecated: TArray<FSkeletalMeshLODInfo>,
 }
 pub struct USkeletalMeshEditorData {}
 pub struct USkeletalMeshLODSettings {
     pub min_quality_level_lod: FPerQualityLevelInt,
     pub min_lod: FPerPlatformInt,
     pub disable_below_min_lod_stripping: FPerPlatformBool,
-    pub override_lod_streaming_settings: bool,
-    pub support_lod_streaming: FPerPlatformBool,
+    pub b_override_lod_streaming_settings: bool,
+    pub b_support_lod_streaming: FPerPlatformBool,
     pub max_num_streamed_lo_ds: FPerPlatformInt,
     pub max_num_optional_lo_ds: FPerPlatformInt,
     pub lod_groups: TArray<FSkeletalMeshLODGroupSettings>,
@@ -14627,6 +14692,7 @@ pub struct USlateBrushAsset {
     pub brush: FSlateBrush,
 }
 pub struct USlateTextureAtlasInterface {}
+pub struct ISlateTextureAtlasInterface {}
 pub struct USoundAttenuation {
     pub attenuation: FSoundAttenuationSettings,
 }
@@ -14694,7 +14760,7 @@ pub struct USoundNodeDistanceCrossFade {
 }
 pub struct USoundNodeDoppler {
     pub doppler_intensity: f32,
-    pub use_smoothing: bool,
+    pub b_use_smoothing: bool,
     pub smoothing_interp_speed: f32,
 }
 pub struct USoundNodeEnveloper {
@@ -14703,8 +14769,8 @@ pub struct USoundNodeEnveloper {
     pub duration_after_loop: f32,
     pub loop_count: i32,
     pub flags_104: u8,
-    pub volume_interp_curve: UPtr<UDistributionFloatConstantCurve>,
-    pub pitch_interp_curve: UPtr<UDistributionFloatConstantCurve>,
+    pub volume_interp_curve_deprecated: UPtr<UDistributionFloatConstantCurve>,
+    pub pitch_interp_curve_deprecated: UPtr<UDistributionFloatConstantCurve>,
     pub volume_curve: FRuntimeFloatCurve,
     pub pitch_curve: FRuntimeFloatCurve,
     pub pitch_min: f32,
@@ -14779,7 +14845,7 @@ pub struct USoundSourceBus {
     pub flags_2096: u8,
 }
 pub struct USoundSubmixBase {
-    pub auto_disable: bool,
+    pub b_auto_disable: bool,
     pub auto_disable_time: f32,
     pub child_submixes: TArray<UPtr<USoundSubmixBase>>,
     pub dynamic_child_submixes: TMap<u32, FDynamicChildSubmix>,
@@ -14801,9 +14867,9 @@ pub struct USoundSubmix {
     pub flags_584: u8,
     pub audio_link_settings: UPtr<UAudioLinkSettingsAbstract>,
     pub on_submix_recorded_file_done: FSoundSubmix_OnSubmixRecordedFileDone,
-    pub output_volume: f32,
-    pub wet_level: f32,
-    pub dry_level: f32,
+    pub output_volume_deprecated: f32,
+    pub wet_level_deprecated: f32,
+    pub dry_level_deprecated: f32,
 }
 pub struct USoundfieldSubmix {
     pub soundfield_encoding_format: FName,
@@ -14841,7 +14907,7 @@ pub struct UStreamableSparseVolumeTexture {
     pub address_x: TextureAddress,
     pub address_y: TextureAddress,
     pub address_z: TextureAddress,
-    pub local_ddc_only: bool,
+    pub b_local_ddc_only: bool,
     pub streaming_pool_size_factor: f32,
     pub number_of_prefetch_frames: i32,
     pub prefetch_percentage_step_size: f32,
@@ -14858,10 +14924,10 @@ pub struct UAnimatedSparseVolumeTexture {}
 pub struct UAnimatedSparseVolumeTextureController {
     pub sparse_volume_texture: UPtr<USparseVolumeTexture>,
     pub time: f32,
-    pub is_playing: bool,
+    pub b_is_playing: bool,
     pub frame_rate: f32,
     pub mip_level: i32,
-    pub blocking_streaming_requests: bool,
+    pub b_blocking_streaming_requests: bool,
 }
 pub struct ASpectatorPawn {}
 pub struct USpectatorPawnMovement {
@@ -14880,7 +14946,7 @@ pub struct UStaticMesh {
     pub import_version: i32,
     pub material_remap_index_per_import_version: TArray<FMaterialRemapIndex>,
     pub flags_904: u8,
-    pub materials: TArray<UPtr<UMaterialInterface>>,
+    pub materials_deprecated: TArray<UPtr<UMaterialInterface>>,
     pub nanite_settings: FMeshNaniteSettings,
     pub lightmap_uv_version: i32,
     pub min_quality_level_lod: FPerQualityLevelInt,
@@ -14901,17 +14967,17 @@ pub struct UStaticMesh {
     pub ray_tracing_proxy_settings: FMeshRayTracingProxySettings,
     pub flags_1428: u8,
     pub asset_import_data: UPtr<UAssetImportData>,
-    pub source_file_path: FString,
-    pub source_file_timestamp: FString,
+    pub source_file_path_deprecated: FString,
+    pub source_file_timestamp_deprecated: FString,
     pub thumbnail_info: UPtr<UThumbnailInfo>,
     pub editor_camera_position: FAssetEditorOrbitCameraPosition,
-    pub customized_collision: bool,
+    pub b_customized_collision: bool,
     pub sockets: TArray<UPtr<UStaticMeshSocket>>,
     pub positive_bounds_extension: FVector,
     pub negative_bounds_extension: FVector,
     pub extended_bounds: FBoxSphereBounds,
     pub asset_user_data: TArray<UPtr<UAssetUserData>>,
-    pub editable_mesh: UPtr<UObject>,
+    pub editable_mesh_deprecated: UPtr<UObject>,
     pub complex_collision_mesh: UPtr<UStaticMesh>,
     pub nav_collision: UPtr<UNavCollisionBase>,
 }
@@ -14941,7 +15007,7 @@ pub struct UAutomationTestSettings {
     pub editor_performance_test_maps: TArray<FEditorMapPerformanceTestDefinition>,
     pub assets_to_open: TArray<FString>,
     pub maps_to_pie_test: TArray<FString>,
-    pub use_all_project_maps_to_play_in_pie: bool,
+    pub b_use_all_project_maps_to_play_in_pie: bool,
     pub build_promotion_test: FBuildPromotionTestSettings,
     pub material_editor_promotion_test: FMaterialEditorPromotionSettings,
     pub particle_editor_promotion_test: FParticleEditorPromotionSettings,
@@ -14987,7 +15053,7 @@ pub struct UTextureCollection {
 pub struct UTextureCube {}
 pub struct UTextureCubeArray {
     pub source_textures: TArray<UPtr<UTextureCube>>,
-    pub source_generated_from_source_textures_array: bool,
+    pub b_source_generated_from_source_textures_array: bool,
 }
 pub struct UTextureLightProfile {
     pub brightness: f32,
@@ -15045,25 +15111,25 @@ pub struct UUserInterfaceSettings {
     pub render_focus_rule: ERenderFocusRule,
     pub hardware_cursors: TMap<EMouseCursor, FHardwareCursorReference>,
     pub software_cursors: TMap<EMouseCursor, FSoftClassPath>,
-    pub default_cursor: FSoftClassPath,
-    pub text_edit_beam_cursor: FSoftClassPath,
-    pub crosshairs_cursor: FSoftClassPath,
-    pub hand_cursor: FSoftClassPath,
-    pub grab_hand_cursor: FSoftClassPath,
-    pub grab_hand_closed_cursor: FSoftClassPath,
-    pub slashed_circle_cursor: FSoftClassPath,
+    pub default_cursor_deprecated: FSoftClassPath,
+    pub text_edit_beam_cursor_deprecated: FSoftClassPath,
+    pub crosshairs_cursor_deprecated: FSoftClassPath,
+    pub hand_cursor_deprecated: FSoftClassPath,
+    pub grab_hand_cursor_deprecated: FSoftClassPath,
+    pub grab_hand_closed_cursor_deprecated: FSoftClassPath,
+    pub slashed_circle_cursor_deprecated: FSoftClassPath,
     pub application_scale: f32,
     pub ui_scale_rule: EUIScalingRule,
     pub custom_scaling_rule_class: FSoftClassPath,
     pub ui_scale_curve: FRuntimeFloatCurve,
-    pub allow_high_dpi_in_game_mode: bool,
+    pub b_allow_high_dpi_in_game_mode: bool,
     pub design_screen_size: FIntPoint,
-    pub load_widgets_on_dedicated_server: bool,
-    pub authorize_automatic_widget_variable_creation: bool,
+    pub b_load_widgets_on_dedicated_server: bool,
+    pub b_authorize_automatic_widget_variable_creation: bool,
     pub custom_font_dpi: u32,
     pub font_dpi_preset: EFontDPI,
-    pub use_custom_font_dpi: bool,
-    pub enable_distance_field_font_rasterization: bool,
+    pub b_use_custom_font_dpi: bool,
+    pub b_enable_distance_field_font_rasterization: bool,
     pub cursor_classes: TArray<UPtr<UObject>>,
     pub custom_scaling_rule_class_instance: TSubclassOf<UObject>,
     pub custom_scaling_rule: UPtr<UDPICustomScalingRule>,
@@ -15131,8 +15197,8 @@ pub struct UTireType {
     pub friction_scale: f32,
 }
 pub struct UVirtualTextureCollection {
-    pub allow_format_conversion: bool,
-    pub is_srgb: bool,
+    pub b_allow_format_conversion: bool,
+    pub b_is_srgb: bool,
     pub runtime_pixel_format: EPixelFormat,
 }
 pub struct UVisualLoggerAutomationTests {}
@@ -15145,7 +15211,7 @@ pub struct UVOIPTalker {
 pub struct UVOIPStatics {}
 pub struct UVolumeTexture {
     pub source2_d_texture: UPtr<UTexture2D>,
-    pub source_lighting_guid: FGuid,
+    pub source_lighting_guid_deprecated: FGuid,
     pub source2_d_tile_size_x: i32,
     pub source2_d_tile_size_y: i32,
     pub address_mode: TextureAddress,
@@ -15164,20 +15230,20 @@ pub struct URuntimeVirtualTexture {
     pub tile_size: i32,
     pub tile_border_size: i32,
     pub material_type: ERuntimeVirtualTextureMaterialType,
-    pub compress_textures: bool,
-    pub use_low_quality_compression: bool,
+    pub b_compress_textures: bool,
+    pub b_use_low_quality_compression: bool,
     pub custom_priority: EVTProducerPriority,
-    pub use_custom_priority: bool,
-    pub clear_textures: bool,
-    pub single_physical_space: bool,
-    pub private_space: bool,
-    pub adaptive: bool,
-    pub continuous_update: bool,
+    pub b_use_custom_priority: bool,
+    pub b_clear_textures: bool,
+    pub b_single_physical_space: bool,
+    pub b_private_space: bool,
+    pub b_adaptive: bool,
+    pub b_continuous_update: bool,
     pub remove_low_mips: i32,
     pub custom_material_data: FVector4f,
     pub lod_group: TextureGroup,
-    pub size: i32,
-    pub streaming_texture: UPtr<URuntimeVirtualTextureStreamingProxy>,
+    pub size_deprecated: i32,
+    pub streaming_texture_deprecated: UPtr<URuntimeVirtualTextureStreamingProxy>,
 }
 pub struct ARuntimeVirtualTextureVolume {
     pub virtual_texture_component: UPtr<URuntimeVirtualTextureComponent>,
@@ -15188,13 +15254,13 @@ pub struct ULightMapVirtualTexture {}
 pub struct URuntimeVirtualTextureStreamingProxy {}
 pub struct UVirtualTexture2D {
     pub settings: FVirtualTextureBuildSettings,
-    pub continuous_update: bool,
-    pub single_physical_space: bool,
+    pub b_continuous_update_deprecated: bool,
+    pub b_single_physical_space: bool,
 }
 pub struct UVirtualTextureAdapter {
     pub texture: UPtr<UTexture>,
     pub override_with_texture_format: UPtr<UTexture2D>,
-    pub use_default_tile_sizes: bool,
+    pub b_use_default_tile_sizes: bool,
     pub tile_size: i32,
     pub tile_border_size: i32,
 }
@@ -15202,11 +15268,11 @@ pub struct UVirtualTextureBuilder {
     pub texture: UPtr<UVirtualTexture2D>,
     pub texture_mobile: UPtr<UVirtualTexture2D>,
     pub build_hash: u64,
-    pub separate_texture_for_mobile: bool,
+    pub b_separate_texture_for_mobile: bool,
 }
 pub struct UVirtualTexturePoolConfig {
     pub default_size_in_megabyte: i32,
-    pub pool_auto_grow_in_editor: bool,
+    pub b_pool_auto_grow_in_editor: bool,
     pub pools: TArray<FVirtualTextureSpacePoolConfig>,
     pub transient_pools: TArray<FVirtualTextureSpacePoolConfig>,
 }
@@ -15217,9 +15283,9 @@ pub struct AWindDirectionalSource {
 pub struct UWorldComposition {
     pub tiles_streaming: TArray<UPtr<ULevelStreaming>>,
     pub tiles_streaming_time_threshold: f64,
-    pub load_all_tiles_during_cinematic: bool,
-    pub rebase_origin_in3_d_space: bool,
-    pub lock_tiles_location: bool,
+    pub b_load_all_tiles_during_cinematic: bool,
+    pub b_rebase_origin_in3_d_space: bool,
+    pub b_lock_tiles_location: bool,
     pub rebase_origin_distance: f32,
 }
 pub struct UWorldPartitionBlueprintLibrary {}
@@ -15249,9 +15315,10 @@ pub struct UContentBundleDuplicateForPIEHelper {
     pub streaming_objects: TMap<FGuid, UPtr<URuntimeHashExternalStreamingObjectBase>>,
 }
 pub struct UWorldPartitionCookPackageObject {}
+pub struct IWorldPartitionCookPackageObject {}
 pub struct AWorldDataLayers {
-    pub use_external_package_data_layer_instances: bool,
-    pub allow_runtime_data_layer_editing: bool,
+    pub b_use_external_package_data_layer_instances: bool,
+    pub b_allow_runtime_data_layer_editing: bool,
     pub current_data_layers: FActorPlacementDataLayers,
     pub root_external_data_layer_instance: UPtr<UExternalDataLayerInstance>,
     pub data_layer_instances: TSet<UPtr<UDataLayerInstance>>,
@@ -15262,7 +15329,7 @@ pub struct AWorldDataLayers {
         FName,
         TWeakObjectPtr<UDataLayerInstance>,
     >,
-    pub world_data_layers: TSet<UPtr<UDEPRECATED_DataLayer>>,
+    pub world_data_layers_deprecated: TSet<UPtr<UDEPRECATED_DataLayer>>,
     pub rep_active_data_layer_names: TArray<FName>,
     pub rep_loaded_data_layer_names: TArray<FName>,
     pub rep_effective_active_data_layer_names: TArray<FName>,
@@ -15274,12 +15341,12 @@ pub struct UDEPRECATED_DataLayer {
     pub flags_64: u8,
     pub initial_runtime_state: EDataLayerRuntimeState,
     pub debug_color: FColor,
-    pub parent: UPtr<UDEPRECATED_DataLayer>,
-    pub children: TArray<UPtr<UDEPRECATED_DataLayer>>,
+    pub parent_deprecated: UPtr<UDEPRECATED_DataLayer>,
+    pub children_deprecated: TArray<UPtr<UDEPRECATED_DataLayer>>,
 }
 pub struct UDataLayerAsset {
     pub data_layer_type: EDataLayerType,
-    pub supports_actor_filters: bool,
+    pub b_supports_actor_filters: bool,
     pub debug_color: FColor,
     pub load_filter: EDataLayerLoadFilter,
 }
@@ -15294,21 +15361,22 @@ pub struct UDataLayerInstance {
 pub struct UDataLayerInstancePrivate {
     pub short_name: FString,
     pub data_layer_asset: UPtr<UDataLayerAsset>,
-    pub is_included_in_actor_filter_default: bool,
+    pub b_is_included_in_actor_filter_default: bool,
 }
 pub struct UDataLayerInstanceProvider {}
+pub struct IDataLayerInstanceProvider {}
 pub struct UDataLayerInstanceWithAsset {
     pub data_layer_asset: UPtr<UDataLayerAsset>,
-    pub is_included_in_actor_filter_default: bool,
+    pub b_is_included_in_actor_filter_default: bool,
 }
 pub struct UWorldPartition {
     pub editor_hash: UPtr<UWorldPartitionEditorHash>,
     pub world_partition_streaming_policy_class: TSubclassOf<
         UWorldPartitionStreamingPolicy,
     >,
-    pub streaming_was_enabled: bool,
+    pub b_streaming_was_enabled: bool,
     pub runtime_hash: UPtr<UWorldPartitionRuntimeHash>,
-    pub enable_streaming: bool,
+    pub b_enable_streaming: bool,
     pub server_streaming_mode: EWorldPartitionServerStreamingMode,
     pub server_streaming_out_mode: EWorldPartitionServerStreamingOutMode,
     pub data_layers_logic_operator: EWorldPartitionDataLayersLogicOperator,
@@ -15381,17 +15449,18 @@ pub struct AWorldPartitionHLOD {
     pub hlod_stats: TMap<FName, i64>,
     pub hlod_build_report: FString,
     pub lod_level: u32,
-    pub require_warmup: bool,
+    pub b_require_warmup: bool,
     pub source_cell_guid: FGuid,
     pub standalone_hlod_guid: FGuid,
-    pub source_cell: TSoftObjectPtr<UWorldPartitionRuntimeCell>,
-    pub source_cell_name: FName,
-    pub hlod_sub_actors: TArray<FWorldPartitionRuntimeCellObjectMapping>,
-    pub sub_actors_hlod_layer: UPtr<UHLODLayer>,
+    pub source_cell_deprecated: TSoftObjectPtr<UWorldPartitionRuntimeCell>,
+    pub source_cell_name_deprecated: FName,
+    pub hlod_sub_actors_deprecated: TArray<FWorldPartitionRuntimeCellObjectMapping>,
+    pub sub_actors_hlod_layer_deprecated: UPtr<UHLODLayer>,
 }
 pub struct UHLODBuilderSettings {}
 pub struct UNullHLODBuilder {}
 pub struct UWorldPartitionDestructibleInHLODInterface {}
+pub struct IWorldPartitionDestructibleInHLODInterface {}
 pub struct UWorldPartitionDestructibleInHLODSupportLibrary {}
 pub struct UHLODInstancedSkinnedMeshComponent {}
 pub struct UHLODInstancedStaticMeshComponent {}
@@ -15406,10 +15475,10 @@ pub struct UHLODLayer {
     pub linked_layer: UPtr<UHLODLayer>,
     pub hlod_actor_class: TSubclassOf<AWorldPartitionHLOD>,
     pub hlod_modifier_class: TSubclassOf<UWorldPartitionHLODModifier>,
-    pub mesh_merge_settings: FMeshMergingSettings,
-    pub mesh_simplify_settings: FMeshProxySettings,
-    pub mesh_approximation_settings: FMeshApproximationSettings,
-    pub hlod_material: TSoftObjectPtr<UMaterialInterface>,
+    pub mesh_merge_settings_deprecated: FMeshMergingSettings,
+    pub mesh_simplify_settings_deprecated: FMeshProxySettings,
+    pub mesh_approximation_settings_deprecated: FMeshApproximationSettings,
+    pub hlod_material_deprecated: TSoftObjectPtr<UMaterialInterface>,
     pub flags_1120: u8,
 }
 pub struct UWorldPartitionHLODModifier {}
@@ -15418,6 +15487,7 @@ pub struct AWorldPartitionHLODOnlyLevelInstance {
     pub level_instance_spawn_guid: FGuid,
 }
 pub struct UWorldPartitionHLODProvider {}
+pub struct IWorldPartitionHLODProvider {}
 pub struct UWorldPartitionHLODRuntimeSubsystem {}
 pub struct UWorldPartitionHLODSourceActors {
     pub hlod_layer: UPtr<UHLODLayer>,
@@ -15450,8 +15520,8 @@ pub struct ANavigationDataChunkActor {
 }
 pub struct URuntimePartition {
     pub name: FName,
-    pub block_on_slow_streaming: bool,
-    pub client_only_visible: bool,
+    pub b_block_on_slow_streaming: bool,
+    pub b_client_only_visible: bool,
     pub priority: i32,
     pub bounds_method: ERuntimePartitionCellBoundsMethod,
     pub loading_range: i32,
@@ -15462,19 +15532,19 @@ pub struct URuntimePartitionLevelStreaming {}
 pub struct URuntimePartitionLHGrid {
     pub cell_size: u32,
     pub origin: FVector,
-    pub is2_d: bool,
-    pub show_grid_preview: bool,
+    pub b_is2_d: bool,
+    pub b_show_grid_preview: bool,
 }
 pub struct URuntimePartitionPersistent {}
 pub struct UWorldPartitionRuntimeCell {
     pub unsaved_actors_container: UPtr<UActorContainer>,
-    pub is_always_loaded: bool,
-    pub is_spatially_loaded: bool,
+    pub b_is_always_loaded: bool,
+    pub b_is_spatially_loaded: bool,
     pub data_layers: FDataLayerInstanceNames,
-    pub client_only_visible: bool,
-    pub is_hlod: bool,
-    pub is_custom_hlod_placeholder_cell: bool,
-    pub block_on_slow_loading: bool,
+    pub b_client_only_visible: bool,
+    pub b_is_hlod: bool,
+    pub b_is_custom_hlod_placeholder_cell: bool,
+    pub b_block_on_slow_loading: bool,
     pub content_bundle_id: FGuid,
     pub cell_debug_color: FLinearColor,
     pub cell_guid: FGuid,
@@ -15490,7 +15560,7 @@ pub struct UWorldPartitionRuntimeCellData {
     pub hierarchical_level: i32,
 }
 pub struct UWorldPartitionRuntimeCellDataHashSet {
-    pub is2_d: bool,
+    pub b_is2_d: bool,
 }
 pub struct URuntimeHashExternalStreamingObjectBase {
     pub sub_objects_to_cell_remapping: TMap<FName, FName>,
@@ -15525,6 +15595,7 @@ pub struct AMapBuildDataActor {
     pub level_build_data_id: FGuid,
 }
 pub struct UWorldPartitionActorLoaderInterface {}
+pub struct IWorldPartitionActorLoaderInterface {}
 pub struct UWorldPartitionEditorHash {}
 pub struct UWorldPartitionEditorPerProjectUserSettings {
     pub flags_104: u8,
@@ -15543,8 +15614,8 @@ pub struct UWorldPartitionEditorSpatialHash {
 }
 pub struct UWorldPartitionLevelStreamingDynamic {
     pub runtime_level: UPtr<ULevel>,
-    pub should_be_always_loaded: bool,
-    pub should_perform_standard_level_loading: bool,
+    pub b_should_be_always_loaded: bool,
+    pub b_should_perform_standard_level_loading: bool,
     pub unsaved_actors_container: UPtr<UActorContainer>,
     pub streaming_cell: TWeakObjectPtr<UWorldPartitionRuntimeLevelStreamingCell>,
     pub outer_world_partition: TSoftObjectPtr<UWorldPartition>,
@@ -15552,11 +15623,11 @@ pub struct UWorldPartitionLevelStreamingDynamic {
 pub struct UWorldPartitionStreamingPolicy {
     pub current_state: FWorldPartitionUpdateStreamingCurrentState,
     pub current_streaming_performance: EWorldPartitionStreamingPerformance,
-    pub current_block_on_slow_streaming: bool,
+    pub b_current_block_on_slow_streaming: bool,
     pub target_state: FWorldPartitionUpdateStreamingTargetState,
     pub async_task_current_state: FWorldPartitionUpdateStreamingCurrentState,
     pub async_task_target_state: FWorldPartitionUpdateStreamingTargetState,
-    pub should_merge_streaming_source_info: bool,
+    pub b_should_merge_streaming_source_info: bool,
 }
 pub struct UWorldPartitionLevelStreamingPolicy {
     pub source_world_asset_path: FTopLevelAssetPath,
@@ -15579,7 +15650,7 @@ pub struct AWorldPartitionMiniMap {
     pub builder_cell_size: i32,
     pub capture_source: ESceneCaptureSource,
     pub capture_warmup_frames: u32,
-    pub mini_map_tile_size: i32,
+    pub mini_map_tile_size_deprecated: i32,
 }
 pub struct AWorldPartitionMiniMapVolume {}
 pub struct AWorldPartitionReplay {
@@ -15590,12 +15661,13 @@ pub struct UWorldPartitionRuntimeCellDataSpatialHash {
     pub extent: f32,
 }
 pub struct UWorldPartitionCell {}
+pub struct IWorldPartitionCell {}
 pub struct UWorldPartitionRuntimeCellTransformerSettings {
     pub ignored_component_classes: TArray<TSubclassOf<UActorComponent>>,
     pub ignored_exact_component_classes: TArray<TSubclassOf<UActorComponent>>,
 }
 pub struct UWorldPartitionRuntimeCellTransformer {
-    pub enabled: bool,
+    pub b_enabled: bool,
 }
 pub struct UWorldPartitionRuntimeCellTransformerISM {
     pub allowed_classes: TArray<TSubclassOf<AActor>>,
@@ -15604,7 +15676,7 @@ pub struct UWorldPartitionRuntimeCellTransformerISM {
 }
 pub struct AWorldPartitionAutoInstancedActor {}
 pub struct UWorldPartitionRuntimeCellTransformerLog {
-    pub only_log_differences: bool,
+    pub b_only_log_differences: bool,
 }
 pub struct UWorldPartitionRuntimeLevelStreamingCell {
     pub packages: TArray<FWorldPartitionRuntimeCellObjectMapping>,
@@ -15618,14 +15690,14 @@ pub struct URuntimeSpatialHashExternalStreamingObject {
 }
 pub struct UWorldPartitionRuntimeSpatialHash {
     pub grids: TArray<FSpatialHashRuntimeGrid>,
-    pub preview_grids: bool,
+    pub b_preview_grids: bool,
     pub preview_grid_level: i32,
     pub grid_previewer: FWorldPartitionRuntimeSpatialHashGridPreviewer,
     pub use_aligned_grid_levels: EWorldPartitionCVarProjectDefaultOverride,
     pub snap_non_aligned_grid_levels_to_lower_levels: EWorldPartitionCVarProjectDefaultOverride,
     pub place_small_actors_using_location: EWorldPartitionCVarProjectDefaultOverride,
     pub place_partition_actors_using_location: EWorldPartitionCVarProjectDefaultOverride,
-    pub enable_z_culling: bool,
+    pub b_enable_z_culling: bool,
     pub settings: FSpatialHashSettings,
     pub streaming_grids: TArray<FSpatialHashStreamingGrid>,
     pub world_asset_streaming_objects: TMap<
@@ -15635,8 +15707,8 @@ pub struct UWorldPartitionRuntimeSpatialHash {
 }
 pub struct UWorldPartitionSettings {
     pub new_maps_data_layers_logic_operator: EWorldPartitionDataLayersLogicOperator,
-    pub new_maps_enable_world_partition: bool,
-    pub new_maps_enable_world_partition_streaming: bool,
+    pub b_new_maps_enable_world_partition: bool,
+    pub b_new_maps_enable_world_partition_streaming: bool,
     pub editor_hash_default_class: TSubclassOf<UWorldPartitionEditorHash>,
     pub runtime_hash_default_class: TSubclassOf<UWorldPartitionRuntimeHash>,
     pub property_override_policy: UPtr<UWorldPartitionPropertyOverridePolicy>,
@@ -15644,7 +15716,7 @@ pub struct UWorldPartitionSettings {
         EHLODLayerType,
         FHLODLayerTypeUnsupportedActorClasses,
     >,
-    pub should_edl_packages_inherit_world_chunk_assignments_during_cook: bool,
+    pub b_should_edl_packages_inherit_world_chunk_assignments_during_cook: bool,
 }
 pub struct UWorldPartitionSubsystem {}
 pub struct ADEPRECATED_WorldPartitionVolume {}
@@ -15660,7 +15732,7 @@ pub struct AWorldSettings {
     pub navigation_system_config_override: UPtr<UNavigationSystemConfig>,
     pub world_partition: UPtr<UWorldPartition>,
     pub instanced_foliage_grid_size: u32,
-    pub show_instanced_foliage_grid: bool,
+    pub b_show_instanced_foliage_grid: bool,
     pub landscape_spline_meshes_grid_size: u32,
     pub navigation_data_chunk_grid_size: u32,
     pub navigation_data_builder_loading_cell_size: u32,
@@ -15712,6 +15784,6 @@ pub struct AWorldSettings {
     pub bookmark_array: TArray<UPtr<UBookmarkBase>>,
     pub last_bookmark_class: TSubclassOf<UBookmarkBase>,
     pub default_bookmark: UPtr<UBookmarkBase>,
-    pub enable_hierarchical_lod_system: bool,
+    pub b_enable_hierarchical_lod_system_deprecated: bool,
     pub flags_2209: u8,
 }

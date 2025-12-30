@@ -2,8 +2,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
-pub use super::*;
-pub use super::super::core_data::*;
+pub use crate::bindings::prelude::*;
 #[repr(C, align(8))]
 pub struct FAutomationEvent {
     pub ty: EAutomationEventType,
@@ -45,7 +44,7 @@ pub struct FVector {
 pub struct FBox2D {
     pub min: FVector2D,
     pub max: FVector2D,
-    pub is_valid: bool,
+    pub b_is_valid: bool,
 }
 #[repr(C, align(8))]
 pub struct FVector2D {
@@ -56,7 +55,7 @@ pub struct FVector2D {
 pub struct FBox2f {
     pub min: FVector2f,
     pub max: FVector2f,
-    pub is_valid: bool,
+    pub b_is_valid: bool,
 }
 #[repr(C, align(4))]
 pub struct FVector2f {
@@ -241,7 +240,7 @@ pub struct FInt64Vector4 {
 #[repr(C, align(8))]
 pub struct FInterpCurveFloat {
     pub points: TArray<FInterpCurvePointFloat>,
-    pub is_looped: bool,
+    pub b_is_looped: bool,
     pub loop_key_offset: f32,
 }
 #[repr(C, align(4))]
@@ -255,7 +254,7 @@ pub struct FInterpCurvePointFloat {
 #[repr(C, align(8))]
 pub struct FInterpCurveLinearColor {
     pub points: TArray<FInterpCurvePointLinearColor>,
-    pub is_looped: bool,
+    pub b_is_looped: bool,
     pub loop_key_offset: f32,
 }
 #[repr(C, align(4))]
@@ -320,25 +319,25 @@ pub struct FInterpCurvePointVector2D {
 #[repr(C, align(8))]
 pub struct FInterpCurveQuat {
     pub points: TArray<FInterpCurvePointQuat>,
-    pub is_looped: bool,
+    pub b_is_looped: bool,
     pub loop_key_offset: f32,
 }
 #[repr(C, align(8))]
 pub struct FInterpCurveTwoVectors {
     pub points: TArray<FInterpCurvePointTwoVectors>,
-    pub is_looped: bool,
+    pub b_is_looped: bool,
     pub loop_key_offset: f32,
 }
 #[repr(C, align(8))]
 pub struct FInterpCurveVector {
     pub points: TArray<FInterpCurvePointVector>,
-    pub is_looped: bool,
+    pub b_is_looped: bool,
     pub loop_key_offset: f32,
 }
 #[repr(C, align(8))]
 pub struct FInterpCurveVector2D {
     pub points: TArray<FInterpCurvePointVector2D>,
-    pub is_looped: bool,
+    pub b_is_looped: bool,
     pub loop_key_offset: f32,
 }
 #[repr(C, align(4))]
@@ -457,7 +456,7 @@ pub struct FPolyglotTextData {
     pub key: FString,
     pub native_string: FString,
     pub localized_strings: TMap<FString, FString>,
-    pub is_minimal_patch: bool,
+    pub b_is_minimal_patch: bool,
     pub cached_text: FText,
 }
 #[repr(C, align(4))]
@@ -577,7 +576,7 @@ pub struct FTimecode {
     pub seconds: i32,
     pub frames: i32,
     pub subframe: f32,
-    pub drop_frame_format: bool,
+    pub b_drop_frame_format: bool,
 }
 #[repr(C, align(8))]
 pub struct FTimespan {
@@ -726,9 +725,9 @@ pub struct FARFilter {
     pub class_paths: TArray<FTopLevelAssetPath>,
     pub recursive_classes_exclusion_set: TSet<FName>,
     pub recursive_class_paths_exclusion_set: TSet<FTopLevelAssetPath>,
-    pub recursive_paths: bool,
-    pub recursive_classes: bool,
-    pub include_only_on_disk_assets: bool,
+    pub b_recursive_paths: bool,
+    pub b_recursive_classes: bool,
+    pub b_include_only_on_disk_assets: bool,
 }
 #[repr(C, align(8))]
 pub struct FSoftClassPath {}
@@ -866,7 +865,7 @@ pub struct FOverriddenPropertyNode {
 #[repr(C, align(8))]
 pub struct FOverriddenPropertySet {
     pub owner: UPtr<UObject>,
-    pub was_added: bool,
+    pub b_was_added: bool,
     pub root_node: FOverriddenPropertyNode,
 }
 #[repr(C, align(8))]
@@ -920,8 +919,8 @@ pub struct FVerseSessionVar {
 #[repr(C, align(8))]
 pub struct FVerseClassVarAccessor {
     pub func: UPtr<UFunction>,
-    pub is_instance_member: bool,
-    pub is_fallible: bool,
+    pub b_is_instance_member: bool,
+    pub b_is_fallible: bool,
 }
 #[repr(C, align(8))]
 pub struct FVerseClassVarAccessors {
@@ -1101,6 +1100,7 @@ pub struct UEnumProperty {
 pub struct UTextProperty {}
 pub struct UInterface {}
 pub struct UEditorPathObjectInterface {}
+pub struct IEditorPathObjectInterface {}
 pub struct UTextBuffer {}
 pub struct UPropertyBagMissingObject {}
 pub struct UStruct {
