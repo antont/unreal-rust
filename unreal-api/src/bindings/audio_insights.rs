@@ -2,7 +2,8 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
-pub use crate::bindings::prelude::*;
+pub use crate::bindings::opague_definitions::*;
+pub use crate::core_data::*;
 #[repr(C, align(8))]
 pub struct FVisibleColumnsSettings {}
 #[repr(C, align(8))]
@@ -48,23 +49,23 @@ pub struct FSoundDashboardVisibleColumns {
 #[repr(C, align(4))]
 pub struct FSoundPlotsDashboardPlotRanges {
     pub b_use_custom_amplitude_d_b_range: bool,
-    pub amplitude_d_b: FFloatInterval,
+    pub amplitude_d_b: crate::bindings::core_u_object::FFloatInterval,
     pub b_use_custom_amplitude_linear_range: bool,
-    pub amplitude_linear: FFloatInterval,
+    pub amplitude_linear: crate::bindings::core_u_object::FFloatInterval,
     pub b_use_custom_volume_range: bool,
-    pub volume: FFloatInterval,
+    pub volume: crate::bindings::core_u_object::FFloatInterval,
     pub b_use_custom_distance_range: bool,
-    pub distance: FFloatInterval,
+    pub distance: crate::bindings::core_u_object::FFloatInterval,
     pub b_use_custom_distance_attenuation_range: bool,
-    pub distance_attenuation: FFloatInterval,
+    pub distance_attenuation: crate::bindings::core_u_object::FFloatInterval,
     pub b_use_custom_pitch_range: bool,
-    pub pitch: FFloatInterval,
+    pub pitch: crate::bindings::core_u_object::FFloatInterval,
     pub b_use_custom_priority_range: bool,
-    pub priority: FFloatInterval,
+    pub priority: crate::bindings::core_u_object::FFloatInterval,
     pub b_use_custom_lpf_freq_range: bool,
-    pub lpf_freq: FFloatInterval,
+    pub lpf_freq: crate::bindings::core_u_object::FFloatInterval,
     pub b_use_custom_hpf_freq_range: bool,
-    pub hpf_freq: FFloatInterval,
+    pub hpf_freq: crate::bindings::core_u_object::FFloatInterval,
 }
 #[repr(C, align(8))]
 pub struct FSoundDashboardSettings {
@@ -75,4 +76,39 @@ pub struct FSoundDashboardSettings {
     pub stopped_sound_timeout_time: f32,
     pub visible_columns: FSoundDashboardVisibleColumns,
     pub default_plot_ranges: FSoundPlotsDashboardPlotRanges,
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EAudioAmplitudeDisplayMode(pub u8);
+impl EAudioAmplitudeDisplayMode {
+    pub const DECIBELS: EAudioAmplitudeDisplayMode = EAudioAmplitudeDisplayMode(0);
+    pub const LINEAR: EAudioAmplitudeDisplayMode = EAudioAmplitudeDisplayMode(1);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ESoundDashboardTreeViewingOptions(pub u8);
+impl ESoundDashboardTreeViewingOptions {
+    pub const FULL_TREE: ESoundDashboardTreeViewingOptions = ESoundDashboardTreeViewingOptions(
+        0,
+    );
+    pub const ACTIVE_SOUNDS: ESoundDashboardTreeViewingOptions = ESoundDashboardTreeViewingOptions(
+        1,
+    );
+    pub const FLAT_LIST: ESoundDashboardTreeViewingOptions = ESoundDashboardTreeViewingOptions(
+        2,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ESoundDashboardAutoExpandOptions(pub u8);
+impl ESoundDashboardAutoExpandOptions {
+    pub const CATEGORIES: ESoundDashboardAutoExpandOptions = ESoundDashboardAutoExpandOptions(
+        0,
+    );
+    pub const EVERYTHING: ESoundDashboardAutoExpandOptions = ESoundDashboardAutoExpandOptions(
+        1,
+    );
+    pub const NOTHING: ESoundDashboardAutoExpandOptions = ESoundDashboardAutoExpandOptions(
+        2,
+    );
 }

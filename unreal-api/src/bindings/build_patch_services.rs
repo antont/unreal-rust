@@ -2,7 +2,8 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
-pub use crate::bindings::prelude::*;
+pub use crate::bindings::opague_definitions::*;
+pub use crate::core_data::*;
 #[repr(C, align(8))]
 pub struct FCustomFieldData {
     pub key: FString,
@@ -14,7 +15,7 @@ pub struct FSHAHashData {
 }
 #[repr(C, align(8))]
 pub struct FChunkInfoData {
-    pub guid: FGuid,
+    pub guid: crate::bindings::core_u_object::FGuid,
     pub hash: u64,
     pub sha_hash: FSHAHashData,
     pub file_size: i64,
@@ -22,7 +23,7 @@ pub struct FChunkInfoData {
 }
 #[repr(C, align(4))]
 pub struct FChunkPartData {
-    pub guid: FGuid,
+    pub guid: crate::bindings::core_u_object::FGuid,
     pub offset: u32,
     pub size: u32,
 }

@@ -2,10 +2,11 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
-pub use crate::bindings::prelude::*;
+pub use crate::bindings::opague_definitions::*;
+pub use crate::core_data::*;
 #[repr(C, align(8))]
 pub struct FCryptoEncryptionKey {
-    pub guid: FGuid,
+    pub guid: crate::bindings::core_u_object::FGuid,
     pub name: FString,
     pub key: FString,
 }

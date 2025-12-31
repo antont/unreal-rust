@@ -2,7 +2,8 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
-pub use crate::bindings::prelude::*;
+pub use crate::bindings::opague_definitions::*;
+pub use crate::core_data::*;
 #[repr(C, align(8))]
 pub struct FMeshAutoGenerateUVsSettings {
     pub method: EGeometryFlow_AutoUVMethod,
@@ -17,4 +18,12 @@ pub struct FMeshAutoGenerateUVsSettings {
     pub smoothing_alpha: f64,
     pub b_auto_pack: bool,
     pub packing_target_width: i32,
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EGeometryFlow_AutoUVMethod(pub u8);
+impl EGeometryFlow_AutoUVMethod {
+    pub const PATCH_BUILDER: EGeometryFlow_AutoUVMethod = EGeometryFlow_AutoUVMethod(0);
+    pub const UV_ATLAS: EGeometryFlow_AutoUVMethod = EGeometryFlow_AutoUVMethod(1);
+    pub const X_ATLAS: EGeometryFlow_AutoUVMethod = EGeometryFlow_AutoUVMethod(2);
 }

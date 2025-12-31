@@ -2,10 +2,11 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
-pub use crate::bindings::prelude::*;
+pub use crate::bindings::opague_definitions::*;
+pub use crate::core_data::*;
 #[repr(C, align(4))]
 pub struct FilterState {
-    pub filter_path: FTopLevelAssetPath,
+    pub filter_path: crate::bindings::core_u_object::FTopLevelAssetPath,
     pub b_is_enabled: bool,
 }
 pub struct UEdGraphNode_Reference {}
@@ -46,4 +47,24 @@ pub struct UReferenceViewerSettings {
 pub struct USizeMapSettings {
     pub size_type: FName,
     pub dependency_type: ESizeMapDependencyType,
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EEditorOnlyReferenceFilterType(pub i32);
+impl EEditorOnlyReferenceFilterType {
+    pub const GAME: EEditorOnlyReferenceFilterType = EEditorOnlyReferenceFilterType(0);
+    pub const PROPAGATION: EEditorOnlyReferenceFilterType = EEditorOnlyReferenceFilterType(
+        1,
+    );
+    pub const EDITOR_ONLY: EEditorOnlyReferenceFilterType = EEditorOnlyReferenceFilterType(
+        2,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ESizeMapDependencyType(pub i32);
+impl ESizeMapDependencyType {
+    pub const ALL: ESizeMapDependencyType = ESizeMapDependencyType(0);
+    pub const GAME: ESizeMapDependencyType = ESizeMapDependencyType(1);
+    pub const EDITOR_ONLY: ESizeMapDependencyType = ESizeMapDependencyType(2);
 }

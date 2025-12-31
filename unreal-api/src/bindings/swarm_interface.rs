@@ -2,7 +2,8 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
-pub use crate::bindings::prelude::*;
+pub use crate::bindings::opague_definitions::*;
+pub use crate::core_data::*;
 #[repr(C, align(1))]
 pub struct FSwarmPingMessage {}
 #[repr(C, align(8))]
@@ -16,9 +17,9 @@ pub struct FSwarmInfoMessage {
 }
 #[repr(C, align(8))]
 pub struct FSwarmAlertMessage {
-    pub job_guid: FGuid,
+    pub job_guid: crate::bindings::core_u_object::FGuid,
     pub alert_level: u8,
-    pub object_guid: FGuid,
+    pub object_guid: crate::bindings::core_u_object::FGuid,
     pub type_id: i32,
     pub text_message: FString,
 }
@@ -35,7 +36,7 @@ pub struct FSwarmTaskRequestReleaseMessage {}
 pub struct FSwarmTaskRequestReservationMessage {}
 #[repr(C, align(8))]
 pub struct FSwarmTaskRequestSpecificationMessage {
-    pub task_guid: FGuid,
+    pub task_guid: crate::bindings::core_u_object::FGuid,
     pub parameters: FString,
     pub flags: u8,
     pub cost: u32,
@@ -43,7 +44,7 @@ pub struct FSwarmTaskRequestSpecificationMessage {
 }
 #[repr(C, align(8))]
 pub struct FSwarmJobStateMessage {
-    pub guid: FGuid,
+    pub guid: crate::bindings::core_u_object::FGuid,
     pub state: u8,
     pub message: FString,
     pub exit_code: i32,
@@ -51,7 +52,7 @@ pub struct FSwarmJobStateMessage {
 }
 #[repr(C, align(8))]
 pub struct FSwarmTaskStateMessage {
-    pub guid: FGuid,
+    pub guid: crate::bindings::core_u_object::FGuid,
     pub state: u8,
     pub message: FString,
     pub exit_code: i32,

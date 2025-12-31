@@ -2,7 +2,8 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
-pub use crate::bindings::prelude::*;
+pub use crate::bindings::opague_definitions::*;
+pub use crate::core_data::*;
 #[repr(C, align(8))]
 pub struct FBlueprintSessionResult {}
 #[repr(C, align(8))]
@@ -16,8 +17,8 @@ pub struct FOnlineProxyStoreOffer {
     pub price_text: FText,
     pub numeric_price: i32,
     pub currency_code: FString,
-    pub release_date: FDateTime,
-    pub expiration_date: FDateTime,
+    pub release_date: crate::bindings::core_u_object::FDateTime,
+    pub expiration_date: crate::bindings::core_u_object::FDateTime,
     pub discount_type: EOnlineProxyStoreOfferDiscountType,
     pub dynamic_fields: TMap<FString, FString>,
 }
@@ -43,7 +44,7 @@ pub struct FOnlineAccountStoredCredentials {
 }
 #[repr(C, align(8))]
 pub struct FPlayerReservation {
-    pub unique_id: FUniqueNetIdRepl,
+    pub unique_id: crate::bindings::engine::FUniqueNetIdRepl,
     pub validation_str: FString,
     pub platform: FString,
     pub b_allow_crossplay: bool,
@@ -72,7 +73,7 @@ pub struct FInAppPurchaseProductRequest2 {
 #[repr(C, align(8))]
 pub struct FPartyReservation {
     pub team_num: i32,
-    pub party_leader: FUniqueNetIdRepl,
+    pub party_leader: crate::bindings::engine::FUniqueNetIdRepl,
     pub party_members: TArray<FPlayerReservation>,
     pub removed_party_members: TArray<FPlayerReservation>,
 }
@@ -83,7 +84,7 @@ pub struct FPartyBeaconCrossplayPlatformMapping {
 }
 #[repr(C, align(8))]
 pub struct FSpectatorReservation {
-    pub spectator_id: FUniqueNetIdRepl,
+    pub spectator_id: crate::bindings::engine::FUniqueNetIdRepl,
     pub spectator: FPlayerReservation,
 }
 pub struct UAchievementBlueprintLibrary {}
@@ -178,11 +179,11 @@ pub struct ULogoutCallbackProxy {
 pub struct AOnlineBeacon {
     pub beacon_connection_initial_timeout: f32,
     pub beacon_connection_timeout: f32,
-    pub net_driver: UPtr<UNetDriver>,
+    pub net_driver: UPtr<crate::bindings::engine::UNetDriver>,
 }
 pub struct AOnlineBeaconClient {
     pub beacon_owner: UPtr<AOnlineBeaconHostObject>,
-    pub beacon_connection: UPtr<UNetConnection>,
+    pub beacon_connection: UPtr<crate::bindings::engine::UNetConnection>,
     pub connection_state: EBeaconConnectionState,
 }
 pub struct AOnlineBeaconHost {
@@ -202,7 +203,9 @@ pub struct UOnlineEngineInterfaceImpl {
     pub compatible_unique_net_id_types: TArray<FName>,
     pub voice_subsystem_name_override: FName,
     pub b_online_services_compatibility_enabled: bool,
-    pub online_services_compatibility_interface: UPtr<UOnlineEngineInterface>,
+    pub online_services_compatibility_interface: UPtr<
+        crate::bindings::engine::UOnlineEngineInterface,
+    >,
 }
 pub struct UOnlinePIEConfig {
     pub login_types_allowing_duplicates: TArray<FString>,
@@ -284,3 +287,199 @@ pub struct UOnlineBeaconUnitTestNetConnection {}
 pub struct UOnlineBeaconUnitTestNetDriver {}
 pub struct UTurnBasedBlueprintLibrary {}
 pub struct UVoipListenerSynthComponent {}
+pub struct FAchievementQueryCallbackProxy_OnSuccess;
+pub struct FAchievementQueryCallbackProxy_OnFailure;
+pub struct FAchievementWriteCallbackProxy_OnWriteSuccess;
+pub struct FAchievementWriteCallbackProxy_OnWriteFailure;
+pub struct FConnectionCallbackProxy_OnSuccess;
+pub struct FConnectionCallbackProxy_OnFailure;
+pub struct FCreateSessionCallbackProxy_OnSuccess;
+pub struct FCreateSessionCallbackProxy_OnFailure;
+pub struct FDestroySessionCallbackProxy_OnSuccess;
+pub struct FDestroySessionCallbackProxy_OnFailure;
+pub struct FEndMatchCallbackProxy_OnSuccess;
+pub struct FEndMatchCallbackProxy_OnFailure;
+pub struct FEndTurnCallbackProxy_OnSuccess;
+pub struct FEndTurnCallbackProxy_OnFailure;
+pub struct FFindSessionsCallbackProxy_OnSuccess;
+pub struct FFindSessionsCallbackProxy_OnFailure;
+pub struct FFindTurnBasedMatchCallbackProxy_OnSuccess;
+pub struct FFindTurnBasedMatchCallbackProxy_OnFailure;
+pub struct FInAppPurchaseCallbackProxy2_OnSuccess;
+pub struct FInAppPurchaseCallbackProxy2_OnFailure;
+pub struct FInAppPurchaseCheckoutCallbackProxy_OnSuccess;
+pub struct FInAppPurchaseCheckoutCallbackProxy_OnFailure;
+pub struct FInAppPurchaseQueryCallbackProxy2_OnSuccess;
+pub struct FInAppPurchaseQueryCallbackProxy2_OnFailure;
+pub struct FInAppPurchaseReceiptsCallbackProxy_OnSuccess;
+pub struct FInAppPurchaseReceiptsCallbackProxy_OnFailure;
+pub struct FInAppPurchaseRestoreCallbackProxy2_OnSuccess;
+pub struct FInAppPurchaseRestoreCallbackProxy2_OnFailure;
+pub struct FJoinSessionCallbackProxy_OnSuccess;
+pub struct FJoinSessionCallbackProxy_OnFailure;
+pub struct FLeaderboardFlushCallbackProxy_OnSuccess;
+pub struct FLeaderboardFlushCallbackProxy_OnFailure;
+pub struct FLeaderboardQueryCallbackProxy_OnSuccess;
+pub struct FLeaderboardQueryCallbackProxy_OnFailure;
+pub struct FLogoutCallbackProxy_OnSuccess;
+pub struct FLogoutCallbackProxy_OnFailure;
+pub struct FQuitMatchCallbackProxy_OnSuccess;
+pub struct FQuitMatchCallbackProxy_OnFailure;
+pub struct FShowLoginUICallbackProxy_OnSuccess;
+pub struct FShowLoginUICallbackProxy_OnFailure;
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EOnlineProxyStoreOfferDiscountType(pub u8);
+impl EOnlineProxyStoreOfferDiscountType {
+    pub const NOT_ON_SALE: EOnlineProxyStoreOfferDiscountType = EOnlineProxyStoreOfferDiscountType(
+        0,
+    );
+    pub const PERCENTAGE: EOnlineProxyStoreOfferDiscountType = EOnlineProxyStoreOfferDiscountType(
+        1,
+    );
+    pub const DISCOUNT_AMOUNT: EOnlineProxyStoreOfferDiscountType = EOnlineProxyStoreOfferDiscountType(
+        2,
+    );
+    pub const PAY_AMOUNT: EOnlineProxyStoreOfferDiscountType = EOnlineProxyStoreOfferDiscountType(
+        3,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EPartyReservationResult(pub u8);
+impl EPartyReservationResult {
+    pub const NO_RESULT: EPartyReservationResult = EPartyReservationResult(0);
+    pub const REQUEST_PENDING: EPartyReservationResult = EPartyReservationResult(1);
+    pub const GENERAL_ERROR: EPartyReservationResult = EPartyReservationResult(2);
+    pub const PARTY_LIMIT_REACHED: EPartyReservationResult = EPartyReservationResult(3);
+    pub const INCORRECT_PLAYER_COUNT: EPartyReservationResult = EPartyReservationResult(
+        4,
+    );
+    pub const REQUEST_TIMED_OUT: EPartyReservationResult = EPartyReservationResult(5);
+    pub const RESERVATION_DUPLICATE: EPartyReservationResult = EPartyReservationResult(
+        6,
+    );
+    pub const RESERVATION_NOT_FOUND: EPartyReservationResult = EPartyReservationResult(
+        7,
+    );
+    pub const RESERVATION_ACCEPTED: EPartyReservationResult = EPartyReservationResult(8);
+    pub const RESERVATION_DENIED: EPartyReservationResult = EPartyReservationResult(9);
+    pub const RESERVATION_DENIED_CROSS_PLAY_RESTRICTION: EPartyReservationResult = EPartyReservationResult(
+        10,
+    );
+    pub const RESERVATION_DENIED_BANNED: EPartyReservationResult = EPartyReservationResult(
+        11,
+    );
+    pub const RESERVATION_REQUEST_CANCELED: EPartyReservationResult = EPartyReservationResult(
+        12,
+    );
+    pub const RESERVATION_INVALID: EPartyReservationResult = EPartyReservationResult(13);
+    pub const BAD_SESSION_ID: EPartyReservationResult = EPartyReservationResult(14);
+    pub const RESERVATION_DENIED_CONTAINS_EXISTING_PLAYERS: EPartyReservationResult = EPartyReservationResult(
+        15,
+    );
+    pub const RESERVATION_DENIED_VALIDATION_FAILED: EPartyReservationResult = EPartyReservationResult(
+        16,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ESpectatorReservationResult(pub u8);
+impl ESpectatorReservationResult {
+    pub const NO_RESULT: ESpectatorReservationResult = ESpectatorReservationResult(0);
+    pub const REQUEST_PENDING: ESpectatorReservationResult = ESpectatorReservationResult(
+        1,
+    );
+    pub const GENERAL_ERROR: ESpectatorReservationResult = ESpectatorReservationResult(
+        2,
+    );
+    pub const SPECTATOR_LIMIT_REACHED: ESpectatorReservationResult = ESpectatorReservationResult(
+        3,
+    );
+    pub const INCORRECT_PLAYER_COUNT: ESpectatorReservationResult = ESpectatorReservationResult(
+        4,
+    );
+    pub const REQUEST_TIMED_OUT: ESpectatorReservationResult = ESpectatorReservationResult(
+        5,
+    );
+    pub const RESERVATION_DUPLICATE: ESpectatorReservationResult = ESpectatorReservationResult(
+        6,
+    );
+    pub const RESERVATION_NOT_FOUND: ESpectatorReservationResult = ESpectatorReservationResult(
+        7,
+    );
+    pub const RESERVATION_ACCEPTED: ESpectatorReservationResult = ESpectatorReservationResult(
+        8,
+    );
+    pub const RESERVATION_DENIED: ESpectatorReservationResult = ESpectatorReservationResult(
+        9,
+    );
+    pub const RESERVATION_DENIED_CROSS_PLAY_RESTRICTION: ESpectatorReservationResult = ESpectatorReservationResult(
+        10,
+    );
+    pub const RESERVATION_DENIED_BANNED: ESpectatorReservationResult = ESpectatorReservationResult(
+        11,
+    );
+    pub const RESERVATION_REQUEST_CANCELED: ESpectatorReservationResult = ESpectatorReservationResult(
+        12,
+    );
+    pub const RESERVATION_INVALID: ESpectatorReservationResult = ESpectatorReservationResult(
+        13,
+    );
+    pub const BAD_SESSION_ID: ESpectatorReservationResult = ESpectatorReservationResult(
+        14,
+    );
+    pub const RESERVATION_DENIED_CONTAINS_EXISTING_PLAYERS: ESpectatorReservationResult = ESpectatorReservationResult(
+        15,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EInAppPurchaseStatus(pub u8);
+impl EInAppPurchaseStatus {
+    pub const INVALID: EInAppPurchaseStatus = EInAppPurchaseStatus(0);
+    pub const FAILED: EInAppPurchaseStatus = EInAppPurchaseStatus(1);
+    pub const DEFERRED: EInAppPurchaseStatus = EInAppPurchaseStatus(2);
+    pub const CANCELED: EInAppPurchaseStatus = EInAppPurchaseStatus(3);
+    pub const PURCHASED: EInAppPurchaseStatus = EInAppPurchaseStatus(4);
+    pub const RESTORED: EInAppPurchaseStatus = EInAppPurchaseStatus(5);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EBeaconConnectionState(pub u8);
+impl EBeaconConnectionState {
+    pub const INVALID: EBeaconConnectionState = EBeaconConnectionState(0);
+    pub const CLOSED: EBeaconConnectionState = EBeaconConnectionState(1);
+    pub const PENDING: EBeaconConnectionState = EBeaconConnectionState(2);
+    pub const OPEN: EBeaconConnectionState = EBeaconConnectionState(3);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EClientRequestType(pub u8);
+impl EClientRequestType {
+    pub const NONE_PENDING: EClientRequestType = EClientRequestType(0);
+    pub const EXISTING_SESSION_RESERVATION: EClientRequestType = EClientRequestType(1);
+    pub const RESERVATION_UPDATE: EClientRequestType = EClientRequestType(2);
+    pub const EMPTY_SERVER_RESERVATION: EClientRequestType = EClientRequestType(3);
+    pub const RECONNECT: EClientRequestType = EClientRequestType(4);
+    pub const ABANDON: EClientRequestType = EClientRequestType(5);
+    pub const RESERVATION_REMOVE_MEMBERS: EClientRequestType = EClientRequestType(6);
+    pub const ADD_OR_UPDATE_RESERVATION: EClientRequestType = EClientRequestType(7);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ESpectatorClientRequestType(pub u8);
+impl ESpectatorClientRequestType {
+    pub const NONE_PENDING: ESpectatorClientRequestType = ESpectatorClientRequestType(0);
+    pub const EXISTING_SESSION_RESERVATION: ESpectatorClientRequestType = ESpectatorClientRequestType(
+        1,
+    );
+    pub const RESERVATION_UPDATE: ESpectatorClientRequestType = ESpectatorClientRequestType(
+        2,
+    );
+    pub const EMPTY_SERVER_RESERVATION: ESpectatorClientRequestType = ESpectatorClientRequestType(
+        3,
+    );
+    pub const RECONNECT: ESpectatorClientRequestType = ESpectatorClientRequestType(4);
+    pub const ABANDON: ESpectatorClientRequestType = ESpectatorClientRequestType(5);
+}

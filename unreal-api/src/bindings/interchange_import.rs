@@ -2,7 +2,8 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
-pub use crate::bindings::prelude::*;
+pub use crate::bindings::opague_definitions::*;
+pub use crate::core_data::*;
 pub struct UInterchangeAnimationPayloadInterface {}
 pub struct IInterchangeAnimationPayloadInterface {}
 pub struct UInterchangeAssetUserData {
@@ -44,7 +45,7 @@ pub struct UInterchangeAudioTranslator_OGG {}
 pub struct UInterchangeAudioTranslator_OPUS {}
 pub struct UInterchangeAudioTranslator_WAV {}
 pub struct UInterchangeAudioSoundWaveFactory {
-    pub components_to_restart: TArray<UPtr<UAudioComponent>>,
+    pub components_to_restart: TArray<UPtr<crate::bindings::engine::UAudioComponent>>,
 }
 pub struct UInterchangeFbxTranslatorSettings {
     pub coordinate_system_policy: EInterchangeCoordinateSystemPolicy,
@@ -64,56 +65,56 @@ pub struct UInterchangeGroomCacheFactory {}
 pub struct UInterchangeGroomFactory {}
 pub struct UInterchangeMaterialXTranslator {}
 pub struct UMaterialExpressionMaterialXAppend3Vector {
-    pub a: FExpressionInput,
-    pub b: FExpressionInput,
-    pub c: FExpressionInput,
+    pub a: crate::bindings::engine::FExpressionInput,
+    pub b: crate::bindings::engine::FExpressionInput,
+    pub c: crate::bindings::engine::FExpressionInput,
 }
 pub struct UMaterialExpressionMaterialXAppend4Vector {
-    pub a: FExpressionInput,
-    pub b: FExpressionInput,
-    pub c: FExpressionInput,
-    pub d: FExpressionInput,
+    pub a: crate::bindings::engine::FExpressionInput,
+    pub b: crate::bindings::engine::FExpressionInput,
+    pub c: crate::bindings::engine::FExpressionInput,
+    pub d: crate::bindings::engine::FExpressionInput,
 }
 pub struct UMaterialExpressionMaterialXBurn {
-    pub a: FExpressionInput,
-    pub b: FExpressionInput,
-    pub alpha: FExpressionInput,
+    pub a: crate::bindings::engine::FExpressionInput,
+    pub b: crate::bindings::engine::FExpressionInput,
+    pub alpha: crate::bindings::engine::FExpressionInput,
     pub const_alpha: f32,
 }
 pub struct UMaterialExpressionMaterialXContrast {
-    pub input: FExpressionInput,
-    pub amount: FExpressionInput,
-    pub pivot: FExpressionInput,
+    pub input: crate::bindings::engine::FExpressionInput,
+    pub amount: crate::bindings::engine::FExpressionInput,
+    pub pivot: crate::bindings::engine::FExpressionInput,
     pub const_amount: f32,
     pub const_pivot: f32,
 }
 pub struct UMaterialExpressionMaterialXDifference {
-    pub a: FExpressionInput,
-    pub b: FExpressionInput,
-    pub alpha: FExpressionInput,
+    pub a: crate::bindings::engine::FExpressionInput,
+    pub b: crate::bindings::engine::FExpressionInput,
+    pub alpha: crate::bindings::engine::FExpressionInput,
     pub const_alpha: f32,
 }
 pub struct UMaterialExpressionMaterialXDisjointOver {
-    pub a: FExpressionInput,
-    pub b: FExpressionInput,
-    pub alpha: FExpressionInput,
+    pub a: crate::bindings::engine::FExpressionInput,
+    pub b: crate::bindings::engine::FExpressionInput,
+    pub alpha: crate::bindings::engine::FExpressionInput,
     pub const_alpha: f32,
 }
 pub struct UMaterialExpressionMaterialXDodge {
-    pub a: FExpressionInput,
-    pub b: FExpressionInput,
-    pub alpha: FExpressionInput,
+    pub a: crate::bindings::engine::FExpressionInput,
+    pub b: crate::bindings::engine::FExpressionInput,
+    pub alpha: crate::bindings::engine::FExpressionInput,
     pub const_alpha: f32,
 }
 pub struct UMaterialExpressionMaterialXFractal3D {
-    pub position: FExpressionInput,
-    pub amplitude: FExpressionInput,
+    pub position: crate::bindings::engine::FExpressionInput,
+    pub amplitude: crate::bindings::engine::FExpressionInput,
     pub const_amplitude: f32,
-    pub octaves: FExpressionInput,
+    pub octaves: crate::bindings::engine::FExpressionInput,
     pub const_octaves: i32,
-    pub lacunarity: FExpressionInput,
+    pub lacunarity: crate::bindings::engine::FExpressionInput,
     pub const_lacunarity: f32,
-    pub diminish: FExpressionInput,
+    pub diminish: crate::bindings::engine::FExpressionInput,
     pub const_diminish: f32,
     pub scale_deprecated: f32,
     pub b_turbulence_deprecated: bool,
@@ -122,103 +123,103 @@ pub struct UMaterialExpressionMaterialXFractal3D {
     pub output_max_deprecated: f32,
 }
 pub struct UMaterialExpressionMaterialXIn {
-    pub a: FExpressionInput,
-    pub b: FExpressionInput,
-    pub alpha: FExpressionInput,
+    pub a: crate::bindings::engine::FExpressionInput,
+    pub b: crate::bindings::engine::FExpressionInput,
+    pub alpha: crate::bindings::engine::FExpressionInput,
     pub const_alpha: f32,
 }
 pub struct UMaterialExpressionMaterialXLuminance {
-    pub input: FExpressionInput,
-    pub luminance_factors: FLinearColor,
+    pub input: crate::bindings::engine::FExpressionInput,
+    pub luminance_factors: crate::bindings::core_u_object::FLinearColor,
     pub luminance_mode: EMaterialXLuminanceMode,
 }
 pub struct UMaterialExpressionMaterialXMask {
-    pub a: FExpressionInput,
-    pub b: FExpressionInput,
-    pub alpha: FExpressionInput,
+    pub a: crate::bindings::engine::FExpressionInput,
+    pub b: crate::bindings::engine::FExpressionInput,
+    pub alpha: crate::bindings::engine::FExpressionInput,
     pub const_alpha: f32,
 }
 pub struct UMaterialExpressionMaterialXMatte {
-    pub a: FExpressionInput,
-    pub b: FExpressionInput,
-    pub alpha: FExpressionInput,
+    pub a: crate::bindings::engine::FExpressionInput,
+    pub b: crate::bindings::engine::FExpressionInput,
+    pub alpha: crate::bindings::engine::FExpressionInput,
     pub const_alpha: f32,
 }
 pub struct UMaterialExpressionMaterialXMinus {
-    pub a: FExpressionInput,
-    pub b: FExpressionInput,
-    pub alpha: FExpressionInput,
+    pub a: crate::bindings::engine::FExpressionInput,
+    pub b: crate::bindings::engine::FExpressionInput,
+    pub alpha: crate::bindings::engine::FExpressionInput,
     pub const_alpha: f32,
 }
 pub struct UMaterialExpressionMaterialXMod {
-    pub a: FExpressionInput,
-    pub b: FExpressionInput,
+    pub a: crate::bindings::engine::FExpressionInput,
+    pub b: crate::bindings::engine::FExpressionInput,
     pub const_b: f32,
 }
 pub struct UMaterialExpressionMaterialXOut {
-    pub a: FExpressionInput,
-    pub b: FExpressionInput,
-    pub alpha: FExpressionInput,
+    pub a: crate::bindings::engine::FExpressionInput,
+    pub b: crate::bindings::engine::FExpressionInput,
+    pub alpha: crate::bindings::engine::FExpressionInput,
     pub const_alpha: f32,
 }
 pub struct UMaterialExpressionMaterialXOver {
-    pub a: FExpressionInput,
-    pub b: FExpressionInput,
-    pub alpha: FExpressionInput,
+    pub a: crate::bindings::engine::FExpressionInput,
+    pub b: crate::bindings::engine::FExpressionInput,
+    pub alpha: crate::bindings::engine::FExpressionInput,
     pub const_alpha: f32,
 }
 pub struct UMaterialExpressionMaterialXOverlay {
-    pub a: FExpressionInput,
-    pub b: FExpressionInput,
-    pub alpha: FExpressionInput,
+    pub a: crate::bindings::engine::FExpressionInput,
+    pub b: crate::bindings::engine::FExpressionInput,
+    pub alpha: crate::bindings::engine::FExpressionInput,
     pub const_alpha: f32,
 }
 pub struct UMaterialExpressionMaterialXPlace2D {
-    pub coordinates: FExpressionInput,
-    pub pivot: FExpressionInput,
-    pub scale: FExpressionInput,
-    pub offset: FExpressionInput,
-    pub rotation_angle: FExpressionInput,
+    pub coordinates: crate::bindings::engine::FExpressionInput,
+    pub pivot: crate::bindings::engine::FExpressionInput,
+    pub scale: crate::bindings::engine::FExpressionInput,
+    pub offset: crate::bindings::engine::FExpressionInput,
+    pub rotation_angle: crate::bindings::engine::FExpressionInput,
     pub const_rotation_angle: f32,
     pub const_coordinate: u8,
 }
 pub struct UMaterialExpressionMaterialXPlus {
-    pub a: FExpressionInput,
-    pub b: FExpressionInput,
-    pub alpha: FExpressionInput,
+    pub a: crate::bindings::engine::FExpressionInput,
+    pub b: crate::bindings::engine::FExpressionInput,
+    pub alpha: crate::bindings::engine::FExpressionInput,
     pub const_alpha: f32,
 }
 pub struct UMaterialExpressionMaterialXPremult {
-    pub input: FExpressionInput,
+    pub input: crate::bindings::engine::FExpressionInput,
 }
 pub struct UMaterialExpressionMaterialXRamp4 {
-    pub coordinates: FExpressionInput,
-    pub a: FExpressionInput,
-    pub b: FExpressionInput,
-    pub c: FExpressionInput,
-    pub d: FExpressionInput,
+    pub coordinates: crate::bindings::engine::FExpressionInput,
+    pub a: crate::bindings::engine::FExpressionInput,
+    pub b: crate::bindings::engine::FExpressionInput,
+    pub c: crate::bindings::engine::FExpressionInput,
+    pub d: crate::bindings::engine::FExpressionInput,
     pub const_coordinate: u8,
 }
 pub struct UMaterialExpressionMaterialXRampLeftRight {
-    pub coordinates: FExpressionInput,
-    pub a: FExpressionInput,
-    pub b: FExpressionInput,
+    pub coordinates: crate::bindings::engine::FExpressionInput,
+    pub a: crate::bindings::engine::FExpressionInput,
+    pub b: crate::bindings::engine::FExpressionInput,
     pub const_coordinate: u8,
 }
 pub struct UMaterialExpressionMaterialXRampTopBottom {
-    pub coordinates: FExpressionInput,
-    pub a: FExpressionInput,
-    pub b: FExpressionInput,
+    pub coordinates: crate::bindings::engine::FExpressionInput,
+    pub a: crate::bindings::engine::FExpressionInput,
+    pub b: crate::bindings::engine::FExpressionInput,
     pub const_coordinate: u8,
 }
 pub struct UMaterialExpressionMaterialXRange {
-    pub input: FExpressionInput,
-    pub input_low: FExpressionInput,
-    pub input_high: FExpressionInput,
-    pub target_low: FExpressionInput,
-    pub target_high: FExpressionInput,
-    pub gamma: FExpressionInput,
-    pub clamp: FExpressionInput,
+    pub input: crate::bindings::engine::FExpressionInput,
+    pub input_low: crate::bindings::engine::FExpressionInput,
+    pub input_high: crate::bindings::engine::FExpressionInput,
+    pub target_low: crate::bindings::engine::FExpressionInput,
+    pub target_high: crate::bindings::engine::FExpressionInput,
+    pub gamma: crate::bindings::engine::FExpressionInput,
+    pub clamp: crate::bindings::engine::FExpressionInput,
     pub const_input_low: f32,
     pub const_input_high: f32,
     pub const_target_low: f32,
@@ -227,45 +228,45 @@ pub struct UMaterialExpressionMaterialXRange {
     pub b_const_clamp: bool,
 }
 pub struct UMaterialExpressionMaterialXRemap {
-    pub input: FExpressionInput,
-    pub input_low: FExpressionInput,
-    pub input_high: FExpressionInput,
-    pub target_low: FExpressionInput,
-    pub target_high: FExpressionInput,
+    pub input: crate::bindings::engine::FExpressionInput,
+    pub input_low: crate::bindings::engine::FExpressionInput,
+    pub input_high: crate::bindings::engine::FExpressionInput,
+    pub target_low: crate::bindings::engine::FExpressionInput,
+    pub target_high: crate::bindings::engine::FExpressionInput,
     pub input_low_default: f32,
     pub input_high_default: f32,
     pub target_low_default: f32,
     pub target_high_default: f32,
 }
 pub struct UMaterialExpressionMaterialXRotate2D {
-    pub input: FExpressionInput,
-    pub rotation_angle: FExpressionInput,
+    pub input: crate::bindings::engine::FExpressionInput,
+    pub rotation_angle: crate::bindings::engine::FExpressionInput,
     pub const_rotation_angle: f32,
 }
 pub struct UMaterialExpressionMaterialXScreen {
-    pub a: FExpressionInput,
-    pub b: FExpressionInput,
-    pub alpha: FExpressionInput,
+    pub a: crate::bindings::engine::FExpressionInput,
+    pub b: crate::bindings::engine::FExpressionInput,
+    pub alpha: crate::bindings::engine::FExpressionInput,
     pub const_alpha: f32,
 }
 pub struct UMaterialExpressionMaterialXSplitLeftRight {
-    pub coordinates: FExpressionInput,
-    pub a: FExpressionInput,
-    pub b: FExpressionInput,
-    pub center: FExpressionInput,
+    pub coordinates: crate::bindings::engine::FExpressionInput,
+    pub a: crate::bindings::engine::FExpressionInput,
+    pub b: crate::bindings::engine::FExpressionInput,
+    pub center: crate::bindings::engine::FExpressionInput,
     pub const_center: f32,
     pub const_coordinate: u8,
 }
 pub struct UMaterialExpressionMaterialXSplitTopBottom {
-    pub coordinates: FExpressionInput,
-    pub a: FExpressionInput,
-    pub b: FExpressionInput,
-    pub center: FExpressionInput,
+    pub coordinates: crate::bindings::engine::FExpressionInput,
+    pub a: crate::bindings::engine::FExpressionInput,
+    pub b: crate::bindings::engine::FExpressionInput,
+    pub center: crate::bindings::engine::FExpressionInput,
     pub const_center: f32,
     pub const_coordinate: u8,
 }
 pub struct UMaterialExpressionMaterialXSwizzle {
-    pub input: FExpressionInput,
+    pub input: crate::bindings::engine::FExpressionInput,
     pub channels: FString,
 }
 pub struct UMaterialExpressionMaterialXTextureSampleParameterBlur {
@@ -275,7 +276,7 @@ pub struct UMaterialExpressionMaterialXTextureSampleParameterBlur {
     pub filter: EMaterialXTextureSampleBlurFilter,
 }
 pub struct UMaterialExpressionMaterialXUnpremult {
-    pub input: FExpressionInput,
+    pub input: crate::bindings::engine::FExpressionInput,
 }
 pub struct UInterchangeMaterialFactory {}
 pub struct UInterchangeMaterialFunctionFactory {}
@@ -307,3 +308,55 @@ pub struct UInterchangePSDTranslator {}
 pub struct UInterchangeTextureFactory {}
 pub struct UInterchangeUEJPEGTranslator {}
 pub struct UInterchangeSparseVolumeTextureFactory {}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EInterchangeCoordinateSystemPolicy(pub u8);
+impl EInterchangeCoordinateSystemPolicy {
+    pub const MATCH_UP_FORWARD_AXES: EInterchangeCoordinateSystemPolicy = EInterchangeCoordinateSystemPolicy(
+        0,
+    );
+    pub const MATCH_UP_AXIS: EInterchangeCoordinateSystemPolicy = EInterchangeCoordinateSystemPolicy(
+        1,
+    );
+    pub const KEEP_XYZ_AXES: EInterchangeCoordinateSystemPolicy = EInterchangeCoordinateSystemPolicy(
+        2,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EMaterialXLuminanceMode(pub u8);
+impl EMaterialXLuminanceMode {
+    pub const ACE_SCG: EMaterialXLuminanceMode = EMaterialXLuminanceMode(0);
+    pub const REC709: EMaterialXLuminanceMode = EMaterialXLuminanceMode(1);
+    pub const REC2020: EMaterialXLuminanceMode = EMaterialXLuminanceMode(2);
+    pub const REC2100: EMaterialXLuminanceMode = EMaterialXLuminanceMode(2);
+    pub const CUSTOM: EMaterialXLuminanceMode = EMaterialXLuminanceMode(3);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EMAterialXTextureSampleBlurKernel(pub i32);
+impl EMAterialXTextureSampleBlurKernel {
+    pub const KERNEL1: EMAterialXTextureSampleBlurKernel = EMAterialXTextureSampleBlurKernel(
+        0,
+    );
+    pub const KERNEL3: EMAterialXTextureSampleBlurKernel = EMAterialXTextureSampleBlurKernel(
+        1,
+    );
+    pub const KERNEL5: EMAterialXTextureSampleBlurKernel = EMAterialXTextureSampleBlurKernel(
+        2,
+    );
+    pub const KERNEL7: EMAterialXTextureSampleBlurKernel = EMAterialXTextureSampleBlurKernel(
+        3,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EMaterialXTextureSampleBlurFilter(pub u8);
+impl EMaterialXTextureSampleBlurFilter {
+    pub const BOX: EMaterialXTextureSampleBlurFilter = EMaterialXTextureSampleBlurFilter(
+        0,
+    );
+    pub const GAUSSIAN: EMaterialXTextureSampleBlurFilter = EMaterialXTextureSampleBlurFilter(
+        1,
+    );
+}

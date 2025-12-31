@@ -2,7 +2,8 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
-pub use crate::bindings::prelude::*;
+pub use crate::bindings::opague_definitions::*;
+pub use crate::core_data::*;
 #[repr(C, align(8))]
 pub struct FPBIKBoneSetting {
     pub bone: FName,
@@ -18,7 +19,7 @@ pub struct FPBIKBoneSetting {
     pub min_z: f32,
     pub max_z: f32,
     pub b_use_preferred_angles: bool,
-    pub preferred_angles: FVector,
+    pub preferred_angles: crate::bindings::core_u_object::FVector,
 }
 #[repr(C, align(4))]
 pub struct FRootPrePullSettings {
@@ -54,7 +55,7 @@ pub struct FPBIKDebug {
 #[repr(C, align(16))]
 pub struct FPBIKEffector {
     pub bone: FName,
-    pub transform: FTransform,
+    pub transform: crate::bindings::core_u_object::FTransform,
     pub position_alpha: f32,
     pub rotation_alpha: f32,
     pub strength_alpha: f32,
@@ -80,4 +81,20 @@ pub struct FRigUnit_PBIK {
     pub settings: FPBIKSolverSettings,
     pub debug: FPBIKDebug,
     pub work_data: FPBIKWorkData,
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EPBIKLimitType(pub u8);
+impl EPBIKLimitType {
+    pub const FREE: EPBIKLimitType = EPBIKLimitType(0);
+    pub const LIMITED: EPBIKLimitType = EPBIKLimitType(1);
+    pub const LOCKED: EPBIKLimitType = EPBIKLimitType(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EPBIKRootBehavior(pub u8);
+impl EPBIKRootBehavior {
+    pub const PRE_PULL: EPBIKRootBehavior = EPBIKRootBehavior(0);
+    pub const PIN_TO_INPUT: EPBIKRootBehavior = EPBIKRootBehavior(1);
+    pub const FREE: EPBIKRootBehavior = EPBIKRootBehavior(2);
 }

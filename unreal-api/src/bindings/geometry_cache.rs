@@ -2,7 +2,8 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
-pub use crate::bindings::prelude::*;
+pub use crate::bindings::opague_definitions::*;
+pub use crate::core_data::*;
 #[repr(C, align(16))]
 pub struct FTrackRenderData {}
 #[repr(C, align(4))]
@@ -13,23 +14,23 @@ pub struct FGeometryCacheVertexInfo {}
 pub struct FGeometryCacheMeshData {}
 #[repr(C, align(8))]
 pub struct FNiagaraGeometryCacheMICOverride {
-    pub original_material: UPtr<UMaterialInterface>,
-    pub replacement_material: UPtr<UMaterialInstanceConstant>,
+    pub original_material: UPtr<crate::bindings::engine::UMaterialInterface>,
+    pub replacement_material: UPtr<crate::bindings::engine::UMaterialInstanceConstant>,
 }
 #[repr(C, align(8))]
 pub struct FNiagaraGeometryCacheReference {
     pub geometry_cache: UPtr<UGeometryCache>,
-    pub geometry_cache_user_param_binding: FNiagaraUserParameterBinding,
-    pub override_materials: TArray<UPtr<UMaterialInterface>>,
+    pub geometry_cache_user_param_binding: crate::bindings::niagara::FNiagaraUserParameterBinding,
+    pub override_materials: TArray<UPtr<crate::bindings::engine::UMaterialInterface>>,
     pub mic_override_materials: TArray<FNiagaraGeometryCacheMICOverride>,
 }
 pub struct UGeometryCache {
-    pub asset_import_data: UPtr<UAssetImportData>,
-    pub thumbnail_info: UPtr<UThumbnailInfo>,
-    pub materials: TArray<UPtr<UMaterialInterface>>,
+    pub asset_import_data: UPtr<crate::bindings::engine::UAssetImportData>,
+    pub thumbnail_info: UPtr<crate::bindings::engine::UThumbnailInfo>,
+    pub materials: TArray<UPtr<crate::bindings::engine::UMaterialInterface>>,
     pub material_slot_names: TArray<FName>,
     pub tracks: TArray<UPtr<UGeometryCacheTrack>>,
-    pub asset_user_data: TArray<UPtr<UAssetUserData>>,
+    pub asset_user_data: TArray<UPtr<crate::bindings::engine::UAssetUserData>>,
     pub start_frame: i32,
     pub end_frame: i32,
     pub hash: u64,
@@ -57,7 +58,7 @@ pub struct UGeometryCacheComponent {
     pub duration: f32,
     pub b_manual_tick: bool,
     pub b_override_wireframe_color: bool,
-    pub wireframe_override_color: FLinearColor,
+    pub wireframe_override_color: crate::bindings::core_u_object::FLinearColor,
 }
 pub struct UGeometryCacheTrack {
     pub duration: f32,
@@ -73,17 +74,17 @@ pub struct UDEPRECATED_GeometryCacheTrack_TransformAnimation {}
 pub struct UDEPRECATED_GeometryCacheTrack_TransformGroupAnimation {}
 pub struct UNiagaraGeometryCacheRendererProperties {
     pub geometry_caches: TArray<FNiagaraGeometryCacheReference>,
-    pub source_mode: ENiagaraRendererSourceDataMode,
+    pub source_mode: crate::bindings::niagara::ENiagaraRendererSourceDataMode,
     pub b_is_looping: bool,
     pub component_count_limit: u32,
-    pub position_binding: FNiagaraVariableAttributeBinding,
-    pub rotation_binding: FNiagaraVariableAttributeBinding,
-    pub scale_binding: FNiagaraVariableAttributeBinding,
-    pub elapsed_time_binding: FNiagaraVariableAttributeBinding,
-    pub enabled_binding: FNiagaraVariableAttributeBinding,
-    pub array_index_binding: FNiagaraVariableAttributeBinding,
-    pub renderer_visibility_tag_binding: FNiagaraVariableAttributeBinding,
+    pub position_binding: crate::bindings::niagara::FNiagaraVariableAttributeBinding,
+    pub rotation_binding: crate::bindings::niagara::FNiagaraVariableAttributeBinding,
+    pub scale_binding: crate::bindings::niagara::FNiagaraVariableAttributeBinding,
+    pub elapsed_time_binding: crate::bindings::niagara::FNiagaraVariableAttributeBinding,
+    pub enabled_binding: crate::bindings::niagara::FNiagaraVariableAttributeBinding,
+    pub array_index_binding: crate::bindings::niagara::FNiagaraVariableAttributeBinding,
+    pub renderer_visibility_tag_binding: crate::bindings::niagara::FNiagaraVariableAttributeBinding,
     pub renderer_visibility: i32,
     pub b_assign_components_on_particle_id: bool,
-    pub material_parameters: FNiagaraRendererMaterialParameters,
+    pub material_parameters: crate::bindings::niagara::FNiagaraRendererMaterialParameters,
 }

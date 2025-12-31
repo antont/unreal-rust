@@ -2,10 +2,11 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
-pub use crate::bindings::prelude::*;
+pub use crate::bindings::opague_definitions::*;
+pub use crate::core_data::*;
 pub struct UCSVtoSVGArugments {
-    pub csv: FFilePath,
-    pub output_directory: FDirectoryPath,
+    pub csv: crate::bindings::core_u_object::FFilePath,
+    pub output_directory: crate::bindings::core_u_object::FDirectoryPath,
     pub output_filename: FString,
     pub skip_rows: i32,
     pub min_x: f32,
@@ -30,4 +31,11 @@ pub struct UCSVtoSVGArugments {
     pub showaverages: bool,
     pub colour_offset: i32,
     pub average_threshold: f32,
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ESVGTheme(pub i32);
+impl ESVGTheme {
+    pub const DARK: ESVGTheme = ESVGTheme(0);
+    pub const LIGHT: ESVGTheme = ESVGTheme(1);
 }

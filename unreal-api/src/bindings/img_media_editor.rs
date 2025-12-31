@@ -2,12 +2,13 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
-pub use crate::bindings::prelude::*;
+pub use crate::bindings::opague_definitions::*;
+pub use crate::core_data::*;
 pub struct UImgMediaSourceFactory {}
 pub struct UImgMediaSourceFactoryNew {}
 pub struct UImgMediaProcessEXROptions {
-    pub input_path: FFilePath,
-    pub output_path: FDirectoryPath,
+    pub input_path: crate::bindings::core_u_object::FFilePath,
+    pub output_path: crate::bindings::core_u_object::FDirectoryPath,
     pub b_enable_mip_mapping: bool,
     pub b_enable_tiling: bool,
     pub tile_size_x: i32,
@@ -16,5 +17,5 @@ pub struct UImgMediaProcessEXROptions {
     pub b_use_player: bool,
     pub b_remove_alpha_channel: bool,
     pub b_enable_mip_level_tint: bool,
-    pub mip_level_tints: TArray<FLinearColor>,
+    pub mip_level_tints: TArray<crate::bindings::core_u_object::FLinearColor>,
 }

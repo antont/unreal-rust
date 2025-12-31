@@ -2,7 +2,8 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
-pub use crate::bindings::prelude::*;
+pub use crate::bindings::opague_definitions::*;
+pub use crate::core_data::*;
 #[repr(C, align(8))]
 pub struct FAudioPlatform {
     pub display_name: FString,
@@ -12,7 +13,7 @@ pub struct FAudioPlatform {
 pub struct FSoundClassGraphSchemaAction_NewNode {}
 #[repr(C, align(8))]
 pub struct FSoundCueGraphSchemaAction_NewNode {
-    pub sound_node_class: TSubclassOf<USoundNode>,
+    pub sound_node_class: TSubclassOf<crate::bindings::engine::USoundNode>,
 }
 #[repr(C, align(8))]
 pub struct FSoundCueGraphSchemaAction_NewFromSelected {}
@@ -52,10 +53,10 @@ pub struct UAudioEditorSettings {
 pub struct UAudioBusFactory {}
 pub struct UDialogueVoiceFactory {}
 pub struct UDialogueWaveFactory {
-    pub initial_sound_wave: UPtr<USoundWave>,
-    pub initial_speaker_voice: UPtr<UDialogueVoice>,
+    pub initial_sound_wave: UPtr<crate::bindings::engine::USoundWave>,
+    pub initial_speaker_voice: UPtr<crate::bindings::engine::UDialogueVoice>,
     pub has_set_initial_target_voice: bool,
-    pub initial_target_voices: TArray<UPtr<UDialogueVoice>>,
+    pub initial_target_voices: TArray<UPtr<crate::bindings::engine::UDialogueVoice>>,
 }
 pub struct USoundFactory {
     pub flags_136: u8,
@@ -68,19 +69,25 @@ pub struct USoundAttenuationFactory {}
 pub struct USoundClassFactory {}
 pub struct USoundConcurrencyFactory {}
 pub struct USoundCueFactoryNew {
-    pub initial_sound_wave: UPtr<USoundWave>,
-    pub initial_sound_waves: TArray<TWeakObjectPtr<USoundWave>>,
-    pub initial_dialogue_wave: UPtr<UDialogueWave>,
-    pub initial_dialogue_waves: TArray<TWeakObjectPtr<UDialogueWave>>,
+    pub initial_sound_wave: UPtr<crate::bindings::engine::USoundWave>,
+    pub initial_sound_waves: TArray<TWeakObjectPtr<crate::bindings::engine::USoundWave>>,
+    pub initial_dialogue_wave: UPtr<crate::bindings::engine::UDialogueWave>,
+    pub initial_dialogue_waves: TArray<
+        TWeakObjectPtr<crate::bindings::engine::UDialogueWave>,
+    >,
 }
 pub struct USoundMixFactory {}
 pub struct USoundSourceBusFactory {}
 pub struct USoundSourceEffectFactory {
-    pub sound_effect_sourcepreset_class: TSubclassOf<USoundEffectSourcePreset>,
+    pub sound_effect_sourcepreset_class: TSubclassOf<
+        crate::bindings::engine::USoundEffectSourcePreset,
+    >,
 }
 pub struct USoundSourceEffectChainFactory {}
 pub struct USoundSubmixEffectFactory {
-    pub sound_effect_submix_preset_class: TSubclassOf<USoundEffectSubmixPreset>,
+    pub sound_effect_submix_preset_class: TSubclassOf<
+        crate::bindings::engine::USoundEffectSubmixPreset,
+    >,
 }
 pub struct USoundSubmixFactory {}
 pub struct USoundfieldSubmixFactory {}
@@ -88,7 +95,7 @@ pub struct UEndpointSubmixFactory {}
 pub struct USoundfieldEndpointSubmixFactory {}
 pub struct USoundClassGraph {}
 pub struct USoundClassGraphNode {
-    pub sound_class: UPtr<USoundClass>,
+    pub sound_class: UPtr<crate::bindings::engine::USoundClass>,
 }
 pub struct USoundClassGraphSchema {}
 pub struct USoundEffectSourcePresetClassTemplate {}
@@ -97,16 +104,30 @@ pub struct USynthComponentClassTemplate {}
 pub struct USoundCueGraph {}
 pub struct USoundCueGraphNode_Base {}
 pub struct USoundCueGraphNode {
-    pub sound_node: UPtr<USoundNode>,
+    pub sound_node: UPtr<crate::bindings::engine::USoundNode>,
 }
 pub struct USoundCueGraphNode_Root {}
 pub struct USoundCueGraphSchema {}
 pub struct USoundSubmixGraph {
-    pub root_sound_submix: UPtr<USoundSubmixBase>,
-    pub stale_roots: TArray<UPtr<USoundSubmixBase>>,
+    pub root_sound_submix: UPtr<crate::bindings::engine::USoundSubmixBase>,
+    pub stale_roots: TArray<UPtr<crate::bindings::engine::USoundSubmixBase>>,
 }
 pub struct USoundSubmixGraphNode {
-    pub sound_submix: UPtr<USoundSubmixBase>,
-    pub submix_node_user_widget: UPtr<UUserWidget>,
+    pub sound_submix: UPtr<crate::bindings::engine::USoundSubmixBase>,
+    pub submix_node_user_widget: UPtr<crate::bindings::umg::UUserWidget>,
 }
 pub struct USoundSubmixGraphSchema {}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EUseTemplateSoundWaveDuringAssetImport(pub u8);
+impl EUseTemplateSoundWaveDuringAssetImport {
+    pub const ALWAYS_PROMPT: EUseTemplateSoundWaveDuringAssetImport = EUseTemplateSoundWaveDuringAssetImport(
+        0,
+    );
+    pub const ALWAYS_USE: EUseTemplateSoundWaveDuringAssetImport = EUseTemplateSoundWaveDuringAssetImport(
+        1,
+    );
+    pub const NEVER_USE: EUseTemplateSoundWaveDuringAssetImport = EUseTemplateSoundWaveDuringAssetImport(
+        2,
+    );
+}

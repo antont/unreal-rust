@@ -2,7 +2,8 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
-pub use crate::bindings::prelude::*;
+pub use crate::bindings::opague_definitions::*;
+pub use crate::core_data::*;
 #[repr(C, align(8))]
 pub struct FLiveLinkSourceHandle {}
 #[repr(C, align(8))]
@@ -24,7 +25,7 @@ pub struct FLiveLinkBaseFrameData {
 #[repr(C, align(8))]
 pub struct FLiveLinkMetaData {
     pub string_meta_data: TMap<FName, FString>,
-    pub scene_time: FQualifiedFrameTime,
+    pub scene_time: crate::bindings::core_u_object::FQualifiedFrameTime,
 }
 #[repr(C, align(8))]
 pub struct FLiveLinkWorldTime {
@@ -33,11 +34,11 @@ pub struct FLiveLinkWorldTime {
 }
 #[repr(C, align(8))]
 pub struct FLiveLinkAnimationFrameData {
-    pub transforms: TArray<FTransform>,
+    pub transforms: TArray<crate::bindings::core_u_object::FTransform>,
 }
 #[repr(C, align(8))]
 pub struct FLiveLinkFloatAnimationFrameData {
-    pub transforms: TArray<FTransform3f>,
+    pub transforms: TArray<crate::bindings::core_u_object::FTransform3f>,
 }
 #[repr(C, align(8))]
 pub struct FLiveLinkBaseBlueprintData {}
@@ -67,7 +68,7 @@ pub struct FLiveLinkCameraStaticData {
 }
 #[repr(C, align(16))]
 pub struct FLiveLinkTransformFrameData {
-    pub transform: FTransform,
+    pub transform: crate::bindings::core_u_object::FTransform,
 }
 #[repr(C, align(16))]
 pub struct FLiveLinkCameraFrameData {
@@ -101,7 +102,7 @@ pub struct FLiveLinkLightStaticData {
 pub struct FLiveLinkLightFrameData {
     pub temperature: f32,
     pub intensity: f32,
-    pub light_color: FColor,
+    pub light_color: crate::bindings::core_u_object::FColor,
     pub inner_cone_angle: f32,
     pub outer_cone_angle: f32,
     pub attenuation_radius: f32,
@@ -116,7 +117,7 @@ pub struct FLiveLinkLightBlueprintData {
 }
 #[repr(C, align(8))]
 pub struct FLiveLinkSourcePreset {
-    pub guid: FGuid,
+    pub guid: crate::bindings::core_u_object::FGuid,
     pub settings: UPtr<ULiveLinkSourceSettings>,
     pub source_type: FText,
 }
@@ -130,7 +131,7 @@ pub struct FLiveLinkSubjectPreset {
 }
 #[repr(C, align(4))]
 pub struct FLiveLinkSubjectKey {
-    pub source: FGuid,
+    pub source: crate::bindings::core_u_object::FGuid,
     pub subject_name: FLiveLinkSubjectName,
 }
 #[repr(C, align(4))]
@@ -154,7 +155,10 @@ pub struct FLiveLinkTransformBlueprintData {
 }
 #[repr(C, align(8))]
 pub struct FLiveLinkCurveConversionSettings {
-    pub curve_conversion_asset_map: TMap<FString, FSoftObjectPath>,
+    pub curve_conversion_asset_map: TMap<
+        FString,
+        crate::bindings::core_u_object::FSoftObjectPath,
+    >,
 }
 #[repr(C, align(8))]
 pub struct FLiveLinkSourceBufferManagementSettings {
@@ -163,11 +167,11 @@ pub struct FLiveLinkSourceBufferManagementSettings {
     pub engine_time_offset: f32,
     pub engine_time_clock_offset: f64,
     pub smooth_engine_time_offset: f64,
-    pub timecode_frame_rate_deprecated: FFrameRate,
+    pub timecode_frame_rate_deprecated: crate::bindings::core_u_object::FFrameRate,
     pub b_generate_sub_frame: bool,
-    pub detected_frame_rate: FFrameRate,
+    pub detected_frame_rate: crate::bindings::core_u_object::FFrameRate,
     pub b_use_timecode_smooth_latest: bool,
-    pub source_timecode_frame_rate: FFrameRate,
+    pub source_timecode_frame_rate: crate::bindings::core_u_object::FFrameRate,
     pub b_valid_timecode_frame_enabled: bool,
     pub valid_timecode_frame: i32,
     pub timecode_frame_offset: f32,
@@ -184,8 +188,8 @@ pub struct FLiveLinkSourceDebugInfo {
 }
 #[repr(C, align(4))]
 pub struct FLiveLinkTimeSynchronizationSettings {
-    pub frame_rate: FFrameRate,
-    pub frame_offset: FFrameNumber,
+    pub frame_rate: crate::bindings::core_u_object::FFrameRate,
+    pub frame_offset: crate::bindings::core_u_object::FFrameNumber,
 }
 #[repr(C, align(4))]
 pub struct FLiveLinkInterpolationSettings {
@@ -195,7 +199,7 @@ pub struct FLiveLinkInterpolationSettings {
 #[repr(C, align(8))]
 pub struct FLiveLinkTime {
     pub world_time: f64,
-    pub scene_time: FQualifiedFrameTime,
+    pub scene_time: crate::bindings::core_u_object::FQualifiedFrameTime,
 }
 #[repr(C, align(4))]
 pub struct FLiveLinkFrameRate {}
@@ -214,7 +218,7 @@ pub struct FLiveLinkCurveElement {
 }
 #[repr(C, align(8))]
 pub struct FLiveLinkFrameData {
-    pub transforms: TArray<FTransform>,
+    pub transforms: TArray<crate::bindings::core_u_object::FTransform>,
     pub curve_elements: TArray<FLiveLinkCurveElement>,
     pub world_time: FLiveLinkWorldTime,
     pub meta_data: FLiveLinkMetaData,
@@ -222,8 +226,8 @@ pub struct FLiveLinkFrameData {
 #[repr(C, align(8))]
 pub struct FSubjectMetadata {
     pub string_metadata: TMap<FName, FString>,
-    pub scene_timecode: FTimecode,
-    pub scene_framerate: FFrameRate,
+    pub scene_timecode: crate::bindings::core_u_object::FTimecode,
+    pub scene_framerate: crate::bindings::core_u_object::FFrameRate,
 }
 #[repr(C, align(8))]
 pub struct FCachedSubjectFrame {}
@@ -280,7 +284,7 @@ pub struct FLiveLinkLocatorStaticData {
 }
 #[repr(C, align(8))]
 pub struct FLiveLinkLocatorFrameData {
-    pub locators: TArray<FVector>,
+    pub locators: TArray<crate::bindings::core_u_object::FVector>,
 }
 #[repr(C, align(8))]
 pub struct FLiveLinkLocatorBlueprintData {
@@ -321,7 +325,7 @@ pub struct ULiveLinkSubjectSettings {
     pub translators: TArray<UPtr<ULiveLinkFrameTranslator>>,
     pub remapper: UPtr<ULiveLinkSubjectRemapper>,
     pub role: TSubclassOf<ULiveLinkRole>,
-    pub frame_rate: FFrameRate,
+    pub frame_rate: crate::bindings::core_u_object::FFrameRate,
     pub b_rebroadcast_subject: bool,
     pub original_source_name: FName,
     pub key: FLiveLinkSubjectKey,
@@ -341,3 +345,22 @@ pub struct ULiveLinkCameraRole {}
 pub struct ULiveLinkInputDeviceRole {}
 pub struct ULiveLinkLightRole {}
 pub struct ULiveLinkLocatorRole {}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ELiveLinkCameraProjectionMode(pub u8);
+impl ELiveLinkCameraProjectionMode {
+    pub const PERSPECTIVE: ELiveLinkCameraProjectionMode = ELiveLinkCameraProjectionMode(
+        0,
+    );
+    pub const ORTHOGRAPHIC: ELiveLinkCameraProjectionMode = ELiveLinkCameraProjectionMode(
+        1,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ELiveLinkSourceMode(pub u8);
+impl ELiveLinkSourceMode {
+    pub const LATEST: ELiveLinkSourceMode = ELiveLinkSourceMode(0);
+    pub const ENGINE_TIME: ELiveLinkSourceMode = ELiveLinkSourceMode(1);
+    pub const TIMECODE: ELiveLinkSourceMode = ELiveLinkSourceMode(2);
+}

@@ -2,11 +2,16 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
-pub use crate::bindings::prelude::*;
+pub use crate::bindings::opague_definitions::*;
+pub use crate::core_data::*;
 pub struct UCompositeCorePluginSettings {
     pub flags_104: u8,
-    pub disabled_primitive_classes: TArray<FSoftClassPath>,
-    pub allowed_component_classes: TArray<FSoftClassPath>,
+    pub disabled_primitive_classes: TArray<
+        crate::bindings::core_u_object::FSoftClassPath,
+    >,
+    pub allowed_component_classes: TArray<
+        crate::bindings::core_u_object::FSoftClassPath,
+    >,
     pub scene_view_extension_priority: i32,
 }
 pub struct UCompositeCoreSubsystem {}

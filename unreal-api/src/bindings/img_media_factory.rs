@@ -2,9 +2,10 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
-pub use crate::bindings::prelude::*;
+pub use crate::bindings::opague_definitions::*;
+pub use crate::core_data::*;
 pub struct UImgMediaSettings {
-    pub default_frame_rate: FFrameRate,
+    pub default_frame_rate: crate::bindings::core_u_object::FFrameRate,
     pub bandwidth_throttling_enabled: bool,
     pub cache_behind_percentage: f32,
     pub cache_size_gb: f32,

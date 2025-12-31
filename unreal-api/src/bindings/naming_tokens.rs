@@ -2,7 +2,8 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
-pub use crate::bindings::prelude::*;
+pub use crate::bindings::opague_definitions::*;
+pub use crate::core_data::*;
 #[repr(C, align(8))]
 pub struct FNamingTokenValueData {
     pub token_key: FString,
@@ -32,8 +33,8 @@ pub struct FNamingTokenFilterArgs {
 }
 #[repr(C, align(8))]
 pub struct FNamingTokensEvaluationData {
-    pub current_date_time: FDateTime,
-    pub contexts: TArray<UPtr<UObject>>,
+    pub current_date_time: crate::bindings::core_u_object::FDateTime,
+    pub contexts: TArray<UPtr<crate::bindings::core_u_object::UObject>>,
 }
 pub struct UNamingTokens {
     pub custom_tokens: TArray<FNamingTokenData>,

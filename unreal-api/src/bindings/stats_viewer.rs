@@ -2,15 +2,16 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
-pub use crate::bindings::prelude::*;
+pub use crate::bindings::opague_definitions::*;
+pub use crate::core_data::*;
 pub struct UCookerStats {
-    pub assets: TArray<TWeakObjectPtr<UObject>>,
+    pub assets: TArray<TWeakObjectPtr<crate::bindings::core_u_object::UObject>>,
     pub size_before: f32,
     pub size_after: f32,
     pub path: FString,
 }
 pub struct ULightingBuildInfo {
-    pub object: TWeakObjectPtr<UObject>,
+    pub object: TWeakObjectPtr<crate::bindings::core_u_object::UObject>,
     pub lighting_time: f32,
     pub unmapped_texels_percentage: f32,
     pub unmapped_texels_memory: f32,
@@ -18,8 +19,8 @@ pub struct ULightingBuildInfo {
     pub level_name: FString,
 }
 pub struct UPrimitiveStats {
-    pub object: TWeakObjectPtr<UObject>,
-    pub actors: TArray<TWeakObjectPtr<AActor>>,
+    pub object: TWeakObjectPtr<crate::bindings::core_u_object::UObject>,
+    pub actors: TArray<TWeakObjectPtr<crate::bindings::engine::AActor>>,
     pub ty: FString,
     pub count: i32,
     pub sections: i32,
@@ -51,8 +52,8 @@ pub struct UShaderCookerStats {
     pub path: FString,
 }
 pub struct UStaticMeshLightingInfo {
-    pub static_mesh_actor: TWeakObjectPtr<AActor>,
-    pub static_mesh: TWeakObjectPtr<UStaticMesh>,
+    pub static_mesh_actor: TWeakObjectPtr<crate::bindings::engine::AActor>,
+    pub static_mesh: TWeakObjectPtr<crate::bindings::engine::UStaticMesh>,
     pub level_name: FString,
     pub texture_mapping: FString,
     pub b_texture_mapping: bool,
@@ -67,14 +68,14 @@ pub struct UStaticMeshLightingInfo {
     pub lightmap_texture_names: TArray<FString>,
 }
 pub struct UTextureStats {
-    pub texture: TWeakObjectPtr<UTexture>,
-    pub actors: TArray<TWeakObjectPtr<AActor>>,
+    pub texture: TWeakObjectPtr<crate::bindings::engine::UTexture>,
+    pub actors: TArray<TWeakObjectPtr<crate::bindings::engine::AActor>>,
     pub ty: FString,
     pub virtual_: FString,
-    pub max_dim: FVector2D,
-    pub current_dim: FVector2D,
-    pub format: EPixelFormat,
-    pub group: TextureGroup,
+    pub max_dim: crate::bindings::core_u_object::FVector2D,
+    pub current_dim: crate::bindings::core_u_object::FVector2D,
+    pub format: crate::bindings::core_u_object::EPixelFormat,
+    pub group: crate::bindings::engine::TextureGroup,
     pub combined_lod_bias: i32,
     pub texture_lod_bias: i32,
     pub current_kb: f32,

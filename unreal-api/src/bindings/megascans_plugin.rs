@@ -2,7 +2,8 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
-pub use crate::bindings::prelude::*;
+pub use crate::bindings::opague_definitions::*;
+pub use crate::core_data::*;
 #[repr(C, align(8))]
 pub struct FMaterialUsage {
     pub instance_id: FString,
@@ -99,7 +100,7 @@ pub struct UMegascansSettings {
 }
 pub struct UMaterialBlendSettings {
     pub blended_material_name: FString,
-    pub blended_material_path: FDirectoryPath,
+    pub blended_material_path: crate::bindings::core_u_object::FDirectoryPath,
 }
 pub struct UMaterialAssetSettings {
     pub master_material3d: FString,
@@ -107,9 +108,9 @@ pub struct UMaterialAssetSettings {
     pub master_material_plant: FString,
 }
 pub struct UMaterialPresetsSettings {
-    pub master_material3d: TLazyObjectPtr<UMaterial>,
-    pub master_material_surface: TLazyObjectPtr<UMaterial>,
-    pub master_material_plant: TLazyObjectPtr<UMaterial>,
+    pub master_material3d: TLazyObjectPtr<crate::bindings::engine::UMaterial>,
+    pub master_material_surface: TLazyObjectPtr<crate::bindings::engine::UMaterial>,
+    pub master_material_plant: TLazyObjectPtr<crate::bindings::engine::UMaterial>,
 }
 pub struct UVersionInfoHandler {
     pub common_version_data: FVersionData,

@@ -2,19 +2,20 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
-pub use crate::bindings::prelude::*;
+pub use crate::bindings::opague_definitions::*;
+pub use crate::core_data::*;
 #[repr(C, align(8))]
 pub struct FChaosVDAABBTreeSelectionContext {}
 pub struct UChaosVDGTAccelerationStructuresDataComponent {}
 pub struct UChaosVDAccelerationStructureVisualizationSettings {
-    pub depth_priority: ESceneDepthPriorityGroup,
+    pub depth_priority: crate::bindings::engine::ESceneDepthPriorityGroup,
     pub base_thickness: f32,
     pub acceleration_structure_data_visualization_flags: u32,
 }
 pub struct UChaosVDGenericDebugDrawDataComponent {}
 pub struct UChaosVDGenericDebugDrawSettings {
     pub b_show_debug_text: bool,
-    pub depth_priority: ESceneDepthPriorityGroup,
+    pub depth_priority: crate::bindings::engine::ESceneDepthPriorityGroup,
     pub base_thickness: f32,
     pub debug_draw_flags: u32,
 }

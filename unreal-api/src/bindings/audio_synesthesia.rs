@@ -2,7 +2,8 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
-pub use crate::bindings::prelude::*;
+pub use crate::bindings::opague_definitions::*;
+pub use crate::core_data::*;
 #[repr(C, align(8))]
 pub struct FConstantQResults {
     pub time_seconds: f32,
@@ -38,8 +39,8 @@ pub struct UConstantQSettings {
     pub analysis_period_in_seconds: f32,
     pub b_downmix_to_mono: bool,
     pub fft_size: EConstantQFFTSizeEnum,
-    pub window_type: EFFTWindowType,
-    pub spectrum_type: EAudioSpectrumType,
+    pub window_type: crate::bindings::engine::EFFTWindowType,
+    pub spectrum_type: crate::bindings::engine::EAudioSpectrumType,
     pub band_width_stretch: f32,
     pub cqt_normalization: EConstantQNormalizationEnum,
     pub noise_floor_db: f32,
@@ -56,8 +57,8 @@ pub struct UConstantQNRTSettings {
     pub analysis_period: f32,
     pub b_downmix_to_mono: bool,
     pub fft_size: EConstantQFFTSizeEnum,
-    pub window_type: EFFTWindowType,
-    pub spectrum_type: EAudioSpectrumType,
+    pub window_type: crate::bindings::engine::EFFTWindowType,
+    pub spectrum_type: crate::bindings::engine::EAudioSpectrumType,
     pub band_width_stretch: f32,
     pub cqt_normalization: EConstantQNormalizationEnum,
     pub noise_floor_db: f32,
@@ -139,13 +140,86 @@ pub struct UOnsetNRT {
 }
 pub struct USynesthesiaSpectrumAnalysisSettings {
     pub analysis_period: f32,
-    pub fft_size: EFFTSize,
-    pub spectrum_type: EAudioSpectrumType,
-    pub window_type: EFFTWindowType,
+    pub fft_size: crate::bindings::engine::EFFTSize,
+    pub spectrum_type: crate::bindings::engine::EAudioSpectrumType,
+    pub window_type: crate::bindings::engine::EFFTWindowType,
     pub b_downmix_to_mono: bool,
 }
 pub struct USynesthesiaSpectrumAnalyzer {
     pub settings: UPtr<USynesthesiaSpectrumAnalysisSettings>,
     pub on_spectrum_results: FSynesthesiaSpectrumAnalyzer_OnSpectrumResults,
     pub on_latest_spectrum_results: FSynesthesiaSpectrumAnalyzer_OnLatestSpectrumResults,
+}
+pub struct FConstantQAnalyzer_OnConstantQResults;
+pub struct FConstantQAnalyzer_OnLatestConstantQResults;
+pub struct FLKFSAnalyzer_OnOverallLKFSResults;
+pub struct FLKFSAnalyzer_OnPerChannelLKFSResults;
+pub struct FLKFSAnalyzer_OnLatestOverallLKFSResults;
+pub struct FLKFSAnalyzer_OnLatestPerChannelLKFSResults;
+pub struct FLoudnessAnalyzer_OnOverallLoudnessResults;
+pub struct FLoudnessAnalyzer_OnPerChannelLoudnessResults;
+pub struct FLoudnessAnalyzer_OnLatestOverallLoudnessResults;
+pub struct FLoudnessAnalyzer_OnLatestPerChannelLoudnessResults;
+pub struct FMeterAnalyzer_OnOverallMeterResults;
+pub struct FMeterAnalyzer_OnPerChannelMeterResults;
+pub struct FMeterAnalyzer_OnLatestOverallMeterResults;
+pub struct FMeterAnalyzer_OnLatestPerChannelMeterResults;
+pub struct FSynesthesiaSpectrumAnalyzer_OnSpectrumResults;
+pub struct FSynesthesiaSpectrumAnalyzer_OnLatestSpectrumResults;
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EConstantQFFTSizeEnum(pub u8);
+impl EConstantQFFTSizeEnum {
+    pub const MIN: EConstantQFFTSizeEnum = EConstantQFFTSizeEnum(0);
+    pub const XX_SMALL: EConstantQFFTSizeEnum = EConstantQFFTSizeEnum(1);
+    pub const X_SMALL: EConstantQFFTSizeEnum = EConstantQFFTSizeEnum(2);
+    pub const SMALL: EConstantQFFTSizeEnum = EConstantQFFTSizeEnum(3);
+    pub const MEDIUM: EConstantQFFTSizeEnum = EConstantQFFTSizeEnum(4);
+    pub const LARGE: EConstantQFFTSizeEnum = EConstantQFFTSizeEnum(5);
+    pub const X_LARGE: EConstantQFFTSizeEnum = EConstantQFFTSizeEnum(6);
+    pub const XX_LARGE: EConstantQFFTSizeEnum = EConstantQFFTSizeEnum(7);
+    pub const MAX: EConstantQFFTSizeEnum = EConstantQFFTSizeEnum(8);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EConstantQNormalizationEnum(pub u8);
+impl EConstantQNormalizationEnum {
+    pub const EQUAL_EUCLIDEAN_NORM: EConstantQNormalizationEnum = EConstantQNormalizationEnum(
+        0,
+    );
+    pub const EQUAL_ENERGY: EConstantQNormalizationEnum = EConstantQNormalizationEnum(1);
+    pub const EQUAL_AMPLITUDE: EConstantQNormalizationEnum = EConstantQNormalizationEnum(
+        2,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ELoudnessCurveTypeEnum(pub u8);
+impl ELoudnessCurveTypeEnum {
+    pub const A: ELoudnessCurveTypeEnum = ELoudnessCurveTypeEnum(0);
+    pub const B: ELoudnessCurveTypeEnum = ELoudnessCurveTypeEnum(1);
+    pub const C: ELoudnessCurveTypeEnum = ELoudnessCurveTypeEnum(2);
+    pub const D: ELoudnessCurveTypeEnum = ELoudnessCurveTypeEnum(3);
+    pub const K: ELoudnessCurveTypeEnum = ELoudnessCurveTypeEnum(4);
+    pub const NONE: ELoudnessCurveTypeEnum = ELoudnessCurveTypeEnum(5);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ELoudnessNRTCurveTypeEnum(pub u8);
+impl ELoudnessNRTCurveTypeEnum {
+    pub const A: ELoudnessNRTCurveTypeEnum = ELoudnessNRTCurveTypeEnum(0);
+    pub const B: ELoudnessNRTCurveTypeEnum = ELoudnessNRTCurveTypeEnum(1);
+    pub const C: ELoudnessNRTCurveTypeEnum = ELoudnessNRTCurveTypeEnum(2);
+    pub const D: ELoudnessNRTCurveTypeEnum = ELoudnessNRTCurveTypeEnum(3);
+    pub const K: ELoudnessNRTCurveTypeEnum = ELoudnessNRTCurveTypeEnum(4);
+    pub const NONE: ELoudnessNRTCurveTypeEnum = ELoudnessNRTCurveTypeEnum(5);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EMeterPeakType(pub u8);
+impl EMeterPeakType {
+    pub const MEAN_SQUARED: EMeterPeakType = EMeterPeakType(0);
+    pub const ROOT_MEAN_SQUARED: EMeterPeakType = EMeterPeakType(1);
+    pub const PEAK: EMeterPeakType = EMeterPeakType(2);
+    pub const COUNT: EMeterPeakType = EMeterPeakType(3);
 }

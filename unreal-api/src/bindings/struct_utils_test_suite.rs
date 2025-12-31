@@ -2,7 +2,8 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
-pub use crate::bindings::prelude::*;
+pub use crate::bindings::opague_definitions::*;
+pub use crate::core_data::*;
 #[repr(C, align(1))]
 pub struct FTestStructSimpleBase {}
 #[repr(C, align(4))]
@@ -55,14 +56,14 @@ pub struct FTestStructNonTrivialDestructor {}
 #[repr(C, align(8))]
 pub struct FTestStructWithSubClassOf {
     pub class_property: TSubclassOf<UBagTestObject1>,
-    pub soft_class_property: TSoftObjectPtr<UClass>,
+    pub soft_class_property: TSoftObjectPtr<crate::bindings::core_u_object::UClass>,
 }
 pub struct UBagTestObject1 {}
 pub struct UBagTestObject2 {}
 pub struct UBagTestObject1Derived {}
 pub struct UTestObjectWithPropertyBag {
-    pub bag: FInstancedPropertyBag,
+    pub bag: crate::bindings::core_u_object::FInstancedPropertyBag,
 }
 pub struct UTestObjectWithInstanceStruct {
-    pub value: FInstancedStruct,
+    pub value: crate::bindings::core_u_object::FInstancedStruct,
 }

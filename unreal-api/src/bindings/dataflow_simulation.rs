@@ -2,10 +2,11 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
-pub use crate::bindings::prelude::*;
+pub use crate::bindings::opague_definitions::*;
+pub use crate::core_data::*;
 #[repr(C, align(8))]
 pub struct FDataflowSimulationAsset {
-    pub dataflow_asset: UPtr<UDataflow>,
+    pub dataflow_asset: UPtr<crate::bindings::dataflow_engine::UDataflow>,
     pub simulation_groups: TSet<FString>,
 }
 #[repr(C, align(8))]

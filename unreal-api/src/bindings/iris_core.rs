@@ -2,7 +2,8 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
-pub use crate::bindings::prelude::*;
+pub use crate::bindings::opague_definitions::*;
+pub use crate::core_data::*;
 #[repr(C, align(8))]
 pub struct FNetSerializerConfig {}
 #[repr(C, align(4))]
@@ -14,7 +15,7 @@ pub struct FObjectScopeHysteresisProfile {
 pub struct FDataStreamDefinition {
     pub data_stream_name: FName,
     pub class_name: FName,
-    pub class: TSubclassOf<UObject>,
+    pub class: TSubclassOf<crate::bindings::core_u_object::UObject>,
     pub default_send_status: EDataStreamSendStatus,
     pub b_auto_create: bool,
     pub b_dynamic_create: bool,
@@ -96,9 +97,9 @@ pub struct FObjectReplicationBridgeTypeStatsConfig {
 pub struct FNetObjectPrioritizerDefinition {
     pub prioritizer_name: FName,
     pub class_name: FName,
-    pub class: TSubclassOf<UObject>,
+    pub class: TSubclassOf<crate::bindings::core_u_object::UObject>,
     pub config_class_name: FName,
-    pub config_class: TSubclassOf<UObject>,
+    pub config_class: TSubclassOf<crate::bindings::core_u_object::UObject>,
 }
 #[repr(C, align(8))]
 pub struct FDateTimeNetSerializerConfig {}
@@ -158,7 +159,9 @@ pub struct FDoubleNetSerializerConfig {}
 pub struct FGuidNetSerializerConfig {}
 #[repr(C, align(8))]
 pub struct FInstancedStructNetSerializerConfig {
-    pub supported_types: TArray<TSoftObjectPtr<UScriptStruct>>,
+    pub supported_types: TArray<
+        TSoftObjectPtr<crate::bindings::core_u_object::UScriptStruct>,
+    >,
 }
 #[repr(C, align(8))]
 pub struct FBitfieldNetSerializerConfig {
@@ -192,7 +195,7 @@ pub struct FFieldPathNetSerializerConfig {
 }
 #[repr(C, align(8))]
 pub struct FFieldPathNetSerializerSerializationHelper {
-    pub owner: TWeakObjectPtr<UStruct>,
+    pub owner: TWeakObjectPtr<crate::bindings::core_u_object::UStruct>,
     pub property_path: TArray<FName>,
 }
 #[repr(C, align(8))]
@@ -231,7 +234,7 @@ pub struct FStructNetSerializerConfig {}
 pub struct FNopNetSerializerConfig {}
 #[repr(C, align(8))]
 pub struct FObjectNetSerializerConfig {
-    pub property_class: TSubclassOf<UObject>,
+    pub property_class: TSubclassOf<crate::bindings::core_u_object::UObject>,
 }
 #[repr(C, align(8))]
 pub struct FObjectPtrNetSerializerConfig {}
@@ -461,8 +464,32 @@ pub struct UReplicationSystem {
     pub replication_bridge: UPtr<UObjectReplicationBridge>,
 }
 pub struct UWorldLocationsConfig {
-    pub min_pos: FVector,
-    pub max_pos: FVector,
+    pub min_pos: crate::bindings::core_u_object::FVector,
+    pub max_pos: crate::bindings::core_u_object::FVector,
     pub max_net_cull_distance: f32,
 }
 pub struct UIrisObjectReferencePackageMap {}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EDataStreamSendStatus(pub u8);
+impl EDataStreamSendStatus {
+    pub const PAUSE: EDataStreamSendStatus = EDataStreamSendStatus(0);
+    pub const SEND: EDataStreamSendStatus = EDataStreamSendStatus(1);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EIrisAsyncLoadingPriority(pub u8);
+impl EIrisAsyncLoadingPriority {
+    pub const DEFAULT: EIrisAsyncLoadingPriority = EIrisAsyncLoadingPriority(0);
+    pub const HIGH: EIrisAsyncLoadingPriority = EIrisAsyncLoadingPriority(1);
+    pub const VERY_HIGH: EIrisAsyncLoadingPriority = EIrisAsyncLoadingPriority(2);
+    pub const MAX: EIrisAsyncLoadingPriority = EIrisAsyncLoadingPriority(2);
+    pub const INVALID: EIrisAsyncLoadingPriority = EIrisAsyncLoadingPriority(3);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENetObjectCountLimiterMode(pub u32);
+impl ENetObjectCountLimiterMode {
+    pub const ROUND_ROBIN: ENetObjectCountLimiterMode = ENetObjectCountLimiterMode(0);
+    pub const FILL: ENetObjectCountLimiterMode = ENetObjectCountLimiterMode(1);
+}

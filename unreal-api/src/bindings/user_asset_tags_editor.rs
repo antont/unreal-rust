@@ -2,7 +2,8 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
-pub use crate::bindings::prelude::*;
+pub use crate::bindings::opague_definitions::*;
+pub use crate::core_data::*;
 #[repr(C, align(8))]
 pub struct FPerTypeFavoriteUserAssetTags {
     pub favorite_user_asset_tags: TSet<FName>,
@@ -25,7 +26,7 @@ pub struct FTaggedAssetBrowserConfigurationData_Extension {}
 pub struct FTaggedAssetBrowserSectionIconData {
     pub b_use_texture_for_icon: bool,
     pub style_name: FName,
-    pub icon: UPtr<UTexture2D>,
+    pub icon: UPtr<crate::bindings::engine::UTexture2D>,
 }
 #[repr(C, align(4))]
 pub struct FPerUserAssetTagProviderViewOptions {
@@ -38,17 +39,20 @@ pub struct FUserAssetTagProviderViewOptions {
 }
 pub struct UAssetDefinition_TaggedAssetBrowserConfiguration {}
 pub struct UAssetEditor_TaggedAssetBrowserConfiguration {
-    pub object_to_edit: UPtr<UObject>,
+    pub object_to_edit: UPtr<crate::bindings::core_u_object::UObject>,
 }
 pub struct ULocalFavoriteUserAssetTagsConfig {
     pub favorite_user_asset_tags_per_class: TMap<
-        FSoftClassPath,
+        crate::bindings::core_u_object::FSoftClassPath,
         FPerTypeFavoriteUserAssetTags,
     >,
     pub max_recent_user_asset_tags: i32,
 }
 pub struct UProjectUserAssetTagSettings {
-    pub user_asset_tags_per_type: TMap<FSoftClassPath, FPerTypeFavoriteUserAssetTags>,
+    pub user_asset_tags_per_type: TMap<
+        crate::bindings::core_u_object::FSoftClassPath,
+        FPerTypeFavoriteUserAssetTags,
+    >,
 }
 pub struct UTaggedAssetBrowserConfig {
     pub per_tagged_asset_browser_settings: TMap<FName, FPerTaggedAssetBrowserSavedState>,
@@ -80,10 +84,10 @@ pub struct UTaggedAssetBrowserFilter_UserAssetTagCollection {
 }
 pub struct UTaggedAssetBrowserFilter_Recent {}
 pub struct UTaggedAssetBrowserFilter_Directories {
-    pub directory_paths: TArray<FDirectoryPath>,
+    pub directory_paths: TArray<crate::bindings::core_u_object::FDirectoryPath>,
 }
 pub struct UTaggedAssetBrowserFilter_Class {
-    pub classes: TArray<TSubclassOf<UObject>>,
+    pub classes: TArray<TSubclassOf<crate::bindings::core_u_object::UObject>>,
 }
 pub struct UUserAssetTagEditorContext {}
 pub struct UTaggedAssetBrowserMenuContext {}
@@ -93,4 +97,11 @@ pub struct UUserAssetTagProvider_Project {}
 pub struct UUserAssetTagsEditorConfig {
     pub b_sort_by_alphabet: bool,
     pub provider_view_options: FUserAssetTagProviderViewOptions,
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EUserAssetTagProviderMenuType(pub i32);
+impl EUserAssetTagProviderMenuType {
+    pub const SECTION: EUserAssetTagProviderMenuType = EUserAssetTagProviderMenuType(0);
+    pub const SUB_MENU: EUserAssetTagProviderMenuType = EUserAssetTagProviderMenuType(1);
 }

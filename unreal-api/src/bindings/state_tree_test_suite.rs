@@ -2,7 +2,8 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
-pub use crate::bindings::prelude::*;
+pub use crate::bindings::opague_definitions::*;
+pub use crate::core_data::*;
 #[repr(C, align(8))]
 pub struct FStateTreeTestLog {}
 #[repr(C, align(4))]
@@ -27,8 +28,8 @@ pub struct FTestTask_B {}
 pub struct FTestTask_PrintValueInstanceData {
     pub value: i32,
     pub array_value: TArray<i32>,
-    pub enter_state_run_status: EStateTreeRunStatus,
-    pub tick_run_status: EStateTreeRunStatus,
+    pub enter_state_run_status: crate::bindings::state_tree_module::EStateTreeRunStatus,
+    pub tick_run_status: crate::bindings::state_tree_module::EStateTreeRunStatus,
 }
 #[repr(C, align(4))]
 pub struct FTestTask_PrintValueExecutionRuntimeData {
@@ -49,7 +50,7 @@ pub struct FTestTask_PrintValue_TransitionNoTick {}
 pub struct FTestTask_StopTreeInstanceData {}
 #[repr(C, align(8))]
 pub struct FTestTask_StopTree {
-    pub phase: EStateTreeUpdatePhase,
+    pub phase: crate::bindings::state_tree_module::EStateTreeUpdatePhase,
 }
 #[repr(C, align(4))]
 pub struct FTestTask_StandInstanceData {
@@ -59,8 +60,8 @@ pub struct FTestTask_StandInstanceData {
 #[repr(C, align(8))]
 pub struct FTestTask_Stand {
     pub ticks_to_completion: i32,
-    pub tick_completion_result: EStateTreeRunStatus,
-    pub enter_state_result: EStateTreeRunStatus,
+    pub tick_completion_result: crate::bindings::state_tree_module::EStateTreeRunStatus,
+    pub enter_state_result: crate::bindings::state_tree_module::EStateTreeRunStatus,
 }
 #[repr(C, align(8))]
 pub struct FTestTask_StandNoTick {}
@@ -73,11 +74,11 @@ pub struct FTestTask_IntegersOutput_InstanceData {
 pub struct FTestTask_IntegersOutput {}
 #[repr(C, align(2))]
 pub struct FTestTask_PropertyRefOnNodeAndInstance_InstanceData {
-    pub ref_on_instance: FStateTreePropertyRef,
+    pub ref_on_instance: crate::bindings::state_tree_module::FStateTreePropertyRef,
 }
 #[repr(C, align(16))]
 pub struct FTestTask_PropertyRefOnNodeAndInstance {
-    pub ref_on_node: FStateTreePropertyRef,
+    pub ref_on_node: crate::bindings::state_tree_module::FStateTreePropertyRef,
 }
 #[repr(C, align(4))]
 pub struct FStateTreeTestConditionInstanceData {
@@ -116,16 +117,16 @@ pub struct FStateTreeTest_PropertyRefSourceStruct {
 }
 #[repr(C, align(2))]
 pub struct FStateTreeTest_PropertyRefTargetStruct {
-    pub ref_to_struct: FStateTreePropertyRef,
-    pub ref_to_int: FStateTreePropertyRef,
-    pub ref_to_struct_array: FStateTreePropertyRef,
+    pub ref_to_struct: crate::bindings::state_tree_module::FStateTreePropertyRef,
+    pub ref_to_int: crate::bindings::state_tree_module::FStateTreePropertyRef,
+    pub ref_to_struct_array: crate::bindings::state_tree_module::FStateTreePropertyRef,
 }
 #[repr(C, align(8))]
 pub struct FStateTreeTest_PropertyCopyObjects {
-    pub object: UPtr<UObject>,
-    pub class: TSubclassOf<UObject>,
-    pub soft_object: TSoftObjectPtr<UObject>,
-    pub soft_class: TSoftObjectPtr<UClass>,
+    pub object: UPtr<crate::bindings::core_u_object::UObject>,
+    pub class: TSubclassOf<crate::bindings::core_u_object::UObject>,
+    pub soft_object: TSoftObjectPtr<crate::bindings::core_u_object::UObject>,
+    pub soft_class: TSoftObjectPtr<crate::bindings::core_u_object::UClass>,
 }
 #[repr(C, align(4))]
 pub struct FTestPropertyFunction_InstanceData {
@@ -137,7 +138,7 @@ pub struct FTestPropertyFunction {}
 #[repr(C, align(8))]
 pub struct FTestTask_PrintValue_StructRef_NoBindingUpdateInstanceData {
     pub property_struct: FStateTreeTest_PropertyStruct,
-    pub struct_ref: FStateTreeStructRef,
+    pub struct_ref: crate::bindings::state_tree_module::FStateTreeStructRef,
 }
 #[repr(C, align(16))]
 pub struct FTestTask_PrintValue_StructRef_NoBindingUpdate {}
@@ -149,48 +150,48 @@ pub struct FStateTreeTestBooleanConditionInstanceData {
 pub struct FStateTreeTestBooleanCondition {}
 #[repr(C, align(4))]
 pub struct FTestTask_BroadcastDelegate_InstanceData {
-    pub on_enter_delegate: FStateTreeDelegateDispatcher,
-    pub on_tick_delegate: FStateTreeDelegateDispatcher,
-    pub on_exit_delegate: FStateTreeDelegateDispatcher,
+    pub on_enter_delegate: crate::bindings::state_tree_module::FStateTreeDelegateDispatcher,
+    pub on_tick_delegate: crate::bindings::state_tree_module::FStateTreeDelegateDispatcher,
+    pub on_exit_delegate: crate::bindings::state_tree_module::FStateTreeDelegateDispatcher,
 }
 #[repr(C, align(8))]
 pub struct FTestTask_BroadcastDelegate {}
 #[repr(C, align(4))]
 pub struct FTestTask_ListenDelegate_InstanceData {
-    pub listener: FStateTreeDelegateListener,
+    pub listener: crate::bindings::state_tree_module::FStateTreeDelegateListener,
 }
 #[repr(C, align(8))]
 pub struct FTestTask_ListenDelegate {}
 #[repr(C, align(4))]
 pub struct FTestTask_RebroadcastDelegate_InstanceData {
-    pub listener: FStateTreeDelegateListener,
-    pub dispatcher: FStateTreeDelegateDispatcher,
+    pub listener: crate::bindings::state_tree_module::FStateTreeDelegateListener,
+    pub dispatcher: crate::bindings::state_tree_module::FStateTreeDelegateDispatcher,
 }
 #[repr(C, align(8))]
 pub struct FTestTask_RebroadcastDelegate {}
 #[repr(C, align(4))]
 pub struct FTestTask_CustomFuncOnDelegate_InstanceData {
-    pub listener: FStateTreeDelegateListener,
+    pub listener: crate::bindings::state_tree_module::FStateTreeDelegateListener,
 }
 #[repr(C, align(16))]
 pub struct FTestTask_CustomFuncOnDelegate {}
 #[repr(C, align(4))]
 pub struct FTestTask_DispatcherOnNodeAndInstance_InstanceData {
-    pub dispatcher_on_instance: FStateTreeDelegateDispatcher,
+    pub dispatcher_on_instance: crate::bindings::state_tree_module::FStateTreeDelegateDispatcher,
 }
 #[repr(C, align(8))]
 pub struct FTestTask_DispatcherOnNodeAndInstance {
-    pub dispatcher_on_node: FStateTreeDelegateDispatcher,
+    pub dispatcher_on_node: crate::bindings::state_tree_module::FStateTreeDelegateDispatcher,
 }
 #[repr(C, align(1))]
 pub struct FTestTask_ListenerOnNode_InstanceData {}
 #[repr(C, align(16))]
 pub struct FTestTask_ListenerOnNode {
-    pub listener_on_node: FStateTreeDelegateListener,
+    pub listener_on_node: crate::bindings::state_tree_module::FStateTreeDelegateListener,
 }
 #[repr(C, align(4))]
 pub struct FTestTask_ListenerOnInstance_InstanceData {
-    pub listener_on_instance: FStateTreeDelegateListener,
+    pub listener_on_instance: crate::bindings::state_tree_module::FStateTreeDelegateListener,
 }
 #[repr(C, align(16))]
 pub struct FTestTask_ListenerOnInstance {}
@@ -215,8 +216,8 @@ pub struct FTestTask_OutputBindingsTask {
 }
 pub struct UStateTreeTest_PropertyObjectInstanced {
     pub a: i32,
-    pub instanced_struct: FInstancedStruct,
-    pub array_of_tags: TArray<FGameplayTag>,
+    pub instanced_struct: crate::bindings::core_u_object::FInstancedStruct,
+    pub array_of_tags: TArray<crate::bindings::gameplay_tags::FGameplayTag>,
 }
 pub struct UStateTreeTest_PropertyObjectInstancedWithB {
     pub b: i32,
@@ -225,13 +226,15 @@ pub struct UStateTreeTest_PropertyObject {
     pub instanced_object: UPtr<UStateTreeTest_PropertyObjectInstanced>,
     pub array_of_instanced_objects: TArray<UPtr<UStateTreeTest_PropertyObjectInstanced>>,
     pub array_of_ints: TArray<i32>,
-    pub instanced_struct: FInstancedStruct,
-    pub array_of_instanced_structs: TArray<FInstancedStruct>,
+    pub instanced_struct: crate::bindings::core_u_object::FInstancedStruct,
+    pub array_of_instanced_structs: TArray<
+        crate::bindings::core_u_object::FInstancedStruct,
+    >,
     pub _struct: FStateTreeTest_PropertyStruct,
     pub array_of_struct: TArray<FStateTreeTest_PropertyStruct>,
 }
 pub struct UStateTreeTest_PropertyObject2 {}
 pub struct UStateTreeTestSchema {
-    pub default_rules: EStateTreeStateSelectionRules,
+    pub default_rules: crate::bindings::state_tree_module::EStateTreeStateSelectionRules,
 }
 pub struct UStateTreeTestSchema2 {}

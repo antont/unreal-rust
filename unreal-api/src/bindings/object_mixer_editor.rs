@@ -2,10 +2,11 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
-pub use crate::bindings::prelude::*;
+pub use crate::bindings::opague_definitions::*;
+pub use crate::core_data::*;
 #[repr(C, align(8))]
 pub struct FObjectMixerCollectionObjectData {
-    pub object_path: FSoftObjectPath,
+    pub object_path: crate::bindings::core_u_object::FSoftObjectPath,
 }
 #[repr(C, align(8))]
 pub struct FObjectMixerCollectionObjectSet {
@@ -60,7 +61,7 @@ pub struct UObjectMixerEditorSerializedData {
     pub serialized_data_per_filter: TSet<FObjectMixerSerializationDataPerFilter>,
 }
 pub struct UObjectMixerBlueprintFilterFactory {
-    pub parent_class: TSubclassOf<UObject>,
+    pub parent_class: TSubclassOf<crate::bindings::core_u_object::UObject>,
 }
 pub struct UObjectMixerOutlinerModeEditorConfig {
     pub browsers: TMap<FName, FObjectMixerOutlinerModeConfig>,
@@ -68,4 +69,51 @@ pub struct UObjectMixerOutlinerModeEditorConfig {
 pub struct UObjectMixerEditorListMenuContext {}
 pub struct UObjectMixerEditorUWidget {
     pub object_mixer_widget_user_config: FObjectMixerWidgetUserConfig,
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EListViewColumnType(pub i32);
+impl EListViewColumnType {
+    pub const BUILT_IN: EListViewColumnType = EListViewColumnType(0);
+    pub const PROPERTY_GENERATED: EListViewColumnType = EListViewColumnType(1);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EObjectMixerInheritanceInclusionOptions(pub u8);
+impl EObjectMixerInheritanceInclusionOptions {
+    pub const NONE: EObjectMixerInheritanceInclusionOptions = EObjectMixerInheritanceInclusionOptions(
+        0,
+    );
+    pub const INCLUDE_ONLY_IMMEDIATE_PARENT: EObjectMixerInheritanceInclusionOptions = EObjectMixerInheritanceInclusionOptions(
+        1,
+    );
+    pub const INCLUDE_ONLY_IMMEDIATE_CHILDREN: EObjectMixerInheritanceInclusionOptions = EObjectMixerInheritanceInclusionOptions(
+        2,
+    );
+    pub const INCLUDE_ONLY_IMMEDIATE_PARENT_AND_CHILDREN: EObjectMixerInheritanceInclusionOptions = EObjectMixerInheritanceInclusionOptions(
+        3,
+    );
+    pub const INCLUDE_ALL_PARENTS: EObjectMixerInheritanceInclusionOptions = EObjectMixerInheritanceInclusionOptions(
+        4,
+    );
+    pub const INCLUDE_ALL_CHILDREN: EObjectMixerInheritanceInclusionOptions = EObjectMixerInheritanceInclusionOptions(
+        5,
+    );
+    pub const INCLUDE_ALL_PARENTS_AND_CHILDREN: EObjectMixerInheritanceInclusionOptions = EObjectMixerInheritanceInclusionOptions(
+        6,
+    );
+    pub const INCLUDE_ALL_PARENTS_AND_ONLY_IMMEDIATE_CHILDREN: EObjectMixerInheritanceInclusionOptions = EObjectMixerInheritanceInclusionOptions(
+        7,
+    );
+    pub const INCLUDE_ONLY_IMMEDIATE_PARENT_AND_ALL_CHILDREN: EObjectMixerInheritanceInclusionOptions = EObjectMixerInheritanceInclusionOptions(
+        8,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EObjectMixerHybridMode(pub u8);
+impl EObjectMixerHybridMode {
+    pub const HYBRID_ACTOR: EObjectMixerHybridMode = EObjectMixerHybridMode(0);
+    pub const HYBRID_COMPONENT: EObjectMixerHybridMode = EObjectMixerHybridMode(1);
+    pub const HYBRID_NONE: EObjectMixerHybridMode = EObjectMixerHybridMode(2);
 }

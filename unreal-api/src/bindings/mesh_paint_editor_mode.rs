@@ -2,7 +2,8 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
-pub use crate::bindings::prelude::*;
+pub use crate::bindings::opague_definitions::*;
+pub use crate::core_data::*;
 pub struct UImportVertexColorOptions {
     pub uv_index: i32,
     pub lod_index: i32,
@@ -17,6 +18,6 @@ pub struct UMeshPaintMode {
     pub mode_settings: UPtr<UMeshPaintModeSettings>,
 }
 pub struct UMeshPaintModeSettings {
-    pub color_view_mode: EMeshPaintDataColorViewMode,
+    pub color_view_mode: crate::bindings::mesh_painting_toolset::EMeshPaintDataColorViewMode,
     pub default_palette: FName,
 }

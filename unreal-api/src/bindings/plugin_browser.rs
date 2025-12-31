@@ -2,7 +2,8 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
-pub use crate::bindings::prelude::*;
+pub use crate::bindings::opague_definitions::*;
+pub use crate::core_data::*;
 #[repr(C, align(8))]
 pub struct FPluginReferenceMetadata {
     pub name: FString,
@@ -17,10 +18,12 @@ pub struct FPluginDisallowedMetadata {
 }
 #[repr(C, align(8))]
 pub struct FPluginPaths_External {
-    pub additional_plugin_directories: TArray<FDirectoryPath>,
-    pub user_plugin_directories: TArray<FDirectoryPath>,
-    pub command_line_directories: TArray<FDirectoryPath>,
-    pub environment_directories: TArray<FDirectoryPath>,
+    pub additional_plugin_directories: TArray<
+        crate::bindings::core_u_object::FDirectoryPath,
+    >,
+    pub user_plugin_directories: TArray<crate::bindings::core_u_object::FDirectoryPath>,
+    pub command_line_directories: TArray<crate::bindings::core_u_object::FDirectoryPath>,
+    pub environment_directories: TArray<crate::bindings::core_u_object::FDirectoryPath>,
 }
 pub struct UNewPluginDescriptorData {
     pub created_by: FString,

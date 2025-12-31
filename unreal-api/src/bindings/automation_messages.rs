@@ -2,17 +2,18 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
-pub use crate::bindings::prelude::*;
+pub use crate::bindings::opague_definitions::*;
+pub use crate::core_data::*;
 #[repr(C, align(4))]
 pub struct FAutomationWorkerMessageBase {
-    pub instance_id: FGuid,
+    pub instance_id: crate::bindings::core_u_object::FGuid,
 }
 #[repr(C, align(8))]
 pub struct FAutomationWorkerFindWorkers {
     pub changelist: i32,
     pub game_name: FString,
     pub process_name: FString,
-    pub session_id: FGuid,
+    pub session_id: crate::bindings::core_u_object::FGuid,
 }
 #[repr(C, align(8))]
 pub struct FAutomationWorkerFindWorkersResponse {
@@ -25,7 +26,7 @@ pub struct FAutomationWorkerFindWorkersResponse {
     pub cpu_model_name: FString,
     pub ram_in_gb: u32,
     pub render_mode_name: FString,
-    pub session_id: FGuid,
+    pub session_id: crate::bindings::core_u_object::FGuid,
     pub rhi_name: FString,
 }
 #[repr(C, align(4))]
@@ -76,12 +77,12 @@ pub struct FAutomationWorkerRunTests {
 #[repr(C, align(8))]
 pub struct FAutomationWorkerRunTestsReply {
     pub test_name: FString,
-    pub entries: TArray<FAutomationExecutionEntry>,
+    pub entries: TArray<crate::bindings::core_u_object::FAutomationExecutionEntry>,
     pub warning_total: i32,
     pub error_total: i32,
     pub duration: f32,
     pub execution_count: u32,
-    pub state: EAutomationState,
+    pub state: crate::bindings::automation_test::EAutomationState,
 }
 #[repr(C, align(4))]
 pub struct FAutomationWorkerRequestNextNetworkCommand {
@@ -96,7 +97,7 @@ pub struct FAutomationScreenshotMetadata {
     pub context: FString,
     pub test_name: FString,
     pub notes: FString,
-    pub id: FGuid,
+    pub id: crate::bindings::core_u_object::FGuid,
     pub commit: FString,
     pub width: i32,
     pub height: i32,
@@ -142,7 +143,7 @@ pub struct FAutomationWorkerScreenImage {
 }
 #[repr(C, align(8))]
 pub struct FAutomationWorkerImageComparisonResults {
-    pub unique_id: FGuid,
+    pub unique_id: crate::bindings::core_u_object::FGuid,
     pub screenshot_path: FString,
     pub b_new: bool,
     pub b_similar: bool,

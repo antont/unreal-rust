@@ -2,7 +2,8 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
-pub use crate::bindings::prelude::*;
+pub use crate::bindings::opague_definitions::*;
+pub use crate::core_data::*;
 #[repr(C, align(4))]
 pub struct FInt32Setting {
     pub value: i32,
@@ -17,11 +18,11 @@ pub struct FDoubleSetting {
 }
 #[repr(C, align(4))]
 pub struct FVector3fSetting {
-    pub value: FVector3f,
+    pub value: crate::bindings::core_u_object::FVector3f,
 }
 #[repr(C, align(8))]
 pub struct FVector3dSetting {
-    pub value: FVector3d,
+    pub value: crate::bindings::core_u_object::FVector3d,
 }
 #[repr(C, align(4))]
 pub struct FNameSetting {

@@ -2,11 +2,12 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
-pub use crate::bindings::prelude::*;
+pub use crate::bindings::opague_definitions::*;
+pub use crate::core_data::*;
 #[repr(C, align(8))]
 pub struct FEditorDataHierarchyData_Template {
-    pub parent: FTedsRowHandle,
-    pub children: TArray<FTedsRowHandle>,
+    pub parent: crate::bindings::typed_element_framework::FTedsRowHandle,
+    pub children: TArray<crate::bindings::typed_element_framework::FTedsRowHandle>,
 }
 #[repr(C, align(1))]
 pub struct FEditorDataHierarchyParentTag_Template {}
@@ -34,7 +35,7 @@ pub struct UEditorDataStorageSettings {
 }
 pub struct UTedsMementoTranslatorBase {}
 pub struct UTedsDefaultMementoTranslator {
-    pub memento_type: UPtr<UScriptStruct>,
+    pub memento_type: UPtr<crate::bindings::core_u_object::UScriptStruct>,
 }
 pub struct UTedsSelectionColumnMementoTranslator {}
 pub struct UTedsObjectReinstancingManager {
@@ -71,3 +72,16 @@ pub struct UTypedElementRemoveSyncToWorldTagFactory {}
 pub struct UEditorDataStorage {}
 pub struct UEditorDataStorageCompatibility {}
 pub struct UEditorDataStorageUi {}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EChunkMemorySize(pub i32);
+impl EChunkMemorySize {
+    pub const SIZE4_KB: EChunkMemorySize = EChunkMemorySize(4096);
+    pub const SIZE8_KB: EChunkMemorySize = EChunkMemorySize(8192);
+    pub const SIZE16_KB: EChunkMemorySize = EChunkMemorySize(16384);
+    pub const SIZE32_KB: EChunkMemorySize = EChunkMemorySize(32768);
+    pub const SIZE64_KB: EChunkMemorySize = EChunkMemorySize(65536);
+    pub const SIZE128_KB: EChunkMemorySize = EChunkMemorySize(131072);
+    pub const SIZE256_KB: EChunkMemorySize = EChunkMemorySize(262144);
+    pub const SIZE512_KB: EChunkMemorySize = EChunkMemorySize(524288);
+}

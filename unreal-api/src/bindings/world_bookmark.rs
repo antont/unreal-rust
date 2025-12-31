@@ -2,12 +2,13 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
-pub use crate::bindings::prelude::*;
+pub use crate::bindings::opague_definitions::*;
+pub use crate::core_data::*;
 #[repr(C, align(4))]
 pub struct FWorldBookmarkCategory {
     pub name: FName,
-    pub color: FColor,
-    pub guid: FGuid,
+    pub color: crate::bindings::core_u_object::FColor,
+    pub guid: crate::bindings::core_u_object::FGuid,
 }
 pub struct UAssetDefinition_WorldBookmark {}
 pub struct UWorldBookmarkBrowserSettings {
@@ -20,10 +21,10 @@ pub struct UWorldBookmarkBrowserSettings {
     pub view_mode: EWorldBookmarkBrowserViewMode,
 }
 pub struct UWorldBookmark {
-    pub editor_state: FEditorStateCollection,
-    pub category_guid: FGuid,
-    pub bookmark_guid: FGuid,
-    pub last_loaded_time_stamp_utc: FDateTime,
+    pub editor_state: crate::bindings::unreal_ed::FEditorStateCollection,
+    pub category_guid: crate::bindings::core_u_object::FGuid,
+    pub bookmark_guid: crate::bindings::core_u_object::FGuid,
+    pub last_loaded_time_stamp_utc: crate::bindings::core_u_object::FDateTime,
     pub b_favorite: bool,
     pub bookmark_asset_path: FString,
 }
@@ -36,3 +37,14 @@ pub struct UWorldBookmarkEditorPerProjectUserSettings {
     pub home_bookmark: TSoftObjectPtr<UWorldBookmark>,
 }
 pub struct UWorldBookmarkFactory {}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EWorldBookmarkBrowserViewMode(pub u8);
+impl EWorldBookmarkBrowserViewMode {
+    pub const LIST_VIEW: EWorldBookmarkBrowserViewMode = EWorldBookmarkBrowserViewMode(
+        0,
+    );
+    pub const TREE_VIEW: EWorldBookmarkBrowserViewMode = EWorldBookmarkBrowserViewMode(
+        1,
+    );
+}

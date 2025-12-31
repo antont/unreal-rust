@@ -2,7 +2,8 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
-pub use crate::bindings::prelude::*;
+pub use crate::bindings::opague_definitions::*;
+pub use crate::core_data::*;
 #[repr(C, align(8))]
 pub struct FCategoryFilter {
     pub category_name: FString,
@@ -31,7 +32,7 @@ pub struct ULogVisualizerSettings {
     pub default_camera_distance: f32,
     pub b_search_inside_logs: bool,
     pub b_use_filter_volumes: bool,
-    pub graphs_background_color: FColor,
+    pub graphs_background_color: crate::bindings::core_u_object::FColor,
     pub b_persistent_filters: bool,
     pub b_draw_extremes_on_graphs: bool,
     pub b_constrain_graph_to_local_min_max: bool,
@@ -39,11 +40,11 @@ pub struct ULogVisualizerSettings {
     pub b_log_nav_octree_on_stop: bool,
     pub b_force_unique_log_names: bool,
     pub persistent_filters: FVisualLoggerFiltersData,
-    pub debug_mesh_material_fake_light: UPtr<UMaterial>,
+    pub debug_mesh_material_fake_light: UPtr<crate::bindings::engine::UMaterial>,
     pub debug_mesh_material_fake_light_name: FString,
 }
 pub struct AVisualLoggerCameraController {
-    pub picked_actor: TWeakObjectPtr<AActor>,
+    pub picked_actor: TWeakObjectPtr<crate::bindings::engine::AActor>,
 }
 pub struct AVisualLoggerHUD {}
 pub struct AVisualLoggerRenderingActorBase {}

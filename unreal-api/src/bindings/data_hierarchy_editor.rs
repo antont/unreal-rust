@@ -2,10 +2,11 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
-pub use crate::bindings::prelude::*;
+pub use crate::bindings::opague_definitions::*;
+pub use crate::core_data::*;
 #[repr(C, align(8))]
 pub struct FHierarchyElementIdentity {
-    pub guids: TArray<FGuid>,
+    pub guids: TArray<crate::bindings::core_u_object::FGuid>,
     pub names: TArray<FName>,
 }
 #[repr(C, align(1))]
@@ -27,8 +28,11 @@ pub struct UHierarchyDataRefreshContext {}
 pub struct UHierarchyElement {
     pub children: TArray<UPtr<UHierarchyElement>>,
     pub identity: FHierarchyElementIdentity,
-    pub meta_data: TMap<UPtr<UStruct>, FInstancedStruct>,
-    pub guid_deprecated: FGuid,
+    pub meta_data: TMap<
+        UPtr<crate::bindings::core_u_object::UStruct>,
+        crate::bindings::core_u_object::FInstancedStruct,
+    >,
+    pub guid_deprecated: crate::bindings::core_u_object::FGuid,
 }
 pub struct UHierarchySection {
     pub section: FName,

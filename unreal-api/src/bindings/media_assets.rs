@@ -2,7 +2,8 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
-pub use crate::bindings::prelude::*;
+pub use crate::bindings::opague_definitions::*;
+pub use crate::core_data::*;
 #[repr(C, align(8))]
 pub struct FMediaMetadataItemBPT {
     pub language_code: FString,
@@ -32,8 +33,8 @@ pub struct FMediaCaptureDevice {
 pub struct UMediaSourceRendererInterface {}
 pub struct IMediaSourceRendererInterface {}
 pub struct UMediaSource {
-    pub thumbnail_image: UPtr<UTexture>,
-    pub media_source_renderer: UPtr<UObject>,
+    pub thumbnail_image: UPtr<crate::bindings::engine::UTexture>,
+    pub media_source_renderer: UPtr<crate::bindings::core_u_object::UObject>,
 }
 pub struct UBaseMediaSource {
     pub platform_player_names: TMap<FString, FName>,
@@ -48,7 +49,7 @@ pub struct UMediaComponent {
     pub media_player: UPtr<UMediaPlayer>,
 }
 pub struct UMediaTimeStampInfo {
-    pub time: FTimespan,
+    pub time: crate::bindings::core_u_object::FTimespan,
     pub sequence_index: i64,
 }
 pub struct UMediaPlayer {
@@ -63,19 +64,19 @@ pub struct UMediaPlayer {
     pub on_metadata_changed: FMediaPlayer_OnMetadataChanged,
     pub on_buffering_start: FMediaPlayer_OnBufferingStart,
     pub on_buffering_completed: FMediaPlayer_OnBufferingCompleted,
-    pub cache_ahead: FTimespan,
-    pub cache_behind: FTimespan,
-    pub cache_behind_game: FTimespan,
+    pub cache_ahead: crate::bindings::core_u_object::FTimespan,
+    pub cache_behind: crate::bindings::core_u_object::FTimespan,
+    pub cache_behind_game: crate::bindings::core_u_object::FTimespan,
     pub native_audio_out: bool,
     pub play_on_open: bool,
     pub flags_348: u8,
     pub playlist: UPtr<UMediaPlaylist>,
     pub playlist_index: i32,
-    pub time_delay: FTimespan,
+    pub time_delay: crate::bindings::core_u_object::FTimespan,
     pub horizontal_field_of_view: f32,
     pub vertical_field_of_view: f32,
-    pub view_rotation: FRotator,
-    pub player_guid: FGuid,
+    pub view_rotation: crate::bindings::core_u_object::FRotator,
+    pub player_guid: crate::bindings::core_u_object::FGuid,
     pub affected_by_pie_handling: bool,
 }
 pub struct UMediaPlayerProxyInterface {}
@@ -87,14 +88,14 @@ pub struct UMediaSoundComponent {
     pub channels: EMediaSoundChannels,
     pub dynamic_rate_adjustment: bool,
     pub rate_adjustment_factor: f32,
-    pub rate_adjustment_range: FFloatRange,
+    pub rate_adjustment_range: crate::bindings::core_u_object::FFloatRange,
     pub media_player: UPtr<UMediaPlayer>,
 }
 pub struct UMediaTexture {
-    pub address_x: TextureAddress,
-    pub address_y: TextureAddress,
+    pub address_x: crate::bindings::engine::TextureAddress,
+    pub address_y: crate::bindings::engine::TextureAddress,
     pub auto_clear: bool,
-    pub clear_color: FLinearColor,
+    pub clear_color: crate::bindings::core_u_object::FLinearColor,
     pub enable_gen_mips: bool,
     pub num_mips_deprecated: u8,
     pub new_style_output: bool,
@@ -116,3 +117,67 @@ pub struct UTimeSynchronizableMediaSource {
     pub b_auto_detect_input: bool,
 }
 pub struct UMediaBlueprintFunctionLibrary {}
+pub struct FMediaPlayer_OnEndReached;
+pub struct FMediaPlayer_OnMediaClosed;
+pub struct FMediaPlayer_OnMediaOpened;
+pub struct FMediaPlayer_OnMediaOpenFailed;
+pub struct FMediaPlayer_OnPlaybackResumed;
+pub struct FMediaPlayer_OnPlaybackSuspended;
+pub struct FMediaPlayer_OnSeekCompleted;
+pub struct FMediaPlayer_OnTracksChanged;
+pub struct FMediaPlayer_OnMetadataChanged;
+pub struct FMediaPlayer_OnBufferingStart;
+pub struct FMediaPlayer_OnBufferingCompleted;
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EMediaPlayerTrack(pub u8);
+impl EMediaPlayerTrack {
+    pub const AUDIO: EMediaPlayerTrack = EMediaPlayerTrack(0);
+    pub const CAPTION: EMediaPlayerTrack = EMediaPlayerTrack(1);
+    pub const METADATA: EMediaPlayerTrack = EMediaPlayerTrack(2);
+    pub const SCRIPT: EMediaPlayerTrack = EMediaPlayerTrack(3);
+    pub const SUBTITLE: EMediaPlayerTrack = EMediaPlayerTrack(4);
+    pub const TEXT: EMediaPlayerTrack = EMediaPlayerTrack(5);
+    pub const VIDEO: EMediaPlayerTrack = EMediaPlayerTrack(6);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EMediaTimeRangeBPType(pub u8);
+impl EMediaTimeRangeBPType {
+    pub const ABSOLUTE: EMediaTimeRangeBPType = EMediaTimeRangeBPType(0);
+    pub const CURRENT: EMediaTimeRangeBPType = EMediaTimeRangeBPType(1);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EMediaSoundComponentFFTSize(pub u8);
+impl EMediaSoundComponentFFTSize {
+    pub const MIN_64: EMediaSoundComponentFFTSize = EMediaSoundComponentFFTSize(0);
+    pub const SMALL_256: EMediaSoundComponentFFTSize = EMediaSoundComponentFFTSize(1);
+    pub const MEDIUM_512: EMediaSoundComponentFFTSize = EMediaSoundComponentFFTSize(2);
+    pub const LARGE_1024: EMediaSoundComponentFFTSize = EMediaSoundComponentFFTSize(3);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EMediaSoundChannels(pub i32);
+impl EMediaSoundChannels {
+    pub const MONO: EMediaSoundChannels = EMediaSoundChannels(0);
+    pub const STEREO: EMediaSoundChannels = EMediaSoundChannels(1);
+    pub const SURROUND: EMediaSoundChannels = EMediaSoundChannels(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct MediaTextureOrientation(pub u8);
+impl MediaTextureOrientation {
+    pub const MTORI_ORIGINAL: MediaTextureOrientation = MediaTextureOrientation(0);
+    pub const MTORI_CW90: MediaTextureOrientation = MediaTextureOrientation(1);
+    pub const MTORI_CW180: MediaTextureOrientation = MediaTextureOrientation(2);
+    pub const MTORI_CW270: MediaTextureOrientation = MediaTextureOrientation(3);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EMediaTextureVisibleMipsTiles(pub u8);
+impl EMediaTextureVisibleMipsTiles {
+    pub const NONE: EMediaTextureVisibleMipsTiles = EMediaTextureVisibleMipsTiles(0);
+    pub const PLANE: EMediaTextureVisibleMipsTiles = EMediaTextureVisibleMipsTiles(1);
+    pub const SPHERE: EMediaTextureVisibleMipsTiles = EMediaTextureVisibleMipsTiles(2);
+}

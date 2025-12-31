@@ -2,7 +2,8 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
-pub use crate::bindings::prelude::*;
+pub use crate::bindings::opague_definitions::*;
+pub use crate::core_data::*;
 #[repr(C, align(1))]
 pub struct FActorBrowsingModeConfig {
     pub b_hide_temporary_actors: bool,
@@ -30,4 +31,15 @@ pub struct UActorBrowserConfig {
 }
 pub struct UOutlinerConfig {
     pub outliners: TMap<FName, FSceneOutlinerConfig>,
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EActorBrowsingFolderDoubleClickMethod(pub u8);
+impl EActorBrowsingFolderDoubleClickMethod {
+    pub const TOGGLE_EXPANSION: EActorBrowsingFolderDoubleClickMethod = EActorBrowsingFolderDoubleClickMethod(
+        0,
+    );
+    pub const TOGGLE_CURRENT_FOLDER: EActorBrowsingFolderDoubleClickMethod = EActorBrowsingFolderDoubleClickMethod(
+        1,
+    );
 }

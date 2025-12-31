@@ -2,63 +2,72 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
-pub use crate::bindings::prelude::*;
+pub use crate::bindings::opague_definitions::*;
+pub use crate::core_data::*;
 #[repr(C, align(8))]
 pub struct FBakeMultiMeshDetailProperties {
-    pub source_mesh: UPtr<UStaticMesh>,
-    pub source_texture: UPtr<UTexture2D>,
+    pub source_mesh: UPtr<crate::bindings::engine::UStaticMesh>,
+    pub source_texture: UPtr<crate::bindings::engine::UTexture2D>,
     pub source_texture_uv_layer: i32,
 }
 #[repr(C, align(8))]
 pub struct FEditPivotTarget {
-    pub transform_proxy: UPtr<UTransformProxy>,
-    pub transform_gizmo: UPtr<UCombinedTransformGizmo>,
+    pub transform_proxy: UPtr<
+        crate::bindings::interactive_tools_framework::UTransformProxy,
+    >,
+    pub transform_gizmo: UPtr<
+        crate::bindings::interactive_tools_framework::UCombinedTransformGizmo,
+    >,
 }
 #[repr(C, align(16))]
 pub struct FPhysicsSphereData {
     pub radius: f32,
-    pub transform: FTransform,
-    pub element: FKShapeElem,
+    pub transform: crate::bindings::core_u_object::FTransform,
+    pub element: crate::bindings::engine::FKShapeElem,
 }
 #[repr(C, align(16))]
 pub struct FPhysicsBoxData {
-    pub dimensions: FVector,
-    pub transform: FTransform,
-    pub element: FKShapeElem,
+    pub dimensions: crate::bindings::core_u_object::FVector,
+    pub transform: crate::bindings::core_u_object::FTransform,
+    pub element: crate::bindings::engine::FKShapeElem,
 }
 #[repr(C, align(16))]
 pub struct FPhysicsCapsuleData {
     pub radius: f32,
     pub length: f32,
-    pub transform: FTransform,
-    pub element: FKShapeElem,
+    pub transform: crate::bindings::core_u_object::FTransform,
+    pub element: crate::bindings::engine::FKShapeElem,
 }
 #[repr(C, align(8))]
 pub struct FPhysicsConvexData {
     pub num_vertices: i32,
     pub num_faces: i32,
-    pub element: FKShapeElem,
+    pub element: crate::bindings::engine::FKShapeElem,
 }
 #[repr(C, align(8))]
 pub struct FPhysicsLevelSetData {
-    pub element: FKShapeElem,
+    pub element: crate::bindings::engine::FKShapeElem,
 }
 #[repr(C, align(8))]
 pub struct FTransformMeshesTarget {
-    pub transform_proxy: UPtr<UTransformProxy>,
-    pub transform_gizmo: UPtr<UCombinedTransformGizmo>,
+    pub transform_proxy: UPtr<
+        crate::bindings::interactive_tools_framework::UTransformProxy,
+    >,
+    pub transform_gizmo: UPtr<
+        crate::bindings::interactive_tools_framework::UCombinedTransformGizmo,
+    >,
 }
 pub struct UBakeInputMeshProperties {
-    pub target_static_mesh: UPtr<UStaticMesh>,
-    pub target_skeletal_mesh: UPtr<USkeletalMesh>,
-    pub target_dynamic_mesh: UPtr<AActor>,
+    pub target_static_mesh: UPtr<crate::bindings::engine::UStaticMesh>,
+    pub target_skeletal_mesh: UPtr<crate::bindings::engine::USkeletalMesh>,
+    pub target_dynamic_mesh: UPtr<crate::bindings::engine::AActor>,
     pub target_uv_layer: FString,
     pub b_has_target_uv_layer: bool,
-    pub source_static_mesh: UPtr<UStaticMesh>,
-    pub source_skeletal_mesh: UPtr<USkeletalMesh>,
-    pub source_dynamic_mesh: UPtr<AActor>,
+    pub source_static_mesh: UPtr<crate::bindings::engine::UStaticMesh>,
+    pub source_skeletal_mesh: UPtr<crate::bindings::engine::USkeletalMesh>,
+    pub source_dynamic_mesh: UPtr<crate::bindings::engine::AActor>,
     pub b_hide_source_mesh: bool,
-    pub source_normal_map: UPtr<UTexture2D>,
+    pub source_normal_map: UPtr<crate::bindings::engine::UTexture2D>,
     pub source_normal_map_uv_layer: FString,
     pub source_normal_space: EBakeNormalSpace,
     pub b_has_source_normal_map: bool,
@@ -85,9 +94,9 @@ pub struct UBakeCurvatureMapToolProperties {
 pub struct UBakeUVShellMapToolProperties {
     pub uv_layer: i32,
     pub wireframe_thickness: f32,
-    pub wireframe_color: FLinearColor,
-    pub shell_color: FLinearColor,
-    pub background_color: FLinearColor,
+    pub wireframe_color: crate::bindings::core_u_object::FLinearColor,
+    pub shell_color: crate::bindings::core_u_object::FLinearColor,
+    pub background_color: crate::bindings::core_u_object::FLinearColor,
 }
 pub struct UBakeHeightMapToolProperties {
     pub height_range_mode: EBakeHeightRangeMode,
@@ -97,15 +106,15 @@ pub struct UBakeHeightMapToolProperties {
     pub outer_bounds_distance: f32,
 }
 pub struct UBakeTexture2DProperties {
-    pub source_texture: UPtr<UTexture2D>,
+    pub source_texture: UPtr<crate::bindings::engine::UTexture2D>,
     pub uv_layer: FString,
     pub uv_layer_names_list: TArray<FString>,
 }
 pub struct UBakeMultiTexture2DProperties {
-    pub material_id_source_textures: TArray<UPtr<UTexture2D>>,
+    pub material_id_source_textures: TArray<UPtr<crate::bindings::engine::UTexture2D>>,
     pub uv_layer: FString,
     pub uv_layer_names_list: TArray<FString>,
-    pub all_source_textures: TArray<UPtr<UTexture2D>>,
+    pub all_source_textures: TArray<UPtr<crate::bindings::engine::UTexture2D>>,
 }
 pub struct UBakeVisualizationProperties {
     pub b_preview_as_material: bool,
@@ -121,8 +130,10 @@ pub struct UAddPatchToolProperties {
 }
 pub struct UAddPatchTool {
     pub shape_settings: UPtr<UAddPatchToolProperties>,
-    pub material_properties: UPtr<UNewMeshMaterialProperties>,
-    pub preview_mesh: UPtr<UPreviewMesh>,
+    pub material_properties: UPtr<
+        crate::bindings::mesh_modeling_tools::UNewMeshMaterialProperties,
+    >,
+    pub preview_mesh: UPtr<crate::bindings::modeling_components::UPreviewMesh>,
 }
 pub struct UAlignObjectsToolBuilder {}
 pub struct UAlignObjectsToolProperties {
@@ -140,10 +151,10 @@ pub struct UBakeMeshAttributeMapsToolBuilder {}
 pub struct UBakeMeshAttributeMapsToolProperties {
     pub map_types: i32,
     pub map_preview: FString,
-    pub resolution: EBakeTextureResolution,
-    pub bit_depth: EBakeTextureBitDepth,
-    pub samples_per_pixel: EBakeTextureSamplesPerPixel,
-    pub sample_filter_mask: UPtr<UTexture2D>,
+    pub resolution: crate::bindings::modeling_components::EBakeTextureResolution,
+    pub bit_depth: crate::bindings::modeling_components::EBakeTextureBitDepth,
+    pub samples_per_pixel: crate::bindings::modeling_components::EBakeTextureSamplesPerPixel,
+    pub sample_filter_mask: UPtr<crate::bindings::engine::UTexture2D>,
     pub map_preview_names_list: TArray<FString>,
 }
 pub struct UBakeMeshAttributeTool {
@@ -152,18 +163,22 @@ pub struct UBakeMeshAttributeTool {
     pub texture_settings: UPtr<UBakeTexture2DProperties>,
     pub multi_texture_settings: UPtr<UBakeMultiTexture2DProperties>,
     pub height_settings: UPtr<UBakeHeightMapToolProperties>,
-    pub working_preview_material: UPtr<UMaterialInstanceDynamic>,
-    pub error_preview_material: UPtr<UMaterialInstanceDynamic>,
+    pub working_preview_material: UPtr<
+        crate::bindings::engine::UMaterialInstanceDynamic,
+    >,
+    pub error_preview_material: UPtr<crate::bindings::engine::UMaterialInstanceDynamic>,
 }
 pub struct UBakeMeshAttributeMapsToolBase {
     pub visualization_props: UPtr<UBakeVisualizationProperties>,
-    pub preview_mesh: UPtr<UPreviewMesh>,
-    pub preview_material: UPtr<UMaterialInstanceDynamic>,
-    pub bent_normal_preview_material: UPtr<UMaterialInstanceDynamic>,
-    pub cached_maps: TMap<EBakeMapType, UPtr<UTexture2D>>,
-    pub empty_normal_map: UPtr<UTexture2D>,
-    pub empty_color_map_black: UPtr<UTexture2D>,
-    pub empty_color_map_white: UPtr<UTexture2D>,
+    pub preview_mesh: UPtr<crate::bindings::modeling_components::UPreviewMesh>,
+    pub preview_material: UPtr<crate::bindings::engine::UMaterialInstanceDynamic>,
+    pub bent_normal_preview_material: UPtr<
+        crate::bindings::engine::UMaterialInstanceDynamic,
+    >,
+    pub cached_maps: TMap<EBakeMapType, UPtr<crate::bindings::engine::UTexture2D>>,
+    pub empty_normal_map: UPtr<crate::bindings::engine::UTexture2D>,
+    pub empty_color_map_black: UPtr<crate::bindings::engine::UTexture2D>,
+    pub empty_color_map_white: UPtr<crate::bindings::engine::UTexture2D>,
 }
 pub struct UBakeMeshAttributeMapsTool {
     pub input_mesh_settings: UPtr<UBakeInputMeshProperties>,
@@ -172,7 +187,7 @@ pub struct UBakeMeshAttributeMapsTool {
     pub uv_shell_settings: UPtr<UBakeUVShellMapToolProperties>,
 }
 pub struct UBakeMeshAttributeMapsResultToolProperties {
-    pub result: TMap<EBakeMapType, UPtr<UTexture2D>>,
+    pub result: TMap<EBakeMapType, UPtr<crate::bindings::engine::UTexture2D>>,
 }
 pub struct UBakeMeshAttributeVertexToolBuilder {}
 pub struct UBakeMeshAttributeVertexToolProperties {
@@ -190,24 +205,24 @@ pub struct UBakeMeshAttributeVertexToolProperties {
 pub struct UBakeMeshAttributeVertexTool {
     pub input_mesh_settings: UPtr<UBakeInputMeshProperties>,
     pub settings: UPtr<UBakeMeshAttributeVertexToolProperties>,
-    pub preview_mesh: UPtr<UPreviewMesh>,
-    pub preview_material: UPtr<UMaterialInstanceDynamic>,
-    pub preview_alpha_material: UPtr<UMaterialInstanceDynamic>,
+    pub preview_mesh: UPtr<crate::bindings::modeling_components::UPreviewMesh>,
+    pub preview_material: UPtr<crate::bindings::engine::UMaterialInstanceDynamic>,
+    pub preview_alpha_material: UPtr<crate::bindings::engine::UMaterialInstanceDynamic>,
 }
 pub struct UBakeMultiMeshAttributeMapsToolBuilder {}
 pub struct UBakeMultiMeshAttributeMapsToolProperties {
     pub map_types: i32,
     pub map_preview: FString,
-    pub resolution: EBakeTextureResolution,
-    pub bit_depth: EBakeTextureBitDepth,
-    pub samples_per_pixel: EBakeTextureSamplesPerPixel,
-    pub sample_filter_mask: UPtr<UTexture2D>,
+    pub resolution: crate::bindings::modeling_components::EBakeTextureResolution,
+    pub bit_depth: crate::bindings::modeling_components::EBakeTextureBitDepth,
+    pub samples_per_pixel: crate::bindings::modeling_components::EBakeTextureSamplesPerPixel,
+    pub sample_filter_mask: UPtr<crate::bindings::engine::UTexture2D>,
     pub map_preview_names_list: TArray<FString>,
 }
 pub struct UBakeMultiMeshInputToolProperties {
-    pub target_static_mesh: UPtr<UStaticMesh>,
-    pub target_skeletal_mesh: UPtr<USkeletalMesh>,
-    pub target_dynamic_mesh: UPtr<AActor>,
+    pub target_static_mesh: UPtr<crate::bindings::engine::UStaticMesh>,
+    pub target_skeletal_mesh: UPtr<crate::bindings::engine::USkeletalMesh>,
+    pub target_dynamic_mesh: UPtr<crate::bindings::engine::AActor>,
     pub target_uv_layer: FString,
     pub source_meshes: TArray<FBakeMultiMeshDetailProperties>,
     pub projection_distance: f32,
@@ -237,13 +252,15 @@ pub struct UConvertMeshesToolProperties {
 }
 pub struct UConvertMeshesTool {
     pub basic_properties: UPtr<UConvertMeshesToolProperties>,
-    pub output_type_properties: UPtr<UCreateMeshObjectTypeProperties>,
-    pub inputs: TArray<TWeakObjectPtr<UPrimitiveComponent>>,
+    pub output_type_properties: UPtr<
+        crate::bindings::modeling_components::UCreateMeshObjectTypeProperties,
+    >,
+    pub inputs: TArray<TWeakObjectPtr<crate::bindings::engine::UPrimitiveComponent>>,
 }
 pub struct UCubeGridToolBuilder {}
 pub struct UCubeGridToolProperties {
-    pub grid_frame_origin: FVector,
-    pub grid_frame_orientation: FRotator,
+    pub grid_frame_origin: crate::bindings::core_u_object::FVector,
+    pub grid_frame_orientation: crate::bindings::core_u_object::FRotator,
     pub b_show_grid: bool,
     pub b_show_gizmo: bool,
     pub grid_power: u8,
@@ -269,23 +286,43 @@ pub struct UCubeGridToolProperties {
     pub b_allowed_to_edit_grid: bool,
 }
 pub struct UCubeGridToolActions {
-    pub grid_source_actor: UPtr<AActor>,
+    pub grid_source_actor: UPtr<crate::bindings::engine::AActor>,
 }
 pub struct UCubeGridTool {
-    pub grid_gizmo: UPtr<UCombinedTransformGizmo>,
-    pub grid_gizmo_alignment_mechanic: UPtr<UDragAlignmentMechanic>,
-    pub grid_gizmo_transform_proxy: UPtr<UTransformProxy>,
-    pub line_sets: UPtr<UPreviewGeometry>,
-    pub click_drag_behavior: UPtr<UClickDragInputBehavior>,
-    pub hover_behavior: UPtr<UMouseHoverBehavior>,
-    pub ctrl_middle_click_behavior: UPtr<ULocalSingleClickInputBehavior>,
-    pub middle_click_drag_behavior: UPtr<ULocalClickDragInputBehavior>,
+    pub grid_gizmo: UPtr<
+        crate::bindings::interactive_tools_framework::UCombinedTransformGizmo,
+    >,
+    pub grid_gizmo_alignment_mechanic: UPtr<
+        crate::bindings::modeling_components::UDragAlignmentMechanic,
+    >,
+    pub grid_gizmo_transform_proxy: UPtr<
+        crate::bindings::interactive_tools_framework::UTransformProxy,
+    >,
+    pub line_sets: UPtr<crate::bindings::modeling_components::UPreviewGeometry>,
+    pub click_drag_behavior: UPtr<
+        crate::bindings::interactive_tools_framework::UClickDragInputBehavior,
+    >,
+    pub hover_behavior: UPtr<
+        crate::bindings::interactive_tools_framework::UMouseHoverBehavior,
+    >,
+    pub ctrl_middle_click_behavior: UPtr<
+        crate::bindings::interactive_tools_framework::ULocalSingleClickInputBehavior,
+    >,
+    pub middle_click_drag_behavior: UPtr<
+        crate::bindings::interactive_tools_framework::ULocalClickDragInputBehavior,
+    >,
     pub settings: UPtr<UCubeGridToolProperties>,
     pub tool_actions: UPtr<UCubeGridToolActions>,
-    pub material_properties: UPtr<UNewMeshMaterialProperties>,
-    pub output_type_properties: UPtr<UCreateMeshObjectTypeProperties>,
-    pub target: UPtr<UToolTarget>,
-    pub preview: UPtr<UMeshOpPreviewWithBackgroundCompute>,
+    pub material_properties: UPtr<
+        crate::bindings::mesh_modeling_tools::UNewMeshMaterialProperties,
+    >,
+    pub output_type_properties: UPtr<
+        crate::bindings::modeling_components::UCreateMeshObjectTypeProperties,
+    >,
+    pub target: UPtr<crate::bindings::interactive_tools_framework::UToolTarget>,
+    pub preview: UPtr<
+        crate::bindings::modeling_components::UMeshOpPreviewWithBackgroundCompute,
+    >,
 }
 pub struct UDrawPolyPathToolBuilder {}
 pub struct UDrawPolyPathProperties {
@@ -304,23 +341,35 @@ pub struct UDrawPolyPathExtrudeProperties {
     pub direction: EDrawPolyPathExtrudeDirection,
 }
 pub struct UDrawPolyPathTool {
-    pub output_type_properties: UPtr<UCreateMeshObjectTypeProperties>,
+    pub output_type_properties: UPtr<
+        crate::bindings::modeling_components::UCreateMeshObjectTypeProperties,
+    >,
     pub transform_props: UPtr<UDrawPolyPathProperties>,
     pub extrude_properties: UPtr<UDrawPolyPathExtrudeProperties>,
-    pub material_properties: UPtr<UNewMeshMaterialProperties>,
-    pub plane_mechanic: UPtr<UConstructionPlaneMechanic>,
-    pub edit_preview: UPtr<UPolyEditPreviewMesh>,
-    pub extrude_height_mechanic: UPtr<UPlaneDistanceFromHitMechanic>,
-    pub curve_dist_mechanic: UPtr<USpatialCurveDistanceMechanic>,
-    pub surface_path_mechanic: UPtr<UCollectSurfacePathMechanic>,
+    pub material_properties: UPtr<
+        crate::bindings::mesh_modeling_tools::UNewMeshMaterialProperties,
+    >,
+    pub plane_mechanic: UPtr<
+        crate::bindings::modeling_components::UConstructionPlaneMechanic,
+    >,
+    pub edit_preview: UPtr<crate::bindings::modeling_components::UPolyEditPreviewMesh>,
+    pub extrude_height_mechanic: UPtr<
+        crate::bindings::modeling_components::UPlaneDistanceFromHitMechanic,
+    >,
+    pub curve_dist_mechanic: UPtr<
+        crate::bindings::modeling_components::USpatialCurveDistanceMechanic,
+    >,
+    pub surface_path_mechanic: UPtr<
+        crate::bindings::modeling_components::UCollectSurfacePathMechanic,
+    >,
 }
 pub struct UEditNormalsToolBuilder {}
 pub struct UEditNormalsToolProperties {
     pub b_recompute_normals: bool,
-    pub normal_calculation_method: ENormalCalculationMethod,
+    pub normal_calculation_method: crate::bindings::modeling_operators::ENormalCalculationMethod,
     pub b_fix_inconsistent_normals: bool,
     pub b_invert_normals: bool,
-    pub split_normal_method: ESplitNormalMethod,
+    pub split_normal_method: crate::bindings::modeling_operators::ESplitNormalMethod,
     pub sharp_edge_angle_threshold: f32,
     pub b_allow_sharp_vertices: bool,
     pub b_tool_has_selection: bool,
@@ -330,12 +379,18 @@ pub struct UEditNormalsOperatorFactory {
 }
 pub struct UEditNormalsTool {
     pub basic_properties: UPtr<UEditNormalsToolProperties>,
-    pub polygroup_layer_properties: UPtr<UPolygroupLayersProperties>,
-    pub previews: TArray<UPtr<UMeshOpPreviewWithBackgroundCompute>>,
-    pub geometry_selection_viz_properties: UPtr<
-        UGeometrySelectionVisualizationProperties,
+    pub polygroup_layer_properties: UPtr<
+        crate::bindings::modeling_components::UPolygroupLayersProperties,
     >,
-    pub geometry_selection_viz: UPtr<UPreviewGeometry>,
+    pub previews: TArray<
+        UPtr<crate::bindings::modeling_components::UMeshOpPreviewWithBackgroundCompute>,
+    >,
+    pub geometry_selection_viz_properties: UPtr<
+        crate::bindings::modeling_components::UGeometrySelectionVisualizationProperties,
+    >,
+    pub geometry_selection_viz: UPtr<
+        crate::bindings::modeling_components::UPreviewGeometry,
+    >,
 }
 pub struct UEditPivotToolBuilder {}
 pub struct UEditPivotToolProperties {
@@ -351,32 +406,56 @@ pub struct UEditPivotTool {
     pub transform_props: UPtr<UEditPivotToolProperties>,
     pub edit_pivot_actions: UPtr<UEditPivotToolActionPropertySet>,
     pub active_gizmos: TArray<FEditPivotTarget>,
-    pub drag_alignment_mechanic: UPtr<UDragAlignmentMechanic>,
+    pub drag_alignment_mechanic: UPtr<
+        crate::bindings::modeling_components::UDragAlignmentMechanic,
+    >,
 }
 pub struct UEditUVIslandsToolBuilder {}
 pub struct UEditUVIslandsTool {
-    pub material_settings: UPtr<UExistingMeshMaterialProperties>,
-    pub checker_material: UPtr<UMaterialInstanceDynamic>,
-    pub preview_mesh_actor: UPtr<AInternalToolFrameworkActor>,
-    pub dynamic_mesh_component: UPtr<UDynamicMeshComponent>,
-    pub selection_mechanic: UPtr<UPolygonSelectionMechanic>,
-    pub transform_gizmo: UPtr<UCombinedTransformGizmo>,
-    pub transform_proxy: UPtr<UTransformProxy>,
+    pub material_settings: UPtr<
+        crate::bindings::mesh_modeling_tools::UExistingMeshMaterialProperties,
+    >,
+    pub checker_material: UPtr<crate::bindings::engine::UMaterialInstanceDynamic>,
+    pub preview_mesh_actor: UPtr<
+        crate::bindings::interactive_tools_framework::AInternalToolFrameworkActor,
+    >,
+    pub dynamic_mesh_component: UPtr<
+        crate::bindings::geometry_framework::UDynamicMeshComponent,
+    >,
+    pub selection_mechanic: UPtr<
+        crate::bindings::modeling_components::UPolygonSelectionMechanic,
+    >,
+    pub transform_gizmo: UPtr<
+        crate::bindings::interactive_tools_framework::UCombinedTransformGizmo,
+    >,
+    pub transform_proxy: UPtr<
+        crate::bindings::interactive_tools_framework::UTransformProxy,
+    >,
 }
 pub struct UExtractSplineToolProperties {
     pub extraction_mode: EExtractSplineMode,
 }
 pub struct UExtractSplineTool {
     pub settings: UPtr<UExtractSplineToolProperties>,
-    pub plane_mechanic: UPtr<UConstructionPlaneMechanic>,
-    pub selection_mechanic: UPtr<UPolygonSelectionMechanic>,
-    pub preview: UPtr<UMeshOpPreviewWithBackgroundCompute>,
-    pub factory: UPtr<UGenerateCrossSectionOpFactory>,
-    pub cutline_geometry: UPtr<UPreviewGeometry>,
+    pub plane_mechanic: UPtr<
+        crate::bindings::modeling_components::UConstructionPlaneMechanic,
+    >,
+    pub selection_mechanic: UPtr<
+        crate::bindings::modeling_components::UPolygonSelectionMechanic,
+    >,
+    pub preview: UPtr<
+        crate::bindings::modeling_components::UMeshOpPreviewWithBackgroundCompute,
+    >,
+    pub factory: UPtr<
+        crate::bindings::modeling_operators::UGenerateCrossSectionOpFactory,
+    >,
+    pub cutline_geometry: UPtr<crate::bindings::modeling_components::UPreviewGeometry>,
 }
 pub struct UExtractSplineToolBuilder {}
 pub struct UMeshBoundaryToolBase {
-    pub selection_mechanic: UPtr<UPolygonSelectionMechanic>,
+    pub selection_mechanic: UPtr<
+        crate::bindings::modeling_components::UPolygonSelectionMechanic,
+    >,
 }
 pub struct UMeshInspectorToolBuilder {}
 pub struct UMeshInspectorProperties {
@@ -399,24 +478,26 @@ pub struct UMeshInspectorProperties {
 pub struct UMeshInspectorMaterialProperties {
     pub material_mode: EMeshInspectorMaterialMode,
     pub checker_density: f32,
-    pub override_material: UPtr<UMaterialInterface>,
+    pub override_material: UPtr<crate::bindings::engine::UMaterialInterface>,
     pub uv_channel: FString,
     pub uv_channel_names_list: TArray<FString>,
     pub b_flat_shading: bool,
-    pub color: FLinearColor,
+    pub color: crate::bindings::core_u_object::FLinearColor,
     pub opacity: f64,
-    pub transparent_material_color: FLinearColor,
+    pub transparent_material_color: crate::bindings::core_u_object::FLinearColor,
     pub b_two_sided: bool,
-    pub checker_material: UPtr<UMaterialInstanceDynamic>,
-    pub active_custom_material: UPtr<UMaterialInstanceDynamic>,
+    pub checker_material: UPtr<crate::bindings::engine::UMaterialInstanceDynamic>,
+    pub active_custom_material: UPtr<crate::bindings::engine::UMaterialInstanceDynamic>,
 }
 pub struct UMeshInspectorTool {
     pub settings: UPtr<UMeshInspectorProperties>,
-    pub polygroup_layer_properties: UPtr<UPolygroupLayersProperties>,
+    pub polygroup_layer_properties: UPtr<
+        crate::bindings::modeling_components::UPolygroupLayersProperties,
+    >,
     pub material_settings: UPtr<UMeshInspectorMaterialProperties>,
-    pub preview_mesh: UPtr<UPreviewMesh>,
-    pub drawn_line_set: UPtr<ULineSetComponent>,
-    pub default_material: UPtr<UMaterialInterface>,
+    pub preview_mesh: UPtr<crate::bindings::modeling_components::UPreviewMesh>,
+    pub drawn_line_set: UPtr<crate::bindings::modeling_components::ULineSetComponent>,
+    pub default_material: UPtr<crate::bindings::engine::UMaterialInterface>,
 }
 pub struct UMeshSelectionToolBuilder {}
 pub struct UMeshSelectionToolActionPropertySet {}
@@ -433,12 +514,20 @@ pub struct UMeshSelectionTool {
     pub selection_props: UPtr<UMeshSelectionToolProperties>,
     pub selection_actions: UPtr<UMeshSelectionEditActions>,
     pub edit_actions: UPtr<UMeshSelectionToolActionPropertySet>,
-    pub mesh_statistics_properties: UPtr<UMeshStatisticsProperties>,
-    pub mesh_elements_display: UPtr<UMeshElementsVisualizer>,
-    pub uv_channel_properties: UPtr<UMeshUVChannelProperties>,
-    pub polygroup_layer_properties: UPtr<UPolygroupLayersProperties>,
-    pub selection: UPtr<UMeshSelectionSet>,
-    pub spawned_actors: TArray<UPtr<AActor>>,
+    pub mesh_statistics_properties: UPtr<
+        crate::bindings::mesh_modeling_tools::UMeshStatisticsProperties,
+    >,
+    pub mesh_elements_display: UPtr<
+        crate::bindings::modeling_components::UMeshElementsVisualizer,
+    >,
+    pub uv_channel_properties: UPtr<
+        crate::bindings::mesh_modeling_tools::UMeshUVChannelProperties,
+    >,
+    pub polygroup_layer_properties: UPtr<
+        crate::bindings::modeling_components::UPolygroupLayersProperties,
+    >,
+    pub selection: UPtr<crate::bindings::interactive_tools_framework::UMeshSelectionSet>,
+    pub spawned_actors: TArray<UPtr<crate::bindings::engine::AActor>>,
 }
 pub struct UMirrorToolBuilder {}
 pub struct UMirrorToolProperties {
@@ -460,12 +549,22 @@ pub struct UMirrorToolActionPropertySet {
 }
 pub struct UMirrorTool {
     pub settings: UPtr<UMirrorToolProperties>,
-    pub output_type_properties: UPtr<UCreateMeshObjectTypeProperties>,
-    pub handle_sources_properties: UPtr<UOnAcceptHandleSourcesProperties>,
+    pub output_type_properties: UPtr<
+        crate::bindings::modeling_components::UCreateMeshObjectTypeProperties,
+    >,
+    pub handle_sources_properties: UPtr<
+        crate::bindings::modeling_components::UOnAcceptHandleSourcesProperties,
+    >,
     pub tool_actions: UPtr<UMirrorToolActionPropertySet>,
-    pub meshes_to_mirror: TArray<UPtr<UDynamicMeshReplacementChangeTarget>>,
-    pub previews: TArray<UPtr<UMeshOpPreviewWithBackgroundCompute>>,
-    pub plane_mechanic: UPtr<UConstructionPlaneMechanic>,
+    pub meshes_to_mirror: TArray<
+        UPtr<crate::bindings::modeling_components::UDynamicMeshReplacementChangeTarget>,
+    >,
+    pub previews: TArray<
+        UPtr<crate::bindings::modeling_components::UMeshOpPreviewWithBackgroundCompute>,
+    >,
+    pub plane_mechanic: UPtr<
+        crate::bindings::modeling_components::UConstructionPlaneMechanic,
+    >,
 }
 pub struct UPatternToolBuilder {}
 pub struct UPatternToolSettings {
@@ -516,24 +615,24 @@ pub struct UPatternTool_RadialSettings {
 pub struct UPatternTool_RotationSettings {
     pub b_interpolate: bool,
     pub b_jitter: bool,
-    pub start_rotation: FRotator,
-    pub end_rotation: FRotator,
-    pub jitter: FRotator,
+    pub start_rotation: crate::bindings::core_u_object::FRotator,
+    pub end_rotation: crate::bindings::core_u_object::FRotator,
+    pub jitter: crate::bindings::core_u_object::FRotator,
 }
 pub struct UPatternTool_TranslationSettings {
     pub b_interpolate: bool,
     pub b_jitter: bool,
-    pub start_translation: FVector,
-    pub end_translation: FVector,
-    pub jitter: FVector,
+    pub start_translation: crate::bindings::core_u_object::FVector,
+    pub end_translation: crate::bindings::core_u_object::FVector,
+    pub jitter: crate::bindings::core_u_object::FVector,
 }
 pub struct UPatternTool_ScaleSettings {
     pub b_proportional: bool,
     pub b_interpolate: bool,
     pub b_jitter: bool,
-    pub start_scale: FVector,
-    pub end_scale: FVector,
-    pub jitter: FVector,
+    pub start_scale: crate::bindings::core_u_object::FVector,
+    pub end_scale: crate::bindings::core_u_object::FVector,
+    pub jitter: crate::bindings::core_u_object::FVector,
 }
 pub struct UPatternTool_OutputSettings {
     pub b_separate_actors: bool,
@@ -552,13 +651,21 @@ pub struct UPatternTool {
     pub translation_settings: UPtr<UPatternTool_TranslationSettings>,
     pub scale_settings: UPtr<UPatternTool_ScaleSettings>,
     pub output_settings: UPtr<UPatternTool_OutputSettings>,
-    pub pattern_gizmo_proxy: UPtr<UComponentBoundTransformProxy>,
-    pub pattern_gizmo: UPtr<UInteractiveGizmo>,
-    pub pattern_gizmo_component: UPtr<UPrimitiveComponent>,
-    pub drag_alignment_mechanic: UPtr<UDragAlignmentMechanic>,
-    pub plane_mechanic: UPtr<UConstructionPlaneMechanic>,
-    pub all_components: TSet<UPtr<UPrimitiveComponent>>,
-    pub preview_geometry: UPtr<UPreviewGeometry>,
+    pub pattern_gizmo_proxy: UPtr<
+        crate::bindings::interactive_tools_framework::UComponentBoundTransformProxy,
+    >,
+    pub pattern_gizmo: UPtr<
+        crate::bindings::interactive_tools_framework::UInteractiveGizmo,
+    >,
+    pub pattern_gizmo_component: UPtr<crate::bindings::engine::UPrimitiveComponent>,
+    pub drag_alignment_mechanic: UPtr<
+        crate::bindings::modeling_components::UDragAlignmentMechanic,
+    >,
+    pub plane_mechanic: UPtr<
+        crate::bindings::modeling_components::UConstructionPlaneMechanic,
+    >,
+    pub all_components: TSet<UPtr<crate::bindings::engine::UPrimitiveComponent>>,
+    pub preview_geometry: UPtr<crate::bindings::modeling_components::UPreviewGeometry>,
 }
 pub struct UPhysicsObjectToolPropertySet {
     pub object_name: FString,
@@ -575,10 +682,10 @@ pub struct UCollisionGeometryVisualizationProperties {
     pub line_thickness: f32,
     pub b_show_hidden: bool,
     pub b_random_colors: bool,
-    pub color: FColor,
-    pub line_material: UPtr<UMaterialInterface>,
-    pub line_material_showing_hidden: UPtr<UMaterialInterface>,
-    pub triangle_material: UPtr<UMaterialInterface>,
+    pub color: crate::bindings::core_u_object::FColor,
+    pub line_material: UPtr<crate::bindings::engine::UMaterialInterface>,
+    pub line_material_showing_hidden: UPtr<crate::bindings::engine::UMaterialInterface>,
+    pub triangle_material: UPtr<crate::bindings::engine::UMaterialInterface>,
     pub b_enable_show_collision: bool,
     pub b_enable_show_solid: bool,
 }
@@ -591,12 +698,14 @@ pub struct UExtractCollisionToolProperties {
     pub b_weld_edges: bool,
 }
 pub struct UExtractCollisionGeometryTool {
-    pub output_type_properties: UPtr<UCreateMeshObjectTypeProperties>,
+    pub output_type_properties: UPtr<
+        crate::bindings::modeling_components::UCreateMeshObjectTypeProperties,
+    >,
     pub settings: UPtr<UExtractCollisionToolProperties>,
     pub viz_settings: UPtr<UCollisionGeometryVisualizationProperties>,
     pub object_props: UPtr<UPhysicsObjectToolPropertySet>,
-    pub preview_elements: UPtr<UPreviewGeometry>,
-    pub preview_mesh: UPtr<UPreviewMesh>,
+    pub preview_elements: UPtr<crate::bindings::modeling_components::UPreviewGeometry>,
+    pub preview_mesh: UPtr<crate::bindings::modeling_components::UPreviewMesh>,
 }
 pub struct UPhysicsInspectorToolBuilder {}
 pub struct UPhysicsInspectorToolProperties {
@@ -606,7 +715,9 @@ pub struct UPhysicsInspectorTool {
     pub viz_settings: UPtr<UCollisionGeometryVisualizationProperties>,
     pub settings: UPtr<UPhysicsInspectorToolProperties>,
     pub object_data: TArray<UPtr<UPhysicsObjectToolPropertySet>>,
-    pub preview_elements: TArray<UPtr<UPreviewGeometry>>,
+    pub preview_elements: TArray<
+        UPtr<crate::bindings::modeling_components::UPreviewGeometry>,
+    >,
 }
 pub struct USetCollisionGeometryToolBuilder {}
 pub struct USetCollisionGeometryToolProperties {
@@ -646,14 +757,18 @@ pub struct USetCollisionGeometryToolProperties {
 }
 pub struct USetCollisionGeometryTool {
     pub settings: UPtr<USetCollisionGeometryToolProperties>,
-    pub polygroup_layer_properties: UPtr<UPolygroupLayersProperties>,
+    pub polygroup_layer_properties: UPtr<
+        crate::bindings::modeling_components::UPolygroupLayersProperties,
+    >,
     pub viz_settings: UPtr<UCollisionGeometryVisualizationProperties>,
     pub collision_props: UPtr<UPhysicsObjectToolPropertySet>,
-    pub preview_geom: UPtr<UPreviewGeometry>,
+    pub preview_geom: UPtr<crate::bindings::modeling_components::UPreviewGeometry>,
     pub geometry_selection_viz_properties: UPtr<
-        UGeometrySelectionVisualizationProperties,
+        crate::bindings::modeling_components::UGeometrySelectionVisualizationProperties,
     >,
-    pub geometry_selection_viz: UPtr<UPreviewGeometry>,
+    pub geometry_selection_viz: UPtr<
+        crate::bindings::modeling_components::UPreviewGeometry,
+    >,
 }
 pub struct USimpleCollisionEditorToolBuilder {}
 pub struct USimpleCollisionEditorToolActionProperties {}
@@ -675,9 +790,15 @@ pub struct UPlaneCutOperatorFactory {
 }
 pub struct UPlaneCutTool {
     pub basic_properties: UPtr<UPlaneCutToolProperties>,
-    pub previews: TArray<UPtr<UMeshOpPreviewWithBackgroundCompute>>,
-    pub meshes_to_cut: TArray<UPtr<UDynamicMeshReplacementChangeTarget>>,
-    pub plane_mechanic: UPtr<UConstructionPlaneMechanic>,
+    pub previews: TArray<
+        UPtr<crate::bindings::modeling_components::UMeshOpPreviewWithBackgroundCompute>,
+    >,
+    pub meshes_to_cut: TArray<
+        UPtr<crate::bindings::modeling_components::UDynamicMeshReplacementChangeTarget>,
+    >,
+    pub plane_mechanic: UPtr<
+        crate::bindings::modeling_components::UConstructionPlaneMechanic,
+    >,
 }
 pub struct UExtrudeMeshSelectionToolBuilder {}
 pub struct UExtrudeMeshSelectionToolProperties {
@@ -699,10 +820,16 @@ pub struct UExtrudeMeshSelectionToolProperties {
 }
 pub struct UExtrudeMeshSelectionTool {
     pub extrude_properties: UPtr<UExtrudeMeshSelectionToolProperties>,
-    pub source_preview: UPtr<UPreviewMesh>,
-    pub edit_compute: UPtr<UMeshOpPreviewWithBackgroundCompute>,
-    pub transform_gizmo: UPtr<UCombinedTransformGizmo>,
-    pub transform_proxy: UPtr<UTransformProxy>,
+    pub source_preview: UPtr<crate::bindings::modeling_components::UPreviewMesh>,
+    pub edit_compute: UPtr<
+        crate::bindings::modeling_components::UMeshOpPreviewWithBackgroundCompute,
+    >,
+    pub transform_gizmo: UPtr<
+        crate::bindings::interactive_tools_framework::UCombinedTransformGizmo,
+    >,
+    pub transform_proxy: UPtr<
+        crate::bindings::interactive_tools_framework::UTransformProxy,
+    >,
 }
 pub struct UOffsetMeshSelectionToolBuilder {}
 pub struct UOffsetMeshSelectionToolProperties {
@@ -722,8 +849,10 @@ pub struct UOffsetMeshSelectionToolProperties {
 }
 pub struct UOffsetMeshSelectionTool {
     pub offset_properties: UPtr<UOffsetMeshSelectionToolProperties>,
-    pub source_preview: UPtr<UPreviewMesh>,
-    pub edit_compute: UPtr<UMeshOpPreviewWithBackgroundCompute>,
+    pub source_preview: UPtr<crate::bindings::modeling_components::UPreviewMesh>,
+    pub edit_compute: UPtr<
+        crate::bindings::modeling_components::UMeshOpPreviewWithBackgroundCompute,
+    >,
 }
 pub struct UMeshAnalysisProperties {
     pub surface_area: FString,
@@ -734,40 +863,56 @@ pub struct URevolveBoundaryOperatorFactory {
     pub revolve_boundary_tool: UPtr<URevolveBoundaryTool>,
 }
 pub struct URevolveBoundaryToolProperties {
-    pub cap_fill_mode: ERevolvePropertiesCapFillMode,
+    pub cap_fill_mode: crate::bindings::mesh_modeling_tools::ERevolvePropertiesCapFillMode,
     pub b_display_input_mesh: bool,
-    pub axis_origin: FVector,
-    pub axis_orientation: FVector2D,
+    pub axis_origin: crate::bindings::core_u_object::FVector,
+    pub axis_orientation: crate::bindings::core_u_object::FVector2D,
 }
 pub struct URevolveBoundaryTool {
-    pub output_type_properties: UPtr<UCreateMeshObjectTypeProperties>,
+    pub output_type_properties: UPtr<
+        crate::bindings::modeling_components::UCreateMeshObjectTypeProperties,
+    >,
     pub settings: UPtr<URevolveBoundaryToolProperties>,
-    pub material_properties: UPtr<UNewMeshMaterialProperties>,
-    pub plane_mechanic: UPtr<UConstructionPlaneMechanic>,
-    pub preview: UPtr<UMeshOpPreviewWithBackgroundCompute>,
+    pub material_properties: UPtr<
+        crate::bindings::mesh_modeling_tools::UNewMeshMaterialProperties,
+    >,
+    pub plane_mechanic: UPtr<
+        crate::bindings::modeling_components::UConstructionPlaneMechanic,
+    >,
+    pub preview: UPtr<
+        crate::bindings::modeling_components::UMeshOpPreviewWithBackgroundCompute,
+    >,
 }
 pub struct URevolveSplineToolProperties {
     pub sample_mode: ERevolveSplineSampleMode,
     pub error_tolerance: f64,
     pub max_sample_distance: f64,
-    pub cap_fill_mode: ERevolvePropertiesCapFillMode,
+    pub cap_fill_mode: crate::bindings::mesh_modeling_tools::ERevolvePropertiesCapFillMode,
     pub b_close_path_to_axis: bool,
-    pub axis_origin: FVector,
-    pub axis_orientation: FVector2D,
+    pub axis_origin: crate::bindings::core_u_object::FVector,
+    pub axis_orientation: crate::bindings::core_u_object::FVector2D,
     pub b_reset_axis_on_start: bool,
 }
 pub struct URevolveSplineToolActionPropertySet {}
 pub struct UBaseMeshFromSplinesTool {
-    pub output_type_properties: UPtr<UCreateMeshObjectTypeProperties>,
-    pub material_properties: UPtr<UNewMeshMaterialProperties>,
-    pub preview: UPtr<UMeshOpPreviewWithBackgroundCompute>,
-    pub target_world: TWeakObjectPtr<UWorld>,
-    pub actors_with_splines: TArray<TWeakObjectPtr<AActor>>,
+    pub output_type_properties: UPtr<
+        crate::bindings::modeling_components::UCreateMeshObjectTypeProperties,
+    >,
+    pub material_properties: UPtr<
+        crate::bindings::mesh_modeling_tools::UNewMeshMaterialProperties,
+    >,
+    pub preview: UPtr<
+        crate::bindings::modeling_components::UMeshOpPreviewWithBackgroundCompute,
+    >,
+    pub target_world: TWeakObjectPtr<crate::bindings::engine::UWorld>,
+    pub actors_with_splines: TArray<TWeakObjectPtr<crate::bindings::engine::AActor>>,
 }
 pub struct URevolveSplineTool {
     pub settings: UPtr<URevolveSplineToolProperties>,
     pub tool_actions: UPtr<URevolveSplineToolActionPropertySet>,
-    pub plane_mechanic: UPtr<UConstructionPlaneMechanic>,
+    pub plane_mechanic: UPtr<
+        crate::bindings::modeling_components::UConstructionPlaneMechanic,
+    >,
 }
 pub struct UBaseMeshFromSplinesToolBuilder {}
 pub struct URevolveSplineToolBuilder {}
@@ -779,7 +924,7 @@ pub struct USeamSculptToolProperties {
 }
 pub struct USeamSculptTool {
     pub settings: UPtr<USeamSculptToolProperties>,
-    pub preview_geom: UPtr<UPreviewGeometry>,
+    pub preview_geom: UPtr<crate::bindings::modeling_components::UPreviewGeometry>,
 }
 pub struct USelfUnionMeshesToolProperties {
     pub b_trim_flaps: bool,
@@ -791,7 +936,7 @@ pub struct USelfUnionMeshesToolProperties {
 }
 pub struct USelfUnionMeshesTool {
     pub properties: UPtr<USelfUnionMeshesToolProperties>,
-    pub drawn_line_set: UPtr<ULineSetComponent>,
+    pub drawn_line_set: UPtr<crate::bindings::modeling_components::ULineSetComponent>,
 }
 pub struct USelfUnionMeshesToolBuilder {}
 pub struct USplitMeshesToolBuilder {}
@@ -804,9 +949,13 @@ pub struct USplitMeshesToolProperties {
 }
 pub struct USplitMeshesTool {
     pub basic_properties: UPtr<USplitMeshesToolProperties>,
-    pub output_type_properties: UPtr<UCreateMeshObjectTypeProperties>,
-    pub per_target_previews: TArray<UPtr<UPreviewGeometry>>,
-    pub preview_material: UPtr<UMaterialInterface>,
+    pub output_type_properties: UPtr<
+        crate::bindings::modeling_components::UCreateMeshObjectTypeProperties,
+    >,
+    pub per_target_previews: TArray<
+        UPtr<crate::bindings::modeling_components::UPreviewGeometry>,
+    >,
+    pub preview_material: UPtr<crate::bindings::engine::UMaterialInterface>,
 }
 pub struct UTransferMeshToolBuilder {}
 pub struct UTransferMeshToolProperties {
@@ -835,19 +984,21 @@ pub struct UTransformMeshesToolProperties {
 pub struct UTransformMeshesTool {
     pub transform_props: UPtr<UTransformMeshesToolProperties>,
     pub active_gizmos: TArray<FTransformMeshesTarget>,
-    pub drag_alignment_mechanic: UPtr<UDragAlignmentMechanic>,
+    pub drag_alignment_mechanic: UPtr<
+        crate::bindings::modeling_components::UDragAlignmentMechanic,
+    >,
 }
 pub struct UTriangulateSplinesToolProperties {
     pub error_tolerance: f64,
-    pub flatten_method: EFlattenCurveMethod,
-    pub combine_method: ECombineCurvesMethod,
+    pub flatten_method: crate::bindings::modeling_operators::EFlattenCurveMethod,
+    pub combine_method: crate::bindings::modeling_operators::ECombineCurvesMethod,
     pub thickness: f64,
     pub b_flip_result: bool,
-    pub open_curves: EOffsetOpenCurvesMethod,
+    pub open_curves: crate::bindings::modeling_operators::EOffsetOpenCurvesMethod,
     pub curve_offset: f64,
-    pub offset_closed_curves: EOffsetClosedCurvesMethod,
-    pub end_shapes: EOpenCurveEndShapes,
-    pub join_method: EOffsetJoinMethod,
+    pub offset_closed_curves: crate::bindings::modeling_operators::EOffsetClosedCurvesMethod,
+    pub end_shapes: crate::bindings::modeling_operators::EOpenCurveEndShapes,
+    pub join_method: crate::bindings::modeling_operators::EOffsetJoinMethod,
     pub miter_limit: f64,
 }
 pub struct UTriangulateSplinesTool {
@@ -869,11 +1020,19 @@ pub struct UUVTransferToolProperties {
 }
 pub struct UUVTransferTool {
     pub settings: UPtr<UUVTransferToolProperties>,
-    pub destination_material_settings: UPtr<UExistingMeshMaterialProperties>,
-    pub destination_preview: UPtr<UMeshOpPreviewWithBackgroundCompute>,
-    pub source_preview: UPtr<UPreviewMesh>,
-    pub source_seam_visualizer: UPtr<UMeshElementsVisualizer>,
-    pub destination_seam_visualizer: UPtr<UMeshElementsVisualizer>,
+    pub destination_material_settings: UPtr<
+        crate::bindings::mesh_modeling_tools::UExistingMeshMaterialProperties,
+    >,
+    pub destination_preview: UPtr<
+        crate::bindings::modeling_components::UMeshOpPreviewWithBackgroundCompute,
+    >,
+    pub source_preview: UPtr<crate::bindings::modeling_components::UPreviewMesh>,
+    pub source_seam_visualizer: UPtr<
+        crate::bindings::modeling_components::UMeshElementsVisualizer,
+    >,
+    pub destination_seam_visualizer: UPtr<
+        crate::bindings::modeling_components::UMeshElementsVisualizer,
+    >,
 }
 pub struct UVolumeToMeshToolBuilder {}
 pub struct UVolumeToMeshToolProperties {
@@ -884,10 +1043,12 @@ pub struct UVolumeToMeshToolProperties {
 }
 pub struct UVolumeToMeshTool {
     pub settings: UPtr<UVolumeToMeshToolProperties>,
-    pub output_type_properties: UPtr<UCreateMeshObjectTypeProperties>,
-    pub preview_mesh: UPtr<UPreviewMesh>,
-    pub target_volume: TLazyObjectPtr<AVolume>,
-    pub volume_edges_set: UPtr<ULineSetComponent>,
+    pub output_type_properties: UPtr<
+        crate::bindings::modeling_components::UCreateMeshObjectTypeProperties,
+    >,
+    pub preview_mesh: UPtr<crate::bindings::modeling_components::UPreviewMesh>,
+    pub target_volume: TLazyObjectPtr<crate::bindings::engine::AVolume>,
+    pub volume_edges_set: UPtr<crate::bindings::modeling_components::ULineSetComponent>,
 }
 pub struct UVoxelBlendMeshesToolProperties {
     pub blend_power: f64,
@@ -902,7 +1063,7 @@ pub struct UVoxelBlendMeshesTool {
 }
 pub struct UVoxelBlendMeshesToolBuilder {}
 pub struct UVoxelMorphologyMeshesToolProperties {
-    pub operation: EMorphologyOperation,
+    pub operation: crate::bindings::modeling_operators::EMorphologyOperation,
     pub distance: f64,
     pub b_vox_wrap: bool,
     pub b_remove_internals_after_vox_wrap: bool,
@@ -924,3 +1085,517 @@ pub struct UVoxelSolidifyMeshesTool {
     pub solidify_properties: UPtr<UVoxelSolidifyMeshesToolProperties>,
 }
 pub struct UVoxelSolidifyMeshesToolBuilder {}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EBakeNormalSpace(pub i32);
+impl EBakeNormalSpace {
+    pub const TANGENT: EBakeNormalSpace = EBakeNormalSpace(0);
+    pub const OBJECT: EBakeNormalSpace = EBakeNormalSpace(1);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EBakeCurvatureTypeMode(pub i32);
+impl EBakeCurvatureTypeMode {
+    pub const MEAN_AVERAGE: EBakeCurvatureTypeMode = EBakeCurvatureTypeMode(0);
+    pub const MAX: EBakeCurvatureTypeMode = EBakeCurvatureTypeMode(1);
+    pub const MIN: EBakeCurvatureTypeMode = EBakeCurvatureTypeMode(2);
+    pub const GAUSSIAN: EBakeCurvatureTypeMode = EBakeCurvatureTypeMode(3);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EBakeCurvatureColorMode(pub i32);
+impl EBakeCurvatureColorMode {
+    pub const GRAYSCALE: EBakeCurvatureColorMode = EBakeCurvatureColorMode(0);
+    pub const RED_BLUE: EBakeCurvatureColorMode = EBakeCurvatureColorMode(1);
+    pub const RED_GREEN_BLUE: EBakeCurvatureColorMode = EBakeCurvatureColorMode(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EBakeCurvatureClampMode(pub i32);
+impl EBakeCurvatureClampMode {
+    pub const NONE: EBakeCurvatureClampMode = EBakeCurvatureClampMode(0);
+    pub const ONLY_POSITIVE: EBakeCurvatureClampMode = EBakeCurvatureClampMode(1);
+    pub const ONLY_NEGATIVE: EBakeCurvatureClampMode = EBakeCurvatureClampMode(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EBakeHeightRangeMode(pub i32);
+impl EBakeHeightRangeMode {
+    pub const ABSOLUTE: EBakeHeightRangeMode = EBakeHeightRangeMode(0);
+    pub const RELATIVE_BOUNDS: EBakeHeightRangeMode = EBakeHeightRangeMode(1);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EAlignObjectsAlignTypes(pub i32);
+impl EAlignObjectsAlignTypes {
+    pub const PIVOTS: EAlignObjectsAlignTypes = EAlignObjectsAlignTypes(0);
+    pub const BOUNDING_BOXES: EAlignObjectsAlignTypes = EAlignObjectsAlignTypes(1);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EAlignObjectsAlignToOptions(pub i32);
+impl EAlignObjectsAlignToOptions {
+    pub const FIRST_SELECTED: EAlignObjectsAlignToOptions = EAlignObjectsAlignToOptions(
+        0,
+    );
+    pub const LAST_SELECTED: EAlignObjectsAlignToOptions = EAlignObjectsAlignToOptions(
+        1,
+    );
+    pub const COMBINED: EAlignObjectsAlignToOptions = EAlignObjectsAlignToOptions(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EAlignObjectsBoxPoint(pub i32);
+impl EAlignObjectsBoxPoint {
+    pub const CENTER: EAlignObjectsBoxPoint = EAlignObjectsBoxPoint(0);
+    pub const BOTTOM: EAlignObjectsBoxPoint = EAlignObjectsBoxPoint(1);
+    pub const TOP: EAlignObjectsBoxPoint = EAlignObjectsBoxPoint(2);
+    pub const LEFT: EAlignObjectsBoxPoint = EAlignObjectsBoxPoint(3);
+    pub const RIGHT: EAlignObjectsBoxPoint = EAlignObjectsBoxPoint(4);
+    pub const FRONT: EAlignObjectsBoxPoint = EAlignObjectsBoxPoint(5);
+    pub const BACK: EAlignObjectsBoxPoint = EAlignObjectsBoxPoint(6);
+    pub const MIN: EAlignObjectsBoxPoint = EAlignObjectsBoxPoint(7);
+    pub const MAX: EAlignObjectsBoxPoint = EAlignObjectsBoxPoint(8);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EBakeMapType(pub i32);
+impl EBakeMapType {
+    pub const NONE: EBakeMapType = EBakeMapType(0);
+    pub const TANGENT_SPACE_NORMAL: EBakeMapType = EBakeMapType(1);
+    pub const OBJECT_SPACE_NORMAL: EBakeMapType = EBakeMapType(2);
+    pub const FACE_NORMAL: EBakeMapType = EBakeMapType(4);
+    pub const BENT_NORMAL: EBakeMapType = EBakeMapType(8);
+    pub const POSITION: EBakeMapType = EBakeMapType(16);
+    pub const CURVATURE: EBakeMapType = EBakeMapType(32);
+    pub const AMBIENT_OCCLUSION: EBakeMapType = EBakeMapType(64);
+    pub const TEXTURE: EBakeMapType = EBakeMapType(128);
+    pub const MULTI_TEXTURE: EBakeMapType = EBakeMapType(256);
+    pub const VERTEX_COLOR: EBakeMapType = EBakeMapType(512);
+    pub const MATERIAL_ID: EBakeMapType = EBakeMapType(1024);
+    pub const POLY_GROUP_ID: EBakeMapType = EBakeMapType(2048);
+    pub const ONE: EBakeMapType = EBakeMapType(4096);
+    pub const ZERO: EBakeMapType = EBakeMapType(8192);
+    pub const UV_SHELL: EBakeMapType = EBakeMapType(16384);
+    pub const HEIGHT: EBakeMapType = EBakeMapType(32768);
+    pub const ALL: EBakeMapType = EBakeMapType(32767);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EBakeVertexOutput(pub i32);
+impl EBakeVertexOutput {
+    pub const RGBA: EBakeVertexOutput = EBakeVertexOutput(0);
+    pub const PER_CHANNEL: EBakeVertexOutput = EBakeVertexOutput(1);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EBakeVertexChannel(pub i32);
+impl EBakeVertexChannel {
+    pub const R: EBakeVertexChannel = EBakeVertexChannel(0);
+    pub const G: EBakeVertexChannel = EBakeVertexChannel(1);
+    pub const B: EBakeVertexChannel = EBakeVertexChannel(2);
+    pub const A: EBakeVertexChannel = EBakeVertexChannel(3);
+    pub const RGBA: EBakeVertexChannel = EBakeVertexChannel(4);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EBakeVertexTopology(pub i32);
+impl EBakeVertexTopology {
+    pub const CREATE_NEW: EBakeVertexTopology = EBakeVertexTopology(0);
+    pub const USE_EXISTING: EBakeVertexTopology = EBakeVertexTopology(1);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EBakeScaleMethod(pub u8);
+impl EBakeScaleMethod {
+    pub const BAKE_FULL_SCALE: EBakeScaleMethod = EBakeScaleMethod(0);
+    pub const BAKE_NONUNIFORM_SCALE: EBakeScaleMethod = EBakeScaleMethod(1);
+    pub const DO_NOT_BAKE_SCALE: EBakeScaleMethod = EBakeScaleMethod(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ECubeGridToolFaceSelectionMode(pub i32);
+impl ECubeGridToolFaceSelectionMode {
+    pub const OUTSIDE_BASED_ON_NORMAL: ECubeGridToolFaceSelectionMode = ECubeGridToolFaceSelectionMode(
+        0,
+    );
+    pub const INSIDE_BASED_ON_NORMAL: ECubeGridToolFaceSelectionMode = ECubeGridToolFaceSelectionMode(
+        1,
+    );
+    pub const OUTSIDE_BASED_ON_VIEW_RAY: ECubeGridToolFaceSelectionMode = ECubeGridToolFaceSelectionMode(
+        2,
+    );
+    pub const INSIDE_BASED_ON_VIEW_RAY: ECubeGridToolFaceSelectionMode = ECubeGridToolFaceSelectionMode(
+        3,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EDrawPolyPathWidthMode(pub i32);
+impl EDrawPolyPathWidthMode {
+    pub const FIXED: EDrawPolyPathWidthMode = EDrawPolyPathWidthMode(0);
+    pub const INTERACTIVE: EDrawPolyPathWidthMode = EDrawPolyPathWidthMode(1);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EDrawPolyPathRadiusMode(pub i32);
+impl EDrawPolyPathRadiusMode {
+    pub const FIXED: EDrawPolyPathRadiusMode = EDrawPolyPathRadiusMode(0);
+    pub const INTERACTIVE: EDrawPolyPathRadiusMode = EDrawPolyPathRadiusMode(1);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EDrawPolyPathExtrudeMode(pub i32);
+impl EDrawPolyPathExtrudeMode {
+    pub const FLAT: EDrawPolyPathExtrudeMode = EDrawPolyPathExtrudeMode(0);
+    pub const FIXED: EDrawPolyPathExtrudeMode = EDrawPolyPathExtrudeMode(1);
+    pub const INTERACTIVE: EDrawPolyPathExtrudeMode = EDrawPolyPathExtrudeMode(2);
+    pub const RAMP_FIXED: EDrawPolyPathExtrudeMode = EDrawPolyPathExtrudeMode(3);
+    pub const RAMP_INTERACTIVE: EDrawPolyPathExtrudeMode = EDrawPolyPathExtrudeMode(4);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EDrawPolyPathExtrudeDirection(pub i32);
+impl EDrawPolyPathExtrudeDirection {
+    pub const SELECTION_NORMAL: EDrawPolyPathExtrudeDirection = EDrawPolyPathExtrudeDirection(
+        0,
+    );
+    pub const WORLD_X: EDrawPolyPathExtrudeDirection = EDrawPolyPathExtrudeDirection(1);
+    pub const WORLD_Y: EDrawPolyPathExtrudeDirection = EDrawPolyPathExtrudeDirection(2);
+    pub const WORLD_Z: EDrawPolyPathExtrudeDirection = EDrawPolyPathExtrudeDirection(3);
+    pub const LOCAL_X: EDrawPolyPathExtrudeDirection = EDrawPolyPathExtrudeDirection(4);
+    pub const LOCAL_Y: EDrawPolyPathExtrudeDirection = EDrawPolyPathExtrudeDirection(5);
+    pub const LOCAL_Z: EDrawPolyPathExtrudeDirection = EDrawPolyPathExtrudeDirection(6);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EEditPivotSnapDragRotationMode(pub u8);
+impl EEditPivotSnapDragRotationMode {
+    pub const ALIGN: EEditPivotSnapDragRotationMode = EEditPivotSnapDragRotationMode(1);
+    pub const ALIGN_FLIPPED: EEditPivotSnapDragRotationMode = EEditPivotSnapDragRotationMode(
+        2,
+    );
+    pub const LAST_VALUE: EEditPivotSnapDragRotationMode = EEditPivotSnapDragRotationMode(
+        3,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EExtractSplineMode(pub u8);
+impl EExtractSplineMode {
+    pub const PLANE_CUT: EExtractSplineMode = EExtractSplineMode(1);
+    pub const OPEN_BOUNDARY: EExtractSplineMode = EExtractSplineMode(2);
+    pub const POLYGROUP_LOOPS: EExtractSplineMode = EExtractSplineMode(3);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EMeshInspectorToolDrawIndexMode(pub u8);
+impl EMeshInspectorToolDrawIndexMode {
+    pub const NONE: EMeshInspectorToolDrawIndexMode = EMeshInspectorToolDrawIndexMode(0);
+    pub const VERTEX_ID: EMeshInspectorToolDrawIndexMode = EMeshInspectorToolDrawIndexMode(
+        1,
+    );
+    pub const TRIANGLE_ID: EMeshInspectorToolDrawIndexMode = EMeshInspectorToolDrawIndexMode(
+        2,
+    );
+    pub const GROUP_ID: EMeshInspectorToolDrawIndexMode = EMeshInspectorToolDrawIndexMode(
+        3,
+    );
+    pub const EDGE_ID: EMeshInspectorToolDrawIndexMode = EMeshInspectorToolDrawIndexMode(
+        4,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EMeshInspectorMaterialMode(pub u8);
+impl EMeshInspectorMaterialMode {
+    pub const ORIGINAL: EMeshInspectorMaterialMode = EMeshInspectorMaterialMode(0);
+    pub const FLAT_SHADED: EMeshInspectorMaterialMode = EMeshInspectorMaterialMode(1);
+    pub const GREY: EMeshInspectorMaterialMode = EMeshInspectorMaterialMode(2);
+    pub const TRANSPARENT: EMeshInspectorMaterialMode = EMeshInspectorMaterialMode(3);
+    pub const TANGENT_NORMAL: EMeshInspectorMaterialMode = EMeshInspectorMaterialMode(4);
+    pub const VERTEX_COLOR: EMeshInspectorMaterialMode = EMeshInspectorMaterialMode(5);
+    pub const GROUP_COLOR: EMeshInspectorMaterialMode = EMeshInspectorMaterialMode(6);
+    pub const CHECKERBOARD: EMeshInspectorMaterialMode = EMeshInspectorMaterialMode(7);
+    pub const OVERRIDE: EMeshInspectorMaterialMode = EMeshInspectorMaterialMode(8);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EMeshSelectionToolPrimaryMode(pub i32);
+impl EMeshSelectionToolPrimaryMode {
+    pub const BRUSH: EMeshSelectionToolPrimaryMode = EMeshSelectionToolPrimaryMode(0);
+    pub const VOLUMETRIC_BRUSH: EMeshSelectionToolPrimaryMode = EMeshSelectionToolPrimaryMode(
+        1,
+    );
+    pub const ANGLE_FILTERED: EMeshSelectionToolPrimaryMode = EMeshSelectionToolPrimaryMode(
+        2,
+    );
+    pub const VISIBLE: EMeshSelectionToolPrimaryMode = EMeshSelectionToolPrimaryMode(3);
+    pub const ALL_CONNECTED: EMeshSelectionToolPrimaryMode = EMeshSelectionToolPrimaryMode(
+        4,
+    );
+    pub const ALL_IN_GROUP: EMeshSelectionToolPrimaryMode = EMeshSelectionToolPrimaryMode(
+        5,
+    );
+    pub const BY_MATERIAL: EMeshSelectionToolPrimaryMode = EMeshSelectionToolPrimaryMode(
+        6,
+    );
+    pub const BY_MATERIAL_ALL: EMeshSelectionToolPrimaryMode = EMeshSelectionToolPrimaryMode(
+        7,
+    );
+    pub const BY_UV_ISLAND: EMeshSelectionToolPrimaryMode = EMeshSelectionToolPrimaryMode(
+        8,
+    );
+    pub const ALL_WITHIN_ANGLE: EMeshSelectionToolPrimaryMode = EMeshSelectionToolPrimaryMode(
+        9,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EMeshFacesColorMode(pub i32);
+impl EMeshFacesColorMode {
+    pub const NONE: EMeshFacesColorMode = EMeshFacesColorMode(0);
+    pub const BY_GROUP: EMeshFacesColorMode = EMeshFacesColorMode(1);
+    pub const BY_MATERIAL_ID: EMeshFacesColorMode = EMeshFacesColorMode(2);
+    pub const BY_UV_ISLAND: EMeshFacesColorMode = EMeshFacesColorMode(3);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EMirrorOperationMode(pub u8);
+impl EMirrorOperationMode {
+    pub const MIRROR_AND_APPEND: EMirrorOperationMode = EMirrorOperationMode(0);
+    pub const MIRROR_EXISTING: EMirrorOperationMode = EMirrorOperationMode(1);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EMeshMirrorWeldNormalMode(pub u8);
+impl EMeshMirrorWeldNormalMode {
+    pub const MIRROR_NORMALS: EMeshMirrorWeldNormalMode = EMeshMirrorWeldNormalMode(0);
+    pub const AVERAGE_MIRROR_NORMALS: EMeshMirrorWeldNormalMode = EMeshMirrorWeldNormalMode(
+        1,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EMirrorSaveMode(pub u8);
+impl EMirrorSaveMode {
+    pub const INPUT_OBJECTS: EMirrorSaveMode = EMirrorSaveMode(0);
+    pub const NEW_OBJECTS: EMirrorSaveMode = EMirrorSaveMode(1);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EPatternToolShape(pub u8);
+impl EPatternToolShape {
+    pub const LINE: EPatternToolShape = EPatternToolShape(0);
+    pub const GRID: EPatternToolShape = EPatternToolShape(1);
+    pub const CIRCLE: EPatternToolShape = EPatternToolShape(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EPatternToolSingleAxis(pub u8);
+impl EPatternToolSingleAxis {
+    pub const X_AXIS: EPatternToolSingleAxis = EPatternToolSingleAxis(0);
+    pub const Y_AXIS: EPatternToolSingleAxis = EPatternToolSingleAxis(1);
+    pub const Z_AXIS: EPatternToolSingleAxis = EPatternToolSingleAxis(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EPatternToolSinglePlane(pub u8);
+impl EPatternToolSinglePlane {
+    pub const XY_PLANE: EPatternToolSinglePlane = EPatternToolSinglePlane(0);
+    pub const XZ_PLANE: EPatternToolSinglePlane = EPatternToolSinglePlane(1);
+    pub const YZ_PLANE: EPatternToolSinglePlane = EPatternToolSinglePlane(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EPatternToolAxisSpacingMode(pub u8);
+impl EPatternToolAxisSpacingMode {
+    pub const BY_COUNT: EPatternToolAxisSpacingMode = EPatternToolAxisSpacingMode(0);
+    pub const STEP_SIZE: EPatternToolAxisSpacingMode = EPatternToolAxisSpacingMode(1);
+    pub const PACKED: EPatternToolAxisSpacingMode = EPatternToolAxisSpacingMode(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ECollisionGeometryMode(pub i32);
+impl ECollisionGeometryMode {
+    pub const DEFAULT: ECollisionGeometryMode = ECollisionGeometryMode(0);
+    pub const SIMPLE_AND_COMPLEX: ECollisionGeometryMode = ECollisionGeometryMode(1);
+    pub const USE_SIMPLE_AS_COMPLEX: ECollisionGeometryMode = ECollisionGeometryMode(2);
+    pub const USE_COMPLEX_AS_SIMPLE: ECollisionGeometryMode = ECollisionGeometryMode(3);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EExtractCollisionOutputType(pub u8);
+impl EExtractCollisionOutputType {
+    pub const SIMPLE: EExtractCollisionOutputType = EExtractCollisionOutputType(0);
+    pub const COMPLEX: EExtractCollisionOutputType = EExtractCollisionOutputType(1);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ECollisionGeometryType(pub i32);
+impl ECollisionGeometryType {
+    pub const COPY_FROM_INPUTS: ECollisionGeometryType = ECollisionGeometryType(0);
+    pub const ALIGNED_BOXES: ECollisionGeometryType = ECollisionGeometryType(1);
+    pub const ORIENTED_BOXES: ECollisionGeometryType = ECollisionGeometryType(2);
+    pub const MINIMAL_SPHERES: ECollisionGeometryType = ECollisionGeometryType(3);
+    pub const CAPSULES: ECollisionGeometryType = ECollisionGeometryType(4);
+    pub const CONVEX_HULLS: ECollisionGeometryType = ECollisionGeometryType(5);
+    pub const CONVEX_DECOMPOSITIONS: ECollisionGeometryType = ECollisionGeometryType(8);
+    pub const SWEPT_HULLS: ECollisionGeometryType = ECollisionGeometryType(6);
+    pub const LEVEL_SETS: ECollisionGeometryType = ECollisionGeometryType(7);
+    pub const MIN_VOLUME: ECollisionGeometryType = ECollisionGeometryType(10);
+    pub const EMPTY: ECollisionGeometryType = ECollisionGeometryType(11);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ESetCollisionGeometryInputMode(pub i32);
+impl ESetCollisionGeometryInputMode {
+    pub const COMBINE_ALL: ESetCollisionGeometryInputMode = ESetCollisionGeometryInputMode(
+        0,
+    );
+    pub const PER_INPUT_OBJECT: ESetCollisionGeometryInputMode = ESetCollisionGeometryInputMode(
+        1,
+    );
+    pub const PER_MESH_COMPONENT: ESetCollisionGeometryInputMode = ESetCollisionGeometryInputMode(
+        2,
+    );
+    pub const PER_MESH_GROUP: ESetCollisionGeometryInputMode = ESetCollisionGeometryInputMode(
+        3,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EConvexDecompositionMethod(pub i32);
+impl EConvexDecompositionMethod {
+    pub const NAVIGATION_DRIVEN: EConvexDecompositionMethod = EConvexDecompositionMethod(
+        0,
+    );
+    pub const VOLUMETRIC_ERROR: EConvexDecompositionMethod = EConvexDecompositionMethod(
+        1,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EProjectedHullAxis(pub i32);
+impl EProjectedHullAxis {
+    pub const X: EProjectedHullAxis = EProjectedHullAxis(0);
+    pub const Y: EProjectedHullAxis = EProjectedHullAxis(1);
+    pub const Z: EProjectedHullAxis = EProjectedHullAxis(2);
+    pub const SMALLEST_BOX_DIMENSION: EProjectedHullAxis = EProjectedHullAxis(3);
+    pub const SMALLEST_VOLUME: EProjectedHullAxis = EProjectedHullAxis(4);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EExtrudeMeshSelectionInteractionMode(pub u8);
+impl EExtrudeMeshSelectionInteractionMode {
+    pub const INTERACTIVE: EExtrudeMeshSelectionInteractionMode = EExtrudeMeshSelectionInteractionMode(
+        0,
+    );
+    pub const FIXED: EExtrudeMeshSelectionInteractionMode = EExtrudeMeshSelectionInteractionMode(
+        1,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EExtrudeMeshSelectionRegionModifierMode(pub u8);
+impl EExtrudeMeshSelectionRegionModifierMode {
+    pub const ORIGINAL_SHAPE: EExtrudeMeshSelectionRegionModifierMode = EExtrudeMeshSelectionRegionModifierMode(
+        0,
+    );
+    pub const FLATTEN_TO_PLANE: EExtrudeMeshSelectionRegionModifierMode = EExtrudeMeshSelectionRegionModifierMode(
+        1,
+    );
+    pub const RAYCAST_TO_PLANE: EExtrudeMeshSelectionRegionModifierMode = EExtrudeMeshSelectionRegionModifierMode(
+        2,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EOffsetMeshSelectionDirectionMode(pub u8);
+impl EOffsetMeshSelectionDirectionMode {
+    pub const VERTEX_NORMALS: EOffsetMeshSelectionDirectionMode = EOffsetMeshSelectionDirectionMode(
+        0,
+    );
+    pub const FACE_NORMALS: EOffsetMeshSelectionDirectionMode = EOffsetMeshSelectionDirectionMode(
+        1,
+    );
+    pub const CONSTANT_WIDTH: EOffsetMeshSelectionDirectionMode = EOffsetMeshSelectionDirectionMode(
+        2,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ERevolveSplineSampleMode(pub u8);
+impl ERevolveSplineSampleMode {
+    pub const CONTROL_POINTS_ONLY: ERevolveSplineSampleMode = ERevolveSplineSampleMode(
+        0,
+    );
+    pub const POLY_LINE_MAX_ERROR: ERevolveSplineSampleMode = ERevolveSplineSampleMode(
+        1,
+    );
+    pub const UNIFORM_SPACING_ALONG_CURVE: ERevolveSplineSampleMode = ERevolveSplineSampleMode(
+        2,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ESplitMeshesMethod(pub u8);
+impl ESplitMeshesMethod {
+    pub const BY_MESH_TOPOLOGY: ESplitMeshesMethod = ESplitMeshesMethod(0);
+    pub const BY_VERTEX_OVERLAP: ESplitMeshesMethod = ESplitMeshesMethod(1);
+    pub const BY_MATERIAL_ID: ESplitMeshesMethod = ESplitMeshesMethod(2);
+    pub const BY_POLY_GROUP: ESplitMeshesMethod = ESplitMeshesMethod(3);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ETransformMeshesTransformMode(pub u8);
+impl ETransformMeshesTransformMode {
+    pub const SHARED_GIZMO: ETransformMeshesTransformMode = ETransformMeshesTransformMode(
+        0,
+    );
+    pub const SHARED_GIZMO_LOCAL: ETransformMeshesTransformMode = ETransformMeshesTransformMode(
+        1,
+    );
+    pub const PER_OBJECT_GIZMO: ETransformMeshesTransformMode = ETransformMeshesTransformMode(
+        2,
+    );
+    pub const LAST_VALUE: ETransformMeshesTransformMode = ETransformMeshesTransformMode(
+        3,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ETransformMeshesSnapDragSource(pub u8);
+impl ETransformMeshesSnapDragSource {
+    pub const CLICK_POINT: ETransformMeshesSnapDragSource = ETransformMeshesSnapDragSource(
+        0,
+    );
+    pub const PIVOT: ETransformMeshesSnapDragSource = ETransformMeshesSnapDragSource(1);
+    pub const LAST_VALUE: ETransformMeshesSnapDragSource = ETransformMeshesSnapDragSource(
+        2,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ETransformMeshesSnapDragRotationMode(pub u8);
+impl ETransformMeshesSnapDragRotationMode {
+    pub const IGNORE: ETransformMeshesSnapDragRotationMode = ETransformMeshesSnapDragRotationMode(
+        0,
+    );
+    pub const ALIGN: ETransformMeshesSnapDragRotationMode = ETransformMeshesSnapDragRotationMode(
+        1,
+    );
+    pub const ALIGN_FLIPPED: ETransformMeshesSnapDragRotationMode = ETransformMeshesSnapDragRotationMode(
+        2,
+    );
+    pub const LAST_VALUE: ETransformMeshesSnapDragRotationMode = ETransformMeshesSnapDragRotationMode(
+        3,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EVoxelBlendOperation(pub u8);
+impl EVoxelBlendOperation {
+    pub const UNION: EVoxelBlendOperation = EVoxelBlendOperation(0);
+    pub const SUBTRACT: EVoxelBlendOperation = EVoxelBlendOperation(1);
+}

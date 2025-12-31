@@ -2,7 +2,8 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
-pub use crate::bindings::prelude::*;
+pub use crate::bindings::opague_definitions::*;
+pub use crate::core_data::*;
 #[repr(C, align(8))]
 pub struct FTagAndValue {
     pub tag: FName,
@@ -22,3 +23,11 @@ pub struct UAssetRegistryHelpers {}
 pub struct UAssetRegistry {}
 pub struct IAssetRegistry {}
 pub struct UAssetRegistryImpl {}
+pub struct FSortByPredicate_SortingPredicate;
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EAssetRegistrySortOrder(pub u8);
+impl EAssetRegistrySortOrder {
+    pub const ASCENDING: EAssetRegistrySortOrder = EAssetRegistrySortOrder(0);
+    pub const DESCENDING: EAssetRegistrySortOrder = EAssetRegistrySortOrder(1);
+}

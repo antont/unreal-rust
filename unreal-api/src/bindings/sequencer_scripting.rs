@@ -2,13 +2,14 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
-pub use crate::bindings::prelude::*;
+pub use crate::bindings::opague_definitions::*;
+pub use crate::core_data::*;
 #[repr(C, align(4))]
 pub struct FSequencerScriptingRange {
     pub flags_0: u8,
     pub inclusive_start: i32,
     pub exclusive_end: i32,
-    pub internal_rate: FFrameRate,
+    pub internal_rate: crate::bindings::core_u_object::FFrameRate,
 }
 pub struct UMovieSceneScriptingKey {}
 pub struct UMovieSceneScriptingActorReferenceKey {}

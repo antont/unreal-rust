@@ -2,18 +2,21 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
-pub use crate::bindings::prelude::*;
+pub use crate::bindings::opague_definitions::*;
+pub use crate::core_data::*;
 #[repr(C, align(8))]
 pub struct FOptimusGraphSchemaAction_NewNode {
-    pub node_class: TSubclassOf<UOptimusNode>,
+    pub node_class: TSubclassOf<crate::bindings::optimus_core::UOptimusNode>,
 }
 #[repr(C, align(8))]
 pub struct FOptimusGraphSchemaAction_NewConstantValueNode {
-    pub data_type: FOptimusDataTypeRef,
+    pub data_type: crate::bindings::optimus_core::FOptimusDataTypeRef,
 }
 #[repr(C, align(8))]
 pub struct FOptimusGraphSchemaAction_NewDataInterfaceNode {
-    pub data_interface_class: TSubclassOf<UOptimusComputeDataInterface>,
+    pub data_interface_class: TSubclassOf<
+        crate::bindings::optimus_core::UOptimusComputeDataInterface,
+    >,
 }
 #[repr(C, align(8))]
 pub struct FOptimusGraphSchemaAction_NewLoopTerminalNodes {}
@@ -32,7 +35,7 @@ pub struct FOptimusSchemaAction_Variable {}
 pub struct UOptimusDeformerFactory {}
 pub struct UOptimusEditorGraph {}
 pub struct UOptimusEditorGraphNode {
-    pub model_node: UPtr<UOptimusNode>,
+    pub model_node: UPtr<crate::bindings::optimus_core::UOptimusNode>,
 }
 pub struct UOptimusEditorGraphNode_Comment {}
 pub struct UOptimusEditorGraphSchema {}

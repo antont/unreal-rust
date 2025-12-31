@@ -2,7 +2,8 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
-pub use crate::bindings::prelude::*;
+pub use crate::bindings::opague_definitions::*;
+pub use crate::core_data::*;
 #[repr(C, align(4))]
 pub struct FAssetPathColumn_Experimental {
     pub path: FName,
@@ -11,7 +12,7 @@ pub struct FAssetPathColumn_Experimental {
 pub struct FFolderTypeColumn_Experimental {}
 #[repr(C, align(8))]
 pub struct FAssetDataColumn_Experimental {
-    pub asset_data: FAssetData,
+    pub asset_data: crate::bindings::core_u_object::FAssetData,
 }
 #[repr(C, align(1))]
 pub struct FAssetTag {}
@@ -27,7 +28,7 @@ pub struct FAssetNameColumn {
 }
 #[repr(C, align(4))]
 pub struct FAssetClassColumn {
-    pub class_path: FTopLevelAssetPath,
+    pub class_path: crate::bindings::core_u_object::FTopLevelAssetPath,
 }
 #[repr(C, align(8))]
 pub struct FDiskSizeColumn {
@@ -61,7 +62,7 @@ pub struct FSizeValueColumn_Experimental {
 }
 #[repr(C, align(4))]
 pub struct FWidgetPaddingColumn_Experimental {
-    pub padding: FMargin,
+    pub padding: crate::bindings::slate_core::FMargin,
 }
 #[repr(C, align(1))]
 pub struct FThumbnailEditModeColumn_Experimental {

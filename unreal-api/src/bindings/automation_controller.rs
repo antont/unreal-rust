@@ -2,10 +2,11 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
-pub use crate::bindings::prelude::*;
+pub use crate::bindings::opague_definitions::*;
+pub use crate::core_data::*;
 #[repr(C, align(8))]
 pub struct FAutomationArtifact {
-    pub id: FGuid,
+    pub id: crate::bindings::core_u_object::FGuid,
     pub name: FString,
     pub ty: EAutomationArtifactType,
     pub files: TMap<FString, FString>,
@@ -15,11 +16,11 @@ pub struct FAutomatedTestResult {
     pub test_display_name: FString,
     pub full_test_path: FString,
     pub tags: TArray<FString>,
-    pub state: EAutomationState,
+    pub state: crate::bindings::automation_test::EAutomationState,
     pub device_instance: TArray<FString>,
     pub duration: f32,
-    pub date_time: FDateTime,
-    pub entries: TArray<FAutomationExecutionEntry>,
+    pub date_time: crate::bindings::core_u_object::FDateTime,
+    pub entries: TArray<crate::bindings::core_u_object::FAutomationExecutionEntry>,
     pub warnings: i32,
     pub errors: i32,
     pub artifacts: TArray<FAutomationArtifact>,
@@ -27,7 +28,7 @@ pub struct FAutomatedTestResult {
 #[repr(C, align(8))]
 pub struct FAutomatedTestPassResults {
     pub devices: TArray<FAutomationDeviceInfo>,
-    pub report_created_on: FDateTime,
+    pub report_created_on: crate::bindings::core_u_object::FDateTime,
     pub succeeded: i32,
     pub succeeded_with_warnings: i32,
     pub failed: i32,
@@ -41,7 +42,7 @@ pub struct FAutomatedTestPassResults {
 #[repr(C, align(8))]
 pub struct FAutomationDeviceInfo {
     pub device_name: FString,
-    pub instance: FGuid,
+    pub instance: crate::bindings::core_u_object::FGuid,
     pub instance_name: FString,
     pub platform: FString,
     pub os_version: FString,
@@ -86,4 +87,12 @@ pub struct UAutomationControllerSettings {
     pub game_instance_lost_timer_seconds: f32,
     pub telemetry_directory: FString,
     pub b_reset_telemetry_storage_on_new_session: bool,
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EAutomationArtifactType(pub u8);
+impl EAutomationArtifactType {
+    pub const NONE: EAutomationArtifactType = EAutomationArtifactType(0);
+    pub const IMAGE: EAutomationArtifactType = EAutomationArtifactType(1);
+    pub const COMPARISON: EAutomationArtifactType = EAutomationArtifactType(2);
 }

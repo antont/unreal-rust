@@ -2,34 +2,35 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
-pub use crate::bindings::prelude::*;
+pub use crate::bindings::opague_definitions::*;
+pub use crate::core_data::*;
 #[repr(C, align(8))]
 pub struct FChaosBreakingEventData {
-    pub location: FVector,
-    pub velocity: FVector,
+    pub location: crate::bindings::core_u_object::FVector,
+    pub velocity: crate::bindings::core_u_object::FVector,
     pub mass: f32,
 }
 #[repr(C, align(8))]
 pub struct FChaosCollisionEventData {
-    pub location: FVector,
-    pub normal: FVector,
-    pub velocity1: FVector,
-    pub velocity2: FVector,
+    pub location: crate::bindings::core_u_object::FVector,
+    pub normal: crate::bindings::core_u_object::FVector,
+    pub velocity1: crate::bindings::core_u_object::FVector,
+    pub velocity2: crate::bindings::core_u_object::FVector,
     pub mass1: f32,
     pub mass2: f32,
-    pub impulse: FVector,
+    pub impulse: crate::bindings::core_u_object::FVector,
 }
 #[repr(C, align(8))]
 pub struct FChaosRemovalEventData {
-    pub location: FVector,
+    pub location: crate::bindings::core_u_object::FVector,
     pub mass: f32,
     pub particle_index: i32,
 }
 #[repr(C, align(8))]
 pub struct FChaosTrailingEventData {
-    pub location: FVector,
-    pub velocity: FVector,
-    pub angular_velocity: FVector,
+    pub location: crate::bindings::core_u_object::FVector,
+    pub velocity: crate::bindings::core_u_object::FVector,
+    pub angular_velocity: crate::bindings::core_u_object::FVector,
     pub mass: f32,
     pub particle_index: i32,
 }
@@ -47,7 +48,7 @@ pub struct FGeometryCollectionRepStateData {}
 pub struct FGeometryCollectionRepData {}
 #[repr(C, align(8))]
 pub struct FGeomComponentCacheParameters {
-    pub cache_mode: EGeometryCollectionCacheType,
+    pub cache_mode: crate::bindings::chaos::EGeometryCollectionCacheType,
     pub target_cache: UPtr<UGeometryCollectionCache>,
     pub reverse_cache_begin_time: f32,
     pub save_collision_data: bool,
@@ -107,14 +108,14 @@ pub struct FGeometryCollectionDebugDrawWarningMessage {}
 #[repr(C, align(8))]
 pub struct FGeometryCollectionDebugDrawActorSelectedRigidBody {
     pub id: i32,
-    pub solver: UPtr<AChaosSolverActor>,
+    pub solver: UPtr<crate::bindings::chaos_solver_engine::AChaosSolverActor>,
     pub geometry_collection: UPtr<AGeometryCollectionActor>,
 }
 #[repr(C, align(16))]
 pub struct FGeometryCollectionSource {
-    pub source_geometry_object: FSoftObjectPath,
-    pub local_transform: FTransform,
-    pub source_material: TArray<UPtr<UMaterialInterface>>,
+    pub source_geometry_object: crate::bindings::core_u_object::FSoftObjectPath,
+    pub local_transform: crate::bindings::core_u_object::FTransform,
+    pub source_material: TArray<UPtr<crate::bindings::engine::UMaterialInterface>>,
     pub instance_custom_data: TArray<f32>,
     pub b_add_internal_materials: bool,
     pub b_split_components: bool,
@@ -122,15 +123,15 @@ pub struct FGeometryCollectionSource {
 }
 #[repr(C, align(8))]
 pub struct FGeometryCollectionAutoInstanceMesh {
-    pub static_mesh_deprecated: FSoftObjectPath,
-    pub mesh: UPtr<UStaticMesh>,
-    pub materials: TArray<UPtr<UMaterialInterface>>,
+    pub static_mesh_deprecated: crate::bindings::core_u_object::FSoftObjectPath,
+    pub mesh: UPtr<crate::bindings::engine::UStaticMesh>,
+    pub materials: TArray<UPtr<crate::bindings::engine::UMaterialInterface>>,
     pub num_instances: i32,
     pub custom_data: TArray<f32>,
 }
 #[repr(C, align(8))]
 pub struct FGeometryCollectionEmbeddedExemplar {
-    pub static_mesh_exemplar: FSoftObjectPath,
+    pub static_mesh_exemplar: crate::bindings::core_u_object::FSoftObjectPath,
     pub start_cull_distance: f32,
     pub end_cull_distance: f32,
     pub instance_count: i32,
@@ -149,8 +150,8 @@ pub struct FGeometryCollectionCollisionParticleData {
 }
 #[repr(C, align(4))]
 pub struct FGeometryCollectionCollisionTypeData {
-    pub collision_type: ECollisionTypeEnum,
-    pub implicit_type: EImplicitTypeEnum,
+    pub collision_type: crate::bindings::chaos::ECollisionTypeEnum,
+    pub implicit_type: crate::bindings::chaos::EImplicitTypeEnum,
     pub level_set: FGeometryCollectionLevelSetData,
     pub collision_particles: FGeometryCollectionCollisionParticleData,
     pub collision_object_reduction_percentage: f32,
@@ -160,8 +161,8 @@ pub struct FGeometryCollectionCollisionTypeData {
 pub struct FGeometryCollectionSizeSpecificData {
     pub max_size: f32,
     pub collision_shapes: TArray<FGeometryCollectionCollisionTypeData>,
-    pub collision_type_deprecated: ECollisionTypeEnum,
-    pub implicit_type_deprecated: EImplicitTypeEnum,
+    pub collision_type_deprecated: crate::bindings::chaos::ECollisionTypeEnum,
+    pub implicit_type_deprecated: crate::bindings::chaos::EImplicitTypeEnum,
     pub min_level_set_resolution_deprecated: i32,
     pub max_level_set_resolution_deprecated: i32,
     pub min_cluster_level_set_resolution_deprecated: i32,
@@ -173,12 +174,12 @@ pub struct FGeometryCollectionSizeSpecificData {
 }
 #[repr(C, align(8))]
 pub struct FGeometryCollectionProxyMeshMaterials {
-    pub materials: TArray<UPtr<UMaterialInterface>>,
+    pub materials: TArray<UPtr<crate::bindings::engine::UMaterialInterface>>,
 }
 #[repr(C, align(8))]
 pub struct FGeometryCollectionProxyMeshData {
-    pub proxy_meshes: TArray<UPtr<UStaticMesh>>,
-    pub mesh_transforms: TArray<FTransform3f>,
+    pub proxy_meshes: TArray<UPtr<crate::bindings::engine::UStaticMesh>>,
+    pub mesh_transforms: TArray<crate::bindings::core_u_object::FTransform3f>,
     pub mesh_override_materials: TArray<FGeometryCollectionProxyMeshMaterials>,
 }
 #[repr(C, align(8))]
@@ -196,7 +197,9 @@ pub struct UChaosDestructionListener {
     pub breaking_event_request_settings: FChaosBreakingEventRequestSettings,
     pub trailing_event_request_settings: FChaosTrailingEventRequestSettings,
     pub removal_event_request_settings: FChaosRemovalEventRequestSettings,
-    pub chaos_solver_actors: TSet<UPtr<AChaosSolverActor>>,
+    pub chaos_solver_actors: TSet<
+        UPtr<crate::bindings::chaos_solver_engine::AChaosSolverActor>,
+    >,
     pub geometry_collection_actors: TSet<UPtr<AGeometryCollectionActor>>,
     pub on_collision_events: FChaosDestructionListener_OnCollisionEvents,
     pub on_breaking_events: FChaosDestructionListener_OnBreakingEvents,
@@ -211,16 +214,20 @@ pub struct AGeometryCollectionActor {
 }
 pub struct UGeometryCollectionBlueprintLibrary {}
 pub struct UGeometryCollectionCache {
-    pub recorded_data: FRecordedTransformTrack,
+    pub recorded_data: crate::bindings::chaos::FRecordedTransformTrack,
     pub supported_collection: UPtr<UGeometryCollection>,
-    pub compatible_collection_state: FGuid,
+    pub compatible_collection_state: crate::bindings::core_u_object::FGuid,
 }
 pub struct UGeometryCollectionComponent {
-    pub chaos_solver_actor: UPtr<AChaosSolverActor>,
+    pub chaos_solver_actor: UPtr<
+        crate::bindings::chaos_solver_engine::AChaosSolverActor,
+    >,
     pub rest_collection: UPtr<UGeometryCollection>,
-    pub initialization_fields: TArray<UPtr<AFieldSystemActor>>,
+    pub initialization_fields: TArray<
+        UPtr<crate::bindings::field_system_engine::AFieldSystemActor>,
+    >,
     pub simulating_deprecated: bool,
-    pub object_type: EObjectStateTypeEnum,
+    pub object_type: crate::bindings::chaos::EObjectStateTypeEnum,
     pub gravity_group_index: i32,
     pub one_way_interaction_level: i32,
     pub b_density_from_physics_material: bool,
@@ -229,7 +236,7 @@ pub struct UGeometryCollectionComponent {
     pub cluster_group_index: i32,
     pub max_cluster_level: i32,
     pub max_simulated_level: i32,
-    pub damage_model: EDamageModelTypeEnum,
+    pub damage_model: crate::bindings::chaos::EDamageModelTypeEnum,
     pub damage_threshold: TArray<f32>,
     pub b_use_size_specific_damage_threshold: bool,
     pub b_use_material_damage_modifiers: bool,
@@ -238,17 +245,21 @@ pub struct UGeometryCollectionComponent {
     pub b_allow_removal_on_sleep: bool,
     pub b_allow_removal_on_break: bool,
     pub b_force_update_active_transforms: bool,
-    pub cluster_connection_type_deprecated: EClusterConnectionTypeEnum,
+    pub cluster_connection_type_deprecated: crate::bindings::chaos_solver_engine::EClusterConnectionTypeEnum,
     pub collision_group: i32,
     pub collision_sample_fraction: f32,
     pub linear_ether_drag_deprecated: f32,
-    pub physical_material_deprecated: UPtr<UChaosPhysicalMaterial>,
-    pub initial_velocity_type: EInitialVelocityTypeEnum,
-    pub initial_linear_velocity: FVector,
-    pub initial_angular_velocity: FVector,
-    pub physical_material_override_deprecated: UPtr<UPhysicalMaterial>,
+    pub physical_material_deprecated: UPtr<
+        crate::bindings::physics_core::UChaosPhysicalMaterial,
+    >,
+    pub initial_velocity_type: crate::bindings::chaos::EInitialVelocityTypeEnum,
+    pub initial_linear_velocity: crate::bindings::core_u_object::FVector,
+    pub initial_angular_velocity: crate::bindings::core_u_object::FVector,
+    pub physical_material_override_deprecated: UPtr<
+        crate::bindings::physics_core::UPhysicalMaterial,
+    >,
     pub cache_parameters: FGeomComponentCacheParameters,
-    pub rest_transforms: TArray<FTransform>,
+    pub rest_transforms: TArray<crate::bindings::core_u_object::FTransform>,
     pub notify_geometry_collection_physics_state_change: FGeometryCollectionComponent_NotifyGeometryCollectionPhysicsStateChange,
     pub notify_geometry_collection_physics_loading_state_change: FGeometryCollectionComponent_NotifyGeometryCollectionPhysicsLoadingStateChange,
     pub on_chaos_break_event: FGeometryCollectionComponent_OnChaosBreakEvent,
@@ -275,12 +286,12 @@ pub struct UGeometryCollectionComponent {
     pub b_use_root_proxy_for_navigation: bool,
     pub b_update_navigation_in_tick: bool,
     pub b_enable_run_time_data_collection: bool,
-    pub run_time_data_collection_guid: FGuid,
+    pub run_time_data_collection_guid: crate::bindings::core_u_object::FGuid,
     pub b_enable_replication: bool,
     pub b_enable_abandon_after_level: bool,
     pub abandoned_collision_profile_name: FName,
-    pub ism_pool_deprecated: UPtr<AISMPoolActor>,
-    pub custom_renderer_type: TSubclassOf<UObject>,
+    pub ism_pool_deprecated: UPtr<crate::bindings::ism_pool::AISMPoolActor>,
+    pub custom_renderer_type: TSubclassOf<crate::bindings::core_u_object::UObject>,
     pub b_override_custom_renderer: bool,
     pub b_auto_assign_ism_pool_deprecated: bool,
     pub b_use_static_mesh_collision_for_traces: bool,
@@ -294,10 +305,14 @@ pub struct UGeometryCollectionComponent {
     pub rep_dynamic_data: FGeometryCollectionRepDynamicData,
     pub selected_bones: TArray<i32>,
     pub highlighted_bones: TArray<i32>,
-    pub dummy_body_setup: UPtr<UBodySetup>,
-    pub editor_actor: UPtr<AActor>,
-    pub event_dispatcher: UPtr<UChaosGameplayEventDispatcher>,
-    pub embedded_geometry_components: TArray<UPtr<UInstancedStaticMeshComponent>>,
+    pub dummy_body_setup: UPtr<crate::bindings::engine::UBodySetup>,
+    pub editor_actor: UPtr<crate::bindings::engine::AActor>,
+    pub event_dispatcher: UPtr<
+        crate::bindings::chaos_solver_engine::UChaosGameplayEventDispatcher,
+    >,
+    pub embedded_geometry_components: TArray<
+        UPtr<crate::bindings::engine::UInstancedStaticMeshComponent>,
+    >,
     pub angular_ether_drag_deprecated: f32,
 }
 pub struct AGeometryCollectionDebugDrawActor {
@@ -339,29 +354,29 @@ pub struct AGeometryCollectionDebugDrawActor {
     pub normal_scale: f32,
     pub axis_scale: f32,
     pub arrow_scale: f32,
-    pub rigid_body_id_color: FColor,
+    pub rigid_body_id_color: crate::bindings::core_u_object::FColor,
     pub rigid_body_transform_scale: f32,
-    pub rigid_body_collision_color: FColor,
-    pub rigid_body_inertia_color: FColor,
-    pub rigid_body_velocity_color: FColor,
-    pub rigid_body_force_color: FColor,
-    pub rigid_body_info_color: FColor,
-    pub transform_index_color: FColor,
+    pub rigid_body_collision_color: crate::bindings::core_u_object::FColor,
+    pub rigid_body_inertia_color: crate::bindings::core_u_object::FColor,
+    pub rigid_body_velocity_color: crate::bindings::core_u_object::FColor,
+    pub rigid_body_force_color: crate::bindings::core_u_object::FColor,
+    pub rigid_body_info_color: crate::bindings::core_u_object::FColor,
+    pub transform_index_color: crate::bindings::core_u_object::FColor,
     pub transform_scale: f32,
-    pub level_color: FColor,
-    pub parent_color: FColor,
+    pub level_color: crate::bindings::core_u_object::FColor,
+    pub parent_color: crate::bindings::core_u_object::FColor,
     pub connectivity_edge_thickness: f32,
-    pub geometry_index_color: FColor,
+    pub geometry_index_color: crate::bindings::core_u_object::FColor,
     pub geometry_transform_scale: f32,
-    pub bounding_box_color: FColor,
-    pub face_color: FColor,
-    pub face_index_color: FColor,
-    pub face_normal_color: FColor,
-    pub single_face_color: FColor,
-    pub vertex_color: FColor,
-    pub vertex_index_color: FColor,
-    pub vertex_normal_color: FColor,
-    pub sprite_component: UPtr<UBillboardComponent>,
+    pub bounding_box_color: crate::bindings::core_u_object::FColor,
+    pub face_color: crate::bindings::core_u_object::FColor,
+    pub face_index_color: crate::bindings::core_u_object::FColor,
+    pub face_normal_color: crate::bindings::core_u_object::FColor,
+    pub single_face_color: crate::bindings::core_u_object::FColor,
+    pub vertex_color: crate::bindings::core_u_object::FColor,
+    pub vertex_index_color: crate::bindings::core_u_object::FColor,
+    pub vertex_normal_color: crate::bindings::core_u_object::FColor,
+    pub sprite_component: UPtr<crate::bindings::engine::UBillboardComponent>,
 }
 pub struct UGeometryCollectionDebugDrawComponent {
     pub geometry_collection_debug_draw_actor_deprecated: UPtr<
@@ -377,44 +392,44 @@ pub struct AGeometryCollectionISMPoolActor {
 }
 pub struct UGeometryCollectionISMPoolComponent {}
 pub struct UGeometryCollectionISMPoolRenderer {
-    pub cached_ism_pool_component: UPtr<UISMPoolComponent>,
-    pub local_ism_pool_component: UPtr<UISMPoolComponent>,
+    pub cached_ism_pool_component: UPtr<crate::bindings::ism_pool::UISMPoolComponent>,
+    pub local_ism_pool_component: UPtr<crate::bindings::ism_pool::UISMPoolComponent>,
 }
 pub struct UGeometryCollectionISMPoolSubSystem {}
 pub struct UGeometryCollection {
     pub enable_clustering: bool,
     pub cluster_group_index: i32,
     pub max_cluster_level: i32,
-    pub damage_model: EDamageModelTypeEnum,
+    pub damage_model: crate::bindings::chaos::EDamageModelTypeEnum,
     pub damage_threshold: TArray<f32>,
     pub b_use_size_specific_damage_threshold: bool,
     pub b_use_material_damage_modifiers: bool,
     pub per_cluster_only_damage_threshold: bool,
     pub damage_propagation_data: FGeometryCollectionDamagePropagationData,
-    pub cluster_connection_type: EClusterConnectionTypeEnum,
+    pub cluster_connection_type: crate::bindings::chaos_solver_engine::EClusterConnectionTypeEnum,
     pub connection_graph_bounds_filtering_margin: f32,
     pub geometry_source: TArray<FGeometryCollectionSource>,
-    pub materials: TArray<UPtr<UMaterialInterface>>,
+    pub materials: TArray<UPtr<crate::bindings::engine::UMaterialInterface>>,
     pub embedded_geometry_exemplar: TArray<FGeometryCollectionEmbeddedExemplar>,
     pub b_use_full_precision_u_vs: bool,
     pub b_strip_on_cook: bool,
     pub b_strip_render_data_on_cook: bool,
-    pub custom_renderer_type: TSubclassOf<UObject>,
+    pub custom_renderer_type: TSubclassOf<crate::bindings::core_u_object::UObject>,
     pub root_proxy_data: FGeometryCollectionProxyMeshData,
     pub auto_instance_meshes: TArray<FGeometryCollectionAutoInstanceMesh>,
     pub enable_nanite: bool,
     pub b_enable_nanite_fallback: bool,
     pub nanite_minimum_residency_in_kb: u32,
     pub b_convert_vertex_colors_to_srgb: bool,
-    pub collision_type_deprecated: ECollisionTypeEnum,
-    pub implicit_type_deprecated: EImplicitTypeEnum,
+    pub collision_type_deprecated: crate::bindings::chaos::ECollisionTypeEnum,
+    pub implicit_type_deprecated: crate::bindings::chaos::EImplicitTypeEnum,
     pub min_level_set_resolution_deprecated: i32,
     pub max_level_set_resolution_deprecated: i32,
     pub min_cluster_level_set_resolution_deprecated: i32,
     pub max_cluster_level_set_resolution_deprecated: i32,
     pub collision_object_reduction_percentage_deprecated: f32,
-    pub root_proxy_deprecated: FSoftObjectPath,
-    pub physics_material: UPtr<UPhysicalMaterial>,
+    pub root_proxy_deprecated: crate::bindings::core_u_object::FSoftObjectPath,
+    pub physics_material: UPtr<crate::bindings::physics_core::UPhysicalMaterial>,
     pub b_density_from_physics_material: bool,
     pub cached_density_from_physics_material_in_g_cm3: f32,
     pub b_mass_as_density: bool,
@@ -427,41 +442,137 @@ pub struct UGeometryCollection {
     pub b_scale_on_removal: bool,
     pub b_remove_on_max_sleep: bool,
     pub b_automatic_crumble_partial_clusters: bool,
-    pub maximum_sleep_time: FVector2D,
-    pub removal_duration: FVector2D,
+    pub maximum_sleep_time: crate::bindings::core_u_object::FVector2D,
+    pub removal_duration: crate::bindings::core_u_object::FVector2D,
     pub b_slow_moving_as_sleeping: bool,
     pub slow_moving_velocity_threshold: f32,
     pub size_specific_data: TArray<FGeometryCollectionSizeSpecificData>,
     pub enable_remove_pieces_on_fracture_deprecated: bool,
-    pub remove_on_fracture_materials_deprecated: TArray<UPtr<UMaterialInterface>>,
-    pub asset_import_data: UPtr<UAssetImportData>,
-    pub thumbnail_info: UPtr<UThumbnailInfo>,
-    pub dataflow_asset: UPtr<UDataflow>,
+    pub remove_on_fracture_materials_deprecated: TArray<
+        UPtr<crate::bindings::engine::UMaterialInterface>,
+    >,
+    pub asset_import_data: UPtr<crate::bindings::engine::UAssetImportData>,
+    pub thumbnail_info: UPtr<crate::bindings::engine::UThumbnailInfo>,
+    pub dataflow_asset: UPtr<crate::bindings::dataflow_engine::UDataflow>,
     pub dataflow_terminal_deprecated: FString,
     pub overrides: TMap<FString, FString>,
-    pub dataflow_instance: FDataflowInstance,
-    pub persistent_guid: FGuid,
-    pub state_guid: FGuid,
+    pub dataflow_instance: crate::bindings::dataflow_engine::FDataflowInstance,
+    pub persistent_guid: crate::bindings::core_u_object::FGuid,
+    pub state_guid: crate::bindings::core_u_object::FGuid,
     pub root_index: i32,
     pub breadth_first_transform_indices: TArray<i32>,
     pub auto_instance_transform_remap_indices: TArray<i32>,
     pub bone_selected_material_index: i32,
-    pub asset_user_data: TArray<UPtr<UAssetUserData>>,
+    pub asset_user_data: TArray<UPtr<crate::bindings::engine::UAssetUserData>>,
 }
 pub struct AGeometryCollectionRenderLevelSetActor {
-    pub target_volume_texture: UPtr<UVolumeTexture>,
-    pub ray_march_material: UPtr<UMaterial>,
+    pub target_volume_texture: UPtr<crate::bindings::engine::UVolumeTexture>,
+    pub ray_march_material: UPtr<crate::bindings::engine::UMaterial>,
     pub surface_tolerance: f32,
     pub isovalue: f32,
     pub enabled: bool,
     pub render_volume_bounding_box: bool,
 }
 pub struct UGeometryCollectionRootProxyRenderer {
-    pub static_mesh_components: TArray<UPtr<UStaticMeshComponent>>,
+    pub static_mesh_components: TArray<
+        UPtr<crate::bindings::engine::UStaticMeshComponent>,
+    >,
 }
 pub struct UGeometryCollectionISMPoolDebugDrawComponent {
     pub b_show_global_stats: bool,
     pub b_show_stats: bool,
     pub b_show_bounds: bool,
-    pub selected_component: UPtr<UInstancedStaticMeshComponent>,
+    pub selected_component: UPtr<crate::bindings::engine::UInstancedStaticMeshComponent>,
+}
+pub struct FChaosDestructionListener_OnCollisionEvents;
+pub struct FChaosDestructionListener_OnBreakingEvents;
+pub struct FChaosDestructionListener_OnTrailingEvents;
+pub struct FChaosDestructionListener_OnRemovalEvents;
+pub struct FGeometryCollectionComponent_NotifyGeometryCollectionPhysicsStateChange;
+pub struct FGeometryCollectionComponent_NotifyGeometryCollectionPhysicsLoadingStateChange;
+pub struct FGeometryCollectionComponent_OnChaosBreakEvent;
+pub struct FGeometryCollectionComponent_OnChaosRemovalEvent;
+pub struct FGeometryCollectionComponent_OnChaosCrumblingEvent;
+pub struct FGeometryCollectionComponent_OnChaosPhysicsCollision;
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EChaosBreakingSortMethod(pub u8);
+impl EChaosBreakingSortMethod {
+    pub const SORT_NONE: EChaosBreakingSortMethod = EChaosBreakingSortMethod(0);
+    pub const SORT_BY_HIGHEST_MASS: EChaosBreakingSortMethod = EChaosBreakingSortMethod(
+        1,
+    );
+    pub const SORT_BY_HIGHEST_SPEED: EChaosBreakingSortMethod = EChaosBreakingSortMethod(
+        2,
+    );
+    pub const SORT_BY_NEAREST_FIRST: EChaosBreakingSortMethod = EChaosBreakingSortMethod(
+        3,
+    );
+    pub const COUNT: EChaosBreakingSortMethod = EChaosBreakingSortMethod(4);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EChaosCollisionSortMethod(pub u8);
+impl EChaosCollisionSortMethod {
+    pub const SORT_NONE: EChaosCollisionSortMethod = EChaosCollisionSortMethod(0);
+    pub const SORT_BY_HIGHEST_MASS: EChaosCollisionSortMethod = EChaosCollisionSortMethod(
+        1,
+    );
+    pub const SORT_BY_HIGHEST_SPEED: EChaosCollisionSortMethod = EChaosCollisionSortMethod(
+        2,
+    );
+    pub const SORT_BY_HIGHEST_IMPULSE: EChaosCollisionSortMethod = EChaosCollisionSortMethod(
+        3,
+    );
+    pub const SORT_BY_NEAREST_FIRST: EChaosCollisionSortMethod = EChaosCollisionSortMethod(
+        4,
+    );
+    pub const COUNT: EChaosCollisionSortMethod = EChaosCollisionSortMethod(5);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EChaosRemovalSortMethod(pub u8);
+impl EChaosRemovalSortMethod {
+    pub const SORT_NONE: EChaosRemovalSortMethod = EChaosRemovalSortMethod(0);
+    pub const SORT_BY_HIGHEST_MASS: EChaosRemovalSortMethod = EChaosRemovalSortMethod(1);
+    pub const SORT_BY_NEAREST_FIRST: EChaosRemovalSortMethod = EChaosRemovalSortMethod(
+        2,
+    );
+    pub const COUNT: EChaosRemovalSortMethod = EChaosRemovalSortMethod(3);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EChaosTrailingSortMethod(pub u8);
+impl EChaosTrailingSortMethod {
+    pub const SORT_NONE: EChaosTrailingSortMethod = EChaosTrailingSortMethod(0);
+    pub const SORT_BY_HIGHEST_MASS: EChaosTrailingSortMethod = EChaosTrailingSortMethod(
+        1,
+    );
+    pub const SORT_BY_HIGHEST_SPEED: EChaosTrailingSortMethod = EChaosTrailingSortMethod(
+        2,
+    );
+    pub const SORT_BY_NEAREST_FIRST: EChaosTrailingSortMethod = EChaosTrailingSortMethod(
+        3,
+    );
+    pub const COUNT: EChaosTrailingSortMethod = EChaosTrailingSortMethod(4);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EGeometryCollectionDebugDrawActorHideGeometry(pub u8);
+impl EGeometryCollectionDebugDrawActorHideGeometry {
+    pub const HIDE_NONE: EGeometryCollectionDebugDrawActorHideGeometry = EGeometryCollectionDebugDrawActorHideGeometry(
+        0,
+    );
+    pub const HIDE_WITH_COLLISION: EGeometryCollectionDebugDrawActorHideGeometry = EGeometryCollectionDebugDrawActorHideGeometry(
+        1,
+    );
+    pub const HIDE_SELECTED: EGeometryCollectionDebugDrawActorHideGeometry = EGeometryCollectionDebugDrawActorHideGeometry(
+        2,
+    );
+    pub const HIDE_WHOLE_COLLECTION: EGeometryCollectionDebugDrawActorHideGeometry = EGeometryCollectionDebugDrawActorHideGeometry(
+        3,
+    );
+    pub const HIDE_ALL: EGeometryCollectionDebugDrawActorHideGeometry = EGeometryCollectionDebugDrawActorHideGeometry(
+        4,
+    );
 }

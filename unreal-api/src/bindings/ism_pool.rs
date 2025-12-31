@@ -2,7 +2,8 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
-pub use crate::bindings::prelude::*;
+pub use crate::bindings::opague_definitions::*;
+pub use crate::core_data::*;
 pub struct AISMPoolActor {
     pub ism_pool_comp: UPtr<UISMPoolComponent>,
     pub ism_pool_debug_draw_comp: UPtr<UISMPoolDebugDrawComponent>,
@@ -13,5 +14,5 @@ pub struct UISMPoolDebugDrawComponent {
     pub b_show_global_stats: bool,
     pub b_show_stats: bool,
     pub b_show_bounds: bool,
-    pub selected_component: UPtr<UInstancedStaticMeshComponent>,
+    pub selected_component: UPtr<crate::bindings::engine::UInstancedStaticMeshComponent>,
 }

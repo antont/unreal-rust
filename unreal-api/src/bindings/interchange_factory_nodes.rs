@@ -2,7 +2,8 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
-pub use crate::bindings::prelude::*;
+pub use crate::bindings::opague_definitions::*;
+pub use crate::core_data::*;
 pub struct UInterchangeAudioSoundWaveFactoryNode {}
 pub struct UInterchangeActorFactoryNode {}
 pub struct UInterchangePhysicalCameraFactoryNode {}
@@ -53,3 +54,37 @@ pub struct UInterchangeSparseVolumeTextureFactoryNode {}
 pub struct UInterchangeSpecularProfileFactoryNode {}
 pub struct UInterchangeStaticMeshFactoryNode {}
 pub struct UInterchangeStaticMeshLodDataNode {}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EInterchangeGroomCacheImportType(pub u8);
+impl EInterchangeGroomCacheImportType {
+    pub const NONE: EInterchangeGroomCacheImportType = EInterchangeGroomCacheImportType(
+        0,
+    );
+    pub const STRANDS: EInterchangeGroomCacheImportType = EInterchangeGroomCacheImportType(
+        1,
+    );
+    pub const GUIDES: EInterchangeGroomCacheImportType = EInterchangeGroomCacheImportType(
+        2,
+    );
+    pub const ALL: EInterchangeGroomCacheImportType = EInterchangeGroomCacheImportType(
+        3,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EInterchangeSkeletalMeshContentType(pub u8);
+impl EInterchangeSkeletalMeshContentType {
+    pub const ALL: EInterchangeSkeletalMeshContentType = EInterchangeSkeletalMeshContentType(
+        0,
+    );
+    pub const GEOMETRY: EInterchangeSkeletalMeshContentType = EInterchangeSkeletalMeshContentType(
+        1,
+    );
+    pub const SKINNING_WEIGHTS: EInterchangeSkeletalMeshContentType = EInterchangeSkeletalMeshContentType(
+        2,
+    );
+    pub const MAX: EInterchangeSkeletalMeshContentType = EInterchangeSkeletalMeshContentType(
+        3,
+    );
+}

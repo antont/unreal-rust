@@ -2,17 +2,18 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
-pub use crate::bindings::prelude::*;
+pub use crate::bindings::opague_definitions::*;
+pub use crate::core_data::*;
 #[repr(C, align(8))]
 pub struct FPropertyPathSegment {
     pub name: FName,
     pub array_index: i32,
-    pub _struct: UPtr<UStruct>,
+    pub _struct: UPtr<crate::bindings::core_u_object::UStruct>,
 }
 #[repr(C, align(8))]
 pub struct FCachedPropertyPath {
     pub segments: TArray<FPropertyPathSegment>,
-    pub cached_function: UPtr<UFunction>,
+    pub cached_function: UPtr<crate::bindings::core_u_object::UFunction>,
 }
 #[repr(C, align(8))]
 pub struct FPropertyPathTestBaseStruct {}
@@ -60,4 +61,13 @@ pub struct UPropertyPathTestObject {
     pub struct_ref: FPropertyPathTestStruct,
     pub struct_const_ref: FPropertyPathTestStruct,
     pub inner_object: UPtr<UPropertyPathTestObject>,
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EPropertyPathTestEnum(pub u8);
+impl EPropertyPathTestEnum {
+    pub const ONE: EPropertyPathTestEnum = EPropertyPathTestEnum(0);
+    pub const TWO: EPropertyPathTestEnum = EPropertyPathTestEnum(1);
+    pub const THREE: EPropertyPathTestEnum = EPropertyPathTestEnum(2);
+    pub const FOUR: EPropertyPathTestEnum = EPropertyPathTestEnum(3);
 }

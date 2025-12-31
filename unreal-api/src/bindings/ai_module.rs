@@ -2,11 +2,12 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
-pub use crate::bindings::prelude::*;
+pub use crate::bindings::opague_definitions::*;
+pub use crate::core_data::*;
 #[repr(C, align(8))]
 pub struct FActorPerceptionUpdateInfo {
     pub target_id: i32,
-    pub target: TWeakObjectPtr<AActor>,
+    pub target: TWeakObjectPtr<crate::bindings::engine::AActor>,
     pub stimulus: FAIStimulus,
 }
 #[repr(C, align(8))]
@@ -14,8 +15,8 @@ pub struct FAIStimulus {
     pub age: f32,
     pub expiration_age: f32,
     pub strength: f32,
-    pub stimulus_location: FVector,
-    pub receiver_location: FVector,
+    pub stimulus_location: crate::bindings::core_u_object::FVector,
+    pub receiver_location: crate::bindings::core_u_object::FVector,
     pub tag: FName,
     pub flags_92: u8,
 }
@@ -39,7 +40,7 @@ pub struct FSequentialIDBase {
 }
 #[repr(C, align(8))]
 pub struct FAIMoveRequest {
-    pub goal_actor: TWeakObjectPtr<AActor>,
+    pub goal_actor: TWeakObjectPtr<crate::bindings::engine::AActor>,
 }
 #[repr(C, align(4))]
 pub struct FIntervalCountdown {
@@ -88,13 +89,13 @@ pub struct FValueOrBBKey_Bool {
 }
 #[repr(C, align(8))]
 pub struct FValueOrBBKey_Class {
-    pub default_value: TSubclassOf<UObject>,
-    pub base_class: TSubclassOf<UObject>,
+    pub default_value: TSubclassOf<crate::bindings::core_u_object::UObject>,
+    pub base_class: TSubclassOf<crate::bindings::core_u_object::UObject>,
 }
 #[repr(C, align(8))]
 pub struct FValueOrBBKey_Enum {
     pub default_value: u8,
-    pub enum_type: UPtr<UEnum>,
+    pub enum_type: UPtr<crate::bindings::core_u_object::UEnum>,
     pub native_enum_type_name: FString,
 }
 #[repr(C, align(8))]
@@ -115,20 +116,20 @@ pub struct FValueOrBBKey_String {
 }
 #[repr(C, align(8))]
 pub struct FValueOrBBKey_Object {
-    pub default_value: UPtr<UObject>,
-    pub base_class: TSubclassOf<UObject>,
+    pub default_value: UPtr<crate::bindings::core_u_object::UObject>,
+    pub base_class: TSubclassOf<crate::bindings::core_u_object::UObject>,
 }
 #[repr(C, align(8))]
 pub struct FValueOrBBKey_Rotator {
-    pub default_value: FRotator,
+    pub default_value: crate::bindings::core_u_object::FRotator,
 }
 #[repr(C, align(8))]
 pub struct FValueOrBBKey_Vector {
-    pub default_value: FVector,
+    pub default_value: crate::bindings::core_u_object::FVector,
 }
 #[repr(C, align(8))]
 pub struct FValueOrBBKey_Struct {
-    pub default_value: FInstancedStruct,
+    pub default_value: crate::bindings::core_u_object::FInstancedStruct,
     pub b_can_edit_default_value_type: bool,
 }
 #[repr(C, align(8))]
@@ -138,7 +139,7 @@ pub struct FAIDataProviderValue {
 }
 #[repr(C, align(8))]
 pub struct FAIDataProviderTypedValue {
-    pub property_type_deprecated: TSubclassOf<UObject>,
+    pub property_type_deprecated: TSubclassOf<crate::bindings::core_u_object::UObject>,
 }
 #[repr(C, align(8))]
 pub struct FAIDataProviderStructValue {}
@@ -167,8 +168,8 @@ pub struct FEnvQueryManagerConfig {
 #[repr(C, align(8))]
 pub struct FEnvQueryRequest {
     pub query_template: UPtr<UEnvQuery>,
-    pub owner: UPtr<UObject>,
-    pub world: UPtr<UWorld>,
+    pub owner: UPtr<crate::bindings::core_u_object::UObject>,
+    pub world: UPtr<crate::bindings::engine::UWorld>,
 }
 #[repr(C, align(8))]
 pub struct FEnvQueryInstanceCache {
@@ -183,7 +184,7 @@ pub struct FEnvQueryResult {
 }
 #[repr(C, align(8))]
 pub struct FEnvQueryInstance {
-    pub world: UPtr<UWorld>,
+    pub world: UPtr<crate::bindings::engine::UWorld>,
     pub context_cache: TArray<FEnvQueryInstanceContextCacheItem>,
     pub options: TArray<FEnvQueryOptionInstance>,
     pub item_type_vector_cdo: UPtr<UEnvQueryItemType_VectorBase>,
@@ -197,7 +198,7 @@ pub struct FEnvQueryOptionInstance {
 }
 #[repr(C, align(8))]
 pub struct FEnvQueryInstanceContextCacheItem {
-    pub class: TSubclassOf<UObject>,
+    pub class: TSubclassOf<crate::bindings::core_u_object::UObject>,
     pub context_data: FEnvQueryContextData,
 }
 #[repr(C, align(8))]
@@ -220,15 +221,17 @@ pub struct FEnvDirection {
 #[repr(C, align(8))]
 pub struct FEnvTraceData {
     pub version_num: i32,
-    pub navigation_filter: TSubclassOf<UNavigationQueryFilter>,
+    pub navigation_filter: TSubclassOf<
+        crate::bindings::navigation_system::UNavigationQueryFilter,
+    >,
     pub project_down: f32,
     pub project_up: f32,
     pub extent_x: f32,
     pub extent_y: f32,
     pub extent_z: f32,
     pub post_projection_vertical_offset: f32,
-    pub trace_channel: ETraceTypeQuery,
-    pub serialized_channel: ECollisionChannel,
+    pub trace_channel: crate::bindings::engine::ETraceTypeQuery,
+    pub serialized_channel: crate::bindings::engine::ECollisionChannel,
     pub trace_profile_name: FName,
     pub trace_shape: EEnvTraceShape,
     pub trace_mode: EEnvQueryTrace,
@@ -239,8 +242,8 @@ pub struct FEnvOverlapData {
     pub extent_x: f32,
     pub extent_y: f32,
     pub extent_z: f32,
-    pub shape_offset: FVector,
-    pub overlap_channel: ECollisionChannel,
+    pub shape_offset: crate::bindings::core_u_object::FVector,
+    pub overlap_channel: crate::bindings::engine::ECollisionChannel,
     pub overlap_shape: EEnvOverlapShape,
     pub flags_44: u8,
 }
@@ -280,11 +283,11 @@ pub struct FCrowdAvoidanceSamplingPattern {
 }
 #[repr(C, align(8))]
 pub struct FRecastGraphWrapper {
-    pub recast_nav_mesh_actor: UPtr<ARecastNavMesh>,
+    pub recast_nav_mesh_actor: UPtr<crate::bindings::navigation_system::ARecastNavMesh>,
 }
 #[repr(C, align(8))]
 pub struct FActorPerceptionBlueprintInfo {
-    pub target: UPtr<AActor>,
+    pub target: UPtr<crate::bindings::engine::AActor>,
     pub last_sensed_stimuli: TArray<FAIStimulus>,
     pub flags_24: u8,
 }
@@ -295,39 +298,39 @@ pub struct FAISenseAffiliationFilter {
 #[repr(C, align(8))]
 pub struct FAIDamageEvent {
     pub amount: f32,
-    pub location: FVector,
-    pub hit_location: FVector,
-    pub damaged_actor: UPtr<AActor>,
-    pub instigator: UPtr<AActor>,
+    pub location: crate::bindings::core_u_object::FVector,
+    pub hit_location: crate::bindings::core_u_object::FVector,
+    pub damaged_actor: UPtr<crate::bindings::engine::AActor>,
+    pub instigator: UPtr<crate::bindings::engine::AActor>,
     pub tag: FName,
 }
 #[repr(C, align(8))]
 pub struct FAINoiseEvent {
-    pub noise_location: FVector,
+    pub noise_location: crate::bindings::core_u_object::FVector,
     pub loudness: f32,
     pub max_range: f32,
-    pub instigator: UPtr<AActor>,
+    pub instigator: UPtr<crate::bindings::engine::AActor>,
     pub tag: FName,
 }
 #[repr(C, align(8))]
 pub struct FAIPredictionEvent {
-    pub requestor: UPtr<AActor>,
-    pub predicted_actor: UPtr<AActor>,
+    pub requestor: UPtr<crate::bindings::engine::AActor>,
+    pub predicted_actor: UPtr<crate::bindings::engine::AActor>,
 }
 #[repr(C, align(8))]
 pub struct FAISightEvent {
-    pub seen_actor: UPtr<AActor>,
-    pub observer: UPtr<AActor>,
+    pub seen_actor: UPtr<crate::bindings::engine::AActor>,
+    pub observer: UPtr<crate::bindings::engine::AActor>,
 }
 #[repr(C, align(8))]
 pub struct FAITeamStimulusEvent {
-    pub broadcaster: UPtr<AActor>,
-    pub enemy: UPtr<AActor>,
+    pub broadcaster: UPtr<crate::bindings::engine::AActor>,
+    pub enemy: UPtr<crate::bindings::engine::AActor>,
 }
 #[repr(C, align(8))]
 pub struct FAITouchEvent {
-    pub touch_receiver: UPtr<AActor>,
-    pub other_actor: UPtr<AActor>,
+    pub touch_receiver: UPtr<crate::bindings::engine::AActor>,
+    pub other_actor: UPtr<crate::bindings::engine::AActor>,
 }
 pub struct UAIAsyncTaskBlueprintProxy {
     pub on_success: FAIAsyncTaskBlueprintProxy_OnSuccess,
@@ -337,7 +340,7 @@ pub struct UAIResourceInterface {}
 pub struct IAIResourceInterface {}
 pub struct UAISenseBlueprintListener {}
 pub struct UAISenseConfig {
-    pub debug_color: FColor,
+    pub debug_color: crate::bindings::core_u_object::FColor,
     pub max_age: f32,
     pub flags_56: u8,
 }
@@ -385,8 +388,12 @@ pub struct AAIController {
     pub brain_component: UPtr<UBrainComponent>,
     pub perception_component: UPtr<UAIPerceptionComponent>,
     pub blackboard: UPtr<UBlackboardComponent>,
-    pub cached_gameplay_tasks_component: UPtr<UGameplayTasksComponent>,
-    pub default_navigation_filter_class: TSubclassOf<UNavigationQueryFilter>,
+    pub cached_gameplay_tasks_component: UPtr<
+        crate::bindings::gameplay_tasks::UGameplayTasksComponent,
+    >,
+    pub default_navigation_filter_class: TSubclassOf<
+        crate::bindings::navigation_system::UNavigationQueryFilter,
+    >,
     pub receive_move_completed: FAIController_ReceiveMoveCompleted,
 }
 pub struct UAIResource_Movement {}
@@ -395,9 +402,9 @@ pub struct UAISubsystem {
     pub ai_system: UPtr<UAISystem>,
 }
 pub struct UAISystem {
-    pub perception_system_class_name: FSoftClassPath,
-    pub hot_spot_manager_class_name: FSoftClassPath,
-    pub env_query_manager_class_name: FSoftClassPath,
+    pub perception_system_class_name: crate::bindings::core_u_object::FSoftClassPath,
+    pub hot_spot_manager_class_name: crate::bindings::core_u_object::FSoftClassPath,
+    pub env_query_manager_class_name: crate::bindings::core_u_object::FSoftClassPath,
     pub acceptance_radius: f32,
     pub pathfollowing_regular_path_point_acceptance_radius: f32,
     pub pathfollowing_nav_link_acceptance_radius: f32,
@@ -411,7 +418,7 @@ pub struct UAISystem {
     pub b_clear_bb_entry_on_bteqs_fail: bool,
     pub b_blackboard_key_decorator_allows_none_as_value: bool,
     pub default_blackboard: TSoftObjectPtr<UBlackboardData>,
-    pub default_sight_collision_channel: ECollisionChannel,
+    pub default_sight_collision_channel: crate::bindings::engine::ECollisionChannel,
     pub behavior_tree_manager: UPtr<UBehaviorTreeManager>,
     pub environment_query_manager: UPtr<UEnvQueryManager>,
     pub perception_system: UPtr<UAIPerceptionSystem>,
@@ -421,8 +428,8 @@ pub struct UAISystem {
 }
 pub struct UBehaviorTree {
     pub root_node: UPtr<UBTCompositeNode>,
-    pub bt_graph: UPtr<UEdGraph>,
-    pub last_edited_documents: TArray<FEditedDocumentInfo>,
+    pub bt_graph: UPtr<crate::bindings::engine::UEdGraph>,
+    pub last_edited_documents: TArray<crate::bindings::engine::FEditedDocumentInfo>,
     pub blackboard_asset: UPtr<UBlackboardData>,
     pub root_decorators: TArray<UPtr<UBTDecorator>>,
     pub root_decorator_ops: TArray<FBTDecoratorLogic>,
@@ -460,11 +467,11 @@ pub struct UBlackboardKeyType_Bool {
     pub b_default_value: bool,
 }
 pub struct UBlackboardKeyType_Class {
-    pub base_class: TSubclassOf<UObject>,
-    pub default_value: TSubclassOf<UObject>,
+    pub base_class: TSubclassOf<crate::bindings::core_u_object::UObject>,
+    pub default_value: TSubclassOf<crate::bindings::core_u_object::UObject>,
 }
 pub struct UBlackboardKeyType_Enum {
-    pub enum_type: UPtr<UEnum>,
+    pub enum_type: UPtr<crate::bindings::core_u_object::UEnum>,
     pub enum_name: FString,
     pub default_value: u8,
     pub flags_84: u8,
@@ -480,14 +487,14 @@ pub struct UBlackboardKeyType_Name {
 }
 pub struct UBlackboardKeyType_NativeEnum {
     pub enum_name: FString,
-    pub enum_type: UPtr<UEnum>,
+    pub enum_type: UPtr<crate::bindings::core_u_object::UEnum>,
 }
 pub struct UBlackboardKeyType_Object {
-    pub base_class: TSubclassOf<UObject>,
-    pub default_value: UPtr<UObject>,
+    pub base_class: TSubclassOf<crate::bindings::core_u_object::UObject>,
+    pub default_value: UPtr<crate::bindings::core_u_object::UObject>,
 }
 pub struct UBlackboardKeyType_Rotator {
-    pub default_value: FRotator,
+    pub default_value: crate::bindings::core_u_object::FRotator,
     pub b_use_default_value: bool,
 }
 pub struct UBlackboardKeyType_String {
@@ -495,11 +502,11 @@ pub struct UBlackboardKeyType_String {
     pub default_value: FString,
 }
 pub struct UBlackboardKeyType_Struct {
-    pub default_value: FInstancedStruct,
-    pub value: FInstancedStruct,
+    pub default_value: crate::bindings::core_u_object::FInstancedStruct,
+    pub value: crate::bindings::core_u_object::FInstancedStruct,
 }
 pub struct UBlackboardKeyType_Vector {
-    pub default_value: FVector,
+    pub default_value: crate::bindings::core_u_object::FVector,
     pub b_use_default_value: bool,
 }
 pub struct UBTNode {
@@ -552,15 +559,15 @@ pub struct UBTDecorator_Blackboard {
 }
 pub struct UBTDecorator_BlueprintBase {
     pub ai_owner: UPtr<AAIController>,
-    pub actor_owner: UPtr<AActor>,
+    pub actor_owner: UPtr<crate::bindings::engine::AActor>,
     pub observed_key_names: TArray<FName>,
     pub custom_description: FString,
     pub flags_184: u8,
 }
 pub struct UBTDecorator_CheckGameplayTagsOnActor {
     pub actor_to_check: FBlackboardKeySelector,
-    pub tags_to_match: EGameplayContainerMatchType,
-    pub gameplay_tags: FGameplayTagContainer,
+    pub tags_to_match: crate::bindings::gameplay_tags::EGameplayContainerMatchType,
+    pub gameplay_tags: crate::bindings::gameplay_tags::FGameplayTagContainer,
     pub cached_description: FString,
 }
 pub struct UBTDecorator_CompareBBEntries {
@@ -613,12 +620,12 @@ pub struct UBTDecorator_LoopUntil {
 }
 pub struct UBTDecorator_ReachedMoveGoal {}
 pub struct UBTDecorator_SetTagCooldown {
-    pub cooldown_tag: FGameplayTag,
+    pub cooldown_tag: crate::bindings::gameplay_tags::FGameplayTag,
     pub cooldown_duration: FValueOrBBKey_Float,
     pub b_add_to_existing_duration: FValueOrBBKey_Bool,
 }
 pub struct UBTDecorator_TagCooldown {
-    pub cooldown_tag: FGameplayTag,
+    pub cooldown_tag: crate::bindings::gameplay_tags::FGameplayTag,
     pub cooldown_duration: FValueOrBBKey_Float,
     pub b_add_to_existing_duration: FValueOrBBKey_Bool,
     pub b_activates_cooldown: FValueOrBBKey_Bool,
@@ -631,7 +638,7 @@ pub struct UBTService_BlackboardBase {
 }
 pub struct UBTService_BlueprintBase {
     pub ai_owner: UPtr<AAIController>,
-    pub actor_owner: UPtr<AActor>,
+    pub actor_owner: UPtr<crate::bindings::engine::AActor>,
     pub custom_description: FString,
     pub flags_176: u8,
 }
@@ -647,7 +654,7 @@ pub struct UBTTask_BlackboardBase {
 }
 pub struct UBTTask_BlueprintBase {
     pub ai_owner: UPtr<AAIController>,
-    pub actor_owner: UPtr<AActor>,
+    pub actor_owner: UPtr<crate::bindings::engine::AActor>,
     pub tick_interval: FIntervalCountdown,
     pub custom_description: FString,
     pub flags_192: u8,
@@ -681,7 +688,7 @@ pub struct UBTTask_PlayAnimation {
     pub b_looping: FValueOrBBKey_Bool,
     pub b_non_blocking: FValueOrBBKey_Bool,
     pub my_owner_comp: UPtr<UBehaviorTreeComponent>,
-    pub cached_skel_mesh: UPtr<USkeletalMeshComponent>,
+    pub cached_skel_mesh: UPtr<crate::bindings::engine::USkeletalMeshComponent>,
 }
 pub struct UBTTask_PlaySound {
     pub sound_to_play: FValueOrBBKey_Object,
@@ -693,7 +700,7 @@ pub struct UBTTask_RunBehavior {
     pub behavior_asset: UPtr<UBehaviorTree>,
 }
 pub struct UBTTask_RunBehaviorDynamic {
-    pub injection_tag: FGameplayTag,
+    pub injection_tag: crate::bindings::gameplay_tags::FGameplayTag,
     pub default_behavior_asset: UPtr<UBehaviorTree>,
     pub behavior_asset: UPtr<UBehaviorTree>,
 }
@@ -706,11 +713,11 @@ pub struct UBTTask_SetKeyValueBool {
     pub value: FValueOrBBKey_Bool,
 }
 pub struct UBTTask_SetKeyValueClass {
-    pub base_class: TSubclassOf<UObject>,
+    pub base_class: TSubclassOf<crate::bindings::core_u_object::UObject>,
     pub value: FValueOrBBKey_Class,
 }
 pub struct UBTTask_SetKeyValueEnum {
-    pub enum_type: UPtr<UEnum>,
+    pub enum_type: UPtr<crate::bindings::core_u_object::UEnum>,
     pub value: FValueOrBBKey_Enum,
 }
 pub struct UBTTask_SetKeyValueInt32 {
@@ -726,21 +733,21 @@ pub struct UBTTask_SetKeyValueString {
     pub value: FValueOrBBKey_String,
 }
 pub struct UBTTask_SetKeyValueObject {
-    pub base_class: TSubclassOf<UObject>,
+    pub base_class: TSubclassOf<crate::bindings::core_u_object::UObject>,
     pub value: FValueOrBBKey_Object,
 }
 pub struct UBTTask_SetKeyValueRotator {
     pub value: FValueOrBBKey_Rotator,
 }
 pub struct UBTTask_SetKeyValueStruct {
-    pub struct_type: UPtr<UScriptStruct>,
+    pub struct_type: UPtr<crate::bindings::core_u_object::UScriptStruct>,
     pub value: FValueOrBBKey_Struct,
 }
 pub struct UBTTask_SetKeyValueVector {
     pub value: FValueOrBBKey_Vector,
 }
 pub struct UBTTask_SetTagCooldown {
-    pub cooldown_tag: FGameplayTag,
+    pub cooldown_tag: crate::bindings::gameplay_tags::FGameplayTag,
     pub b_add_to_existing_duration: FValueOrBBKey_Bool,
     pub cooldown_duration: FValueOrBBKey_Float,
 }
@@ -770,11 +777,11 @@ pub struct UEnvQueryContext {}
 pub struct UEnvQueryContext_BlueprintBase {}
 pub struct UEnvQueryContext_Item {}
 pub struct UEnvQueryContext_NavigationData {
-    pub nav_agent_properties: FNavAgentProperties,
+    pub nav_agent_properties: crate::bindings::engine::FNavAgentProperties,
 }
 pub struct UEnvQueryContext_Querier {}
 pub struct UEnvQuery {
-    pub ed_graph: UPtr<UEdGraph>,
+    pub ed_graph: UPtr<crate::bindings::engine::UEdGraph>,
     pub query_name: FName,
     pub options: TArray<UPtr<UEnvQueryOption>>,
 }
@@ -842,12 +849,12 @@ pub struct AEQSTestingPawn {
     pub highlight_mode: EEnvQueryHightlightMode,
     pub flags_2172: u8,
     pub querying_mode: EEnvQueryRunMode,
-    pub nav_agent_properties: FNavAgentProperties,
+    pub nav_agent_properties: crate::bindings::engine::FNavAgentProperties,
     pub ed_render_comp: UPtr<UEQSRenderingComponent>,
     pub step_results: TArray<FEnvQueryInstance>,
 }
 pub struct UEnvQueryGenerator_ActorsOfClass {
-    pub searched_actor_class: TSubclassOf<AActor>,
+    pub searched_actor_class: TSubclassOf<crate::bindings::engine::AActor>,
     pub generate_only_actors_in_radius: FAIDataProviderBoolValue,
     pub search_radius: FAIDataProviderFloatValue,
     pub search_center: TSubclassOf<UEnvQueryContext>,
@@ -909,11 +916,13 @@ pub struct UEnvQueryGenerator_SimpleGrid {
 }
 pub struct UEnvQueryGenerator_PathingGrid {
     pub path_to_item: FAIDataProviderBoolValue,
-    pub navigation_filter: TSubclassOf<UNavigationQueryFilter>,
+    pub navigation_filter: TSubclassOf<
+        crate::bindings::navigation_system::UNavigationQueryFilter,
+    >,
     pub scan_range_multiplier: FAIDataProviderFloatValue,
 }
 pub struct UEnvQueryGenerator_PerceivedActors {
-    pub allowed_actor_class: TSubclassOf<AActor>,
+    pub allowed_actor_class: TSubclassOf<crate::bindings::engine::AActor>,
     pub search_radius: FAIDataProviderFloatValue,
     pub listener_context: TSubclassOf<UEnvQueryContext>,
     pub sense_to_use: TSubclassOf<UAISense>,
@@ -936,12 +945,12 @@ pub struct UEnvQueryTest_Dot {
     pub b_absolute_value: bool,
 }
 pub struct UEnvQueryTest_GameplayTags {
-    pub tag_query_to_match: FGameplayTagQuery,
+    pub tag_query_to_match: crate::bindings::gameplay_tags::FGameplayTagQuery,
     pub b_search_components_for_tags: bool,
     pub b_reject_incompatible_items: bool,
     pub b_updated_to_use_query: bool,
-    pub tags_to_match: EGameplayContainerMatchType,
-    pub gameplay_tags: FGameplayTagContainer,
+    pub tags_to_match: crate::bindings::gameplay_tags::EGameplayContainerMatchType,
+    pub gameplay_tags: crate::bindings::gameplay_tags::FGameplayTagContainer,
 }
 pub struct UEnvQueryTest_Overlap {
     pub overlap_data: FEnvOverlapData,
@@ -951,7 +960,9 @@ pub struct UEnvQueryTest_Pathfinding {
     pub context: TSubclassOf<UEnvQueryContext>,
     pub path_from_context: FAIDataProviderBoolValue,
     pub skip_unreachable: FAIDataProviderBoolValue,
-    pub filter_class: TSubclassOf<UNavigationQueryFilter>,
+    pub filter_class: TSubclassOf<
+        crate::bindings::navigation_system::UNavigationQueryFilter,
+    >,
 }
 pub struct UEnvQueryTest_PathfindingBatch {
     pub scan_range_multiplier: FAIDataProviderFloatValue,
@@ -969,23 +980,23 @@ pub struct UEnvQueryTest_Trace {
 }
 pub struct UEnvQueryTest_Volume {
     pub volume_context: TSubclassOf<UEnvQueryContext>,
-    pub volume_class: TSubclassOf<AVolume>,
+    pub volume_class: TSubclassOf<crate::bindings::engine::AVolume>,
     pub flags_624: u8,
 }
 pub struct AGridPathAIController {}
 pub struct UAIHotSpotManager {}
 pub struct UPathFollowingComponent {
-    pub movement_comp: UPtr<UNavMovementComponent>,
-    pub my_nav_data: UPtr<ANavigationData>,
+    pub movement_comp: UPtr<crate::bindings::engine::UNavMovementComponent>,
+    pub my_nav_data: UPtr<crate::bindings::navigation_system::ANavigationData>,
 }
 pub struct UCrowdFollowingComponent {
-    pub crowd_agent_move_direction: FVector,
-    pub avoidance_group_deprecated: FNavAvoidanceMask,
-    pub groups_to_avoid_deprecated: FNavAvoidanceMask,
-    pub groups_to_ignore_deprecated: FNavAvoidanceMask,
+    pub crowd_agent_move_direction: crate::bindings::core_u_object::FVector,
+    pub avoidance_group_deprecated: crate::bindings::engine::FNavAvoidanceMask,
+    pub groups_to_avoid_deprecated: crate::bindings::engine::FNavAvoidanceMask,
+    pub groups_to_ignore_deprecated: crate::bindings::engine::FNavAvoidanceMask,
 }
 pub struct UCrowdManager {
-    pub my_nav_data: UPtr<ANavigationData>,
+    pub my_nav_data: UPtr<crate::bindings::navigation_system::ANavigationData>,
     pub avoidance_config: TArray<FCrowdAvoidanceConfig>,
     pub sampling_patterns: TArray<FCrowdAvoidanceSamplingPattern>,
     pub max_agents: i32,
@@ -1006,12 +1017,16 @@ pub struct UGridPathFollowingComponent {
 }
 pub struct UNavFilter_AIControllerDefault {}
 pub struct ANavLinkProxy {
-    pub point_links: TArray<FNavigationLink>,
-    pub segment_links: TArray<FNavigationSegmentLink>,
-    pub smart_link_comp: UPtr<UNavLinkCustomComponent>,
+    pub point_links: TArray<crate::bindings::engine::FNavigationLink>,
+    pub segment_links: TArray<crate::bindings::engine::FNavigationSegmentLink>,
+    pub smart_link_comp: UPtr<
+        crate::bindings::navigation_system::UNavLinkCustomComponent,
+    >,
     pub b_smart_link_is_relevant: bool,
-    pub ed_render_comp: UPtr<UNavLinkRenderingComponent>,
-    pub sprite_component: UPtr<UBillboardComponent>,
+    pub ed_render_comp: UPtr<
+        crate::bindings::navigation_system::UNavLinkRenderingComponent,
+    >,
+    pub sprite_component: UPtr<crate::bindings::engine::UBillboardComponent>,
     pub on_smart_link_reached: FNavLinkProxy_OnSmartLinkReached,
 }
 pub struct UNavLocalGridManager {}
@@ -1044,7 +1059,9 @@ pub struct UAISenseConfig_Damage {
     pub implementation: TSubclassOf<UAISense_Damage>,
 }
 pub struct UAISense_Blueprint {
-    pub listener_data_type: TSubclassOf<UUserDefinedStruct>,
+    pub listener_data_type: TSubclassOf<
+        crate::bindings::core_u_object::UUserDefinedStruct,
+    >,
     pub listener_container: TArray<UPtr<UAIPerceptionComponent>>,
     pub unprocessed_events: TArray<UPtr<UAISenseEvent>>,
 }
@@ -1100,3 +1117,351 @@ pub struct UAITask_MoveTo {
 }
 pub struct UAITask_RunEQS {}
 pub struct UVisualLoggerExtension {}
+pub struct FAIAsyncTaskBlueprintProxy_OnSuccess;
+pub struct FAIAsyncTaskBlueprintProxy_OnFail;
+pub struct FAIController_ReceiveMoveCompleted;
+pub struct FEnvQueryInstanceBlueprintWrapper_OnQueryFinishedEvent;
+pub struct FGeneratedNavLinksProxy_OnSmartLinkReached;
+pub struct FNavLinkProxy_OnSmartLinkReached;
+pub struct FAIPerceptionComponent_OnPerceptionUpdated;
+pub struct FAIPerceptionComponent_OnTargetPerceptionForgotten;
+pub struct FAIPerceptionComponent_OnTargetPerceptionUpdated;
+pub struct FAIPerceptionComponent_OnTargetPerceptionInfoUpdated;
+pub struct FPawnSensingComponent_OnSeePawn;
+pub struct FPawnSensingComponent_OnHearNoise;
+pub struct FAITask_MoveTo_OnRequestFailed;
+pub struct FAITask_MoveTo_OnMoveFinished;
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EBTDecoratorLogic(pub u8);
+impl EBTDecoratorLogic {
+    pub const INVALID: EBTDecoratorLogic = EBTDecoratorLogic(0);
+    pub const TEST: EBTDecoratorLogic = EBTDecoratorLogic(1);
+    pub const AND: EBTDecoratorLogic = EBTDecoratorLogic(2);
+    pub const OR: EBTDecoratorLogic = EBTDecoratorLogic(3);
+    pub const NOT: EBTDecoratorLogic = EBTDecoratorLogic(4);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EAIParamType(pub u8);
+impl EAIParamType {
+    pub const FLOAT: EAIParamType = EAIParamType(0);
+    pub const INT: EAIParamType = EAIParamType(1);
+    pub const BOOL: EAIParamType = EAIParamType(2);
+    pub const MAX: EAIParamType = EAIParamType(3);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EEnvDirection(pub u8);
+impl EEnvDirection {
+    pub const TWO_POINTS: EEnvDirection = EEnvDirection(0);
+    pub const ROTATION: EEnvDirection = EEnvDirection(1);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EEnvTraceShape(pub u8);
+impl EEnvTraceShape {
+    pub const LINE: EEnvTraceShape = EEnvTraceShape(0);
+    pub const BOX: EEnvTraceShape = EEnvTraceShape(1);
+    pub const SPHERE: EEnvTraceShape = EEnvTraceShape(2);
+    pub const CAPSULE: EEnvTraceShape = EEnvTraceShape(3);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EEnvQueryTrace(pub u8);
+impl EEnvQueryTrace {
+    pub const NONE: EEnvQueryTrace = EEnvQueryTrace(0);
+    pub const NAVIGATION: EEnvQueryTrace = EEnvQueryTrace(1);
+    pub const GEOMETRY_BY_CHANNEL: EEnvQueryTrace = EEnvQueryTrace(2);
+    pub const GEOMETRY_BY_PROFILE: EEnvQueryTrace = EEnvQueryTrace(3);
+    pub const NAVIGATION_OVER_LEDGES: EEnvQueryTrace = EEnvQueryTrace(4);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EEnvOverlapShape(pub u8);
+impl EEnvOverlapShape {
+    pub const BOX: EEnvOverlapShape = EEnvOverlapShape(0);
+    pub const SPHERE: EEnvOverlapShape = EEnvOverlapShape(1);
+    pub const CAPSULE: EEnvOverlapShape = EEnvOverlapShape(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EEnvQueryRunMode(pub u8);
+impl EEnvQueryRunMode {
+    pub const SINGLE_RESULT: EEnvQueryRunMode = EEnvQueryRunMode(0);
+    pub const RANDOM_BEST5_PCT: EEnvQueryRunMode = EEnvQueryRunMode(1);
+    pub const RANDOM_BEST25_PCT: EEnvQueryRunMode = EEnvQueryRunMode(2);
+    pub const ALL_MATCHING: EEnvQueryRunMode = EEnvQueryRunMode(3);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EGenericAICheck(pub u8);
+impl EGenericAICheck {
+    pub const LESS: EGenericAICheck = EGenericAICheck(0);
+    pub const LESS_OR_EQUAL: EGenericAICheck = EGenericAICheck(1);
+    pub const EQUAL: EGenericAICheck = EGenericAICheck(2);
+    pub const NOT_EQUAL: EGenericAICheck = EGenericAICheck(3);
+    pub const GREATER_OR_EQUAL: EGenericAICheck = EGenericAICheck(4);
+    pub const GREATER: EGenericAICheck = EGenericAICheck(5);
+    pub const IS_TRUE: EGenericAICheck = EGenericAICheck(6);
+    pub const MAX: EGenericAICheck = EGenericAICheck(7);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EPathFollowingResult(pub u8);
+impl EPathFollowingResult {
+    pub const SUCCESS: EPathFollowingResult = EPathFollowingResult(0);
+    pub const BLOCKED: EPathFollowingResult = EPathFollowingResult(1);
+    pub const OFF_PATH: EPathFollowingResult = EPathFollowingResult(2);
+    pub const ABORTED: EPathFollowingResult = EPathFollowingResult(3);
+    pub const SKIPPED_DEPRECATED: EPathFollowingResult = EPathFollowingResult(4);
+    pub const INVALID: EPathFollowingResult = EPathFollowingResult(5);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EPathFollowingStatus(pub u8);
+impl EPathFollowingStatus {
+    pub const IDLE: EPathFollowingStatus = EPathFollowingStatus(0);
+    pub const WAITING: EPathFollowingStatus = EPathFollowingStatus(1);
+    pub const PAUSED: EPathFollowingStatus = EPathFollowingStatus(2);
+    pub const MOVING: EPathFollowingStatus = EPathFollowingStatus(3);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EPathFollowingRequestResult(pub u8);
+impl EPathFollowingRequestResult {
+    pub const FAILED: EPathFollowingRequestResult = EPathFollowingRequestResult(0);
+    pub const ALREADY_AT_GOAL: EPathFollowingRequestResult = EPathFollowingRequestResult(
+        1,
+    );
+    pub const REQUEST_SUCCESSFUL: EPathFollowingRequestResult = EPathFollowingRequestResult(
+        2,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EBTNodeResult(pub u8);
+impl EBTNodeResult {
+    pub const SUCCEEDED: EBTNodeResult = EBTNodeResult(0);
+    pub const FAILED: EBTNodeResult = EBTNodeResult(1);
+    pub const ABORTED: EBTNodeResult = EBTNodeResult(2);
+    pub const IN_PROGRESS: EBTNodeResult = EBTNodeResult(3);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EPathFollowingAction(pub u8);
+impl EPathFollowingAction {
+    pub const ERROR: EPathFollowingAction = EPathFollowingAction(0);
+    pub const NO_MOVE: EPathFollowingAction = EPathFollowingAction(1);
+    pub const DIRECT_MOVE: EPathFollowingAction = EPathFollowingAction(2);
+    pub const PARTIAL_PATH: EPathFollowingAction = EPathFollowingAction(3);
+    pub const PATH_TO_GOAL: EPathFollowingAction = EPathFollowingAction(4);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EAIOptionFlag(pub u8);
+impl EAIOptionFlag {
+    pub const DEFAULT: EAIOptionFlag = EAIOptionFlag(0);
+    pub const ENABLE: EAIOptionFlag = EAIOptionFlag(1);
+    pub const DISABLE: EAIOptionFlag = EAIOptionFlag(2);
+    pub const MAX: EAIOptionFlag = EAIOptionFlag(3);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EBTFlowAbortMode(pub u8);
+impl EBTFlowAbortMode {
+    pub const NONE: EBTFlowAbortMode = EBTFlowAbortMode(0);
+    pub const LOWER_PRIORITY: EBTFlowAbortMode = EBTFlowAbortMode(1);
+    pub const SELF: EBTFlowAbortMode = EBTFlowAbortMode(2);
+    pub const BOTH: EBTFlowAbortMode = EBTFlowAbortMode(3);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EBTParallelMode(pub u8);
+impl EBTParallelMode {
+    pub const ABORT_BACKGROUND: EBTParallelMode = EBTParallelMode(0);
+    pub const WAIT_FOR_BACKGROUND: EBTParallelMode = EBTParallelMode(1);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EBTBlackboardRestart(pub u8);
+impl EBTBlackboardRestart {
+    pub const VALUE_CHANGE: EBTBlackboardRestart = EBTBlackboardRestart(0);
+    pub const RESULT_CHANGE: EBTBlackboardRestart = EBTBlackboardRestart(1);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EBasicKeyOperation(pub u8);
+impl EBasicKeyOperation {
+    pub const SET: EBasicKeyOperation = EBasicKeyOperation(0);
+    pub const NOT_SET: EBasicKeyOperation = EBasicKeyOperation(1);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EArithmeticKeyOperation(pub u8);
+impl EArithmeticKeyOperation {
+    pub const EQUAL: EArithmeticKeyOperation = EArithmeticKeyOperation(0);
+    pub const NOT_EQUAL: EArithmeticKeyOperation = EArithmeticKeyOperation(1);
+    pub const LESS: EArithmeticKeyOperation = EArithmeticKeyOperation(2);
+    pub const LESS_OR_EQUAL: EArithmeticKeyOperation = EArithmeticKeyOperation(3);
+    pub const GREATER: EArithmeticKeyOperation = EArithmeticKeyOperation(4);
+    pub const GREATER_OR_EQUAL: EArithmeticKeyOperation = EArithmeticKeyOperation(5);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ETextKeyOperation(pub u8);
+impl ETextKeyOperation {
+    pub const EQUAL: ETextKeyOperation = ETextKeyOperation(0);
+    pub const NOT_EQUAL: ETextKeyOperation = ETextKeyOperation(1);
+    pub const CONTAIN: ETextKeyOperation = ETextKeyOperation(2);
+    pub const NOT_CONTAIN: ETextKeyOperation = ETextKeyOperation(3);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EBlackBoardEntryComparison(pub u8);
+impl EBlackBoardEntryComparison {
+    pub const EQUAL: EBlackBoardEntryComparison = EBlackBoardEntryComparison(0);
+    pub const NOT_EQUAL: EBlackBoardEntryComparison = EBlackBoardEntryComparison(1);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct FAIDistanceType(pub u8);
+impl FAIDistanceType {
+    pub const DISTANCE3_D: FAIDistanceType = FAIDistanceType(0);
+    pub const DISTANCE2_D: FAIDistanceType = FAIDistanceType(1);
+    pub const DISTANCE_Z: FAIDistanceType = FAIDistanceType(2);
+    pub const MAX: FAIDistanceType = FAIDistanceType(3);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EEnvQueryResultNormalizationOption(pub u8);
+impl EEnvQueryResultNormalizationOption {
+    pub const DEFAULT: EEnvQueryResultNormalizationOption = EEnvQueryResultNormalizationOption(
+        0,
+    );
+    pub const NORMALIZED: EEnvQueryResultNormalizationOption = EEnvQueryResultNormalizationOption(
+        1,
+    );
+    pub const UNALTERED: EEnvQueryResultNormalizationOption = EEnvQueryResultNormalizationOption(
+        2,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EEnvQueryStatus(pub u8);
+impl EEnvQueryStatus {
+    pub const PROCESSING: EEnvQueryStatus = EEnvQueryStatus(0);
+    pub const SUCCESS: EEnvQueryStatus = EEnvQueryStatus(1);
+    pub const FAILED: EEnvQueryStatus = EEnvQueryStatus(2);
+    pub const ABORTED: EEnvQueryStatus = EEnvQueryStatus(3);
+    pub const OWNER_LOST: EEnvQueryStatus = EEnvQueryStatus(4);
+    pub const MISSING_PARAM: EEnvQueryStatus = EEnvQueryStatus(5);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EEnvTestPurpose(pub u8);
+impl EEnvTestPurpose {
+    pub const FILTER: EEnvTestPurpose = EEnvTestPurpose(0);
+    pub const SCORE: EEnvTestPurpose = EEnvTestPurpose(1);
+    pub const FILTER_AND_SCORE: EEnvTestPurpose = EEnvTestPurpose(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EEnvTestFilterOperator(pub u8);
+impl EEnvTestFilterOperator {
+    pub const ALL_PASS: EEnvTestFilterOperator = EEnvTestFilterOperator(0);
+    pub const ANY_PASS: EEnvTestFilterOperator = EEnvTestFilterOperator(1);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EEnvTestScoreOperator(pub u8);
+impl EEnvTestScoreOperator {
+    pub const AVERAGE_SCORE: EEnvTestScoreOperator = EEnvTestScoreOperator(0);
+    pub const MIN_SCORE: EEnvTestScoreOperator = EEnvTestScoreOperator(1);
+    pub const MAX_SCORE: EEnvTestScoreOperator = EEnvTestScoreOperator(2);
+    pub const MULTIPLY: EEnvTestScoreOperator = EEnvTestScoreOperator(3);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EEnvTestFilterType(pub u8);
+impl EEnvTestFilterType {
+    pub const MINIMUM: EEnvTestFilterType = EEnvTestFilterType(0);
+    pub const MAXIMUM: EEnvTestFilterType = EEnvTestFilterType(1);
+    pub const RANGE: EEnvTestFilterType = EEnvTestFilterType(2);
+    pub const MATCH: EEnvTestFilterType = EEnvTestFilterType(3);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EEnvTestScoreEquation(pub u8);
+impl EEnvTestScoreEquation {
+    pub const LINEAR: EEnvTestScoreEquation = EEnvTestScoreEquation(0);
+    pub const SQUARE: EEnvTestScoreEquation = EEnvTestScoreEquation(1);
+    pub const INVERSE_LINEAR: EEnvTestScoreEquation = EEnvTestScoreEquation(2);
+    pub const SQUARE_ROOT: EEnvTestScoreEquation = EEnvTestScoreEquation(3);
+    pub const CONSTANT: EEnvTestScoreEquation = EEnvTestScoreEquation(4);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EEnvQueryTestClamping(pub u8);
+impl EEnvQueryTestClamping {
+    pub const NONE: EEnvQueryTestClamping = EEnvQueryTestClamping(0);
+    pub const SPECIFIED_VALUE: EEnvQueryTestClamping = EEnvQueryTestClamping(1);
+    pub const FILTER_THRESHOLD: EEnvQueryTestClamping = EEnvQueryTestClamping(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EEQSNormalizationType(pub u8);
+impl EEQSNormalizationType {
+    pub const ABSOLUTE: EEQSNormalizationType = EEQSNormalizationType(0);
+    pub const RELATIVE_TO_SCORES: EEQSNormalizationType = EEQSNormalizationType(1);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EEnvQueryHightlightMode(pub u8);
+impl EEnvQueryHightlightMode {
+    pub const ALL: EEnvQueryHightlightMode = EEnvQueryHightlightMode(0);
+    pub const BEST5_PCT: EEnvQueryHightlightMode = EEnvQueryHightlightMode(1);
+    pub const BEST25_PCT: EEnvQueryHightlightMode = EEnvQueryHightlightMode(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EPointOnCircleSpacingMethod(pub u8);
+impl EPointOnCircleSpacingMethod {
+    pub const BY_SPACE_BETWEEN: EPointOnCircleSpacingMethod = EPointOnCircleSpacingMethod(
+        0,
+    );
+    pub const BY_NUMBER_OF_POINTS: EPointOnCircleSpacingMethod = EPointOnCircleSpacingMethod(
+        1,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EEnvTestDistance(pub u8);
+impl EEnvTestDistance {
+    pub const DISTANCE3_D: EEnvTestDistance = EEnvTestDistance(0);
+    pub const DISTANCE2_D: EEnvTestDistance = EEnvTestDistance(1);
+    pub const DISTANCE_Z: EEnvTestDistance = EEnvTestDistance(2);
+    pub const DISTANCE_ABSOLUTE_Z: EEnvTestDistance = EEnvTestDistance(3);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EEnvTestDot(pub u8);
+impl EEnvTestDot {
+    pub const DOT3_D: EEnvTestDot = EEnvTestDot(0);
+    pub const DOT2_D: EEnvTestDot = EEnvTestDot(1);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EEnvTestPathfinding(pub u8);
+impl EEnvTestPathfinding {
+    pub const PATH_EXIST: EEnvTestPathfinding = EEnvTestPathfinding(0);
+    pub const PATH_COST: EEnvTestPathfinding = EEnvTestPathfinding(1);
+    pub const PATH_LENGTH: EEnvTestPathfinding = EEnvTestPathfinding(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EAISenseNotifyType(pub u8);
+impl EAISenseNotifyType {
+    pub const ON_EVERY_PERCEPTION: EAISenseNotifyType = EAISenseNotifyType(0);
+    pub const ON_PERCEPTION_CHANGE: EAISenseNotifyType = EAISenseNotifyType(1);
+}

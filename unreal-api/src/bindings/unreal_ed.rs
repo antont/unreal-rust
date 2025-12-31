@@ -2,29 +2,30 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
-pub use crate::bindings::prelude::*;
+pub use crate::bindings::opague_definitions::*;
+pub use crate::core_data::*;
 #[repr(C, align(8))]
 pub struct FBlueprintWatchedPin {
-    pub owning_node: TSoftObjectPtr<UEdGraphNode>,
-    pub pin_id: FGuid,
+    pub owning_node: TSoftObjectPtr<crate::bindings::engine::UEdGraphNode>,
+    pub pin_id: crate::bindings::core_u_object::FGuid,
     pub path_to_property: TArray<FName>,
 }
 #[repr(C, align(8))]
 pub struct FBlueprintBreakpoint {
     pub flags_0: u8,
-    pub node: TSoftObjectPtr<UEdGraphNode>,
+    pub node: TSoftObjectPtr<crate::bindings::engine::UEdGraphNode>,
     pub flags_56: u8,
 }
 #[repr(C, align(8))]
 pub struct FDFontParameters {
-    pub font_value: UPtr<UFont>,
+    pub font_value: UPtr<crate::bindings::engine::UFont>,
     pub font_page: i32,
 }
 #[repr(C, align(8))]
 pub struct FScalarParameterAtlasData {
     pub b_is_used_as_atlas_position: bool,
-    pub curve: TSoftObjectPtr<UCurveLinearColor>,
-    pub atlas: TSoftObjectPtr<UCurveLinearColorAtlas>,
+    pub curve: TSoftObjectPtr<crate::bindings::engine::UCurveLinearColor>,
+    pub atlas: TSoftObjectPtr<crate::bindings::engine::UCurveLinearColorAtlas>,
 }
 #[repr(C, align(4))]
 pub struct FDComponentMaskParameter {
@@ -56,8 +57,8 @@ pub struct FPlayScreenResolution {
 #[repr(C, align(8))]
 pub struct FLevelEditorViewportInstanceSettings {
     pub viewport_type: ELevelViewportType,
-    pub persp_view_mode_index: EViewModeIndex,
-    pub ortho_view_mode_index: EViewModeIndex,
+    pub persp_view_mode_index: crate::bindings::engine::EViewModeIndex,
+    pub ortho_view_mode_index: crate::bindings::engine::EViewModeIndex,
     pub editor_show_flags_string: FString,
     pub game_show_flags_string: FString,
     pub buffer_visualization_mode: FName,
@@ -69,7 +70,7 @@ pub struct FLevelEditorViewportInstanceSettings {
     pub virtual_texture_visualization_mode: FName,
     pub ray_tracing_debug_visualization_mode: FName,
     pub gpu_skin_cache_visualization_mode: FName,
-    pub exposure_settings: FExposureSettings,
+    pub exposure_settings: crate::bindings::engine::FExposureSettings,
     pub fov_angle: f32,
     pub far_view_plane: f32,
     pub b_is_realtime: bool,
@@ -92,24 +93,24 @@ pub struct FSnapToSurfaceSettings {
 }
 #[repr(C, align(8))]
 pub struct FLevelEditorViewporEditorViews {
-    pub level_viewports_info: TArray<FLevelViewportInfo>,
+    pub level_viewports_info: TArray<crate::bindings::engine::FLevelViewportInfo>,
 }
 #[repr(C, align(8))]
 pub struct FEditorParameterGroup {
     pub group_name: FName,
-    pub group_association: EMaterialParameterAssociation,
+    pub group_association: crate::bindings::engine::EMaterialParameterAssociation,
     pub parameters: TArray<UPtr<UDEditorParameterValue>>,
     pub group_sort_priority: i32,
 }
 #[repr(C, align(4))]
 pub struct FEditorParameterValue {
     pub flags_0: u8,
-    pub parameter_info: FMaterialParameterInfo,
-    pub expression_id: FGuid,
+    pub parameter_info: crate::bindings::engine::FMaterialParameterInfo,
+    pub expression_id: crate::bindings::core_u_object::FGuid,
 }
 #[repr(C, align(4))]
 pub struct FEditorVectorParameterValue {
-    pub parameter_value: FLinearColor,
+    pub parameter_value: crate::bindings::core_u_object::FLinearColor,
 }
 #[repr(C, align(4))]
 pub struct FEditorScalarParameterValue {
@@ -117,16 +118,16 @@ pub struct FEditorScalarParameterValue {
 }
 #[repr(C, align(8))]
 pub struct FEditorTextureParameterValue {
-    pub parameter_value: UPtr<UTexture>,
+    pub parameter_value: UPtr<crate::bindings::engine::UTexture>,
 }
 #[repr(C, align(8))]
 pub struct FEditorFontParameterValue {
-    pub font_value: UPtr<UFont>,
+    pub font_value: UPtr<crate::bindings::engine::UFont>,
     pub font_page: i32,
 }
 #[repr(C, align(8))]
 pub struct FEditorMaterialLayersParameterValue {
-    pub function_value: UPtr<UMaterialFunctionInterface>,
+    pub function_value: UPtr<crate::bindings::engine::UMaterialFunctionInterface>,
 }
 #[repr(C, align(4))]
 pub struct FEditorStaticSwitchParameterValue {
@@ -150,14 +151,14 @@ pub struct FMaterialEditorPostProcessOverrides {
     pub b_is_overrideable: bool,
     pub b_override_blendable_location: bool,
     pub b_override_blendable_priority: bool,
-    pub blendable_location_override: EBlendableLocation,
+    pub blendable_location_override: crate::bindings::engine::EBlendableLocation,
     pub blendable_priority_override: i32,
     pub user_scene_texture_inputs: TArray<FEditorUserSceneTextureOverride>,
     pub user_scene_texture_output: FName,
 }
 #[repr(C, align(4))]
 pub struct FViewportConfigOptions {
-    pub view_mode_index: EViewModeIndex,
+    pub view_mode_index: crate::bindings::engine::EViewModeIndex,
     pub view_fov: f32,
     pub camera_speed_settings: FEditorViewportCameraSpeedSettings,
     pub camera_speed_setting_deprecated: i32,
@@ -193,21 +194,21 @@ pub struct FPropertyColorCustomProperty {
     pub text_tool_tip: FText,
     pub property_chain: FString,
     pub property_value: FString,
-    pub property_color: FColor,
-    pub default_color: FColor,
+    pub property_color: crate::bindings::core_u_object::FColor,
+    pub default_color: crate::bindings::core_u_object::FColor,
 }
 #[repr(C, align(8))]
 pub struct FTemplateMapInfo {
-    pub thumbnail_texture: TSoftObjectPtr<UTexture2D>,
-    pub thumbnail: FSoftObjectPath,
-    pub map: FSoftObjectPath,
+    pub thumbnail_texture: TSoftObjectPtr<crate::bindings::engine::UTexture2D>,
+    pub thumbnail: crate::bindings::core_u_object::FSoftObjectPath,
+    pub map: crate::bindings::core_u_object::FSoftObjectPath,
     pub display_name: FText,
     pub category: FString,
 }
 #[repr(C, align(8))]
 pub struct FEditorKeyBinding {
     pub flags_0: u8,
-    pub key: FKey,
+    pub key: crate::bindings::input_core::FKey,
     pub command_name: FName,
 }
 #[repr(C, align(4))]
@@ -272,18 +273,18 @@ pub struct FGatherTextFromAssetsWorkerMessage_Ping {
 }
 #[repr(C, align(8))]
 pub struct FGatherTextFromAssetsWorkerMessage_Pong {
-    pub worker_id: FGuid,
-    pub idle_start_time_utc: TOptional<FDateTime>,
+    pub worker_id: crate::bindings::core_u_object::FGuid,
+    pub idle_start_time_utc: TOptional<crate::bindings::core_u_object::FDateTime>,
 }
 #[repr(C, align(8))]
 pub struct FGatherTextFromAssetsWorkerMessage_PackageRequest {
     pub package_name: FName,
     pub dependencies: TSet<FName>,
-    pub external_actors: TSet<FGuid>,
+    pub external_actors: TSet<crate::bindings::core_u_object::FGuid>,
 }
 #[repr(C, align(8))]
 pub struct FGatherTextFromAssetsWorkerMessage_PackageResult {
-    pub worker_id: FGuid,
+    pub worker_id: crate::bindings::core_u_object::FGuid,
     pub package_name: FName,
     pub gatherable_text_data: TArray<u8>,
     pub load_log_capture: FString,
@@ -291,8 +292,8 @@ pub struct FGatherTextFromAssetsWorkerMessage_PackageResult {
 }
 #[repr(C, align(8))]
 pub struct FHLODLayerActorMapping {
-    pub actor_class: TSoftObjectPtr<UClass>,
-    pub hlod_layer: FTopLevelAssetPath,
+    pub actor_class: TSoftObjectPtr<crate::bindings::core_u_object::UClass>,
+    pub hlod_layer: crate::bindings::core_u_object::FTopLevelAssetPath,
 }
 #[repr(C, align(4))]
 pub struct FPropertyNameAndIndex {
@@ -301,8 +302,10 @@ pub struct FPropertyNameAndIndex {
 }
 #[repr(C, align(8))]
 pub struct FComponentPropertyPath {
-    pub parent_owning_actor: TWeakObjectPtr<AActor>,
-    pub last_resort_component_ptr: TWeakObjectPtr<UActorComponent>,
+    pub parent_owning_actor: TWeakObjectPtr<crate::bindings::engine::AActor>,
+    pub last_resort_component_ptr: TWeakObjectPtr<
+        crate::bindings::engine::UActorComponent,
+    >,
     pub property_chain: TArray<FPropertyNameAndIndex>,
 }
 #[repr(C, align(8))]
@@ -324,18 +327,18 @@ pub struct FEditorStateCollection {
 }
 #[repr(C, align(8))]
 pub struct FEditorWorldExtensionActorData {
-    pub actor: UPtr<AActor>,
+    pub actor: UPtr<crate::bindings::engine::AActor>,
     pub b_valid_for_pie: bool,
 }
 #[repr(C, align(8))]
 pub struct FCSVImportSettings {
-    pub import_row_struct: UPtr<UScriptStruct>,
+    pub import_row_struct: UPtr<crate::bindings::core_u_object::UScriptStruct>,
     pub import_type: ECSVImportType,
-    pub import_curve_interp_mode: ERichCurveInterpMode,
+    pub import_curve_interp_mode: crate::bindings::engine::ERichCurveInterpMode,
 }
 #[repr(C, align(4))]
 pub struct FFbxMaterialBakeSize {
-    pub size: FIntPoint,
+    pub size: crate::bindings::core_u_object::FIntPoint,
     pub b_auto_detect: bool,
 }
 #[repr(C, align(8))]
@@ -344,7 +347,7 @@ pub struct FImportMeshLodSectionsData {
 }
 #[repr(C, align(8))]
 pub struct FMaterialGraphSchemaAction_NewNode {
-    pub material_expression_class: TSubclassOf<UObject>,
+    pub material_expression_class: TSubclassOf<crate::bindings::core_u_object::UObject>,
 }
 #[repr(C, align(8))]
 pub struct FMaterialGraphSchemaAction_NewFunctionCall {
@@ -356,7 +359,9 @@ pub struct FMaterialGraphSchemaAction_NewComposite {}
 pub struct FMaterialGraphSchemaAction_NewComment {}
 #[repr(C, align(8))]
 pub struct FMaterialGraphSchemaAction_NewNamedRerouteUsage {
-    pub declaration: UPtr<UMaterialExpressionNamedRerouteDeclaration>,
+    pub declaration: UPtr<
+        crate::bindings::engine::UMaterialExpressionNamedRerouteDeclaration,
+    >,
 }
 #[repr(C, align(8))]
 pub struct FMaterialGraphSchemaAction_Paste {}
@@ -368,14 +373,14 @@ pub struct FPropertyEditTestTextStruct {
 pub struct FPropertyEditorTestSubStruct {
     pub first_property: i32,
     pub second_property: i32,
-    pub customized_struct_inside_uncustomized_struct: FLinearColor,
-    pub customized_struct_inside_uncustomized_struct2: FSoftObjectPath,
+    pub customized_struct_inside_uncustomized_struct: crate::bindings::core_u_object::FLinearColor,
+    pub customized_struct_inside_uncustomized_struct2: crate::bindings::core_u_object::FSoftObjectPath,
 }
 #[repr(C, align(8))]
 pub struct FPropertyEditorTestBasicStruct {
     pub int_property_inside_a_struct: i32,
     pub float_property_inside_a_struct: f32,
-    pub object_property_inside_a_struct: UPtr<UObject>,
+    pub object_property_inside_a_struct: UPtr<crate::bindings::core_u_object::UObject>,
     pub inner_struct: FPropertyEditorTestSubStruct,
 }
 #[repr(C, align(4))]
@@ -401,7 +406,7 @@ pub struct FMode2DLayer {
 #[repr(C, align(8))]
 pub struct FRecentProjectFile {
     pub project_name: FString,
-    pub last_open_time: FDateTime,
+    pub last_open_time: crate::bindings::core_u_object::FDateTime,
 }
 #[repr(C, align(4))]
 pub struct FNetworkEmulationPacketSettings {
@@ -426,7 +431,7 @@ pub struct FCollectionScriptingContainerSource {
 pub struct FCollectionScriptingRef {
     pub container: FName,
     pub name: FName,
-    pub share_type: ECollectionScriptingShareType,
+    pub share_type: crate::bindings::engine::ECollectionScriptingShareType,
 }
 #[repr(C, align(8))]
 pub struct FFbxTestPlanExpectedResult {
@@ -439,7 +444,7 @@ pub struct FFbxTestPlanExpectedResult {
 #[repr(C, align(8))]
 pub struct FThumbnailRenderingInfo {
     pub class_needing_thumbnail_name: FString,
-    pub class_needing_thumbnail: TSubclassOf<UObject>,
+    pub class_needing_thumbnail: TSubclassOf<crate::bindings::core_u_object::UObject>,
     pub renderer_class_name: FString,
     pub renderer: UPtr<UThumbnailRenderer>,
     pub b_use_class_default_object: bool,
@@ -473,14 +478,14 @@ pub struct FLightmassParameterizedMaterialSettings {
 #[repr(C, align(8))]
 pub struct FStructVariableDescription {
     pub var_name: FName,
-    pub var_guid: FGuid,
+    pub var_guid: crate::bindings::core_u_object::FGuid,
     pub friendly_name: FString,
     pub default_value: FString,
     pub category: FName,
     pub sub_category: FName,
-    pub sub_category_object: TSoftObjectPtr<UObject>,
-    pub pin_value_type: FEdGraphTerminalType,
-    pub container_type: EPinContainerType,
+    pub sub_category_object: TSoftObjectPtr<crate::bindings::core_u_object::UObject>,
+    pub pin_value_type: crate::bindings::engine::FEdGraphTerminalType,
+    pub container_type: crate::bindings::engine::EPinContainerType,
     pub flags_173: u8,
     pub current_default_value: FString,
     pub tool_tip: FString,
@@ -491,14 +496,14 @@ pub struct FActorFolderProps {}
 #[repr(C, align(4))]
 pub struct FActorPlacementFolder {
     pub path: FName,
-    pub root_object_ptr: TWeakObjectPtr<UObject>,
-    pub actor_folder_guid: FGuid,
+    pub root_object_ptr: TWeakObjectPtr<crate::bindings::core_u_object::UObject>,
+    pub actor_folder_guid: crate::bindings::core_u_object::FGuid,
 }
 pub struct UAssetDefinitionDefault {}
 pub struct UFactory {
     pub flags_48: u8,
-    pub supported_class: TSubclassOf<UObject>,
-    pub context_class: TSubclassOf<UObject>,
+    pub supported_class: TSubclassOf<crate::bindings::core_u_object::UObject>,
+    pub context_class: TSubclassOf<crate::bindings::core_u_object::UObject>,
     pub formats: TArray<FString>,
     pub flags_88: u8,
     pub import_priority: i32,
@@ -515,9 +520,9 @@ pub struct UActorFactory {
     pub menu_priority: i32,
     pub new_actor_class_name: FString,
     pub b_should_auto_register: bool,
-    pub new_actor_class: TSubclassOf<AActor>,
+    pub new_actor_class: TSubclassOf<crate::bindings::engine::AActor>,
     pub flags_112: u8,
-    pub spawn_position_offset: FVector,
+    pub spawn_position_offset: crate::bindings::core_u_object::FVector,
 }
 pub struct UActorFactoryVolume {}
 pub struct UActorFactoryBoxVolume {}
@@ -537,15 +542,21 @@ pub struct UActorEditorContextStateCollection {
 }
 pub struct UActorEditorContextClientState {}
 pub struct UBaseWidgetBlueprint {
-    pub widget_tree: UPtr<UWidgetTree>,
+    pub widget_tree: UPtr<crate::bindings::umg::UWidgetTree>,
 }
 pub struct UEditorInteractiveToolsContext {
-    pub standard_vertex_color_material: UPtr<UMaterialInterface>,
+    pub standard_vertex_color_material: UPtr<
+        crate::bindings::engine::UMaterialInterface,
+    >,
 }
 pub struct UModeManagerInteractiveToolsContext {
     pub ed_mode_tools_contexts: TArray<UPtr<UEdModeInteractiveToolsContext>>,
-    pub drag_tools_behavior_source: UPtr<UDragToolsBehaviorSource>,
-    pub viewport_interactions_behavior_source: UPtr<UViewportInteractionsBehaviorSource>,
+    pub drag_tools_behavior_source: UPtr<
+        crate::bindings::editor_interactive_tools_framework::UDragToolsBehaviorSource,
+    >,
+    pub viewport_interactions_behavior_source: UPtr<
+        crate::bindings::editor_interactive_tools_framework::UViewportInteractionsBehaviorSource,
+    >,
 }
 pub struct UActorExporterT3D {}
 pub struct UGroupActorExporterT3D {}
@@ -590,13 +601,13 @@ pub struct UActorFactoryTriggerSphere {}
 pub struct UActorFactoryVectorFieldVolume {}
 pub struct UActorFactoryVolumetricCloud {}
 pub struct UBlendSpaceFactory1D {
-    pub target_skeleton: UPtr<USkeleton>,
-    pub preview_skeletal_mesh: UPtr<USkeletalMesh>,
+    pub target_skeleton: UPtr<crate::bindings::engine::USkeleton>,
+    pub preview_skeletal_mesh: UPtr<crate::bindings::engine::USkeletalMesh>,
 }
 pub struct UAimOffsetBlendSpaceFactory1D {}
 pub struct UBlendSpaceFactoryNew {
-    pub target_skeleton: UPtr<USkeleton>,
-    pub preview_skeletal_mesh: UPtr<USkeletalMesh>,
+    pub target_skeleton: UPtr<crate::bindings::engine::USkeleton>,
+    pub preview_skeletal_mesh: UPtr<crate::bindings::engine::USkeletalMesh>,
 }
 pub struct UAimOffsetBlendSpaceFactoryNew {}
 pub struct UAnimationBlueprintEditorOptions {
@@ -617,8 +628,8 @@ pub struct UExporterFBX {}
 pub struct UAnimSequenceExporterFBX {}
 pub struct UAssetEditorToolkitMenuContext {}
 pub struct UBlueprintFactory {
-    pub parent_class: TSubclassOf<UObject>,
-    pub blueprint_type: EBlueprintType,
+    pub parent_class: TSubclassOf<crate::bindings::core_u_object::UObject>,
+    pub blueprint_type: crate::bindings::engine::EBlueprintType,
     pub b_skip_class_picker: bool,
 }
 pub struct UBlueprintFunctionLibraryFactory {}
@@ -631,42 +642,42 @@ pub struct UCanvasRenderTarget2DFactoryNew {
 }
 pub struct UCascadeOptions {
     pub flags_48: u8,
-    pub background_color: FColor,
+    pub background_color: crate::bindings::core_u_object::FColor,
     pub flags_56: u8,
-    pub empty_background: FColor,
-    pub emitter_background: FColor,
-    pub emitter_unselected: FColor,
-    pub emitter_selected: FColor,
-    pub module_color_general_unselected: FColor,
-    pub module_color_general_selected: FColor,
-    pub module_color_type_data_unselected: FColor,
-    pub module_color_type_data_selected: FColor,
-    pub module_color_beam_unselected: FColor,
-    pub module_color_beam_selected: FColor,
-    pub module_color_trail_unselected: FColor,
-    pub module_color_trail_selected: FColor,
-    pub module_color_spawn_unselected: FColor,
-    pub module_color_spawn_selected: FColor,
-    pub module_color_light_unselected: FColor,
-    pub module_color_light_selected: FColor,
-    pub module_color_sub_uv_unselected: FColor,
-    pub module_color_sub_uv_selected: FColor,
-    pub module_color_required_unselected: FColor,
-    pub module_color_required_selected: FColor,
-    pub module_color_event_unselected: FColor,
-    pub module_color_event_selected: FColor,
+    pub empty_background: crate::bindings::core_u_object::FColor,
+    pub emitter_background: crate::bindings::core_u_object::FColor,
+    pub emitter_unselected: crate::bindings::core_u_object::FColor,
+    pub emitter_selected: crate::bindings::core_u_object::FColor,
+    pub module_color_general_unselected: crate::bindings::core_u_object::FColor,
+    pub module_color_general_selected: crate::bindings::core_u_object::FColor,
+    pub module_color_type_data_unselected: crate::bindings::core_u_object::FColor,
+    pub module_color_type_data_selected: crate::bindings::core_u_object::FColor,
+    pub module_color_beam_unselected: crate::bindings::core_u_object::FColor,
+    pub module_color_beam_selected: crate::bindings::core_u_object::FColor,
+    pub module_color_trail_unselected: crate::bindings::core_u_object::FColor,
+    pub module_color_trail_selected: crate::bindings::core_u_object::FColor,
+    pub module_color_spawn_unselected: crate::bindings::core_u_object::FColor,
+    pub module_color_spawn_selected: crate::bindings::core_u_object::FColor,
+    pub module_color_light_unselected: crate::bindings::core_u_object::FColor,
+    pub module_color_light_selected: crate::bindings::core_u_object::FColor,
+    pub module_color_sub_uv_unselected: crate::bindings::core_u_object::FColor,
+    pub module_color_sub_uv_selected: crate::bindings::core_u_object::FColor,
+    pub module_color_required_unselected: crate::bindings::core_u_object::FColor,
+    pub module_color_required_selected: crate::bindings::core_u_object::FColor,
+    pub module_color_event_unselected: crate::bindings::core_u_object::FColor,
+    pub module_color_event_selected: crate::bindings::core_u_object::FColor,
     pub flags_148: u8,
-    pub grid_color_hi: FColor,
-    pub grid_color_low: FColor,
+    pub grid_color_hi: crate::bindings::core_u_object::FColor,
+    pub grid_color_low: crate::bindings::core_u_object::FColor,
     pub grid_perspective_size: f32,
     pub flags_164: u8,
     pub particle_memory_update_time: f32,
     pub flags_172: u8,
     pub floor_mesh: FString,
-    pub floor_position: FVector,
-    pub floor_rotation: FRotator,
+    pub floor_position: crate::bindings::core_u_object::FVector,
+    pub floor_rotation: crate::bindings::core_u_object::FRotator,
     pub floor_scale: f32,
-    pub floor_scale3_d: FVector,
+    pub floor_scale3_d: crate::bindings::core_u_object::FVector,
     pub show_pp_flags: i32,
     pub flags_276: u8,
     pub slim_cascade_draw_height: i32,
@@ -743,16 +754,16 @@ pub struct UCurvedStairBuilder {
 pub struct UCurveEdOptions {
     pub min_view_range: f32,
     pub max_view_range: f32,
-    pub background_color: FLinearColor,
-    pub label_color: FLinearColor,
-    pub selected_label_color: FLinearColor,
-    pub grid_color: FLinearColor,
-    pub grid_text_color: FLinearColor,
-    pub label_block_bkg_color: FLinearColor,
-    pub selected_key_color: FLinearColor,
+    pub background_color: crate::bindings::core_u_object::FLinearColor,
+    pub label_color: crate::bindings::core_u_object::FLinearColor,
+    pub selected_label_color: crate::bindings::core_u_object::FLinearColor,
+    pub grid_color: crate::bindings::core_u_object::FLinearColor,
+    pub grid_text_color: crate::bindings::core_u_object::FLinearColor,
+    pub label_block_bkg_color: crate::bindings::core_u_object::FLinearColor,
+    pub selected_key_color: crate::bindings::core_u_object::FLinearColor,
 }
 pub struct UCurveFactory {
-    pub curve_class: TSubclassOf<UCurveBase>,
+    pub curve_class: TSubclassOf<crate::bindings::engine::UCurveBase>,
 }
 pub struct UCurveFloatFactory {}
 pub struct UCurveLinearColorFactory {}
@@ -770,38 +781,38 @@ pub struct UCylinderBuilder {
     pub flags_164: u8,
 }
 pub struct UDataAssetFactory {
-    pub data_asset_class: TSubclassOf<UDataAsset>,
+    pub data_asset_class: TSubclassOf<crate::bindings::engine::UDataAsset>,
 }
 pub struct UDEditorParameterValue {
     pub flags_48: u8,
-    pub parameter_info: FMaterialParameterInfo,
-    pub expression_id: FGuid,
+    pub parameter_info: crate::bindings::engine::FMaterialParameterInfo,
+    pub expression_id: crate::bindings::core_u_object::FGuid,
     pub description: FString,
     pub asset_path: FString,
     pub sort_priority: i32,
 }
 pub struct UDEditorDoubleVectorParameterValue {
-    pub parameter_value: FVector4d,
+    pub parameter_value: crate::bindings::core_u_object::FVector4d,
 }
 pub struct UDEditorFontParameterValue {
     pub parameter_value: FDFontParameters,
 }
 pub struct UDEditorMaterialLayersParameterValue {
-    pub parameter_value: FMaterialLayersFunctions,
+    pub parameter_value: crate::bindings::engine::FMaterialLayersFunctions,
 }
 pub struct UDEditorParameterCollectionParameterValue {
-    pub parameter_value: UPtr<UMaterialParameterCollection>,
+    pub parameter_value: UPtr<crate::bindings::engine::UMaterialParameterCollection>,
 }
 pub struct UDEditorRuntimeVirtualTextureParameterValue {
-    pub parameter_value: UPtr<URuntimeVirtualTexture>,
+    pub parameter_value: UPtr<crate::bindings::engine::URuntimeVirtualTexture>,
 }
 pub struct UDEditorScalarParameterValue {
     pub parameter_value: f32,
     pub atlas_data: FScalarParameterAtlasData,
-    pub enumeration: TSoftObjectPtr<UObject>,
+    pub enumeration: TSoftObjectPtr<crate::bindings::core_u_object::UObject>,
 }
 pub struct UDEditorSparseVolumeTextureParameterValue {
-    pub parameter_value: UPtr<USparseVolumeTexture>,
+    pub parameter_value: UPtr<crate::bindings::engine::USparseVolumeTexture>,
 }
 pub struct UDEditorStaticComponentMaskParameterValue {
     pub parameter_value: FDComponentMaskParameter,
@@ -810,17 +821,17 @@ pub struct UDEditorStaticSwitchParameterValue {
     pub flags_128: u8,
 }
 pub struct UDEditorTextureCollectionParameterValue {
-    pub parameter_value: UPtr<UTextureCollection>,
+    pub parameter_value: UPtr<crate::bindings::engine::UTextureCollection>,
 }
 pub struct UDEditorTextureParameterValue {
-    pub parameter_value: UPtr<UTexture>,
-    pub channel_names: FParameterChannelNames,
+    pub parameter_value: UPtr<crate::bindings::engine::UTexture>,
+    pub channel_names: crate::bindings::engine::FParameterChannelNames,
 }
 pub struct UDEditorVectorParameterValue {
-    pub parameter_value: FLinearColor,
+    pub parameter_value: crate::bindings::core_u_object::FLinearColor,
     pub b_is_used_as_channel_mask: bool,
     pub b_use_custom_primitive_data: bool,
-    pub channel_names: FParameterChannelNames,
+    pub channel_names: crate::bindings::engine::FParameterChannelNames,
 }
 pub struct UEditorExperimentalSettings {
     pub b_enable_async_texture_compilation: bool,
@@ -833,7 +844,7 @@ pub struct UEditorExperimentalSettings {
     pub hdr_editor_nit_level: f32,
     pub b_procedural_foliage: bool,
     pub b_enable_translation_picker: bool,
-    pub console_for_gamepad_labels: EConsoleForGamepadLabels,
+    pub console_for_gamepad_labels: crate::bindings::input_core::EConsoleForGamepadLabels,
     pub b_toolbar_customization: bool,
     pub b_break_on_exceptions: bool,
     pub b_draw_midpoint_arrows_in_blueprints: bool,
@@ -884,37 +895,37 @@ pub struct UEditorLoadingSavingSettings {
     pub auto_save_warning_in_seconds: i32,
     pub auto_save_max_backups: i32,
     pub flags_140: u8,
-    pub text_diff_tool_path: FFilePath,
+    pub text_diff_tool_path: crate::bindings::core_u_object::FFilePath,
 }
 pub struct UEditorMiscSettings {}
 pub struct UEditorStyleSettings {
     pub b_enable_high_dpi_awareness: bool,
     pub application_scale: f32,
     pub b_enable_user_editor_layout_management: bool,
-    pub color_vision_deficiency_preview_type: EColorVisionDeficiency,
+    pub color_vision_deficiency_preview_type: crate::bindings::slate_core::EColorVisionDeficiency,
     pub color_vision_deficiency_severity: i32,
     pub b_color_vision_deficiency_correction: bool,
     pub b_color_vision_deficiency_correction_preview_with_deficiency: bool,
-    pub x_axis_color: FLinearColor,
-    pub y_axis_color: FLinearColor,
-    pub z_axis_color: FLinearColor,
-    pub selection_color: FLinearColor,
-    pub additional_selection_colors: FLinearColor,
-    pub viewport_tool_overlay_color: FLinearColor,
+    pub x_axis_color: crate::bindings::core_u_object::FLinearColor,
+    pub y_axis_color: crate::bindings::core_u_object::FLinearColor,
+    pub z_axis_color: crate::bindings::core_u_object::FLinearColor,
+    pub selection_color: crate::bindings::core_u_object::FLinearColor,
+    pub additional_selection_colors: crate::bindings::core_u_object::FLinearColor,
+    pub viewport_tool_overlay_color: crate::bindings::core_u_object::FLinearColor,
     pub b_enable_editor_window_background_color: bool,
-    pub editor_window_background_color: FLinearColor,
+    pub editor_window_background_color: crate::bindings::core_u_object::FLinearColor,
     pub flags_264: u8,
     pub menu_search_field_visibility_threshold: u32,
     pub flags_272: u8,
-    pub regular_color: FLinearColor,
-    pub rule_color: FLinearColor,
-    pub center_color: FLinearColor,
+    pub regular_color: crate::bindings::core_u_object::FLinearColor,
+    pub rule_color: crate::bindings::core_u_object::FLinearColor,
+    pub center_color: crate::bindings::core_u_object::FLinearColor,
     pub grid_snap_size: u32,
-    pub graph_background_brush: FSlateBrush,
+    pub graph_background_brush: crate::bindings::slate_core::FSlateBrush,
     pub flags_544: u8,
     pub asset_editor_open_location: EAssetEditorOpenLocation,
     pub flags_552: u8,
-    pub current_applied_theme: FGuid,
+    pub current_applied_theme: crate::bindings::core_u_object::FGuid,
     pub b_enable_middle_ellipsis: bool,
     pub asset_picker_size_scale: f32,
 }
@@ -929,9 +940,9 @@ pub struct UFbxImportUI {
     pub flags_60: u8,
     pub b_import_as_skeletal: bool,
     pub b_import_mesh: bool,
-    pub skeleton: UPtr<USkeleton>,
+    pub skeleton: UPtr<crate::bindings::engine::USkeleton>,
     pub flags_80: u8,
-    pub physics_asset: UPtr<UPhysicsAsset>,
+    pub physics_asset: UPtr<crate::bindings::engine::UPhysicsAsset>,
     pub flags_96: u8,
     pub lod_distance0: f32,
     pub lod_distance1: f32,
@@ -983,12 +994,14 @@ pub struct ULevelEditorMiscSettings {
     pub flags_105: u8,
     pub editor_volume_level: f32,
     pub flags_112: u8,
-    pub default_level_streaming_class: TSubclassOf<ULevelStreaming>,
+    pub default_level_streaming_class: TSubclassOf<
+        crate::bindings::engine::ULevelStreaming,
+    >,
     pub b_prompt_when_adding_to_level_before_checkout: bool,
     pub b_prompt_when_adding_to_level_outside_bounds: bool,
     pub percentage_threshold_for_prompt: f32,
-    pub minimum_bounds_for_checking_size: FVector,
-    pub editor_screenshot_save_directory: FDirectoryPath,
+    pub minimum_bounds_for_checking_size: crate::bindings::core_u_object::FVector,
+    pub editor_screenshot_save_directory: crate::bindings::core_u_object::FDirectoryPath,
 }
 pub struct UCommonResolutionMenuContext {}
 pub struct ULevelEditorPlaySettings {
@@ -996,7 +1009,7 @@ pub struct ULevelEditorPlaySettings {
     pub game_gets_mouse_control: bool,
     pub use_mouse_for_touch: bool,
     pub b_simulate_device_mapping_policy: bool,
-    pub simulated_device_mapping_policy: EInputDeviceMappingPolicy,
+    pub simulated_device_mapping_policy: crate::bindings::core_u_object::EInputDeviceMappingPolicy,
     pub show_mouse_control_label: bool,
     pub mouse_control_label_position: ELabelAnchorMode,
     pub viewport_gets_hmd_control: bool,
@@ -1013,7 +1026,7 @@ pub struct ULevelEditorPlaySettings {
     pub b_promote_output_log_warnings_during_pie: bool,
     pub new_window_width: i32,
     pub new_window_height: i32,
-    pub new_window_position: FIntPoint,
+    pub new_window_position: crate::bindings::core_u_object::FIntPoint,
     pub flags_148: u8,
     pub additional_launch_parameters: FString,
     pub build_game_before_launch: EPlayOnBuildMode,
@@ -1034,15 +1047,15 @@ pub struct ULevelEditorPlaySettings {
     pub additional_server_game_options: FString,
     pub b_show_server_debug_drawing_by_default: bool,
     pub server_debug_drawing_color_tint_strength: f32,
-    pub server_debug_drawing_color_tint: FLinearColor,
+    pub server_debug_drawing_color_tint: crate::bindings::core_u_object::FLinearColor,
     pub b_one_headset_each_process_deprecated: bool,
     pub b_hmd_for_primary_process_only: bool,
     pub additional_server_launch_parameters: FString,
     pub server_fixed_fps: i32,
     pub client_fixed_fps: TArray<i32>,
     pub network_emulation_settings: FLevelEditorPlayNetworkEmulationSettings,
-    pub last_size: FIntPoint,
-    pub multiple_instance_positions: TArray<FIntPoint>,
+    pub last_size: crate::bindings::core_u_object::FIntPoint,
+    pub multiple_instance_positions: TArray<crate::bindings::core_u_object::FIntPoint>,
     pub last_executed_launch_device: FString,
     pub last_executed_launch_name: FString,
     pub last_executed_launch_mode_type: ELaunchModeType,
@@ -1055,9 +1068,9 @@ pub struct ULevelEditorPlaySettings {
     pub tablet_screen_resolutions: TArray<FPlayScreenResolution>,
     pub television_screen_resolutions: TArray<FPlayScreenResolution>,
     pub device_to_emulate: FString,
-    pub pie_safe_zone_override: FMargin,
-    pub custom_unsafe_zone_starts: TArray<FVector2D>,
-    pub custom_unsafe_zone_dimensions: TArray<FVector2D>,
+    pub pie_safe_zone_override: crate::bindings::slate_core::FMargin,
+    pub custom_unsafe_zone_starts: TArray<crate::bindings::core_u_object::FVector2D>,
+    pub custom_unsafe_zone_dimensions: TArray<crate::bindings::core_u_object::FVector2D>,
 }
 pub struct ULevelEditorViewportSettings {
     pub flight_camera_control_type: EWASDType,
@@ -1108,7 +1121,7 @@ pub struct ULevelEditorViewportSettings {
     pub current_scaling_grid_size: i32,
     pub preserve_non_uniform_scale: bool,
     pub current_rot_grid_mode: ERotationGridMode,
-    pub aspect_ratio_axis_constraint: EAspectRatioAxisConstraint,
+    pub aspect_ratio_axis_constraint: crate::bindings::engine::EAspectRatioAxisConstraint,
     pub flags_300: u8,
     pub marquee_selection_mode: EMarqueeSelectionMode,
     pub flags_308: u8,
@@ -1117,7 +1130,7 @@ pub struct ULevelEditorViewportSettings {
     pub flags_320: u8,
     pub camera_preview_size: f32,
     pub background_drop_distance: f32,
-    pub preview_meshes: TArray<FSoftObjectPath>,
+    pub preview_meshes: TArray<crate::bindings::core_u_object::FSoftObjectPath>,
     pub billboard_scale: f32,
     pub transform_widget_size_adjustment_deprecated: i32,
     pub flags_360: u8,
@@ -1126,11 +1139,16 @@ pub struct ULevelEditorViewportSettings {
     pub spline_line_thickness_adjustment: f32,
     pub spline_tangent_handle_size_adjustment: f32,
     pub spline_tangent_scale: f32,
-    pub last_in_viewport_menu_location: FVector2D,
-    pub material_for_dropped_textures: TSoftObjectPtr<UMaterialInterface>,
+    pub last_in_viewport_menu_location: crate::bindings::core_u_object::FVector2D,
+    pub material_for_dropped_textures: TSoftObjectPtr<
+        crate::bindings::engine::UMaterialInterface,
+    >,
     pub material_params_for_dropped_textures: TMap<EMaterialKind, FName>,
-    pub editor_views: TMap<TSoftObjectPtr<UWorld>, FLevelEditorViewporEditorViews>,
-    pub property_coloration_color_for_matching_objects: FColor,
+    pub editor_views: TMap<
+        TSoftObjectPtr<crate::bindings::engine::UWorld>,
+        FLevelEditorViewporEditorViews,
+    >,
+    pub property_coloration_color_for_matching_objects: crate::bindings::core_u_object::FColor,
     pub per_instance_settings: TArray<FLevelEditorViewportInstanceSettingsKeyValuePair>,
 }
 pub struct ULevelExporterFBX {}
@@ -1151,26 +1169,32 @@ pub struct UListMaterialsUsedWithMeshEmittersCommandlet {}
 pub struct UListStaticMeshesImportedFromSpeedTreesCommandlet {}
 pub struct ULoadPackageCommandlet {}
 pub struct UMaterialEditorParameters {
-    pub stored_layer_previews: TArray<UPtr<UMaterialInstanceConstant>>,
-    pub stored_blend_previews: TArray<UPtr<UMaterialInstanceConstant>>,
+    pub stored_layer_previews: TArray<
+        UPtr<crate::bindings::engine::UMaterialInstanceConstant>,
+    >,
+    pub stored_blend_previews: TArray<
+        UPtr<crate::bindings::engine::UMaterialInstanceConstant>,
+    >,
 }
 pub struct UMaterialEditorInstanceConstant {
-    pub phys_material: UPtr<UPhysicalMaterial>,
-    pub parent: UPtr<UMaterialInterface>,
+    pub phys_material: UPtr<crate::bindings::physics_core::UPhysicalMaterial>,
+    pub parent: UPtr<crate::bindings::engine::UMaterialInterface>,
     pub parameter_groups: TArray<FEditorParameterGroup>,
     pub refraction_depth_bias: f32,
-    pub subsurface_profile: UPtr<USubsurfaceProfile>,
+    pub subsurface_profile: UPtr<crate::bindings::engine::USubsurfaceProfile>,
     pub flags_128: u8,
-    pub specular_profile: UPtr<USpecularProfile>,
+    pub specular_profile: UPtr<crate::bindings::engine::USpecularProfile>,
     pub flags_144: u8,
-    pub base_property_overrides: FMaterialInstanceBasePropertyOverrides,
-    pub source_instance: UPtr<UMaterialInstanceConstant>,
-    pub source_function: UPtr<UMaterialFunctionInstance>,
-    pub visible_expressions: TArray<FMaterialParameterInfo>,
+    pub base_property_overrides: crate::bindings::engine::FMaterialInstanceBasePropertyOverrides,
+    pub source_instance: UPtr<crate::bindings::engine::UMaterialInstanceConstant>,
+    pub source_function: UPtr<crate::bindings::engine::UMaterialFunctionInstance>,
+    pub visible_expressions: TArray<crate::bindings::engine::FMaterialParameterInfo>,
     pub lightmass_settings: FLightmassParameterizedMaterialSettings,
     pub flags_248: u8,
-    pub nanite_override_material: UPtr<UMaterialInterface>,
-    pub enumeration_objects: TArray<TSoftObjectPtr<UObject>>,
+    pub nanite_override_material: UPtr<crate::bindings::engine::UMaterialInterface>,
+    pub enumeration_objects: TArray<
+        TSoftObjectPtr<crate::bindings::core_u_object::UObject>,
+    >,
     pub post_process_overrides: FMaterialEditorPostProcessOverrides,
 }
 pub struct UMaterialEditorOptions {
@@ -1179,23 +1203,23 @@ pub struct UMaterialEditorOptions {
 }
 pub struct UMaterialEditorPreviewParameters {
     pub parameter_groups: TArray<FEditorParameterGroup>,
-    pub preview_material: UPtr<UMaterial>,
-    pub original_function: UPtr<UMaterialFunction>,
-    pub original_material: UPtr<UMaterial>,
+    pub preview_material: UPtr<crate::bindings::engine::UMaterial>,
+    pub original_function: UPtr<crate::bindings::engine::UMaterialFunction>,
+    pub original_material: UPtr<crate::bindings::engine::UMaterial>,
 }
 pub struct UMaterialFactoryNew {
-    pub initial_texture: UPtr<UTexture>,
+    pub initial_texture: UPtr<crate::bindings::engine::UTexture>,
 }
 pub struct UMaterialFunctionFactoryNew {}
 pub struct UMaterialFunctionInstanceFactory {
-    pub initial_parent: UPtr<UMaterialFunctionInterface>,
+    pub initial_parent: UPtr<crate::bindings::engine::UMaterialFunctionInterface>,
 }
 pub struct UMaterialFunctionMaterialLayerInstanceFactory {}
 pub struct UMaterialFunctionMaterialLayerBlendInstanceFactory {}
 pub struct UMaterialFunctionMaterialLayerBlendFactory {}
 pub struct UMaterialFunctionMaterialLayerFactory {}
 pub struct UMaterialInstanceConstantFactoryNew {
-    pub initial_parent: UPtr<UMaterialInterface>,
+    pub initial_parent: UPtr<crate::bindings::engine::UMaterialInterface>,
 }
 pub struct UMaterialParameterCollectionFactoryNew {}
 pub struct UMaterialStatsOptions {
@@ -1216,15 +1240,15 @@ pub struct UPersonaOptions {
     pub default_local_axes_selection: u32,
     pub default_bone_draw_selection: u32,
     pub b_show_bone_colors: bool,
-    pub default_bone_color: FLinearColor,
-    pub selected_bone_color: FLinearColor,
-    pub affected_bone_color: FLinearColor,
-    pub disabled_bone_color: FLinearColor,
-    pub parent_of_selected_bone_color: FLinearColor,
-    pub virtual_bone_color: FLinearColor,
-    pub section_timing_node_color: FLinearColor,
-    pub notify_timing_node_color: FLinearColor,
-    pub branching_point_timing_node_color: FLinearColor,
+    pub default_bone_color: crate::bindings::core_u_object::FLinearColor,
+    pub selected_bone_color: crate::bindings::core_u_object::FLinearColor,
+    pub affected_bone_color: crate::bindings::core_u_object::FLinearColor,
+    pub disabled_bone_color: crate::bindings::core_u_object::FLinearColor,
+    pub parent_of_selected_bone_color: crate::bindings::core_u_object::FLinearColor,
+    pub virtual_bone_color: crate::bindings::core_u_object::FLinearColor,
+    pub section_timing_node_color: crate::bindings::core_u_object::FLinearColor,
+    pub notify_timing_node_color: crate::bindings::core_u_object::FLinearColor,
+    pub branching_point_timing_node_color: crate::bindings::core_u_object::FLinearColor,
     pub b_pause_animation_on_camera_move: bool,
     pub b_use_inline_socket_editor: bool,
     pub b_flatten_skeleton_hierarchy_when_filtering: bool,
@@ -1238,7 +1262,7 @@ pub struct UPersonaOptions {
     pub asset_editor_options: TArray<FAssetEditorOptions>,
     pub curve_editor_snap_interval: f32,
     pub timeline_scrub_snap_value: i32,
-    pub timeline_display_format: EFrameNumberDisplayFormats,
+    pub timeline_display_format: crate::bindings::time_management::EFrameNumberDisplayFormats,
     pub b_timeline_display_percentage: bool,
     pub b_timeline_display_format_secondary: bool,
     pub b_timeline_display_curve_keys: bool,
@@ -1248,15 +1272,19 @@ pub struct UPersonaOptions {
     pub animation_curve_grouping_delimiters: FString,
 }
 pub struct UPhysicalMaterialFactoryNew {
-    pub physical_material_class: TSubclassOf<UPhysicalMaterial>,
+    pub physical_material_class: TSubclassOf<
+        crate::bindings::physics_core::UPhysicalMaterial,
+    >,
 }
 pub struct UPhysicalMaterialMaskFactory {
-    pub physical_material_mask_class: TSubclassOf<UPhysicalMaterialMask>,
+    pub physical_material_mask_class: TSubclassOf<
+        crate::bindings::engine::UPhysicalMaterialMask,
+    >,
 }
 pub struct UPhysicsAssetEditorOptions {
     pub physics_blend: f32,
     pub b_update_joints_from_animation: bool,
-    pub physics_update_mode: EPhysicsTransformUpdateMode,
+    pub physics_update_mode: crate::bindings::engine::EPhysicsTransformUpdateMode,
     pub poke_pause_time: f32,
     pub poke_blend_time: f32,
     pub grav_scale: f32,
@@ -1292,21 +1320,21 @@ pub struct UPhysicsAssetEditorOptions {
     pub b_expose_legacy_menu_constraint_controls: bool,
 }
 pub struct UPhysicsAssetGenerationSettings {
-    pub create_params: FPhysAssetCreateParams,
+    pub create_params: crate::bindings::physics_utilities::FPhysAssetCreateParams,
 }
 pub struct UPkgInfoCommandlet {}
 pub struct UPolysExporterOBJ {}
 pub struct UPolysExporterT3D {}
 pub struct UPolysFactory {}
 pub struct UPreviewMeshCollectionFactory {
-    pub current_skeleton: TWeakObjectPtr<USkeleton>,
+    pub current_skeleton: TWeakObjectPtr<crate::bindings::engine::USkeleton>,
 }
 pub struct UPropertyColorSettings {
     pub custom_properties: TArray<FPropertyColorCustomProperty>,
 }
 pub struct UCSVImportFactory {
     pub automated_import_settings: FCSVImportSettings,
-    pub data_table_import_options: UPtr<UDataTable>,
+    pub data_table_import_options: UPtr<crate::bindings::engine::UDataTable>,
 }
 pub struct UReimportCurveFactory {}
 pub struct UReimportCurveTableFactory {}
@@ -1320,22 +1348,22 @@ pub struct UReimportFbxSkeletalMeshFactory {}
 pub struct UReimportFbxStaticMeshFactory {}
 pub struct UTextureFactory {
     pub flags_144: u8,
-    pub compression_settings: TextureCompressionSettings,
+    pub compression_settings: crate::bindings::engine::TextureCompressionSettings,
     pub flags_152: u8,
-    pub blending: EBlendMode,
-    pub shading_model: EMaterialShadingModel,
-    pub mip_gen_settings: TextureMipGenSettings,
-    pub lod_group: TextureGroup,
+    pub blending: crate::bindings::engine::EBlendMode,
+    pub shading_model: crate::bindings::engine::EMaterialShadingModel,
+    pub mip_gen_settings: crate::bindings::engine::TextureMipGenSettings,
+    pub lod_group: crate::bindings::engine::TextureGroup,
     pub b_do_scale_mips_for_alpha_coverage: bool,
     pub b_use_new_mip_filter: bool,
-    pub alpha_coverage_thresholds: FVector4,
+    pub alpha_coverage_thresholds: crate::bindings::core_u_object::FVector4,
     pub flags_208: u8,
     pub udim_regex_pattern: FString,
     pub color_space_mode: ETextureSourceColorSpace,
-    pub hdr_import_should_be_long_lat_cube_map: EAppReturnType,
+    pub hdr_import_should_be_long_lat_cube_map: crate::bindings::core_u_object::EAppReturnType,
 }
 pub struct UReimportTextureFactory {
-    pub p_original_tex: UPtr<UTexture>,
+    pub p_original_tex: UPtr<crate::bindings::engine::UTexture>,
 }
 pub struct UVectorFieldStaticFactory {}
 pub struct UReimportVectorFieldStaticFactory {}
@@ -1355,12 +1383,12 @@ pub struct USheetBuilder {
     pub group_name: FName,
 }
 pub struct USkeletalMeshEditorSettings {
-    pub anim_preview_floor_color: FColor,
-    pub anim_preview_sky_color: FColor,
+    pub anim_preview_floor_color: crate::bindings::core_u_object::FColor,
+    pub anim_preview_sky_color: crate::bindings::core_u_object::FColor,
     pub anim_preview_sky_brightness: f32,
     pub anim_preview_light_brightness: f32,
-    pub anim_preview_lighting_direction: FRotator,
-    pub anim_preview_directional_color: FColor,
+    pub anim_preview_lighting_direction: crate::bindings::core_u_object::FRotator,
+    pub anim_preview_directional_color: crate::bindings::core_u_object::FColor,
 }
 pub struct USkeletalMeshExporterFBX {}
 pub struct USkeletalMeshToolMenuContext {}
@@ -1389,7 +1417,7 @@ pub struct UStructViewerSettings {
 }
 pub struct USubsurfaceProfileFactory {}
 pub struct USubUVAnimationFactory {
-    pub initial_texture: UPtr<UTexture2D>,
+    pub initial_texture: UPtr<crate::bindings::engine::UTexture2D>,
 }
 pub struct UTetrahedronBuilder {
     pub radius: f32,
@@ -1456,7 +1484,7 @@ pub struct UTouchInterfaceFactory {}
 pub struct UTransactor {}
 pub struct UTransBuffer {}
 pub struct UTrueTypeFontFactory {
-    pub import_options: UPtr<UFontImportOptions>,
+    pub import_options: UPtr<crate::bindings::engine::UFontImportOptions>,
     pub b_properties_configured: bool,
     pub b_font_selected: bool,
 }
@@ -1483,9 +1511,11 @@ pub struct UWorldPartitionBuildNavigationOptions {
     pub b_clean_packages: bool,
 }
 pub struct UDataLayerConversionInfo {
-    pub data_layer_to_convert: UPtr<UDeprecatedDataLayerInstance>,
-    pub data_layer_asset: UPtr<UDataLayerAsset>,
-    pub data_layer_instance: UPtr<UDataLayerInstanceWithAsset>,
+    pub data_layer_to_convert: UPtr<
+        crate::bindings::engine::UDeprecatedDataLayerInstance,
+    >,
+    pub data_layer_asset: UPtr<crate::bindings::engine::UDataLayerAsset>,
+    pub data_layer_instance: UPtr<crate::bindings::engine::UDataLayerInstanceWithAsset>,
     pub previous_conversions_info: TArray<TWeakObjectPtr<UDataLayerConversionInfo>>,
     pub current_converting_info: TWeakObjectPtr<UDataLayerConversionInfo>,
 }
@@ -1498,8 +1528,8 @@ pub struct UDataLayerToAssetCommandlet {
     pub conversion_folder: FString,
     pub b_perform_save_packages: bool,
     pub b_ignore_actor_loading_errors: bool,
-    pub data_layer_factory: UPtr<UDataLayerFactory>,
-    pub main_world: UPtr<UWorld>,
+    pub data_layer_factory: UPtr<crate::bindings::data_layer_editor::UDataLayerFactory>,
+    pub main_world: UPtr<crate::bindings::engine::UWorld>,
 }
 pub struct UWorldPartitionBuilder {}
 pub struct UWorldPartitionLandscapeBuilder {}
@@ -1519,22 +1549,22 @@ pub struct UAnimSeqExportOption {
     pub b_export_material_curves: bool,
     pub b_record_in_world_space: bool,
     pub b_evaluate_all_skeletal_mesh_components: bool,
-    pub interpolation: EAnimInterpolationType,
-    pub curve_interpolation: ERichCurveInterpMode,
+    pub interpolation: crate::bindings::engine::EAnimInterpolationType,
+    pub curve_interpolation: crate::bindings::engine::ERichCurveInterpMode,
     pub include_animation_names: TArray<FString>,
     pub exclude_animation_names: TArray<FString>,
-    pub warm_up_frames: FFrameNumber,
-    pub delay_before_start: FFrameNumber,
+    pub warm_up_frames: crate::bindings::core_u_object::FFrameNumber,
+    pub delay_before_start: crate::bindings::core_u_object::FFrameNumber,
     pub b_transact_recording: bool,
     pub b_bake_timecode: bool,
     pub b_timecode_rate_override: bool,
-    pub override_timecode_rate: FFrameRate,
+    pub override_timecode_rate: crate::bindings::core_u_object::FFrameRate,
     pub b_use_custom_time_range: bool,
-    pub custom_start_frame: FFrameNumber,
-    pub custom_end_frame: FFrameNumber,
-    pub custom_display_rate: FFrameRate,
+    pub custom_start_frame: crate::bindings::core_u_object::FFrameNumber,
+    pub custom_end_frame: crate::bindings::core_u_object::FFrameNumber,
+    pub custom_display_rate: crate::bindings::core_u_object::FFrameRate,
     pub b_use_custom_frame_rate: bool,
-    pub custom_frame_rate: FFrameRate,
+    pub custom_frame_rate: crate::bindings::core_u_object::FFrameRate,
 }
 pub struct UDebugSkelMeshComponent {
     pub skeleton_draw_mode: ESkeletonDrawMode,
@@ -1543,12 +1573,12 @@ pub struct UDebugSkelMeshComponent {
     pub flags_4678: u8,
     pub b_display_bound: bool,
     pub b_display_vertex_colors: bool,
-    pub wireframe_mesh_overlay_color: FLinearColor,
+    pub wireframe_mesh_overlay_color: crate::bindings::core_u_object::FLinearColor,
     pub requested_process_root_motion_mode: EProcessRootMotionMode,
     pub process_root_motion_mode: EProcessRootMotionMode,
     pub visualize_root_motion_mode: EVisualizeRootMotionMode,
     pub consume_root_motion_previous_playback_time: f32,
-    pub consume_root_motion_previous_additive_anim_type: EAdditiveAnimationType,
+    pub consume_root_motion_previous_additive_anim_type: crate::bindings::engine::EAdditiveAnimationType,
     pub flags_4712: u8,
     pub min_cloth_property_view: f32,
     pub max_cloth_property_view: f32,
@@ -1557,10 +1587,10 @@ pub struct UDebugSkelMeshComponent {
     pub b_cloth_cull_backface: bool,
     pub flags_4732: u8,
     pub bones_of_interest: TArray<i32>,
-    pub morph_target_of_interests: TArray<UPtr<UMorphTarget>>,
-    pub skel_materials: TArray<UPtr<UMaterialInterface>>,
-    pub preview_instance: UPtr<UAnimPreviewInstance>,
-    pub saved_anim_script_instance: UPtr<UAnimInstance>,
+    pub morph_target_of_interests: TArray<UPtr<crate::bindings::engine::UMorphTarget>>,
+    pub skel_materials: TArray<UPtr<crate::bindings::engine::UMaterialInterface>>,
+    pub preview_instance: UPtr<crate::bindings::anim_graph::UAnimPreviewInstance>,
+    pub saved_anim_script_instance: UPtr<crate::bindings::engine::UAnimInstance>,
     pub b_is_using_in_game_bounds: bool,
     pub b_is_using_pre_skinned_bounds: bool,
     pub b_perform_single_clothing_tick: bool,
@@ -1569,24 +1599,24 @@ pub struct UDebugSkelMeshComponent {
 }
 pub struct UEditorAnimBaseObj {}
 pub struct UEditorAnimCompositeSegment {
-    pub anim_segment: FAnimSegment,
+    pub anim_segment: crate::bindings::engine::FAnimSegment,
 }
 pub struct UEditorAnimCurveBoneLinks {
     pub curve_name: FName,
-    pub connected_bones: TArray<FBoneReference>,
+    pub connected_bones: TArray<crate::bindings::engine::FBoneReference>,
     pub max_lod: u8,
 }
 pub struct UEditorAnimSegment {
-    pub anim_segment: FAnimSegment,
+    pub anim_segment: crate::bindings::engine::FAnimSegment,
 }
 pub struct UEditorCompositeSection {
-    pub composite_section: FCompositeSection,
+    pub composite_section: crate::bindings::engine::FCompositeSection,
 }
 pub struct UEditorNotifyObject {
-    pub event: FAnimNotifyEvent,
+    pub event: crate::bindings::engine::FAnimNotifyEvent,
 }
 pub struct UEditorParentPlayerListObj {
-    pub overrides: TArray<FAnimParentNodeAssetOverride>,
+    pub overrides: TArray<crate::bindings::engine::FAnimParentNodeAssetOverride>,
 }
 pub struct UEditorSkeletonNotifyObj {
     pub name: FName,
@@ -1606,9 +1636,9 @@ pub struct UAssetImportTask {
     pub b_save: bool,
     pub b_async: bool,
     pub factory: UPtr<UFactory>,
-    pub options: UPtr<UObject>,
+    pub options: UPtr<crate::bindings::core_u_object::UObject>,
     pub imported_object_paths: TArray<FString>,
-    pub result: TArray<UPtr<UObject>>,
+    pub result: TArray<UPtr<crate::bindings::core_u_object::UObject>>,
 }
 pub struct UAutomatedAssetImportData {
     pub group_name: FString,
@@ -1720,22 +1750,26 @@ pub struct UUnrealPakCommandlet {}
 pub struct UUpdateGameProjectCommandlet {}
 pub struct UWorldPartitionBuilderCommandlet {}
 pub struct UWorldPartitionConvertCommandlet {
-    pub editor_hash_class: TSubclassOf<UWorldPartitionEditorHash>,
-    pub runtime_hash_class: TSubclassOf<UWorldPartitionRuntimeHash>,
+    pub editor_hash_class: TSubclassOf<
+        crate::bindings::engine::UWorldPartitionEditorHash,
+    >,
+    pub runtime_hash_class: TSubclassOf<
+        crate::bindings::engine::UWorldPartitionRuntimeHash,
+    >,
     pub excluded_levels: TArray<FString>,
     pub b_convert_actors_not_referenced_by_level_script: bool,
-    pub world_origin: FVector,
-    pub world_extent: FVector,
-    pub default_hlod_layer_asset: FTopLevelAssetPath,
+    pub world_origin: crate::bindings::core_u_object::FVector,
+    pub world_extent: crate::bindings::core_u_object::FVector,
+    pub default_hlod_layer_asset: crate::bindings::core_u_object::FTopLevelAssetPath,
     pub foliage_type_path: FString,
     pub hlod_layers_for_actor_classes: TArray<FHLODLayerActorMapping>,
     pub landscape_grid_size: u32,
     pub data_layer_asset_folder: FString,
-    pub data_layer_factory: UPtr<UDataLayerFactory>,
+    pub data_layer_factory: UPtr<crate::bindings::data_layer_editor::UDataLayerFactory>,
 }
 pub struct UCookFunctionLibrary {}
 pub struct UEdGraphNode_Comment {
-    pub comment_color: FLinearColor,
+    pub comment_color: crate::bindings::core_u_object::FLinearColor,
     pub font_size: i32,
     pub flags_212: u8,
     pub move_mode: ECommentBoxMode,
@@ -1747,25 +1781,25 @@ pub struct UActorEditorContextActorFolderState {
 }
 pub struct UEditorDomainSaveCommandlet {}
 pub struct UEditorEngine {
-    pub temp_model: UPtr<UModel>,
-    pub conversion_temp_model: UPtr<UModel>,
+    pub temp_model: UPtr<crate::bindings::engine::UModel>,
+    pub conversion_temp_model: UPtr<crate::bindings::engine::UModel>,
     pub trans: UPtr<UTransactor>,
-    pub bad: UPtr<UTexture2D>,
-    pub editor_font: UPtr<UFont>,
-    pub preview_sound_cue: UPtr<USoundCue>,
-    pub preview_audio_component: UPtr<UAudioComponent>,
-    pub editor_cube: UPtr<UStaticMesh>,
-    pub editor_sphere: UPtr<UStaticMesh>,
-    pub editor_plane: UPtr<UStaticMesh>,
-    pub editor_cylinder: UPtr<UStaticMesh>,
+    pub bad: UPtr<crate::bindings::engine::UTexture2D>,
+    pub editor_font: UPtr<crate::bindings::engine::UFont>,
+    pub preview_sound_cue: UPtr<crate::bindings::engine::USoundCue>,
+    pub preview_audio_component: UPtr<crate::bindings::engine::UAudioComponent>,
+    pub editor_cube: UPtr<crate::bindings::engine::UStaticMesh>,
+    pub editor_sphere: UPtr<crate::bindings::engine::UStaticMesh>,
+    pub editor_plane: UPtr<crate::bindings::engine::UStaticMesh>,
+    pub editor_cylinder: UPtr<crate::bindings::engine::UStaticMesh>,
     pub flags_6920: u8,
     pub click_flags: u32,
-    pub parent_context: UPtr<UPackage>,
-    pub unsnapped_click_location: FVector,
-    pub click_location: FVector,
-    pub click_plane: FPlane,
-    pub mouse_movement: FVector,
-    pub detail_mode: EDetailMode,
+    pub parent_context: UPtr<crate::bindings::core_u_object::UPackage>,
+    pub unsnapped_click_location: crate::bindings::core_u_object::FVector,
+    pub click_location: crate::bindings::core_u_object::FVector,
+    pub click_plane: crate::bindings::core_u_object::FPlane,
+    pub mouse_movement: crate::bindings::core_u_object::FVector,
+    pub detail_mode: crate::bindings::engine::EDetailMode,
     pub flags_7052: u8,
     pub game_command_line: FString,
     pub flags_7072: u8,
@@ -1773,29 +1807,33 @@ pub struct UEditorEngine {
     pub actor_factories: TArray<UPtr<UActorFactory>>,
     pub user_opened_file: FString,
     pub in_editor_game_url_options: FString,
-    pub play_world: UPtr<UWorld>,
+    pub play_world: UPtr<crate::bindings::engine::UWorld>,
     pub flags_7152: u8,
-    pub play_from_here_player_start_class: TSubclassOf<ANavigationObjectBase>,
-    pub editor_world: UPtr<UWorld>,
-    pub actors_that_were_selected: TArray<TWeakObjectPtr<AActor>>,
+    pub play_from_here_player_start_class: TSubclassOf<
+        crate::bindings::engine::ANavigationObjectBase,
+    >,
+    pub editor_world: UPtr<crate::bindings::engine::UWorld>,
+    pub actors_that_were_selected: TArray<
+        TWeakObjectPtr<crate::bindings::engine::AActor>,
+    >,
     pub play_world_destination: i32,
     pub current_play_world_destination: i32,
     pub flags_7200: u8,
     pub build_play_device: i32,
     pub user_edited_play_world_url: FString,
-    pub scratch_render_target2048: UPtr<UTextureRenderTarget2D>,
-    pub scratch_render_target1024: UPtr<UTextureRenderTarget2D>,
-    pub scratch_render_target512: UPtr<UTextureRenderTarget2D>,
-    pub scratch_render_target256: UPtr<UTextureRenderTarget2D>,
-    pub preview_mesh_comp: UPtr<UStaticMeshComponent>,
+    pub scratch_render_target2048: UPtr<crate::bindings::engine::UTextureRenderTarget2D>,
+    pub scratch_render_target1024: UPtr<crate::bindings::engine::UTextureRenderTarget2D>,
+    pub scratch_render_target512: UPtr<crate::bindings::engine::UTextureRenderTarget2D>,
+    pub scratch_render_target256: UPtr<crate::bindings::engine::UTextureRenderTarget2D>,
+    pub preview_mesh_comp: UPtr<crate::bindings::engine::UStaticMeshComponent>,
     pub preview_mesh_index: i32,
     pub flags_7348: u8,
     pub custom_camera_align_emitter_distance: f32,
     pub flags_7356: u8,
-    pub brush_builders: TArray<UPtr<UBrushBuilder>>,
+    pub brush_builders: TArray<UPtr<crate::bindings::engine::UBrushBuilder>>,
     pub editor_world_extensions_manager: UPtr<UEditorWorldExtensionManager>,
     pub drag_drop_handler: UPtr<ULevelEditorDragDropHandler>,
-    pub actor_grouping_utils_class_name: FSoftClassPath,
+    pub actor_grouping_utils_class_name: crate::bindings::core_u_object::FSoftClassPath,
     pub actor_grouping_utils: UPtr<UActorGroupingUtils>,
     pub flags_10016: u8,
 }
@@ -1829,7 +1867,7 @@ pub struct UActorEditorContextEditorState {
 }
 pub struct UEditorStateSubsystem {}
 pub struct UWorldEditorState {
-    pub world: TSoftObjectPtr<UWorld>,
+    pub world: TSoftObjectPtr<crate::bindings::engine::UWorld>,
 }
 pub struct UEditorWorldExtensionCollection {}
 pub struct UEditorWorldExtensionManager {
@@ -1838,14 +1876,14 @@ pub struct UEditorWorldExtensionManager {
 pub struct UActorElementDetailsInterface {}
 pub struct UActorElementEditorAssetDataInterface {}
 pub struct UActorElementsCopy {
-    pub actors_to_copy: TArray<UPtr<AActor>>,
+    pub actors_to_copy: TArray<UPtr<crate::bindings::engine::AActor>>,
 }
 pub struct UActorElementsExporterT3D {}
 pub struct UActorElementEditorSelectionInterface {}
 pub struct UActorElementEditorWorldInterface {}
 pub struct UComponentElementDetailsInterface {}
 pub struct UComponentElementsCopy {
-    pub components_to_copy: TArray<UPtr<UActorComponent>>,
+    pub components_to_copy: TArray<UPtr<crate::bindings::engine::UActorComponent>>,
 }
 pub struct UComponentElementsExporterT3D {}
 pub struct UComponentElementEditorSelectionInterface {}
@@ -1854,7 +1892,7 @@ pub struct UObjectElementDetailsInterface {}
 pub struct UObjectElementEditorSelectionInterface {}
 pub struct USMInstanceElementDetailsInterface {}
 pub struct USMInstanceElementDetailsProxyObject {
-    pub transform: FTransform,
+    pub transform: crate::bindings::core_u_object::FTransform,
 }
 pub struct USMInstanceElementEditorSelectionInterface {}
 pub struct USMInstanceElementEditorWorldInterface {}
@@ -1862,102 +1900,110 @@ pub struct UActorFactoryPointLight {}
 pub struct UActorFactoryRectLight {}
 pub struct UActorFactorySpotLight {}
 pub struct UAnimBankFactory {
-    pub target_skeleton: UPtr<USkeleton>,
-    pub preview_skeletal_mesh: UPtr<USkeletalMesh>,
+    pub target_skeleton: UPtr<crate::bindings::engine::USkeleton>,
+    pub preview_skeletal_mesh: UPtr<crate::bindings::engine::USkeletalMesh>,
 }
 pub struct UTransformProviderDataFactory {
-    pub provider_data_class: TSubclassOf<UTransformProviderData>,
+    pub provider_data_class: TSubclassOf<
+        crate::bindings::engine::UTransformProviderData,
+    >,
 }
 pub struct UAnimBankDataFactory {}
 pub struct UAnimBlueprintFactory {
-    pub blueprint_type: EBlueprintType,
-    pub parent_class: TSubclassOf<UAnimInstance>,
-    pub target_skeleton: UPtr<USkeleton>,
-    pub preview_skeletal_mesh: UPtr<USkeletalMesh>,
+    pub blueprint_type: crate::bindings::engine::EBlueprintType,
+    pub parent_class: TSubclassOf<crate::bindings::engine::UAnimInstance>,
+    pub target_skeleton: UPtr<crate::bindings::engine::USkeleton>,
+    pub preview_skeletal_mesh: UPtr<crate::bindings::engine::USkeletalMesh>,
     pub b_template: bool,
 }
 pub struct UAnimLayerInterfaceFactory {}
 pub struct UAnimBoneCompressionSettingsFactory {}
 pub struct UAnimCompositeFactory {
-    pub target_skeleton: UPtr<USkeleton>,
-    pub source_animation: UPtr<UAnimSequence>,
-    pub preview_skeletal_mesh: UPtr<USkeletalMesh>,
+    pub target_skeleton: UPtr<crate::bindings::engine::USkeleton>,
+    pub source_animation: UPtr<crate::bindings::engine::UAnimSequence>,
+    pub preview_skeletal_mesh: UPtr<crate::bindings::engine::USkeletalMesh>,
 }
 pub struct UAnimCurveCompressionSettingsFactory {}
 pub struct UAnimMontageFactory {
-    pub target_skeleton: UPtr<USkeleton>,
-    pub source_animation: UPtr<UAnimSequence>,
-    pub preview_skeletal_mesh: UPtr<USkeletalMesh>,
+    pub target_skeleton: UPtr<crate::bindings::engine::USkeleton>,
+    pub source_animation: UPtr<crate::bindings::engine::UAnimSequence>,
+    pub preview_skeletal_mesh: UPtr<crate::bindings::engine::USkeletalMesh>,
 }
 pub struct UAnimSequenceFactory {
-    pub target_skeleton: UPtr<USkeleton>,
-    pub preview_skeletal_mesh: UPtr<USkeletalMesh>,
+    pub target_skeleton: UPtr<crate::bindings::engine::USkeleton>,
+    pub preview_skeletal_mesh: UPtr<crate::bindings::engine::USkeletalMesh>,
 }
 pub struct UAnimStreamableFactory {
-    pub target_skeleton: UPtr<USkeleton>,
-    pub source_animation: UPtr<UAnimSequence>,
+    pub target_skeleton: UPtr<crate::bindings::engine::USkeleton>,
+    pub source_animation: UPtr<crate::bindings::engine::UAnimSequence>,
 }
 pub struct UCompositeCurveTableFactory {}
 pub struct UDataTableFactory {
-    pub _struct: UPtr<UScriptStruct>,
+    pub _struct: UPtr<crate::bindings::core_u_object::UScriptStruct>,
 }
 pub struct UCompositeDataTableFactory {}
 pub struct UCurveTableFactory {}
 pub struct UEditorStaticMeshFactory {}
 pub struct UInterchangeReimportHandler {}
 pub struct ULightWeightInstanceFactory {
-    pub parent_class: TSubclassOf<UObject>,
+    pub parent_class: TSubclassOf<crate::bindings::core_u_object::UObject>,
 }
 pub struct UMaterialImportHelpers {}
 pub struct UMeshDeformerCollectionFactory {}
 pub struct UMirrorTableFindReplaceExpressions {
-    pub find_replace_expressions: TArray<FMirrorFindReplaceExpression>,
+    pub find_replace_expressions: TArray<
+        crate::bindings::engine::FMirrorFindReplaceExpression,
+    >,
 }
 pub struct UMirrorDataTableFactory {
-    pub _struct: UPtr<UScriptStruct>,
-    pub skeleton: UPtr<USkeleton>,
+    pub _struct: UPtr<crate::bindings::core_u_object::UScriptStruct>,
+    pub skeleton: UPtr<crate::bindings::engine::USkeleton>,
     pub mirror_find_replace_expressions: UPtr<UMirrorTableFindReplaceExpressions>,
 }
 pub struct UPackFactory {}
 pub struct UPhysicsAssetFactory {
-    pub target_skeletal_mesh: UPtr<USkeletalMesh>,
+    pub target_skeletal_mesh: UPtr<crate::bindings::engine::USkeletalMesh>,
 }
 pub struct UPoseAssetFactory {
-    pub source_animation: UPtr<UAnimSequence>,
+    pub source_animation: UPtr<crate::bindings::engine::UAnimSequence>,
     pub pose_names: TArray<FString>,
-    pub target_skeleton: UPtr<USkeleton>,
-    pub preview_skeletal_mesh: UPtr<USkeletalMesh>,
+    pub target_skeleton: UPtr<crate::bindings::engine::USkeleton>,
+    pub preview_skeletal_mesh: UPtr<crate::bindings::engine::USkeletalMesh>,
 }
 pub struct USkeletonFactory {
-    pub target_skeletal_mesh: UPtr<USkeletalMesh>,
+    pub target_skeletal_mesh: UPtr<crate::bindings::engine::USkeletalMesh>,
 }
 pub struct USlateBrushAssetFactory {
-    pub initial_texture: UPtr<UTexture2D>,
+    pub initial_texture: UPtr<crate::bindings::engine::UTexture2D>,
 }
 pub struct USlateWidgetStyleAssetFactory {
-    pub style_type: TSubclassOf<USlateWidgetStyleContainerBase>,
+    pub style_type: TSubclassOf<
+        crate::bindings::slate_core::USlateWidgetStyleContainerBase,
+    >,
 }
 pub struct USparseVolumeTextureMaterialFactoryNew {
-    pub initial_texture: UPtr<USparseVolumeTexture>,
+    pub initial_texture: UPtr<crate::bindings::engine::USparseVolumeTexture>,
 }
 pub struct USparseVolumeTextureMaterialInstanceFactoryNew {
-    pub initial_texture: UPtr<USparseVolumeTexture>,
-    pub default_svt_material: TSoftObjectPtr<UMaterialInterface>,
+    pub initial_texture: UPtr<crate::bindings::engine::USparseVolumeTexture>,
+    pub default_svt_material: TSoftObjectPtr<
+        crate::bindings::engine::UMaterialInterface,
+    >,
 }
 pub struct UTexture2DArrayFactory {
-    pub initial_textures: TArray<UPtr<UTexture2D>>,
+    pub initial_textures: TArray<UPtr<crate::bindings::engine::UTexture2D>>,
 }
 pub struct UTextureCubeArrayFactory {
-    pub initial_textures: TArray<UPtr<UTextureCube>>,
+    pub initial_textures: TArray<UPtr<crate::bindings::engine::UTextureCube>>,
 }
 pub struct UVariableFrameStrippingSettingsFactory {}
 pub struct UVolumeTextureFactory {
-    pub initial_texture: UPtr<UTexture2D>,
+    pub initial_texture: UPtr<crate::bindings::engine::UTexture2D>,
 }
 pub struct UWorldFactory {}
 pub struct UFbxAssetImportData {
-    pub import_translation: FVector,
-    pub import_rotation: FRotator,
+    pub import_translation: crate::bindings::core_u_object::FVector,
+    pub import_rotation: crate::bindings::core_u_object::FRotator,
     pub import_uniform_scale: f32,
     pub coordinate_system_policy: ECoordinateSystemPolicy,
     pub b_convert_scene: bool,
@@ -1972,7 +2018,7 @@ pub struct UFbxAnimSequenceImportData {
     pub animation_length: EFBXAnimationLengthImportType,
     pub start_frame_deprecated: i32,
     pub end_frame_deprecated: i32,
-    pub frame_import_range: FInt32Interval,
+    pub frame_import_range: crate::bindings::core_u_object::FInt32Interval,
     pub b_use_default_sample_rate: bool,
     pub custom_sample_rate: i32,
     pub b_snap_to_closest_frame_boundary: bool,
@@ -2026,8 +2072,8 @@ pub struct UFbxSceneImportOptions {
     pub flags_48: u8,
     pub hierarchy_type: EFBXSceneOptionsCreateHierarchyType,
     pub flags_56: u8,
-    pub import_translation: FVector,
-    pub import_rotation: FRotator,
+    pub import_translation: crate::bindings::core_u_object::FVector,
+    pub import_rotation: crate::bindings::core_u_object::FRotator,
     pub import_uniform_scale: f32,
     pub b_transform_vertex_to_absolute: bool,
     pub b_bake_pivot_in_vertex: bool,
@@ -2041,7 +2087,7 @@ pub struct UFbxSceneImportOptionsSkeletalMesh {
     pub morph_threshold_position: f32,
     pub flags_68: u8,
     pub animation_length: EFBXAnimationLengthImportType,
-    pub frame_import_range: FInt32Interval,
+    pub frame_import_range: crate::bindings::core_u_object::FInt32Interval,
     pub b_use_default_sample_rate: bool,
     pub custom_sample_rate: i32,
     pub b_snap_to_closest_frame_boundary: bool,
@@ -2055,7 +2101,7 @@ pub struct UFbxSceneImportOptionsStaticMesh {
     pub static_mesh_lod_group: FName,
     pub flags_60: u8,
     pub vertex_color_import_option: EFbxSceneVertexColorImportOption,
-    pub vertex_override_color: FColor,
+    pub vertex_override_color: crate::bindings::core_u_object::FColor,
     pub flags_72: u8,
     pub normal_import_method: EFBXSceneNormalImportMethod,
     pub normal_generation_method: EFBXSceneNormalGenerationMethod,
@@ -2064,7 +2110,7 @@ pub struct UFbxSkeletalMeshImportData {
     pub import_content_type: EFBXImportContentType,
     pub last_import_content_type: EFBXImportContentType,
     pub vertex_color_import_option: EVertexColorImportOption,
-    pub vertex_override_color: FColor,
+    pub vertex_override_color: crate::bindings::core_u_object::FColor,
     pub flags_240: u8,
     pub threshold_position: f32,
     pub threshold_tangent_normal: f32,
@@ -2074,14 +2120,14 @@ pub struct UFbxSkeletalMeshImportData {
 pub struct UFbxStaticMeshImportData {
     pub static_mesh_lod_group: FName,
     pub vertex_color_import_option: EVertexColorImportOption,
-    pub vertex_override_color: FColor,
+    pub vertex_override_color: crate::bindings::core_u_object::FColor,
     pub flags_252: u8,
     pub distance_field_resolution_scale: f32,
 }
 pub struct UFbxTextureImportData {
     pub flags_176: u8,
     pub material_search_location: EMaterialSearchLocation,
-    pub base_material_name: FSoftObjectPath,
+    pub base_material_name: crate::bindings::core_u_object::FSoftObjectPath,
     pub base_color_name: FString,
     pub base_diffuse_texture_name: FString,
     pub base_normal_texture_name: FString,
@@ -2094,16 +2140,18 @@ pub struct UReimportFbxSceneFactory {}
 pub struct UEditorLoadingAndSavingUtils {}
 pub struct AGroupActor {
     pub flags_1136: u8,
-    pub group_actors: TArray<UPtr<AActor>>,
+    pub group_actors: TArray<UPtr<crate::bindings::engine::AActor>>,
     pub sub_groups: TArray<UPtr<AGroupActor>>,
 }
 pub struct UHierarchicalLODSettings {
     pub b_force_settings_in_all_maps: bool,
     pub b_save_lod_actors_to_hlod_packages: bool,
-    pub default_setup: TSoftObjectPtr<UClass>,
-    pub directories_for_hlod_commandlet: TArray<FDirectoryPath>,
-    pub maps_to_build: TArray<FFilePath>,
-    pub base_material: TSoftObjectPtr<UMaterialInterface>,
+    pub default_setup: TSoftObjectPtr<crate::bindings::core_u_object::UClass>,
+    pub directories_for_hlod_commandlet: TArray<
+        crate::bindings::core_u_object::FDirectoryPath,
+    >,
+    pub maps_to_build: TArray<crate::bindings::core_u_object::FFilePath>,
+    pub base_material: TSoftObjectPtr<crate::bindings::engine::UMaterialInterface>,
 }
 pub struct AHierarchicalLODVolume {
     pub b_include_overlapping_actors: bool,
@@ -2113,23 +2161,25 @@ pub struct UEditorInstancedPlacementSettings {}
 pub struct ULayersSubsystem {}
 pub struct ULevelEditorDragDropHandler {}
 pub struct ULightmassOptionsObject {
-    pub debug_settings: FLightmassDebugOptions,
-    pub swarm_settings: FSwarmDebugOptions,
+    pub debug_settings: crate::bindings::engine::FLightmassDebugOptions,
+    pub swarm_settings: crate::bindings::engine::FSwarmDebugOptions,
 }
 pub struct UMaterialEditorMeshComponent {}
 pub struct UMaterialGraph {
-    pub material: UPtr<UMaterial>,
-    pub material_function: UPtr<UMaterialFunction>,
+    pub material: UPtr<crate::bindings::engine::UMaterial>,
+    pub material_function: UPtr<crate::bindings::engine::UMaterialFunction>,
     pub root_node: UPtr<UMaterialGraphNode_Root>,
-    pub subgraph_expression: UPtr<UMaterialExpression>,
+    pub subgraph_expression: UPtr<crate::bindings::engine::UMaterialExpression>,
     pub original_material_full_name: FString,
 }
 pub struct UMaterialGraphNode_Base {}
 pub struct UMaterialGraphNode {
-    pub material_expression: UPtr<UMaterialExpression>,
+    pub material_expression: UPtr<crate::bindings::engine::UMaterialExpression>,
 }
 pub struct UMaterialGraphNode_Comment {
-    pub material_expression_comment: UPtr<UMaterialExpressionComment>,
+    pub material_expression_comment: UPtr<
+        crate::bindings::engine::UMaterialExpressionComment,
+    >,
 }
 pub struct UMaterialGraphNode_Composite {
     pub bound_graph: UPtr<UMaterialGraph>,
@@ -2139,7 +2189,7 @@ pub struct UMaterialGraphNode_Knot {}
 pub struct UMaterialGraphNode_Operator {}
 pub struct UMaterialGraphNode_PinBase {}
 pub struct UMaterialGraphNode_Root {
-    pub material: UPtr<UMaterial>,
+    pub material: UPtr<crate::bindings::engine::UMaterial>,
 }
 pub struct UMaterialGraphSchema {}
 pub struct UUndoableResolveHandler {
@@ -2171,27 +2221,33 @@ pub struct UPropertyEditorTestObject {
     pub bool_property: bool,
     pub string_property: FString,
     pub text_property: FText,
-    pub int_point_property: FIntPoint,
-    pub vector3_property: FVector,
-    pub vector2_property: FVector2D,
-    pub vector4_property: FVector4,
-    pub rotator_property: FRotator,
-    pub object_property: UPtr<UObject>,
-    pub linear_color_property: FLinearColor,
-    pub color_property: FColor,
+    pub int_point_property: crate::bindings::core_u_object::FIntPoint,
+    pub vector3_property: crate::bindings::core_u_object::FVector,
+    pub vector2_property: crate::bindings::core_u_object::FVector2D,
+    pub vector4_property: crate::bindings::core_u_object::FVector4,
+    pub rotator_property: crate::bindings::core_u_object::FRotator,
+    pub object_property: UPtr<crate::bindings::core_u_object::UObject>,
+    pub linear_color_property: crate::bindings::core_u_object::FLinearColor,
+    pub color_property: crate::bindings::core_u_object::FColor,
     pub enum_byte_property: EPropertyEditorTestEnum,
     pub enum_property: EPropertyEditorTestEditColor,
     pub enum_underscores: EPropertyEditorTestUnderscores,
-    pub matrix_property: FMatrix,
-    pub transform_property: FTransform,
+    pub matrix_property: crate::bindings::core_u_object::FMatrix,
+    pub transform_property: crate::bindings::core_u_object::FTransform,
     pub gigabyte_property: f64,
-    pub class_property: TSubclassOf<UObject>,
-    pub class_property_with_allowed: TSubclassOf<UObject>,
-    pub class_property_with_disallowed: TSubclassOf<UObject>,
-    pub subclass_of_texture: TSubclassOf<UTexture>,
-    pub subclass_of_with_allowed: TSubclassOf<UTexture>,
-    pub subclass_of_with_disallowed: TSubclassOf<UTexture>,
-    pub asset_pointer_with_allowed_and_whitespace: TSoftObjectPtr<UObject>,
+    pub class_property: TSubclassOf<crate::bindings::core_u_object::UObject>,
+    pub class_property_with_allowed: TSubclassOf<
+        crate::bindings::core_u_object::UObject,
+    >,
+    pub class_property_with_disallowed: TSubclassOf<
+        crate::bindings::core_u_object::UObject,
+    >,
+    pub subclass_of_texture: TSubclassOf<crate::bindings::engine::UTexture>,
+    pub subclass_of_with_allowed: TSubclassOf<crate::bindings::engine::UTexture>,
+    pub subclass_of_with_disallowed: TSubclassOf<crate::bindings::engine::UTexture>,
+    pub asset_pointer_with_allowed_and_whitespace: TSoftObjectPtr<
+        crate::bindings::core_u_object::UObject,
+    >,
     pub int_property32_array: TArray<i32>,
     pub byte_property_array: TArray<u8>,
     pub float_property_array: TArray<f32>,
@@ -2199,15 +2255,17 @@ pub struct UPropertyEditorTestObject {
     pub bool_property_array: TArray<bool>,
     pub string_property_array: TArray<FString>,
     pub text_property_array: TArray<FText>,
-    pub vector3_property_array: TArray<FVector>,
-    pub vector2_property_array: TArray<FVector2D>,
-    pub vector4_property_array: TArray<FVector4>,
-    pub rotator_property_array: TArray<FRotator>,
-    pub object_property_array: TArray<UPtr<UObject>>,
-    pub actor_property_array: TArray<UPtr<AActor>>,
-    pub linear_color_property_array: TArray<FLinearColor>,
-    pub color_property_array: TArray<FColor>,
-    pub timecode_property_array: TArray<FTimecode>,
+    pub vector3_property_array: TArray<crate::bindings::core_u_object::FVector>,
+    pub vector2_property_array: TArray<crate::bindings::core_u_object::FVector2D>,
+    pub vector4_property_array: TArray<crate::bindings::core_u_object::FVector4>,
+    pub rotator_property_array: TArray<crate::bindings::core_u_object::FRotator>,
+    pub object_property_array: TArray<UPtr<crate::bindings::core_u_object::UObject>>,
+    pub actor_property_array: TArray<UPtr<crate::bindings::engine::AActor>>,
+    pub linear_color_property_array: TArray<
+        crate::bindings::core_u_object::FLinearColor,
+    >,
+    pub color_property_array: TArray<crate::bindings::core_u_object::FColor>,
+    pub timecode_property_array: TArray<crate::bindings::core_u_object::FTimecode>,
     pub enum_property_array: TArray<EPropertyEditorTestEnum>,
     pub struct_property_array: TArray<FPropertyEditorTestBasicStruct>,
     pub struct_property_array_with_title: TArray<FPropertyEditorTestBasicStruct>,
@@ -2226,12 +2284,14 @@ pub struct UPropertyEditorTestObject {
     pub fixed_array_of_ints: TArray<i32>,
     pub static_array_of_ints: i32,
     pub static_array_of_ints_with_enum_labels: i32,
-    pub float_range: FFloatRange,
+    pub float_range: crate::bindings::core_u_object::FFloatRange,
     pub float_property_with_clamped_range: f32,
     pub int_property_with_clamped_range: i32,
     pub int_that_cannot_be_changed: i32,
     pub string_that_cannot_be_changed: FString,
-    pub object_that_cannot_be_changed: UPtr<UPrimitiveComponent>,
+    pub object_that_cannot_be_changed: UPtr<
+        crate::bindings::engine::UPrimitiveComponent,
+    >,
     pub enum_bitflags: i32,
     pub string_password_property: FString,
     pub text_password_property: FText,
@@ -2239,65 +2299,87 @@ pub struct UPropertyEditorTestObject {
     pub struct_with_multiple_instances1: FPropertyEditorTestBasicStruct,
     pub b_edit_condition_struct_with_multiple_instances2: bool,
     pub struct_with_multiple_instances2: FPropertyEditorTestBasicStruct,
-    pub rich_curve: FRichCurve,
-    pub soft_object_path: FSoftObjectPath,
-    pub primary_asset_id: FPrimaryAssetId,
-    pub primary_asset_id_without_thumbnail: FPrimaryAssetId,
-    pub asset_reference_custom_struct_with_thumbnail: FSoftObjectPath,
-    pub exactly_point_light_actor_reference: FSoftObjectPath,
-    pub light_actor_reference: FSoftObjectPath,
-    pub exact_point_or_spot_light_actor_reference: FSoftObjectPath,
-    pub light_or_static_mesh_actor_reference: FSoftObjectPath,
-    pub not_light_actor_reference: FSoftObjectPath,
-    pub material_or_texture_asset_reference: FSoftObjectPath,
-    pub actor_with_meta_class: FSoftObjectPath,
-    pub disabled_by_can_edit_change: FSoftObjectPath,
-    pub component_reference: FComponentReference,
+    pub rich_curve: crate::bindings::engine::FRichCurve,
+    pub soft_object_path: crate::bindings::core_u_object::FSoftObjectPath,
+    pub primary_asset_id: crate::bindings::core_u_object::FPrimaryAssetId,
+    pub primary_asset_id_without_thumbnail: crate::bindings::core_u_object::FPrimaryAssetId,
+    pub asset_reference_custom_struct_with_thumbnail: crate::bindings::core_u_object::FSoftObjectPath,
+    pub exactly_point_light_actor_reference: crate::bindings::core_u_object::FSoftObjectPath,
+    pub light_actor_reference: crate::bindings::core_u_object::FSoftObjectPath,
+    pub exact_point_or_spot_light_actor_reference: crate::bindings::core_u_object::FSoftObjectPath,
+    pub light_or_static_mesh_actor_reference: crate::bindings::core_u_object::FSoftObjectPath,
+    pub not_light_actor_reference: crate::bindings::core_u_object::FSoftObjectPath,
+    pub material_or_texture_asset_reference: crate::bindings::core_u_object::FSoftObjectPath,
+    pub actor_with_meta_class: crate::bindings::core_u_object::FSoftObjectPath,
+    pub disabled_by_can_edit_change: crate::bindings::core_u_object::FSoftObjectPath,
+    pub component_reference: crate::bindings::engine::FComponentReference,
     pub b_edit_condition: bool,
     pub simple_property_with_edit_condition: i32,
     pub b_edit_condition_asset_reference_custom_struct_with_edit_condition: bool,
-    pub asset_reference_custom_struct_with_edit_condition: FSoftObjectPath,
+    pub asset_reference_custom_struct_with_edit_condition: crate::bindings::core_u_object::FSoftObjectPath,
     pub array_of_structs: TArray<FPropertyEditorTestBasicStruct>,
     pub _struct: FPropertyEditTestTextStruct,
-    pub edit_inline_new_static_mesh_component: UPtr<UStaticMeshComponent>,
-    pub array_of_edit_inline_new_sm_cs: TArray<UPtr<UStaticMeshComponent>>,
-    pub texture_prop: UPtr<UTexture>,
-    pub static_mesh_prop: UPtr<UStaticMesh>,
-    pub any_material_interface: UPtr<UMaterialInterface>,
-    pub material_no_thumbnail: UPtr<UMaterialInterface>,
-    pub only_actors_allowed: UPtr<AActor>,
+    pub edit_inline_new_static_mesh_component: UPtr<
+        crate::bindings::engine::UStaticMeshComponent,
+    >,
+    pub array_of_edit_inline_new_sm_cs: TArray<
+        UPtr<crate::bindings::engine::UStaticMeshComponent>,
+    >,
+    pub texture_prop: UPtr<crate::bindings::engine::UTexture>,
+    pub static_mesh_prop: UPtr<crate::bindings::engine::UStaticMesh>,
+    pub any_material_interface: UPtr<crate::bindings::engine::UMaterialInterface>,
+    pub material_no_thumbnail: UPtr<crate::bindings::engine::UMaterialInterface>,
+    pub only_actors_allowed: UPtr<crate::bindings::engine::AActor>,
     pub int32_set: TSet<i32>,
     pub float_set: TSet<f32>,
     pub string_set: TSet<FString>,
-    pub object_set: TSet<UPtr<UObject>>,
-    pub actor_set: TSet<UPtr<AActor>>,
+    pub object_set: TSet<UPtr<crate::bindings::core_u_object::UObject>>,
+    pub actor_set: TSet<UPtr<crate::bindings::engine::AActor>>,
     pub edit_color_set: TSet<EPropertyEditorTestEditColor>,
     pub name_set: TSet<FName>,
     pub int32_to_string_map: TMap<i32, FString>,
     pub string_to_multiline_text_map: TMap<FString, FText>,
-    pub string_to_color_map: TMap<FString, FLinearColor>,
+    pub string_to_color_map: TMap<FString, crate::bindings::core_u_object::FLinearColor>,
     pub int32_to_struct_map: TMap<i32, FPropertyEditorTestBasicStruct>,
     pub string_to_float_map: TMap<FString, f32>,
-    pub string_to_object_map: TMap<FString, UPtr<UObject>>,
-    pub string_to_actor_map: TMap<FString, UPtr<AActor>>,
-    pub object_to_int32_map: TMap<UPtr<UObject>, i32>,
-    pub object_to_color_map: TMap<UPtr<UObject>, FLinearColor>,
+    pub string_to_object_map: TMap<
+        FString,
+        UPtr<crate::bindings::core_u_object::UObject>,
+    >,
+    pub string_to_actor_map: TMap<FString, UPtr<crate::bindings::engine::AActor>>,
+    pub object_to_int32_map: TMap<UPtr<crate::bindings::core_u_object::UObject>, i32>,
+    pub object_to_color_map: TMap<
+        UPtr<crate::bindings::core_u_object::UObject>,
+        crate::bindings::core_u_object::FLinearColor,
+    >,
     pub int_to_enum_map: TMap<i32, EPropertyEditorTestEnum>,
     pub name_to_name_map: TMap<FName, FName>,
-    pub name_to_object_map: TMap<FName, UPtr<UObject>>,
+    pub name_to_object_map: TMap<FName, UPtr<crate::bindings::core_u_object::UObject>>,
     pub name_to_custom_map: TMap<FName, FPropertyEditorTestBasicStruct>,
-    pub name_to_color_map: TMap<FName, FLinearColor>,
+    pub name_to_color_map: TMap<FName, crate::bindings::core_u_object::FLinearColor>,
     pub int_to_custom_map: TMap<i32, FPropertyEditorTestBasicStruct>,
     pub int_to_sub_struct_map: TMap<i32, FPropertyEditorTestSubStruct>,
-    pub linear_color_set: TSet<FLinearColor>,
-    pub vector_set: TSet<FVector>,
-    pub linear_color_to_string_map: TMap<FLinearColor, FString>,
-    pub vector_to_float_map: TMap<FVector, f32>,
-    pub linear_color_to_vector_map: TMap<FLinearColor, FVector>,
-    pub blendable_interface: TScriptInterface<IBlendableInterface>,
-    pub anim_class_interface: TScriptInterface<IAnimClassInterface>,
-    pub light_propagation_volume_blendable: TScriptInterface<IBlendableInterface>,
-    pub texture_or_blendable_interface: UPtr<UObject>,
+    pub linear_color_set: TSet<crate::bindings::core_u_object::FLinearColor>,
+    pub vector_set: TSet<crate::bindings::core_u_object::FVector>,
+    pub linear_color_to_string_map: TMap<
+        crate::bindings::core_u_object::FLinearColor,
+        FString,
+    >,
+    pub vector_to_float_map: TMap<crate::bindings::core_u_object::FVector, f32>,
+    pub linear_color_to_vector_map: TMap<
+        crate::bindings::core_u_object::FLinearColor,
+        crate::bindings::core_u_object::FVector,
+    >,
+    pub blendable_interface: TScriptInterface<
+        crate::bindings::engine::IBlendableInterface,
+    >,
+    pub anim_class_interface: TScriptInterface<
+        crate::bindings::engine::IAnimClassInterface,
+    >,
+    pub light_propagation_volume_blendable: TScriptInterface<
+        crate::bindings::engine::IBlendableInterface,
+    >,
+    pub texture_or_blendable_interface: UPtr<crate::bindings::core_u_object::UObject>,
     pub b_subcategory: bool,
     pub b_subcategory_advanced: bool,
     pub b_subcategory_foo_simple: bool,
@@ -2320,27 +2402,27 @@ pub struct UPropertyEditorTestObject {
     pub b_enabled_when_float_greater_than5: bool,
     pub b_enabled_when_float_less_than10: bool,
     pub b_edit_condition_for_arrays: bool,
-    pub array_with_edit_condition: TArray<UPtr<UTexture2D>>,
+    pub array_with_edit_condition: TArray<UPtr<crate::bindings::engine::UTexture2D>>,
     pub array_of_structs_with_edit_condition: TArray<FPropertyEditorTestBasicStruct>,
     pub b_edit_condition_for_fixed_array: bool,
     pub fixed_array_with_edit_condition: FString,
     pub b_edit_condition_for_directory_path: bool,
-    pub directory_path: FDirectoryPath,
+    pub directory_path: crate::bindings::core_u_object::FDirectoryPath,
     pub edit_condition_flags: i64,
     pub b_enabled_when_flags_has_two_or_four: bool,
     pub b_disabled_when_flags_is_odd: bool,
     pub always_disabled: i32,
     pub b_category_inline_edit_condition: bool,
     pub enabled_when_category_checked: f32,
-    pub inline_property: EComponentMobility,
-    pub property_that_hides: EComponentMobility,
+    pub inline_property: crate::bindings::engine::EComponentMobility,
+    pub property_that_hides: crate::bindings::engine::EComponentMobility,
     pub b_visible_when_static: bool,
     pub visible_when_stationary: i32,
-    pub date_time: FDateTime,
-    pub timespan: FTimespan,
-    pub guid: FGuid,
-    pub per_platform_float: FPerPlatformFloat,
-    pub per_platform_int: FPerPlatformInt,
+    pub date_time: crate::bindings::core_u_object::FDateTime,
+    pub timespan: crate::bindings::core_u_object::FTimespan,
+    pub guid: crate::bindings::core_u_object::FGuid,
+    pub per_platform_float: crate::bindings::core_u_object::FPerPlatformFloat,
+    pub per_platform_int: crate::bindings::core_u_object::FPerPlatformInt,
     pub b_inline_edit_condition_without_meta_toggle: bool,
     pub inline_edit_condition_without_meta: f32,
     pub b_inline_edit_condition_with_meta_toggle: bool,
@@ -2363,8 +2445,8 @@ pub struct UShowCategoriesTest {
 pub struct UBlueprintPropertyTestObject {
     pub should_be_hidden: i32,
     pub should_be_visible: i32,
-    pub object_a: UPtr<USoundBase>,
-    pub object_b: UPtr<USoundBase>,
+    pub object_a: UPtr<crate::bindings::engine::USoundBase>,
+    pub object_b: UPtr<crate::bindings::engine::USoundBase>,
 }
 pub struct UBlueprintPropertyContainerTestObject {
     pub array: TArray<UPtr<UBlueprintPropertyTestObject>>,
@@ -2384,20 +2466,22 @@ pub struct UPropertyEditorRowGeneratorTest {}
 pub struct UUnrealEdViewportToolbarContext {}
 pub struct UCommonViewportToolbarBaseMenuContext {}
 pub struct USelection {
-    pub element_selection_set: UPtr<UTypedElementSelectionSet>,
+    pub element_selection_set: UPtr<
+        crate::bindings::typed_element_runtime::UTypedElementSelectionSet,
+    >,
 }
 pub struct UBlueprintEditorProjectSettings {
     pub flags_104: u8,
-    pub default_child_actor_tree_view_mode: EChildActorComponentTreeViewVisualizationMode,
+    pub default_child_actor_tree_view_mode: crate::bindings::engine::EChildActorComponentTreeViewVisualizationMode,
     pub namespaces_to_always_include: TArray<FString>,
     pub disabled_compiler_messages_except_editor: TArray<FName>,
     pub disabled_compiler_messages: TArray<FName>,
     pub suppressed_deprecation_messages: TArray<FString>,
     pub base_classes_to_allow_recompiling_during_play_in_editor: TArray<
-        TSoftObjectPtr<UClass>,
+        TSoftObjectPtr<crate::bindings::core_u_object::UClass>,
     >,
     pub base_classes_to_disallow_recompiling_during_play_in_editor: TArray<
-        TSoftObjectPtr<UClass>,
+        TSoftObjectPtr<crate::bindings::core_u_object::UClass>,
     >,
     pub b_disallow_editor_utility_blueprint_functions_in_details_view: bool,
 }
@@ -2412,7 +2496,7 @@ pub struct UEditorPerProjectUserSettings {
     pub swarm_max_upload_chunk_size_in_mb: u32,
     pub swarm_intermediate_folder: FString,
     pub flags_104: u8,
-    pub data_source_folder: FDirectoryPath,
+    pub data_source_folder: crate::bindings::core_u_object::FDirectoryPath,
     pub flags_128: u8,
     pub property_matrix_number_of_paste_operations_before_warning: i32,
     pub b_scs_editor_show_grid: bool,
@@ -2422,7 +2506,7 @@ pub struct UEditorPerProjectUserSettings {
     pub scs_viewport_camera_speed_settings: FEditorViewportCameraSpeedSettings,
     pub scs_viewport_camera_speed_deprecated: i32,
     pub flags_164: u8,
-    pub blueprint_favorites: UPtr<UBlueprintPaletteFavorites>,
+    pub blueprint_favorites: UPtr<crate::bindings::kismet::UBlueprintPaletteFavorites>,
     pub asset_viewer_profile_index: i32,
     pub asset_viewer_profile_name: FString,
     pub preview_feature_level: i32,
@@ -2430,7 +2514,7 @@ pub struct UEditorPerProjectUserSettings {
     pub preview_shader_format_name: FName,
     pub preview_shader_platform_name: FName,
     pub preview_constrained_aspect_ratio: f32,
-    pub preview_safe_zones: FVector4f,
+    pub preview_safe_zones: crate::bindings::core_u_object::FVector4f,
     pub b_preview_feature_level_active: bool,
     pub b_preview_feature_level_was_default: bool,
     pub preview_device_profile_name: FName,
@@ -2438,18 +2522,18 @@ pub struct UEditorPerProjectUserSettings {
 pub struct UEditorProjectAppearanceSettings {
     pub b_display_units: bool,
     pub b_display_units_on_component_transforms: bool,
-    pub distance_units: TArray<EUnit>,
-    pub mass_units: TArray<EUnit>,
-    pub time_units: TArray<EUnit>,
-    pub angle_units: EUnit,
-    pub speed_units: EUnit,
-    pub angular_speed_units: EUnit,
-    pub acceleration_units: EUnit,
-    pub temperature_units: EUnit,
-    pub force_units: EUnit,
-    pub torque_units: EUnit,
-    pub impulse_units: EUnit,
-    pub positional_impulse_units: EUnit,
+    pub distance_units: TArray<crate::bindings::core_u_object::EUnit>,
+    pub mass_units: TArray<crate::bindings::core_u_object::EUnit>,
+    pub time_units: TArray<crate::bindings::core_u_object::EUnit>,
+    pub angle_units: crate::bindings::core_u_object::EUnit,
+    pub speed_units: crate::bindings::core_u_object::EUnit,
+    pub angular_speed_units: crate::bindings::core_u_object::EUnit,
+    pub acceleration_units: crate::bindings::core_u_object::EUnit,
+    pub temperature_units: crate::bindings::core_u_object::EUnit,
+    pub force_units: crate::bindings::core_u_object::EUnit,
+    pub torque_units: crate::bindings::core_u_object::EUnit,
+    pub impulse_units: crate::bindings::core_u_object::EUnit,
+    pub positional_impulse_units: crate::bindings::core_u_object::EUnit,
     pub show_searchable_names: EReferenceViewerSettingMode,
     pub reference_viewer_default_max_search_breadth: i32,
     pub unit_display_deprecated: EUnitDisplay,
@@ -2465,11 +2549,11 @@ pub struct ULevelEditorProjectSettings {
     pub b_enable_viewport_sm_instance_selection: bool,
 }
 pub struct UEditorPerformanceProjectSettings {
-    pub realtime_screen_percentage_mode: EScreenPercentageMode,
-    pub mobile_screen_percentage_mode: EScreenPercentageMode,
-    pub vr_screen_percentage_mode: EScreenPercentageMode,
-    pub path_tracer_screen_percentage_mode: EScreenPercentageMode,
-    pub non_realtime_screen_percentage_mode: EScreenPercentageMode,
+    pub realtime_screen_percentage_mode: crate::bindings::engine::EScreenPercentageMode,
+    pub mobile_screen_percentage_mode: crate::bindings::engine::EScreenPercentageMode,
+    pub vr_screen_percentage_mode: crate::bindings::engine::EScreenPercentageMode,
+    pub path_tracer_screen_percentage_mode: crate::bindings::engine::EScreenPercentageMode,
+    pub non_realtime_screen_percentage_mode: crate::bindings::engine::EScreenPercentageMode,
     pub manual_screen_percentage: f32,
     pub min_viewport_rendering_resolution: i32,
     pub max_viewport_rendering_resolution: i32,
@@ -2487,23 +2571,23 @@ pub struct UDDCProjectSettings {
     pub recommend_everyone_use_unreal_cloud_ddc: bool,
 }
 pub struct UEditorSettings {
-    pub global_local_ddc_path: FDirectoryPath,
-    pub global_shared_ddc_path: FDirectoryPath,
-    pub local_derived_data_cache: FDirectoryPath,
-    pub shared_derived_data_cache: FDirectoryPath,
+    pub global_local_ddc_path: crate::bindings::core_u_object::FDirectoryPath,
+    pub global_shared_ddc_path: crate::bindings::core_u_object::FDirectoryPath,
+    pub local_derived_data_cache: crate::bindings::core_u_object::FDirectoryPath,
+    pub shared_derived_data_cache: crate::bindings::core_u_object::FDirectoryPath,
     pub b_enable_ddc_notifications: bool,
     pub b_notify_use_unreal_cloud_ddc: bool,
     pub b_notify_setup_ddc_path: bool,
     pub b_notify_enable_s3dd: bool,
     pub b_enable_s3ddc: bool,
-    pub global_s3ddc_path: FDirectoryPath,
+    pub global_s3ddc_path: crate::bindings::core_u_object::FDirectoryPath,
     pub horde_url: FString,
     pub b_load_the_most_recently_loaded_project_at_startup: bool,
     pub recently_opened_project_files: TArray<FRecentProjectFile>,
     pub created_project_paths: TArray<FString>,
     pub b_copy_starter_content_preference_deprecated: bool,
-    pub completed_surveys: TArray<FGuid>,
-    pub in_progress_surveys: TArray<FGuid>,
+    pub completed_surveys: TArray<crate::bindings::core_u_object::FGuid>,
+    pub in_progress_surveys: TArray<crate::bindings::core_u_object::FGuid>,
     pub auto_scalability_work_scale_amount: f32,
 }
 pub struct UActorEditorContextSubsystem {}
@@ -2551,14 +2635,14 @@ pub struct UFbxTestPlan {
 pub struct AAnimationThumbnailSkeletalMeshActor {}
 pub struct UThumbnailManager {
     pub not_supported: FThumbnailRenderingInfo,
-    pub editor_cube: UPtr<UStaticMesh>,
-    pub editor_sphere: UPtr<UStaticMesh>,
-    pub editor_cylinder: UPtr<UStaticMesh>,
-    pub editor_plane: UPtr<UStaticMesh>,
-    pub editor_sky_sphere: UPtr<UStaticMesh>,
-    pub floor_plane_material: UPtr<UMaterial>,
-    pub ambient_cubemap: UPtr<UTextureCube>,
-    pub checkerboard_texture: UPtr<UTexture2D>,
+    pub editor_cube: UPtr<crate::bindings::engine::UStaticMesh>,
+    pub editor_sphere: UPtr<crate::bindings::engine::UStaticMesh>,
+    pub editor_cylinder: UPtr<crate::bindings::engine::UStaticMesh>,
+    pub editor_plane: UPtr<crate::bindings::engine::UStaticMesh>,
+    pub editor_sky_sphere: UPtr<crate::bindings::engine::UStaticMesh>,
+    pub floor_plane_material: UPtr<crate::bindings::engine::UMaterial>,
+    pub ambient_cubemap: UPtr<crate::bindings::engine::UTextureCube>,
+    pub checkerboard_texture: UPtr<crate::bindings::engine::UTexture2D>,
     pub renderable_thumbnail_types: TArray<FThumbnailRenderingInfo>,
     pub thumbnail_manager_class_name: FString,
 }
@@ -2575,8 +2659,8 @@ pub struct UMaterialFunctionThumbnailRenderer {}
 pub struct UMaterialInstanceThumbnailRenderer {}
 pub struct UNeuralProfileRenderer {}
 pub struct UParticleSystemThumbnailRenderer {
-    pub no_image: UPtr<UTexture2D>,
-    pub out_of_date: UPtr<UTexture2D>,
+    pub no_image: UPtr<crate::bindings::engine::UTexture2D>,
+    pub out_of_date: UPtr<crate::bindings::engine::UTexture2D>,
 }
 pub struct UPhysicalMaterialMaskThumbnailRenderer {}
 pub struct UPhysicsAssetThumbnailRenderer {}
@@ -2587,7 +2671,7 @@ pub struct USceneThumbnailInfo {
 }
 pub struct USceneThumbnailInfoWithPrimitive {
     pub primitive_type: EThumbnailPrimType,
-    pub preview_mesh: FSoftObjectPath,
+    pub preview_mesh: crate::bindings::core_u_object::FSoftObjectPath,
     pub b_user_modified_shape: bool,
 }
 pub struct USkeletalMeshThumbnailRenderer {}
@@ -2600,10 +2684,10 @@ pub struct USubsurfaceProfileRenderer {}
 pub struct UTextureCubeArrayThumbnailRenderer {}
 pub struct UTextureCubeThumbnailRenderer {}
 pub struct UVolumeTextureThumbnailRenderer {
-    pub material_instance: UPtr<UMaterialInstanceConstant>,
+    pub material_instance: UPtr<crate::bindings::engine::UMaterialInstanceConstant>,
 }
 pub struct UWorldThumbnailInfo {
-    pub camera_mode: ECameraProjectionMode,
+    pub camera_mode: crate::bindings::engine::ECameraProjectionMode,
     pub ortho_direction: EOrthoThumbnailDirection,
 }
 pub struct UWorldThumbnailRenderer {
@@ -2615,8 +2699,8 @@ pub struct UWorldThumbnailRenderer {
 pub struct UAssetEditorContextObject {}
 pub struct UEdMode {
     pub mode_tools_context: UPtr<UEdModeInteractiveToolsContext>,
-    pub settings_class: TSoftObjectPtr<UClass>,
-    pub settings_object: UPtr<UObject>,
+    pub settings_class: TSoftObjectPtr<crate::bindings::core_u_object::UClass>,
+    pub settings_object: UPtr<crate::bindings::core_u_object::UObject>,
 }
 pub struct UBaseLegacyWidgetEdMode {}
 pub struct UEdModeDefault {}
@@ -2629,16 +2713,20 @@ pub struct UAssetEditor {}
 pub struct UUnrealEdEngine {
     pub editor_options_inst: UPtr<UUnrealEdOptions>,
     pub auto_reimport_manager: UPtr<UAutoReimportManager>,
-    pub material_copy_paste_buffer: UPtr<UMaterial>,
-    pub sound_cue_copy_paste_buffer: UPtr<USoundCue>,
-    pub animation_compression_algorithms: TArray<UPtr<UAnimCompress>>,
+    pub material_copy_paste_buffer: UPtr<crate::bindings::engine::UMaterial>,
+    pub sound_cue_copy_paste_buffer: UPtr<crate::bindings::engine::USoundCue>,
+    pub animation_compression_algorithms: TArray<
+        UPtr<crate::bindings::engine::UAnimCompress>,
+    >,
     pub packages_to_be_fully_loaded_at_startup: TArray<FString>,
-    pub current_lod_parent_actor: UPtr<AActor>,
+    pub current_lod_parent_actor: UPtr<crate::bindings::engine::AActor>,
     pub flags_10104: u8,
     pub sorted_sprite_categories_deprecated: TArray<FString>,
     pub template_map_infos: TArray<FTemplateMapInfo>,
     pub cook_server: UPtr<UCookOnTheFlyServer>,
-    pub classes_to_ignore_delete_reference_warning: TArray<TSubclassOf<UObject>>,
+    pub classes_to_ignore_delete_reference_warning: TArray<
+        TSubclassOf<crate::bindings::core_u_object::UObject>,
+    >,
 }
 pub struct UUnrealEdTypes {}
 pub struct UUserDefinedStructEditorData {
@@ -2655,7 +2743,10 @@ pub struct UWorldPartitionLandscapeSplineMeshesBuilder {}
 pub struct UWorldPartitionMiniMapBuilder {}
 pub struct UWorldPartitionNavigationDataBuilder {}
 pub struct UWorldPartitionRenameDuplicateBuilder {
-    pub duplicated_objects: TMap<UPtr<UObject>, UPtr<UObject>>,
+    pub duplicated_objects: TMap<
+        UPtr<crate::bindings::core_u_object::UObject>,
+        UPtr<crate::bindings::core_u_object::UObject>,
+    >,
 }
 pub struct UWorldPartitionResaveActorsBuilder {
     pub actor_class_name: FString,
@@ -2672,3 +2763,872 @@ pub struct UWorldPartitionResaveActorsBuilder {
 pub struct UWorldPartitionRuntimeVirtualTextureBuilder {}
 pub struct UWorldPartitionStaticLightingBuilder {}
 pub struct UCookOnTheFlyServer {}
+pub struct FAddOnExtractAssetFromFile_Delegate;
+pub struct FRemoveOnExtractAssetFromFile_Delegate;
+pub struct FEditorActorSubsystem_OnNewActorsDropped;
+pub struct FEditorActorSubsystem_OnNewActorsPlaced;
+pub struct FEditorActorSubsystem_OnEditCutActorsBegin;
+pub struct FEditorActorSubsystem_OnEditCutActorsEnd;
+pub struct FEditorActorSubsystem_OnEditCopyActorsBegin;
+pub struct FEditorActorSubsystem_OnEditCopyActorsEnd;
+pub struct FEditorActorSubsystem_OnEditPasteActorsBegin;
+pub struct FEditorActorSubsystem_OnEditPasteActorsEnd;
+pub struct FEditorActorSubsystem_OnDuplicateActorsBegin;
+pub struct FEditorActorSubsystem_OnDuplicateActorsEnd;
+pub struct FEditorActorSubsystem_OnDeleteActorsBegin;
+pub struct FEditorActorSubsystem_OnDeleteActorsEnd;
+pub struct FEditorActorSubsystem_OnActorLabelChanged;
+pub struct FImportSubsystem_OnAssetPreImport_BP;
+pub struct FImportSubsystem_OnAssetPostImport_BP;
+pub struct FImportSubsystem_OnAssetReimport_BP;
+pub struct FImportSubsystem_OnAssetPostLODImport_BP;
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ELevelViewportType(pub u8);
+impl ELevelViewportType {
+    pub const LVT_ORTHO_XY: ELevelViewportType = ELevelViewportType(0);
+    pub const LVT_ORTHO_XZ: ELevelViewportType = ELevelViewportType(1);
+    pub const LVT_ORTHO_YZ: ELevelViewportType = ELevelViewportType(2);
+    pub const LVT_PERSPECTIVE: ELevelViewportType = ELevelViewportType(3);
+    pub const LVT_ORTHO_FREELOOK: ELevelViewportType = ELevelViewportType(4);
+    pub const LVT_ORTHO_NEGATIVE_XY: ELevelViewportType = ELevelViewportType(5);
+    pub const LVT_ORTHO_NEGATIVE_XZ: ELevelViewportType = ELevelViewportType(6);
+    pub const LVT_ORTHO_NEGATIVE_YZ: ELevelViewportType = ELevelViewportType(7);
+    pub const LVT_ORTHO_TOP: ELevelViewportType = ELevelViewportType(0);
+    pub const LVT_ORTHO_LEFT: ELevelViewportType = ELevelViewportType(1);
+    pub const LVT_ORTHO_FRONT: ELevelViewportType = ELevelViewportType(7);
+    pub const LVT_ORTHO_BACK: ELevelViewportType = ELevelViewportType(2);
+    pub const LVT_ORTHO_BOTTOM: ELevelViewportType = ELevelViewportType(5);
+    pub const LVT_ORTHO_RIGHT: ELevelViewportType = ELevelViewportType(6);
+    pub const LVT_NONE: ELevelViewportType = ELevelViewportType(255);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EAnimationViewportCameraFollowMode(pub u8);
+impl EAnimationViewportCameraFollowMode {
+    pub const NONE: EAnimationViewportCameraFollowMode = EAnimationViewportCameraFollowMode(
+        0,
+    );
+    pub const BOUNDS: EAnimationViewportCameraFollowMode = EAnimationViewportCameraFollowMode(
+        1,
+    );
+    pub const BONE: EAnimationViewportCameraFollowMode = EAnimationViewportCameraFollowMode(
+        2,
+    );
+    pub const ROOT: EAnimationViewportCameraFollowMode = EAnimationViewportCameraFollowMode(
+        3,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ECSVImportType(pub u8);
+impl ECSVImportType {
+    pub const ECSV_DATA_TABLE: ECSVImportType = ECSVImportType(0);
+    pub const ECSV_CURVE_TABLE: ECSVImportType = ECSVImportType(1);
+    pub const ECSV_CURVE_FLOAT: ECSVImportType = ECSVImportType(2);
+    pub const ECSV_CURVE_VECTOR: ECSVImportType = ECSVImportType(3);
+    pub const ECSV_CURVE_LINEAR_COLOR: ECSVImportType = ECSVImportType(4);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ETestEnumFlags(pub u8);
+impl ETestEnumFlags {
+    pub const NONE: ETestEnumFlags = ETestEnumFlags(0);
+    pub const ONE: ETestEnumFlags = ETestEnumFlags(1);
+    pub const TWO: ETestEnumFlags = ETestEnumFlags(2);
+    pub const FOUR: ETestEnumFlags = ETestEnumFlags(4);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct NetworkEmulationTarget(pub i32);
+impl NetworkEmulationTarget {
+    pub const SERVER: NetworkEmulationTarget = NetworkEmulationTarget(0);
+    pub const CLIENT: NetworkEmulationTarget = NetworkEmulationTarget(1);
+    pub const ANY: NetworkEmulationTarget = NetworkEmulationTarget(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EFBXExpectedResultPreset(pub u8);
+impl EFBXExpectedResultPreset {
+    pub const ERROR_NUMBER: EFBXExpectedResultPreset = EFBXExpectedResultPreset(0);
+    pub const WARNING_NUMBER: EFBXExpectedResultPreset = EFBXExpectedResultPreset(1);
+    pub const CREATED_STATICMESH_NUMBER: EFBXExpectedResultPreset = EFBXExpectedResultPreset(
+        2,
+    );
+    pub const CREATED_SKELETALMESH_NUMBER: EFBXExpectedResultPreset = EFBXExpectedResultPreset(
+        3,
+    );
+    pub const MATERIALS_CREATED_NUMBER: EFBXExpectedResultPreset = EFBXExpectedResultPreset(
+        4,
+    );
+    pub const MATERIAL_SLOT_IMPORTED_NAME: EFBXExpectedResultPreset = EFBXExpectedResultPreset(
+        5,
+    );
+    pub const VERTEX_NUMBER: EFBXExpectedResultPreset = EFBXExpectedResultPreset(6);
+    pub const LOD_NUMBER: EFBXExpectedResultPreset = EFBXExpectedResultPreset(7);
+    pub const VERTEX_NUMBER_LOD: EFBXExpectedResultPreset = EFBXExpectedResultPreset(8);
+    pub const MESH_MATERIALS_NUMBER: EFBXExpectedResultPreset = EFBXExpectedResultPreset(
+        9,
+    );
+    pub const MESH_LOD_SECTION_NUMBER: EFBXExpectedResultPreset = EFBXExpectedResultPreset(
+        10,
+    );
+    pub const MESH_LOD_SECTION_VERTEX_NUMBER: EFBXExpectedResultPreset = EFBXExpectedResultPreset(
+        11,
+    );
+    pub const MESH_LOD_SECTION_TRIANGLE_NUMBER: EFBXExpectedResultPreset = EFBXExpectedResultPreset(
+        12,
+    );
+    pub const MESH_LOD_SECTION_MATERIAL_NAME: EFBXExpectedResultPreset = EFBXExpectedResultPreset(
+        13,
+    );
+    pub const MESH_LOD_SECTION_MATERIAL_INDEX: EFBXExpectedResultPreset = EFBXExpectedResultPreset(
+        14,
+    );
+    pub const MESH_LOD_SECTION_MATERIAL_IMPORTED_NAME: EFBXExpectedResultPreset = EFBXExpectedResultPreset(
+        15,
+    );
+    pub const MESH_LOD_VERTEX_POSITION: EFBXExpectedResultPreset = EFBXExpectedResultPreset(
+        16,
+    );
+    pub const MESH_LOD_VERTEX_NORMAL: EFBXExpectedResultPreset = EFBXExpectedResultPreset(
+        17,
+    );
+    pub const LOD_UV_CHANNEL_NUMBER: EFBXExpectedResultPreset = EFBXExpectedResultPreset(
+        18,
+    );
+    pub const BONE_NUMBER: EFBXExpectedResultPreset = EFBXExpectedResultPreset(19);
+    pub const BONE_POSITION: EFBXExpectedResultPreset = EFBXExpectedResultPreset(20);
+    pub const ANIMATION_FRAME_NUMBER: EFBXExpectedResultPreset = EFBXExpectedResultPreset(
+        21,
+    );
+    pub const ANIMATION_LENGTH: EFBXExpectedResultPreset = EFBXExpectedResultPreset(22);
+    pub const ANIMATION_CUSTOM_CURVE_KEY_VALUE: EFBXExpectedResultPreset = EFBXExpectedResultPreset(
+        23,
+    );
+    pub const ANIMATION_CUSTOM_CURVE_KEY_ARRIVE_TANGENT: EFBXExpectedResultPreset = EFBXExpectedResultPreset(
+        24,
+    );
+    pub const ANIMATION_CUSTOM_CURVE_KEY_LEAVE_TANGENT: EFBXExpectedResultPreset = EFBXExpectedResultPreset(
+        25,
+    );
+    pub const SKIN_BY_BONE_VERTEX_NUMBER: EFBXExpectedResultPreset = EFBXExpectedResultPreset(
+        26,
+    );
+    pub const ANIMATION_CUSTOM_CURVE_KEY_ARRIVE_TANGENT_WEIGHT: EFBXExpectedResultPreset = EFBXExpectedResultPreset(
+        27,
+    );
+    pub const ANIMATION_CUSTOM_CURVE_KEY_LEAVE_TANGENT_WEIGHT: EFBXExpectedResultPreset = EFBXExpectedResultPreset(
+        28,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EPhysicsAssetEditorCenterOfMassViewMode(pub u8);
+impl EPhysicsAssetEditorCenterOfMassViewMode {
+    pub const ALL: EPhysicsAssetEditorCenterOfMassViewMode = EPhysicsAssetEditorCenterOfMassViewMode(
+        0,
+    );
+    pub const SELECTED: EPhysicsAssetEditorCenterOfMassViewMode = EPhysicsAssetEditorCenterOfMassViewMode(
+        1,
+    );
+    pub const NONE: EPhysicsAssetEditorCenterOfMassViewMode = EPhysicsAssetEditorCenterOfMassViewMode(
+        2,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EPhysicsAssetEditorCollisionViewMode(pub u8);
+impl EPhysicsAssetEditorCollisionViewMode {
+    pub const SOLID: EPhysicsAssetEditorCollisionViewMode = EPhysicsAssetEditorCollisionViewMode(
+        0,
+    );
+    pub const WIREFRAME: EPhysicsAssetEditorCollisionViewMode = EPhysicsAssetEditorCollisionViewMode(
+        1,
+    );
+    pub const SOLID_WIREFRAME: EPhysicsAssetEditorCollisionViewMode = EPhysicsAssetEditorCollisionViewMode(
+        2,
+    );
+    pub const NONE: EPhysicsAssetEditorCollisionViewMode = EPhysicsAssetEditorCollisionViewMode(
+        3,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EPhysicsAssetEditorConstraintViewMode(pub u8);
+impl EPhysicsAssetEditorConstraintViewMode {
+    pub const NONE: EPhysicsAssetEditorConstraintViewMode = EPhysicsAssetEditorConstraintViewMode(
+        0,
+    );
+    pub const ALL_POSITIONS: EPhysicsAssetEditorConstraintViewMode = EPhysicsAssetEditorConstraintViewMode(
+        1,
+    );
+    pub const ALL_LIMITS: EPhysicsAssetEditorConstraintViewMode = EPhysicsAssetEditorConstraintViewMode(
+        2,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EEditorAssetMetaDataSortType(pub u8);
+impl EEditorAssetMetaDataSortType {
+    pub const STRING: EEditorAssetMetaDataSortType = EEditorAssetMetaDataSortType(0);
+    pub const NUMERIC: EEditorAssetMetaDataSortType = EEditorAssetMetaDataSortType(1);
+    pub const DATE_TIME: EEditorAssetMetaDataSortType = EEditorAssetMetaDataSortType(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EEditorAssetSortOrder(pub u8);
+impl EEditorAssetSortOrder {
+    pub const ASCENDING: EEditorAssetSortOrder = EEditorAssetSortOrder(0);
+    pub const DESCENDING: EEditorAssetSortOrder = EEditorAssetSortOrder(1);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ELevelVisibilityDirtyMode(pub u8);
+impl ELevelVisibilityDirtyMode {
+    pub const MODIFY_ON_CHANGE: ELevelVisibilityDirtyMode = ELevelVisibilityDirtyMode(0);
+    pub const DONT_MODIFY: ELevelVisibilityDirtyMode = ELevelVisibilityDirtyMode(1);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EMaterialSearchLocation(pub u8);
+impl EMaterialSearchLocation {
+    pub const LOCAL: EMaterialSearchLocation = EMaterialSearchLocation(0);
+    pub const UNDER_PARENT: EMaterialSearchLocation = EMaterialSearchLocation(1);
+    pub const UNDER_ROOT: EMaterialSearchLocation = EMaterialSearchLocation(2);
+    pub const ALL_ASSETS: EMaterialSearchLocation = EMaterialSearchLocation(3);
+    pub const DO_NOT_SEARCH: EMaterialSearchLocation = EMaterialSearchLocation(4);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EReloadPackagesInteractionMode(pub u8);
+impl EReloadPackagesInteractionMode {
+    pub const INTERACTIVE: EReloadPackagesInteractionMode = EReloadPackagesInteractionMode(
+        0,
+    );
+    pub const ASSUME_POSITIVE: EReloadPackagesInteractionMode = EReloadPackagesInteractionMode(
+        1,
+    );
+    pub const ASSUME_NEGATIVE: EReloadPackagesInteractionMode = EReloadPackagesInteractionMode(
+        2,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EFbxExportCompatibility(pub u8);
+impl EFbxExportCompatibility {
+    pub const FBX_2011: EFbxExportCompatibility = EFbxExportCompatibility(0);
+    pub const FBX_2012: EFbxExportCompatibility = EFbxExportCompatibility(1);
+    pub const FBX_2013: EFbxExportCompatibility = EFbxExportCompatibility(2);
+    pub const FBX_2014: EFbxExportCompatibility = EFbxExportCompatibility(3);
+    pub const FBX_2016: EFbxExportCompatibility = EFbxExportCompatibility(4);
+    pub const FBX_2018: EFbxExportCompatibility = EFbxExportCompatibility(5);
+    pub const FBX_2019: EFbxExportCompatibility = EFbxExportCompatibility(6);
+    pub const FBX_2020: EFbxExportCompatibility = EFbxExportCompatibility(7);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EBlueprintBreakpointReloadMethod(pub i32);
+impl EBlueprintBreakpointReloadMethod {
+    pub const RESTORE_ALL: EBlueprintBreakpointReloadMethod = EBlueprintBreakpointReloadMethod(
+        0,
+    );
+    pub const RESTORE_ALL_AND_DISABLE: EBlueprintBreakpointReloadMethod = EBlueprintBreakpointReloadMethod(
+        1,
+    );
+    pub const DISCARD_ALL: EBlueprintBreakpointReloadMethod = EBlueprintBreakpointReloadMethod(
+        2,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ECommentBoxMode(pub u8);
+impl ECommentBoxMode {
+    pub const GROUP_MOVEMENT: ECommentBoxMode = ECommentBoxMode(0);
+    pub const NO_GROUP_MOVEMENT: ECommentBoxMode = ECommentBoxMode(1);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EClassViewerDeveloperType(pub u8);
+impl EClassViewerDeveloperType {
+    pub const CVDT_NONE: EClassViewerDeveloperType = EClassViewerDeveloperType(0);
+    pub const CVDT_CURRENT_USER: EClassViewerDeveloperType = EClassViewerDeveloperType(
+        1,
+    );
+    pub const CVDT_ALL: EClassViewerDeveloperType = EClassViewerDeveloperType(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ELoadLevelAtStartup(pub u8);
+impl ELoadLevelAtStartup {
+    pub const NONE: ELoadLevelAtStartup = ELoadLevelAtStartup(0);
+    pub const PROJECT_DEFAULT: ELoadLevelAtStartup = ELoadLevelAtStartup(1);
+    pub const LAST_OPENED: ELoadLevelAtStartup = ELoadLevelAtStartup(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ERestoreOpenAssetTabsMethod(pub u8);
+impl ERestoreOpenAssetTabsMethod {
+    pub const ALWAYS_PROMPT: ERestoreOpenAssetTabsMethod = ERestoreOpenAssetTabsMethod(
+        0,
+    );
+    pub const ALWAYS_RESTORE: ERestoreOpenAssetTabsMethod = ERestoreOpenAssetTabsMethod(
+        1,
+    );
+    pub const NEVER_RESTORE: ERestoreOpenAssetTabsMethod = ERestoreOpenAssetTabsMethod(
+        2,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EAutoSaveMethod(pub u8);
+impl EAutoSaveMethod {
+    pub const BACKUP_AND_RESTORE: EAutoSaveMethod = EAutoSaveMethod(0);
+    pub const BACKUP_AND_OVERWRITE: EAutoSaveMethod = EAutoSaveMethod(1);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EAssetEditorOpenLocation(pub u8);
+impl EAssetEditorOpenLocation {
+    pub const DEFAULT: EAssetEditorOpenLocation = EAssetEditorOpenLocation(0);
+    pub const NEW_WINDOW: EAssetEditorOpenLocation = EAssetEditorOpenLocation(1);
+    pub const MAIN_WINDOW: EAssetEditorOpenLocation = EAssetEditorOpenLocation(2);
+    pub const CONTENT_BROWSER: EAssetEditorOpenLocation = EAssetEditorOpenLocation(3);
+    pub const LAST_DOCKED_WINDOW_OR_NEW_WINDOW: EAssetEditorOpenLocation = EAssetEditorOpenLocation(
+        4,
+    );
+    pub const LAST_DOCKED_WINDOW_OR_MAIN_WINDOW: EAssetEditorOpenLocation = EAssetEditorOpenLocation(
+        5,
+    );
+    pub const LAST_DOCKED_WINDOW_OR_CONTENT_BROWSER: EAssetEditorOpenLocation = EAssetEditorOpenLocation(
+        6,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EFBXImportType(pub u8);
+impl EFBXImportType {
+    pub const FBXIT_STATIC_MESH: EFBXImportType = EFBXImportType(0);
+    pub const FBXIT_SKELETAL_MESH: EFBXImportType = EFBXImportType(1);
+    pub const FBXIT_ANIMATION: EFBXImportType = EFBXImportType(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ELabelAnchorMode(pub u8);
+impl ELabelAnchorMode {
+    pub const LABEL_ANCHOR_MODE_TOP_LEFT: ELabelAnchorMode = ELabelAnchorMode(0);
+    pub const LABEL_ANCHOR_MODE_TOP_CENTER: ELabelAnchorMode = ELabelAnchorMode(1);
+    pub const LABEL_ANCHOR_MODE_TOP_RIGHT: ELabelAnchorMode = ELabelAnchorMode(2);
+    pub const LABEL_ANCHOR_MODE_CENTER_LEFT: ELabelAnchorMode = ELabelAnchorMode(3);
+    pub const LABEL_ANCHOR_MODE_CENTERED: ELabelAnchorMode = ELabelAnchorMode(4);
+    pub const LABEL_ANCHOR_MODE_CENTER_RIGHT: ELabelAnchorMode = ELabelAnchorMode(5);
+    pub const LABEL_ANCHOR_MODE_BOTTOM_LEFT: ELabelAnchorMode = ELabelAnchorMode(6);
+    pub const LABEL_ANCHOR_MODE_BOTTOM_CENTER: ELabelAnchorMode = ELabelAnchorMode(7);
+    pub const LABEL_ANCHOR_MODE_BOTTOM_RIGHT: ELabelAnchorMode = ELabelAnchorMode(8);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EPlayOnBuildMode(pub u8);
+impl EPlayOnBuildMode {
+    pub const PLAY_ON_BUILD_ALWAYS: EPlayOnBuildMode = EPlayOnBuildMode(0);
+    pub const PLAY_ON_BUILD_NEVER: EPlayOnBuildMode = EPlayOnBuildMode(1);
+    pub const PLAY_ON_BUILD_DEFAULT: EPlayOnBuildMode = EPlayOnBuildMode(2);
+    pub const PLAY_ON_BUILD_IF_EDITOR_BUILT_LOCALLY: EPlayOnBuildMode = EPlayOnBuildMode(
+        3,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EPlayOnLaunchConfiguration(pub u8);
+impl EPlayOnLaunchConfiguration {
+    pub const LAUNCH_CONFIG_DEFAULT: EPlayOnLaunchConfiguration = EPlayOnLaunchConfiguration(
+        0,
+    );
+    pub const LAUNCH_CONFIG_DEBUG: EPlayOnLaunchConfiguration = EPlayOnLaunchConfiguration(
+        1,
+    );
+    pub const LAUNCH_CONFIG_DEVELOPMENT: EPlayOnLaunchConfiguration = EPlayOnLaunchConfiguration(
+        2,
+    );
+    pub const LAUNCH_CONFIG_TEST: EPlayOnLaunchConfiguration = EPlayOnLaunchConfiguration(
+        3,
+    );
+    pub const LAUNCH_CONFIG_SHIPPING: EPlayOnLaunchConfiguration = EPlayOnLaunchConfiguration(
+        4,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EPlayOnPakFileMode(pub u8);
+impl EPlayOnPakFileMode {
+    pub const NO_PAK: EPlayOnPakFileMode = EPlayOnPakFileMode(0);
+    pub const PAK_NO_COMPRESS: EPlayOnPakFileMode = EPlayOnPakFileMode(1);
+    pub const PAK_COMPRESS: EPlayOnPakFileMode = EPlayOnPakFileMode(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EPlayNetMode(pub u8);
+impl EPlayNetMode {
+    pub const PIE_STANDALONE: EPlayNetMode = EPlayNetMode(0);
+    pub const PIE_LISTEN_SERVER: EPlayNetMode = EPlayNetMode(1);
+    pub const PIE_CLIENT: EPlayNetMode = EPlayNetMode(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ELaunchModeType(pub u8);
+impl ELaunchModeType {
+    pub const LAUNCH_MODE_ON_DEVICE: ELaunchModeType = ELaunchModeType(0);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EPlayModeLocations(pub u8);
+impl EPlayModeLocations {
+    pub const PLAY_LOCATION_CURRENT_CAMERA_LOCATION: EPlayModeLocations = EPlayModeLocations(
+        0,
+    );
+    pub const PLAY_LOCATION_DEFAULT_PLAYER_START: EPlayModeLocations = EPlayModeLocations(
+        1,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EPlayModeType(pub u8);
+impl EPlayModeType {
+    pub const PLAY_MODE_IN_VIEW_PORT: EPlayModeType = EPlayModeType(0);
+    pub const PLAY_MODE_IN_EDITOR_FLOATING: EPlayModeType = EPlayModeType(1);
+    pub const PLAY_MODE_IN_MOBILE_PREVIEW: EPlayModeType = EPlayModeType(2);
+    pub const PLAY_MODE_IN_TARGETED_MOBILE_PREVIEW: EPlayModeType = EPlayModeType(3);
+    pub const PLAY_MODE_IN_VULKAN_PREVIEW: EPlayModeType = EPlayModeType(4);
+    pub const PLAY_MODE_IN_NEW_PROCESS: EPlayModeType = EPlayModeType(5);
+    pub const PLAY_MODE_IN_VR: EPlayModeType = EPlayModeType(6);
+    pub const PLAY_MODE_SIMULATE: EPlayModeType = EPlayModeType(7);
+    pub const PLAY_MODE_QUICK_LAUNCH: EPlayModeType = EPlayModeType(8);
+    pub const PLAY_MODE_COUNT: EPlayModeType = EPlayModeType(9);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EWASDType(pub u8);
+impl EWASDType {
+    pub const WASD_ALWAYS: EWASDType = EWASDType(0);
+    pub const WASD_RMB_ONLY: EWASDType = EWASDType(1);
+    pub const WASD_NEVER: EWASDType = EWASDType(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ELandscapeFoliageEditorControlType(pub u8);
+impl ELandscapeFoliageEditorControlType {
+    pub const IGNORE_CTRL: ELandscapeFoliageEditorControlType = ELandscapeFoliageEditorControlType(
+        0,
+    );
+    pub const REQUIRE_CTRL: ELandscapeFoliageEditorControlType = ELandscapeFoliageEditorControlType(
+        1,
+    );
+    pub const REQUIRE_NO_CTRL: ELandscapeFoliageEditorControlType = ELandscapeFoliageEditorControlType(
+        2,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EScrollGestureDirection(pub u8);
+impl EScrollGestureDirection {
+    pub const USE_SYSTEM_SETTING: EScrollGestureDirection = EScrollGestureDirection(0);
+    pub const STANDARD: EScrollGestureDirection = EScrollGestureDirection(1);
+    pub const NATURAL: EScrollGestureDirection = EScrollGestureDirection(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ERotationGridMode(pub u8);
+impl ERotationGridMode {
+    pub const GRID_MODE_DIVISIONS_OF360: ERotationGridMode = ERotationGridMode(0);
+    pub const GRID_MODE_COMMON: ERotationGridMode = ERotationGridMode(1);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EMarqueeSelectionMode(pub u8);
+impl EMarqueeSelectionMode {
+    pub const CROSSING: EMarqueeSelectionMode = EMarqueeSelectionMode(0);
+    pub const WINDOW: EMarqueeSelectionMode = EMarqueeSelectionMode(1);
+    pub const CROSS_LEFT: EMarqueeSelectionMode = EMarqueeSelectionMode(2);
+    pub const CROSS_RIGHT: EMarqueeSelectionMode = EMarqueeSelectionMode(3);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EMeasuringToolUnits(pub u8);
+impl EMeasuringToolUnits {
+    pub const MEASURE_UNITS_CENTIMETERS: EMeasuringToolUnits = EMeasuringToolUnits(0);
+    pub const MEASURE_UNITS_METERS: EMeasuringToolUnits = EMeasuringToolUnits(1);
+    pub const MEASURE_UNITS_KILOMETERS: EMeasuringToolUnits = EMeasuringToolUnits(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EMaterialKind(pub u8);
+impl EMaterialKind {
+    pub const UNKNOWN: EMaterialKind = EMaterialKind(0);
+    pub const BASE: EMaterialKind = EMaterialKind(1);
+    pub const NORMAL: EMaterialKind = EMaterialKind(2);
+    pub const SPECULAR: EMaterialKind = EMaterialKind(3);
+    pub const EMISSIVE: EMaterialKind = EMaterialKind(4);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EMaterialStatsDerivedMIOption(pub u8);
+impl EMaterialStatsDerivedMIOption {
+    pub const IGNORE: EMaterialStatsDerivedMIOption = EMaterialStatsDerivedMIOption(0);
+    pub const COMPILE_ONLY: EMaterialStatsDerivedMIOption = EMaterialStatsDerivedMIOption(
+        1,
+    );
+    pub const SHOW_STATS: EMaterialStatsDerivedMIOption = EMaterialStatsDerivedMIOption(
+        2,
+    );
+    pub const INVALID_OR_MAX: EMaterialStatsDerivedMIOption = EMaterialStatsDerivedMIOption(
+        3,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EPhysicsAssetEditorMeshViewMode(pub u8);
+impl EPhysicsAssetEditorMeshViewMode {
+    pub const SOLID: EPhysicsAssetEditorMeshViewMode = EPhysicsAssetEditorMeshViewMode(
+        0,
+    );
+    pub const WIREFRAME: EPhysicsAssetEditorMeshViewMode = EPhysicsAssetEditorMeshViewMode(
+        1,
+    );
+    pub const NONE: EPhysicsAssetEditorMeshViewMode = EPhysicsAssetEditorMeshViewMode(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ETextureSourceColorSpace(pub i32);
+impl ETextureSourceColorSpace {
+    pub const AUTO: ETextureSourceColorSpace = ETextureSourceColorSpace(0);
+    pub const LINEAR: ETextureSourceColorSpace = ETextureSourceColorSpace(1);
+    pub const SRGB: ETextureSourceColorSpace = ETextureSourceColorSpace(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ESheetAxis(pub u8);
+impl ESheetAxis {
+    pub const AX_HORIZONTAL: ESheetAxis = ESheetAxis(0);
+    pub const AX_X_AXIS: ESheetAxis = ESheetAxis(1);
+    pub const AX_Y_AXIS: ESheetAxis = ESheetAxis(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EStructViewerDeveloperType(pub u8);
+impl EStructViewerDeveloperType {
+    pub const SVDT_NONE: EStructViewerDeveloperType = EStructViewerDeveloperType(0);
+    pub const SVDT_CURRENT_USER: EStructViewerDeveloperType = EStructViewerDeveloperType(
+        1,
+    );
+    pub const SVDT_ALL: EStructViewerDeveloperType = EStructViewerDeveloperType(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ETexAlign(pub u8);
+impl ETexAlign {
+    pub const TEXALIGN_NONE: ETexAlign = ETexAlign(0);
+    pub const TEXALIGN_DEFAULT: ETexAlign = ETexAlign(1);
+    pub const TEXALIGN_BOX: ETexAlign = ETexAlign(2);
+    pub const TEXALIGN_PLANAR: ETexAlign = ETexAlign(3);
+    pub const TEXALIGN_FIT: ETexAlign = ETexAlign(4);
+    pub const TEXALIGN_PLANAR_AUTO: ETexAlign = ETexAlign(5);
+    pub const TEXALIGN_PLANAR_WALL: ETexAlign = ETexAlign(6);
+    pub const TEXALIGN_PLANAR_FLOOR: ETexAlign = ETexAlign(7);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ESkeletonDrawMode(pub u8);
+impl ESkeletonDrawMode {
+    pub const DEFAULT: ESkeletonDrawMode = ESkeletonDrawMode(0);
+    pub const HIDDEN: ESkeletonDrawMode = ESkeletonDrawMode(1);
+    pub const GREYED_OUT: ESkeletonDrawMode = ESkeletonDrawMode(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EProcessRootMotionMode(pub u8);
+impl EProcessRootMotionMode {
+    pub const IGNORE: EProcessRootMotionMode = EProcessRootMotionMode(0);
+    pub const LOOP: EProcessRootMotionMode = EProcessRootMotionMode(1);
+    pub const LOOP_AND_RESET: EProcessRootMotionMode = EProcessRootMotionMode(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EVisualizeRootMotionMode(pub u8);
+impl EVisualizeRootMotionMode {
+    pub const NONE: EVisualizeRootMotionMode = EVisualizeRootMotionMode(0);
+    pub const TRAJECTORY: EVisualizeRootMotionMode = EVisualizeRootMotionMode(1);
+    pub const TRAJECTORY_AND_ORIENTATION: EVisualizeRootMotionMode = EVisualizeRootMotionMode(
+        2,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EEditorUserScreenPercentageModeOverride(pub i32);
+impl EEditorUserScreenPercentageModeOverride {
+    pub const PROJECT_DEFAULT: EEditorUserScreenPercentageModeOverride = EEditorUserScreenPercentageModeOverride(
+        0,
+    );
+    pub const MANUAL: EEditorUserScreenPercentageModeOverride = EEditorUserScreenPercentageModeOverride(
+        1,
+    );
+    pub const BASED_ON_DISPLAY_RESOLUTION: EEditorUserScreenPercentageModeOverride = EEditorUserScreenPercentageModeOverride(
+        2,
+    );
+    pub const BASED_ON_DPI_SCALE: EEditorUserScreenPercentageModeOverride = EEditorUserScreenPercentageModeOverride(
+        3,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ECoordinateSystemPolicy(pub u8);
+impl ECoordinateSystemPolicy {
+    pub const MATCH_UP_FORWARD_AXES: ECoordinateSystemPolicy = ECoordinateSystemPolicy(
+        0,
+    );
+    pub const MATCH_UP_AXIS: ECoordinateSystemPolicy = ECoordinateSystemPolicy(1);
+    pub const KEEP_XYZ_AXES: ECoordinateSystemPolicy = ECoordinateSystemPolicy(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EFBXAnimationLengthImportType(pub u8);
+impl EFBXAnimationLengthImportType {
+    pub const FBXALIT_EXPORTED_TIME: EFBXAnimationLengthImportType = EFBXAnimationLengthImportType(
+        0,
+    );
+    pub const FBXALIT_ANIMATED_KEY: EFBXAnimationLengthImportType = EFBXAnimationLengthImportType(
+        1,
+    );
+    pub const FBXALIT_SET_RANGE: EFBXAnimationLengthImportType = EFBXAnimationLengthImportType(
+        2,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EMovieSceneBakeType(pub u8);
+impl EMovieSceneBakeType {
+    pub const NONE: EMovieSceneBakeType = EMovieSceneBakeType(0);
+    pub const BAKE_CHANNELS: EMovieSceneBakeType = EMovieSceneBakeType(1);
+    pub const BAKE_TRANSFORMS: EMovieSceneBakeType = EMovieSceneBakeType(2);
+    pub const BAKE_ALL: EMovieSceneBakeType = EMovieSceneBakeType(3);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EFbxMaterialBakeMode(pub u8);
+impl EFbxMaterialBakeMode {
+    pub const DISABLED: EFbxMaterialBakeMode = EFbxMaterialBakeMode(0);
+    pub const SIMPLE: EFbxMaterialBakeMode = EFbxMaterialBakeMode(1);
+    pub const USE_MESH_DATA: EFbxMaterialBakeMode = EFbxMaterialBakeMode(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EFBXNormalImportMethod(pub u8);
+impl EFBXNormalImportMethod {
+    pub const FBXNIM_COMPUTE_NORMALS: EFBXNormalImportMethod = EFBXNormalImportMethod(0);
+    pub const FBXNIM_IMPORT_NORMALS: EFBXNormalImportMethod = EFBXNormalImportMethod(1);
+    pub const FBXNIM_IMPORT_NORMALS_AND_TANGENTS: EFBXNormalImportMethod = EFBXNormalImportMethod(
+        2,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EFBXNormalGenerationMethod(pub u8);
+impl EFBXNormalGenerationMethod {
+    pub const BUILT_IN: EFBXNormalGenerationMethod = EFBXNormalGenerationMethod(0);
+    pub const MIKK_T_SPACE: EFBXNormalGenerationMethod = EFBXNormalGenerationMethod(1);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EFBXSceneOptionsCreateHierarchyType(pub u8);
+impl EFBXSceneOptionsCreateHierarchyType {
+    pub const FBXSOCHT_CREATE_LEVEL_ACTORS: EFBXSceneOptionsCreateHierarchyType = EFBXSceneOptionsCreateHierarchyType(
+        0,
+    );
+    pub const FBXSOCHT_CREATE_ACTOR_COMPONENTS: EFBXSceneOptionsCreateHierarchyType = EFBXSceneOptionsCreateHierarchyType(
+        1,
+    );
+    pub const FBXSOCHT_CREATE_BLUEPRINT: EFBXSceneOptionsCreateHierarchyType = EFBXSceneOptionsCreateHierarchyType(
+        2,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EFbxSceneVertexColorImportOption(pub u8);
+impl EFbxSceneVertexColorImportOption {
+    pub const REPLACE: EFbxSceneVertexColorImportOption = EFbxSceneVertexColorImportOption(
+        0,
+    );
+    pub const IGNORE: EFbxSceneVertexColorImportOption = EFbxSceneVertexColorImportOption(
+        1,
+    );
+    pub const OVERRIDE: EFbxSceneVertexColorImportOption = EFbxSceneVertexColorImportOption(
+        2,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EFBXSceneNormalImportMethod(pub u8);
+impl EFBXSceneNormalImportMethod {
+    pub const FBX_SCENE_NIM_COMPUTE_NORMALS: EFBXSceneNormalImportMethod = EFBXSceneNormalImportMethod(
+        0,
+    );
+    pub const FBX_SCENE_NIM_IMPORT_NORMALS: EFBXSceneNormalImportMethod = EFBXSceneNormalImportMethod(
+        1,
+    );
+    pub const FBX_SCENE_NIM_IMPORT_NORMALS_AND_TANGENTS: EFBXSceneNormalImportMethod = EFBXSceneNormalImportMethod(
+        2,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EFBXSceneNormalGenerationMethod(pub u8);
+impl EFBXSceneNormalGenerationMethod {
+    pub const BUILT_IN: EFBXSceneNormalGenerationMethod = EFBXSceneNormalGenerationMethod(
+        0,
+    );
+    pub const MIKK_T_SPACE: EFBXSceneNormalGenerationMethod = EFBXSceneNormalGenerationMethod(
+        1,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EFBXImportContentType(pub u8);
+impl EFBXImportContentType {
+    pub const FBXICT_ALL: EFBXImportContentType = EFBXImportContentType(0);
+    pub const FBXICT_GEOMETRY: EFBXImportContentType = EFBXImportContentType(1);
+    pub const FBXICT_SKINNING_WEIGHTS: EFBXImportContentType = EFBXImportContentType(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EVertexColorImportOption(pub u8);
+impl EVertexColorImportOption {
+    pub const REPLACE: EVertexColorImportOption = EVertexColorImportOption(0);
+    pub const IGNORE: EVertexColorImportOption = EVertexColorImportOption(1);
+    pub const OVERRIDE: EVertexColorImportOption = EVertexColorImportOption(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EPropertyEditorTestEnum(pub u8);
+impl EPropertyEditorTestEnum {
+    pub const PROPERTY_EDITOR_TEST_ENUM1: EPropertyEditorTestEnum = EPropertyEditorTestEnum(
+        0,
+    );
+    pub const PROPERTY_EDITOR_TEST_ENUM2: EPropertyEditorTestEnum = EPropertyEditorTestEnum(
+        1,
+    );
+    pub const PROPERTY_EDITOR_TEST_ENUM3: EPropertyEditorTestEnum = EPropertyEditorTestEnum(
+        2,
+    );
+    pub const PROPERTY_EDITOR_TEST_ENUM4: EPropertyEditorTestEnum = EPropertyEditorTestEnum(
+        3,
+    );
+    pub const PROPERTY_EDITOR_TEST_ENUM5: EPropertyEditorTestEnum = EPropertyEditorTestEnum(
+        4,
+    );
+    pub const PROPERTY_EDITOR_TEST_ENUM6: EPropertyEditorTestEnum = EPropertyEditorTestEnum(
+        5,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EPropertyEditorTestEditColor(pub u8);
+impl EPropertyEditorTestEditColor {
+    pub const RED: EPropertyEditorTestEditColor = EPropertyEditorTestEditColor(0);
+    pub const ORANGE: EPropertyEditorTestEditColor = EPropertyEditorTestEditColor(1);
+    pub const YELLOW: EPropertyEditorTestEditColor = EPropertyEditorTestEditColor(2);
+    pub const GREEN: EPropertyEditorTestEditColor = EPropertyEditorTestEditColor(3);
+    pub const BLUE: EPropertyEditorTestEditColor = EPropertyEditorTestEditColor(4);
+    pub const INDIGO: EPropertyEditorTestEditColor = EPropertyEditorTestEditColor(5);
+    pub const VIOLET: EPropertyEditorTestEditColor = EPropertyEditorTestEditColor(6);
+    pub const PINK: EPropertyEditorTestEditColor = EPropertyEditorTestEditColor(7);
+    pub const MAGENTA: EPropertyEditorTestEditColor = EPropertyEditorTestEditColor(8);
+    pub const CYAN: EPropertyEditorTestEditColor = EPropertyEditorTestEditColor(9);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EPropertyEditorTestUnderscores(pub u8);
+impl EPropertyEditorTestUnderscores {
+    pub const ONE: EPropertyEditorTestUnderscores = EPropertyEditorTestUnderscores(0);
+    pub const TWO: EPropertyEditorTestUnderscores = EPropertyEditorTestUnderscores(1);
+    pub const THREE: EPropertyEditorTestUnderscores = EPropertyEditorTestUnderscores(2);
+    pub const NOT_UNDERSCORE: EPropertyEditorTestUnderscores = EPropertyEditorTestUnderscores(
+        3,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EReferenceViewerSettingMode(pub u8);
+impl EReferenceViewerSettingMode {
+    pub const NO_PREFERENCE: EReferenceViewerSettingMode = EReferenceViewerSettingMode(
+        0,
+    );
+    pub const SHOW_BY_DEFAULT: EReferenceViewerSettingMode = EReferenceViewerSettingMode(
+        1,
+    );
+    pub const HIDE_BY_DEFAULT: EReferenceViewerSettingMode = EReferenceViewerSettingMode(
+        2,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EUnitDisplay(pub u8);
+impl EUnitDisplay {
+    pub const NONE: EUnitDisplay = EUnitDisplay(0);
+    pub const METRIC: EUnitDisplay = EUnitDisplay(1);
+    pub const IMPERIAL: EUnitDisplay = EUnitDisplay(2);
+    pub const INVALID: EUnitDisplay = EUnitDisplay(3);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EDefaultLocationUnit(pub u8);
+impl EDefaultLocationUnit {
+    pub const MICROMETERS: EDefaultLocationUnit = EDefaultLocationUnit(0);
+    pub const MILLIMETERS: EDefaultLocationUnit = EDefaultLocationUnit(1);
+    pub const CENTIMETERS: EDefaultLocationUnit = EDefaultLocationUnit(2);
+    pub const METERS: EDefaultLocationUnit = EDefaultLocationUnit(3);
+    pub const KILOMETERS: EDefaultLocationUnit = EDefaultLocationUnit(4);
+    pub const INCHES: EDefaultLocationUnit = EDefaultLocationUnit(5);
+    pub const FEET: EDefaultLocationUnit = EDefaultLocationUnit(6);
+    pub const YARDS: EDefaultLocationUnit = EDefaultLocationUnit(7);
+    pub const MILES: EDefaultLocationUnit = EDefaultLocationUnit(8);
+    pub const INVALID: EDefaultLocationUnit = EDefaultLocationUnit(9);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ELevelEditor2DAxis(pub u8);
+impl ELevelEditor2DAxis {
+    pub const X: ELevelEditor2DAxis = ELevelEditor2DAxis(0);
+    pub const Y: ELevelEditor2DAxis = ELevelEditor2DAxis(1);
+    pub const Z: ELevelEditor2DAxis = ELevelEditor2DAxis(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EFBXTestPlanActionType(pub u8);
+impl EFBXTestPlanActionType {
+    pub const IMPORT: EFBXTestPlanActionType = EFBXTestPlanActionType(0);
+    pub const REIMPORT: EFBXTestPlanActionType = EFBXTestPlanActionType(1);
+    pub const ADD_LOD: EFBXTestPlanActionType = EFBXTestPlanActionType(2);
+    pub const REIMPORT_LOD: EFBXTestPlanActionType = EFBXTestPlanActionType(3);
+    pub const IMPORT_RELOAD: EFBXTestPlanActionType = EFBXTestPlanActionType(4);
+    pub const ADD_ALTERNATE_SKINNIG: EFBXTestPlanActionType = EFBXTestPlanActionType(5);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EThumbnailPrimType(pub u8);
+impl EThumbnailPrimType {
+    pub const TPT_NONE: EThumbnailPrimType = EThumbnailPrimType(0);
+    pub const TPT_SPHERE: EThumbnailPrimType = EThumbnailPrimType(1);
+    pub const TPT_CUBE: EThumbnailPrimType = EThumbnailPrimType(2);
+    pub const TPT_PLANE: EThumbnailPrimType = EThumbnailPrimType(3);
+    pub const TPT_CYLINDER: EThumbnailPrimType = EThumbnailPrimType(4);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EOrthoThumbnailDirection(pub u8);
+impl EOrthoThumbnailDirection {
+    pub const TOP: EOrthoThumbnailDirection = EOrthoThumbnailDirection(0);
+    pub const BOTTOM: EOrthoThumbnailDirection = EOrthoThumbnailDirection(1);
+    pub const LEFT: EOrthoThumbnailDirection = EOrthoThumbnailDirection(2);
+    pub const RIGHT: EOrthoThumbnailDirection = EOrthoThumbnailDirection(3);
+    pub const FRONT: EOrthoThumbnailDirection = EOrthoThumbnailDirection(4);
+    pub const BACK: EOrthoThumbnailDirection = EOrthoThumbnailDirection(5);
+}

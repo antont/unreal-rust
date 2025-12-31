@@ -714,6 +714,7 @@ FRustReflection_Enum FRustReflection_Enum::FromEnum(FRustReflection_EnumWithType
 	ReflectionEnum.Name = EnumWithType.Enum->GetName();
 	ReflectionEnum.Type = MoveTemp(EnumWithType.Type);
 	ReflectionEnum.Metadata = GetAllMetadata(EnumWithType.Enum);
+	ReflectionEnum.Package = EnumWithType.Enum->GetOutermost()->GetPackage()->GetName();
 
 	switch (EnumWithType.Enum->GetCppForm())
 	{
@@ -770,6 +771,7 @@ TSharedPtr<FJsonObject> FRustReflection_Enum::ToJson()
 	Json->SetStringField(TEXT("Name"), Name);
 	Json->SetObjectField(TEXT("Type"), Type->ToJson());
 	Json->SetStringField(TEXT("Kind"), Kind);
+	Json->SetStringField(TEXT("Package"), Package);
 
 	TArray<TSharedPtr<FJsonValue>> JsonEntries;
 
@@ -804,6 +806,7 @@ TSharedPtr<FJsonObject> FRustReflection_Delegate::ToJson()
 {
 	TSharedPtr<FJsonObject> Json = MakeShared<FJsonObject>();
 	Json->SetStringField(TEXT("Name"), Name);
+	Json->SetStringField(TEXT("Package"), Package);
 	Json->SetStringField(TEXT("Namespace"), Namespace);
 	Json->SetStringField(TEXT("Kind"), Kind);
 	Json->SetObjectField(TEXT("Function"), Function.ToJson());
@@ -946,7 +949,7 @@ TSharedPtr<FJsonObject> FRustReflection_UClass::ToJson()
 	{
 		Json->SetStringField(TEXT("SuperClass"), SuperClassName.GetValue());
 	}
-	
+
 	Json->SetBoolField(TEXT("IsInterface"), bIsInterface);
 	Json->SetStringField(TEXT("Package"), Package);
 
@@ -1111,6 +1114,7 @@ void FRustReflection_Root::ExportToJson_Delegates(TSharedPtr<FJsonObject> Json)
 				{
 					continue;
 				}
+				Delegate.Package = InnerProperty->GetOutermost()->GetPackage()->GetName();
 				Delegate.Namespace = Struct->GetName();
 				Delegate.Kind = TEXT("Multicast");
 				Delegate.Function = FRustReflection_Function::FromFunction(
@@ -1131,6 +1135,7 @@ void FRustReflection_Root::ExportToJson_Delegates(TSharedPtr<FJsonObject> Json)
 				}
 				Delegate.Namespace = Struct->GetName();
 				Delegate.Kind = TEXT("Single");
+				Delegate.Package = InnerProperty->GetOutermost()->GetPackage()->GetName();
 				Delegate.Function = FRustReflection_Function::FromFunction(
 					InnerProperty->SignatureFunction.Get());
 				if (DelegateNames.Contains(Delegate.Name))

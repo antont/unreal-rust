@@ -2,7 +2,8 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
-pub use crate::bindings::prelude::*;
+pub use crate::bindings::opague_definitions::*;
+pub use crate::core_data::*;
 #[repr(C, align(1))]
 pub struct FSoundWaveCloudStreamingPlatformProjectSettings {
     pub enablement_setting: ESoundWaveCloudStreamingPlatformProjectEnableType,
@@ -21,12 +22,12 @@ pub struct FAudioParameter {
     pub float_param: f32,
     pub bool_param: bool,
     pub int_param: i32,
-    pub object_param: UPtr<UObject>,
+    pub object_param: UPtr<crate::bindings::core_u_object::UObject>,
     pub string_param: FString,
     pub array_float_param: TArray<f32>,
     pub array_bool_param: TArray<bool>,
     pub array_int_param: TArray<i32>,
-    pub array_object_param: TArray<UPtr<UObject>>,
+    pub array_object_param: TArray<UPtr<crate::bindings::core_u_object::UObject>>,
     pub array_string_param: TArray<FString>,
     pub param_type: EAudioParameterType,
     pub type_name: FName,
@@ -60,4 +61,48 @@ pub struct USoundfieldEffectBase {
 pub struct UWaveformTransformationBase {}
 pub struct UWaveformTransformationChain {
     pub transformations: TArray<UPtr<UWaveformTransformationBase>>,
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ESoundWaveCloudStreamingPlatformProjectEnableType(pub u8);
+impl ESoundWaveCloudStreamingPlatformProjectEnableType {
+    pub const ENABLED: ESoundWaveCloudStreamingPlatformProjectEnableType = ESoundWaveCloudStreamingPlatformProjectEnableType(
+        0,
+    );
+    pub const DISABLED: ESoundWaveCloudStreamingPlatformProjectEnableType = ESoundWaveCloudStreamingPlatformProjectEnableType(
+        1,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ESoundWaveCloudStreamingPlatformEnableType(pub u8);
+impl ESoundWaveCloudStreamingPlatformEnableType {
+    pub const INHERITED: ESoundWaveCloudStreamingPlatformEnableType = ESoundWaveCloudStreamingPlatformEnableType(
+        0,
+    );
+    pub const DISABLED: ESoundWaveCloudStreamingPlatformEnableType = ESoundWaveCloudStreamingPlatformEnableType(
+        1,
+    );
+    pub const SWC_MULTIPLE_VALUES: ESoundWaveCloudStreamingPlatformEnableType = ESoundWaveCloudStreamingPlatformEnableType(
+        2,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EAudioParameterType(pub u8);
+impl EAudioParameterType {
+    pub const NONE: EAudioParameterType = EAudioParameterType(0);
+    pub const BOOLEAN: EAudioParameterType = EAudioParameterType(1);
+    pub const INTEGER: EAudioParameterType = EAudioParameterType(2);
+    pub const FLOAT: EAudioParameterType = EAudioParameterType(3);
+    pub const STRING: EAudioParameterType = EAudioParameterType(4);
+    pub const OBJECT: EAudioParameterType = EAudioParameterType(5);
+    pub const NONE_ARRAY: EAudioParameterType = EAudioParameterType(6);
+    pub const BOOLEAN_ARRAY: EAudioParameterType = EAudioParameterType(7);
+    pub const INTEGER_ARRAY: EAudioParameterType = EAudioParameterType(8);
+    pub const FLOAT_ARRAY: EAudioParameterType = EAudioParameterType(9);
+    pub const STRING_ARRAY: EAudioParameterType = EAudioParameterType(10);
+    pub const OBJECT_ARRAY: EAudioParameterType = EAudioParameterType(11);
+    pub const TRIGGER: EAudioParameterType = EAudioParameterType(12);
+    pub const COUNT: EAudioParameterType = EAudioParameterType(13);
 }

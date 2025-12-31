@@ -2,7 +2,8 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
-pub use crate::bindings::prelude::*;
+pub use crate::bindings::opague_definitions::*;
+pub use crate::core_data::*;
 #[repr(C, align(8))]
 pub struct FMetadataSet {
     pub strings: TMap<FName, FString>,
@@ -66,7 +67,15 @@ pub struct UEditorConfigBase {}
 pub struct UEditorConfigSubsystem {}
 pub struct UEditorMetadataOverrides {}
 pub struct UEditorConfigTestObject {
-    pub object: UPtr<UObject>,
+    pub object: UPtr<crate::bindings::core_u_object::UObject>,
     pub _struct: FEditorConfigTestSimpleStruct,
     pub number: i32,
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EEditorConfigTestEnum(pub u8);
+impl EEditorConfigTestEnum {
+    pub const ZERO: EEditorConfigTestEnum = EEditorConfigTestEnum(0);
+    pub const ONE: EEditorConfigTestEnum = EEditorConfigTestEnum(1);
+    pub const TWO: EEditorConfigTestEnum = EEditorConfigTestEnum(2);
 }

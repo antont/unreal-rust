@@ -9,6 +9,43 @@ use proc_macro2::{Literal, TokenStream};
 use quote::{ToTokens, format_ident, quote};
 use syn::Ident;
 
+pub fn module_name_from_package(package: &str) -> String {
+    package
+        .split_terminator("/")
+        .last()
+        .unwrap()
+        .to_snake_case()
+}
+
+pub struct NameResolver {
+    pub name_to_module: HashMap<String, String>,
+}
+
+impl NameResolver {
+    pub fn get_module_from_name(&self, name: &str) -> String {
+        self.name_to_module.get(name).cloned().unwrap_or_default()
+    }
+
+    pub fn from(api: &Api) -> Self {
+        let mut ty_to_module: HashMap<String, String> = HashMap::new();
+        for struct_def in &api.structs {
+            let module_name = module_name_from_package(&struct_def.package);
+            ty_to_module.insert(struct_def.struct_name.clone(), module_name);
+        }
+        for class_name in &api.classes {
+            let module_name = module_name_from_package(&class_name.package);
+            ty_to_module.insert(class_name.class_name.clone(), module_name);
+        }
+        for enum_def in &api.enums {
+            let module_name = module_name_from_package(&enum_def.package);
+            ty_to_module.insert(enum_def.enum_name.clone(), module_name);
+        }
+
+        Self {
+            name_to_module: ty_to_module,
+        }
+    }
+}
 use crate::parse_api::{
     Api, ClassDefinition, DelegateDefinition, EnumDefinition, OpagueDefinition, Property,
     PropertyFlag, StructDefinition, Type, TypeUsageHint,
@@ -54,11 +91,14 @@ pub fn generate_opague(opague_def: &OpagueDefinition) -> Result<TokenStream, Box
     })
 }
 
-pub fn generate_classes(api: &Api) -> Result<HashMap<String, Vec<TokenStream>>, Box<dyn Error>> {
+pub fn generate_classes(
+    name_resolver: &NameResolver,
+    api: &Api,
+) -> Result<HashMap<String, Vec<TokenStream>>, Box<dyn Error>> {
     let mut all_classes: HashMap<String, Vec<TokenStream>> = HashMap::new();
     api.classes
         .iter()
-        .filter_map(|class_def| generate_class(class_def).ok())
+        .filter_map(|class_def| generate_class(name_resolver, class_def).ok())
         .for_each(|(module_name, tokens)| {
             all_classes.entry(module_name).or_default().push(tokens);
         });
@@ -66,6 +106,7 @@ pub fn generate_classes(api: &Api) -> Result<HashMap<String, Vec<TokenStream>>, 
     Ok(all_classes)
 }
 pub fn generate_class(
+    name_resolver: &NameResolver,
     class_def: &ClassDefinition,
 ) -> Result<(String, TokenStream), Box<dyn Error>> {
     let class_name = format_ident!("{}", class_def.class_name);
@@ -87,7 +128,8 @@ pub fn generate_class(
             }
         }
     } else {
-        let properties: Vec<TokenStream> = generate_properties(&class_def.properties);
+        let properties: Vec<TokenStream> =
+            generate_properties(&module_name, name_resolver, &class_def.properties);
         quote! {
             pub struct #class_name {
                 #(
@@ -99,7 +141,11 @@ pub fn generate_class(
     Ok((module_name, tokens))
 }
 
-pub fn generate_type(ty: &Type) -> Result<TokenStream, Box<dyn Error>> {
+pub fn generate_type(
+    current_module: &str,
+    name_resolver: &NameResolver,
+    ty: &Type,
+) -> Result<TokenStream, Box<dyn Error>> {
     match ty {
         Type::Concrete {
             type_name,
@@ -121,18 +167,46 @@ pub fn generate_type(ty: &Type) -> Result<TokenStream, Box<dyn Error>> {
 
             let ty_name = format_ident!("{}", rust_ty_str);
 
-            match *usage_hint {
-                Some(TypeUsageHint::UObject) => Ok(quote! {UPtr<#ty_name>}),
-                Some(TypeUsageHint::ScriptInterface) => Ok(quote! {TScriptInterface<#ty_name>}),
-                _ => Ok(ty_name.to_token_stream()),
-            }
+            let get_type_ident = |type_name: &str| -> TokenStream {
+                if let Some(module) = name_resolver.name_to_module.get(type_name)
+                    && module != current_module
+                {
+                    let module_ident = format_ident!("{}", module);
+                    quote! {
+                        crate::bindings::#module_ident::#ty_name
+                    }
+                } else {
+                    quote! {
+                        #ty_name
+                    }
+                }
+            };
+
+            let ty_tokens = match *usage_hint {
+                Some(TypeUsageHint::UObject) => {
+                    let ty_ident = get_type_ident(type_name);
+                    quote! {UPtr<#ty_ident>}
+                }
+                Some(TypeUsageHint::ScriptInterface) => {
+                    let remapped_ty_name = if type_name.starts_with("I") {
+                        format!("U{}", type_name.split_at(1).1)
+                    } else {
+                        type_name.clone()
+                    };
+                    let ty_ident = get_type_ident(&remapped_ty_name);
+                    quote! {TScriptInterface<#ty_ident>}
+                }
+                _ => get_type_ident(type_name),
+            };
+
+            Ok(ty_tokens)
         }
         Type::Container {
             container_type_name,
             inner_type,
         } => {
             let container_ident = format_ident!("{}", container_type_name);
-            let inner_tokens = generate_type(inner_type)?;
+            let inner_tokens = generate_type(current_module, name_resolver, inner_type)?;
             let tokens = quote! {
                 #container_ident<#inner_tokens>
             };
@@ -142,8 +216,8 @@ pub fn generate_type(ty: &Type) -> Result<TokenStream, Box<dyn Error>> {
             key_type,
             value_type,
         } => {
-            let key_tokens = generate_type(key_type)?;
-            let value_tokens = generate_type(value_type)?;
+            let key_tokens = generate_type(current_module, name_resolver, key_type)?;
+            let value_tokens = generate_type(current_module, name_resolver, value_type)?;
             let tokens = quote! {
                 TMap<#key_tokens, #value_tokens>
             };
@@ -184,8 +258,14 @@ pub fn sanitize_parameter_name(name: &str) -> &str {
     }
 }
 
-pub fn generate_properties(properies: &[Property]) -> Vec<TokenStream> {
+pub fn generate_properties(
+    current_module: &str,
+    name_resolver: &NameResolver,
+    properies: &[Property],
+) -> Vec<TokenStream> {
     let mut bitfield_set: HashSet<u32> = HashSet::new();
+
+    let mut current_offset: u32 = 0;
 
     properies
         .iter()
@@ -193,6 +273,19 @@ pub fn generate_properties(properies: &[Property]) -> Vec<TokenStream> {
             if bitfield_set.contains(&property.offset) {
                 return None;
             }
+            let padding = property.offset - current_offset;
+            let padding_tokens = if padding > 0 {
+                let padding_lit = Literal::u32_unsuffixed(padding);
+                let padding_ident = format_ident!("__padding_{}", property.offset);
+                // quote! {
+                //     #[doc(hidden)]
+                //     #padding_ident: [u8; #padding_lit],
+                // }
+                quote! {}
+            } else {
+                quote! {}
+            };
+            current_offset = property.offset;
 
             let name_ident = if let Type::Bitfield { .. } = property.data_type {
                 bitfield_set.insert(property.offset);
@@ -208,9 +301,10 @@ pub fn generate_properties(properies: &[Property]) -> Vec<TokenStream> {
                 format_ident!("{}{}", sanitize_parameter_name(&snake_case_name), postfix)
             };
 
-            let ty = generate_type(&property.data_type).ok()?;
+            let ty = generate_type(current_module, name_resolver, &property.data_type).ok()?;
 
             let tokens = quote! {
+                #padding_tokens
                 pub #name_ident: #ty
             };
 
@@ -219,9 +313,13 @@ pub fn generate_properties(properies: &[Property]) -> Vec<TokenStream> {
         .collect()
 }
 
-pub fn generate_enum(enum_def: &EnumDefinition) -> Result<TokenStream, Box<dyn Error>> {
+pub fn generate_enum(
+    name_resolver: &NameResolver,
+    enum_def: &EnumDefinition,
+) -> Result<(String, TokenStream), Box<dyn Error>> {
     let enum_name = format_ident!("{}", enum_def.enum_name);
-    let ty = generate_type(&enum_def.ty)?;
+    let module_name = module_name_from_package(&enum_def.package);
+    let ty = generate_type(&module_name, name_resolver, &enum_def.ty)?;
 
     let mut entry_name_idents = Vec::new();
     let mut entry_value_literals = Vec::new();
@@ -258,7 +356,7 @@ pub fn generate_enum(enum_def: &EnumDefinition) -> Result<TokenStream, Box<dyn E
 
     // TODO: Some of this could be enums but unreal has no information of which are bitflags, so
     // for now we just generate bitflags for every enum
-    Ok(quote! {
+    let tokens = quote! {
         #[allow(non_camel_case_types)]
         #[repr(transparent)]
         pub struct #enum_name(pub #ty);
@@ -269,46 +367,54 @@ pub fn generate_enum(enum_def: &EnumDefinition) -> Result<TokenStream, Box<dyn E
                 pub const #entry_name_idents: #enum_name = #enum_name(#entry_value_literals);
             )*
         }
-    })
+    };
+    Ok((module_name, tokens))
 }
 
-pub fn generate_enums(api: &Api) -> Result<Vec<TokenStream>, Box<dyn Error>> {
-    let all_pods = api
-        .enums
+pub fn generate_enums(
+    name_resolver: &NameResolver,
+    api: &Api,
+) -> Result<HashMap<String, Vec<TokenStream>>, Box<dyn Error>> {
+    let mut all_enums: HashMap<String, Vec<TokenStream>> = HashMap::new();
+    api.enums
         .iter()
-        .filter_map(|enum_def| generate_enum(enum_def).ok())
-        .collect();
+        .filter_map(|enum_def| generate_enum(name_resolver, enum_def).ok())
+        .for_each(|(module_name, tokens)| {
+            all_enums.entry(module_name).or_default().push(tokens);
+        });
 
-    Ok(all_pods)
+    Ok(all_enums)
 }
-pub fn generate_delegates(api: &Api) -> Result<Vec<TokenStream>, Box<dyn Error>> {
-    Ok(api
-        .delegate_defs
+pub fn generate_delegates(api: &Api) -> Result<HashMap<String, Vec<TokenStream>>, Box<dyn Error>> {
+    let mut all_delegates: HashMap<String, Vec<TokenStream>> = HashMap::new();
+    api.delegate_defs
         .iter()
-        .filter_map(|delgate_def| generate_delegate(delgate_def).ok())
-        .collect())
+        .filter_map(|delegate_def| generate_delegate(delegate_def).ok())
+        .for_each(|(module_name, tokens)| {
+            all_delegates.entry(module_name).or_default().push(tokens);
+        });
+
+    Ok(all_delegates)
 }
 
-pub fn generate_delegate(delegate_def: &DelegateDefinition) -> Result<TokenStream, Box<dyn Error>> {
+pub fn generate_delegate(
+    delegate_def: &DelegateDefinition,
+) -> Result<(String, TokenStream), Box<dyn Error>> {
     let name = format_ident!("{}", delegate_def.name);
-    Ok(quote! {
-        pub struct #name;
-    })
+    let module_name = module_name_from_package(&delegate_def.package);
+    Ok((
+        module_name,
+        quote! {
+            pub struct #name;
+        },
+    ))
 }
 pub fn generate_struct(
+    name_resolver: &NameResolver,
     struct_def: &StructDefinition,
 ) -> Result<(String, TokenStream), Box<dyn Error>> {
     let name = format_ident!("{}", struct_def.struct_name);
     let alignment = Literal::u32_unsuffixed(struct_def.min_alignment);
-
-    let properties: Vec<TokenStream> = generate_properties(&struct_def.properties);
-    let tokens = quote! {
-        #[repr(C, align(#alignment))]
-        pub struct #name {
-            #(#properties),*
-        }
-    };
-
     let module_name = struct_def
         .package
         .split_terminator("/")
@@ -316,10 +422,22 @@ pub fn generate_struct(
         .unwrap()
         .to_snake_case();
 
+    let properties: Vec<TokenStream> =
+        generate_properties(&module_name, name_resolver, &struct_def.properties);
+    let tokens = quote! {
+        #[repr(C, align(#alignment))]
+        pub struct #name {
+            #(#properties),*
+        }
+    };
+
     Ok((module_name, tokens))
 }
 
-pub fn generate_structs(api: &Api) -> Result<HashMap<String, Vec<TokenStream>>, Box<dyn Error>> {
+pub fn generate_structs(
+    name_resolver: &NameResolver,
+    api: &Api,
+) -> Result<HashMap<String, Vec<TokenStream>>, Box<dyn Error>> {
     let mut all_pods: HashMap<String, Vec<TokenStream>> = HashMap::new();
     api.structs
         .iter()
@@ -328,7 +446,7 @@ pub fn generate_structs(api: &Api) -> Result<HashMap<String, Vec<TokenStream>>, 
             //     return None;
             // }
 
-            generate_struct(struct_def).ok()
+            generate_struct(name_resolver, struct_def).ok()
         })
         .for_each(|(module_name, tokens)| {
             all_pods.entry(module_name).or_default().push(tokens);
@@ -349,11 +467,15 @@ pub fn save_file(tokens: &TokenStream, path: &Path) {
 }
 
 pub fn generate_crate(api: &Api, out_path: &Path) -> Result<(), Box<dyn Error>> {
+    let name_resolver = NameResolver::from(api);
+
     let mut ctx = Context::new(api);
     ctx.banned_pod_types.insert("FStateTreeAnyEnum".to_string());
 
-    let pods = generate_structs(api)?;
-    let classes = generate_classes(api)?;
+    let pods = generate_structs(&name_resolver, api)?;
+    let classes = generate_classes(&name_resolver, api)?;
+    let delegates = generate_delegates(api)?;
+    let enum_defs = generate_enums(&name_resolver, api)?;
     let mut modules: HashMap<String, Vec<TokenStream>> = HashMap::new();
 
     for (module_name, structs) in pods {
@@ -375,74 +497,33 @@ pub fn generate_crate(api: &Api, out_path: &Path) -> Result<(), Box<dyn Error>> 
             .push(class_tokens);
     }
 
-    let enum_defs = generate_enums(api)?;
+    for (module_name, delegate_token_vec) in delegates {
+        let delegate_tokens = quote! {
+            #(#delegate_token_vec)*
+        };
+        modules
+            .entry(module_name.clone())
+            .or_default()
+            .push(delegate_tokens);
+    }
 
-    // for module in modules.keys() {
-    //     println!("{}", module);
-    // }
+    for (module_name, enum_token_vec) in enum_defs {
+        let enum_tokens = quote! {
+            #(#enum_token_vec)*
+        };
+        modules
+            .entry(module_name.clone())
+            .or_default()
+            .push(enum_tokens);
+    }
 
-    let allow_list = [
-        "core_u_object",
-        "engine",
-        "physics_core",
-        "chaos",
-        "chaos_vd_runtime",
-        "input_core",
-        "audio_extensions",
-        "developer_settings",
-        "field_notification",
-        "clothing_system_runtime_interface",
-        "slate_core",
-        "typed_element_runtime",
-        "slate",
-        "state_stream",
-    ];
+    let opagues = generate_opagues(api)?;
+    let opague_tokens = quote! {
+        #(
+            #opagues
+        )*
 
-    // let allow_list = [
-    //     // Core runtime
-    //     "core",
-    //     "core_u_object",
-    //     "application_core",
-    //     "projects",
-    //     // Engine + rendering
-    //     "engine",
-    //     "render_core",
-    //     "rhi",
-    //     "trace_log",
-    //     // Slate + input
-    //     "slate_core",
-    //     "slate",
-    //     "input_core",
-    //     // Physics + Chaos
-    //     "physics_core",
-    //     "chaos",
-    //     "chaos_core",
-    //     "chaos_solver_engine",
-    //     "chaos_vd_runtime",
-    //     // Audio
-    //     "audio_extensions",
-    //     "audio_platform_configuration",
-    //     // Settings + notifications
-    //     "developer_settings",
-    //     "field_notification",
-    //     // Serialization
-    //     "json",
-    //     "json_utilities",
-    //     // Animation + clothing
-    //     "animation_core",
-    //     "clothing_system_runtime_interface",
-    //     // Networking (minimal required)
-    //     "net_core",
-    //     "sockets",
-    //     "packet_handlers",
-    //     "networking",
-    //     // Misc engine dependencies
-    //     "async",
-    //     "tasks",
-    //     "messaging",
-    //     "messaging_common",
-    // ];
-    // modules.retain(|name, _| allow_list.contains(&name.as_str()));
+    };
 
     for (module_name, all_tokens) in &modules {
         let tokens = quote! {
@@ -450,7 +531,8 @@ pub fn generate_crate(api: &Api, out_path: &Path) -> Result<(), Box<dyn Error>> 
             #![allow(unused_imports)]
             #![allow(unused_variables)]
             #![allow(non_camel_case_types)]
-            pub use crate::bindings::prelude::*;
+            pub use crate::bindings::opague_definitions::*;
+            pub use crate::core_data::*;
             #(#all_tokens)*
         };
 
@@ -469,54 +551,10 @@ pub fn generate_crate(api: &Api, out_path: &Path) -> Result<(), Box<dyn Error>> 
         #(
             pub mod #used_module_idents;
         )*
-        pub mod enum_definition;
 
         pub mod opague_definitions;
-
-        pub mod delegate_definitions;
-
-        pub mod prelude
-        {
-            pub use crate::bindings::enum_definition::*;
-            pub use crate::bindings::opague_definitions::*;
-            pub use crate::bindings::delegate_definitions::*;
-            pub use crate::core_data::*;
-        #(
-            pub use crate::bindings::#used_module_idents::*;
-        )*
-        }
     };
 
-    let delegates = generate_delegates(api)?;
-    let delegate_tokens = quote! {
-        #![allow(dead_code)]
-        #![allow(unused_imports)]
-        #![allow(unused_variables)]
-        #![allow(non_camel_case_types)]
-        #(
-            #delegates
-        )*
-    };
-    let opagues = generate_opagues(api)?;
-
-    let opague_tokens = quote! {
-        #(
-            #opagues
-        )*
-
-    };
-
-    let enum_tokens = quote! {
-        #![allow(dead_code)]
-        #![allow(unused_imports)]
-        #![allow(unused_variables)]
-        #![allow(non_camel_case_types)]
-        #(#enum_defs)*
-    };
-
-    // save_file(&pod_tokens, &out_path.join("actor.rs"));
-    save_file(&delegate_tokens, &out_path.join("delegate_definitions.rs"));
-    save_file(&enum_tokens, &out_path.join("enum_definition.rs"));
     save_file(&mod_tokens, &out_path.join("mod.rs"));
     save_file(&opague_tokens, &out_path.join("opague_definitions.rs"));
     Ok(())

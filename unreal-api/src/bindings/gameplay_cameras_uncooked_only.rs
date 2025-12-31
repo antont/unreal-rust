@@ -2,18 +2,19 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
-pub use crate::bindings::prelude::*;
+pub use crate::bindings::opague_definitions::*;
+pub use crate::core_data::*;
 pub struct UK2Node_CameraRigBase {
-    pub camera_rig: UPtr<UCameraRigAsset>,
+    pub camera_rig: UPtr<crate::bindings::gameplay_cameras::UCameraRigAsset>,
 }
 pub struct UK2Node_SingleCameraRigParameterBase {
     pub camera_parameter_name: FString,
     pub camera_parameter_type: EK2Node_CameraParameterType,
-    pub blendable_camera_parameter_type: ECameraVariableType,
-    pub blendable_struct_type: UPtr<UScriptStruct>,
-    pub data_camera_parameter_type: ECameraContextDataType,
-    pub data_camera_parameter_container_type: ECameraContextDataContainerType,
-    pub data_camera_parameter_type_object: UPtr<UObject>,
+    pub blendable_camera_parameter_type: crate::bindings::gameplay_cameras::ECameraVariableType,
+    pub blendable_struct_type: UPtr<crate::bindings::core_u_object::UScriptStruct>,
+    pub data_camera_parameter_type: crate::bindings::gameplay_cameras::ECameraContextDataType,
+    pub data_camera_parameter_container_type: crate::bindings::gameplay_cameras::ECameraContextDataContainerType,
+    pub data_camera_parameter_type_object: UPtr<crate::bindings::core_u_object::UObject>,
 }
 pub struct UK2Node_GetCameraRigParameter {}
 pub struct UK2Node_MultiCameraRigParametersBase {
@@ -23,3 +24,11 @@ pub struct UK2Node_MultiCameraRigParametersBase {
 pub struct UK2Node_GetCameraRigParameters {}
 pub struct UK2Node_SetCameraRigParameter {}
 pub struct UK2Node_SetCameraRigParameters {}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EK2Node_CameraParameterType(pub u8);
+impl EK2Node_CameraParameterType {
+    pub const UNKNOWN: EK2Node_CameraParameterType = EK2Node_CameraParameterType(0);
+    pub const BLENDABLE: EK2Node_CameraParameterType = EK2Node_CameraParameterType(1);
+    pub const DATA: EK2Node_CameraParameterType = EK2Node_CameraParameterType(2);
+}

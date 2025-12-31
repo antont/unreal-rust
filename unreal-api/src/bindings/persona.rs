@@ -2,14 +2,15 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
-pub use crate::bindings::prelude::*;
+pub use crate::bindings::opague_definitions::*;
+pub use crate::core_data::*;
 #[repr(C, align(8))]
 pub struct FPhysicsAssetRenderSettings {
-    pub center_of_mass_view_mode: EPhysicsAssetEditorCenterOfMassViewMode,
-    pub collision_view_mode: EPhysicsAssetEditorCollisionViewMode,
-    pub constraint_view_mode: EPhysicsAssetEditorConstraintViewMode,
-    pub constraint_viewport_manipulation_flags: EConstraintTransformComponentFlags,
-    pub constraint_transform_component_display_relative_to_default_flags: EConstraintTransformComponentFlags,
+    pub center_of_mass_view_mode: crate::bindings::unreal_ed::EPhysicsAssetEditorCenterOfMassViewMode,
+    pub collision_view_mode: crate::bindings::unreal_ed::EPhysicsAssetEditorCollisionViewMode,
+    pub constraint_view_mode: crate::bindings::unreal_ed::EPhysicsAssetEditorConstraintViewMode,
+    pub constraint_viewport_manipulation_flags: crate::bindings::engine::EConstraintTransformComponentFlags,
+    pub constraint_transform_component_display_relative_to_default_flags: crate::bindings::engine::EConstraintTransformComponentFlags,
     pub constraint_draw_size: f32,
     pub physics_blend: f32,
     pub b_hide_kinematic_bodies: bool,
@@ -21,22 +22,22 @@ pub struct FPhysicsAssetRenderSettings {
     pub b_highlight_overlaping_bodies: bool,
     pub b_draw_violated_limits: bool,
     pub b_hide_center_of_mass_for_kinematic_bodies: bool,
-    pub bone_unselected_color: FColor,
-    pub no_collision_color: FColor,
-    pub com_render_color: FColor,
+    pub bone_unselected_color: crate::bindings::core_u_object::FColor,
+    pub no_collision_color: crate::bindings::core_u_object::FColor,
+    pub com_render_color: crate::bindings::core_u_object::FColor,
     pub com_render_size: f32,
     pub com_render_line_thickness: f32,
     pub com_render_mass_text_offset_screenspace: f32,
     pub influence_line_length: f32,
-    pub bone_unselected_material: UPtr<UMaterialInterface>,
-    pub bone_no_collision_material: UPtr<UMaterialInterface>,
+    pub bone_unselected_material: UPtr<crate::bindings::engine::UMaterialInterface>,
+    pub bone_no_collision_material: UPtr<crate::bindings::engine::UMaterialInterface>,
     pub hidden_bodies: TArray<i32>,
     pub hidden_constraints: TArray<i32>,
 }
 #[repr(C, align(8))]
 pub struct FAnimCurveMetadataEditorClipboardEntry {
     pub curve_name: FName,
-    pub meta_data: FCurveMetaData,
+    pub meta_data: crate::bindings::engine::FCurveMetaData,
 }
 #[repr(C, align(8))]
 pub struct FAnimCurveMetadataEditorClipboard {
@@ -44,16 +45,18 @@ pub struct FAnimCurveMetadataEditorClipboard {
 }
 pub struct UAnimationEditorsAssetFamilyExtension {}
 pub struct UAnimationSequenceBrowserContextMenuContext {
-    pub selected_objects: TArray<TWeakObjectPtr<UObject>>,
+    pub selected_objects: TArray<
+        TWeakObjectPtr<crate::bindings::core_u_object::UObject>,
+    >,
 }
 pub struct UAnimNotifyPanelContextMenuContext {}
 pub struct UAnimViewportContext {}
 pub struct UAnimViewportToolBarToolMenuContext {}
 pub struct UCachedAnalysisProperties {}
 pub struct ULinearAnalysisPropertiesBase {
-    pub bone_socket: FBoneSocketTarget,
+    pub bone_socket: crate::bindings::engine::FBoneSocketTarget,
     pub space: EAnalysisSpace,
-    pub space_bone_socket: FBoneSocketTarget,
+    pub space_bone_socket: crate::bindings::engine::FBoneSocketTarget,
     pub start_time_fraction: f32,
     pub end_time_fraction: f32,
 }
@@ -62,12 +65,12 @@ pub struct ULinearAnalysisProperties {
 }
 pub struct UEulerAnalysisProperties {
     pub function_axis: EAnalysisEulerAxis,
-    pub bone_socket: FBoneSocketTarget,
+    pub bone_socket: crate::bindings::engine::FBoneSocketTarget,
     pub bone_facing_axis: EAnalysisLinearAxis,
     pub bone_right_axis: EAnalysisLinearAxis,
     pub euler_calculation_method: EEulerCalculationMethod,
     pub space: EAnalysisSpace,
-    pub space_bone_socket: FBoneSocketTarget,
+    pub space_bone_socket: crate::bindings::engine::FBoneSocketTarget,
     pub character_facing_axis: EAnalysisLinearAxis,
     pub character_up_axis: EAnalysisLinearAxis,
     pub start_time_fraction: f32,
@@ -77,12 +80,14 @@ pub struct UPersonaPreviewSceneDescription {
     pub preview_controller: TSubclassOf<UPersonaPreviewSceneController>,
     pub preview_controller_instance: UPtr<UPersonaPreviewSceneController>,
     pub preview_controller_instances: TArray<UPtr<UPersonaPreviewSceneController>>,
-    pub preview_mesh: TSoftObjectPtr<USkeletalMesh>,
-    pub preview_animation_blueprint: TSoftObjectPtr<UAnimBlueprint>,
-    pub application_method: EPreviewAnimationBlueprintApplicationMethod,
+    pub preview_mesh: TSoftObjectPtr<crate::bindings::engine::USkeletalMesh>,
+    pub preview_animation_blueprint: TSoftObjectPtr<
+        crate::bindings::engine::UAnimBlueprint,
+    >,
+    pub application_method: crate::bindings::engine::EPreviewAnimationBlueprintApplicationMethod,
     pub linked_anim_graph_tag: FName,
-    pub additional_meshes: TSoftObjectPtr<UDataAsset>,
-    pub default_additional_meshes: UPtr<UPreviewMeshCollection>,
+    pub additional_meshes: TSoftObjectPtr<crate::bindings::engine::UDataAsset>,
+    pub default_additional_meshes: UPtr<crate::bindings::engine::UPreviewMeshCollection>,
 }
 pub struct UAnimAssetFindReplaceContext {}
 pub struct UAnimAssetFindReplaceProcessor {}
@@ -93,19 +98,19 @@ pub struct UAnimAssetFindReplaceSyncMarkers {}
 pub struct AAnimationEditorPreviewActor {}
 pub struct UAnimCurveBaseCopyObject {
     pub curve_name: FName,
-    pub curve_type: ERawCurveTrackTypes,
-    pub channel: ETransformCurveChannel,
-    pub axis: EVectorCurveChannel,
+    pub curve_type: crate::bindings::engine::ERawCurveTrackTypes,
+    pub channel: crate::bindings::engine::ETransformCurveChannel,
+    pub axis: crate::bindings::engine::EVectorCurveChannel,
     pub origin_name: FName,
 }
 pub struct UFloatCurveCopyObject {
-    pub curve: FFloatCurve,
+    pub curve: crate::bindings::engine::FFloatCurve,
 }
 pub struct UTransformCurveCopyObject {
-    pub curve: FTransformCurve,
+    pub curve: crate::bindings::engine::FTransformCurve,
 }
 pub struct UVectorCurveCopyObject {
-    pub curve: FVectorCurve,
+    pub curve: crate::bindings::engine::FVectorCurve,
 }
 pub struct UAnimTimelineClipboardContent {
     pub curves: TArray<UPtr<UAnimCurveBaseCopyObject>>,
@@ -114,7 +119,7 @@ pub struct UPersonaManagerContext {}
 pub struct IPersonaManagerContext {}
 pub struct UPersonaEditorModeManagerContext {}
 pub struct ULODInfoUILayout {
-    pub lod_info: FSkeletalMeshLODInfo,
+    pub lod_info: crate::bindings::engine::FSkeletalMeshLODInfo,
 }
 pub struct UAnimationEditorsAssetFamilyExtension_SkeletonAsset {}
 pub struct UAnimationEditorsAssetFamilyExtension_SkeletalMeshAsset {}
@@ -123,23 +128,60 @@ pub struct UAnimationEditorsAssetFamilyExtension_AnimBlueprintAsset {}
 pub struct UAnimationEditorsAssetFamilyExtension_PhysicsAsset {}
 pub struct UPersonaPreviewSceneController {}
 pub struct UPersonaPreviewSceneAnimationController {
-    pub animation: TSoftObjectPtr<UAnimationAsset>,
+    pub animation: TSoftObjectPtr<crate::bindings::engine::UAnimationAsset>,
 }
 pub struct UPersonaPreviewSceneDefaultController {}
 pub struct UPersonaPreviewSceneRefPoseController {
     pub b_reset_bone_transforms: bool,
 }
 pub struct UPersonaPreviewSceneSkelMeshInstanceController {
-    pub active_preview_instance: TWeakObjectPtr<USkeletalMeshComponent>,
+    pub active_preview_instance: TWeakObjectPtr<
+        crate::bindings::engine::USkeletalMeshComponent,
+    >,
 }
 pub struct UPersonaToolMenuContext {}
 pub struct UPhysicsAssetRenderUtilities {
     pub id_to_settings_map: TMap<u32, FPhysicsAssetRenderSettings>,
-    pub bone_unselected_material: UPtr<UMaterialInterface>,
-    pub bone_no_collision_material: UPtr<UMaterialInterface>,
+    pub bone_unselected_material: UPtr<crate::bindings::engine::UMaterialInterface>,
+    pub bone_no_collision_material: UPtr<crate::bindings::engine::UMaterialInterface>,
 }
 pub struct USkinWeightImportOptions {
     pub profile_name: FString,
     pub file_path: FString,
     pub lod_index: i32,
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EAnalysisSpace(pub u8);
+impl EAnalysisSpace {
+    pub const WORLD: EAnalysisSpace = EAnalysisSpace(0);
+    pub const FIXED: EAnalysisSpace = EAnalysisSpace(1);
+    pub const CHANGING: EAnalysisSpace = EAnalysisSpace(2);
+    pub const MOVING: EAnalysisSpace = EAnalysisSpace(3);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EAnalysisLinearAxis(pub u8);
+impl EAnalysisLinearAxis {
+    pub const PLUS_X: EAnalysisLinearAxis = EAnalysisLinearAxis(0);
+    pub const PLUS_Y: EAnalysisLinearAxis = EAnalysisLinearAxis(1);
+    pub const PLUS_Z: EAnalysisLinearAxis = EAnalysisLinearAxis(2);
+    pub const MINUS_X: EAnalysisLinearAxis = EAnalysisLinearAxis(3);
+    pub const MINUS_Y: EAnalysisLinearAxis = EAnalysisLinearAxis(4);
+    pub const MINUS_Z: EAnalysisLinearAxis = EAnalysisLinearAxis(5);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EAnalysisEulerAxis(pub u8);
+impl EAnalysisEulerAxis {
+    pub const ROLL: EAnalysisEulerAxis = EAnalysisEulerAxis(0);
+    pub const PITCH: EAnalysisEulerAxis = EAnalysisEulerAxis(1);
+    pub const YAW: EAnalysisEulerAxis = EAnalysisEulerAxis(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EEulerCalculationMethod(pub u8);
+impl EEulerCalculationMethod {
+    pub const AIM_DIRECTION: EEulerCalculationMethod = EEulerCalculationMethod(0);
+    pub const POINT_DIRECTION: EEulerCalculationMethod = EEulerCalculationMethod(1);
 }

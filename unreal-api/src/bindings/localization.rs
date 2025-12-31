@@ -2,7 +2,8 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
-pub use crate::bindings::prelude::*;
+pub use crate::bindings::opague_definitions::*;
+pub use crate::core_data::*;
 #[repr(C, align(8))]
 pub struct FGatherTextSearchDirectory {
     pub path_root: ELocalizationGatherPathRoot,
@@ -38,7 +39,7 @@ pub struct FGatherTextFromPackagesConfiguration {
     pub file_extensions: TArray<FGatherTextFileExtension>,
     pub collections: TArray<FName>,
     pub world_collections: TArray<FName>,
-    pub exclude_classes: TArray<FSoftClassPath>,
+    pub exclude_classes: TArray<crate::bindings::core_u_object::FSoftClassPath>,
     pub should_exclude_derived_classes: bool,
     pub should_gather_from_editor_only_data: bool,
     pub skip_gather_cache: bool,
@@ -85,7 +86,7 @@ pub struct FLocalizationCompilationSettings {
 }
 #[repr(C, align(8))]
 pub struct FLocalizationImportDialogueSettings {
-    pub raw_audio_path: FDirectoryPath,
+    pub raw_audio_path: crate::bindings::core_u_object::FDirectoryPath,
     pub imported_dialogue_folder: FString,
     pub b_import_native_as_source: bool,
 }
@@ -97,10 +98,12 @@ pub struct FCultureStatistics {
 #[repr(C, align(8))]
 pub struct FLocalizationTargetSettings {
     pub name: FString,
-    pub guid: FGuid,
+    pub guid: crate::bindings::core_u_object::FGuid,
     pub conflict_status: ELocalizationTargetConflictStatus,
-    pub target_dependencies: TArray<FGuid>,
-    pub additional_manifest_dependencies: TArray<FFilePath>,
+    pub target_dependencies: TArray<crate::bindings::core_u_object::FGuid>,
+    pub additional_manifest_dependencies: TArray<
+        crate::bindings::core_u_object::FFilePath,
+    >,
     pub required_module_names: TArray<FString>,
     pub gather_from_text_files: FGatherTextFromTextFilesConfiguration,
     pub gather_from_packages: FGatherTextFromPackagesConfiguration,
@@ -133,4 +136,47 @@ pub struct UUserGeneratedContentLocalizationSettings {
     pub cultures_to_disable: TArray<FString>,
     pub b_compile_dlc_localization_during_cook: bool,
     pub b_validate_dlc_localization_during_cook: bool,
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ELocalizationGatherPathRoot(pub u8);
+impl ELocalizationGatherPathRoot {
+    pub const AUTO: ELocalizationGatherPathRoot = ELocalizationGatherPathRoot(0);
+    pub const ENGINE: ELocalizationGatherPathRoot = ELocalizationGatherPathRoot(1);
+    pub const PROJECT: ELocalizationGatherPathRoot = ELocalizationGatherPathRoot(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ELocalizedTextCollapseMode(pub u8);
+impl ELocalizedTextCollapseMode {
+    pub const IDENTICAL_TEXT_ID_AND_SOURCE: ELocalizedTextCollapseMode = ELocalizedTextCollapseMode(
+        0,
+    );
+    pub const IDENTICAL_PACKAGE_ID_TEXT_ID_AND_SOURCE: ELocalizedTextCollapseMode = ELocalizedTextCollapseMode(
+        1,
+    );
+    pub const IDENTICAL_NAMESPACE_AND_SOURCE: ELocalizedTextCollapseMode = ELocalizedTextCollapseMode(
+        2,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EPortableObjectFormat(pub u8);
+impl EPortableObjectFormat {
+    pub const UNREAL: EPortableObjectFormat = EPortableObjectFormat(0);
+    pub const CROWDIN: EPortableObjectFormat = EPortableObjectFormat(1);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ELocalizationTargetConflictStatus(pub u8);
+impl ELocalizationTargetConflictStatus {
+    pub const UNKNOWN: ELocalizationTargetConflictStatus = ELocalizationTargetConflictStatus(
+        0,
+    );
+    pub const CONFLICTS_PRESENT: ELocalizationTargetConflictStatus = ELocalizationTargetConflictStatus(
+        1,
+    );
+    pub const CLEAR: ELocalizationTargetConflictStatus = ELocalizationTargetConflictStatus(
+        2,
+    );
 }

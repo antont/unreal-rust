@@ -2,20 +2,21 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
-pub use crate::bindings::prelude::*;
+pub use crate::bindings::opague_definitions::*;
+pub use crate::core_data::*;
 #[repr(C, align(8))]
 pub struct FEditableToolPaletteSettings {
     pub palette_command_names: TArray<FString>,
 }
 #[repr(C, align(16))]
 pub struct FToolkitWidgetStyle {
-    pub title_background_brush: FSlateBrush,
-    pub tool_details_background_brush: FSlateBrush,
-    pub title_foreground_color: FSlateColor,
-    pub title_padding: FMargin,
-    pub active_tool_title_border_padding: FMargin,
-    pub tool_context_text_block_padding: FMargin,
-    pub title_font: FSlateFontInfo,
+    pub title_background_brush: crate::bindings::slate_core::FSlateBrush,
+    pub tool_details_background_brush: crate::bindings::slate_core::FSlateBrush,
+    pub title_foreground_color: crate::bindings::slate_core::FSlateColor,
+    pub title_padding: crate::bindings::slate_core::FMargin,
+    pub active_tool_title_border_padding: crate::bindings::slate_core::FMargin,
+    pub tool_context_text_block_padding: crate::bindings::slate_core::FMargin,
+    pub title_font: crate::bindings::slate_core::FSlateFontInfo,
 }
 #[repr(C, align(8))]
 pub struct FPersistedNameArray {

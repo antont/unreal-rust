@@ -2,16 +2,17 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
-pub use crate::bindings::prelude::*;
+pub use crate::bindings::opague_definitions::*;
+pub use crate::core_data::*;
 #[repr(C, align(8))]
 pub struct FGameModeName {
     pub name: FString,
-    pub game_mode: FSoftClassPath,
+    pub game_mode: crate::bindings::core_u_object::FSoftClassPath,
 }
 #[repr(C, align(8))]
 pub struct FTemplateMapInfoOverride {
-    pub thumbnail: FSoftObjectPath,
-    pub map: FSoftObjectPath,
+    pub thumbnail: crate::bindings::core_u_object::FSoftObjectPath,
+    pub map: crate::bindings::core_u_object::FSoftObjectPath,
     pub display_name: FText,
 }
 #[repr(C, align(8))]
@@ -20,21 +21,21 @@ pub struct FAutoCompleteCommand {
     pub desc: FString,
 }
 pub struct UGameMapsSettings {
-    pub editor_startup_map: FSoftObjectPath,
+    pub editor_startup_map: crate::bindings::core_u_object::FSoftObjectPath,
     pub editor_template_map_overrides: TArray<FTemplateMapInfoOverride>,
     pub local_map_options: FString,
-    pub transition_map: FSoftObjectPath,
+    pub transition_map: crate::bindings::core_u_object::FSoftObjectPath,
     pub b_use_splitscreen: bool,
     pub two_player_splitscreen_layout: ETwoPlayerSplitScreenType,
     pub three_player_splitscreen_layout: EThreePlayerSplitScreenType,
     pub four_player_splitscreen_layout: EFourPlayerSplitScreenType,
     pub b_show_all_player_widgets_when_splitscreen_disabled: bool,
     pub b_offset_player_gamepad_ids: bool,
-    pub game_instance_class: FSoftClassPath,
-    pub game_default_map: FSoftObjectPath,
-    pub server_default_map: FSoftObjectPath,
-    pub global_default_game_mode: FSoftClassPath,
-    pub global_default_server_game_mode: FSoftClassPath,
+    pub game_instance_class: crate::bindings::core_u_object::FSoftClassPath,
+    pub game_default_map: crate::bindings::core_u_object::FSoftObjectPath,
+    pub server_default_map: crate::bindings::core_u_object::FSoftObjectPath,
+    pub global_default_game_mode: crate::bindings::core_u_object::FSoftClassPath,
+    pub global_default_server_game_mode: crate::bindings::core_u_object::FSoftClassPath,
     pub game_mode_map_prefixes: TArray<FGameModeName>,
     pub game_mode_class_aliases: TArray<FGameModeName>,
 }
@@ -65,7 +66,7 @@ pub struct UGeneralProjectSettings {
     pub homepage: FString,
     pub licensing_terms: FString,
     pub privacy_policy: FString,
-    pub project_id: FGuid,
+    pub project_id: crate::bindings::core_u_object::FGuid,
     pub project_name: FString,
     pub project_version: FString,
     pub support_contact: FString,
@@ -94,9 +95,33 @@ pub struct UConsoleSettings {
     pub background_opacity_percentage: f32,
     pub b_order_top_to_bottom: bool,
     pub b_display_help_in_auto_complete: bool,
-    pub input_color: FColor,
-    pub history_color: FColor,
-    pub auto_complete_command_color: FColor,
-    pub auto_complete_c_var_color: FColor,
-    pub auto_complete_faded_color: FColor,
+    pub input_color: crate::bindings::core_u_object::FColor,
+    pub history_color: crate::bindings::core_u_object::FColor,
+    pub auto_complete_command_color: crate::bindings::core_u_object::FColor,
+    pub auto_complete_c_var_color: crate::bindings::core_u_object::FColor,
+    pub auto_complete_faded_color: crate::bindings::core_u_object::FColor,
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ETwoPlayerSplitScreenType(pub u8);
+impl ETwoPlayerSplitScreenType {
+    pub const HORIZONTAL: ETwoPlayerSplitScreenType = ETwoPlayerSplitScreenType(0);
+    pub const VERTICAL: ETwoPlayerSplitScreenType = ETwoPlayerSplitScreenType(1);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EThreePlayerSplitScreenType(pub u8);
+impl EThreePlayerSplitScreenType {
+    pub const FAVOR_TOP: EThreePlayerSplitScreenType = EThreePlayerSplitScreenType(0);
+    pub const FAVOR_BOTTOM: EThreePlayerSplitScreenType = EThreePlayerSplitScreenType(1);
+    pub const VERTICAL: EThreePlayerSplitScreenType = EThreePlayerSplitScreenType(2);
+    pub const HORIZONTAL: EThreePlayerSplitScreenType = EThreePlayerSplitScreenType(3);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EFourPlayerSplitScreenType(pub u8);
+impl EFourPlayerSplitScreenType {
+    pub const GRID: EFourPlayerSplitScreenType = EFourPlayerSplitScreenType(0);
+    pub const VERTICAL: EFourPlayerSplitScreenType = EFourPlayerSplitScreenType(1);
+    pub const HORIZONTAL: EFourPlayerSplitScreenType = EFourPlayerSplitScreenType(2);
 }

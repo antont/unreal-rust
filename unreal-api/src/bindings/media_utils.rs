@@ -2,7 +2,8 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
-pub use crate::bindings::prelude::*;
+pub use crate::bindings::opague_definitions::*;
+pub use crate::core_data::*;
 #[repr(C, align(4))]
 pub struct FMediaPlayerTrackOptions {
     pub audio: i32,
@@ -25,8 +26,47 @@ pub struct FMediaPlayerOptions {
     pub tracks: FMediaPlayerTrackOptions,
     pub tracks_by_language: FMediaPlayerInitialTrackLanguageSelection,
     pub track_selection: EMediaPlayerOptionTrackSelectMode,
-    pub seek_time: FTimespan,
+    pub seek_time: crate::bindings::core_u_object::FTimespan,
     pub seek_time_type: EMediaPlayerOptionSeekTimeType,
     pub play_on_open: EMediaPlayerOptionBooleanOverride,
     pub loop_: EMediaPlayerOptionBooleanOverride,
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EMediaPlayerOptionTrackSelectMode(pub u8);
+impl EMediaPlayerOptionTrackSelectMode {
+    pub const USE_MEDIA_PLAYER_DEFAULTS: EMediaPlayerOptionTrackSelectMode = EMediaPlayerOptionTrackSelectMode(
+        0,
+    );
+    pub const USE_TRACK_OPTION_INDICES: EMediaPlayerOptionTrackSelectMode = EMediaPlayerOptionTrackSelectMode(
+        1,
+    );
+    pub const USE_LANGUAGE_CODES: EMediaPlayerOptionTrackSelectMode = EMediaPlayerOptionTrackSelectMode(
+        2,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EMediaPlayerOptionSeekTimeType(pub u8);
+impl EMediaPlayerOptionSeekTimeType {
+    pub const IGNORED: EMediaPlayerOptionSeekTimeType = EMediaPlayerOptionSeekTimeType(
+        0,
+    );
+    pub const RELATIVE_TO_START_TIME: EMediaPlayerOptionSeekTimeType = EMediaPlayerOptionSeekTimeType(
+        1,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EMediaPlayerOptionBooleanOverride(pub u8);
+impl EMediaPlayerOptionBooleanOverride {
+    pub const USE_MEDIA_PLAYER_SETTING: EMediaPlayerOptionBooleanOverride = EMediaPlayerOptionBooleanOverride(
+        0,
+    );
+    pub const ENABLED: EMediaPlayerOptionBooleanOverride = EMediaPlayerOptionBooleanOverride(
+        1,
+    );
+    pub const DISABLED: EMediaPlayerOptionBooleanOverride = EMediaPlayerOptionBooleanOverride(
+        2,
+    );
 }

@@ -2,7 +2,8 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
-pub use crate::bindings::prelude::*;
+pub use crate::bindings::opague_definitions::*;
+pub use crate::core_data::*;
 #[repr(C, align(4))]
 pub struct FTypedElementSelectionOptions {
     pub b_allow_hidden: bool,
@@ -44,3 +45,29 @@ pub struct UTypedElementPrimitiveCustomDataInterface {}
 pub struct ITypedElementPrimitiveCustomDataInterface {}
 pub struct UTypedElementSelectionInterface {}
 pub struct ITypedElementSelectionInterface {}
+pub struct FTypedElementSelectionSet_OnPreSelectionChange;
+pub struct FTypedElementSelectionSet_OnSelectionChange;
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ETypedElementChildInclusionMethod(pub u8);
+impl ETypedElementChildInclusionMethod {
+    pub const NONE: ETypedElementChildInclusionMethod = ETypedElementChildInclusionMethod(
+        0,
+    );
+    pub const IMMEDIATE: ETypedElementChildInclusionMethod = ETypedElementChildInclusionMethod(
+        1,
+    );
+    pub const RECURSIVE: ETypedElementChildInclusionMethod = ETypedElementChildInclusionMethod(
+        2,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ETypedElementSelectionMethod(pub u8);
+impl ETypedElementSelectionMethod {
+    pub const PRIMARY: ETypedElementSelectionMethod = ETypedElementSelectionMethod(0);
+    pub const SECONDARY: ETypedElementSelectionMethod = ETypedElementSelectionMethod(1);
+    pub const FROM_SECONDARY: ETypedElementSelectionMethod = ETypedElementSelectionMethod(
+        2,
+    );
+}

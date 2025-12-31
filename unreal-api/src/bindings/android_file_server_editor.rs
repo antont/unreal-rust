@@ -2,7 +2,8 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
-pub use crate::bindings::prelude::*;
+pub use crate::bindings::opague_definitions::*;
+pub use crate::core_data::*;
 pub struct UAndroidFileServerRuntimeSettings {
     pub b_enable_plugin: bool,
     pub b_allow_network_connection: bool,
@@ -16,4 +17,12 @@ pub struct UAndroidFileServerRuntimeSettings {
     pub connection_type: EAFSConnectionType,
     pub b_use_manual_ip_address: bool,
     pub manual_ip_address: FString,
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EAFSConnectionType(pub u8);
+impl EAFSConnectionType {
+    pub const USB_ONLY: EAFSConnectionType = EAFSConnectionType(0);
+    pub const NETWORK_ONLY: EAFSConnectionType = EAFSConnectionType(1);
+    pub const COMBINED: EAFSConnectionType = EAFSConnectionType(2);
 }

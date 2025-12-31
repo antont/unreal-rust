@@ -2,7 +2,8 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
-pub use crate::bindings::prelude::*;
+pub use crate::bindings::opague_definitions::*;
+pub use crate::core_data::*;
 #[repr(C, align(8))]
 pub struct FCollectionAttributeKey {
     pub attribute: FString,
@@ -10,7 +11,7 @@ pub struct FCollectionAttributeKey {
 }
 #[repr(C, align(8))]
 pub struct FDataflowDynamicMeshArray {
-    pub value: TArray<UPtr<UDynamicMesh>>,
+    pub value: TArray<UPtr<crate::bindings::geometry_framework::UDynamicMesh>>,
 }
 pub struct ADataflowActor {
     pub dataflow_component: UPtr<UDataflowComponent>,

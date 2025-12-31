@@ -2,7 +2,8 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
-pub use crate::bindings::prelude::*;
+pub use crate::bindings::opague_definitions::*;
+pub use crate::core_data::*;
 #[repr(C, align(8))]
 pub struct FEntity {
     pub id: u64,
@@ -22,15 +23,15 @@ pub struct FRustProperty {
     pub tag: i32,
     pub float: f32,
     pub bool: bool,
-    pub vector: FVector,
-    pub rotation: FRotator,
-    pub class: TSubclassOf<AActor>,
-    pub sound: UPtr<USoundBase>,
+    pub vector: crate::bindings::core_u_object::FVector,
+    pub rotation: crate::bindings::core_u_object::FRotator,
+    pub class: TSubclassOf<crate::bindings::engine::AActor>,
+    pub sound: UPtr<crate::bindings::engine::USoundBase>,
 }
 #[repr(C, align(8))]
 pub struct FUuidViewNode {
     pub name: FString,
-    pub id: FGuid,
+    pub id: crate::bindings::core_u_object::FGuid,
 }
 pub struct UAnimNotify_RustEvent {
     pub event: FRustEvent,
@@ -41,14 +42,14 @@ pub struct UEntityComponent {
 }
 pub struct UK2Node_GetComponentRust {
     pub selected_node: FUuidViewNode,
-    pub index_pins: TArray<FGuid>,
+    pub index_pins: TArray<crate::bindings::core_u_object::FGuid>,
 }
 pub struct ARustActor {
     pub entity_component: UPtr<UEntityComponent>,
 }
 pub struct ARustBindingsActor {}
 pub struct ARustGameModeBase {
-    pub registered_classes: TArray<TSubclassOf<AActor>>,
+    pub registered_classes: TArray<TSubclassOf<crate::bindings::engine::AActor>>,
 }
 pub struct UUEdGraphSchema_Rust {}
 pub struct URustReflectionLibrary {}

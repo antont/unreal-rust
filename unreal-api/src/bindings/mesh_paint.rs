@@ -2,7 +2,8 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
-pub use crate::bindings::prelude::*;
+pub use crate::bindings::opague_definitions::*;
+pub use crate::core_data::*;
 pub struct UPaintBrushSettings {
     pub brush_radius: f32,
     pub brush_strength: f32,
@@ -23,4 +24,15 @@ pub struct UVertexColorImportOptions {
     pub b_alpha: bool,
     pub b_import_to_instance: bool,
     pub b_can_import_to_instance: bool,
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EMeshPaintColorViewMode(pub u8);
+impl EMeshPaintColorViewMode {
+    pub const NORMAL: EMeshPaintColorViewMode = EMeshPaintColorViewMode(0);
+    pub const RGB: EMeshPaintColorViewMode = EMeshPaintColorViewMode(1);
+    pub const ALPHA: EMeshPaintColorViewMode = EMeshPaintColorViewMode(2);
+    pub const RED: EMeshPaintColorViewMode = EMeshPaintColorViewMode(3);
+    pub const GREEN: EMeshPaintColorViewMode = EMeshPaintColorViewMode(4);
+    pub const BLUE: EMeshPaintColorViewMode = EMeshPaintColorViewMode(5);
 }

@@ -2,7 +2,8 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
-pub use crate::bindings::prelude::*;
+pub use crate::bindings::opague_definitions::*;
+pub use crate::core_data::*;
 #[repr(C, align(8))]
 pub struct FContentSourceColumn {}
 #[repr(C, align(8))]
@@ -44,7 +45,7 @@ pub struct FContentBrowserPluginSettings {
 #[repr(C, align(8))]
 pub struct FTextFilterKeyValueHandlerEntry {
     pub key: FName,
-    pub handler_class: TSoftObjectPtr<UClass>,
+    pub handler_class: TSoftObjectPtr<crate::bindings::core_u_object::UClass>,
 }
 pub struct UContentBrowserFrontEndFilterExtension {}
 pub struct UContentBrowserPathViewContextMenuContext {}
@@ -61,9 +62,11 @@ pub struct UContentBrowserCollectionProjectSettings {
     pub excluded_collections_from_view: TArray<FName>,
 }
 pub struct UContentBrowserAssetContextMenuContext {
-    pub common_asset_definition: UPtr<UAssetDefinition>,
-    pub selected_assets: TArray<FAssetData>,
-    pub common_class: TSubclassOf<UObject>,
+    pub common_asset_definition: UPtr<
+        crate::bindings::asset_definition::UAssetDefinition,
+    >,
+    pub selected_assets: TArray<crate::bindings::core_u_object::FAssetData>,
+    pub common_class: TSubclassOf<crate::bindings::core_u_object::UObject>,
     pub b_can_be_modified: bool,
     pub b_can_view: bool,
     pub b_has_cooked_packages: bool,
@@ -86,5 +89,7 @@ pub struct UTextFilterKeyValueHandlers {
     pub text_filter_key_value_handlers: TArray<FTextFilterKeyValueHandlerEntry>,
 }
 pub struct UTextFilterValueHandlers {
-    pub text_filter_value_handlers: TArray<TSoftObjectPtr<UClass>>,
+    pub text_filter_value_handlers: TArray<
+        TSoftObjectPtr<crate::bindings::core_u_object::UClass>,
+    >,
 }

@@ -2,12 +2,13 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
-pub use crate::bindings::prelude::*;
+pub use crate::bindings::opague_definitions::*;
+pub use crate::core_data::*;
 #[repr(C, align(8))]
 pub struct FRigVMGraphVariableDescription {
     pub name: FName,
     pub cpp_type: FString,
-    pub cpp_type_object: UPtr<UObject>,
+    pub cpp_type_object: UPtr<crate::bindings::core_u_object::UObject>,
     pub cpp_type_object_path: FName,
     pub default_value: FString,
     pub category: FText,
@@ -40,8 +41,8 @@ pub struct FRigVMEdGraphDisplaySettings {
     pub b_auto_determine_range: bool,
     pub last_min_micro_seconds: f64,
     pub last_max_micro_seconds: f64,
-    pub min_duration_color: FLinearColor,
-    pub max_duration_color: FLinearColor,
+    pub min_duration_color: crate::bindings::core_u_object::FLinearColor,
+    pub max_duration_color: crate::bindings::core_u_object::FLinearColor,
     pub tag_display_mode: ERigVMTagDisplayMode,
 }
 #[repr(C, align(4))]
@@ -50,7 +51,7 @@ pub struct FRigVMOldPublicFunctionArg {
     pub cpp_type: FName,
     pub cpp_type_object_path: FName,
     pub b_is_array: bool,
-    pub direction: ERigVMPinDirection,
+    pub direction: crate::bindings::rig_vm::ERigVMPinDirection,
 }
 #[repr(C, align(8))]
 pub struct FRigVMOldPublicFunctionData {
@@ -68,7 +69,7 @@ pub struct FRigVMParserASTSettings {
     pub b_fold_literals: bool,
     pub b_setup_traits: bool,
     pub links_to_skip: TArray<UPtr<URigVMLink>>,
-    pub execute_context_struct: UPtr<UScriptStruct>,
+    pub execute_context_struct: UPtr<crate::bindings::core_u_object::UScriptStruct>,
 }
 #[repr(C, align(8))]
 pub struct FRigVMCompileSettings {
@@ -88,7 +89,7 @@ pub struct FRigVMGraphParameterDescription {
     pub name: FName,
     pub b_is_input: bool,
     pub cpp_type: FString,
-    pub cpp_type_object: UPtr<UObject>,
+    pub cpp_type_object: UPtr<crate::bindings::core_u_object::UObject>,
     pub default_value: FString,
 }
 #[repr(C, align(8))]
@@ -105,8 +106,8 @@ pub struct FRigVMFunctionReferenceArray {
 pub struct FRigVMReferenceNodeData {
     pub reference_node_path: FString,
     pub referenced_function_path_deprecated: FString,
-    pub referenced_header_deprecated: FRigVMGraphFunctionHeader,
-    pub referenced_function_identifier: FRigVMGraphFunctionIdentifier,
+    pub referenced_header_deprecated: crate::bindings::rig_vm::FRigVMGraphFunctionHeader,
+    pub referenced_function_identifier: crate::bindings::rig_vm::FRigVMGraphFunctionIdentifier,
 }
 #[repr(C, align(8))]
 pub struct FRigVMClient {
@@ -114,7 +115,10 @@ pub struct FRigVMClient {
     pub controller_class: TSubclassOf<URigVMController>,
     pub models: TArray<UPtr<URigVMGraph>>,
     pub function_library: UPtr<URigVMFunctionLibrary>,
-    pub controllers: TMap<FSoftObjectPath, UPtr<URigVMController>>,
+    pub controllers: TMap<
+        crate::bindings::core_u_object::FSoftObjectPath,
+        UPtr<URigVMController>,
+    >,
     pub action_stack: UPtr<URigVMActionStack>,
     pub undo_redo_index: i32,
 }
@@ -130,8 +134,8 @@ pub struct FRigVMActionNodeContent {
 }
 #[repr(C, align(8))]
 pub struct FRigVMBaseAction {
-    pub controller_path: FSoftObjectPath,
-    pub client_host_path: FSoftObjectPath,
+    pub controller_path: crate::bindings::core_u_object::FSoftObjectPath,
+    pub client_host_path: crate::bindings::core_u_object::FSoftObjectPath,
     pub controller_model_path: FString,
     pub title: FString,
     pub sub_actions: TArray<FRigVMActionKey>,
@@ -160,14 +164,14 @@ pub struct FRigVMSetNodeSelectionAction {
 #[repr(C, align(8))]
 pub struct FRigVMSetNodePositionAction {
     pub node_path: FString,
-    pub old_position: FVector2D,
-    pub new_position: FVector2D,
+    pub old_position: crate::bindings::core_u_object::FVector2D,
+    pub new_position: crate::bindings::core_u_object::FVector2D,
 }
 #[repr(C, align(8))]
 pub struct FRigVMSetNodeSizeAction {
     pub node_path: FString,
-    pub old_size: FVector2D,
-    pub new_size: FVector2D,
+    pub old_size: crate::bindings::core_u_object::FVector2D,
+    pub new_size: crate::bindings::core_u_object::FVector2D,
 }
 #[repr(C, align(8))]
 pub struct FRigVMSetNodeTitleAction {
@@ -178,8 +182,8 @@ pub struct FRigVMSetNodeTitleAction {
 #[repr(C, align(8))]
 pub struct FRigVMSetNodeColorAction {
     pub node_path: FString,
-    pub old_color: FLinearColor,
-    pub new_color: FLinearColor,
+    pub old_color: crate::bindings::core_u_object::FLinearColor,
+    pub new_color: crate::bindings::core_u_object::FLinearColor,
 }
 #[repr(C, align(8))]
 pub struct FRigVMSetNodeCategoryAction {
@@ -288,7 +292,7 @@ pub struct FRigVMAddLinkAction {
 }
 #[repr(C, align(8))]
 pub struct FRigVMBreakLinkAction {
-    pub graph_path: FSoftObjectPath,
+    pub graph_path: crate::bindings::core_u_object::FSoftObjectPath,
     pub output_pin_path: FString,
     pub input_pin_path: FString,
 }
@@ -322,7 +326,7 @@ pub struct FRigVMRenameNodeAction {
 #[repr(C, align(8))]
 pub struct FRigVMAddExposedPinAction {
     pub pin_name: FString,
-    pub direction: ERigVMPinDirection,
+    pub direction: crate::bindings::rig_vm::ERigVMPinDirection,
     pub cpp_type: FString,
     pub cpp_type_object_path: FString,
     pub default_value: FString,
@@ -330,7 +334,7 @@ pub struct FRigVMAddExposedPinAction {
 #[repr(C, align(8))]
 pub struct FRigVMRemoveExposedPinAction {
     pub pin_name: FString,
-    pub direction: ERigVMPinDirection,
+    pub direction: crate::bindings::rig_vm::ERigVMPinDirection,
     pub cpp_type: FString,
     pub cpp_type_object_path: FString,
     pub default_value: FString,
@@ -371,7 +375,7 @@ pub struct FRigVMRenameLocalVariableAction {
 pub struct FRigVMChangeLocalVariableTypeAction {
     pub local_variable: FRigVMGraphVariableDescription,
     pub cpp_type: FString,
-    pub cpp_type_object: UPtr<UObject>,
+    pub cpp_type_object: UPtr<crate::bindings::core_u_object::UObject>,
 }
 #[repr(C, align(8))]
 pub struct FRigVMChangeLocalVariableDefaultValueAction {
@@ -397,12 +401,12 @@ pub struct FRigVMCreateFunctionVariantAction {
 #[repr(C, align(8))]
 pub struct FRigVMAddFunctionVariantTagAction {
     pub function_name: FName,
-    pub function_tag: FRigVMTag,
+    pub function_tag: crate::bindings::rig_vm::FRigVMTag,
 }
 #[repr(C, align(8))]
 pub struct FRigVMRemoveFunctionVariantTagAction {
     pub function_name: FName,
-    pub function_tag: FRigVMTag,
+    pub function_tag: crate::bindings::rig_vm::FRigVMTag,
 }
 #[repr(C, align(8))]
 pub struct FRigVMImportFromTextAction {
@@ -446,7 +450,7 @@ pub struct FRigVMGraphSection {
 }
 #[repr(C, align(8))]
 pub struct FRigVMTraitDefaultValueStruct {
-    pub property_bag: FInstancedPropertyBag,
+    pub property_bag: crate::bindings::core_u_object::FInstancedPropertyBag,
 }
 #[repr(C, align(8))]
 pub struct FRigStructScope {}
@@ -466,7 +470,7 @@ pub struct URigVMEdGraphNode {
     pub pin_path_to_model_pin: TMap<FString, TWeakObjectPtr<URigVMPin>>,
     pub property_name_deprecated: FName,
     pub struct_path_deprecated: FString,
-    pub pin_type_deprecated: FEdGraphPinType,
+    pub pin_type_deprecated: crate::bindings::engine::FEdGraphPinType,
     pub parameter_type_deprecated: i32,
     pub expanded_pins_deprecated: TArray<FString>,
 }
@@ -476,31 +480,39 @@ pub struct IRigVMAssetInterface {}
 pub struct URigVMBlueprint {
     pub function_library_ed_graph: UPtr<URigVMEdGraph>,
     pub rig_graph_display_settings: FRigVMEdGraphDisplaySettings,
-    pub vm_runtime_settings: FRigVMRuntimeSettings,
+    pub vm_runtime_settings: crate::bindings::rig_vm::FRigVMRuntimeSettings,
     pub vm_compile_settings: FRigVMCompileSettings,
     pub python_log_settings: FRigVMPythonSettings,
-    pub user_defined_struct_guid_to_path_name: TMap<FString, FSoftObjectPath>,
-    pub user_defined_enum_to_path_name: TMap<FString, FSoftObjectPath>,
-    pub user_defined_types_in_use: TSet<UPtr<UObject>>,
+    pub user_defined_struct_guid_to_path_name: TMap<
+        FString,
+        crate::bindings::core_u_object::FSoftObjectPath,
+    >,
+    pub user_defined_enum_to_path_name: TMap<
+        FString,
+        crate::bindings::core_u_object::FSoftObjectPath,
+    >,
+    pub user_defined_types_in_use: TSet<UPtr<crate::bindings::core_u_object::UObject>>,
     pub model_deprecated: UPtr<URigVMGraph>,
     pub function_library_deprecated: UPtr<URigVMFunctionLibrary>,
     pub rig_vm_client: FRigVMClient,
     pub referenced_object_paths_stored: bool,
-    pub referenced_object_paths: TArray<FSoftObjectPath>,
-    pub public_graph_functions: TArray<FRigVMGraphFunctionHeader>,
+    pub referenced_object_paths: TArray<crate::bindings::core_u_object::FSoftObjectPath>,
+    pub public_graph_functions: TArray<
+        crate::bindings::rig_vm::FRigVMGraphFunctionHeader,
+    >,
     pub function_reference_node_data: TArray<FRigVMReferenceNodeData>,
-    pub asset_variant: FRigVMVariant,
+    pub asset_variant: crate::bindings::rig_vm::FRigVMVariant,
     pub supported_event_names: TArray<FName>,
-    pub editor_host: UPtr<URigVMHost>,
+    pub editor_host: UPtr<crate::bindings::rig_vm::URigVMHost>,
 }
 pub struct URigVMCompiler {
     pub settings_deprecated: FRigVMCompileSettings,
 }
 pub struct URigVMNode {
     pub node_title: FString,
-    pub position: FVector2D,
-    pub size: FVector2D,
-    pub node_color: FLinearColor,
+    pub position: crate::bindings::core_u_object::FVector2D,
+    pub size: crate::bindings::core_u_object::FVector2D,
+    pub node_color: crate::bindings::core_u_object::FLinearColor,
     pub node_color_type: ERigVMNodeColorType,
     pub previous_name: FName,
     pub b_has_early_exit_marker: bool,
@@ -527,7 +539,7 @@ pub struct URigVMCollapseNode {
 }
 pub struct URigVMAggregateNode {}
 pub struct UDEPRECATED_RigVMArrayNode {
-    pub op_code: ERigVMOpCode,
+    pub op_code: crate::bindings::rig_vm::ERigVMOpCode,
 }
 pub struct UDEPRECATED_RigVMBranchNode {}
 pub struct URigVMCommentNode {
@@ -541,7 +553,7 @@ pub struct URigVMEnumNode {}
 pub struct URigVMFunctionInterfaceNode {}
 pub struct URigVMFunctionEntryNode {}
 pub struct URigVMFunctionReferenceNode {
-    pub referenced_function_header: FRigVMGraphFunctionHeader,
+    pub referenced_function_header: crate::bindings::rig_vm::FRigVMGraphFunctionHeader,
     pub referenced_node_ptr_deprecated: TSoftObjectPtr<URigVMLibraryNode>,
     pub variable_map: TMap<FName, FName>,
 }
@@ -552,7 +564,7 @@ pub struct URigVMParameterNode {}
 pub struct URigVMRerouteNode {}
 pub struct UDEPRECATED_RigVMSelectNode {}
 pub struct URigVMUnitNode {
-    pub script_struct_deprecated: UPtr<UScriptStruct>,
+    pub script_struct_deprecated: UPtr<crate::bindings::core_u_object::UScriptStruct>,
     pub method_name_deprecated: FName,
 }
 pub struct URigVMVariableNode {}
@@ -562,7 +574,7 @@ pub struct URigVMBuildData {
         FRigVMFunctionReferenceArray,
     >,
     pub graph_function_references: TMap<
-        FRigVMGraphFunctionIdentifier,
+        crate::bindings::rig_vm::FRigVMGraphFunctionIdentifier,
         FRigVMFunctionReferenceArray,
     >,
 }
@@ -585,7 +597,7 @@ pub struct URigVMGraph {
     pub detached_links: TArray<UPtr<URigVMLink>>,
     pub selected_nodes: TArray<FName>,
     pub default_function_library_ptr: TWeakObjectPtr<URigVMGraph>,
-    pub execute_context_struct: UPtr<UScriptStruct>,
+    pub execute_context_struct: UPtr<crate::bindings::core_u_object::UScriptStruct>,
     pub last_structure_hash: u32,
     pub b_editable: bool,
     pub local_variables: TArray<FRigVMGraphVariableDescription>,
@@ -596,7 +608,7 @@ pub struct URigVMGraph {
 }
 pub struct URigVMFunctionLibrary {
     pub public_function_names: TArray<FName>,
-    pub function_to_variant: TMap<FName, FRigVMVariant>,
+    pub function_to_variant: TMap<FName, crate::bindings::rig_vm::FRigVMVariant>,
     pub function_references_deprecated: TMap<
         UPtr<URigVMLibraryNode>,
         FRigVMFunctionReferenceArray,
@@ -616,14 +628,14 @@ pub struct URigVMInjectionInfo {
 }
 pub struct URigVMPin {
     pub display_name: FName,
-    pub direction: ERigVMPinDirection,
+    pub direction: crate::bindings::rig_vm::ERigVMPinDirection,
     pub b_is_expanded: bool,
     pub b_is_constant: bool,
     pub b_requires_watch: bool,
     pub b_is_dynamic_array: bool,
     pub b_is_lazy: bool,
     pub cpp_type: FString,
-    pub cpp_type_object: UPtr<UObject>,
+    pub cpp_type_object: UPtr<crate::bindings::core_u_object::UObject>,
     pub cpp_type_object_path: FName,
     pub default_value: FString,
     pub default_value_type: ERigVMPinDefaultValueType,
@@ -636,7 +648,7 @@ pub struct URigVMPin {
     pub bound_variable_path_deprecated: FString,
 }
 pub struct URigVMSchema {
-    pub execute_context_struct: UPtr<UScriptStruct>,
+    pub execute_context_struct: UPtr<crate::bindings::core_u_object::UScriptStruct>,
 }
 pub struct URigVMUserWorkflowRegistry {}
 pub struct URigVMController {
@@ -647,4 +659,106 @@ pub struct URigVMController {
 pub struct URigVMControllerSettings {
     pub b_auto_resolve_template_nodes_when_linking_execute: bool,
     pub template_default_types: TMap<FName, FRigVMController_CommonTypePerTemplate>,
+}
+pub struct FRegisterProvider_InProvider;
+pub struct FRigVMController_ModifiedEventDynamic;
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ERigVMTagDisplayMode(pub u8);
+impl ERigVMTagDisplayMode {
+    pub const NONE: ERigVMTagDisplayMode = ERigVMTagDisplayMode(0);
+    pub const ALL: ERigVMTagDisplayMode = ERigVMTagDisplayMode(1);
+    pub const DEPRECATION_ONLY: ERigVMTagDisplayMode = ERigVMTagDisplayMode(2);
+    pub const LAST: ERigVMTagDisplayMode = ERigVMTagDisplayMode(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ERigVMPinDefaultValueType(pub u8);
+impl ERigVMPinDefaultValueType {
+    pub const AUTO_DETECT: ERigVMPinDefaultValueType = ERigVMPinDefaultValueType(0);
+    pub const UNSET: ERigVMPinDefaultValueType = ERigVMPinDefaultValueType(1);
+    pub const OVERRIDE: ERigVMPinDefaultValueType = ERigVMPinDefaultValueType(2);
+    pub const KEEP_VALUE_TYPE: ERigVMPinDefaultValueType = ERigVMPinDefaultValueType(3);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ERigVMNodeColorType(pub u8);
+impl ERigVMNodeColorType {
+    pub const FROM_METADATA: ERigVMNodeColorType = ERigVMNodeColorType(0);
+    pub const USER_DEFINED: ERigVMNodeColorType = ERigVMNodeColorType(1);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ERigVMGraphNotifType(pub u8);
+impl ERigVMGraphNotifType {
+    pub const GRAPH_CHANGED: ERigVMGraphNotifType = ERigVMGraphNotifType(0);
+    pub const NODE_ADDED: ERigVMGraphNotifType = ERigVMGraphNotifType(1);
+    pub const NODE_REMOVED: ERigVMGraphNotifType = ERigVMGraphNotifType(2);
+    pub const NODE_SELECTED: ERigVMGraphNotifType = ERigVMGraphNotifType(3);
+    pub const NODE_DESELECTED: ERigVMGraphNotifType = ERigVMGraphNotifType(4);
+    pub const NODE_SELECTION_CHANGED: ERigVMGraphNotifType = ERigVMGraphNotifType(5);
+    pub const NODE_POSITION_CHANGED: ERigVMGraphNotifType = ERigVMGraphNotifType(6);
+    pub const NODE_SIZE_CHANGED: ERigVMGraphNotifType = ERigVMGraphNotifType(7);
+    pub const NODE_TITLE_CHANGED: ERigVMGraphNotifType = ERigVMGraphNotifType(8);
+    pub const NODE_COLOR_CHANGED: ERigVMGraphNotifType = ERigVMGraphNotifType(9);
+    pub const PIN_ADDED: ERigVMGraphNotifType = ERigVMGraphNotifType(10);
+    pub const PIN_REMOVED: ERigVMGraphNotifType = ERigVMGraphNotifType(11);
+    pub const PIN_RENAMED: ERigVMGraphNotifType = ERigVMGraphNotifType(12);
+    pub const PIN_EXPANSION_CHANGED: ERigVMGraphNotifType = ERigVMGraphNotifType(13);
+    pub const PIN_WATCHED_CHANGED: ERigVMGraphNotifType = ERigVMGraphNotifType(14);
+    pub const PIN_ARRAY_SIZE_CHANGED: ERigVMGraphNotifType = ERigVMGraphNotifType(15);
+    pub const PIN_DEFAULT_VALUE_CHANGED: ERigVMGraphNotifType = ERigVMGraphNotifType(16);
+    pub const PIN_DIRECTION_CHANGED: ERigVMGraphNotifType = ERigVMGraphNotifType(17);
+    pub const PIN_TYPE_CHANGED: ERigVMGraphNotifType = ERigVMGraphNotifType(18);
+    pub const PIN_INDEX_CHANGED: ERigVMGraphNotifType = ERigVMGraphNotifType(19);
+    pub const LINK_ADDED: ERigVMGraphNotifType = ERigVMGraphNotifType(20);
+    pub const LINK_REMOVED: ERigVMGraphNotifType = ERigVMGraphNotifType(21);
+    pub const COMMENT_TEXT_CHANGED: ERigVMGraphNotifType = ERigVMGraphNotifType(22);
+    pub const VARIABLE_ADDED: ERigVMGraphNotifType = ERigVMGraphNotifType(23);
+    pub const VARIABLE_REMOVED: ERigVMGraphNotifType = ERigVMGraphNotifType(24);
+    pub const VARIABLE_RENAMED: ERigVMGraphNotifType = ERigVMGraphNotifType(25);
+    pub const INTERACTION_BRACKET_OPENED: ERigVMGraphNotifType = ERigVMGraphNotifType(
+        26,
+    );
+    pub const INTERACTION_BRACKET_CLOSED: ERigVMGraphNotifType = ERigVMGraphNotifType(
+        27,
+    );
+    pub const INTERACTION_BRACKET_CANCELED: ERigVMGraphNotifType = ERigVMGraphNotifType(
+        28,
+    );
+    pub const PIN_BOUND_VARIABLE_CHANGED: ERigVMGraphNotifType = ERigVMGraphNotifType(
+        29,
+    );
+    pub const NODE_RENAMED: ERigVMGraphNotifType = ERigVMGraphNotifType(30);
+    pub const FUNCTION_RENAMED: ERigVMGraphNotifType = ERigVMGraphNotifType(31);
+    pub const NODE_REFERENCE_CHANGED: ERigVMGraphNotifType = ERigVMGraphNotifType(32);
+    pub const NODE_CATEGORY_CHANGED: ERigVMGraphNotifType = ERigVMGraphNotifType(33);
+    pub const NODE_KEYWORDS_CHANGED: ERigVMGraphNotifType = ERigVMGraphNotifType(34);
+    pub const NODE_DESCRIPTION_CHANGED: ERigVMGraphNotifType = ERigVMGraphNotifType(35);
+    pub const VARIABLE_REMAPPING_CHANGED: ERigVMGraphNotifType = ERigVMGraphNotifType(
+        36,
+    );
+    pub const LIBRARY_TEMPLATE_CHANGED: ERigVMGraphNotifType = ERigVMGraphNotifType(37);
+    pub const FUNCTION_ACCESS_CHANGED: ERigVMGraphNotifType = ERigVMGraphNotifType(38);
+    pub const VARIANT_TAGS_CHANGED: ERigVMGraphNotifType = ERigVMGraphNotifType(39);
+    pub const PIN_DISPLAY_NAME_CHANGED: ERigVMGraphNotifType = ERigVMGraphNotifType(40);
+    pub const PIN_CATEGORY_CHANGED: ERigVMGraphNotifType = ERigVMGraphNotifType(41);
+    pub const PIN_CATEGORIES_CHANGED: ERigVMGraphNotifType = ERigVMGraphNotifType(42);
+    pub const PIN_CATEGORY_EXPANSION_CHANGED: ERigVMGraphNotifType = ERigVMGraphNotifType(
+        43,
+    );
+    pub const FUNCTION_VARIANT_GUID_CHANGED: ERigVMGraphNotifType = ERigVMGraphNotifType(
+        44,
+    );
+    pub const NODE_EARLY_EXIT_CHANGED: ERigVMGraphNotifType = ERigVMGraphNotifType(45);
+    pub const LOCAL_VARIABLE_DEFAULT_VALUE_CHANGED: ERigVMGraphNotifType = ERigVMGraphNotifType(
+        46,
+    );
+    pub const LOCAL_VARIABLE_ADDED: ERigVMGraphNotifType = ERigVMGraphNotifType(47);
+    pub const LOCAL_VARIABLE_REMOVED: ERigVMGraphNotifType = ERigVMGraphNotifType(48);
+    pub const LOCAL_VARIABLE_RENAMED: ERigVMGraphNotifType = ERigVMGraphNotifType(49);
+    pub const LOCAL_VARIABLE_TYPE_CHANGED: ERigVMGraphNotifType = ERigVMGraphNotifType(
+        50,
+    );
+    pub const INVALID: ERigVMGraphNotifType = ERigVMGraphNotifType(51);
 }

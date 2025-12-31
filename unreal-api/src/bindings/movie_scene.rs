@@ -2,14 +2,15 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
-pub use crate::bindings::prelude::*;
+pub use crate::bindings::opague_definitions::*;
+pub use crate::core_data::*;
 #[repr(C, align(8))]
 pub struct FMovieSceneChannel {}
 #[repr(C, align(8))]
 pub struct FMovieSceneBoolChannel {
-    pub pre_infinity_extrap: ERichCurveExtrapolation,
-    pub post_infinity_extrap: ERichCurveExtrapolation,
-    pub times: TArray<FFrameNumber>,
+    pub pre_infinity_extrap: crate::bindings::engine::ERichCurveExtrapolation,
+    pub post_infinity_extrap: crate::bindings::engine::ERichCurveExtrapolation,
+    pub times: TArray<crate::bindings::core_u_object::FFrameNumber>,
     pub default_value: bool,
     pub b_has_default_value: bool,
     pub values: TArray<bool>,
@@ -19,21 +20,21 @@ pub struct FMovieSceneBoolChannel {
 pub struct FMovieSceneKeyHandleMap {}
 #[repr(C, align(8))]
 pub struct FMovieSceneBindingProxy {
-    pub binding_id: FGuid,
+    pub binding_id: crate::bindings::core_u_object::FGuid,
     pub sequence: UPtr<UMovieSceneSequence>,
 }
 #[repr(C, align(8))]
 pub struct FMovieSceneDynamicBinding {
-    pub function: UPtr<UFunction>,
+    pub function: UPtr<crate::bindings::core_u_object::UFunction>,
     pub resolve_params_property: TFieldPath<FProperty>,
     pub payload_variables: TMap<FName, FMovieSceneDynamicBindingPayloadVariable>,
     pub compiled_function_name: FName,
     pub resolve_params_pin_name: FName,
-    pub weak_endpoint: TWeakObjectPtr<UObject>,
+    pub weak_endpoint: TWeakObjectPtr<crate::bindings::core_u_object::UObject>,
 }
 #[repr(C, align(8))]
 pub struct FMovieSceneDynamicBindingPayloadVariable {
-    pub object_value: FSoftObjectPath,
+    pub object_value: crate::bindings::core_u_object::FSoftObjectPath,
     pub value: FString,
 }
 #[repr(C, align(8))]
@@ -45,22 +46,22 @@ pub struct FMovieSceneEvalTemplate {
 }
 #[repr(C, align(8))]
 pub struct FMovieSceneFloatChannel {
-    pub pre_infinity_extrap: ERichCurveExtrapolation,
-    pub post_infinity_extrap: ERichCurveExtrapolation,
-    pub times: TArray<FFrameNumber>,
+    pub pre_infinity_extrap: crate::bindings::engine::ERichCurveExtrapolation,
+    pub post_infinity_extrap: crate::bindings::engine::ERichCurveExtrapolation,
+    pub times: TArray<crate::bindings::core_u_object::FFrameNumber>,
     pub values: TArray<FMovieSceneFloatValue>,
     pub default_value: f32,
     pub b_has_default_value: bool,
     pub key_handles: FMovieSceneKeyHandleMap,
-    pub tick_resolution: FFrameRate,
+    pub tick_resolution: crate::bindings::core_u_object::FFrameRate,
     pub b_show_curve: bool,
 }
 #[repr(C, align(4))]
 pub struct FMovieSceneFloatValue {
     pub value: f32,
     pub tangent: FMovieSceneTangentData,
-    pub interp_mode: ERichCurveInterpMode,
-    pub tangent_mode: ERichCurveTangentMode,
+    pub interp_mode: crate::bindings::engine::ERichCurveInterpMode,
+    pub tangent_mode: crate::bindings::engine::ERichCurveTangentMode,
     pub padding_byte: u8,
 }
 #[repr(C, align(4))]
@@ -69,11 +70,11 @@ pub struct FMovieSceneTangentData {
     pub leave_tangent: f32,
     pub arrive_tangent_weight: f32,
     pub leave_tangent_weight: f32,
-    pub tangent_weight_mode: ERichCurveTangentWeightMode,
+    pub tangent_weight_mode: crate::bindings::engine::ERichCurveTangentWeightMode,
 }
 #[repr(C, align(4))]
 pub struct FMovieSceneObjectBindingID {
-    pub guid: FGuid,
+    pub guid: crate::bindings::core_u_object::FGuid,
     pub sequence_id: i32,
     pub resolve_parent_index: i32,
     pub space_deprecated: EMovieSceneObjectBindingSpace,
@@ -85,13 +86,13 @@ pub struct FMovieScenePropertySectionData {
 }
 #[repr(C, align(8))]
 pub struct FMovieSceneByteChannel {
-    pub pre_infinity_extrap: ERichCurveExtrapolation,
-    pub post_infinity_extrap: ERichCurveExtrapolation,
-    pub times: TArray<FFrameNumber>,
+    pub pre_infinity_extrap: crate::bindings::engine::ERichCurveExtrapolation,
+    pub post_infinity_extrap: crate::bindings::engine::ERichCurveExtrapolation,
+    pub times: TArray<crate::bindings::core_u_object::FFrameNumber>,
     pub default_value: u8,
     pub b_has_default_value: bool,
     pub values: TArray<u8>,
-    pub enum_: UPtr<UEnum>,
+    pub enum_: UPtr<crate::bindings::core_u_object::UEnum>,
     pub key_handles: FMovieSceneKeyHandleMap,
 }
 #[repr(C, align(8))]
@@ -108,8 +109,8 @@ pub struct FMovieSceneTimeWarpVariant {
 pub struct FMovieSceneNumericVariant {}
 #[repr(C, align(4))]
 pub struct FActorForWorldTransforms {
-    pub actor: TWeakObjectPtr<AActor>,
-    pub component: TWeakObjectPtr<USceneComponent>,
+    pub actor: TWeakObjectPtr<crate::bindings::engine::AActor>,
+    pub component: TWeakObjectPtr<crate::bindings::engine::USceneComponent>,
     pub socket_name: FName,
 }
 #[repr(C, align(8))]
@@ -120,7 +121,7 @@ pub struct FMovieSceneDeterminismData {
 }
 #[repr(C, align(4))]
 pub struct FMovieSceneDeterminismFence {
-    pub frame_number: FFrameNumber,
+    pub frame_number: crate::bindings::core_u_object::FFrameNumber,
     pub flags_4: u8,
 }
 #[repr(C, align(1))]
@@ -141,21 +142,21 @@ pub struct FMovieSceneSequenceID {
 }
 #[repr(C, align(4))]
 pub struct FMovieSceneEvaluationOperand {
-    pub object_binding_id: FGuid,
+    pub object_binding_id: crate::bindings::core_u_object::FGuid,
     pub sequence_id: FMovieSceneSequenceID,
 }
 #[repr(C, align(16))]
 pub struct FGeneratedMovieSceneKeyStruct {}
 #[repr(C, align(8))]
 pub struct FMovieSceneKeyTimeStruct {
-    pub time: FFrameNumber,
+    pub time: crate::bindings::core_u_object::FFrameNumber,
 }
 #[repr(C, align(8))]
 pub struct FMovieSceneSectionParameters {
-    pub start_frame_offset: FFrameNumber,
+    pub start_frame_offset: crate::bindings::core_u_object::FFrameNumber,
     pub b_can_loop: bool,
-    pub end_frame_offset: FFrameNumber,
-    pub first_loop_start_frame_offset: FFrameNumber,
+    pub end_frame_offset: crate::bindings::core_u_object::FFrameNumber,
+    pub first_loop_start_frame_offset: crate::bindings::core_u_object::FFrameNumber,
     pub time_scale: FMovieSceneTimeWarpVariant,
     pub hierarchical_bias: i32,
     pub flags: EMovieSceneSubSectionFlags,
@@ -170,7 +171,7 @@ pub struct FMovieSceneSegmentIdentifier {
 #[repr(C, align(4))]
 pub struct FSectionEvaluationData {
     pub impl_index: i32,
-    pub forced_time: FFrameNumber,
+    pub forced_time: crate::bindings::core_u_object::FFrameNumber,
     pub flags: ESectionEvaluationFlags,
 }
 #[repr(C, align(8))]
@@ -200,21 +201,21 @@ pub struct FMovieSceneSequenceTickInterval {
 #[repr(C, align(4))]
 pub struct FMovieSceneTimeTransform {
     pub time_scale: f32,
-    pub offset: FFrameTime,
+    pub offset: crate::bindings::core_u_object::FFrameTime,
 }
 #[repr(C, align(8))]
 pub struct FMovieSceneBindingResolveResult {
-    pub objects: TArray<UPtr<UObject>>,
-    pub object: UPtr<UObject>,
+    pub objects: TArray<UPtr<crate::bindings::core_u_object::UObject>>,
+    pub object: UPtr<crate::bindings::core_u_object::UObject>,
 }
 #[repr(C, align(8))]
 pub struct FMovieSceneBindingResolveContext {
-    pub world_context: UPtr<UObject>,
+    pub world_context: UPtr<crate::bindings::core_u_object::UObject>,
     pub binding: FMovieSceneBindingProxy,
 }
 #[repr(C, align(8))]
 pub struct FMovieSceneAudioTriggerChannel {
-    pub times: TArray<FFrameNumber>,
+    pub times: TArray<crate::bindings::core_u_object::FFrameNumber>,
     pub values: TArray<bool>,
     pub key_handles: FMovieSceneKeyHandleMap,
 }
@@ -222,28 +223,28 @@ pub struct FMovieSceneAudioTriggerChannel {
 pub struct FMovieSceneDoubleValue {
     pub value: f64,
     pub tangent: FMovieSceneTangentData,
-    pub interp_mode: ERichCurveInterpMode,
-    pub tangent_mode: ERichCurveTangentMode,
+    pub interp_mode: crate::bindings::engine::ERichCurveInterpMode,
+    pub tangent_mode: crate::bindings::engine::ERichCurveTangentMode,
     pub padding_byte: u8,
 }
 #[repr(C, align(8))]
 pub struct FMovieSceneDoubleChannel {
-    pub pre_infinity_extrap: ERichCurveExtrapolation,
-    pub post_infinity_extrap: ERichCurveExtrapolation,
-    pub times: TArray<FFrameNumber>,
+    pub pre_infinity_extrap: crate::bindings::engine::ERichCurveExtrapolation,
+    pub post_infinity_extrap: crate::bindings::engine::ERichCurveExtrapolation,
+    pub times: TArray<crate::bindings::core_u_object::FFrameNumber>,
     pub values: TArray<FMovieSceneDoubleValue>,
     pub default_value: f64,
     pub b_has_default_value: bool,
     pub key_handles: FMovieSceneKeyHandleMap,
-    pub tick_resolution: FFrameRate,
+    pub tick_resolution: crate::bindings::core_u_object::FFrameRate,
     pub b_show_curve: bool,
 }
 #[repr(C, align(8))]
 pub struct FMovieSceneIntegerChannel {
-    pub pre_infinity_extrap: ERichCurveExtrapolation,
-    pub post_infinity_extrap: ERichCurveExtrapolation,
+    pub pre_infinity_extrap: crate::bindings::engine::ERichCurveExtrapolation,
+    pub post_infinity_extrap: crate::bindings::engine::ERichCurveExtrapolation,
     pub b_interpolate_linear_keys: bool,
-    pub times: TArray<FFrameNumber>,
+    pub times: TArray<crate::bindings::core_u_object::FFrameNumber>,
     pub default_value: i32,
     pub b_has_default_value: bool,
     pub values: TArray<i32>,
@@ -251,13 +252,13 @@ pub struct FMovieSceneIntegerChannel {
 }
 #[repr(C, align(8))]
 pub struct FMovieSceneObjectPathChannelKeyValue {
-    pub soft_ptr: TSoftObjectPtr<UObject>,
-    pub hard_ptr: UPtr<UObject>,
+    pub soft_ptr: TSoftObjectPtr<crate::bindings::core_u_object::UObject>,
+    pub hard_ptr: UPtr<crate::bindings::core_u_object::UObject>,
 }
 #[repr(C, align(8))]
 pub struct FMovieSceneObjectPathChannel {
-    pub property_class: TSubclassOf<UObject>,
-    pub times: TArray<FFrameNumber>,
+    pub property_class: TSubclassOf<crate::bindings::core_u_object::UObject>,
+    pub times: TArray<crate::bindings::core_u_object::FFrameNumber>,
     pub values: TArray<FMovieSceneObjectPathChannelKeyValue>,
     pub default_value: FMovieSceneObjectPathChannelKeyValue,
     pub key_handles: FMovieSceneKeyHandleMap,
@@ -272,9 +273,9 @@ pub struct FMovieSceneCompiledSequenceFlagStruct {
 }
 #[repr(C, align(8))]
 pub struct FMovieSceneConditionContext {
-    pub world_context: UPtr<UObject>,
+    pub world_context: UPtr<crate::bindings::core_u_object::UObject>,
     pub binding: FMovieSceneBindingProxy,
-    pub bound_objects: TArray<UPtr<UObject>>,
+    pub bound_objects: TArray<UPtr<crate::bindings::core_u_object::UObject>>,
 }
 #[repr(C, align(8))]
 pub struct FMovieSceneConditionContainer {
@@ -282,11 +283,11 @@ pub struct FMovieSceneConditionContainer {
 }
 #[repr(C, align(8))]
 pub struct FMovieSceneDecorationContainer {
-    pub decorations: TArray<UPtr<UObject>>,
+    pub decorations: TArray<UPtr<crate::bindings::core_u_object::UObject>>,
 }
 #[repr(C, align(4))]
 pub struct FMovieSceneScalingAnchor {
-    pub position: FFrameNumber,
+    pub position: crate::bindings::core_u_object::FFrameNumber,
     pub duration: i32,
 }
 #[repr(C, align(8))]
@@ -327,7 +328,7 @@ pub struct FNavigationToolViewSaveState {
 #[repr(C, align(8))]
 pub struct FNavigationToolSaveState {
     pub serialized_tree: FNavigationToolSerializedTree,
-    pub item_color_map: TMap<FString, FColor>,
+    pub item_color_map: TMap<FString, crate::bindings::core_u_object::FColor>,
     pub tool_view_save_states: TArray<FNavigationToolViewSaveState>,
     pub context_path: FString,
 }
@@ -375,7 +376,7 @@ pub struct FMovieSceneTrackInstanceInput {
 }
 #[repr(C, align(8))]
 pub struct FMovieSceneTrackInstanceEntry {
-    pub bound_object: UPtr<UObject>,
+    pub bound_object: UPtr<crate::bindings::core_u_object::UObject>,
     pub track_instance: UPtr<UMovieSceneTrackInstance>,
 }
 #[repr(C, align(1))]
@@ -387,7 +388,7 @@ pub struct FOptionalMovieSceneBlendType {
 pub struct FMovieSceneEvalTemplatePtr {}
 #[repr(C, align(4))]
 pub struct FMovieSceneEvaluationFieldEntityKey {
-    pub entity_owner: TWeakObjectPtr<UObject>,
+    pub entity_owner: TWeakObjectPtr<crate::bindings::core_u_object::UObject>,
     pub entity_id: u32,
 }
 #[repr(C, align(4))]
@@ -397,14 +398,14 @@ pub struct FMovieSceneEvaluationFieldEntity {
 }
 #[repr(C, align(4))]
 pub struct FMovieSceneEvaluationFieldSharedEntityMetaData {
-    pub object_binding_id: FGuid,
+    pub object_binding_id: crate::bindings::core_u_object::FGuid,
 }
 #[repr(C, align(8))]
 pub struct FMovieSceneEvaluationFieldEntityMetaData {
     pub condition: TSoftObjectPtr<UMovieSceneCondition>,
     pub override_bound_property_path: FString,
     pub notify_function_name: FName,
-    pub forced_time: FFrameNumber,
+    pub forced_time: crate::bindings::core_u_object::FFrameNumber,
     pub flags: ESectionEvaluationFlags,
     pub flags_81: u8,
 }
@@ -436,7 +437,7 @@ pub struct FMovieSceneFieldEntry_EvaluationTrack {
 pub struct FMovieSceneFieldEntry_ChildTemplate {
     pub child_index: u16,
     pub flags: ESectionEvaluationFlags,
-    pub forced_time: FFrameNumber,
+    pub forced_time: crate::bindings::core_u_object::FFrameNumber,
 }
 #[repr(C, align(4))]
 pub struct FMovieSceneEvaluationGroupLUTIndex {
@@ -462,7 +463,7 @@ pub struct FMovieSceneEvaluationMetaData {
 }
 #[repr(C, align(8))]
 pub struct FMovieSceneEvaluationField {
-    pub signature: FGuid,
+    pub signature: crate::bindings::core_u_object::FGuid,
     pub ranges: TArray<FMovieSceneFrameRange>,
     pub groups: TArray<FMovieSceneEvaluationGroup>,
     pub meta_data: TArray<FMovieSceneEvaluationMetaData>,
@@ -472,13 +473,19 @@ pub struct FMovieSceneFrameRange {}
 #[repr(C, align(8))]
 pub struct FMovieSceneTemplateGenerationLedger {
     pub last_track_identifier: FMovieSceneTrackIdentifier,
-    pub track_signature_to_track_identifier: TMap<FGuid, FMovieSceneTrackIdentifier>,
-    pub sub_section_ranges: TMap<FGuid, FMovieSceneFrameRange>,
+    pub track_signature_to_track_identifier: TMap<
+        crate::bindings::core_u_object::FGuid,
+        FMovieSceneTrackIdentifier,
+    >,
+    pub sub_section_ranges: TMap<
+        crate::bindings::core_u_object::FGuid,
+        FMovieSceneFrameRange,
+    >,
 }
 #[repr(C, align(4))]
 pub struct FMovieSceneSubSectionData {
     pub section: TWeakObjectPtr<UMovieSceneSubSection>,
-    pub object_binding_id: FGuid,
+    pub object_binding_id: crate::bindings::core_u_object::FGuid,
     pub flags: ESectionEvaluationFlags,
 }
 #[repr(C, align(4))]
@@ -488,13 +495,13 @@ pub struct FMovieSceneEvaluationTemplateSerialNumber {
 #[repr(C, align(8))]
 pub struct FMovieSceneEvaluationTemplate {
     pub tracks: TMap<FMovieSceneTrackIdentifier, FMovieSceneEvaluationTrack>,
-    pub sequence_signature: FGuid,
+    pub sequence_signature: crate::bindings::core_u_object::FGuid,
     pub template_serial_number: FMovieSceneEvaluationTemplateSerialNumber,
     pub template_ledger: FMovieSceneTemplateGenerationLedger,
 }
 #[repr(C, align(8))]
 pub struct FMovieSceneEvaluationTrack {
-    pub object_binding_id: FGuid,
+    pub object_binding_id: crate::bindings::core_u_object::FGuid,
     pub evaluation_priority: u16,
     pub evaluation_method: EEvaluationMethod,
     pub source_track: TWeakObjectPtr<UMovieSceneTrack>,
@@ -511,14 +518,14 @@ pub struct FMovieSceneRootEvaluationTemplateInstance {
 }
 #[repr(C, align(8))]
 pub struct FMovieSceneSubSequenceData {
-    pub sequence: FSoftObjectPath,
+    pub sequence: crate::bindings::core_u_object::FSoftObjectPath,
     pub outer_to_inner_transform: FMovieSceneSequenceTransform,
     pub root_to_sequence_transform: FMovieSceneSequenceTransform,
     pub local_to_warped_local_transform: FMovieSceneSequenceTransform,
     pub root_to_unwarped_local_transform: FMovieSceneSequenceTransform,
     pub start_time_breadcrumbs: FMovieSceneTransformBreadcrumbs,
     pub end_time_breadcrumbs: FMovieSceneTransformBreadcrumbs,
-    pub tick_resolution: FFrameRate,
+    pub tick_resolution: crate::bindings::core_u_object::FFrameRate,
     pub deterministic_sequence_id: FMovieSceneSequenceID,
     pub play_range: FMovieSceneFrameRange,
     pub parent_play_range: FMovieSceneFrameRange,
@@ -530,13 +537,13 @@ pub struct FMovieSceneSubSequenceData {
     pub instance_data: FMovieSceneSequenceInstanceDataPtr,
     pub section_path: FName,
     pub weak_condition: TSoftObjectPtr<UMovieSceneCondition>,
-    pub sub_section_signature: FGuid,
+    pub sub_section_signature: crate::bindings::core_u_object::FGuid,
 }
 #[repr(C, align(8))]
 pub struct FMovieSceneSequenceInstanceDataPtr {}
 #[repr(C, align(8))]
 pub struct FMovieSceneTransformBreadcrumbs {
-    pub breadcrumbs: TArray<FFrameTime>,
+    pub breadcrumbs: TArray<crate::bindings::core_u_object::FFrameTime>,
     pub mode: EMovieSceneBreadcrumbMode,
 }
 #[repr(C, align(8))]
@@ -547,7 +554,7 @@ pub struct FMovieSceneSequenceTransform {
 #[repr(C, align(8))]
 pub struct FMovieSceneNestedSequenceTransform {
     pub time_scale: FMovieSceneTimeWarpVariant,
-    pub offset: FFrameTime,
+    pub offset: crate::bindings::core_u_object::FFrameTime,
 }
 #[repr(C, align(8))]
 pub struct FMovieSceneSequenceHierarchyNode {
@@ -572,7 +579,7 @@ pub struct FMovieSceneWarpCounter {}
 #[repr(C, align(8))]
 pub struct FMovieSceneInverseNestedSequenceTransform {
     pub time_scale: FMovieSceneTimeWarpVariant,
-    pub offset: FFrameTime,
+    pub offset: crate::bindings::core_u_object::FFrameTime,
 }
 #[repr(C, align(8))]
 pub struct FMovieSceneInverseSequenceTransform {
@@ -581,8 +588,8 @@ pub struct FMovieSceneInverseSequenceTransform {
 }
 #[repr(C, align(4))]
 pub struct FMovieSceneTimeWarping {
-    pub start: FFrameNumber,
-    pub end: FFrameNumber,
+    pub start: crate::bindings::core_u_object::FFrameNumber,
+    pub end: crate::bindings::core_u_object::FFrameNumber,
 }
 #[repr(C, align(8))]
 pub struct FMovieSceneTrackImplementation {}
@@ -598,9 +605,9 @@ pub struct FMovieSceneEditorData {
     pub view_end: f64,
     pub work_start: f64,
     pub work_end: f64,
-    pub marked_frames_deprecated: TSet<FFrameNumber>,
-    pub working_range_deprecated: FFloatRange,
-    pub view_range_deprecated: FFloatRange,
+    pub marked_frames_deprecated: TSet<crate::bindings::core_u_object::FFrameNumber>,
+    pub working_range_deprecated: crate::bindings::core_u_object::FFloatRange,
+    pub view_range_deprecated: crate::bindings::core_u_object::FFloatRange,
     pub navigation_tool_state: FNavigationToolSaveState,
     pub solo_nodes: TArray<FString>,
     pub mute_nodes: TArray<FString>,
@@ -619,18 +626,18 @@ pub struct FMovieSceneSectionGroup {
 }
 #[repr(C, align(8))]
 pub struct FMovieSceneMarkedFrame {
-    pub frame_number: FFrameNumber,
+    pub frame_number: crate::bindings::core_u_object::FFrameNumber,
     pub label: FString,
     pub comment: FString,
-    pub custom_color: FLinearColor,
+    pub custom_color: crate::bindings::core_u_object::FLinearColor,
     pub b_use_custom_color: bool,
-    pub color_deprecated: FLinearColor,
+    pub color_deprecated: crate::bindings::core_u_object::FLinearColor,
     pub b_is_determinism_fence: bool,
     pub b_is_inclusive_time: bool,
 }
 #[repr(C, align(8))]
 pub struct FMovieSceneBinding {
-    pub object_guid: FGuid,
+    pub object_guid: crate::bindings::core_u_object::FGuid,
     pub binding_name_deprecated: FString,
     pub tracks: TArray<UPtr<UMovieSceneTrack>>,
     pub sorting_order: i32,
@@ -638,22 +645,22 @@ pub struct FMovieSceneBinding {
 #[repr(C, align(8))]
 pub struct FMovieSceneBindingOverrideData {
     pub object_binding_id: FMovieSceneObjectBindingID,
-    pub object: TSoftObjectPtr<UObject>,
+    pub object: TSoftObjectPtr<crate::bindings::core_u_object::UObject>,
     pub b_overrides_default: bool,
 }
 #[repr(C, align(8))]
 pub struct FMovieSceneBindingReference {
-    pub id: FGuid,
-    pub locator: FUniversalObjectLocator,
-    pub resolve_flags: ELocatorResolveFlags,
+    pub id: crate::bindings::core_u_object::FGuid,
+    pub locator: crate::bindings::universal_object_locator::FUniversalObjectLocator,
+    pub resolve_flags: crate::bindings::universal_object_locator::ELocatorResolveFlags,
     pub custom_binding: UPtr<UMovieSceneCustomBinding>,
 }
 #[repr(C, align(8))]
 pub struct FMovieSceneBindingResolveParams {
     pub sequence: UPtr<UMovieSceneSequence>,
-    pub object_binding_id: FGuid,
+    pub object_binding_id: crate::bindings::core_u_object::FGuid,
     pub sequence_id: FMovieSceneSequenceID,
-    pub context: UPtr<UObject>,
+    pub context: UPtr<crate::bindings::core_u_object::UObject>,
 }
 #[repr(C, align(8))]
 pub struct FMovieSceneBindingReferences {
@@ -662,13 +669,13 @@ pub struct FMovieSceneBindingReferences {
 #[repr(C, align(8))]
 pub struct FMovieSceneDynamicBindingResolveParams {
     pub sequence: UPtr<UMovieSceneSequence>,
-    pub object_binding_id: FGuid,
+    pub object_binding_id: crate::bindings::core_u_object::FGuid,
     pub root_sequence: UPtr<UMovieSceneSequence>,
 }
 #[repr(C, align(8))]
 pub struct FMovieSceneDynamicBindingResolveResult {
-    pub objects: TArray<UPtr<UObject>>,
-    pub object: UPtr<UObject>,
+    pub objects: TArray<UPtr<crate::bindings::core_u_object::UObject>>,
+    pub object: UPtr<crate::bindings::core_u_object::UObject>,
     pub b_is_possessed_object: bool,
 }
 #[repr(C, align(8))]
@@ -679,10 +686,10 @@ pub struct FMovieSceneDynamicBindingContainer {
 pub struct FMovieScenePossessable {
     pub tags: TArray<FName>,
     pub dynamic_binding_deprecated: FMovieSceneDynamicBinding,
-    pub guid: FGuid,
+    pub guid: crate::bindings::core_u_object::FGuid,
     pub name: FString,
-    pub possessed_object_class: TSoftObjectPtr<UClass>,
-    pub parent_guid: FGuid,
+    pub possessed_object_class: TSoftObjectPtr<crate::bindings::core_u_object::UClass>,
+    pub parent_guid: crate::bindings::core_u_object::FGuid,
     pub spawnable_object_binding_id: FMovieSceneObjectBindingID,
 }
 #[repr(C, align(4))]
@@ -713,23 +720,23 @@ pub struct FMovieSceneEasingSettings {
 }
 #[repr(C, align(4))]
 pub struct FMovieSceneTimecodeSource {
-    pub timecode: FTimecode,
+    pub timecode: crate::bindings::core_u_object::FTimecode,
 }
 #[repr(C, align(8))]
 pub struct FMovieSceneSequenceInstanceData {}
 #[repr(C, align(4))]
 pub struct FMovieSceneSequenceReplProperties {
-    pub last_known_position: FFrameTime,
+    pub last_known_position: crate::bindings::core_u_object::FFrameTime,
     pub last_known_status: EMovieScenePlayerStatus,
     pub last_known_num_loops: i32,
     pub last_known_serial_number: i32,
 }
 #[repr(C, align(8))]
 pub struct FMovieSceneSequencePlaybackParams {
-    pub frame: FFrameTime,
+    pub frame: crate::bindings::core_u_object::FFrameTime,
     pub time: f32,
     pub marked_frame: FString,
-    pub timecode: FTimecode,
+    pub timecode: crate::bindings::core_u_object::FTimecode,
     pub position_type: EMovieScenePositionType,
     pub update_method: EUpdatePositionMethod,
     pub b_has_jumped: bool,
@@ -740,17 +747,17 @@ pub struct FMovieSceneSequencePlayToParams {
 }
 #[repr(C, align(16))]
 pub struct FMovieSceneSpawnable {
-    pub spawn_transform: FTransform,
+    pub spawn_transform: crate::bindings::core_u_object::FTransform,
     pub tags: TArray<FName>,
     pub b_continuously_respawn: bool,
     pub b_net_addressable_name: bool,
     pub dynamic_binding_deprecated: FMovieSceneDynamicBinding,
-    pub guid: FGuid,
+    pub guid: crate::bindings::core_u_object::FGuid,
     pub name: FString,
-    pub object_template: UPtr<UObject>,
-    pub child_possessables: TArray<FGuid>,
+    pub object_template: UPtr<crate::bindings::core_u_object::UObject>,
+    pub child_possessables: TArray<crate::bindings::core_u_object::FGuid>,
     pub ownership: ESpawnOwnership,
-    pub generated_class_deprecated: TSubclassOf<UObject>,
+    pub generated_class_deprecated: TSubclassOf<crate::bindings::core_u_object::UObject>,
     pub level_name: FName,
 }
 #[repr(C, align(4))]
@@ -768,8 +775,8 @@ pub struct FMovieSceneTrackRowMetadata {
 #[repr(C, align(8))]
 pub struct FMovieSceneTrackEvaluationFieldEntry {
     pub section: UPtr<UMovieSceneSection>,
-    pub range: FFrameNumberRange,
-    pub forced_time: FFrameNumber,
+    pub range: crate::bindings::core_u_object::FFrameNumberRange,
+    pub forced_time: crate::bindings::core_u_object::FFrameNumber,
     pub flags: ESectionEvaluationFlags,
     pub legacy_sort_order: i16,
 }
@@ -788,9 +795,9 @@ pub struct FMovieSceneSectionTimingParametersSeconds {
 #[repr(C, align(8))]
 pub struct FMovieSceneSectionTimingParametersFrames {
     pub play_rate: FMovieSceneTimeWarpVariant,
-    pub inner_start_offset: FFrameNumber,
-    pub inner_end_offset: FFrameNumber,
-    pub first_loop_start_offset: FFrameNumber,
+    pub inner_start_offset: crate::bindings::core_u_object::FFrameNumber,
+    pub inner_end_offset: crate::bindings::core_u_object::FFrameNumber,
+    pub first_loop_start_offset: crate::bindings::core_u_object::FFrameNumber,
     pub flags_28: u8,
 }
 #[repr(C, align(4))]
@@ -804,9 +811,9 @@ pub struct FTestMovieSceneStruct {
     pub first: f32,
     pub second: f32,
     pub enum_: ETestMovieSceneEnum,
-    pub vector: FVector,
+    pub vector: crate::bindings::core_u_object::FVector,
     pub multiple_integers: TArray<i32>,
-    pub multiple_vectors: TArray<FVector>,
+    pub multiple_vectors: TArray<crate::bindings::core_u_object::FVector>,
 }
 #[repr(C, align(4))]
 pub struct FTestMovieSceneStruct2 {
@@ -815,7 +822,7 @@ pub struct FTestMovieSceneStruct2 {
 }
 #[repr(C, align(4))]
 pub struct FMovieSceneTimeWarpFixedFrame {
-    pub frame_number: FFrameNumber,
+    pub frame_number: crate::bindings::core_u_object::FFrameNumber,
 }
 #[repr(C, align(8))]
 pub struct FMovieSceneFixedPlayRateStruct {
@@ -827,11 +834,11 @@ pub struct FMovieSceneCustomTimeWarpGetterStruct {
 }
 #[repr(C, align(4))]
 pub struct FMovieSceneTimeWarpLoop {
-    pub duration: FFrameNumber,
+    pub duration: crate::bindings::core_u_object::FFrameNumber,
 }
 #[repr(C, align(4))]
 pub struct FMovieSceneTimeWarpClamp {
-    pub max: FFrameNumber,
+    pub max: crate::bindings::core_u_object::FFrameNumber,
 }
 #[repr(C, align(4))]
 pub struct FMovieSceneTimeWarpLoopFloat {
@@ -850,7 +857,7 @@ pub struct UMovieSceneEntitySystem {
     pub linker: UPtr<UMovieSceneEntitySystemLinker>,
 }
 pub struct UMovieSceneSignedObject {
-    pub signature: FGuid,
+    pub signature: crate::bindings::core_u_object::FGuid,
 }
 pub struct UMovieSceneDecorationContainerObject {
     pub decorations: FMovieSceneDecorationContainer,
@@ -861,12 +868,12 @@ pub struct UMovieSceneSection {
     pub section_range: FMovieSceneFrameRange,
     pub timecode_source: FMovieSceneTimecodeSource,
     pub condition_container: FMovieSceneConditionContainer,
-    pub pre_roll_frames: FFrameNumber,
-    pub post_roll_frames: FFrameNumber,
+    pub pre_roll_frames: crate::bindings::core_u_object::FFrameNumber,
+    pub post_roll_frames: crate::bindings::core_u_object::FFrameNumber,
     pub row_index: i32,
     pub overlap_priority: i32,
     pub flags_304: u8,
-    pub color_tint: FColor,
+    pub color_tint: crate::bindings::core_u_object::FColor,
     pub start_time_deprecated: f32,
     pub end_time_deprecated: f32,
     pub pre_roll_time_deprecated: f32,
@@ -883,12 +890,12 @@ pub struct UMovieSceneTrack {
     pub rows_disabled: TArray<i32>,
     pub b_is_local_eval_disabled: bool,
     pub local_rows_disabled: TArray<i32>,
-    pub evaluation_field_guid: FGuid,
+    pub evaluation_field_guid: crate::bindings::core_u_object::FGuid,
     pub evaluation_field_version: i8,
     pub evaluation_field: FMovieSceneTrackEvaluationField,
     pub track_row_metadata: TMap<i32, FMovieSceneTrackRowMetadata>,
-    pub object_binding_id: FGuid,
-    pub track_tint: FColor,
+    pub object_binding_id: crate::bindings::core_u_object::FGuid,
+    pub track_tint: crate::bindings::core_u_object::FColor,
     pub sorting_order: i32,
     pub b_supports_default_sections: bool,
     pub b_supports_conditions: bool,
@@ -927,8 +934,8 @@ pub struct UMovieSceneSubSection {
     pub origin_override_mask: FMovieSceneSubSectionOriginOverrideMask,
     pub translation: FMovieSceneDoubleChannel,
     pub rotation: FMovieSceneDoubleChannel,
-    pub key_preview_position: TOptional<FVector>,
-    pub key_preview_rotation: TOptional<FRotator>,
+    pub key_preview_position: TOptional<crate::bindings::core_u_object::FVector>,
+    pub key_preview_rotation: TOptional<crate::bindings::core_u_object::FRotator>,
     pub sub_sequence: UPtr<UMovieSceneSequence>,
 }
 pub struct UMovieSceneBoolSection {
@@ -938,7 +945,7 @@ pub struct UMovieSceneBoolSection {
 }
 pub struct UMovieSceneBlenderSystem {}
 pub struct UMovieSceneTrackInstance {
-    pub weak_animated_object: TWeakObjectPtr<UObject>,
+    pub weak_animated_object: TWeakObjectPtr<crate::bindings::core_u_object::UObject>,
     pub b_is_root_track_instance: bool,
     pub private_linker: UPtr<UMovieSceneEntitySystemLinker>,
     pub inputs: TArray<FMovieSceneTrackInstanceInput>,
@@ -1002,8 +1009,8 @@ pub struct UMovieSceneCompiledData {
     pub entity_component_field: FMovieSceneEntityComponentField,
     pub track_template_field: FMovieSceneEvaluationField,
     pub determinism_fences: TArray<FMovieSceneDeterminismFence>,
-    pub compiled_signature: FGuid,
-    pub compiler_version: FGuid,
+    pub compiled_signature: crate::bindings::core_u_object::FGuid,
+    pub compiler_version: crate::bindings::core_u_object::FGuid,
     pub accumulated_mask: EMovieSceneSequenceCompilerMask,
     pub allocated_mask: EMovieSceneSequenceCompilerMask,
     pub accumulated_flags: EMovieSceneSequenceFlags,
@@ -1029,16 +1036,22 @@ pub struct UMovieSceneTimeWarpGetter {
 }
 pub struct UMovieScenePlayRateCurve {
     pub play_rate: FMovieSceneTimeWarpChannel,
-    pub playback_start_frame: FFrameNumber,
+    pub playback_start_frame: crate::bindings::core_u_object::FFrameNumber,
     pub b_manual_playback_start: bool,
 }
 pub struct UMovieSceneScalingAnchors {
     pub scaling_drivers: TArray<TScriptInterface<IMovieSceneScalingDriver>>,
-    pub initial_anchors: TMap<FGuid, FMovieSceneScalingAnchor>,
-    pub scaling_groups: TMap<FGuid, FMovieSceneAnchorsScalingGroup>,
+    pub initial_anchors: TMap<
+        crate::bindings::core_u_object::FGuid,
+        FMovieSceneScalingAnchor,
+    >,
+    pub scaling_groups: TMap<
+        crate::bindings::core_u_object::FGuid,
+        FMovieSceneAnchorsScalingGroup,
+    >,
 }
 pub struct UMovieSceneSectionAnchorsDecoration {
-    pub start_anchor: FGuid,
+    pub start_anchor: crate::bindings::core_u_object::FGuid,
 }
 pub struct UMovieSceneTimeWarpSource {}
 pub struct IMovieSceneTimeWarpSource {}
@@ -1083,7 +1096,7 @@ pub struct UMovieSceneBuiltInEasingFunction {
     pub ty: EMovieSceneBuiltInEasing,
 }
 pub struct UMovieSceneEasingExternalCurve {
-    pub curve: UPtr<UCurveFloat>,
+    pub curve: UPtr<crate::bindings::engine::UCurveFloat>,
 }
 pub struct UNodeAndChannelMappings {}
 pub struct INodeAndChannelMappings {}
@@ -1111,11 +1124,11 @@ pub struct UMovieScene {
     pub custom_clock: UPtr<UMovieSceneClock>,
     pub selection_range: FMovieSceneFrameRange,
     pub playback_range: FMovieSceneFrameRange,
-    pub tick_resolution: FFrameRate,
-    pub display_rate: FFrameRate,
+    pub tick_resolution: crate::bindings::core_u_object::FFrameRate,
+    pub display_rate: crate::bindings::core_u_object::FFrameRate,
     pub evaluation_type: EMovieSceneEvaluationType,
     pub clock_source: EUpdateClockSource,
-    pub custom_clock_source_path_deprecated: FSoftObjectPath,
+    pub custom_clock_source_path_deprecated: crate::bindings::core_u_object::FSoftObjectPath,
     pub marked_frames: TArray<FMovieSceneMarkedFrame>,
     pub generated_conditions: TArray<UPtr<UMovieSceneGroupCondition>>,
     pub b_read_only: bool,
@@ -1143,7 +1156,7 @@ pub struct UMovieSceneBindingOverrides {
 }
 pub struct UMovieSceneClock {}
 pub struct UMovieSceneExternalClock {
-    pub custom_clock_source_path: FSoftObjectPath,
+    pub custom_clock_source_path: crate::bindings::core_u_object::FSoftObjectPath,
 }
 pub struct UBuiltInDynamicBindingResolverLibrary {}
 pub struct UMovieSceneFolder {
@@ -1151,13 +1164,13 @@ pub struct UMovieSceneFolder {
     pub child_folders: TArray<UPtr<UMovieSceneFolder>>,
     pub child_tracks: TArray<UPtr<UMovieSceneTrack>>,
     pub child_object_binding_strings: TArray<FString>,
-    pub folder_color: FColor,
+    pub folder_color: crate::bindings::core_u_object::FColor,
     pub sorting_order: i32,
     pub child_master_tracks_deprecated: TArray<UPtr<UMovieSceneTrack>>,
 }
 pub struct UMovieSceneMetaData {
     pub author: FString,
-    pub created: FDateTime,
+    pub created: crate::bindings::core_u_object::FDateTime,
     pub notes: FString,
 }
 pub struct UMovieSceneSequencePlayer {
@@ -1170,7 +1183,7 @@ pub struct UMovieSceneSequencePlayer {
     pub status: EMovieScenePlayerStatus,
     pub flags_724: u8,
     pub sequence: UPtr<UMovieSceneSequence>,
-    pub start_time: FFrameNumber,
+    pub start_time: crate::bindings::core_u_object::FFrameNumber,
     pub duration_frames: i32,
     pub duration_sub_frames: f32,
     pub current_num_loops: i32,
@@ -1212,12 +1225,14 @@ pub struct ATestMovieSceneArrayPropertiesActor {
     pub test_enum: ETestMovieSceneEnum,
     pub test_int32: i32,
     pub test_object: UPtr<UTestMovieSceneObject>,
-    pub test_vector: FVector,
+    pub test_vector: crate::bindings::core_u_object::FVector,
     pub multiple_floats: TArray<f32>,
     pub single_struct: FTestMovieSceneStruct,
     pub multiple_structs: TArray<FTestMovieSceneStruct>,
-    pub single_instanced_struct: FInstancedStruct,
-    pub multiple_instanced_structs: TArray<FInstancedStruct>,
+    pub single_instanced_struct: crate::bindings::core_u_object::FInstancedStruct,
+    pub multiple_instanced_structs: TArray<
+        crate::bindings::core_u_object::FInstancedStruct,
+    >,
     pub test_setter_float: f32,
 }
 pub struct UMovieSceneBindingLifetimeTrack {
@@ -1225,7 +1240,7 @@ pub struct UMovieSceneBindingLifetimeTrack {
 }
 pub struct UMovieSceneSpawnTrack {
     pub sections: TArray<UPtr<UMovieSceneSection>>,
-    pub object_guid: FGuid,
+    pub object_guid: crate::bindings::core_u_object::FGuid,
 }
 pub struct UMovieSceneTimeWarpTrack {
     pub sections: TArray<UPtr<UMovieSceneSection>>,
@@ -1233,4 +1248,293 @@ pub struct UMovieSceneTimeWarpTrack {
 }
 pub struct UMovieSceneTimeWarpCurve {
     pub channel: FMovieSceneTimeWarpChannel,
+}
+pub struct FMovieSceneSequencePlayer_OnPlay;
+pub struct FMovieSceneSequencePlayer_OnPlayReverse;
+pub struct FMovieSceneSequencePlayer_OnStop;
+pub struct FMovieSceneSequencePlayer_OnPause;
+pub struct FMovieSceneSequencePlayer_OnFinished;
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EMovieSceneCompletionMode(pub u8);
+impl EMovieSceneCompletionMode {
+    pub const KEEP_STATE: EMovieSceneCompletionMode = EMovieSceneCompletionMode(0);
+    pub const RESTORE_STATE: EMovieSceneCompletionMode = EMovieSceneCompletionMode(1);
+    pub const PROJECT_DEFAULT: EMovieSceneCompletionMode = EMovieSceneCompletionMode(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EMovieSceneObjectBindingSpace(pub u8);
+impl EMovieSceneObjectBindingSpace {
+    pub const LOCAL: EMovieSceneObjectBindingSpace = EMovieSceneObjectBindingSpace(0);
+    pub const ROOT: EMovieSceneObjectBindingSpace = EMovieSceneObjectBindingSpace(1);
+    pub const UNUSED: EMovieSceneObjectBindingSpace = EMovieSceneObjectBindingSpace(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EMovieSceneSubSectionFlags(pub u8);
+impl EMovieSceneSubSectionFlags {
+    pub const NONE: EMovieSceneSubSectionFlags = EMovieSceneSubSectionFlags(0);
+    pub const OVERRIDE_KEEP_STATE: EMovieSceneSubSectionFlags = EMovieSceneSubSectionFlags(
+        1,
+    );
+    pub const OVERRIDE_RESTORE_STATE: EMovieSceneSubSectionFlags = EMovieSceneSubSectionFlags(
+        2,
+    );
+    pub const IGNORE_HIERARCHICAL_BIAS: EMovieSceneSubSectionFlags = EMovieSceneSubSectionFlags(
+        4,
+    );
+    pub const BLEND_HIERARCHICAL_BIAS: EMovieSceneSubSectionFlags = EMovieSceneSubSectionFlags(
+        8,
+    );
+    pub const ANY_RESTORE_STATE_OVERRIDE: EMovieSceneSubSectionFlags = EMovieSceneSubSectionFlags(
+        3,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ESectionEvaluationFlags(pub u8);
+impl ESectionEvaluationFlags {
+    pub const NONE: ESectionEvaluationFlags = ESectionEvaluationFlags(0);
+    pub const PRE_ROLL: ESectionEvaluationFlags = ESectionEvaluationFlags(1);
+    pub const POST_ROLL: ESectionEvaluationFlags = ESectionEvaluationFlags(2);
+    pub const FORCE_KEEP_STATE: ESectionEvaluationFlags = ESectionEvaluationFlags(4);
+    pub const FORCE_RESTORE_STATE: ESectionEvaluationFlags = ESectionEvaluationFlags(8);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EMovieSceneCompletionModeOverride(pub u8);
+impl EMovieSceneCompletionModeOverride {
+    pub const NONE: EMovieSceneCompletionModeOverride = EMovieSceneCompletionModeOverride(
+        0,
+    );
+    pub const FORCE_KEEP_STATE: EMovieSceneCompletionModeOverride = EMovieSceneCompletionModeOverride(
+        1,
+    );
+    pub const FORCE_RESTORE_STATE: EMovieSceneCompletionModeOverride = EMovieSceneCompletionModeOverride(
+        2,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENavigationToolItemFlags(pub u8);
+impl ENavigationToolItemFlags {
+    pub const NONE: ENavigationToolItemFlags = ENavigationToolItemFlags(0);
+    pub const IGNORE_PENDING_KILL: ENavigationToolItemFlags = ENavigationToolItemFlags(
+        1,
+    );
+    pub const PENDING_REMOVAL: ENavigationToolItemFlags = ENavigationToolItemFlags(2);
+    pub const EXPANDED: ENavigationToolItemFlags = ENavigationToolItemFlags(4);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EMovieSceneBlendType(pub u8);
+impl EMovieSceneBlendType {
+    pub const INVALID: EMovieSceneBlendType = EMovieSceneBlendType(0);
+    pub const ABSOLUTE: EMovieSceneBlendType = EMovieSceneBlendType(1);
+    pub const ADDITIVE: EMovieSceneBlendType = EMovieSceneBlendType(2);
+    pub const RELATIVE: EMovieSceneBlendType = EMovieSceneBlendType(4);
+    pub const ADDITIVE_FROM_BASE: EMovieSceneBlendType = EMovieSceneBlendType(8);
+    pub const OVERRIDE: EMovieSceneBlendType = EMovieSceneBlendType(16);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EEvaluationMethod(pub u8);
+impl EEvaluationMethod {
+    pub const STATIC: EEvaluationMethod = EEvaluationMethod(0);
+    pub const SWEPT: EEvaluationMethod = EEvaluationMethod(1);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EMovieSceneBreadcrumbMode(pub u8);
+impl EMovieSceneBreadcrumbMode {
+    pub const SPARSE: EMovieSceneBreadcrumbMode = EMovieSceneBreadcrumbMode(0);
+    pub const DENSE: EMovieSceneBreadcrumbMode = EMovieSceneBreadcrumbMode(1);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EMovieSceneServerClientMask(pub u8);
+impl EMovieSceneServerClientMask {
+    pub const NONE: EMovieSceneServerClientMask = EMovieSceneServerClientMask(0);
+    pub const SERVER: EMovieSceneServerClientMask = EMovieSceneServerClientMask(1);
+    pub const CLIENT: EMovieSceneServerClientMask = EMovieSceneServerClientMask(2);
+    pub const ALL: EMovieSceneServerClientMask = EMovieSceneServerClientMask(3);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EMovieScenePlayerStatus(pub u8);
+impl EMovieScenePlayerStatus {
+    pub const STOPPED: EMovieScenePlayerStatus = EMovieScenePlayerStatus(0);
+    pub const PLAYING: EMovieScenePlayerStatus = EMovieScenePlayerStatus(1);
+    pub const SCRUBBING: EMovieScenePlayerStatus = EMovieScenePlayerStatus(2);
+    pub const JUMPING: EMovieScenePlayerStatus = EMovieScenePlayerStatus(3);
+    pub const STEPPING: EMovieScenePlayerStatus = EMovieScenePlayerStatus(4);
+    pub const PAUSED: EMovieScenePlayerStatus = EMovieScenePlayerStatus(5);
+    pub const MAX: EMovieScenePlayerStatus = EMovieScenePlayerStatus(6);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EMovieScenePositionType(pub u8);
+impl EMovieScenePositionType {
+    pub const FRAME: EMovieScenePositionType = EMovieScenePositionType(0);
+    pub const TIME: EMovieScenePositionType = EMovieScenePositionType(1);
+    pub const MARKED_FRAME: EMovieScenePositionType = EMovieScenePositionType(2);
+    pub const TIMECODE: EMovieScenePositionType = EMovieScenePositionType(3);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EUpdatePositionMethod(pub u8);
+impl EUpdatePositionMethod {
+    pub const PLAY: EUpdatePositionMethod = EUpdatePositionMethod(0);
+    pub const JUMP: EUpdatePositionMethod = EUpdatePositionMethod(1);
+    pub const SCRUB: EUpdatePositionMethod = EUpdatePositionMethod(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ESpawnOwnership(pub u8);
+impl ESpawnOwnership {
+    pub const INNER_SEQUENCE: ESpawnOwnership = ESpawnOwnership(0);
+    pub const ROOT_SEQUENCE: ESpawnOwnership = ESpawnOwnership(1);
+    pub const EXTERNAL: ESpawnOwnership = ESpawnOwnership(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ETestMovieSceneEnum(pub u8);
+impl ETestMovieSceneEnum {
+    pub const ONE: ETestMovieSceneEnum = ETestMovieSceneEnum(0);
+    pub const TWO: ETestMovieSceneEnum = ETestMovieSceneEnum(1);
+    pub const THREE: ETestMovieSceneEnum = ETestMovieSceneEnum(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EUpdateClockSource(pub u8);
+impl EUpdateClockSource {
+    pub const TICK: EUpdateClockSource = EUpdateClockSource(0);
+    pub const PLATFORM: EUpdateClockSource = EUpdateClockSource(1);
+    pub const AUDIO: EUpdateClockSource = EUpdateClockSource(2);
+    pub const RELATIVE_TIMECODE: EUpdateClockSource = EUpdateClockSource(3);
+    pub const TIMECODE: EUpdateClockSource = EUpdateClockSource(4);
+    pub const PLAY_EVERY_FRAME: EUpdateClockSource = EUpdateClockSource(5);
+    pub const CUSTOM: EUpdateClockSource = EUpdateClockSource(6);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EMovieSceneTimeUnit(pub u8);
+impl EMovieSceneTimeUnit {
+    pub const DISPLAY_RATE: EMovieSceneTimeUnit = EMovieSceneTimeUnit(0);
+    pub const TICK_RESOLUTION: EMovieSceneTimeUnit = EMovieSceneTimeUnit(1);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EMovieSceneConditionCheckFrequency(pub u8);
+impl EMovieSceneConditionCheckFrequency {
+    pub const ONCE: EMovieSceneConditionCheckFrequency = EMovieSceneConditionCheckFrequency(
+        0,
+    );
+    pub const ON_TICK: EMovieSceneConditionCheckFrequency = EMovieSceneConditionCheckFrequency(
+        1,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EMovieSceneConditionScope(pub u8);
+impl EMovieSceneConditionScope {
+    pub const GLOBAL: EMovieSceneConditionScope = EMovieSceneConditionScope(0);
+    pub const BINDING: EMovieSceneConditionScope = EMovieSceneConditionScope(1);
+    pub const OWNER_OBJECT: EMovieSceneConditionScope = EMovieSceneConditionScope(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EMovieSceneKeyInterpolation(pub u8);
+impl EMovieSceneKeyInterpolation {
+    pub const AUTO: EMovieSceneKeyInterpolation = EMovieSceneKeyInterpolation(0);
+    pub const USER: EMovieSceneKeyInterpolation = EMovieSceneKeyInterpolation(1);
+    pub const BREAK: EMovieSceneKeyInterpolation = EMovieSceneKeyInterpolation(2);
+    pub const LINEAR: EMovieSceneKeyInterpolation = EMovieSceneKeyInterpolation(3);
+    pub const CONSTANT: EMovieSceneKeyInterpolation = EMovieSceneKeyInterpolation(4);
+    pub const SMART_AUTO: EMovieSceneKeyInterpolation = EMovieSceneKeyInterpolation(5);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EMovieSceneEvaluationType(pub u8);
+impl EMovieSceneEvaluationType {
+    pub const FRAME_LOCKED: EMovieSceneEvaluationType = EMovieSceneEvaluationType(0);
+    pub const WITH_SUB_FRAMES: EMovieSceneEvaluationType = EMovieSceneEvaluationType(1);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EMovieSceneSequenceFlags(pub u8);
+impl EMovieSceneSequenceFlags {
+    pub const NONE: EMovieSceneSequenceFlags = EMovieSceneSequenceFlags(0);
+    pub const VOLATILE: EMovieSceneSequenceFlags = EMovieSceneSequenceFlags(1);
+    pub const BLOCKING_EVALUATION: EMovieSceneSequenceFlags = EMovieSceneSequenceFlags(
+        2,
+    );
+    pub const DYNAMIC_WEIGHTING: EMovieSceneSequenceFlags = EMovieSceneSequenceFlags(4);
+    pub const LOOP_CUTS: EMovieSceneSequenceFlags = EMovieSceneSequenceFlags(8);
+    pub const INHERITED_FLAGS: EMovieSceneSequenceFlags = EMovieSceneSequenceFlags(1);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EMovieSceneSequenceCompilerMask(pub u8);
+impl EMovieSceneSequenceCompilerMask {
+    pub const HIERARCHY: EMovieSceneSequenceCompilerMask = EMovieSceneSequenceCompilerMask(
+        1,
+    );
+    pub const EVALUATION_TEMPLATE: EMovieSceneSequenceCompilerMask = EMovieSceneSequenceCompilerMask(
+        2,
+    );
+    pub const EVALUATION_TEMPLATE_FIELD: EMovieSceneSequenceCompilerMask = EMovieSceneSequenceCompilerMask(
+        4,
+    );
+    pub const ENTITY_COMPONENT_FIELD: EMovieSceneSequenceCompilerMask = EMovieSceneSequenceCompilerMask(
+        8,
+    );
+    pub const NONE: EMovieSceneSequenceCompilerMask = EMovieSceneSequenceCompilerMask(0);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EMovieSceneGroupConditionOperator(pub u8);
+impl EMovieSceneGroupConditionOperator {
+    pub const AND: EMovieSceneGroupConditionOperator = EMovieSceneGroupConditionOperator(
+        0,
+    );
+    pub const OR: EMovieSceneGroupConditionOperator = EMovieSceneGroupConditionOperator(
+        1,
+    );
+    pub const XOR: EMovieSceneGroupConditionOperator = EMovieSceneGroupConditionOperator(
+        2,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EMovieSceneBuiltInEasing(pub u8);
+impl EMovieSceneBuiltInEasing {
+    pub const LINEAR: EMovieSceneBuiltInEasing = EMovieSceneBuiltInEasing(0);
+    pub const SIN_IN: EMovieSceneBuiltInEasing = EMovieSceneBuiltInEasing(1);
+    pub const SIN_OUT: EMovieSceneBuiltInEasing = EMovieSceneBuiltInEasing(2);
+    pub const SIN_IN_OUT: EMovieSceneBuiltInEasing = EMovieSceneBuiltInEasing(3);
+    pub const QUAD_IN: EMovieSceneBuiltInEasing = EMovieSceneBuiltInEasing(4);
+    pub const QUAD_OUT: EMovieSceneBuiltInEasing = EMovieSceneBuiltInEasing(5);
+    pub const QUAD_IN_OUT: EMovieSceneBuiltInEasing = EMovieSceneBuiltInEasing(6);
+    pub const CUBIC: EMovieSceneBuiltInEasing = EMovieSceneBuiltInEasing(7);
+    pub const CUBIC_IN: EMovieSceneBuiltInEasing = EMovieSceneBuiltInEasing(8);
+    pub const CUBIC_OUT: EMovieSceneBuiltInEasing = EMovieSceneBuiltInEasing(9);
+    pub const CUBIC_IN_OUT: EMovieSceneBuiltInEasing = EMovieSceneBuiltInEasing(10);
+    pub const HERMITE_CUBIC_IN_OUT: EMovieSceneBuiltInEasing = EMovieSceneBuiltInEasing(
+        11,
+    );
+    pub const QUART_IN: EMovieSceneBuiltInEasing = EMovieSceneBuiltInEasing(12);
+    pub const QUART_OUT: EMovieSceneBuiltInEasing = EMovieSceneBuiltInEasing(13);
+    pub const QUART_IN_OUT: EMovieSceneBuiltInEasing = EMovieSceneBuiltInEasing(14);
+    pub const QUINT_IN: EMovieSceneBuiltInEasing = EMovieSceneBuiltInEasing(15);
+    pub const QUINT_OUT: EMovieSceneBuiltInEasing = EMovieSceneBuiltInEasing(16);
+    pub const QUINT_IN_OUT: EMovieSceneBuiltInEasing = EMovieSceneBuiltInEasing(17);
+    pub const EXPO_IN: EMovieSceneBuiltInEasing = EMovieSceneBuiltInEasing(18);
+    pub const EXPO_OUT: EMovieSceneBuiltInEasing = EMovieSceneBuiltInEasing(19);
+    pub const EXPO_IN_OUT: EMovieSceneBuiltInEasing = EMovieSceneBuiltInEasing(20);
+    pub const CIRC_IN: EMovieSceneBuiltInEasing = EMovieSceneBuiltInEasing(21);
+    pub const CIRC_OUT: EMovieSceneBuiltInEasing = EMovieSceneBuiltInEasing(22);
+    pub const CIRC_IN_OUT: EMovieSceneBuiltInEasing = EMovieSceneBuiltInEasing(23);
+    pub const CUSTOM: EMovieSceneBuiltInEasing = EMovieSceneBuiltInEasing(24);
 }

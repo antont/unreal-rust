@@ -2,7 +2,8 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
-pub use crate::bindings::prelude::*;
+pub use crate::bindings::opague_definitions::*;
+pub use crate::core_data::*;
 #[repr(C, align(8))]
 pub struct FFabAssetMetadata {
     pub asset_id: FString,
@@ -63,8 +64,8 @@ pub struct FFabFrontendSettings {
 }
 #[repr(C, align(8))]
 pub struct FMegascanMaterialPair {
-    pub standard_material: TSoftObjectPtr<UMaterialInterface>,
-    pub vt_material: TSoftObjectPtr<UMaterialInterface>,
+    pub standard_material: TSoftObjectPtr<crate::bindings::engine::UMaterialInterface>,
+    pub vt_material: TSoftObjectPtr<crate::bindings::engine::UMaterialInterface>,
 }
 #[repr(C, align(1))]
 pub struct FFabDistributionMethodTag {}
@@ -75,8 +76,8 @@ pub struct FFabObjectNameColumn {
 #[repr(C, align(8))]
 pub struct FFabObjectColumn {
     pub description: FString,
-    pub asset_id: FGuid,
-    pub asset_namespace: FGuid,
+    pub asset_id: crate::bindings::core_u_object::FGuid,
+    pub asset_namespace: crate::bindings::core_u_object::FGuid,
     pub listing_type: FName,
     pub seller: FString,
     pub source: FName,
@@ -107,7 +108,7 @@ pub struct UFabSettings {
     pub custom_url: FString,
     pub custom_auth_token: FString,
     pub b_enable_debug_options: bool,
-    pub cache_directory_path: FDirectoryPath,
+    pub cache_directory_path: crate::bindings::core_u_object::FDirectoryPath,
     pub cache_directory_size: FString,
     pub product_formats_section_sub_text: FString,
     pub preferred_default_format: EFabPreferredFormats,
@@ -124,7 +125,64 @@ pub struct UMegascansMaterialParentSettings {
 pub struct UInterchangeMegascansPipeline {
     pub megascan_import_type: EMegascanImportType,
     pub megascans_material_parent_settings: UPtr<UMegascansMaterialParentSettings>,
-    pub base_node_container: UPtr<UInterchangeBaseNodeContainer>,
+    pub base_node_container: UPtr<
+        crate::bindings::interchange_core::UInterchangeBaseNodeContainer,
+    >,
 }
 pub struct UInterchangeInstancedFoliageTypeFactoryNode {}
 pub struct UFabFactory {}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EFabEnvironment(pub u8);
+impl EFabEnvironment {
+    pub const PROD: EFabEnvironment = EFabEnvironment(0);
+    pub const GAMEDEV: EFabEnvironment = EFabEnvironment(1);
+    pub const TEST: EFabEnvironment = EFabEnvironment(2);
+    pub const CUSTOM_URL: EFabEnvironment = EFabEnvironment(3);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EFabPreferredFormats(pub u8);
+impl EFabPreferredFormats {
+    pub const GLTF: EFabPreferredFormats = EFabPreferredFormats(0);
+    pub const FBX: EFabPreferredFormats = EFabPreferredFormats(1);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EFabPreferredQualityTier(pub u8);
+impl EFabPreferredQualityTier {
+    pub const LOW: EFabPreferredQualityTier = EFabPreferredQualityTier(0);
+    pub const MEDIUM: EFabPreferredQualityTier = EFabPreferredQualityTier(1);
+    pub const HIGH: EFabPreferredQualityTier = EFabPreferredQualityTier(2);
+    pub const RAW: EFabPreferredQualityTier = EFabPreferredQualityTier(3);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EMegascanMaterialType(pub i32);
+impl EMegascanMaterialType {
+    pub const INVALID: EMegascanMaterialType = EMegascanMaterialType(0);
+    pub const BASE: EMegascanMaterialType = EMegascanMaterialType(1);
+    pub const BASE_MASKED: EMegascanMaterialType = EMegascanMaterialType(2);
+    pub const BASE_FUZZ: EMegascanMaterialType = EMegascanMaterialType(3);
+    pub const BASE_TRANSMISSION: EMegascanMaterialType = EMegascanMaterialType(4);
+    pub const GLASS: EMegascanMaterialType = EMegascanMaterialType(5);
+    pub const SURFACE: EMegascanMaterialType = EMegascanMaterialType(6);
+    pub const SURFACE_MASKED: EMegascanMaterialType = EMegascanMaterialType(7);
+    pub const SURFACE_FUZZ: EMegascanMaterialType = EMegascanMaterialType(8);
+    pub const SURFACE_TRANSMISSION: EMegascanMaterialType = EMegascanMaterialType(9);
+    pub const FABRIC: EMegascanMaterialType = EMegascanMaterialType(10);
+    pub const FABRIC_MASKED: EMegascanMaterialType = EMegascanMaterialType(11);
+    pub const DECAL: EMegascanMaterialType = EMegascanMaterialType(12);
+    pub const PLANT: EMegascanMaterialType = EMegascanMaterialType(13);
+    pub const PLANT_BILLBOARD: EMegascanMaterialType = EMegascanMaterialType(14);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EMegascanImportType(pub i32);
+impl EMegascanImportType {
+    pub const MODEL3_D: EMegascanImportType = EMegascanImportType(0);
+    pub const SURFACE: EMegascanImportType = EMegascanImportType(1);
+    pub const DECAL: EMegascanImportType = EMegascanImportType(2);
+    pub const IMPERFECTION: EMegascanImportType = EMegascanImportType(3);
+    pub const PLANT: EMegascanImportType = EMegascanImportType(4);
+}

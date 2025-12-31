@@ -2,7 +2,8 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
-pub use crate::bindings::prelude::*;
+pub use crate::bindings::opague_definitions::*;
+pub use crate::core_data::*;
 #[repr(C, align(8))]
 pub struct FAutomationTestExcludeOptions {
     pub test: FName,
@@ -31,4 +32,14 @@ pub struct UAutomationTestExcludelistConfig {
 pub struct UAutomationTestExcludelist {
     pub default_config: UPtr<UAutomationTestExcludelistConfig>,
     pub platform_configs: TMap<FName, UPtr<UAutomationTestExcludelistConfig>>,
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EAutomationState(pub u8);
+impl EAutomationState {
+    pub const NOT_RUN: EAutomationState = EAutomationState(0);
+    pub const IN_PROCESS: EAutomationState = EAutomationState(1);
+    pub const FAIL: EAutomationState = EAutomationState(2);
+    pub const SUCCESS: EAutomationState = EAutomationState(3);
+    pub const SKIPPED: EAutomationState = EAutomationState(4);
 }

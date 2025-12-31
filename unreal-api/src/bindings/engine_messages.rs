@@ -2,7 +2,8 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
-pub use crate::bindings::prelude::*;
+pub use crate::bindings::opague_definitions::*;
+pub use crate::core_data::*;
 #[repr(C, align(1))]
 pub struct FEngineServicePing {}
 #[repr(C, align(8))]
@@ -10,9 +11,9 @@ pub struct FEngineServicePong {
     pub current_level: FString,
     pub engine_version: i32,
     pub has_begun_play: bool,
-    pub instance_id: FGuid,
+    pub instance_id: crate::bindings::core_u_object::FGuid,
     pub instance_type: FString,
-    pub session_id: FGuid,
+    pub session_id: crate::bindings::core_u_object::FGuid,
     pub world_time_seconds: f32,
 }
 #[repr(C, align(8))]
@@ -44,8 +45,8 @@ pub struct FTraceControlStatusPing {}
 #[repr(C, align(8))]
 pub struct FTraceControlStatus {
     pub endpoint: FString,
-    pub session_guid: FGuid,
-    pub trace_guid: FGuid,
+    pub session_guid: crate::bindings::core_u_object::FGuid,
+    pub trace_guid: crate::bindings::core_u_object::FGuid,
     pub bytes_sent: u64,
     pub bytes_traced: u64,
     pub memory_used: u64,
@@ -55,7 +56,7 @@ pub struct FTraceControlStatus {
     pub b_are_stat_named_events_enabled: bool,
     pub b_is_paused: bool,
     pub b_is_tracing: bool,
-    pub status_timestamp: FDateTime,
+    pub status_timestamp: crate::bindings::core_u_object::FDateTime,
     pub trace_system_status: u8,
 }
 #[repr(C, align(1))]
@@ -99,13 +100,13 @@ pub struct FTraceControlChannelsSetError {
 }
 #[repr(C, align(4))]
 pub struct FTraceControlDiscoveryPing {
-    pub session_id: FGuid,
-    pub instance_id: FGuid,
+    pub session_id: crate::bindings::core_u_object::FGuid,
+    pub instance_id: crate::bindings::core_u_object::FGuid,
 }
 #[repr(C, align(8))]
 pub struct FTraceControlDiscovery {
-    pub session_id: FGuid,
-    pub instance_id: FGuid,
+    pub session_id: crate::bindings::core_u_object::FGuid,
+    pub instance_id: crate::bindings::core_u_object::FGuid,
 }
 #[repr(C, align(1))]
 pub struct FTraceControlStop {}

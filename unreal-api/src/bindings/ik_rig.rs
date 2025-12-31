@@ -2,45 +2,48 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
-pub use crate::bindings::prelude::*;
+pub use crate::bindings::opague_definitions::*;
+pub use crate::core_data::*;
 #[repr(C, align(8))]
 pub struct FAnimNode_IKRig {
-    pub source: FPoseLink,
+    pub source: crate::bindings::engine::FPoseLink,
     pub rig_definition_asset: UPtr<UIKRigDefinition>,
     pub goals: TArray<FIKRigGoal>,
     pub b_start_from_ref_pose: bool,
     pub b_enable_debug_draw: bool,
     pub debug_scale: f32,
-    pub alpha_input_type: EAnimAlphaInputType,
+    pub alpha_input_type: crate::bindings::engine::EAnimAlphaInputType,
     pub b_alpha_bool_enabled: bool,
     pub alpha: f32,
-    pub alpha_scale_bias: FInputScaleBias,
-    pub alpha_bool_blend: FInputAlphaBoolBlend,
+    pub alpha_scale_bias: crate::bindings::engine::FInputScaleBias,
+    pub alpha_bool_blend: crate::bindings::engine::FInputAlphaBoolBlend,
     pub alpha_curve_name: FName,
-    pub alpha_scale_bias_clamp: FInputScaleBiasClamp,
-    pub goal_creators: TArray<UPtr<UActorComponent>>,
+    pub alpha_scale_bias_clamp: crate::bindings::engine::FInputScaleBiasClamp,
+    pub goal_creators: TArray<UPtr<crate::bindings::engine::UActorComponent>>,
 }
 #[repr(C, align(16))]
 pub struct FIKRigGoal {
     pub name: FName,
     pub bone_name: FName,
     pub transform_source: EIKRigGoalTransformSource,
-    pub source_bone: FBoneReference,
-    pub position: FVector,
-    pub rotation: FRotator,
+    pub source_bone: crate::bindings::engine::FBoneReference,
+    pub position: crate::bindings::core_u_object::FVector,
+    pub rotation: crate::bindings::core_u_object::FRotator,
     pub position_alpha: f32,
     pub rotation_alpha: f32,
     pub position_space: EIKRigGoalSpace,
     pub rotation_space: EIKRigGoalSpace,
-    pub final_blended_position: FVector,
-    pub final_blended_rotation: FQuat,
+    pub final_blended_position: crate::bindings::core_u_object::FVector,
+    pub final_blended_rotation: crate::bindings::core_u_object::FQuat,
     pub b_enabled: bool,
 }
 #[repr(C, align(8))]
 pub struct FAnimNode_RetargetPoseFromMesh {
-    pub source: FPoseLink,
+    pub source: crate::bindings::engine::FPoseLink,
     pub retarget_from: ERetargetSourceMode,
-    pub source_mesh_component: TWeakObjectPtr<USkeletalMeshComponent>,
+    pub source_mesh_component: TWeakObjectPtr<
+        crate::bindings::engine::USkeletalMeshComponent,
+    >,
     pub ik_retargeter_asset: UPtr<UIKRetargeter>,
     pub custom_retarget_profile: FRetargetProfile,
     pub lod_threshold: i32,
@@ -85,11 +88,11 @@ pub struct FTargetRootSettings {
     pub rotation_alpha: f32,
     pub translation_alpha: f32,
     pub blend_to_source: f32,
-    pub blend_to_source_weights: FVector,
+    pub blend_to_source_weights: crate::bindings::core_u_object::FVector,
     pub scale_horizontal: f32,
     pub scale_vertical: f32,
-    pub translation_offset: FVector,
-    pub rotation_offset: FRotator,
+    pub translation_offset: crate::bindings::core_u_object::FVector,
+    pub rotation_offset: crate::bindings::core_u_object::FRotator,
     pub affect_ik_horizontal: f32,
     pub affect_ik_vertical: f32,
 }
@@ -113,10 +116,10 @@ pub struct FTargetChainIKSettings {
     pub blend_to_source: f32,
     pub blend_to_source_translation: f32,
     pub blend_to_source_rotation: f32,
-    pub blend_to_source_weights: FVector,
-    pub static_offset: FVector,
-    pub static_local_offset: FVector,
-    pub static_rotation_offset: FRotator,
+    pub blend_to_source_weights: crate::bindings::core_u_object::FVector,
+    pub static_offset: crate::bindings::core_u_object::FVector,
+    pub static_local_offset: crate::bindings::core_u_object::FVector,
+    pub static_rotation_offset: crate::bindings::core_u_object::FRotator,
     pub scale_vertical: f32,
     pub extension: f32,
     pub b_affected_by_ik_warping: bool,
@@ -135,14 +138,14 @@ pub struct FTargetChainFKSettings {
 #[repr(C, align(8))]
 pub struct FRetargetOpProfile {
     pub op_to_apply_settings_to: FName,
-    pub settings_to_apply: FInstancedStruct,
+    pub settings_to_apply: crate::bindings::core_u_object::FInstancedStruct,
 }
 #[repr(C, align(8))]
 pub struct FIKRigWorkData {}
 #[repr(C, align(16))]
 pub struct FIKRigGoalInput {
     pub goal_name: FName,
-    pub transform: FTransform,
+    pub transform: crate::bindings::core_u_object::FTransform,
     pub position_alpha: f64,
     pub rotation_alpha: f64,
 }
@@ -165,8 +168,8 @@ pub struct FRetargetChainMapping {
 }
 #[repr(C, align(8))]
 pub struct FIKRetargetPose {
-    pub root_translation_offset: FVector,
-    pub bone_rotation_offsets: TMap<FName, FQuat>,
+    pub root_translation_offset: crate::bindings::core_u_object::FVector,
+    pub bone_rotation_offsets: TMap<FName, crate::bindings::core_u_object::FQuat>,
 }
 #[repr(C, align(8))]
 pub struct FIKRetargetOpSettingsBase {
@@ -202,8 +205,8 @@ pub struct FIKRetargetAlignPoleVectorOp {
 #[repr(C, align(8))]
 pub struct FIKRetargetCopyBasePoseOpSettings {
     pub b_copy_base_pose: bool,
-    pub copy_from_start: FBoneReference,
-    pub bones_to_exclude: TArray<FBoneReference>,
+    pub copy_from_start: crate::bindings::engine::FBoneReference,
+    pub bones_to_exclude: TArray<crate::bindings::engine::FBoneReference>,
     pub copy_base_pose_root_deprecated: FName,
 }
 #[repr(C, align(8))]
@@ -227,7 +230,7 @@ pub struct FIKRetargetCurveRemapOp {
 }
 #[repr(C, align(16))]
 pub struct FFilterBoneData {
-    pub target_bone: FBoneReference,
+    pub target_bone: crate::bindings::engine::FBoneReference,
 }
 #[repr(C, align(8))]
 pub struct FIKRetargetFilterBoneOpSettings {
@@ -289,11 +292,11 @@ pub struct FRetargetIKChainSettings {
     pub blend_to_source: f64,
     pub blend_to_source_translation: f64,
     pub blend_to_source_rotation: f64,
-    pub blend_to_source_weights: FVector,
+    pub blend_to_source_weights: crate::bindings::core_u_object::FVector,
     pub apply_pelvis_offset_to_source_goals: bool,
-    pub static_offset: FVector,
-    pub static_local_offset: FVector,
-    pub static_rotation_offset: FRotator,
+    pub static_offset: crate::bindings::core_u_object::FVector,
+    pub static_local_offset: crate::bindings::core_u_object::FVector,
+    pub static_rotation_offset: crate::bindings::core_u_object::FRotator,
     pub scale_vertical: f64,
     pub extension: f64,
 }
@@ -311,27 +314,27 @@ pub struct FIKRetargetIKChainsOp {
 }
 #[repr(C, align(8))]
 pub struct FIKRetargetPelvisMotionOpSettings {
-    pub source_pelvis_bone: FBoneReference,
-    pub target_pelvis_bone: FBoneReference,
+    pub source_pelvis_bone: crate::bindings::engine::FBoneReference,
+    pub target_pelvis_bone: crate::bindings::engine::FBoneReference,
     pub floor_constraint_weight: f64,
     pub source_crotch_offset: f64,
     pub target_crotch_offset: f64,
     pub rotation_alpha: f64,
-    pub rotation_offset_local: FRotator,
-    pub rotation_offset_global: FRotator,
+    pub rotation_offset_local: crate::bindings::core_u_object::FRotator,
+    pub rotation_offset_global: crate::bindings::core_u_object::FRotator,
     pub translation_alpha: f64,
-    pub translation_offset_local: FVector,
-    pub translation_offset_global: FVector,
+    pub translation_offset_local: crate::bindings::core_u_object::FVector,
+    pub translation_offset_global: crate::bindings::core_u_object::FVector,
     pub blend_to_source_translation: f64,
-    pub blend_to_source_translation_weights: FVector,
+    pub blend_to_source_translation_weights: crate::bindings::core_u_object::FVector,
     pub scale_horizontal: f64,
     pub scale_vertical: f64,
     pub affect_ik_horizontal: f64,
     pub affect_ik_vertical: f64,
     pub debug_draw_size: f64,
     pub debug_draw_thickness: f64,
-    pub translation_offset_deprecated: FVector,
-    pub rotation_offset_deprecated: FRotator,
+    pub translation_offset_deprecated: crate::bindings::core_u_object::FVector,
+    pub rotation_offset_deprecated: crate::bindings::core_u_object::FRotator,
     pub b_enable_debug_draw_deprecated: bool,
 }
 #[repr(C, align(16))]
@@ -340,8 +343,8 @@ pub struct FIKRetargetPelvisMotionOp {
 }
 #[repr(C, align(16))]
 pub struct FPinBoneData {
-    pub bone_to_copy_from: FBoneReference,
-    pub bone_to_copy_to: FBoneReference,
+    pub bone_to_copy_from: crate::bindings::engine::FBoneReference,
+    pub bone_to_copy_to: crate::bindings::engine::FBoneReference,
     pub bone_to_pin_deprecated: FName,
     pub bone_to_pin_to_deprecated: FName,
 }
@@ -355,8 +358,8 @@ pub struct FIKRetargetPinBoneOpSettings {
     pub rotation_mode: EPinBoneRotationMode,
     pub b_copy_scale: bool,
     pub b_propagate_to_children: bool,
-    pub global_offset: FTransform,
-    pub local_offset: FTransform,
+    pub global_offset: crate::bindings::core_u_object::FTransform,
+    pub local_offset: crate::bindings::core_u_object::FTransform,
 }
 #[repr(C, align(16))]
 pub struct FIKRetargetPinBoneOp {
@@ -373,13 +376,13 @@ pub struct FIKRetargetAdditivePoseOp {
 }
 #[repr(C, align(16))]
 pub struct FIKRetargetRootMotionOpSettings {
-    pub source_root: FBoneReference,
-    pub target_root: FBoneReference,
+    pub source_root: crate::bindings::engine::FBoneReference,
+    pub target_root: crate::bindings::engine::FBoneReference,
     pub root_motion_source: ERootMotionSource,
-    pub target_pelvis: FBoneReference,
+    pub target_pelvis: crate::bindings::engine::FBoneReference,
     pub b_rotate_with_pelvis: bool,
     pub root_height_source: ERootMotionHeightSource,
-    pub global_offset: FTransform,
+    pub global_offset: crate::bindings::core_u_object::FTransform,
     pub b_maintain_offset_from_pelvis: bool,
     pub b_propagate_to_non_retargeted_children: bool,
     pub source_root_bone_deprecated: FName,
@@ -408,7 +411,7 @@ pub struct FIKRetargetRunIKRigOp {
 pub struct FIKRetargetScaleSourceOpSettings {
     pub source_scale_factor: f64,
     pub scale_pivot: EScaleSourcePivot,
-    pub scale_pivot_bone: FBoneReference,
+    pub scale_pivot_bone: crate::bindings::engine::FBoneReference,
     pub b_project_scale_pivot_to_floor: bool,
 }
 #[repr(C, align(8))]
@@ -475,8 +478,8 @@ pub struct FIKRigGoalContainer {}
 #[repr(C, align(4))]
 pub struct FBoneChain {
     pub chain_name: FName,
-    pub start_bone: FBoneReference,
-    pub end_bone: FBoneReference,
+    pub start_bone: crate::bindings::engine::FBoneReference,
+    pub end_bone: crate::bindings::engine::FBoneReference,
     pub ik_goal_name: FName,
 }
 #[repr(C, align(8))]
@@ -493,9 +496,9 @@ pub struct FIKRigSkeleton {
     pub bone_names: TArray<FName>,
     pub parent_indices: TArray<i32>,
     pub excluded_bones: TArray<FName>,
-    pub current_pose_global: TArray<FTransform>,
-    pub current_pose_local: TArray<FTransform>,
-    pub ref_pose_global: TArray<FTransform>,
+    pub current_pose_global: TArray<crate::bindings::core_u_object::FTransform>,
+    pub current_pose_local: TArray<crate::bindings::core_u_object::FTransform>,
+    pub ref_pose_global: TArray<crate::bindings::core_u_object::FTransform>,
 }
 #[repr(C, align(8))]
 pub struct FIKRigSettingsBase {}
@@ -551,17 +554,17 @@ pub struct FIKRigBoneSettingsBase {
 pub struct FIKRigFBIKBoneSettings {
     pub rotation_stiffness: f32,
     pub position_stiffness: f32,
-    pub x: EPBIKLimitType,
+    pub x: crate::bindings::pbik::EPBIKLimitType,
     pub min_x: f32,
     pub max_x: f32,
-    pub y: EPBIKLimitType,
+    pub y: crate::bindings::pbik::EPBIKLimitType,
     pub min_y: f32,
     pub max_y: f32,
-    pub z: EPBIKLimitType,
+    pub z: crate::bindings::pbik::EPBIKLimitType,
     pub min_z: f32,
     pub max_z: f32,
     pub b_use_preferred_angles: bool,
-    pub preferred_angles: FVector,
+    pub preferred_angles: crate::bindings::core_u_object::FVector,
 }
 #[repr(C, align(8))]
 pub struct FIKRigFBIKSettings {
@@ -570,8 +573,8 @@ pub struct FIKRigFBIKSettings {
     pub sub_iterations: i32,
     pub mass_multiplier: f32,
     pub b_allow_stretch: bool,
-    pub root_behavior: EPBIKRootBehavior,
-    pub pre_pull_root_settings: FRootPrePullSettings,
+    pub root_behavior: crate::bindings::pbik::EPBIKRootBehavior,
+    pub pre_pull_root_settings: crate::bindings::pbik::FRootPrePullSettings,
     pub global_pull_chain_alpha: f32,
     pub max_angle: f32,
     pub over_relaxation: f32,
@@ -585,7 +588,7 @@ pub struct FIKRigFullBodyIKSolver {
 #[repr(C, align(8))]
 pub struct FLimbSolverSettings {
     pub reach_precision: f32,
-    pub hinge_rotation_axis: EAxis,
+    pub hinge_rotation_axis: crate::bindings::core_u_object::EAxis,
     pub max_iterations: i32,
     pub b_enable_limit: bool,
     pub min_rotation_angle: f32,
@@ -593,7 +596,7 @@ pub struct FLimbSolverSettings {
     pub pull_distribution: f32,
     pub reach_step_alpha: f32,
     pub b_enable_twist_correction: bool,
-    pub end_bone_forward_axis: EAxis,
+    pub end_bone_forward_axis: crate::bindings::core_u_object::EAxis,
 }
 #[repr(C, align(8))]
 pub struct FIKRigLimbSolverSettings {
@@ -631,7 +634,7 @@ pub struct FIKRigSetTransform {
 }
 #[repr(C, align(8))]
 pub struct FIKRigStretchLimbBoneSettings {
-    pub squash_direction: FVector,
+    pub squash_direction: crate::bindings::core_u_object::FVector,
 }
 #[repr(C, align(8))]
 pub struct FIKRigStretchLimbSettings {
@@ -670,10 +673,10 @@ pub struct URetargetChainSettings {
     pub translation_alpha_deprecated: f32,
     pub drive_ik_goal_deprecated: bool,
     pub blend_to_source_deprecated: f32,
-    pub blend_to_source_weights_deprecated: FVector,
-    pub static_offset_deprecated: FVector,
-    pub static_local_offset_deprecated: FVector,
-    pub static_rotation_offset_deprecated: FRotator,
+    pub blend_to_source_weights_deprecated: crate::bindings::core_u_object::FVector,
+    pub static_offset_deprecated: crate::bindings::core_u_object::FVector,
+    pub static_local_offset_deprecated: crate::bindings::core_u_object::FVector,
+    pub static_rotation_offset_deprecated: crate::bindings::core_u_object::FRotator,
     pub extension_deprecated: f32,
     pub use_speed_curve_to_plant_ik_deprecated: bool,
     pub speed_curve_name_deprecated: FName,
@@ -686,9 +689,9 @@ pub struct URetargetRootSettings {
     pub retarget_root_translation_deprecated: bool,
     pub global_scale_horizontal_deprecated: f32,
     pub global_scale_vertical_deprecated: f32,
-    pub blend_to_source_deprecated: FVector,
-    pub static_offset_deprecated: FVector,
-    pub static_rotation_offset_deprecated: FRotator,
+    pub blend_to_source_deprecated: crate::bindings::core_u_object::FVector,
+    pub static_offset_deprecated: crate::bindings::core_u_object::FVector,
+    pub static_rotation_offset_deprecated: crate::bindings::core_u_object::FRotator,
 }
 pub struct UIKRetargetGlobalSettings {
     pub settings: FRetargetGlobalSettings,
@@ -696,26 +699,26 @@ pub struct UIKRetargetGlobalSettings {
 pub struct UIKRetargeter {
     pub version: i32,
     pub source_ik_rig_asset: UPtr<UIKRigDefinition>,
-    pub source_preview_mesh: TSoftObjectPtr<USkeletalMesh>,
+    pub source_preview_mesh: TSoftObjectPtr<crate::bindings::engine::USkeletalMesh>,
     pub target_ik_rig_asset: UPtr<UIKRigDefinition>,
-    pub target_preview_mesh: TSoftObjectPtr<USkeletalMesh>,
-    pub target_mesh_offset: FVector,
+    pub target_preview_mesh: TSoftObjectPtr<crate::bindings::engine::USkeletalMesh>,
+    pub target_mesh_offset: crate::bindings::core_u_object::FVector,
     pub target_mesh_scale: f32,
-    pub source_mesh_offset: FVector,
+    pub source_mesh_offset: crate::bindings::core_u_object::FVector,
     pub b_show_source_mesh: bool,
     pub b_show_target_mesh: bool,
     pub b_show_source_skeleton: bool,
     pub b_show_target_skeleton: bool,
     pub b_override_source_skeleton_color: bool,
-    pub source_overide_color: FLinearColor,
+    pub source_overide_color: crate::bindings::core_u_object::FLinearColor,
     pub b_override_target_skeleton_color: bool,
-    pub target_overide_color: FLinearColor,
+    pub target_overide_color: crate::bindings::core_u_object::FLinearColor,
     pub b_ignore_root_lock_in_preview: bool,
     pub b_debug_draw: bool,
     pub b_profile_ops: bool,
     pub bone_draw_size: f32,
-    pub controller: UPtr<UObject>,
-    pub retarget_ops: TArray<FInstancedStruct>,
+    pub controller: UPtr<crate::bindings::core_u_object::UObject>,
+    pub retarget_ops: TArray<crate::bindings::core_u_object::FInstancedStruct>,
     pub profiles: TMap<FName, FRetargetProfile>,
     pub current_profile: FName,
     pub source_retarget_poses: TMap<FName, FIKRetargetPose>,
@@ -765,8 +768,8 @@ pub struct UPinBoneOp {
     pub b_copy_scale: bool,
     pub translation_mode: EPinBoneTranslationMode,
     pub rotation_mode: EPinBoneRotationMode,
-    pub global_offset: FTransform,
-    pub local_offset: FTransform,
+    pub global_offset: crate::bindings::core_u_object::FTransform,
+    pub local_offset: crate::bindings::core_u_object::FTransform,
     pub b_maintain_offset_deprecated: bool,
     pub pin_type_deprecated: EPinBoneType,
 }
@@ -781,7 +784,7 @@ pub struct URootMotionGeneratorOp {
     pub b_propagate_to_non_retargeted_children: bool,
     pub b_maintain_offset_from_pelvis: bool,
     pub b_rotate_with_pelvis: bool,
-    pub global_offset: FTransform,
+    pub global_offset: crate::bindings::core_u_object::FTransform,
 }
 pub struct UIKRetargetRunIKRigController {}
 pub struct UIKRetargetScaleSourceController {}
@@ -793,8 +796,8 @@ pub struct UIKRigEffectorGoal {
     pub bone_name: FName,
     pub position_alpha: f32,
     pub rotation_alpha: f32,
-    pub current_transform: FTransform,
-    pub initial_transform: FTransform,
+    pub current_transform: crate::bindings::core_u_object::FTransform,
+    pub initial_transform: crate::bindings::core_u_object::FTransform,
     pub preview_mode: EIKRigGoalPreviewMode,
     pub size_multiplier: f32,
     pub thickness_multiplier: f32,
@@ -802,15 +805,15 @@ pub struct UIKRigEffectorGoal {
     pub b_expose_rotation: bool,
 }
 pub struct UIKRigDefinition {
-    pub preview_skeletal_mesh: TSoftObjectPtr<USkeletalMesh>,
+    pub preview_skeletal_mesh: TSoftObjectPtr<crate::bindings::engine::USkeletalMesh>,
     pub bone_size: f32,
     pub draw_goals: bool,
     pub goal_size: f32,
     pub goal_thickness: f32,
-    pub controller: UPtr<UObject>,
+    pub controller: UPtr<crate::bindings::core_u_object::UObject>,
     pub skeleton: FIKRigSkeleton,
     pub goals: TArray<UPtr<UIKRigEffectorGoal>>,
-    pub solver_stack: TArray<FInstancedStruct>,
+    pub solver_stack: TArray<crate::bindings::core_u_object::FInstancedStruct>,
     pub retarget_definition: FRetargetDefinition,
     pub solvers_deprecated: TArray<UPtr<UIKRigSolver>>,
 }
@@ -853,17 +856,17 @@ pub struct UIKRig_FBIKBoneSettings {
     pub bone: FName,
     pub rotation_stiffness: f32,
     pub position_stiffness: f32,
-    pub x: EPBIKLimitType,
+    pub x: crate::bindings::pbik::EPBIKLimitType,
     pub min_x: f32,
     pub max_x: f32,
-    pub y: EPBIKLimitType,
+    pub y: crate::bindings::pbik::EPBIKLimitType,
     pub min_y: f32,
     pub max_y: f32,
-    pub z: EPBIKLimitType,
+    pub z: crate::bindings::pbik::EPBIKLimitType,
     pub min_z: f32,
     pub max_z: f32,
     pub b_use_preferred_angles: bool,
-    pub preferred_angles: FVector,
+    pub preferred_angles: crate::bindings::core_u_object::FVector,
 }
 pub struct UIKRigFBIKSolver {
     pub root_bone: FName,
@@ -871,8 +874,8 @@ pub struct UIKRigFBIKSolver {
     pub sub_iterations: i32,
     pub mass_multiplier: f32,
     pub b_allow_stretch: bool,
-    pub root_behavior: EPBIKRootBehavior,
-    pub pre_pull_root_settings: FRootPrePullSettings,
+    pub root_behavior: crate::bindings::pbik::EPBIKRootBehavior,
+    pub pre_pull_root_settings: crate::bindings::pbik::FRootPrePullSettings,
     pub pull_chain_alpha: f32,
     pub max_angle: f32,
     pub over_relaxation: f32,
@@ -887,7 +890,7 @@ pub struct UIKRig_LimbEffector {
 pub struct UIKRig_LimbSolver {
     pub root_name: FName,
     pub reach_precision: f32,
-    pub hinge_rotation_axis: EAxis,
+    pub hinge_rotation_axis: crate::bindings::core_u_object::EAxis,
     pub max_iterations: i32,
     pub b_enable_limit: bool,
     pub min_rotation_angle: f32,
@@ -895,7 +898,7 @@ pub struct UIKRig_LimbSolver {
     pub pull_distribution: f32,
     pub reach_step_alpha: f32,
     pub b_enable_twist_correction: bool,
-    pub end_bone_forward_axis: EAxis,
+    pub end_bone_forward_axis: crate::bindings::core_u_object::EAxis,
     pub effector_deprecated: UPtr<UIKRig_LimbEffector>,
 }
 pub struct UIKRigPoleSolverController {}
@@ -919,4 +922,197 @@ pub struct UIKRig_SetTransform {
     pub goal: FName,
     pub root_bone: FName,
     pub effector_deprecated: UPtr<UIKRig_SetTransformEffector>,
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EIKRigGoalTransformSource(pub u8);
+impl EIKRigGoalTransformSource {
+    pub const MANUAL: EIKRigGoalTransformSource = EIKRigGoalTransformSource(0);
+    pub const BONE: EIKRigGoalTransformSource = EIKRigGoalTransformSource(1);
+    pub const ACTOR_COMPONENT: EIKRigGoalTransformSource = EIKRigGoalTransformSource(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EIKRigGoalSpace(pub u8);
+impl EIKRigGoalSpace {
+    pub const COMPONENT: EIKRigGoalSpace = EIKRigGoalSpace(0);
+    pub const ADDITIVE: EIKRigGoalSpace = EIKRigGoalSpace(1);
+    pub const WORLD: EIKRigGoalSpace = EIKRigGoalSpace(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ERetargetSourceMode(pub u8);
+impl ERetargetSourceMode {
+    pub const PARENT_SKELETAL_MESH_COMPONENT: ERetargetSourceMode = ERetargetSourceMode(
+        0,
+    );
+    pub const CUSTOM_SKELETAL_MESH_COMPONENT: ERetargetSourceMode = ERetargetSourceMode(
+        1,
+    );
+    pub const SOURCE_POSE_PIN: ERetargetSourceMode = ERetargetSourceMode(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ERetargetRotationMode(pub u8);
+impl ERetargetRotationMode {
+    pub const INTERPOLATED: ERetargetRotationMode = ERetargetRotationMode(0);
+    pub const ONE_TO_ONE: ERetargetRotationMode = ERetargetRotationMode(1);
+    pub const ONE_TO_ONE_REVERSED: ERetargetRotationMode = ERetargetRotationMode(2);
+    pub const MATCH_CHAIN: ERetargetRotationMode = ERetargetRotationMode(3);
+    pub const MATCH_SCALED_CHAIN: ERetargetRotationMode = ERetargetRotationMode(4);
+    pub const NONE: ERetargetRotationMode = ERetargetRotationMode(5);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EWarpingDirectionSource(pub i32);
+impl EWarpingDirectionSource {
+    pub const GOALS: EWarpingDirectionSource = EWarpingDirectionSource(0);
+    pub const CHAIN: EWarpingDirectionSource = EWarpingDirectionSource(1);
+    pub const ROOT_BONE: EWarpingDirectionSource = EWarpingDirectionSource(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EBasicAxis(pub i32);
+impl EBasicAxis {
+    pub const X: EBasicAxis = EBasicAxis(0);
+    pub const Y: EBasicAxis = EBasicAxis(1);
+    pub const Z: EBasicAxis = EBasicAxis(2);
+    pub const NEG_X: EBasicAxis = EBasicAxis(3);
+    pub const NEG_Y: EBasicAxis = EBasicAxis(4);
+    pub const NEG_Z: EBasicAxis = EBasicAxis(5);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ERetargetTranslationMode(pub u8);
+impl ERetargetTranslationMode {
+    pub const NONE: ERetargetTranslationMode = ERetargetTranslationMode(0);
+    pub const GLOBALLY_SCALED: ERetargetTranslationMode = ERetargetTranslationMode(1);
+    pub const ABSOLUTE: ERetargetTranslationMode = ERetargetTranslationMode(2);
+    pub const STRETCH_BONE_LENGTH_UNIFORMLY: ERetargetTranslationMode = ERetargetTranslationMode(
+        3,
+    );
+    pub const STRETCH_BONE_LENGTH_NON_UNIFORMLY: ERetargetTranslationMode = ERetargetTranslationMode(
+        4,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EFKChainRotationMode(pub u8);
+impl EFKChainRotationMode {
+    pub const NONE: EFKChainRotationMode = EFKChainRotationMode(5);
+    pub const INTERPOLATED: EFKChainRotationMode = EFKChainRotationMode(0);
+    pub const ONE_TO_ONE: EFKChainRotationMode = EFKChainRotationMode(1);
+    pub const ONE_TO_ONE_REVERSED: EFKChainRotationMode = EFKChainRotationMode(2);
+    pub const MATCH_CHAIN: EFKChainRotationMode = EFKChainRotationMode(3);
+    pub const MATCH_SCALED_CHAIN: EFKChainRotationMode = EFKChainRotationMode(4);
+    pub const COPY_LOCAL: EFKChainRotationMode = EFKChainRotationMode(6);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EFKChainTranslationMode(pub u8);
+impl EFKChainTranslationMode {
+    pub const NONE: EFKChainTranslationMode = EFKChainTranslationMode(0);
+    pub const GLOBALLY_SCALED: EFKChainTranslationMode = EFKChainTranslationMode(1);
+    pub const ABSOLUTE: EFKChainTranslationMode = EFKChainTranslationMode(2);
+    pub const STRETCH_BONE_LENGTH_UNIFORMLY: EFKChainTranslationMode = EFKChainTranslationMode(
+        3,
+    );
+    pub const STRETCH_BONE_LENGTH_NON_UNIFORMLY: EFKChainTranslationMode = EFKChainTranslationMode(
+        4,
+    );
+    pub const ORIENT_AND_SCALE: EFKChainTranslationMode = EFKChainTranslationMode(5);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ERetargetSourceOrTarget(pub u8);
+impl ERetargetSourceOrTarget {
+    pub const SOURCE: ERetargetSourceOrTarget = ERetargetSourceOrTarget(0);
+    pub const TARGET: ERetargetSourceOrTarget = ERetargetSourceOrTarget(1);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EPinBoneTranslationMode(pub u8);
+impl EPinBoneTranslationMode {
+    pub const COPY_GLOBAL_POSITION: EPinBoneTranslationMode = EPinBoneTranslationMode(0);
+    pub const COPY_LOCAL_POSITION: EPinBoneTranslationMode = EPinBoneTranslationMode(1);
+    pub const COPY_LOCAL_POSITION_RELATIVE_OFFSET: EPinBoneTranslationMode = EPinBoneTranslationMode(
+        2,
+    );
+    pub const COPY_LOCAL_POSITION_RELATIVE_SCALED: EPinBoneTranslationMode = EPinBoneTranslationMode(
+        3,
+    );
+    pub const COPY_GLOBAL_POSITION_AND_MAINTAIN_OFFSET: EPinBoneTranslationMode = EPinBoneTranslationMode(
+        4,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EPinBoneRotationMode(pub u8);
+impl EPinBoneRotationMode {
+    pub const COPY_GLOBAL_ROTATION: EPinBoneRotationMode = EPinBoneRotationMode(0);
+    pub const MAINTAIN_OFFSET_FROM_BONE_TO_COPY_FROM: EPinBoneRotationMode = EPinBoneRotationMode(
+        1,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ERootMotionSource(pub u8);
+impl ERootMotionSource {
+    pub const COPY_FROM_SOURCE_ROOT: ERootMotionSource = ERootMotionSource(0);
+    pub const GENERATE_FROM_TARGET_PELVIS: ERootMotionSource = ERootMotionSource(1);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ERootMotionHeightSource(pub u8);
+impl ERootMotionHeightSource {
+    pub const COPY_HEIGHT_FROM_SOURCE: ERootMotionHeightSource = ERootMotionHeightSource(
+        0,
+    );
+    pub const SNAP_TO_GROUND: ERootMotionHeightSource = ERootMotionHeightSource(1);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EScaleSourcePivot(pub u8);
+impl EScaleSourcePivot {
+    pub const COMPONENT_ORIGIN: EScaleSourcePivot = EScaleSourcePivot(0);
+    pub const BONE: EScaleSourcePivot = EScaleSourcePivot(1);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EStretchLimbRotationMode(pub u8);
+impl EStretchLimbRotationMode {
+    pub const NONE: EStretchLimbRotationMode = EStretchLimbRotationMode(0);
+    pub const ORIENT_TO_GOAL: EStretchLimbRotationMode = EStretchLimbRotationMode(1);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EStretchLimbSquashMode(pub u8);
+impl EStretchLimbSquashMode {
+    pub const NONE: EStretchLimbSquashMode = EStretchLimbSquashMode(0);
+    pub const UNIFORM: EStretchLimbSquashMode = EStretchLimbSquashMode(1);
+    pub const BULGE: EStretchLimbSquashMode = EStretchLimbSquashMode(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EAutoMapChainType(pub u8);
+impl EAutoMapChainType {
+    pub const EXACT: EAutoMapChainType = EAutoMapChainType(0);
+    pub const FUZZY: EAutoMapChainType = EAutoMapChainType(1);
+    pub const CLEAR: EAutoMapChainType = EAutoMapChainType(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EPinBoneType(pub u8);
+impl EPinBoneType {
+    pub const FULL_TRANSFORM: EPinBoneType = EPinBoneType(0);
+    pub const TRANSLATE_ONLY: EPinBoneType = EPinBoneType(1);
+    pub const ROTATE_ONLY: EPinBoneType = EPinBoneType(2);
+    pub const SCALE_ONLY: EPinBoneType = EPinBoneType(3);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EIKRigGoalPreviewMode(pub u8);
+impl EIKRigGoalPreviewMode {
+    pub const ADDITIVE: EIKRigGoalPreviewMode = EIKRigGoalPreviewMode(0);
+    pub const ABSOLUTE: EIKRigGoalPreviewMode = EIKRigGoalPreviewMode(1);
 }

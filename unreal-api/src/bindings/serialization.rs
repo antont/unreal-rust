@@ -2,7 +2,8 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
-pub use crate::bindings::prelude::*;
+pub use crate::bindings::opague_definitions::*;
+pub use crate::core_data::*;
 #[repr(C, align(8))]
 pub struct FStructSerializerNumericTestStruct {
     pub int8: i8,
@@ -24,80 +25,80 @@ pub struct FStructSerializerBooleanTestStruct {
 }
 #[repr(C, align(8))]
 pub struct FStructSerializerObjectTestStruct {
-    pub raw_class: TSubclassOf<UObject>,
-    pub wrapped_class: TSubclassOf<UObject>,
+    pub raw_class: TSubclassOf<crate::bindings::core_u_object::UObject>,
+    pub wrapped_class: TSubclassOf<crate::bindings::core_u_object::UObject>,
     pub sub_class: TSubclassOf<UObjectTest>,
-    pub soft_class: TSoftObjectPtr<UClass>,
-    pub raw_object: UPtr<UObject>,
-    pub wrapped_object: UPtr<UObject>,
+    pub soft_class: TSoftObjectPtr<crate::bindings::core_u_object::UClass>,
+    pub raw_object: UPtr<crate::bindings::core_u_object::UObject>,
+    pub wrapped_object: UPtr<crate::bindings::core_u_object::UObject>,
     pub weak_object: TWeakObjectPtr<UObjectTest>,
     pub soft_object: TSoftObjectPtr<UObjectTest>,
-    pub class_path: FSoftClassPath,
-    pub object_path: FSoftObjectPath,
+    pub class_path: crate::bindings::core_u_object::FSoftClassPath,
+    pub object_path: crate::bindings::core_u_object::FSoftObjectPath,
 }
 #[repr(C, align(16))]
 pub struct FStructSerializerBuiltinTestStruct {
-    pub guid: FGuid,
+    pub guid: crate::bindings::core_u_object::FGuid,
     pub name: FName,
     pub string: FString,
     pub text: FText,
-    pub datetime: FDateTime,
-    pub timespan: FTimespan,
-    pub vector: FVector,
-    pub vector4: FVector4,
-    pub rotator: FRotator,
-    pub quat: FQuat,
-    pub color: FColor,
+    pub datetime: crate::bindings::core_u_object::FDateTime,
+    pub timespan: crate::bindings::core_u_object::FTimespan,
+    pub vector: crate::bindings::core_u_object::FVector,
+    pub vector4: crate::bindings::core_u_object::FVector4,
+    pub rotator: crate::bindings::core_u_object::FRotator,
+    pub quat: crate::bindings::core_u_object::FQuat,
+    pub color: crate::bindings::core_u_object::FColor,
 }
 #[repr(C, align(16))]
 pub struct FStructSerializerLWCTypesTest {
-    pub vector: FVector,
-    pub vector2_d: FVector2D,
-    pub vector4: FVector4,
-    pub matrix: FMatrix,
-    pub plane: FPlane,
-    pub quat: FQuat,
-    pub rotator: FRotator,
-    pub transform: FTransform,
-    pub box_: FBox,
-    pub box2_d: FBox2D,
-    pub box_sphere_bounds: FBoxSphereBounds,
-    pub oriented_box: FOrientedBox,
+    pub vector: crate::bindings::core_u_object::FVector,
+    pub vector2_d: crate::bindings::core_u_object::FVector2D,
+    pub vector4: crate::bindings::core_u_object::FVector4,
+    pub matrix: crate::bindings::core_u_object::FMatrix,
+    pub plane: crate::bindings::core_u_object::FPlane,
+    pub quat: crate::bindings::core_u_object::FQuat,
+    pub rotator: crate::bindings::core_u_object::FRotator,
+    pub transform: crate::bindings::core_u_object::FTransform,
+    pub box_: crate::bindings::core_u_object::FBox,
+    pub box2_d: crate::bindings::core_u_object::FBox2D,
+    pub box_sphere_bounds: crate::bindings::core_u_object::FBoxSphereBounds,
+    pub oriented_box: crate::bindings::core_u_object::FOrientedBox,
     pub float: f32,
     pub double: f64,
-    pub vector_array: TArray<FVector>,
-    pub str_to_vec: TMap<FString, FVector>,
-    pub vector_set: TSet<FVector>,
+    pub vector_array: TArray<crate::bindings::core_u_object::FVector>,
+    pub str_to_vec: TMap<FString, crate::bindings::core_u_object::FVector>,
+    pub vector_set: TSet<crate::bindings::core_u_object::FVector>,
 }
 #[repr(C, align(4))]
 pub struct FOrientedBoxFloat {
-    pub center: FVector3f,
-    pub axis_x: FVector3f,
-    pub axis_y: FVector3f,
-    pub axis_z: FVector3f,
+    pub center: crate::bindings::core_u_object::FVector3f,
+    pub axis_x: crate::bindings::core_u_object::FVector3f,
+    pub axis_y: crate::bindings::core_u_object::FVector3f,
+    pub axis_z: crate::bindings::core_u_object::FVector3f,
     pub extent_x: f32,
     pub extent_y: f32,
     pub extent_z: f32,
 }
 #[repr(C, align(16))]
 pub struct FStructSerializerNonLWCTypesTest {
-    pub vector: FVector3f,
-    pub vector2_d: FVector2f,
-    pub vector4: FVector4f,
-    pub matrix: FMatrix44f,
-    pub plane: FPlane4f,
-    pub quat: FQuat4f,
-    pub rotator: FRotator3f,
-    pub transform: FTransform3f,
-    pub box_: FBox3f,
-    pub box2_d: FBox2f,
-    pub box_sphere_bounds: FBoxSphereBounds3f,
+    pub vector: crate::bindings::core_u_object::FVector3f,
+    pub vector2_d: crate::bindings::core_u_object::FVector2f,
+    pub vector4: crate::bindings::core_u_object::FVector4f,
+    pub matrix: crate::bindings::core_u_object::FMatrix44f,
+    pub plane: crate::bindings::core_u_object::FPlane4f,
+    pub quat: crate::bindings::core_u_object::FQuat4f,
+    pub rotator: crate::bindings::core_u_object::FRotator3f,
+    pub transform: crate::bindings::core_u_object::FTransform3f,
+    pub box_: crate::bindings::core_u_object::FBox3f,
+    pub box2_d: crate::bindings::core_u_object::FBox2f,
+    pub box_sphere_bounds: crate::bindings::core_u_object::FBoxSphereBounds3f,
     pub oriented_box: FOrientedBoxFloat,
     pub float: f32,
     pub double: f64,
-    pub vector_array: TArray<FVector3f>,
-    pub str_to_vec: TMap<FString, FVector3f>,
-    pub vector_set: TSet<FVector3f>,
+    pub vector_array: TArray<crate::bindings::core_u_object::FVector3f>,
+    pub str_to_vec: TMap<FString, crate::bindings::core_u_object::FVector3f>,
+    pub vector_set: TSet<crate::bindings::core_u_object::FVector3f>,
 }
 #[repr(C, align(8))]
 pub struct FStructSerializerByteArray {
@@ -114,14 +115,14 @@ pub struct FStructSerializerArrayTestStruct {
     pub static_single_element: i32,
     pub static_int32_array: i32,
     pub static_float_array: f32,
-    pub vector_array: TArray<FVector>,
+    pub vector_array: TArray<crate::bindings::core_u_object::FVector>,
     pub struct_array: TArray<FStructSerializerBuiltinTestStruct>,
 }
 #[repr(C, align(8))]
 pub struct FStructSerializerMapTestStruct {
     pub int_to_str: TMap<i32, FString>,
     pub str_to_str: TMap<FString, FString>,
-    pub str_to_vec: TMap<FString, FVector>,
+    pub str_to_vec: TMap<FString, crate::bindings::core_u_object::FVector>,
     pub str_to_struct: TMap<FString, FStructSerializerBuiltinTestStruct>,
 }
 #[repr(C, align(8))]

@@ -2,18 +2,19 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
-pub use crate::bindings::prelude::*;
+pub use crate::bindings::opague_definitions::*;
+pub use crate::core_data::*;
 #[repr(C, align(8))]
 pub struct FCustomTextFilterData {
     pub filter_label: FText,
     pub filter_string: FText,
-    pub filter_color: FLinearColor,
+    pub filter_color: crate::bindings::core_u_object::FLinearColor,
 }
 #[repr(C, align(4))]
 pub struct FToolWidget_DragBoxPosition {
-    pub relative_offset: FVector2f,
-    pub h_align: EHorizontalAlignment,
-    pub v_align: EVerticalAlignment,
+    pub relative_offset: crate::bindings::core_u_object::FVector2f,
+    pub h_align: crate::bindings::slate_core::EHorizontalAlignment,
+    pub v_align: crate::bindings::slate_core::EVerticalAlignment,
 }
 #[repr(C, align(8))]
 pub struct FExternalWidgetSelectionColumn {}
@@ -45,20 +46,27 @@ pub struct FSidebarState {
 }
 #[repr(C, align(16))]
 pub struct FActionButtonStyle {
-    pub button_style: FButtonStyle,
-    pub button_content_padding: TOptional<FMargin>,
-    pub combo_button_style: FComboButtonStyle,
+    pub button_style: crate::bindings::slate_core::FButtonStyle,
+    pub button_content_padding: TOptional<crate::bindings::slate_core::FMargin>,
+    pub combo_button_style: crate::bindings::slate_core::FComboButtonStyle,
     pub b_has_down_arrow: bool,
-    pub combo_button_content_padding: TOptional<FMargin>,
-    pub horizontal_content_alignment: EHorizontalAlignment,
-    pub text_block_style: FTextBlockStyle,
-    pub icon_brush: TOptional<FSlateBrush>,
-    pub icon_color_and_opacity: TOptional<FSlateColor>,
-    pub icon_normal_padding: TOptional<FMargin>,
-    pub icon_pressed_padding: TOptional<FMargin>,
+    pub combo_button_content_padding: TOptional<crate::bindings::slate_core::FMargin>,
+    pub horizontal_content_alignment: crate::bindings::slate_core::EHorizontalAlignment,
+    pub text_block_style: crate::bindings::slate_core::FTextBlockStyle,
+    pub icon_brush: TOptional<crate::bindings::slate_core::FSlateBrush>,
+    pub icon_color_and_opacity: TOptional<crate::bindings::slate_core::FSlateColor>,
+    pub icon_normal_padding: TOptional<crate::bindings::slate_core::FMargin>,
+    pub icon_pressed_padding: TOptional<crate::bindings::slate_core::FMargin>,
     pub action_button_type: FName,
-    pub icon_button_style: TOptional<FButtonStyle>,
+    pub icon_button_style: TOptional<crate::bindings::slate_core::FButtonStyle>,
 }
 pub struct UFilterBarContext {}
 pub struct USidebarButtonMenuContext {}
 pub struct UToolSlateWidgetTypesFunctionLibrary {}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EFilterBarLayout(pub u8);
+impl EFilterBarLayout {
+    pub const HORIZONTAL: EFilterBarLayout = EFilterBarLayout(0);
+    pub const VERTICAL: EFilterBarLayout = EFilterBarLayout(1);
+}

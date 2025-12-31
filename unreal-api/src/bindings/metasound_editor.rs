@@ -2,7 +2,8 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
-pub use crate::bindings::prelude::*;
+pub use crate::bindings::opague_definitions::*;
+pub use crate::core_data::*;
 #[repr(C, align(8))]
 pub struct FMetasoundEditorGraphMemberBreadcrumb {
     pub member_name: FName,
@@ -10,19 +11,22 @@ pub struct FMetasoundEditorGraphMemberBreadcrumb {
 }
 #[repr(C, align(8))]
 pub struct FMetasoundEditorGraphVertexBreadcrumb {
-    pub access_type: EMetasoundFrontendVertexAccessType,
-    pub default_literals: TMap<FGuid, FMetasoundFrontendLiteral>,
+    pub access_type: crate::bindings::metasound_frontend::EMetasoundFrontendVertexAccessType,
+    pub default_literals: TMap<
+        crate::bindings::core_u_object::FGuid,
+        crate::bindings::metasound_frontend::FMetasoundFrontendLiteral,
+    >,
     pub b_is_advanced_display: bool,
     pub sort_order_index: i32,
 }
 #[repr(C, align(8))]
 pub struct FMetasoundEditorGraphVariableBreadcrumb {
-    pub default_literal: FMetasoundFrontendLiteral,
+    pub default_literal: crate::bindings::metasound_frontend::FMetasoundFrontendLiteral,
 }
 #[repr(C, align(4))]
 pub struct FMetasoundEditorMemberPageDefault {
     pub page_name: FName,
-    pub page_id: FGuid,
+    pub page_id: crate::bindings::core_u_object::FGuid,
 }
 #[repr(C, align(1))]
 pub struct FMetasoundEditorGraphMemberDefaultBoolRef {
@@ -66,7 +70,7 @@ pub struct FMetasoundEditorMemberPageDefaultStringArray {
 }
 #[repr(C, align(8))]
 pub struct FMetasoundEditorGraphMemberDefaultObjectRef {
-    pub object: UPtr<UObject>,
+    pub object: UPtr<crate::bindings::core_u_object::UObject>,
 }
 #[repr(C, align(8))]
 pub struct FMetasoundEditorMemberPageDefaultObjectRef {
@@ -78,23 +82,28 @@ pub struct FMetasoundEditorMemberPageDefaultObjectArray {
 }
 #[repr(C, align(8))]
 pub struct FMetasoundEditorGraphNodeBreadcrumb {
-    pub class_name: FMetasoundFrontendClassName,
+    pub class_name: crate::bindings::metasound_frontend::FMetasoundFrontendClassName,
     pub b_is_class_native: bool,
-    pub node_configuration: FInstancedStruct,
-    pub template_params: TOptional<FNodeTemplateGenerateInterfaceParams>,
-    pub version: FMetasoundFrontendVersionNumber,
+    pub node_configuration: crate::bindings::core_u_object::FInstancedStruct,
+    pub template_params: TOptional<
+        crate::bindings::metasound_frontend::FNodeTemplateGenerateInterfaceParams,
+    >,
+    pub version: crate::bindings::metasound_frontend::FMetasoundFrontendVersionNumber,
 }
 #[repr(C, align(8))]
 pub struct FMetasoundEditorGraphMemberNodeBreadcrumb {
     pub member_name: FName,
     pub data_type: FName,
-    pub default_literals: TMap<FGuid, FMetasoundFrontendLiteral>,
-    pub vertex_metadata: FMetasoundFrontendVertexMetadata,
-    pub member_metadata_path: TOptional<FSoftObjectPath>,
+    pub default_literals: TMap<
+        crate::bindings::core_u_object::FGuid,
+        crate::bindings::metasound_frontend::FMetasoundFrontendLiteral,
+    >,
+    pub vertex_metadata: crate::bindings::metasound_frontend::FMetasoundFrontendVertexMetadata,
+    pub member_metadata_path: TOptional<crate::bindings::core_u_object::FSoftObjectPath>,
 }
 #[repr(C, align(8))]
 pub struct FMetasoundEditorGraphVertexNodeBreadcrumb {
-    pub access_type: EMetasoundFrontendVertexAccessType,
+    pub access_type: crate::bindings::metasound_frontend::EMetasoundFrontendVertexAccessType,
 }
 #[repr(C, align(8))]
 pub struct FMetasoundGraphSchemaAction {}
@@ -102,19 +111,19 @@ pub struct FMetasoundGraphSchemaAction {}
 pub struct FMetasoundGraphSchemaAction_NodeWithMultipleOutputs {}
 #[repr(C, align(8))]
 pub struct FMetasoundGraphSchemaAction_NewInput {
-    pub node_id: FGuid,
+    pub node_id: crate::bindings::core_u_object::FGuid,
 }
 #[repr(C, align(8))]
 pub struct FMetasoundGraphSchemaAction_PromoteToInput {}
 #[repr(C, align(8))]
 pub struct FMetasoundGraphSchemaAction_NewOutput {
-    pub node_id: FGuid,
+    pub node_id: crate::bindings::core_u_object::FGuid,
 }
 #[repr(C, align(8))]
 pub struct FMetasoundGraphSchemaAction_PromoteToOutput {}
 #[repr(C, align(8))]
 pub struct FMetasoundGraphSchemaAction_NewVariableNode {
-    pub variable_id: FGuid,
+    pub variable_id: crate::bindings::core_u_object::FGuid,
 }
 #[repr(C, align(8))]
 pub struct FMetasoundGraphSchemaAction_NewVariableAccessorNode {}
@@ -191,14 +200,14 @@ pub struct UMetasoundEditorGraphMember {
     pub type_name: FName,
 }
 pub struct UMetasoundEditorGraphVertex {
-    pub node_id: FGuid,
-    pub class_name: FMetasoundFrontendClassName,
+    pub node_id: crate::bindings::core_u_object::FGuid,
+    pub class_name: crate::bindings::metasound_frontend::FMetasoundFrontendClassName,
     pub breadcrumb: FMetasoundEditorGraphVertexBreadcrumb,
 }
 pub struct UMetasoundEditorGraphInput {}
 pub struct UMetasoundEditorGraphOutput {}
 pub struct UMetasoundEditorGraphVariable {
-    pub variable_id: FGuid,
+    pub variable_id: crate::bindings::core_u_object::FGuid,
     pub breadcrumb: FMetasoundEditorGraphVariableBreadcrumb,
 }
 pub struct UMetasoundEditorGraph {
@@ -207,13 +216,13 @@ pub struct UMetasoundEditorGraph {
     pub variables: TArray<UPtr<UMetasoundEditorGraphVariable>>,
 }
 pub struct UMetasoundEditorGraphCommentNode {
-    pub comment_id: FGuid,
+    pub comment_id: crate::bindings::core_u_object::FGuid,
 }
 pub struct UMetasoundEditorGraphNode {}
 pub struct UMetasoundEditorGraphMemberNode {}
 pub struct UMetasoundEditorGraphInputNode {
     pub input: UPtr<UMetasoundEditorGraphInput>,
-    pub node_id: FGuid,
+    pub node_id: crate::bindings::core_u_object::FGuid,
     pub breadcrumb: FMetasoundEditorGraphVertexNodeBreadcrumb,
 }
 pub struct UMetasoundEditorGraphMemberDefaultBool {
@@ -237,13 +246,13 @@ pub struct UMetasoundEditorGraphMemberDefaultFloat {
     pub default: f32,
     pub defaults: TArray<FMetasoundEditorMemberPageDefaultFloat>,
     pub clamp_default: bool,
-    pub range: FVector2D,
+    pub range: crate::bindings::core_u_object::FVector2D,
     pub widget_type: EMetasoundMemberDefaultWidget,
-    pub widget_orientation: EOrientation,
+    pub widget_orientation: crate::bindings::slate_core::EOrientation,
     pub widget_value_type_deprecated: EMetasoundMemberDefaultWidgetValueType,
-    pub widget_unit_value_type: EAudioUnitsValueType,
+    pub widget_unit_value_type: crate::bindings::audio_widgets::EAudioUnitsValueType,
     pub volume_widget_use_linear_output: bool,
-    pub volume_widget_decibel_range: FVector2D,
+    pub volume_widget_decibel_range: crate::bindings::core_u_object::FVector2D,
 }
 pub struct UMetasoundEditorGraphMemberDefaultFloatArray {
     pub defaults: TArray<FMetasoundEditorMemberPageDefaultFloatArray>,
@@ -271,14 +280,14 @@ pub struct UMetasoundEditorGraphOutputNode {
 }
 pub struct UMetasoundEditorGraphExternalNode {
     pub breadcrumb: FMetasoundEditorGraphNodeBreadcrumb,
-    pub class_name: FMetasoundFrontendClassName,
-    pub node_id: FGuid,
+    pub class_name: crate::bindings::metasound_frontend::FMetasoundFrontendClassName,
+    pub node_id: crate::bindings::core_u_object::FGuid,
     pub b_is_class_native: bool,
 }
 pub struct UMetasoundEditorGraphVariableNode {
-    pub class_type: EMetasoundFrontendClassType,
-    pub class_name: FMetasoundFrontendClassName,
-    pub node_id: FGuid,
+    pub class_type: crate::bindings::metasound_frontend::EMetasoundFrontendClassType,
+    pub class_name: crate::bindings::metasound_frontend::FMetasoundFrontendClassName,
+    pub node_id: crate::bindings::core_u_object::FGuid,
     pub variable: UPtr<UMetasoundEditorGraphVariable>,
     pub breadcrumb: FMetasoundEditorGraphMemberNodeBreadcrumb,
 }
@@ -291,36 +300,122 @@ pub struct UMetasoundEditorSettings {
     pub audition_page_mode: EAuditionPageMode,
     pub audition_platform: FName,
     pub audition_page: FName,
-    pub default_pin_type_color: FLinearColor,
-    pub audio_pin_type_color: FLinearColor,
-    pub boolean_pin_type_color: FLinearColor,
-    pub float_pin_type_color: FLinearColor,
-    pub int_pin_type_color: FLinearColor,
-    pub object_pin_type_color: FLinearColor,
-    pub string_pin_type_color: FLinearColor,
-    pub time_pin_type_color: FLinearColor,
-    pub trigger_pin_type_color: FLinearColor,
-    pub wave_table_pin_type_color: FLinearColor,
-    pub native_node_title_color: FLinearColor,
-    pub asset_reference_node_title_color: FLinearColor,
-    pub input_node_title_color: FLinearColor,
-    pub output_node_title_color: FLinearColor,
-    pub variable_node_title_color: FLinearColor,
-    pub spectrogram_settings: FSpectrogramRackUnitSettings,
-    pub spectrum_analyzer_settings: FSpectrumAnalyzerRackUnitSettings,
-    pub loudness_meter_settings: FLoudnessMeterRackUnitSettings,
+    pub default_pin_type_color: crate::bindings::core_u_object::FLinearColor,
+    pub audio_pin_type_color: crate::bindings::core_u_object::FLinearColor,
+    pub boolean_pin_type_color: crate::bindings::core_u_object::FLinearColor,
+    pub float_pin_type_color: crate::bindings::core_u_object::FLinearColor,
+    pub int_pin_type_color: crate::bindings::core_u_object::FLinearColor,
+    pub object_pin_type_color: crate::bindings::core_u_object::FLinearColor,
+    pub string_pin_type_color: crate::bindings::core_u_object::FLinearColor,
+    pub time_pin_type_color: crate::bindings::core_u_object::FLinearColor,
+    pub trigger_pin_type_color: crate::bindings::core_u_object::FLinearColor,
+    pub wave_table_pin_type_color: crate::bindings::core_u_object::FLinearColor,
+    pub native_node_title_color: crate::bindings::core_u_object::FLinearColor,
+    pub asset_reference_node_title_color: crate::bindings::core_u_object::FLinearColor,
+    pub input_node_title_color: crate::bindings::core_u_object::FLinearColor,
+    pub output_node_title_color: crate::bindings::core_u_object::FLinearColor,
+    pub variable_node_title_color: crate::bindings::core_u_object::FLinearColor,
+    pub spectrogram_settings: crate::bindings::audio_widgets::FSpectrogramRackUnitSettings,
+    pub spectrum_analyzer_settings: crate::bindings::audio_widgets::FSpectrumAnalyzerRackUnitSettings,
+    pub loudness_meter_settings: crate::bindings::audio_widgets::FLoudnessMeterRackUnitSettings,
     pub default_input_widget_type: EMetasoundMemberDefaultWidget,
     pub analyzer_animation_settings: FMetasoundAnalyzerAnimationSettings,
     pub detail_view: EMetasoundActiveDetailView,
     pub b_use_audio_material_widgets: bool,
-    pub knob_style_override: FSoftObjectPath,
-    pub slider_style_override: FSoftObjectPath,
-    pub button_style_override: FSoftObjectPath,
-    pub meter_style_override: FSoftObjectPath,
+    pub knob_style_override: crate::bindings::core_u_object::FSoftObjectPath,
+    pub slider_style_override: crate::bindings::core_u_object::FSoftObjectPath,
+    pub button_style_override: crate::bindings::core_u_object::FSoftObjectPath,
+    pub meter_style_override: crate::bindings::core_u_object::FSoftObjectPath,
 }
 pub struct UMetaSoundEditorSubsystem {}
 pub struct UMetaSoundBaseFactory {
-    pub referenced_meta_sound_object: UPtr<UObject>,
+    pub referenced_meta_sound_object: UPtr<crate::bindings::core_u_object::UObject>,
 }
 pub struct UMetaSoundFactory {}
 pub struct UMetaSoundSourceFactory {}
+pub struct FMetaSoundEditorBuilderListener_OnDocumentDisplayNameChangedDelegate;
+pub struct FMetaSoundEditorBuilderListener_OnDocumentDescriptionChangedDelegate;
+pub struct FMetaSoundEditorBuilderListener_OnDocumentAuthorChangedDelegate;
+pub struct FMetaSoundEditorBuilderListener_OnDocumentKeywordsChangedDelegate;
+pub struct FMetaSoundEditorBuilderListener_OnDocumentCategoryHierarchyChangedDelegate;
+pub struct FMetaSoundEditorBuilderListener_OnDocumentIsDeprecatedChangedDelegate;
+pub struct FMetaSoundEditorBuilderListener_OnGraphInputAddedDelegate;
+pub struct FMetaSoundEditorBuilderListener_OnRemovingGraphInputDelegate;
+pub struct FMetaSoundEditorBuilderListener_OnGraphInputNameChangedDelegate;
+pub struct FMetaSoundEditorBuilderListener_OnGraphInputDisplayNameChangedDelegate;
+pub struct FMetaSoundEditorBuilderListener_OnGraphInputDataTypeChangedDelegate;
+pub struct FMetaSoundEditorBuilderListener_OnGraphInputDescriptionChangedDelegate;
+pub struct FMetaSoundEditorBuilderListener_OnGraphInputSortOrderIndexChangedDelegate;
+pub struct FMetaSoundEditorBuilderListener_OnGraphInputIsConstructorPinChangedDelegate;
+pub struct FMetaSoundEditorBuilderListener_OnGraphInputIsAdvancedDisplayChangedDelegate;
+pub struct FMetaSoundEditorBuilderListener_OnGraphInputDefaultChangedDelegate;
+pub struct FMetaSoundEditorBuilderListener_OnGraphInputInheritsDefaultChangedDelegate;
+pub struct FMetaSoundEditorBuilderListener_OnGraphOutputAddedDelegate;
+pub struct FMetaSoundEditorBuilderListener_OnRemovingGraphOutputDelegate;
+pub struct FMetaSoundEditorBuilderListener_OnGraphOutputNameChangedDelegate;
+pub struct FMetaSoundEditorBuilderListener_OnGraphOutputDisplayNameChangedDelegate;
+pub struct FMetaSoundEditorBuilderListener_OnGraphOutputDataTypeChangedDelegate;
+pub struct FMetaSoundEditorBuilderListener_OnGraphOutputDescriptionChangedDelegate;
+pub struct FMetaSoundEditorBuilderListener_OnGraphOutputSortOrderIndexChangedDelegate;
+pub struct FMetaSoundEditorBuilderListener_OnGraphOutputIsConstructorPinChangedDelegate;
+pub struct FMetaSoundEditorBuilderListener_OnGraphOutputIsAdvancedDisplayChangedDelegate;
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EMetasoundActiveAnalyzerEnvelopeDirection(pub u8);
+impl EMetasoundActiveAnalyzerEnvelopeDirection {
+    pub const FROM_SOURCE_OUTPUT: EMetasoundActiveAnalyzerEnvelopeDirection = EMetasoundActiveAnalyzerEnvelopeDirection(
+        0,
+    );
+    pub const FROM_DESTINATION_INPUT: EMetasoundActiveAnalyzerEnvelopeDirection = EMetasoundActiveAnalyzerEnvelopeDirection(
+        1,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EMetasoundBoolMemberDefaultWidget(pub u8);
+impl EMetasoundBoolMemberDefaultWidget {
+    pub const NONE: EMetasoundBoolMemberDefaultWidget = EMetasoundBoolMemberDefaultWidget(
+        0,
+    );
+    pub const BUTTON: EMetasoundBoolMemberDefaultWidget = EMetasoundBoolMemberDefaultWidget(
+        1,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EMetasoundMemberDefaultWidget(pub u8);
+impl EMetasoundMemberDefaultWidget {
+    pub const NONE: EMetasoundMemberDefaultWidget = EMetasoundMemberDefaultWidget(0);
+    pub const SLIDER: EMetasoundMemberDefaultWidget = EMetasoundMemberDefaultWidget(1);
+    pub const RADIAL_SLIDER: EMetasoundMemberDefaultWidget = EMetasoundMemberDefaultWidget(
+        2,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EMetasoundMemberDefaultWidgetValueType(pub u8);
+impl EMetasoundMemberDefaultWidgetValueType {
+    pub const LINEAR: EMetasoundMemberDefaultWidgetValueType = EMetasoundMemberDefaultWidgetValueType(
+        0,
+    );
+    pub const FREQUENCY: EMetasoundMemberDefaultWidgetValueType = EMetasoundMemberDefaultWidgetValueType(
+        1,
+    );
+    pub const VOLUME: EMetasoundMemberDefaultWidgetValueType = EMetasoundMemberDefaultWidgetValueType(
+        2,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EAuditionPageMode(pub u8);
+impl EAuditionPageMode {
+    pub const FOCUSED: EAuditionPageMode = EAuditionPageMode(0);
+    pub const USER: EAuditionPageMode = EAuditionPageMode(1);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EMetasoundActiveDetailView(pub u8);
+impl EMetasoundActiveDetailView {
+    pub const METASOUND: EMetasoundActiveDetailView = EMetasoundActiveDetailView(0);
+    pub const GENERAL: EMetasoundActiveDetailView = EMetasoundActiveDetailView(1);
+}

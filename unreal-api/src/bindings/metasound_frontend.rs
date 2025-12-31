@@ -2,7 +2,8 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
-pub use crate::bindings::prelude::*;
+pub use crate::bindings::opague_definitions::*;
+pub use crate::core_data::*;
 #[repr(C, align(4))]
 pub struct FMetaSoundAssetKey {
     pub class_name: FMetasoundFrontendClassName,
@@ -40,7 +41,7 @@ pub struct FMetasoundFrontendInterfaceMetadata {
 }
 #[repr(C, align(4))]
 pub struct FMetasoundFrontendInterfaceUClassOptions {
-    pub class_path: FTopLevelAssetPath,
+    pub class_path: crate::bindings::core_u_object::FTopLevelAssetPath,
     pub b_is_modifiable: bool,
     pub b_is_default: bool,
 }
@@ -54,7 +55,7 @@ pub struct FMetaSoundDocumentInfo {
 pub struct FMetasoundCommentNodeIntVector {}
 #[repr(C, align(8))]
 pub struct FMetaSoundFrontendGraphComment {
-    pub color: FLinearColor,
+    pub color: crate::bindings::core_u_object::FLinearColor,
     pub comment: FString,
     pub depth: i32,
     pub font_size: i32,
@@ -67,16 +68,16 @@ pub struct FMetaSoundFrontendGraphComment {
 pub struct FMetasoundFrontendVertex {
     pub name: FName,
     pub type_name: FName,
-    pub vertex_id: FGuid,
+    pub vertex_id: crate::bindings::core_u_object::FGuid,
 }
 #[repr(C, align(4))]
 pub struct FMetasoundFrontendVertexHandle {
-    pub node_id: FGuid,
-    pub vertex_id: FGuid,
+    pub node_id: crate::bindings::core_u_object::FGuid,
+    pub vertex_id: crate::bindings::core_u_object::FGuid,
 }
 #[repr(C, align(8))]
 pub struct FMetasoundFrontendVertexLiteral {
-    pub vertex_id: FGuid,
+    pub vertex_id: crate::bindings::core_u_object::FGuid,
     pub value: FMetasoundFrontendLiteral,
 }
 #[repr(C, align(8))]
@@ -87,7 +88,7 @@ pub struct FMetasoundFrontendLiteral {
     pub as_integer: TArray<i32>,
     pub as_float: TArray<f32>,
     pub as_string: TArray<FString>,
-    pub as_u_object: TArray<UPtr<UObject>>,
+    pub as_u_object: TArray<UPtr<crate::bindings::core_u_object::UObject>>,
 }
 #[repr(C, align(8))]
 pub struct FMetasoundFrontendVariable {
@@ -96,11 +97,11 @@ pub struct FMetasoundFrontendVariable {
     pub description: FText,
     pub type_name: FName,
     pub literal: FMetasoundFrontendLiteral,
-    pub id: FGuid,
-    pub variable_node_id: FGuid,
-    pub mutator_node_id: FGuid,
-    pub accessor_node_i_ds: TArray<FGuid>,
-    pub deferred_accessor_node_i_ds: TArray<FGuid>,
+    pub id: crate::bindings::core_u_object::FGuid,
+    pub variable_node_id: crate::bindings::core_u_object::FGuid,
+    pub mutator_node_id: crate::bindings::core_u_object::FGuid,
+    pub accessor_node_i_ds: TArray<crate::bindings::core_u_object::FGuid>,
+    pub deferred_accessor_node_i_ds: TArray<crate::bindings::core_u_object::FGuid>,
 }
 #[repr(C, align(8))]
 pub struct FMetasoundFrontendNodeInterface {
@@ -113,7 +114,10 @@ pub struct FMetaSoundFrontendNodeConfiguration {}
 #[repr(C, align(8))]
 pub struct FMetasoundFrontendNodeStyleDisplay {
     pub visibility: EMetasoundFrontendNodeStyleDisplayVisibility,
-    pub locations: TMap<FGuid, FVector2D>,
+    pub locations: TMap<
+        crate::bindings::core_u_object::FGuid,
+        crate::bindings::core_u_object::FVector2D,
+    >,
     pub comment: FString,
     pub b_comment_visible: bool,
 }
@@ -126,19 +130,19 @@ pub struct FMetasoundFrontendNodeStyle {
 }
 #[repr(C, align(4))]
 pub struct FMetasoundFrontendEdge {
-    pub from_node_id: FGuid,
-    pub from_vertex_id: FGuid,
-    pub to_node_id: FGuid,
-    pub to_vertex_id: FGuid,
+    pub from_node_id: crate::bindings::core_u_object::FGuid,
+    pub from_vertex_id: crate::bindings::core_u_object::FGuid,
+    pub to_node_id: crate::bindings::core_u_object::FGuid,
+    pub to_vertex_id: crate::bindings::core_u_object::FGuid,
 }
 #[repr(C, align(8))]
 pub struct FMetasoundFrontendEdgeStyleLiteralColorPair {
     pub value: FMetasoundFrontendLiteral,
-    pub color: FLinearColor,
+    pub color: crate::bindings::core_u_object::FLinearColor,
 }
 #[repr(C, align(8))]
 pub struct FMetasoundFrontendEdgeStyle {
-    pub node_id: FGuid,
+    pub node_id: crate::bindings::core_u_object::FGuid,
     pub output_name: FName,
     pub literal_color_pairs: TArray<FMetasoundFrontendEdgeStyleLiteralColorPair>,
 }
@@ -146,7 +150,10 @@ pub struct FMetasoundFrontendEdgeStyle {
 pub struct FMetasoundFrontendGraphStyle {
     pub b_is_graph_editable: bool,
     pub edge_styles: TArray<FMetasoundFrontendEdgeStyle>,
-    pub comments: TMap<FGuid, FMetaSoundFrontendGraphComment>,
+    pub comments: TMap<
+        crate::bindings::core_u_object::FGuid,
+        FMetaSoundFrontendGraphComment,
+    >,
 }
 #[repr(C, align(8))]
 pub struct FMetasoundFrontendVertexMetadata {
@@ -160,7 +167,7 @@ pub struct FMetasoundFrontendVertexMetadata {
 }
 #[repr(C, align(8))]
 pub struct FMetasoundFrontendClassVertex {
-    pub node_id: FGuid,
+    pub node_id: crate::bindings::core_u_object::FGuid,
     pub metadata: FMetasoundFrontendVertexMetadata,
     pub access_type: EMetasoundFrontendVertexAccessType,
 }
@@ -175,7 +182,7 @@ pub struct FMetasoundFrontendClassStyleDisplay {
 #[repr(C, align(8))]
 pub struct FMetasoundFrontendClassInputDefault {
     pub literal: FMetasoundFrontendLiteral,
-    pub page_id: FGuid,
+    pub page_id: crate::bindings::core_u_object::FGuid,
 }
 #[repr(C, align(8))]
 pub struct FMetasoundFrontendClassInput {
@@ -206,7 +213,7 @@ pub struct FMetasoundFrontendClassInterface {
     pub inputs: TArray<FMetasoundFrontendClassInput>,
     pub outputs: TArray<FMetasoundFrontendClassOutput>,
     pub environment: TArray<FMetasoundFrontendClassEnvironmentVariable>,
-    pub change_id: FGuid,
+    pub change_id: crate::bindings::core_u_object::FGuid,
 }
 #[repr(C, align(4))]
 pub struct FMetasoundFrontendInterfaceVertexBinding {
@@ -245,29 +252,29 @@ pub struct FMetasoundFrontendClassMetadata {
     pub access_flags: u16,
     pub b_auto_update_manages_interface: bool,
     pub b_serialize_text: bool,
-    pub change_id: FGuid,
+    pub change_id: crate::bindings::core_u_object::FGuid,
 }
 #[repr(C, align(4))]
 pub struct FMetasoundFrontendClassStyle {
     pub display: FMetasoundFrontendClassStyleDisplay,
-    pub change_id: FGuid,
+    pub change_id: crate::bindings::core_u_object::FGuid,
 }
 #[repr(C, align(8))]
 pub struct FMetasoundFrontendClass {
-    pub id: FGuid,
+    pub id: crate::bindings::core_u_object::FGuid,
     pub metadata: FMetasoundFrontendClassMetadata,
     pub interface: FMetasoundFrontendClassInterface,
     pub style: FMetasoundFrontendClassStyle,
 }
 #[repr(C, align(8))]
 pub struct FMetasoundFrontendNode {
-    pub id: FGuid,
-    pub class_id: FGuid,
+    pub id: crate::bindings::core_u_object::FGuid,
+    pub class_id: crate::bindings::core_u_object::FGuid,
     pub name: FName,
     pub interface: FMetasoundFrontendNodeInterface,
     pub input_literals: TArray<FMetasoundFrontendVertexLiteral>,
-    pub configuration: FInstancedStruct,
-    pub class_interface_override: FInstancedStruct,
+    pub configuration: crate::bindings::core_u_object::FInstancedStruct,
+    pub class_interface_override: crate::bindings::core_u_object::FInstancedStruct,
     pub style: FMetasoundFrontendNodeStyle,
 }
 #[repr(C, align(8))]
@@ -281,7 +288,7 @@ pub struct FMetasoundFrontendGraph {
     pub edges: TArray<FMetasoundFrontendEdge>,
     pub variables: TArray<FMetasoundFrontendVariable>,
     pub style: FMetasoundFrontendGraphStyle,
-    pub page_id: FGuid,
+    pub page_id: crate::bindings::core_u_object::FGuid,
 }
 #[repr(C, align(8))]
 pub struct FMetasoundFrontendGraphClass {
@@ -292,7 +299,10 @@ pub struct FMetasoundFrontendGraphClass {
 #[repr(C, align(8))]
 pub struct FMetasoundFrontendDocumentMetadata {
     pub version: FMetasoundFrontendVersion,
-    pub member_metadata: TMap<FGuid, UPtr<UMetaSoundFrontendMemberMetadata>>,
+    pub member_metadata: TMap<
+        crate::bindings::core_u_object::FGuid,
+        UPtr<UMetaSoundFrontendMemberMetadata>,
+    >,
 }
 #[repr(C, align(8))]
 pub struct FMetasoundFrontendDocument {
@@ -308,7 +318,7 @@ pub struct FMetasoundFrontendDocument {
 #[repr(C, align(8))]
 pub struct FMetaSoundFrontendDocumentBuilder {
     pub document_interface: TScriptInterface<IMetaSoundDocumentInterface>,
-    pub build_page_id: FGuid,
+    pub build_page_id: crate::bindings::core_u_object::FGuid,
 }
 #[repr(C, align(8))]
 pub struct FNodeTemplateGenerateInterfaceParams {
@@ -345,11 +355,106 @@ pub struct FMetaSoundFrontendTemplateNodeConfiguration {}
 pub struct UMetaSoundDocumentInterface {}
 pub struct IMetaSoundDocumentInterface {}
 pub struct UMetaSoundFrontendMemberMetadata {
-    pub member_id: FGuid,
+    pub member_id: crate::bindings::core_u_object::FGuid,
 }
 pub struct UMetaSoundBuilderDocument {
     pub document: FMetasoundFrontendDocument,
-    pub meta_sound_u_class: TSubclassOf<UObject>,
-    pub builder_u_class: TSubclassOf<UObject>,
+    pub meta_sound_u_class: TSubclassOf<crate::bindings::core_u_object::UObject>,
+    pub builder_u_class: TSubclassOf<crate::bindings::core_u_object::UObject>,
 }
 pub struct UMetasoundParameterPack {}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EMetaSoundFrontendGraphCommentMoveMode(pub u8);
+impl EMetaSoundFrontendGraphCommentMoveMode {
+    pub const GROUP_MOVEMENT: EMetaSoundFrontendGraphCommentMoveMode = EMetaSoundFrontendGraphCommentMoveMode(
+        0,
+    );
+    pub const NO_GROUP_MOVEMENT: EMetaSoundFrontendGraphCommentMoveMode = EMetaSoundFrontendGraphCommentMoveMode(
+        1,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EMetasoundFrontendLiteralType(pub u8);
+impl EMetasoundFrontendLiteralType {
+    pub const NONE: EMetasoundFrontendLiteralType = EMetasoundFrontendLiteralType(0);
+    pub const BOOLEAN: EMetasoundFrontendLiteralType = EMetasoundFrontendLiteralType(1);
+    pub const INTEGER: EMetasoundFrontendLiteralType = EMetasoundFrontendLiteralType(2);
+    pub const FLOAT: EMetasoundFrontendLiteralType = EMetasoundFrontendLiteralType(3);
+    pub const STRING: EMetasoundFrontendLiteralType = EMetasoundFrontendLiteralType(4);
+    pub const U_OBJECT: EMetasoundFrontendLiteralType = EMetasoundFrontendLiteralType(5);
+    pub const NONE_ARRAY: EMetasoundFrontendLiteralType = EMetasoundFrontendLiteralType(
+        6,
+    );
+    pub const BOOLEAN_ARRAY: EMetasoundFrontendLiteralType = EMetasoundFrontendLiteralType(
+        7,
+    );
+    pub const INTEGER_ARRAY: EMetasoundFrontendLiteralType = EMetasoundFrontendLiteralType(
+        8,
+    );
+    pub const FLOAT_ARRAY: EMetasoundFrontendLiteralType = EMetasoundFrontendLiteralType(
+        9,
+    );
+    pub const STRING_ARRAY: EMetasoundFrontendLiteralType = EMetasoundFrontendLiteralType(
+        10,
+    );
+    pub const U_OBJECT_ARRAY: EMetasoundFrontendLiteralType = EMetasoundFrontendLiteralType(
+        11,
+    );
+    pub const INVALID: EMetasoundFrontendLiteralType = EMetasoundFrontendLiteralType(12);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EMetasoundFrontendNodeStyleDisplayVisibility(pub u8);
+impl EMetasoundFrontendNodeStyleDisplayVisibility {
+    pub const VISIBLE: EMetasoundFrontendNodeStyleDisplayVisibility = EMetasoundFrontendNodeStyleDisplayVisibility(
+        0,
+    );
+    pub const HIDDEN: EMetasoundFrontendNodeStyleDisplayVisibility = EMetasoundFrontendNodeStyleDisplayVisibility(
+        1,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EMetasoundFrontendVertexAccessType(pub i32);
+impl EMetasoundFrontendVertexAccessType {
+    pub const REFERENCE: EMetasoundFrontendVertexAccessType = EMetasoundFrontendVertexAccessType(
+        0,
+    );
+    pub const VALUE: EMetasoundFrontendVertexAccessType = EMetasoundFrontendVertexAccessType(
+        1,
+    );
+    pub const UNSET: EMetasoundFrontendVertexAccessType = EMetasoundFrontendVertexAccessType(
+        2,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EMetasoundFrontendClassType(pub u8);
+impl EMetasoundFrontendClassType {
+    pub const EXTERNAL: EMetasoundFrontendClassType = EMetasoundFrontendClassType(0);
+    pub const GRAPH: EMetasoundFrontendClassType = EMetasoundFrontendClassType(1);
+    pub const INPUT: EMetasoundFrontendClassType = EMetasoundFrontendClassType(2);
+    pub const OUTPUT: EMetasoundFrontendClassType = EMetasoundFrontendClassType(3);
+    pub const LITERAL: EMetasoundFrontendClassType = EMetasoundFrontendClassType(4);
+    pub const VARIABLE: EMetasoundFrontendClassType = EMetasoundFrontendClassType(5);
+    pub const VARIABLE_DEFERRED_ACCESSOR: EMetasoundFrontendClassType = EMetasoundFrontendClassType(
+        6,
+    );
+    pub const VARIABLE_ACCESSOR: EMetasoundFrontendClassType = EMetasoundFrontendClassType(
+        7,
+    );
+    pub const VARIABLE_MUTATOR: EMetasoundFrontendClassType = EMetasoundFrontendClassType(
+        8,
+    );
+    pub const TEMPLATE: EMetasoundFrontendClassType = EMetasoundFrontendClassType(9);
+    pub const INVALID: EMetasoundFrontendClassType = EMetasoundFrontendClassType(10);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ESetParamResult(pub u8);
+impl ESetParamResult {
+    pub const SUCCEEDED: ESetParamResult = ESetParamResult(0);
+    pub const FAILED: ESetParamResult = ESetParamResult(1);
+}

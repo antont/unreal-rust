@@ -2,7 +2,8 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
-pub use crate::bindings::prelude::*;
+pub use crate::bindings::opague_definitions::*;
+pub use crate::core_data::*;
 #[repr(C, align(4))]
 pub struct FAbcCompressionSettings {
     pub b_merge_meshes: bool,
@@ -45,8 +46,8 @@ pub struct FAbcConversionSettings {
     pub preset: EAbcConversionPreset,
     pub b_flip_u: bool,
     pub b_flip_v: bool,
-    pub scale: FVector,
-    pub rotation: FVector,
+    pub scale: crate::bindings::core_u_object::FVector,
+    pub rotation: crate::bindings::core_u_object::FVector,
 }
 #[repr(C, align(4))]
 pub struct FAbcGeometryCacheSettings {
@@ -80,3 +81,50 @@ pub struct UAbcImportSettings {
     pub conversion_settings: FAbcConversionSettings,
 }
 pub struct UAlembicTestCommandlet {}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EBaseCalculationType(pub u8);
+impl EBaseCalculationType {
+    pub const NONE: EBaseCalculationType = EBaseCalculationType(0);
+    pub const PERCENTAGE_BASED: EBaseCalculationType = EBaseCalculationType(1);
+    pub const FIXED_NUMBER: EBaseCalculationType = EBaseCalculationType(2);
+    pub const NO_COMPRESSION: EBaseCalculationType = EBaseCalculationType(3);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EAlembicSamplingType(pub u8);
+impl EAlembicSamplingType {
+    pub const PER_FRAME: EAlembicSamplingType = EAlembicSamplingType(0);
+    pub const PER_X_FRAMES: EAlembicSamplingType = EAlembicSamplingType(1);
+    pub const PER_TIME_STEP: EAlembicSamplingType = EAlembicSamplingType(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EAbcConversionPreset(pub u8);
+impl EAbcConversionPreset {
+    pub const MAYA: EAbcConversionPreset = EAbcConversionPreset(0);
+    pub const MAX: EAbcConversionPreset = EAbcConversionPreset(1);
+    pub const CUSTOM: EAbcConversionPreset = EAbcConversionPreset(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EAbcGeometryCacheMotionVectorsImport(pub u8);
+impl EAbcGeometryCacheMotionVectorsImport {
+    pub const NO_MOTION_VECTORS: EAbcGeometryCacheMotionVectorsImport = EAbcGeometryCacheMotionVectorsImport(
+        0,
+    );
+    pub const IMPORT_ABC_VELOCITIES_AS_MOTION_VECTORS: EAbcGeometryCacheMotionVectorsImport = EAbcGeometryCacheMotionVectorsImport(
+        1,
+    );
+    pub const CALCULATE_MOTION_VECTORS_DURING_IMPORT: EAbcGeometryCacheMotionVectorsImport = EAbcGeometryCacheMotionVectorsImport(
+        2,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EAlembicImportType(pub u8);
+impl EAlembicImportType {
+    pub const STATIC_MESH: EAlembicImportType = EAlembicImportType(0);
+    pub const GEOMETRY_CACHE: EAlembicImportType = EAlembicImportType(1);
+    pub const SKELETAL: EAlembicImportType = EAlembicImportType(2);
+}

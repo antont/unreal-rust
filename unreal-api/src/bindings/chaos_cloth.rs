@@ -2,14 +2,15 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
-pub use crate::bindings::prelude::*;
+pub use crate::bindings::opague_definitions::*;
+pub use crate::core_data::*;
 #[repr(C, align(4))]
 pub struct FChaosClothWeightedValue {
     pub low: f32,
     pub high: f32,
 }
 pub struct UChaosClothConfig {
-    pub mass_mode: EClothMassMode,
+    pub mass_mode: crate::bindings::clothing_system_runtime_common::EClothMassMode,
     pub uniform_mass: f32,
     pub total_mass: f32,
     pub density: f32,
@@ -49,16 +50,16 @@ pub struct UChaosClothConfig {
     pub outer_lift: FChaosClothWeightedValue,
     pub b_use_gravity_override: bool,
     pub gravity_scale: f32,
-    pub gravity: FVector,
+    pub gravity: crate::bindings::core_u_object::FVector,
     pub pressure: FChaosClothWeightedValue,
     pub anim_drive_stiffness: FChaosClothWeightedValue,
     pub anim_drive_damping: FChaosClothWeightedValue,
-    pub velocity_scale_space: EChaosSoftsSimulationSpace,
-    pub linear_velocity_scale: FVector,
+    pub velocity_scale_space: crate::bindings::chaos::EChaosSoftsSimulationSpace,
+    pub linear_velocity_scale: crate::bindings::core_u_object::FVector,
     pub b_enable_linear_velocity_clamping: bool,
-    pub max_linear_velocity: FVector3f,
+    pub max_linear_velocity: crate::bindings::core_u_object::FVector3f,
     pub b_enable_linear_acceleration_clamping: bool,
-    pub max_linear_acceleration: FVector3f,
+    pub max_linear_acceleration: crate::bindings::core_u_object::FVector3f,
     pub angular_velocity_scale: f32,
     pub b_enable_angular_velocity_clamping: bool,
     pub max_angular_velocity: f32,
@@ -88,10 +89,25 @@ pub struct UChaosClothSharedSimConfig {
     pub damping_deprecated: f32,
     pub b_use_gravity_override_deprecated: bool,
     pub gravity_scale_deprecated: f32,
-    pub gravity_deprecated: FVector,
+    pub gravity_deprecated: crate::bindings::core_u_object::FVector,
     pub b_use_local_space_simulation: bool,
     pub b_use_xpbd_constraints: bool,
 }
 pub struct UChaosClothingSimulationFactory {}
 pub struct UChaosClothingInteractor {}
 pub struct UChaosClothingSimulationInteractor {}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EChaosClothTetherMode(pub u8);
+impl EChaosClothTetherMode {
+    pub const FAST_TETHER_FAST_LENGTH: EChaosClothTetherMode = EChaosClothTetherMode(0);
+    pub const ACCURATE_TETHER_FAST_LENGTH: EChaosClothTetherMode = EChaosClothTetherMode(
+        1,
+    );
+    pub const ACCURATE_TETHER_ACCURATE_LENGTH: EChaosClothTetherMode = EChaosClothTetherMode(
+        2,
+    );
+    pub const MAX_CHAOS_CLOTH_TETHER_MODE: EChaosClothTetherMode = EChaosClothTetherMode(
+        3,
+    );
+}

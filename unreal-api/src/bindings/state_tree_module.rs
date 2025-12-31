@@ -2,15 +2,16 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
-pub use crate::bindings::prelude::*;
+pub use crate::bindings::opague_definitions::*;
+pub use crate::core_data::*;
 #[repr(C, align(8))]
 pub struct FStateTreeAnyEnum {
     pub value: u32,
-    pub enum_: UPtr<UEnum>,
+    pub enum_: UPtr<crate::bindings::core_u_object::UEnum>,
 }
 #[repr(C, align(4))]
 pub struct FStateTreeDelegateDispatcher {
-    pub id: FGuid,
+    pub id: crate::bindings::core_u_object::FGuid,
 }
 #[repr(C, align(4))]
 pub struct FStateTreeDelegateListener {
@@ -23,7 +24,7 @@ pub struct FExecutionRuntimeData {
 }
 #[repr(C, align(8))]
 pub struct FInstanceContainer {
-    pub instance_structs: FInstancedStructContainer,
+    pub instance_structs: crate::bindings::core_u_object::FInstancedStructContainer,
 }
 #[repr(C, align(8))]
 pub struct FStateTreeNodeBase {
@@ -56,7 +57,7 @@ pub struct FStateTreePropertyRef {
 pub struct FStateTreeBlueprintPropertyRef {
     pub ref_type: EStateTreePropertyRefType,
     pub flags_3: u8,
-    pub type_object: UPtr<UObject>,
+    pub type_object: UPtr<crate::bindings::core_u_object::UObject>,
 }
 #[repr(C, align(8))]
 pub struct FStateTreeConditionBase {
@@ -104,7 +105,7 @@ pub struct FStateTreeConditionCommonBase {}
 #[repr(C, align(8))]
 pub struct FStateTreeCompareIntCondition {
     pub b_invert: bool,
-    pub operator: EGenericAICheck,
+    pub operator: crate::bindings::ai_module::EGenericAICheck,
 }
 #[repr(C, align(8))]
 pub struct FStateTreeCompareFloatConditionInstanceData {
@@ -114,7 +115,7 @@ pub struct FStateTreeCompareFloatConditionInstanceData {
 #[repr(C, align(8))]
 pub struct FStateTreeCompareFloatCondition {
     pub b_invert: bool,
-    pub operator: EGenericAICheck,
+    pub operator: crate::bindings::ai_module::EGenericAICheck,
 }
 #[repr(C, align(1))]
 pub struct FStateTreeCompareBoolConditionInstanceData {
@@ -136,14 +137,14 @@ pub struct FStateTreeCompareEnumCondition {
 }
 #[repr(C, align(8))]
 pub struct FStateTreeCompareDistanceConditionInstanceData {
-    pub source: FVector,
-    pub target: FVector,
+    pub source: crate::bindings::core_u_object::FVector,
+    pub target: crate::bindings::core_u_object::FVector,
     pub distance: f64,
 }
 #[repr(C, align(8))]
 pub struct FStateTreeCompareDistanceCondition {
     pub b_invert: bool,
-    pub operator: EGenericAICheck,
+    pub operator: crate::bindings::ai_module::EGenericAICheck,
 }
 #[repr(C, align(4))]
 pub struct FStateTreeCompareNameConditionInstanceData {
@@ -162,8 +163,8 @@ pub struct FStateTreeRandomConditionInstanceData {
 pub struct FStateTreeRandomCondition {}
 #[repr(C, align(8))]
 pub struct FGameplayTagMatchConditionInstanceData {
-    pub tag_container: FGameplayTagContainer,
-    pub tag: FGameplayTag,
+    pub tag_container: crate::bindings::gameplay_tags::FGameplayTagContainer,
+    pub tag: crate::bindings::gameplay_tags::FGameplayTag,
 }
 #[repr(C, align(8))]
 pub struct FGameplayTagMatchCondition {
@@ -172,27 +173,27 @@ pub struct FGameplayTagMatchCondition {
 }
 #[repr(C, align(8))]
 pub struct FGameplayTagContainerMatchConditionInstanceData {
-    pub tag_container: FGameplayTagContainer,
-    pub other_container: FGameplayTagContainer,
+    pub tag_container: crate::bindings::gameplay_tags::FGameplayTagContainer,
+    pub other_container: crate::bindings::gameplay_tags::FGameplayTagContainer,
 }
 #[repr(C, align(8))]
 pub struct FGameplayTagContainerMatchCondition {
-    pub match_type: EGameplayContainerMatchType,
+    pub match_type: crate::bindings::gameplay_tags::EGameplayContainerMatchType,
     pub b_exact_match: bool,
     pub b_invert: bool,
 }
 #[repr(C, align(8))]
 pub struct FGameplayTagQueryConditionInstanceData {
-    pub tag_container: FGameplayTagContainer,
+    pub tag_container: crate::bindings::gameplay_tags::FGameplayTagContainer,
 }
 #[repr(C, align(8))]
 pub struct FGameplayTagQueryCondition {
-    pub tag_query: FGameplayTagQuery,
+    pub tag_query: crate::bindings::gameplay_tags::FGameplayTagQuery,
     pub b_invert: bool,
 }
 #[repr(C, align(8))]
 pub struct FStateTreeObjectIsValidConditionInstanceData {
-    pub object: UPtr<UObject>,
+    pub object: UPtr<crate::bindings::core_u_object::UObject>,
 }
 #[repr(C, align(8))]
 pub struct FStateTreeObjectIsValidCondition {
@@ -200,8 +201,8 @@ pub struct FStateTreeObjectIsValidCondition {
 }
 #[repr(C, align(8))]
 pub struct FStateTreeObjectEqualsConditionInstanceData {
-    pub left: UPtr<UObject>,
-    pub right: UPtr<UObject>,
+    pub left: UPtr<crate::bindings::core_u_object::UObject>,
+    pub right: UPtr<crate::bindings::core_u_object::UObject>,
 }
 #[repr(C, align(8))]
 pub struct FStateTreeObjectEqualsCondition {
@@ -209,8 +210,8 @@ pub struct FStateTreeObjectEqualsCondition {
 }
 #[repr(C, align(8))]
 pub struct FStateTreeObjectIsChildOfClassConditionInstanceData {
-    pub object: UPtr<UObject>,
-    pub class: TSubclassOf<UObject>,
+    pub object: UPtr<crate::bindings::core_u_object::UObject>,
+    pub class: TSubclassOf<crate::bindings::core_u_object::UObject>,
 }
 #[repr(C, align(8))]
 pub struct FStateTreeObjectIsChildOfClassCondition {
@@ -226,12 +227,12 @@ pub struct FStateTreeConsiderationCommonBase {}
 pub struct FStateTreeConstantConsideration {}
 #[repr(C, align(8))]
 pub struct FStateTreeConsiderationResponseCurve {
-    pub curve_info: FRuntimeFloatCurve,
+    pub curve_info: crate::bindings::engine::FRuntimeFloatCurve,
 }
 #[repr(C, align(4))]
 pub struct FStateTreeFloatInputConsiderationInstanceData {
     pub input: f32,
-    pub interval: FFloatInterval,
+    pub interval: crate::bindings::core_u_object::FFloatInterval,
 }
 #[repr(C, align(8))]
 pub struct FStateTreeFloatInputConsideration {
@@ -245,7 +246,7 @@ pub struct FStateTreeEnumValueScorePair {
 }
 #[repr(C, align(8))]
 pub struct FStateTreeEnumValueScorePairs {
-    pub enum_: UPtr<UEnum>,
+    pub enum_: UPtr<crate::bindings::core_u_object::UEnum>,
     pub data: TArray<FStateTreeEnumValueScorePair>,
 }
 #[repr(C, align(8))]
@@ -306,7 +307,7 @@ pub struct FStateTreeAbsoluteFloatPropertyFunction {}
 pub struct FStateTreeMakeIntervalPropertyFunctionInstanceData {
     pub min: f32,
     pub max: f32,
-    pub result: FFloatInterval,
+    pub result: crate::bindings::core_u_object::FFloatInterval,
 }
 #[repr(C, align(8))]
 pub struct FStateTreeMakeIntervalPropertyFunction {}
@@ -337,8 +338,8 @@ pub struct FStateTreeAbsoluteIntPropertyFunction {}
 pub struct FStateTreeEvaluatorCommonBase {}
 #[repr(C, align(8))]
 pub struct FStateTreeEvent {
-    pub tag: FGameplayTag,
-    pub payload: FInstancedStruct,
+    pub tag: crate::bindings::gameplay_tags::FGameplayTag,
+    pub payload: crate::bindings::core_u_object::FInstancedStruct,
     pub origin: FName,
 }
 #[repr(C, align(8))]
@@ -355,11 +356,11 @@ pub struct FStateTreeExternalDataHandle {
 }
 #[repr(C, align(8))]
 pub struct FStateTreeExternalDataDesc {
-    pub _struct: UPtr<UStruct>,
+    pub _struct: UPtr<crate::bindings::core_u_object::UStruct>,
     pub name: FName,
     pub handle: FStateTreeExternalDataHandle,
     pub requirement: EStateTreeExternalDataRequirement,
-    pub id: FGuid,
+    pub id: crate::bindings::core_u_object::FGuid,
 }
 #[repr(C, align(8))]
 pub struct FStateTreeTransitionRequest {
@@ -415,8 +416,8 @@ pub struct FStateTreeTasksCompletionStatus {}
 pub struct FStateTreeExecutionState {
     pub active_frames: TArray<FStateTreeExecutionFrame>,
     pub delayed_transitions: TArray<FStateTreeTransitionDelayedState>,
-    pub random_stream: FRandomStream,
-    pub execution_extension: FInstancedStruct,
+    pub random_stream: crate::bindings::core_u_object::FRandomStream,
+    pub execution_extension: crate::bindings::core_u_object::FInstancedStruct,
     pub last_tick_status: EStateTreeRunStatus,
     pub tree_run_status: EStateTreeRunStatus,
     pub requested_stop: EStateTreeRunStatus,
@@ -468,29 +469,29 @@ pub struct FRecordedStateTreeTransitionResult {
 }
 #[repr(C, align(8))]
 pub struct FStateTreeInstanceObjectWrapper {
-    pub instance_object: UPtr<UObject>,
+    pub instance_object: UPtr<crate::bindings::core_u_object::UObject>,
 }
 #[repr(C, align(8))]
 pub struct FStateTreeTemporaryInstanceData {
     pub data_handle: FStateTreeDataHandle,
     pub owner_node_index: FStateTreeIndex16,
-    pub instance: FInstancedStruct,
+    pub instance: crate::bindings::core_u_object::FInstancedStruct,
     pub state_tree: UPtr<UStateTree>,
     pub root_state: FStateTreeStateHandle,
 }
 #[repr(C, align(8))]
 pub struct FStateTreeInstanceStorage {
-    pub instance_structs: FInstancedStructContainer,
+    pub instance_structs: crate::bindings::core_u_object::FInstancedStructContainer,
     pub execution_state: FStateTreeExecutionState,
     pub execution_runtime_data: FInstanceContainer,
     pub temporary_instances: TArray<FStateTreeTemporaryInstanceData>,
     pub transition_requests: TArray<FStateTreeTransitionRequest>,
-    pub global_parameters: FInstancedPropertyBag,
+    pub global_parameters: crate::bindings::core_u_object::FInstancedPropertyBag,
     pub unique_id_generator: u32,
 }
 #[repr(C, align(8))]
 pub struct FStateTreeInstanceData {
-    pub instance_storage_deprecated: FInstancedStruct,
+    pub instance_storage_deprecated: crate::bindings::core_u_object::FInstancedStruct,
 }
 #[repr(C, align(8))]
 pub struct FStateTreeBindableStructDesc {
@@ -500,7 +501,7 @@ pub struct FStateTreeBindableStructDesc {
 }
 #[repr(C, align(8))]
 pub struct FStateTreeEditorPropertyPath {
-    pub struct_id: FGuid,
+    pub struct_id: crate::bindings::core_u_object::FGuid,
     pub path: TArray<FString>,
 }
 #[repr(C, align(8))]
@@ -512,13 +513,13 @@ pub struct FStateTreePropertyPathBinding {
 }
 #[repr(C, align(8))]
 pub struct FStateTreePropertyRefPath {
-    pub source_property_path: FPropertyBindingPath,
+    pub source_property_path: crate::bindings::property_binding_utils::FPropertyBindingPath,
     pub source_data_handle: FStateTreeDataHandle,
 }
 #[repr(C, align(8))]
 pub struct FStateTreePropertyAccess {
-    pub source_indirection: FPropertyBindingPropertyIndirection,
-    pub source_struct_type: UPtr<UStruct>,
+    pub source_indirection: crate::bindings::property_binding_utils::FPropertyBindingPropertyIndirection,
+    pub source_struct_type: UPtr<crate::bindings::core_u_object::UStruct>,
     pub source_data_handle: FStateTreeDataHandle,
 }
 #[repr(C, align(16))]
@@ -531,12 +532,12 @@ pub struct FStateTreePropertyBindings {
 #[repr(C, align(8))]
 pub struct FStateTreeReference {
     pub state_tree: UPtr<UStateTree>,
-    pub parameters: FInstancedPropertyBag,
-    pub property_overrides: TArray<FGuid>,
+    pub parameters: crate::bindings::core_u_object::FInstancedPropertyBag,
+    pub property_overrides: TArray<crate::bindings::core_u_object::FGuid>,
 }
 #[repr(C, align(8))]
 pub struct FStateTreeReferenceOverrideItem {
-    pub state_tag: FGameplayTag,
+    pub state_tag: crate::bindings::gameplay_tags::FGameplayTag,
     pub state_tree_reference: FStateTreeReference,
 }
 #[repr(C, align(8))]
@@ -552,8 +553,8 @@ pub struct FStateTreeRandomTimeDuration {
 }
 #[repr(C, align(8))]
 pub struct FCompactEventDesc {
-    pub payload_struct: UPtr<UScriptStruct>,
-    pub tag: FGameplayTag,
+    pub payload_struct: UPtr<crate::bindings::core_u_object::UScriptStruct>,
+    pub tag: crate::bindings::gameplay_tags::FGameplayTag,
 }
 #[repr(C, align(8))]
 pub struct FCompactStateTransition {
@@ -577,7 +578,7 @@ pub struct FCompactStateTreeFrame {
 pub struct FCompactStateTreeState {
     pub required_event_to_enter: FCompactEventDesc,
     pub name: FName,
-    pub tag: FGameplayTag,
+    pub tag: crate::bindings::gameplay_tags::FGameplayTag,
     pub linked_asset: UPtr<UStateTree>,
     pub linked_state: FStateTreeStateHandle,
     pub parent: FStateTreeStateHandle,
@@ -611,21 +612,21 @@ pub struct FCompactStateTreeState {
 }
 #[repr(C, align(8))]
 pub struct FCompactStateTreeParameters {
-    pub parameters: FInstancedPropertyBag,
+    pub parameters: crate::bindings::core_u_object::FInstancedPropertyBag,
 }
 #[repr(C, align(4))]
 pub struct FStateTreeStateIdToHandle {
-    pub id: FGuid,
+    pub id: crate::bindings::core_u_object::FGuid,
     pub handle: FStateTreeStateHandle,
 }
 #[repr(C, align(4))]
 pub struct FStateTreeNodeIdToIndex {
-    pub id: FGuid,
+    pub id: crate::bindings::core_u_object::FGuid,
     pub index: FStateTreeIndex16,
 }
 #[repr(C, align(4))]
 pub struct FStateTreeTransitionIdToIndex {
-    pub id: FGuid,
+    pub id: crate::bindings::core_u_object::FGuid,
     pub index: FStateTreeIndex16,
 }
 #[repr(C, align(8))]
@@ -633,7 +634,7 @@ pub struct FStateTreeStructRef {}
 #[repr(C, align(4))]
 pub struct FStateTreeStateLink {
     pub name: FName,
-    pub id: FGuid,
+    pub id: crate::bindings::core_u_object::FGuid,
     pub link_type: EStateTreeTransitionType,
     pub ty_deprecated: EStateTreeTransitionType,
     pub state_handle: FStateTreeStateHandle,
@@ -641,15 +642,15 @@ pub struct FStateTreeStateLink {
 }
 #[repr(C, align(8))]
 pub struct FStateTreeDebugTextTaskInstanceData {
-    pub reference_actor: UPtr<AActor>,
+    pub reference_actor: UPtr<crate::bindings::engine::AActor>,
     pub bindable_text: FString,
 }
 #[repr(C, align(8))]
 pub struct FStateTreeDebugTextTask {
     pub text: FString,
-    pub text_color: FColor,
+    pub text_color: crate::bindings::core_u_object::FColor,
     pub font_scale: f32,
-    pub offset: FVector,
+    pub offset: crate::bindings::core_u_object::FVector,
     pub b_enabled: bool,
 }
 #[repr(C, align(4))]
@@ -670,7 +671,7 @@ pub struct FStateTreeRunParallelStateTreeTaskInstanceData {
 pub struct FStateTreeRunParallelStateTreeExecutionExtension {}
 #[repr(C, align(8))]
 pub struct FStateTreeRunParallelStateTreeTask {
-    pub state_tree_override_tag: FGameplayTag,
+    pub state_tree_override_tag: crate::bindings::gameplay_tags::FGameplayTag,
     pub event_handling_priority: EStateTreeTransitionPriority,
 }
 #[repr(C, align(1))]
@@ -686,7 +687,7 @@ pub struct UStateTreeNodeBlueprintBase {
     pub cached_frame_state_tree: UPtr<UStateTree>,
     pub description: FText,
     pub icon_name: FName,
-    pub icon_color: FColor,
+    pub icon_color: crate::bindings::core_u_object::FColor,
 }
 pub struct UStateTreeConditionBlueprintBase {}
 pub struct UStateTreeConsiderationBlueprintBase {}
@@ -695,13 +696,13 @@ pub struct UStateTreeTaskBlueprintBase {
     pub flags_205: u8,
 }
 pub struct UStateTree {
-    pub editor_data: UPtr<UObject>,
+    pub editor_data: UPtr<crate::bindings::core_u_object::UObject>,
     pub last_compiled_editor_data_hash: u32,
     pub schema: UPtr<UStateTreeSchema>,
     pub frames: TArray<FCompactStateTreeFrame>,
     pub states: TArray<FCompactStateTreeState>,
     pub transitions: TArray<FCompactStateTransition>,
-    pub nodes: FInstancedStructContainer,
+    pub nodes: crate::bindings::core_u_object::FInstancedStructContainer,
     pub default_instance_data: FStateTreeInstanceData,
     pub default_evaluation_scope_instance_data: FInstanceContainer,
     pub default_execution_runtime_data: FInstanceContainer,
@@ -712,7 +713,7 @@ pub struct UStateTree {
     pub id_to_state_mappings: TArray<FStateTreeStateIdToHandle>,
     pub id_to_node_mappings: TArray<FStateTreeNodeIdToIndex>,
     pub id_to_transition_mappings: TArray<FStateTreeTransitionIdToIndex>,
-    pub parameters: FInstancedPropertyBag,
+    pub parameters: crate::bindings::core_u_object::FInstancedPropertyBag,
     pub external_data_descs: TArray<FStateTreeExternalDataDesc>,
     pub completion_global_tasks_mask: u32,
     pub num_context_data: u16,
@@ -728,3 +729,342 @@ pub struct UStateTree {
 pub struct UStateTreeExtension {}
 pub struct UStateTreeFunctionLibrary {}
 pub struct UStateTreeSchema {}
+pub struct FBindDelegate_Delegate;
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EStateTreeDataSourceType(pub u8);
+impl EStateTreeDataSourceType {
+    pub const NONE: EStateTreeDataSourceType = EStateTreeDataSourceType(0);
+    pub const GLOBAL_INSTANCE_DATA: EStateTreeDataSourceType = EStateTreeDataSourceType(
+        1,
+    );
+    pub const GLOBAL_INSTANCE_DATA_OBJECT: EStateTreeDataSourceType = EStateTreeDataSourceType(
+        2,
+    );
+    pub const ACTIVE_INSTANCE_DATA: EStateTreeDataSourceType = EStateTreeDataSourceType(
+        3,
+    );
+    pub const ACTIVE_INSTANCE_DATA_OBJECT: EStateTreeDataSourceType = EStateTreeDataSourceType(
+        4,
+    );
+    pub const SHARED_INSTANCE_DATA: EStateTreeDataSourceType = EStateTreeDataSourceType(
+        5,
+    );
+    pub const SHARED_INSTANCE_DATA_OBJECT: EStateTreeDataSourceType = EStateTreeDataSourceType(
+        6,
+    );
+    pub const EVALUATION_SCOPE_INSTANCE_DATA: EStateTreeDataSourceType = EStateTreeDataSourceType(
+        7,
+    );
+    pub const EVALUATION_SCOPE_INSTANCE_DATA_OBJECT: EStateTreeDataSourceType = EStateTreeDataSourceType(
+        8,
+    );
+    pub const EXECUTION_RUNTIME_DATA: EStateTreeDataSourceType = EStateTreeDataSourceType(
+        9,
+    );
+    pub const EXECUTION_RUNTIME_DATA_OBJECT: EStateTreeDataSourceType = EStateTreeDataSourceType(
+        10,
+    );
+    pub const CONTEXT_DATA: EStateTreeDataSourceType = EStateTreeDataSourceType(11);
+    pub const EXTERNAL_DATA: EStateTreeDataSourceType = EStateTreeDataSourceType(12);
+    pub const GLOBAL_PARAMETER_DATA: EStateTreeDataSourceType = EStateTreeDataSourceType(
+        13,
+    );
+    pub const SUBTREE_PARAMETER_DATA: EStateTreeDataSourceType = EStateTreeDataSourceType(
+        14,
+    );
+    pub const STATE_PARAMETER_DATA: EStateTreeDataSourceType = EStateTreeDataSourceType(
+        15,
+    );
+    pub const TRANSITION_EVENT: EStateTreeDataSourceType = EStateTreeDataSourceType(16);
+    pub const STATE_EVENT: EStateTreeDataSourceType = EStateTreeDataSourceType(17);
+    pub const EXTERNAL_GLOBAL_PARAMETER_DATA: EStateTreeDataSourceType = EStateTreeDataSourceType(
+        18,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EStateTreePropertyRefType(pub u8);
+impl EStateTreePropertyRefType {
+    pub const NONE: EStateTreePropertyRefType = EStateTreePropertyRefType(0);
+    pub const BOOL: EStateTreePropertyRefType = EStateTreePropertyRefType(1);
+    pub const BYTE: EStateTreePropertyRefType = EStateTreePropertyRefType(2);
+    pub const INT32: EStateTreePropertyRefType = EStateTreePropertyRefType(3);
+    pub const INT64: EStateTreePropertyRefType = EStateTreePropertyRefType(4);
+    pub const FLOAT: EStateTreePropertyRefType = EStateTreePropertyRefType(5);
+    pub const DOUBLE: EStateTreePropertyRefType = EStateTreePropertyRefType(6);
+    pub const NAME: EStateTreePropertyRefType = EStateTreePropertyRefType(7);
+    pub const STRING: EStateTreePropertyRefType = EStateTreePropertyRefType(8);
+    pub const TEXT: EStateTreePropertyRefType = EStateTreePropertyRefType(9);
+    pub const ENUM: EStateTreePropertyRefType = EStateTreePropertyRefType(10);
+    pub const STRUCT: EStateTreePropertyRefType = EStateTreePropertyRefType(11);
+    pub const OBJECT: EStateTreePropertyRefType = EStateTreePropertyRefType(12);
+    pub const SOFT_OBJECT: EStateTreePropertyRefType = EStateTreePropertyRefType(13);
+    pub const CLASS: EStateTreePropertyRefType = EStateTreePropertyRefType(14);
+    pub const SOFT_CLASS: EStateTreePropertyRefType = EStateTreePropertyRefType(15);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EStateTreeExpressionOperand(pub u8);
+impl EStateTreeExpressionOperand {
+    pub const COPY: EStateTreeExpressionOperand = EStateTreeExpressionOperand(0);
+    pub const AND: EStateTreeExpressionOperand = EStateTreeExpressionOperand(1);
+    pub const OR: EStateTreeExpressionOperand = EStateTreeExpressionOperand(2);
+    pub const MULTIPLY: EStateTreeExpressionOperand = EStateTreeExpressionOperand(3);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EStateTreeConditionEvaluationMode(pub u8);
+impl EStateTreeConditionEvaluationMode {
+    pub const EVALUATED: EStateTreeConditionEvaluationMode = EStateTreeConditionEvaluationMode(
+        0,
+    );
+    pub const FORCED_TRUE: EStateTreeConditionEvaluationMode = EStateTreeConditionEvaluationMode(
+        1,
+    );
+    pub const FORCED_FALSE: EStateTreeConditionEvaluationMode = EStateTreeConditionEvaluationMode(
+        2,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EStateTreeTransitionPriority(pub u8);
+impl EStateTreeTransitionPriority {
+    pub const NONE: EStateTreeTransitionPriority = EStateTreeTransitionPriority(0);
+    pub const LOW: EStateTreeTransitionPriority = EStateTreeTransitionPriority(1);
+    pub const NORMAL: EStateTreeTransitionPriority = EStateTreeTransitionPriority(2);
+    pub const MEDIUM: EStateTreeTransitionPriority = EStateTreeTransitionPriority(3);
+    pub const HIGH: EStateTreeTransitionPriority = EStateTreeTransitionPriority(4);
+    pub const CRITICAL: EStateTreeTransitionPriority = EStateTreeTransitionPriority(5);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EStateTreeExternalDataRequirement(pub u8);
+impl EStateTreeExternalDataRequirement {
+    pub const REQUIRED: EStateTreeExternalDataRequirement = EStateTreeExternalDataRequirement(
+        0,
+    );
+    pub const OPTIONAL: EStateTreeExternalDataRequirement = EStateTreeExternalDataRequirement(
+        1,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EStateTreeSelectionFallback(pub u8);
+impl EStateTreeSelectionFallback {
+    pub const NONE: EStateTreeSelectionFallback = EStateTreeSelectionFallback(0);
+    pub const NEXT_SELECTABLE_SIBLING: EStateTreeSelectionFallback = EStateTreeSelectionFallback(
+        1,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EStateTreeRunStatus(pub u8);
+impl EStateTreeRunStatus {
+    pub const RUNNING: EStateTreeRunStatus = EStateTreeRunStatus(0);
+    pub const STOPPED: EStateTreeRunStatus = EStateTreeRunStatus(1);
+    pub const SUCCEEDED: EStateTreeRunStatus = EStateTreeRunStatus(2);
+    pub const FAILED: EStateTreeRunStatus = EStateTreeRunStatus(3);
+    pub const UNSET: EStateTreeRunStatus = EStateTreeRunStatus(4);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EStateTreeUpdatePhase(pub u8);
+impl EStateTreeUpdatePhase {
+    pub const UNSET: EStateTreeUpdatePhase = EStateTreeUpdatePhase(0);
+    pub const START_TREE: EStateTreeUpdatePhase = EStateTreeUpdatePhase(1);
+    pub const STOP_TREE: EStateTreeUpdatePhase = EStateTreeUpdatePhase(2);
+    pub const START_GLOBAL_TASKS: EStateTreeUpdatePhase = EStateTreeUpdatePhase(3);
+    pub const START_GLOBAL_TASKS_FOR_SELECTION: EStateTreeUpdatePhase = EStateTreeUpdatePhase(
+        4,
+    );
+    pub const STOP_GLOBAL_TASKS: EStateTreeUpdatePhase = EStateTreeUpdatePhase(5);
+    pub const STOP_GLOBAL_TASKS_FOR_SELECTION: EStateTreeUpdatePhase = EStateTreeUpdatePhase(
+        6,
+    );
+    pub const TICK_STATE_TREE: EStateTreeUpdatePhase = EStateTreeUpdatePhase(7);
+    pub const APPLY_TRANSITIONS: EStateTreeUpdatePhase = EStateTreeUpdatePhase(8);
+    pub const TICK_TRANSITIONS: EStateTreeUpdatePhase = EStateTreeUpdatePhase(9);
+    pub const TRIGGER_TRANSITIONS: EStateTreeUpdatePhase = EStateTreeUpdatePhase(10);
+    pub const TICKING_GLOBAL_TASKS: EStateTreeUpdatePhase = EStateTreeUpdatePhase(11);
+    pub const TICKING_TASKS: EStateTreeUpdatePhase = EStateTreeUpdatePhase(12);
+    pub const TRANSITION_CONDITIONS: EStateTreeUpdatePhase = EStateTreeUpdatePhase(13);
+    pub const STATE_SELECTION: EStateTreeUpdatePhase = EStateTreeUpdatePhase(14);
+    pub const TRY_SELECT_BEHAVIOR: EStateTreeUpdatePhase = EStateTreeUpdatePhase(15);
+    pub const ENTER_CONDITIONS: EStateTreeUpdatePhase = EStateTreeUpdatePhase(16);
+    pub const ENTER_STATES: EStateTreeUpdatePhase = EStateTreeUpdatePhase(17);
+    pub const EXIT_STATES: EStateTreeUpdatePhase = EStateTreeUpdatePhase(18);
+    pub const STATE_COMPLETED: EStateTreeUpdatePhase = EStateTreeUpdatePhase(19);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EStateTreeStateChangeType(pub u8);
+impl EStateTreeStateChangeType {
+    pub const NONE: EStateTreeStateChangeType = EStateTreeStateChangeType(0);
+    pub const CHANGED: EStateTreeStateChangeType = EStateTreeStateChangeType(1);
+    pub const SUSTAINED: EStateTreeStateChangeType = EStateTreeStateChangeType(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EStateTreeBindableStructSource(pub u8);
+impl EStateTreeBindableStructSource {
+    pub const CONTEXT: EStateTreeBindableStructSource = EStateTreeBindableStructSource(
+        0,
+    );
+    pub const PARAMETER: EStateTreeBindableStructSource = EStateTreeBindableStructSource(
+        1,
+    );
+    pub const EVALUATOR: EStateTreeBindableStructSource = EStateTreeBindableStructSource(
+        2,
+    );
+    pub const GLOBAL_TASK: EStateTreeBindableStructSource = EStateTreeBindableStructSource(
+        3,
+    );
+    pub const STATE_PARAMETER: EStateTreeBindableStructSource = EStateTreeBindableStructSource(
+        4,
+    );
+    pub const TASK: EStateTreeBindableStructSource = EStateTreeBindableStructSource(5);
+    pub const CONDITION: EStateTreeBindableStructSource = EStateTreeBindableStructSource(
+        6,
+    );
+    pub const CONSIDERATION: EStateTreeBindableStructSource = EStateTreeBindableStructSource(
+        7,
+    );
+    pub const TRANSITION_EVENT: EStateTreeBindableStructSource = EStateTreeBindableStructSource(
+        8,
+    );
+    pub const STATE_EVENT: EStateTreeBindableStructSource = EStateTreeBindableStructSource(
+        9,
+    );
+    pub const PROPERTY_FUNCTION: EStateTreeBindableStructSource = EStateTreeBindableStructSource(
+        10,
+    );
+    pub const TRANSITION: EStateTreeBindableStructSource = EStateTreeBindableStructSource(
+        11,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EStateTreeTransitionTrigger(pub u8);
+impl EStateTreeTransitionTrigger {
+    pub const NONE: EStateTreeTransitionTrigger = EStateTreeTransitionTrigger(0);
+    pub const ON_STATE_COMPLETED: EStateTreeTransitionTrigger = EStateTreeTransitionTrigger(
+        3,
+    );
+    pub const ON_STATE_SUCCEEDED: EStateTreeTransitionTrigger = EStateTreeTransitionTrigger(
+        1,
+    );
+    pub const ON_STATE_FAILED: EStateTreeTransitionTrigger = EStateTreeTransitionTrigger(
+        2,
+    );
+    pub const ON_TICK: EStateTreeTransitionTrigger = EStateTreeTransitionTrigger(4);
+    pub const ON_EVENT: EStateTreeTransitionTrigger = EStateTreeTransitionTrigger(8);
+    pub const ON_DELEGATE: EStateTreeTransitionTrigger = EStateTreeTransitionTrigger(16);
+    pub const MAX: EStateTreeTransitionTrigger = EStateTreeTransitionTrigger(17);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EStateTreeTaskCompletionType(pub u8);
+impl EStateTreeTaskCompletionType {
+    pub const ALL: EStateTreeTaskCompletionType = EStateTreeTaskCompletionType(0);
+    pub const ANY: EStateTreeTaskCompletionType = EStateTreeTaskCompletionType(1);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EStateTreeStateType(pub u8);
+impl EStateTreeStateType {
+    pub const STATE: EStateTreeStateType = EStateTreeStateType(0);
+    pub const GROUP: EStateTreeStateType = EStateTreeStateType(1);
+    pub const LINKED: EStateTreeStateType = EStateTreeStateType(2);
+    pub const LINKED_ASSET: EStateTreeStateType = EStateTreeStateType(3);
+    pub const SUBTREE: EStateTreeStateType = EStateTreeStateType(4);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EStateTreeStateSelectionBehavior(pub u8);
+impl EStateTreeStateSelectionBehavior {
+    pub const NONE: EStateTreeStateSelectionBehavior = EStateTreeStateSelectionBehavior(
+        0,
+    );
+    pub const TRY_ENTER_STATE: EStateTreeStateSelectionBehavior = EStateTreeStateSelectionBehavior(
+        1,
+    );
+    pub const TRY_SELECT_CHILDREN_IN_ORDER: EStateTreeStateSelectionBehavior = EStateTreeStateSelectionBehavior(
+        2,
+    );
+    pub const TRY_SELECT_CHILDREN_AT_RANDOM: EStateTreeStateSelectionBehavior = EStateTreeStateSelectionBehavior(
+        3,
+    );
+    pub const TRY_SELECT_CHILDREN_WITH_HIGHEST_UTILITY: EStateTreeStateSelectionBehavior = EStateTreeStateSelectionBehavior(
+        4,
+    );
+    pub const TRY_SELECT_CHILDREN_AT_RANDOM_WEIGHTED_BY_UTILITY: EStateTreeStateSelectionBehavior = EStateTreeStateSelectionBehavior(
+        5,
+    );
+    pub const TRY_FOLLOW_TRANSITIONS: EStateTreeStateSelectionBehavior = EStateTreeStateSelectionBehavior(
+        6,
+    );
+    pub const TRY_SELECT_CHILDREN_AT_UNIFORM_RANDOM: EStateTreeStateSelectionBehavior = EStateTreeStateSelectionBehavior(
+        3,
+    );
+    pub const TRY_SELECT_CHILDREN_BASED_ON_RELATIVE_UTILITY: EStateTreeStateSelectionBehavior = EStateTreeStateSelectionBehavior(
+        5,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EStateTreeTransitionType(pub u8);
+impl EStateTreeTransitionType {
+    pub const NONE: EStateTreeTransitionType = EStateTreeTransitionType(0);
+    pub const SUCCEEDED: EStateTreeTransitionType = EStateTreeTransitionType(1);
+    pub const FAILED: EStateTreeTransitionType = EStateTreeTransitionType(2);
+    pub const GOTO_STATE: EStateTreeTransitionType = EStateTreeTransitionType(3);
+    pub const NEXT_STATE: EStateTreeTransitionType = EStateTreeTransitionType(4);
+    pub const NEXT_SELECTABLE_STATE: EStateTreeTransitionType = EStateTreeTransitionType(
+        5,
+    );
+    pub const NOT_SET: EStateTreeTransitionType = EStateTreeTransitionType(6);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EStateTreeBreakpointType(pub u8);
+impl EStateTreeBreakpointType {
+    pub const UNSET: EStateTreeBreakpointType = EStateTreeBreakpointType(0);
+    pub const ON_ENTER: EStateTreeBreakpointType = EStateTreeBreakpointType(1);
+    pub const ON_EXIT: EStateTreeBreakpointType = EStateTreeBreakpointType(2);
+    pub const ON_TRANSITION: EStateTreeBreakpointType = EStateTreeBreakpointType(3);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EStateTreeNodeFormatting(pub u8);
+impl EStateTreeNodeFormatting {
+    pub const RICH_TEXT: EStateTreeNodeFormatting = EStateTreeNodeFormatting(0);
+    pub const TEXT: EStateTreeNodeFormatting = EStateTreeNodeFormatting(1);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EStateTreeParameterDataType(pub u8);
+impl EStateTreeParameterDataType {
+    pub const GLOBAL_PARAMETER_DATA: EStateTreeParameterDataType = EStateTreeParameterDataType(
+        0,
+    );
+    pub const EXTERNAL_GLOBAL_PARAMETER_DATA: EStateTreeParameterDataType = EStateTreeParameterDataType(
+        1,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EStateTreeStateSelectionRules(pub u32);
+impl EStateTreeStateSelectionRules {
+    pub const NONE: EStateTreeStateSelectionRules = EStateTreeStateSelectionRules(0);
+    pub const COMPLETED_TRANSITION_STATES_CREATE_NEW_STATES: EStateTreeStateSelectionRules = EStateTreeStateSelectionRules(
+        1,
+    );
+    pub const COMPLETED_STATE_BEFORE_TRANSITION_SOURCE_FAILS_TRANSITION: EStateTreeStateSelectionRules = EStateTreeStateSelectionRules(
+        2,
+    );
+    pub const RESELECTED_STATE_CREATES_NEW_STATES: EStateTreeStateSelectionRules = EStateTreeStateSelectionRules(
+        4,
+    );
+    pub const DEFAULT: EStateTreeStateSelectionRules = EStateTreeStateSelectionRules(3);
+}

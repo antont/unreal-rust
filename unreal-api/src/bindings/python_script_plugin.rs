@@ -2,7 +2,8 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
-pub use crate::bindings::prelude::*;
+pub use crate::bindings::opague_definitions::*;
+pub use crate::core_data::*;
 #[repr(C, align(8))]
 pub struct FPyTestStruct {
     pub bool: bool,
@@ -89,7 +90,7 @@ pub struct UPyTestTypeHint {
     pub str_array_prop: TArray<FString>,
     pub name_array_prop: TArray<FName>,
     pub text_array_prop: TArray<FText>,
-    pub object_array_prop: TArray<UPtr<UObject>>,
+    pub object_array_prop: TArray<UPtr<crate::bindings::core_u_object::UObject>>,
     pub set_prop: TSet<FString>,
     pub map_prop: TMap<i32, FString>,
     pub delegate_prop: FPyTestTypeHint_DelegateProp,
@@ -101,7 +102,7 @@ pub struct UPythonScriptCommandlet {}
 pub struct UPythonScriptLibrary {}
 pub struct UPythonScriptPluginSettings {
     pub startup_scripts: TArray<FString>,
-    pub additional_paths: TArray<FDirectoryPath>,
+    pub additional_paths: TArray<crate::bindings::core_u_object::FDirectoryPath>,
     pub b_isolate_interpreter_environment: bool,
     pub b_developer_mode: bool,
     pub b_run_pip_install_on_startup: bool,
@@ -129,3 +130,63 @@ pub struct UPythonCallableForDelegate {}
 pub struct UPythonGeneratedEnum {}
 pub struct UPythonGeneratedClass {}
 pub struct UPythonGeneratedStruct {}
+pub struct FFuncTakingPyTestDelegate_InDelegate;
+pub struct FCheckDelegateTypeHints_Param1;
+pub struct FCheckDelegateTypeHints_ReturnValue;
+pub struct FPyTestObject_Delegate;
+pub struct FPyTestObject_MulticastDelegate;
+pub struct FPyTestStructDelegate_OnNameCollisionTestDelegate;
+pub struct FPyTestVectorDelegate_OnNameCollisionTestDelegate;
+pub struct FPyTestTypeHint_DelegateProp;
+pub struct FPyTestTypeHint_MulticastDelegateProp;
+pub struct FPyTestTypeHint_SlateTickDelegate;
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EPyTestEnum(pub u8);
+impl EPyTestEnum {
+    pub const ONE: EPyTestEnum = EPyTestEnum(0);
+    pub const TWO: EPyTestEnum = EPyTestEnum(1);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EPythonLogOutputType(pub u8);
+impl EPythonLogOutputType {
+    pub const INFO: EPythonLogOutputType = EPythonLogOutputType(0);
+    pub const WARNING: EPythonLogOutputType = EPythonLogOutputType(1);
+    pub const ERROR: EPythonLogOutputType = EPythonLogOutputType(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EPythonCommandExecutionMode(pub u8);
+impl EPythonCommandExecutionMode {
+    pub const EXECUTE_FILE: EPythonCommandExecutionMode = EPythonCommandExecutionMode(0);
+    pub const EXECUTE_STATEMENT: EPythonCommandExecutionMode = EPythonCommandExecutionMode(
+        1,
+    );
+    pub const EVALUATE_STATEMENT: EPythonCommandExecutionMode = EPythonCommandExecutionMode(
+        2,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EPythonFileExecutionScope(pub u8);
+impl EPythonFileExecutionScope {
+    pub const PRIVATE: EPythonFileExecutionScope = EPythonFileExecutionScope(0);
+    pub const PUBLIC: EPythonFileExecutionScope = EPythonFileExecutionScope(1);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EPythonEnabledOverrideState(pub u8);
+impl EPythonEnabledOverrideState {
+    pub const NONE: EPythonEnabledOverrideState = EPythonEnabledOverrideState(0);
+    pub const ENABLE: EPythonEnabledOverrideState = EPythonEnabledOverrideState(1);
+    pub const DISABLE: EPythonEnabledOverrideState = EPythonEnabledOverrideState(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ETypeHintingMode(pub u8);
+impl ETypeHintingMode {
+    pub const OFF: ETypeHintingMode = ETypeHintingMode(0);
+    pub const AUTO_COMPLETION: ETypeHintingMode = ETypeHintingMode(1);
+    pub const TYPE_CHECKER: ETypeHintingMode = ETypeHintingMode(2);
+}

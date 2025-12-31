@@ -2,27 +2,28 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
-pub use crate::bindings::prelude::*;
+pub use crate::bindings::opague_definitions::*;
+pub use crate::core_data::*;
 #[repr(C, align(8))]
 pub struct FFBIKBoneLimit {
     pub limit_type_x: EFBIKBoneLimitType,
     pub limit_type_y: EFBIKBoneLimitType,
     pub limit_type_z: EFBIKBoneLimitType,
-    pub limit: FVector,
+    pub limit: crate::bindings::core_u_object::FVector,
 }
 #[repr(C, align(8))]
 pub struct FFBIKConstraintOption {
-    pub item: FRigElementKey,
+    pub item: crate::bindings::control_rig::FRigElementKey,
     pub b_enabled: bool,
     pub b_use_stiffness: bool,
-    pub linear_stiffness: FVector,
-    pub angular_stiffness: FVector,
+    pub linear_stiffness: crate::bindings::core_u_object::FVector,
+    pub angular_stiffness: crate::bindings::core_u_object::FVector,
     pub b_use_angular_limit: bool,
     pub angular_limit: FFBIKBoneLimit,
     pub b_use_pole_vector: bool,
     pub pole_vector_option: EPoleVectorOption,
-    pub pole_vector: FVector,
-    pub offset_rotation: FRotator,
+    pub pole_vector: crate::bindings::core_u_object::FVector,
+    pub offset_rotation: crate::bindings::core_u_object::FRotator,
 }
 #[repr(C, align(1))]
 pub struct FMotionProcessInput {
@@ -37,7 +38,7 @@ pub struct FFBIKDebugOption {
     pub b_draw_debug_axes: bool,
     pub b_draw_debug_effector: bool,
     pub b_draw_debug_constraints: bool,
-    pub draw_world_offset: FTransform,
+    pub draw_world_offset: crate::bindings::core_u_object::FTransform,
     pub draw_size: f32,
 }
 #[repr(C, align(4))]
@@ -54,11 +55,11 @@ pub struct FSolverInput {
 }
 #[repr(C, align(16))]
 pub struct FFBIKEndEffector {
-    pub item: FRigElementKey,
-    pub position: FVector,
+    pub item: crate::bindings::control_rig::FRigElementKey,
+    pub position: crate::bindings::core_u_object::FVector,
     pub position_alpha: f32,
     pub position_depth: i32,
-    pub rotation: FQuat,
+    pub rotation: crate::bindings::core_u_object::FQuat,
     pub rotation_alpha: f32,
     pub rotation_depth: i32,
     pub pull: f32,
@@ -67,7 +68,7 @@ pub struct FFBIKEndEffector {
 pub struct FRigUnit_FullbodyIK_WorkData {}
 #[repr(C, align(16))]
 pub struct FRigUnit_FullbodyIK {
-    pub root: FRigElementKey,
+    pub root: crate::bindings::control_rig::FRigElementKey,
     pub effectors: TArray<FFBIKEndEffector>,
     pub constraints: TArray<FFBIKConstraintOption>,
     pub solver_property: FSolverInput,
@@ -75,4 +76,19 @@ pub struct FRigUnit_FullbodyIK {
     pub b_propagate_to_children: bool,
     pub debug_option: FFBIKDebugOption,
     pub work_data: FRigUnit_FullbodyIK_WorkData,
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EFBIKBoneLimitType(pub u8);
+impl EFBIKBoneLimitType {
+    pub const FREE: EFBIKBoneLimitType = EFBIKBoneLimitType(0);
+    pub const LIMIT: EFBIKBoneLimitType = EFBIKBoneLimitType(1);
+    pub const LOCKED: EFBIKBoneLimitType = EFBIKBoneLimitType(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EPoleVectorOption(pub u8);
+impl EPoleVectorOption {
+    pub const DIRECTION: EPoleVectorOption = EPoleVectorOption(0);
+    pub const LOCATION: EPoleVectorOption = EPoleVectorOption(1);
 }

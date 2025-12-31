@@ -2,7 +2,8 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
-pub use crate::bindings::prelude::*;
+pub use crate::bindings::opague_definitions::*;
+pub use crate::core_data::*;
 #[repr(C, align(4))]
 pub struct FTestFragment_Float {}
 #[repr(C, align(4))]
@@ -51,8 +52,8 @@ pub struct FTestTag_C {}
 pub struct FTestTag_D {}
 #[repr(C, align(8))]
 pub struct FFarmVisualDataRow {
-    pub mesh: UPtr<UStaticMesh>,
-    pub material_override: UPtr<UMaterialInterface>,
+    pub mesh: UPtr<crate::bindings::engine::UStaticMesh>,
+    pub material_override: UPtr<crate::bindings::engine::UMaterialInterface>,
 }
 #[repr(C, align(1))]
 pub struct FFarmJustBecameReadyToHarvestTag {}
@@ -95,21 +96,27 @@ pub struct UFarmHarvestTimerSystem_Flowers {}
 pub struct UFarmHarvestTimerSystem_Crops {}
 pub struct UFarmHarvestTimerExpired {}
 pub struct UFarmHarvestTimerSetIcon {
-    pub harvest_icon_ismc: UPtr<UHierarchicalInstancedStaticMeshComponent>,
+    pub harvest_icon_ismc: UPtr<
+        crate::bindings::engine::UHierarchicalInstancedStaticMeshComponent,
+    >,
 }
 pub struct AMassEntityTestFarmPlot {
     pub grid_cell_width: f32,
     pub grid_cell_height: f32,
     pub harvest_icon_scale: f32,
     pub visual_data_table: TArray<FFarmVisualDataRow>,
-    pub visual_data_ism_cs: TArray<UPtr<UHierarchicalInstancedStaticMeshComponent>>,
-    pub per_frame_systems: TArray<UPtr<UMassProcessor>>,
-    pub per_second_systems: TArray<UPtr<UMassProcessor>>,
+    pub visual_data_ism_cs: TArray<
+        UPtr<crate::bindings::engine::UHierarchicalInstancedStaticMeshComponent>,
+    >,
+    pub per_frame_systems: TArray<UPtr<crate::bindings::mass_entity::UMassProcessor>>,
+    pub per_second_systems: TArray<UPtr<crate::bindings::mass_entity::UMassProcessor>>,
     pub test_data_flower_indicies: TArray<u16>,
     pub test_data_crop_indicies: TArray<u16>,
     pub visual_near_cull_distance: u32,
     pub visual_far_cull_distance: u32,
     pub icon_near_cull_distance: u32,
     pub icon_far_cull_distance: u32,
-    pub harvest_icon_ismc: UPtr<UHierarchicalInstancedStaticMeshComponent>,
+    pub harvest_icon_ismc: UPtr<
+        crate::bindings::engine::UHierarchicalInstancedStaticMeshComponent,
+    >,
 }

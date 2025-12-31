@@ -2,7 +2,8 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
-pub use crate::bindings::prelude::*;
+pub use crate::bindings::opague_definitions::*;
+pub use crate::core_data::*;
 pub struct UMacTargetSettings {
     pub targeted_rh_is: TArray<FString>,
     pub editor_target_architecture: EMacTargetArchitecture,
@@ -31,22 +32,39 @@ pub struct UXcodeProjectSettings {
     pub code_signing_prefix: FString,
     pub application_display_name: FString,
     pub app_category: FString,
-    pub template_mac_plist: FFilePath,
-    pub template_ios_plist: FFilePath,
-    pub premade_mac_entitlements: FFilePath,
-    pub shipping_specific_mac_entitlements: FFilePath,
-    pub premade_ios_entitlements: FFilePath,
-    pub shipping_specific_ios_entitlements: FFilePath,
+    pub template_mac_plist: crate::bindings::core_u_object::FFilePath,
+    pub template_ios_plist: crate::bindings::core_u_object::FFilePath,
+    pub premade_mac_entitlements: crate::bindings::core_u_object::FFilePath,
+    pub shipping_specific_mac_entitlements: crate::bindings::core_u_object::FFilePath,
+    pub premade_ios_entitlements: crate::bindings::core_u_object::FFilePath,
+    pub shipping_specific_ios_entitlements: crate::bindings::core_u_object::FFilePath,
     pub b_use_automatic_code_signing: bool,
     pub b_mac_sign_to_run_locally: bool,
     pub mac_signing_identity: FString,
     pub ios_signing_identity: FString,
-    pub ios_provisioning_profile: FFilePath,
-    pub tvos_provisioning_profile: FFilePath,
+    pub ios_provisioning_profile: crate::bindings::core_u_object::FFilePath,
+    pub tvos_provisioning_profile: crate::bindings::core_u_object::FFilePath,
     pub b_use_app_store_connect: bool,
     pub app_store_connect_issuer_id: FString,
     pub app_store_connect_key_id: FString,
-    pub app_store_connect_key_path: FFilePath,
-    pub additional_privacy_info_mac: FFilePath,
-    pub additional_privacy_info_ios: FFilePath,
+    pub app_store_connect_key_path: crate::bindings::core_u_object::FFilePath,
+    pub additional_privacy_info_mac: crate::bindings::core_u_object::FFilePath,
+    pub additional_privacy_info_ios: crate::bindings::core_u_object::FFilePath,
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EMacTargetArchitecture(pub u8);
+impl EMacTargetArchitecture {
+    pub const MAC_TARGET_ARCHITECTURE_INTEL: EMacTargetArchitecture = EMacTargetArchitecture(
+        0,
+    );
+    pub const MAC_TARGET_ARCHITECTURE_UNIVERSAL: EMacTargetArchitecture = EMacTargetArchitecture(
+        1,
+    );
+    pub const MAC_TARGET_ARCHITECTURE_APPLE_SILICON: EMacTargetArchitecture = EMacTargetArchitecture(
+        2,
+    );
+    pub const MAC_TARGET_ARCHITECTURE_HOST: EMacTargetArchitecture = EMacTargetArchitecture(
+        3,
+    );
 }

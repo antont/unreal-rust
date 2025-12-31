@@ -2,7 +2,8 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
-pub use crate::bindings::prelude::*;
+pub use crate::bindings::opague_definitions::*;
+pub use crate::core_data::*;
 #[repr(C, align(4))]
 pub struct FPIERHIOverrideState {
     pub max_shadow_depth_buffer_size_x: i32,
@@ -82,4 +83,15 @@ pub struct UPIEPreviewDeviceSpecification {
     pub using_houdini: bool,
     pub hardware: FString,
     pub chipset: FString,
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EPIEPreviewDeviceType(pub u8);
+impl EPIEPreviewDeviceType {
+    pub const UNSET: EPIEPreviewDeviceType = EPIEPreviewDeviceType(0);
+    pub const ANDROID: EPIEPreviewDeviceType = EPIEPreviewDeviceType(1);
+    pub const IOS: EPIEPreviewDeviceType = EPIEPreviewDeviceType(2);
+    pub const TVOS: EPIEPreviewDeviceType = EPIEPreviewDeviceType(3);
+    pub const SWITCH: EPIEPreviewDeviceType = EPIEPreviewDeviceType(4);
+    pub const MAX: EPIEPreviewDeviceType = EPIEPreviewDeviceType(5);
 }

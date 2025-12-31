@@ -2,17 +2,18 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
-pub use crate::bindings::prelude::*;
+pub use crate::bindings::opague_definitions::*;
+pub use crate::core_data::*;
 #[repr(C, align(8))]
 pub struct FMultiControlRigElementSelection {
-    pub rigs: TArray<TWeakObjectPtr<UControlRig>>,
-    pub keys_per_rig: TArray<FRigElementKeyCollection>,
+    pub rigs: TArray<TWeakObjectPtr<crate::bindings::control_rig::UControlRig>>,
+    pub keys_per_rig: TArray<crate::bindings::control_rig::FRigElementKeyCollection>,
 }
 #[repr(C, align(8))]
 pub struct FControlRigInteractionTransformContext {
-    pub drag: FVector,
-    pub rot: FRotator,
-    pub scale: FVector,
+    pub drag: crate::bindings::core_u_object::FVector,
+    pub rot: crate::bindings::core_u_object::FRotator,
+    pub scale: crate::bindings::core_u_object::FVector,
     pub space: EControlRigInteractionTransformSpace,
 }
 #[repr(C, align(1))]
@@ -33,15 +34,15 @@ pub struct FControlRigUIRestoreStates {
 }
 #[repr(C, align(4))]
 pub struct FToolWidget_FlyoutSavedState {
-    pub position: FToolWidget_DragBoxPosition,
+    pub position: crate::bindings::tool_widgets::FToolWidget_DragBoxPosition,
     pub b_was_visible: bool,
 }
 #[repr(C, align(4))]
 pub struct FRigSpacePickerBakeSettings {
-    pub target_space: FRigElementKey,
-    pub settings: FBakingAnimationKeySettings,
-    pub start_frame_deprecated: FFrameNumber,
-    pub end_frame_deprecated: FFrameNumber,
+    pub target_space: crate::bindings::control_rig::FRigElementKey,
+    pub settings: crate::bindings::movie_scene_tools::FBakingAnimationKeySettings,
+    pub start_frame_deprecated: crate::bindings::core_u_object::FFrameNumber,
+    pub end_frame_deprecated: crate::bindings::core_u_object::FFrameNumber,
     pub b_reduce_keys_deprecated: bool,
     pub tolerance_deprecated: f32,
 }
@@ -55,17 +56,17 @@ pub struct FAIESelectionSetItemName {
 }
 #[repr(C, align(4))]
 pub struct FAIESelectionSetItemViewData {
-    pub color: FLinearColor,
+    pub color: crate::bindings::core_u_object::FLinearColor,
     pub row: i32,
     pub column: i32,
 }
 #[repr(C, align(8))]
 pub struct FAIESelectionSetItem {
-    pub guid: FGuid,
+    pub guid: crate::bindings::core_u_object::FGuid,
     pub item_name: FText,
     pub names: TArray<FAIESelectionSetItemName>,
     pub view_data: FAIESelectionSetItemViewData,
-    pub parent: FGuid,
+    pub parent: crate::bindings::core_u_object::FGuid,
 }
 #[repr(C, align(8))]
 pub struct FAnimDetailsSelectionPropertyData {
@@ -79,7 +80,7 @@ pub struct FAnimDetailsBool {
 }
 #[repr(C, align(8))]
 pub struct FAnimDetailsEnum {
-    pub enum_type: UPtr<UEnum>,
+    pub enum_type: UPtr<crate::bindings::core_u_object::UEnum>,
     pub enum_index: i32,
 }
 #[repr(C, align(8))]
@@ -121,32 +122,32 @@ pub struct FControlRigDrawContainerImportFbxSettings {
 }
 #[repr(C, align(8))]
 pub struct FControlRigSequencerBindingProxy {
-    pub proxy: FMovieSceneBindingProxy,
-    pub control_rig: UPtr<UControlRig>,
-    pub track: UPtr<UMovieSceneControlRigParameterTrack>,
+    pub proxy: crate::bindings::movie_scene::FMovieSceneBindingProxy,
+    pub control_rig: UPtr<crate::bindings::control_rig::UControlRig>,
+    pub track: UPtr<crate::bindings::control_rig::UMovieSceneControlRigParameterTrack>,
 }
 #[repr(C, align(8))]
 pub struct FControlRigRigHierarchyDragAndDropContext {
-    pub dragged_hierarchy_keys: TArray<FRigHierarchyKey>,
-    pub target_hierarchy_key: FRigHierarchyKey,
+    pub dragged_hierarchy_keys: TArray<crate::bindings::control_rig::FRigHierarchyKey>,
+    pub target_hierarchy_key: crate::bindings::control_rig::FRigHierarchyKey,
 }
 #[repr(C, align(8))]
 pub struct FControlRigGraphNodeContextMenuContext {
-    pub graph: UPtr<URigVMGraph>,
-    pub node: UPtr<URigVMNode>,
-    pub pin: UPtr<URigVMPin>,
+    pub graph: UPtr<crate::bindings::rig_vm_developer::URigVMGraph>,
+    pub node: UPtr<crate::bindings::rig_vm_developer::URigVMNode>,
+    pub pin: UPtr<crate::bindings::rig_vm_developer::URigVMPin>,
 }
 #[repr(C, align(8))]
 pub struct FControlRigRigHierarchyToGraphDragAndDropContext {
-    pub dragged_hierarchy_keys: TArray<FRigHierarchyKey>,
+    pub dragged_hierarchy_keys: TArray<crate::bindings::control_rig::FRigHierarchyKey>,
 }
 #[repr(C, align(8))]
 pub struct FRigHierarchyImportSettings {
-    pub mesh: UPtr<USkeletalMesh>,
+    pub mesh: UPtr<crate::bindings::engine::USkeletalMesh>,
 }
 #[repr(C, align(4))]
 pub struct FMergeAnimLayerSettings {
-    pub baking_key_settings: EBakingKeySettings,
+    pub baking_key_settings: crate::bindings::movie_scene_tools::EBakingKeySettings,
     pub frame_increment: i32,
     pub b_reduce_keys: bool,
     pub tolerance_percentage: f32,
@@ -157,23 +158,23 @@ pub struct FAnimLayerPropertyAndChannels {
 }
 #[repr(C, align(8))]
 pub struct FAnimLayerSelectionSet {
-    pub bound_object: TWeakObjectPtr<UObject>,
+    pub bound_object: TWeakObjectPtr<crate::bindings::core_u_object::UObject>,
     pub names: TMap<FName, FAnimLayerPropertyAndChannels>,
 }
 #[repr(C, align(8))]
 pub struct FAnimLayerSectionItem {
     pub anim_layer_set: FAnimLayerSelectionSet,
-    pub section: TWeakObjectPtr<UMovieSceneSection>,
+    pub section: TWeakObjectPtr<crate::bindings::movie_scene::UMovieSceneSection>,
 }
 #[repr(C, align(8))]
 pub struct FAnimLayerItem {
     pub section_items: TArray<FAnimLayerSectionItem>,
-    pub sequencer_guid: FGuid,
+    pub sequencer_guid: crate::bindings::core_u_object::FGuid,
 }
 #[repr(C, align(8))]
 pub struct FAnimLayerState {
-    pub b_keyed: ECheckBoxState,
-    pub b_selected: ECheckBoxState,
+    pub b_keyed: crate::bindings::slate_core::ECheckBoxState,
+    pub b_selected: crate::bindings::slate_core::ECheckBoxState,
     pub b_active: bool,
     pub b_lock: bool,
     pub name: FText,
@@ -182,12 +183,14 @@ pub struct FAnimLayerState {
 }
 #[repr(C, align(8))]
 pub struct FAnimLayerControlRigObject {
-    pub control_rig: TWeakObjectPtr<UControlRig>,
+    pub control_rig: TWeakObjectPtr<crate::bindings::control_rig::UControlRig>,
     pub control_names: TArray<FName>,
 }
 #[repr(C, align(4))]
 pub struct FAnimLayerSceneObject {
-    pub scene_object_or_component: TWeakObjectPtr<UObject>,
+    pub scene_object_or_component: TWeakObjectPtr<
+        crate::bindings::core_u_object::UObject,
+    >,
 }
 #[repr(C, align(8))]
 pub struct FAnimLayerObjects {
@@ -196,12 +199,12 @@ pub struct FAnimLayerObjects {
 }
 #[repr(C, align(8))]
 pub struct FControlRigForWorldTransforms {
-    pub control_rig: TWeakObjectPtr<UControlRig>,
+    pub control_rig: TWeakObjectPtr<crate::bindings::control_rig::UControlRig>,
     pub control_names: TArray<FName>,
 }
 #[repr(C, align(8))]
 pub struct FControlRigSnapperSelection {
-    pub actors: TArray<FActorForWorldTransforms>,
+    pub actors: TArray<crate::bindings::movie_scene::FActorForWorldTransforms>,
     pub control_rigs: TArray<FControlRigForWorldTransforms>,
 }
 pub struct UAnimDetailsOptionsMenuContext {}
@@ -211,10 +214,13 @@ pub struct UAnimDetailsSettings {
 }
 pub struct UAnimSequenceConverterFactory {}
 pub struct UConstraintCreationOptions {
-    pub sequencer_options: FSequencerCreationOptions,
+    pub sequencer_options: crate::bindings::movie_scene_tools::FSequencerCreationOptions,
 }
 pub struct UAIESelectionSets {
-    pub selection_sets: TMap<FGuid, FAIESelectionSetItem>,
+    pub selection_sets: TMap<
+        crate::bindings::core_u_object::FGuid,
+        FAIESelectionSetItem,
+    >,
     pub b_show_selected_only: bool,
 }
 pub struct UAnimDetailsProxyManager {
@@ -227,7 +233,7 @@ pub struct UAnimDetailsSelection {
 }
 pub struct UAnimDetailsProxyBase {
     pub display_name: FString,
-    pub shape: FRigUnit_HierarchyAddControl_ShapeSettings,
+    pub shape: crate::bindings::control_rig::FRigUnit_HierarchyAddControl_ShapeSettings,
 }
 pub struct UAnimDetailsProxyBool {
     pub bool: FAnimDetailsBool,
@@ -261,12 +267,12 @@ pub struct UAnimDetailsProxyVector2D {
 pub struct UBakeToControlRigSettings {
     pub b_reduce_keys: bool,
     pub tolerance: f32,
-    pub smart_reduce: FSmartReduceParams,
+    pub smart_reduce: crate::bindings::curve_editor::FSmartReduceParams,
     pub b_reset_controls: bool,
 }
 pub struct UControlRigBlueprintEditorLibrary {}
 pub struct UControlRigBlueprintFactory {
-    pub parent_class: TSubclassOf<UControlRig>,
+    pub parent_class: TSubclassOf<crate::bindings::control_rig::UControlRig>,
 }
 pub struct UControlRigShapeLibraryFactory {}
 pub struct UControlRigSequencerEditorLibrary {}
@@ -279,7 +285,7 @@ pub struct UControlRigEditModeSettings {
     pub b_hide_control_shapes: bool,
     pub b_show_all_proxy_controls: bool,
     pub b_show_controls_as_overlay: bool,
-    pub driven_control_color: FLinearColor,
+    pub driven_control_color: crate::bindings::core_u_object::FLinearColor,
     pub b_display_axes_on_selection: bool,
     pub axis_scale: f32,
     pub b_coord_system_per_widget_mode: bool,
@@ -287,15 +293,15 @@ pub struct UControlRigEditModeSettings {
     pub b_local_transforms_in_each_local_space: bool,
     pub gizmo_scale: f32,
     pub last_ui_states: FControlRigUIRestoreStates,
-    pub tween_out_of_focus_tint: FLinearColor,
+    pub tween_out_of_focus_tint: crate::bindings::core_u_object::FLinearColor,
     pub b_indirect_slider_movement_should_snap_slider_to_mouse: bool,
 }
 pub struct UControlRigContextMenuContext {}
 pub struct UControlRigSkeletalMeshComponent {}
 pub struct UControlRigWrapperObject {}
 pub struct URigConnectorTargetsDetailWrapper {
-    pub connector: FRigElementKey,
-    pub target_array: TArray<FRigElementKey>,
+    pub connector: crate::bindings::control_rig::FRigElementKey,
+    pub target_array: TArray<crate::bindings::control_rig::FRigElementKey>,
 }
 pub struct URigDependencyGraph {
     pub dependency_graph_nodes: TArray<UPtr<URigDependencyGraphNode>>,
@@ -310,7 +316,10 @@ pub struct UAnimLayerWeightProxy {
     pub weight: f64,
 }
 pub struct UAnimLayer {
-    pub anim_layer_items: TMap<TWeakObjectPtr<UObject>, FAnimLayerItem>,
+    pub anim_layer_items: TMap<
+        TWeakObjectPtr<crate::bindings::core_u_object::UObject>,
+        FAnimLayerItem,
+    >,
     pub state: FAnimLayerState,
     pub weight_proxy: UPtr<UAnimLayerWeightProxy>,
 }
@@ -322,14 +331,14 @@ pub struct UControlRigTrackFilter {}
 pub struct ULoadAnimToControlRigSettings {
     pub b_onto_selected_controls: bool,
     pub b_reduce_keys: bool,
-    pub smart_reduce: FSmartReduceParams,
+    pub smart_reduce: crate::bindings::curve_editor::FSmartReduceParams,
     pub b_use_custom_time_range: bool,
-    pub start_frame: FFrameNumber,
-    pub end_frame: FFrameNumber,
+    pub start_frame: crate::bindings::core_u_object::FFrameNumber,
+    pub end_frame: crate::bindings::core_u_object::FFrameNumber,
     pub b_reset_controls: bool,
 }
 pub struct USelectionSetsSettings {
-    pub custom_colors: TArray<FLinearColor>,
+    pub custom_colors: TArray<crate::bindings::core_u_object::FLinearColor>,
 }
 pub struct UAssetDefinition_ControlRigPose {}
 pub struct UControlRigPoseThumbnailRenderer {}
@@ -338,11 +347,66 @@ pub struct UControlRigSnapSettings {
     pub b_snap_position: bool,
     pub b_snap_rotation: bool,
     pub b_snap_scale: bool,
-    pub baking_key_settings: EBakingKeySettings,
+    pub baking_key_settings: crate::bindings::movie_scene_tools::EBakingKeySettings,
     pub frame_increment: i32,
     pub b_reduce_keys: bool,
     pub tolerance: f32,
 }
 pub struct UCreateControlPoseAssetRigSettings {
     pub asset_name: FString,
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EControlRigInteractionTransformSpace(pub i32);
+impl EControlRigInteractionTransformSpace {
+    pub const WORLD: EControlRigInteractionTransformSpace = EControlRigInteractionTransformSpace(
+        0,
+    );
+    pub const LOCAL: EControlRigInteractionTransformSpace = EControlRigInteractionTransformSpace(
+        1,
+    );
+    pub const PARENT: EControlRigInteractionTransformSpace = EControlRigInteractionTransformSpace(
+        2,
+    );
+    pub const EXPLICIT: EControlRigInteractionTransformSpace = EControlRigInteractionTransformSpace(
+        3,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EControlRigConstrainTab(pub u8);
+impl EControlRigConstrainTab {
+    pub const SPACES: EControlRigConstrainTab = EControlRigConstrainTab(0);
+    pub const CONSTRAINTS: EControlRigConstrainTab = EControlRigConstrainTab(1);
+    pub const SNAPPER: EControlRigConstrainTab = EControlRigConstrainTab(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ECastToControlRigBlueprintCases(pub u8);
+impl ECastToControlRigBlueprintCases {
+    pub const CAST_SUCCEEDED: ECastToControlRigBlueprintCases = ECastToControlRigBlueprintCases(
+        0,
+    );
+    pub const CAST_FAILED: ECastToControlRigBlueprintCases = ECastToControlRigBlueprintCases(
+        1,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EAnimToolBlendOperation(pub u8);
+impl EAnimToolBlendOperation {
+    pub const TWEEN: EAnimToolBlendOperation = EAnimToolBlendOperation(0);
+    pub const BLEND_TO_NEIGHBOR: EAnimToolBlendOperation = EAnimToolBlendOperation(1);
+    pub const PUSH_PULL: EAnimToolBlendOperation = EAnimToolBlendOperation(2);
+    pub const BLEND_RELATIVE: EAnimToolBlendOperation = EAnimToolBlendOperation(3);
+    pub const BLEND_TO_EASE: EAnimToolBlendOperation = EAnimToolBlendOperation(4);
+    pub const SMOOTH_ROUGH: EAnimToolBlendOperation = EAnimToolBlendOperation(5);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EAnimLayerType(pub u8);
+impl EAnimLayerType {
+    pub const BASE: EAnimLayerType = EAnimLayerType(0);
+    pub const ADDITIVE: EAnimLayerType = EAnimLayerType(1);
+    pub const OVERRIDE: EAnimLayerType = EAnimLayerType(2);
 }

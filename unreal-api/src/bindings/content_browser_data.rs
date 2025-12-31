@@ -2,7 +2,8 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
-pub use crate::bindings::prelude::*;
+pub use crate::bindings::opague_definitions::*;
+pub use crate::core_data::*;
 #[repr(C, align(8))]
 pub struct FContentBrowserDataFilter {
     pub b_recursive_paths: bool,
@@ -77,3 +78,94 @@ pub struct UContentBrowserDataSubsystem {
 }
 pub struct UContentBrowserItemLibrary {}
 pub struct UContentBrowserItemPathExtensions {}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EContentBrowserItemTypeFilter(pub u8);
+impl EContentBrowserItemTypeFilter {
+    pub const INCLUDE_NONE: EContentBrowserItemTypeFilter = EContentBrowserItemTypeFilter(
+        0,
+    );
+    pub const INCLUDE_FOLDERS: EContentBrowserItemTypeFilter = EContentBrowserItemTypeFilter(
+        1,
+    );
+    pub const INCLUDE_FILES: EContentBrowserItemTypeFilter = EContentBrowserItemTypeFilter(
+        2,
+    );
+    pub const INCLUDE_ALL: EContentBrowserItemTypeFilter = EContentBrowserItemTypeFilter(
+        3,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EContentBrowserItemCategoryFilter(pub u8);
+impl EContentBrowserItemCategoryFilter {
+    pub const INCLUDE_NONE: EContentBrowserItemCategoryFilter = EContentBrowserItemCategoryFilter(
+        0,
+    );
+    pub const INCLUDE_ASSETS: EContentBrowserItemCategoryFilter = EContentBrowserItemCategoryFilter(
+        1,
+    );
+    pub const INCLUDE_CLASSES: EContentBrowserItemCategoryFilter = EContentBrowserItemCategoryFilter(
+        2,
+    );
+    pub const INCLUDE_COLLECTIONS: EContentBrowserItemCategoryFilter = EContentBrowserItemCategoryFilter(
+        4,
+    );
+    pub const INCLUDE_REDIRECTORS: EContentBrowserItemCategoryFilter = EContentBrowserItemCategoryFilter(
+        8,
+    );
+    pub const INCLUDE_MISC: EContentBrowserItemCategoryFilter = EContentBrowserItemCategoryFilter(
+        16,
+    );
+    pub const INCLUDE_ALL: EContentBrowserItemCategoryFilter = EContentBrowserItemCategoryFilter(
+        31,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EContentBrowserItemAttributeFilter(pub u8);
+impl EContentBrowserItemAttributeFilter {
+    pub const INCLUDE_NONE: EContentBrowserItemAttributeFilter = EContentBrowserItemAttributeFilter(
+        0,
+    );
+    pub const INCLUDE_PROJECT: EContentBrowserItemAttributeFilter = EContentBrowserItemAttributeFilter(
+        1,
+    );
+    pub const INCLUDE_ENGINE: EContentBrowserItemAttributeFilter = EContentBrowserItemAttributeFilter(
+        2,
+    );
+    pub const INCLUDE_PLUGINS: EContentBrowserItemAttributeFilter = EContentBrowserItemAttributeFilter(
+        4,
+    );
+    pub const INCLUDE_DEVELOPER: EContentBrowserItemAttributeFilter = EContentBrowserItemAttributeFilter(
+        8,
+    );
+    pub const INCLUDE_LOCALIZED: EContentBrowserItemAttributeFilter = EContentBrowserItemAttributeFilter(
+        16,
+    );
+    pub const INCLUDE_ALL: EContentBrowserItemAttributeFilter = EContentBrowserItemAttributeFilter(
+        31,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EContentBrowserPathType(pub u8);
+impl EContentBrowserPathType {
+    pub const NONE: EContentBrowserPathType = EContentBrowserPathType(0);
+    pub const INTERNAL: EContentBrowserPathType = EContentBrowserPathType(1);
+    pub const VIRTUAL: EContentBrowserPathType = EContentBrowserPathType(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EContentBrowserDataMenuContext_AddNewMenuDomain(pub u8);
+impl EContentBrowserDataMenuContext_AddNewMenuDomain {
+    pub const TOOLBAR: EContentBrowserDataMenuContext_AddNewMenuDomain = EContentBrowserDataMenuContext_AddNewMenuDomain(
+        0,
+    );
+    pub const ASSET_VIEW: EContentBrowserDataMenuContext_AddNewMenuDomain = EContentBrowserDataMenuContext_AddNewMenuDomain(
+        1,
+    );
+    pub const PATH_VIEW: EContentBrowserDataMenuContext_AddNewMenuDomain = EContentBrowserDataMenuContext_AddNewMenuDomain(
+        2,
+    );
+}

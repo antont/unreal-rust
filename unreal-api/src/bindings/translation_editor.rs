@@ -2,11 +2,12 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
-pub use crate::bindings::prelude::*;
+pub use crate::bindings::opague_definitions::*;
+pub use crate::core_data::*;
 #[repr(C, align(8))]
 pub struct FTranslationChange {
     pub version: FString,
-    pub date_and_time: FDateTime,
+    pub date_and_time: crate::bindings::core_u_object::FDateTime,
     pub source: FString,
     pub translation: FString,
 }

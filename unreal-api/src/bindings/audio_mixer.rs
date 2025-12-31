@@ -2,7 +2,8 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
-pub use crate::bindings::prelude::*;
+pub use crate::bindings::opague_definitions::*;
+pub use crate::core_data::*;
 #[repr(C, align(8))]
 pub struct FAudioOutputDeviceInfo {
     pub name: FString,
@@ -38,8 +39,8 @@ pub struct FSubmixEffectDynamicsProcessorSettings {
     pub attack_time_msec: f32,
     pub release_time_msec: f32,
     pub key_source: ESubmixEffectDynamicsKeySource,
-    pub external_audio_bus: UPtr<UAudioBus>,
-    pub external_submix: UPtr<USoundSubmix>,
+    pub external_audio_bus: UPtr<crate::bindings::engine::UAudioBus>,
+    pub external_submix: UPtr<crate::bindings::engine::USoundSubmix>,
     pub flags_56: u8,
     pub key_gain_db: f32,
     pub output_gain_db: f32,
@@ -92,23 +93,27 @@ pub struct USynthSound {
 pub struct USynthComponent {
     pub flags_656: u8,
     pub flags_660: u8,
-    pub attenuation_settings: UPtr<USoundAttenuation>,
-    pub attenuation_overrides: FSoundAttenuationSettings,
-    pub concurrency_settings_deprecated: UPtr<USoundConcurrency>,
-    pub concurrency_set: TSet<UPtr<USoundConcurrency>>,
-    pub modulation_routing: FSoundModulationDefaultRoutingSettings,
-    pub sound_class: UPtr<USoundClass>,
-    pub source_effect_chain: UPtr<USoundEffectSourcePresetChain>,
-    pub sound_submix: UPtr<USoundSubmixBase>,
-    pub sound_submix_sends: TArray<FSoundSubmixSendInfo>,
-    pub bus_sends: TArray<FSoundSourceBusSendInfo>,
-    pub pre_effect_bus_sends: TArray<FSoundSourceBusSendInfo>,
+    pub attenuation_settings: UPtr<crate::bindings::engine::USoundAttenuation>,
+    pub attenuation_overrides: crate::bindings::engine::FSoundAttenuationSettings,
+    pub concurrency_settings_deprecated: UPtr<
+        crate::bindings::engine::USoundConcurrency,
+    >,
+    pub concurrency_set: TSet<UPtr<crate::bindings::engine::USoundConcurrency>>,
+    pub modulation_routing: crate::bindings::engine::FSoundModulationDefaultRoutingSettings,
+    pub sound_class: UPtr<crate::bindings::engine::USoundClass>,
+    pub source_effect_chain: UPtr<
+        crate::bindings::engine::USoundEffectSourcePresetChain,
+    >,
+    pub sound_submix: UPtr<crate::bindings::engine::USoundSubmixBase>,
+    pub sound_submix_sends: TArray<crate::bindings::engine::FSoundSubmixSendInfo>,
+    pub bus_sends: TArray<crate::bindings::engine::FSoundSourceBusSendInfo>,
+    pub pre_effect_bus_sends: TArray<crate::bindings::engine::FSoundSourceBusSendInfo>,
     pub flags_2248: u8,
     pub envelope_follower_attack_time: i32,
     pub envelope_follower_release_time: i32,
     pub on_audio_envelope_value: FSynthComponent_OnAudioEnvelopeValue,
     pub synth: UPtr<USynthSound>,
-    pub audio_component: UPtr<UAudioComponent>,
+    pub audio_component: UPtr<crate::bindings::engine::UAudioComponent>,
 }
 pub struct USubmixEffectDynamicsProcessorPreset {
     pub settings: FSubmixEffectDynamicsProcessorSettings,
@@ -121,7 +126,190 @@ pub struct USubmixEffectReverbPreset {
 }
 pub struct UAudioGenerator {}
 pub struct UScrubbedSound {
-    pub sound_wave_to_scrub: UPtr<USoundWave>,
+    pub sound_wave_to_scrub: UPtr<crate::bindings::engine::USoundWave>,
 }
 pub struct UQuartzClockHandle {}
 pub struct UQuartzSubsystem {}
+pub struct FGetAvailableAudioOutputDevices_OnObtainDevicesEvent;
+pub struct FGetCurrentAudioOutputDeviceName_OnObtainCurrentDeviceEvent;
+pub struct FPrimeSoundForPlayback_OnLoadCompletion;
+pub struct FSwapAudioOutputDevice_OnCompletedDeviceSwap;
+pub struct FNotifyOnQuantizationBoundary_InDelegate;
+pub struct FResetTransport_InDelegate;
+pub struct FResetTransportQuantized_InDelegate;
+pub struct FSetBeatsPerMinute_Delegate;
+pub struct FSetMillisecondsPerTick_Delegate;
+pub struct FSetSecondsPerTick_Delegate;
+pub struct FSetThirtySecondNotesPerMinute_Delegate;
+pub struct FSetTicksPerSecond_Delegate;
+pub struct FStartOtherClock_InDelegate;
+pub struct FSubscribeToAllQuantizationEvents_OnQuantizationEvent;
+pub struct FSubscribeToQuantizationEvent_OnQuantizationEvent;
+pub struct FAudioDeviceNotificationSubsystem_DefaultCaptureDeviceChanged;
+pub struct FAudioDeviceNotificationSubsystem_DefaultRenderDeviceChanged;
+pub struct FAudioDeviceNotificationSubsystem_DeviceAdded;
+pub struct FAudioDeviceNotificationSubsystem_DeviceRemoved;
+pub struct FAudioDeviceNotificationSubsystem_DeviceStateChanged;
+pub struct FAudioDeviceNotificationSubsystem_DeviceSwitched;
+pub struct FSynthComponent_OnAudioEnvelopeValue;
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EAudioMixerStreamDataFormatType(pub u8);
+impl EAudioMixerStreamDataFormatType {
+    pub const UNKNOWN: EAudioMixerStreamDataFormatType = EAudioMixerStreamDataFormatType(
+        0,
+    );
+    pub const FLOAT: EAudioMixerStreamDataFormatType = EAudioMixerStreamDataFormatType(
+        1,
+    );
+    pub const INT16: EAudioMixerStreamDataFormatType = EAudioMixerStreamDataFormatType(
+        2,
+    );
+    pub const UNSUPPORTED: EAudioMixerStreamDataFormatType = EAudioMixerStreamDataFormatType(
+        3,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EAudioMixerChannelType(pub u8);
+impl EAudioMixerChannelType {
+    pub const FRONT_LEFT: EAudioMixerChannelType = EAudioMixerChannelType(0);
+    pub const FRONT_RIGHT: EAudioMixerChannelType = EAudioMixerChannelType(1);
+    pub const FRONT_CENTER: EAudioMixerChannelType = EAudioMixerChannelType(2);
+    pub const LOW_FREQUENCY: EAudioMixerChannelType = EAudioMixerChannelType(3);
+    pub const BACK_LEFT: EAudioMixerChannelType = EAudioMixerChannelType(4);
+    pub const BACK_RIGHT: EAudioMixerChannelType = EAudioMixerChannelType(5);
+    pub const FRONT_LEFT_OF_CENTER: EAudioMixerChannelType = EAudioMixerChannelType(6);
+    pub const FRONT_RIGHT_OF_CENTER: EAudioMixerChannelType = EAudioMixerChannelType(7);
+    pub const BACK_CENTER: EAudioMixerChannelType = EAudioMixerChannelType(8);
+    pub const SIDE_LEFT: EAudioMixerChannelType = EAudioMixerChannelType(9);
+    pub const SIDE_RIGHT: EAudioMixerChannelType = EAudioMixerChannelType(10);
+    pub const TOP_CENTER: EAudioMixerChannelType = EAudioMixerChannelType(11);
+    pub const TOP_FRONT_LEFT: EAudioMixerChannelType = EAudioMixerChannelType(12);
+    pub const TOP_FRONT_CENTER: EAudioMixerChannelType = EAudioMixerChannelType(13);
+    pub const TOP_FRONT_RIGHT: EAudioMixerChannelType = EAudioMixerChannelType(14);
+    pub const TOP_BACK_LEFT: EAudioMixerChannelType = EAudioMixerChannelType(15);
+    pub const TOP_BACK_CENTER: EAudioMixerChannelType = EAudioMixerChannelType(16);
+    pub const TOP_BACK_RIGHT: EAudioMixerChannelType = EAudioMixerChannelType(17);
+    pub const UNKNOWN: EAudioMixerChannelType = EAudioMixerChannelType(18);
+    pub const CHANNEL_TYPE_COUNT: EAudioMixerChannelType = EAudioMixerChannelType(19);
+    pub const DEFAULT_CHANNEL: EAudioMixerChannelType = EAudioMixerChannelType(0);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ESwapAudioOutputDeviceResultState(pub u8);
+impl ESwapAudioOutputDeviceResultState {
+    pub const FAILURE: ESwapAudioOutputDeviceResultState = ESwapAudioOutputDeviceResultState(
+        0,
+    );
+    pub const SUCCESS: ESwapAudioOutputDeviceResultState = ESwapAudioOutputDeviceResultState(
+        1,
+    );
+    pub const NONE: ESwapAudioOutputDeviceResultState = ESwapAudioOutputDeviceResultState(
+        2,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ESubmixEffectDynamicsProcessorType(pub u8);
+impl ESubmixEffectDynamicsProcessorType {
+    pub const COMPRESSOR: ESubmixEffectDynamicsProcessorType = ESubmixEffectDynamicsProcessorType(
+        0,
+    );
+    pub const LIMITER: ESubmixEffectDynamicsProcessorType = ESubmixEffectDynamicsProcessorType(
+        1,
+    );
+    pub const EXPANDER: ESubmixEffectDynamicsProcessorType = ESubmixEffectDynamicsProcessorType(
+        2,
+    );
+    pub const GATE: ESubmixEffectDynamicsProcessorType = ESubmixEffectDynamicsProcessorType(
+        3,
+    );
+    pub const UPWARDS_COMPRESSOR: ESubmixEffectDynamicsProcessorType = ESubmixEffectDynamicsProcessorType(
+        4,
+    );
+    pub const COUNT: ESubmixEffectDynamicsProcessorType = ESubmixEffectDynamicsProcessorType(
+        5,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ESubmixEffectDynamicsPeakMode(pub u8);
+impl ESubmixEffectDynamicsPeakMode {
+    pub const MEAN_SQUARED: ESubmixEffectDynamicsPeakMode = ESubmixEffectDynamicsPeakMode(
+        0,
+    );
+    pub const ROOT_MEAN_SQUARED: ESubmixEffectDynamicsPeakMode = ESubmixEffectDynamicsPeakMode(
+        1,
+    );
+    pub const PEAK: ESubmixEffectDynamicsPeakMode = ESubmixEffectDynamicsPeakMode(2);
+    pub const COUNT: ESubmixEffectDynamicsPeakMode = ESubmixEffectDynamicsPeakMode(3);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ESubmixEffectDynamicsChannelLinkMode(pub u8);
+impl ESubmixEffectDynamicsChannelLinkMode {
+    pub const DISABLED: ESubmixEffectDynamicsChannelLinkMode = ESubmixEffectDynamicsChannelLinkMode(
+        0,
+    );
+    pub const AVERAGE: ESubmixEffectDynamicsChannelLinkMode = ESubmixEffectDynamicsChannelLinkMode(
+        1,
+    );
+    pub const PEAK: ESubmixEffectDynamicsChannelLinkMode = ESubmixEffectDynamicsChannelLinkMode(
+        2,
+    );
+    pub const COUNT: ESubmixEffectDynamicsChannelLinkMode = ESubmixEffectDynamicsChannelLinkMode(
+        3,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ESubmixEffectDynamicsKeySource(pub u8);
+impl ESubmixEffectDynamicsKeySource {
+    pub const DEFAULT: ESubmixEffectDynamicsKeySource = ESubmixEffectDynamicsKeySource(
+        0,
+    );
+    pub const AUDIO_BUS: ESubmixEffectDynamicsKeySource = ESubmixEffectDynamicsKeySource(
+        1,
+    );
+    pub const SUBMIX: ESubmixEffectDynamicsKeySource = ESubmixEffectDynamicsKeySource(2);
+    pub const COUNT: ESubmixEffectDynamicsKeySource = ESubmixEffectDynamicsKeySource(3);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EMusicalNoteName(pub u8);
+impl EMusicalNoteName {
+    pub const C: EMusicalNoteName = EMusicalNoteName(0);
+    pub const DB: EMusicalNoteName = EMusicalNoteName(1);
+    pub const D: EMusicalNoteName = EMusicalNoteName(2);
+    pub const EB: EMusicalNoteName = EMusicalNoteName(3);
+    pub const E: EMusicalNoteName = EMusicalNoteName(4);
+    pub const F: EMusicalNoteName = EMusicalNoteName(5);
+    pub const GB: EMusicalNoteName = EMusicalNoteName(6);
+    pub const G: EMusicalNoteName = EMusicalNoteName(7);
+    pub const AB: EMusicalNoteName = EMusicalNoteName(8);
+    pub const A: EMusicalNoteName = EMusicalNoteName(9);
+    pub const BB: EMusicalNoteName = EMusicalNoteName(10);
+    pub const B: EMusicalNoteName = EMusicalNoteName(11);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EAudioDeviceChangedRole(pub u8);
+impl EAudioDeviceChangedRole {
+    pub const INVALID: EAudioDeviceChangedRole = EAudioDeviceChangedRole(0);
+    pub const CONSOLE: EAudioDeviceChangedRole = EAudioDeviceChangedRole(1);
+    pub const MULTIMEDIA: EAudioDeviceChangedRole = EAudioDeviceChangedRole(2);
+    pub const COMMUNICATIONS: EAudioDeviceChangedRole = EAudioDeviceChangedRole(3);
+    pub const COUNT: EAudioDeviceChangedRole = EAudioDeviceChangedRole(4);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EAudioDeviceChangedState(pub u8);
+impl EAudioDeviceChangedState {
+    pub const INVALID: EAudioDeviceChangedState = EAudioDeviceChangedState(0);
+    pub const ACTIVE: EAudioDeviceChangedState = EAudioDeviceChangedState(1);
+    pub const DISABLED: EAudioDeviceChangedState = EAudioDeviceChangedState(2);
+    pub const NOT_PRESENT: EAudioDeviceChangedState = EAudioDeviceChangedState(3);
+    pub const UNPLUGGED: EAudioDeviceChangedState = EAudioDeviceChangedState(4);
+    pub const COUNT: EAudioDeviceChangedState = EAudioDeviceChangedState(5);
+}

@@ -2,12 +2,13 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
-pub use crate::bindings::prelude::*;
+pub use crate::bindings::opague_definitions::*;
+pub use crate::core_data::*;
 #[repr(C, align(8))]
 pub struct FMetaHumanCustomizableBodyPart {
-    pub control_rig_class: TSubclassOf<UControlRig>,
+    pub control_rig_class: TSubclassOf<crate::bindings::control_rig::UControlRig>,
     pub control_rig_lod_threshold: i32,
-    pub physics_asset: UPtr<UPhysicsAsset>,
+    pub physics_asset: UPtr<crate::bindings::engine::UPhysicsAsset>,
     pub rigid_body_lod_threshold: i32,
     pub component_name: FString,
 }
@@ -26,5 +27,40 @@ pub struct UMetaHumanComponentBase {
     pub feet: FMetaHumanCustomizableBodyPart,
 }
 pub struct UMetaHumanComponentUE {
-    pub post_process_anim_bp: TSoftObjectPtr<UClass>,
+    pub post_process_anim_bp: TSoftObjectPtr<crate::bindings::core_u_object::UClass>,
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EMetaHumanQualityLevel(pub u8);
+impl EMetaHumanQualityLevel {
+    pub const LOW: EMetaHumanQualityLevel = EMetaHumanQualityLevel(0);
+    pub const MEDIUM: EMetaHumanQualityLevel = EMetaHumanQualityLevel(1);
+    pub const HIGH: EMetaHumanQualityLevel = EMetaHumanQualityLevel(2);
+    pub const CINEMATIC: EMetaHumanQualityLevel = EMetaHumanQualityLevel(3);
+    pub const COUNT: EMetaHumanQualityLevel = EMetaHumanQualityLevel(4);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EMetaHumanBodyType(pub u8);
+impl EMetaHumanBodyType {
+    pub const F_MED_NRW: EMetaHumanBodyType = EMetaHumanBodyType(0);
+    pub const F_MED_OVW: EMetaHumanBodyType = EMetaHumanBodyType(1);
+    pub const F_MED_UNW: EMetaHumanBodyType = EMetaHumanBodyType(2);
+    pub const F_SRT_NRW: EMetaHumanBodyType = EMetaHumanBodyType(3);
+    pub const F_SRT_OVW: EMetaHumanBodyType = EMetaHumanBodyType(4);
+    pub const F_SRT_UNW: EMetaHumanBodyType = EMetaHumanBodyType(5);
+    pub const F_TAL_NRW: EMetaHumanBodyType = EMetaHumanBodyType(6);
+    pub const F_TAL_OVW: EMetaHumanBodyType = EMetaHumanBodyType(7);
+    pub const F_TAL_UNW: EMetaHumanBodyType = EMetaHumanBodyType(8);
+    pub const M_MED_NRW: EMetaHumanBodyType = EMetaHumanBodyType(9);
+    pub const M_MED_OVW: EMetaHumanBodyType = EMetaHumanBodyType(10);
+    pub const M_MED_UNW: EMetaHumanBodyType = EMetaHumanBodyType(11);
+    pub const M_SRT_NRW: EMetaHumanBodyType = EMetaHumanBodyType(12);
+    pub const M_SRT_OVW: EMetaHumanBodyType = EMetaHumanBodyType(13);
+    pub const M_SRT_UNW: EMetaHumanBodyType = EMetaHumanBodyType(14);
+    pub const M_TAL_NRW: EMetaHumanBodyType = EMetaHumanBodyType(15);
+    pub const M_TAL_OVW: EMetaHumanBodyType = EMetaHumanBodyType(16);
+    pub const M_TAL_UNW: EMetaHumanBodyType = EMetaHumanBodyType(17);
+    pub const BLENDABLE_BODY: EMetaHumanBodyType = EMetaHumanBodyType(18);
+    pub const COUNT: EMetaHumanBodyType = EMetaHumanBodyType(19);
 }

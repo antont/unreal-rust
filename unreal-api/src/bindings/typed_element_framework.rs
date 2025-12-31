@@ -2,7 +2,8 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
-pub use crate::bindings::prelude::*;
+pub use crate::bindings::opague_definitions::*;
+pub use crate::core_data::*;
 #[repr(C, align(8))]
 pub struct FScriptTypedElementHandle {}
 #[repr(C, align(1))]
@@ -98,7 +99,7 @@ pub struct FTypedElementPackagePathColumn {
 pub struct FTypedElementPackageLoadedPathColumn {}
 #[repr(C, align(8))]
 pub struct FTypedElementPivotOffset {
-    pub offset: FVector,
+    pub offset: crate::bindings::core_u_object::FVector,
 }
 #[repr(C, align(1))]
 pub struct FSCCInChangelistTag {}
@@ -152,7 +153,7 @@ pub struct FDescriptionColumn {
 }
 #[repr(C, align(4))]
 pub struct FSlateColorColumn {
-    pub color: FSlateColor,
+    pub color: crate::bindings::slate_core::FSlateColor,
 }
 #[repr(C, align(1))]
 pub struct FIsInEditingModeTag {}
@@ -200,7 +201,7 @@ pub struct FTEDSProcessorTests_SecondaryTag {}
 pub struct FTEDSProcessorTests_Linked {}
 #[repr(C, align(16))]
 pub struct FTypedElementLocalTransformColumn {
-    pub transform: FTransform,
+    pub transform: crate::bindings::core_u_object::FTransform,
 }
 #[repr(C, align(4))]
 pub struct FTypedElementClassTypeInfoColumn {}
@@ -234,7 +235,7 @@ pub struct FTypedElementViewportOutlineColorColumn {
 }
 #[repr(C, align(4))]
 pub struct FTypedElementViewportOverlayColorColumn {
-    pub overlay_color: FColor,
+    pub overlay_color: crate::bindings::core_u_object::FColor,
 }
 #[repr(C, align(1))]
 pub struct FVisibleInEditorColumn {}
@@ -304,3 +305,12 @@ pub struct UTestTypedElementInterfaceA_ImplTyped {}
 pub struct UTestTypedElementInterfaceA_ImplUntyped {}
 pub struct UTestTypedElementInterfaceBAndC_Typed {}
 pub struct UTest_PingPongBetweenPhaseFactory {}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ESCCModification(pub i32);
+impl ESCCModification {
+    pub const CONFLICTED: ESCCModification = ESCCModification(0);
+    pub const MODIFIED: ESCCModification = ESCCModification(1);
+    pub const ADDED: ESCCModification = ESCCModification(2);
+    pub const REMOVED: ESCCModification = ESCCModification(3);
+}

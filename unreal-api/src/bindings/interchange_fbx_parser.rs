@@ -2,7 +2,11 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
-pub use crate::bindings::prelude::*;
+pub use crate::bindings::opague_definitions::*;
+pub use crate::core_data::*;
 pub struct UInterchangeFbxSettings {
-    pub custom_property_tracks: TMap<FString, EInterchangePropertyTracks>,
+    pub custom_property_tracks: TMap<
+        FString,
+        crate::bindings::interchange_nodes::EInterchangePropertyTracks,
+    >,
 }

@@ -2,7 +2,8 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
-pub use crate::bindings::prelude::*;
+pub use crate::bindings::opague_definitions::*;
+pub use crate::core_data::*;
 #[repr(C, align(4))]
 pub struct FLKFSResults {
     pub channel: i32,
@@ -30,7 +31,7 @@ pub struct FLKFSNRTAggregateStats {
 pub struct FLKFSNRTChannelData {
     pub aggregate_stats: FLKFSNRTAggregateStats,
     pub loudness_array: TArray<FLKFSNRTResults>,
-    pub loudness_interval: FFloatInterval,
+    pub loudness_interval: crate::bindings::core_u_object::FFloatInterval,
 }
 #[repr(C, align(8))]
 pub struct FLKFSNRTWaveData {

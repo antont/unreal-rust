@@ -2,7 +2,8 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
-pub use crate::bindings::prelude::*;
+pub use crate::bindings::opague_definitions::*;
+pub use crate::core_data::*;
 #[repr(C, align(8))]
 pub struct FDatasmithImportInfo {
     pub source_uri: FString,
@@ -51,7 +52,7 @@ pub struct FDatasmithRetessellationOptions {
 #[repr(C, align(8))]
 pub struct FDatasmithCameraLookatTrackingSettingsTemplate {
     pub flags_0: u8,
-    pub actor_to_track: TSoftObjectPtr<AActor>,
+    pub actor_to_track: TSoftObjectPtr<crate::bindings::engine::AActor>,
 }
 #[repr(C, align(4))]
 pub struct FDatasmithCameraFilmbackSettingsTemplate {
@@ -64,7 +65,7 @@ pub struct FDatasmithCameraLensSettingsTemplate {
 }
 #[repr(C, align(4))]
 pub struct FDatasmithCameraFocusSettingsTemplate {
-    pub focus_method: ECameraFocusMethod,
+    pub focus_method: crate::bindings::cinematic_camera::ECameraFocusMethod,
     pub manual_focus_distance: f32,
 }
 #[repr(C, align(16))]
@@ -73,8 +74,8 @@ pub struct FDatasmithPostProcessSettingsTemplate {
     pub flags_4: u8,
     pub white_temp: f32,
     pub vignette_intensity: f32,
-    pub color_saturation: FVector4,
-    pub auto_exposure_method: EAutoExposureMethod,
+    pub color_saturation: crate::bindings::core_u_object::FVector4,
+    pub auto_exposure_method: crate::bindings::engine::EAutoExposureMethod,
     pub camera_iso: f32,
     pub camera_shutter_speed: f32,
     pub depth_of_field_fstop: f32,
@@ -93,7 +94,7 @@ pub struct FDatasmithMeshBuildSettingsTemplate {
 #[repr(C, align(8))]
 pub struct FDatasmithStaticMaterialTemplate {
     pub material_slot_name: FName,
-    pub material_interface: UPtr<UMaterialInterface>,
+    pub material_interface: UPtr<crate::bindings::engine::UMaterialInterface>,
 }
 #[repr(C, align(4))]
 pub struct FDatasmithMeshSectionInfoTemplate {
@@ -105,18 +106,18 @@ pub struct FDatasmithMeshSectionInfoMapTemplate {
 }
 pub struct UDatasmithAdditionalData {}
 pub struct ADatasmithAreaLightActor {
-    pub mobility: EComponentMobility,
+    pub mobility: crate::bindings::engine::EComponentMobility,
     pub light_type: EDatasmithAreaLightActorType,
     pub light_shape: EDatasmithAreaLightActorShape,
-    pub dimensions: FVector2D,
+    pub dimensions: crate::bindings::core_u_object::FVector2D,
     pub intensity: f32,
-    pub intensity_units: ELightUnits,
-    pub color: FLinearColor,
+    pub intensity_units: crate::bindings::engine::ELightUnits,
+    pub color: crate::bindings::core_u_object::FLinearColor,
     pub temperature: f32,
-    pub ies_texture: UPtr<UTextureLightProfile>,
+    pub ies_texture: UPtr<crate::bindings::engine::UTextureLightProfile>,
     pub b_use_ies_brightness: bool,
     pub ies_brightness_scale: f32,
-    pub rotation: FRotator,
+    pub rotation: crate::bindings::core_u_object::FRotator,
     pub source_radius: f32,
     pub source_length: f32,
     pub attenuation_radius: f32,
@@ -203,7 +204,9 @@ pub struct UDatasmithAssetUserData {
 pub struct UDatasmithContentBlueprintLibrary {}
 pub struct UDatasmithCustomActionBase {}
 pub struct ADatasmithImportedSequencesActor {
-    pub imported_sequences: TArray<UPtr<ULevelSequence>>,
+    pub imported_sequences: TArray<
+        UPtr<crate::bindings::level_sequence::ULevelSequence>,
+    >,
 }
 pub struct UDatasmithOptionsBase {}
 pub struct UDatasmithCommonTessellationOptions {
@@ -227,18 +230,30 @@ pub struct UDatasmithImportOptions {
 pub struct UDatasmithScene {
     pub asset_import_data: UPtr<UDatasmithSceneImportData>,
     pub bulk_data_version: i32,
-    pub static_meshes: TMap<FName, TSoftObjectPtr<UStaticMesh>>,
-    pub clothes: TMap<FName, TSoftObjectPtr<UObject>>,
-    pub textures: TMap<FName, TSoftObjectPtr<UTexture>>,
-    pub material_functions: TMap<FName, TSoftObjectPtr<UMaterialFunction>>,
-    pub materials: TMap<FName, TSoftObjectPtr<UMaterialInterface>>,
-    pub level_sequences: TMap<FName, TSoftObjectPtr<ULevelSequence>>,
-    pub level_variant_sets: TMap<FName, TSoftObjectPtr<ULevelVariantSets>>,
-    pub asset_user_data: TArray<UPtr<UAssetUserData>>,
+    pub static_meshes: TMap<FName, TSoftObjectPtr<crate::bindings::engine::UStaticMesh>>,
+    pub clothes: TMap<FName, TSoftObjectPtr<crate::bindings::core_u_object::UObject>>,
+    pub textures: TMap<FName, TSoftObjectPtr<crate::bindings::engine::UTexture>>,
+    pub material_functions: TMap<
+        FName,
+        TSoftObjectPtr<crate::bindings::engine::UMaterialFunction>,
+    >,
+    pub materials: TMap<
+        FName,
+        TSoftObjectPtr<crate::bindings::engine::UMaterialInterface>,
+    >,
+    pub level_sequences: TMap<
+        FName,
+        TSoftObjectPtr<crate::bindings::level_sequence::ULevelSequence>,
+    >,
+    pub level_variant_sets: TMap<
+        FName,
+        TSoftObjectPtr<crate::bindings::variant_manager_content::ULevelVariantSets>,
+    >,
+    pub asset_user_data: TArray<UPtr<crate::bindings::engine::UAssetUserData>>,
 }
 pub struct ADatasmithSceneActor {
     pub scene: UPtr<UDatasmithScene>,
-    pub related_actors: TMap<FName, TSoftObjectPtr<AActor>>,
+    pub related_actors: TMap<FName, TSoftObjectPtr<crate::bindings::engine::AActor>>,
 }
 pub struct UDatasmithObjectTemplate {}
 pub struct UDatasmithActorTemplate {
@@ -248,15 +263,15 @@ pub struct UDatasmithActorTemplate {
 pub struct UDatasmithAreaLightActorTemplate {
     pub light_type: EDatasmithAreaLightActorType,
     pub light_shape: EDatasmithAreaLightActorShape,
-    pub dimensions: FVector2D,
-    pub color: FLinearColor,
+    pub dimensions: crate::bindings::core_u_object::FVector2D,
+    pub color: crate::bindings::core_u_object::FLinearColor,
     pub intensity: f32,
-    pub intensity_units: ELightUnits,
+    pub intensity_units: crate::bindings::engine::ELightUnits,
     pub temperature: f32,
-    pub ies_texture: TSoftObjectPtr<UTextureLightProfile>,
+    pub ies_texture: TSoftObjectPtr<crate::bindings::engine::UTextureLightProfile>,
     pub b_use_ies_brightness: bool,
     pub ies_brightness_scale: f32,
-    pub rotation: FRotator,
+    pub rotation: crate::bindings::core_u_object::FRotator,
     pub source_radius: f32,
     pub source_length: f32,
     pub attenuation_radius: f32,
@@ -274,11 +289,11 @@ pub struct UDatasmithCineCameraComponentTemplate {
 }
 pub struct UDatasmithDecalComponentTemplate {
     pub sort_order: i32,
-    pub decal_size: FVector,
-    pub material: UPtr<UMaterialInterface>,
+    pub decal_size: crate::bindings::core_u_object::FVector,
+    pub material: UPtr<crate::bindings::engine::UMaterialInterface>,
 }
 pub struct UDatasmithLandscapeTemplate {
-    pub landscape_material: UPtr<UMaterialInterface>,
+    pub landscape_material: UPtr<crate::bindings::engine::UMaterialInterface>,
     pub static_lighting_lod: i32,
 }
 pub struct UDatasmithLightComponentTemplate {
@@ -287,19 +302,25 @@ pub struct UDatasmithLightComponentTemplate {
     pub intensity: f32,
     pub temperature: f32,
     pub ies_brightness_scale: f32,
-    pub light_color: FLinearColor,
-    pub light_function_material: UPtr<UMaterialInterface>,
-    pub ies_texture: UPtr<UTextureLightProfile>,
+    pub light_color: crate::bindings::core_u_object::FLinearColor,
+    pub light_function_material: UPtr<crate::bindings::engine::UMaterialInterface>,
+    pub ies_texture: UPtr<crate::bindings::engine::UTextureLightProfile>,
 }
 pub struct UDatasmithMaterialInstanceTemplate {
-    pub parent_material: TSoftObjectPtr<UMaterialInterface>,
+    pub parent_material: TSoftObjectPtr<crate::bindings::engine::UMaterialInterface>,
     pub scalar_parameter_values: TMap<FName, f32>,
-    pub vector_parameter_values: TMap<FName, FLinearColor>,
-    pub texture_parameter_values: TMap<FName, TSoftObjectPtr<UTexture>>,
+    pub vector_parameter_values: TMap<
+        FName,
+        crate::bindings::core_u_object::FLinearColor,
+    >,
+    pub texture_parameter_values: TMap<
+        FName,
+        TSoftObjectPtr<crate::bindings::engine::UTexture>,
+    >,
     pub static_parameters: FDatasmithStaticParameterSetTemplate,
 }
 pub struct UDatasmithPointLightComponentTemplate {
-    pub intensity_units: ELightUnits,
+    pub intensity_units: crate::bindings::engine::ELightUnits,
     pub source_radius: f32,
     pub source_length: f32,
     pub attenuation_radius: f32,
@@ -309,25 +330,25 @@ pub struct UDatasmithPostProcessVolumeTemplate {
     pub flags_128: u8,
 }
 pub struct UDatasmithSceneComponentTemplate {
-    pub relative_transform: FTransform,
-    pub mobility: EComponentMobility,
-    pub attach_parent: TSoftObjectPtr<USceneComponent>,
+    pub relative_transform: crate::bindings::core_u_object::FTransform,
+    pub mobility: crate::bindings::engine::EComponentMobility,
+    pub attach_parent: TSoftObjectPtr<crate::bindings::engine::USceneComponent>,
     pub b_visible: bool,
     pub b_cast_shadow: bool,
     pub tags: TSet<FName>,
 }
 pub struct UDatasmithSkyLightComponentTemplate {
-    pub source_type: ESkyLightSourceType,
+    pub source_type: crate::bindings::engine::ESkyLightSourceType,
     pub cubemap_resolution: i32,
-    pub cubemap: UPtr<UTextureCube>,
+    pub cubemap: UPtr<crate::bindings::engine::UTextureCube>,
 }
 pub struct UDatasmithSpotLightComponentTemplate {
     pub inner_cone_angle: f32,
     pub outer_cone_angle: f32,
 }
 pub struct UDatasmithStaticMeshComponentTemplate {
-    pub static_mesh: UPtr<UStaticMesh>,
-    pub override_materials: TArray<UPtr<UMaterialInterface>>,
+    pub static_mesh: UPtr<crate::bindings::engine::UStaticMesh>,
+    pub override_materials: TArray<UPtr<crate::bindings::engine::UMaterialInterface>>,
 }
 pub struct UDatasmithStaticMeshTemplate {
     pub section_info_map: FDatasmithMeshSectionInfoMapTemplate,
@@ -335,4 +356,137 @@ pub struct UDatasmithStaticMeshTemplate {
     pub light_map_resolution: i32,
     pub build_settings: TArray<FDatasmithMeshBuildSettingsTemplate>,
     pub static_materials: TArray<FDatasmithStaticMaterialTemplate>,
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EDatasmithImportLightmapMin(pub u8);
+impl EDatasmithImportLightmapMin {
+    pub const LIGHTMAP_16: EDatasmithImportLightmapMin = EDatasmithImportLightmapMin(0);
+    pub const LIGHTMAP_32: EDatasmithImportLightmapMin = EDatasmithImportLightmapMin(1);
+    pub const LIGHTMAP_64: EDatasmithImportLightmapMin = EDatasmithImportLightmapMin(2);
+    pub const LIGHTMAP_128: EDatasmithImportLightmapMin = EDatasmithImportLightmapMin(3);
+    pub const LIGHTMAP_256: EDatasmithImportLightmapMin = EDatasmithImportLightmapMin(4);
+    pub const LIGHTMAP_512: EDatasmithImportLightmapMin = EDatasmithImportLightmapMin(5);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EDatasmithImportLightmapMax(pub u8);
+impl EDatasmithImportLightmapMax {
+    pub const LIGHTMAP_64: EDatasmithImportLightmapMax = EDatasmithImportLightmapMax(0);
+    pub const LIGHTMAP_128: EDatasmithImportLightmapMax = EDatasmithImportLightmapMax(1);
+    pub const LIGHTMAP_256: EDatasmithImportLightmapMax = EDatasmithImportLightmapMax(2);
+    pub const LIGHTMAP_512: EDatasmithImportLightmapMax = EDatasmithImportLightmapMax(3);
+    pub const LIGHTMAP_1024: EDatasmithImportLightmapMax = EDatasmithImportLightmapMax(
+        4,
+    );
+    pub const LIGHTMAP_2048: EDatasmithImportLightmapMax = EDatasmithImportLightmapMax(
+        5,
+    );
+    pub const LIGHTMAP_4096: EDatasmithImportLightmapMax = EDatasmithImportLightmapMax(
+        6,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EDatasmithImportScene(pub u8);
+impl EDatasmithImportScene {
+    pub const NEW_LEVEL: EDatasmithImportScene = EDatasmithImportScene(0);
+    pub const CURRENT_LEVEL: EDatasmithImportScene = EDatasmithImportScene(1);
+    pub const ASSETS_ONLY: EDatasmithImportScene = EDatasmithImportScene(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EDatasmithCADStitchingTechnique(pub u8);
+impl EDatasmithCADStitchingTechnique {
+    pub const STITCHING_NONE: EDatasmithCADStitchingTechnique = EDatasmithCADStitchingTechnique(
+        0,
+    );
+    pub const STITCHING_HEAL: EDatasmithCADStitchingTechnique = EDatasmithCADStitchingTechnique(
+        1,
+    );
+    pub const STITCHING_SEW: EDatasmithCADStitchingTechnique = EDatasmithCADStitchingTechnique(
+        2,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EDatasmithCADRetessellationRule(pub u8);
+impl EDatasmithCADRetessellationRule {
+    pub const ALL: EDatasmithCADRetessellationRule = EDatasmithCADRetessellationRule(0);
+    pub const SKIP_DELETED_SURFACES: EDatasmithCADRetessellationRule = EDatasmithCADRetessellationRule(
+        1,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EDatasmithAreaLightActorType(pub u8);
+impl EDatasmithAreaLightActorType {
+    pub const POINT: EDatasmithAreaLightActorType = EDatasmithAreaLightActorType(0);
+    pub const SPOT: EDatasmithAreaLightActorType = EDatasmithAreaLightActorType(1);
+    pub const IES_DEPRECATED: EDatasmithAreaLightActorType = EDatasmithAreaLightActorType(
+        2,
+    );
+    pub const RECT: EDatasmithAreaLightActorType = EDatasmithAreaLightActorType(3);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EDatasmithAreaLightActorShape(pub u8);
+impl EDatasmithAreaLightActorShape {
+    pub const RECTANGLE: EDatasmithAreaLightActorShape = EDatasmithAreaLightActorShape(
+        0,
+    );
+    pub const DISC: EDatasmithAreaLightActorShape = EDatasmithAreaLightActorShape(1);
+    pub const SPHERE: EDatasmithAreaLightActorShape = EDatasmithAreaLightActorShape(2);
+    pub const CYLINDER: EDatasmithAreaLightActorShape = EDatasmithAreaLightActorShape(3);
+    pub const NONE: EDatasmithAreaLightActorShape = EDatasmithAreaLightActorShape(4);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EDatasmithImportSearchPackagePolicy(pub u8);
+impl EDatasmithImportSearchPackagePolicy {
+    pub const CURRENT: EDatasmithImportSearchPackagePolicy = EDatasmithImportSearchPackagePolicy(
+        0,
+    );
+    pub const ALL: EDatasmithImportSearchPackagePolicy = EDatasmithImportSearchPackagePolicy(
+        1,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EDatasmithImportAssetConflictPolicy(pub u8);
+impl EDatasmithImportAssetConflictPolicy {
+    pub const REPLACE: EDatasmithImportAssetConflictPolicy = EDatasmithImportAssetConflictPolicy(
+        0,
+    );
+    pub const UPDATE: EDatasmithImportAssetConflictPolicy = EDatasmithImportAssetConflictPolicy(
+        1,
+    );
+    pub const USE: EDatasmithImportAssetConflictPolicy = EDatasmithImportAssetConflictPolicy(
+        2,
+    );
+    pub const IGNORE: EDatasmithImportAssetConflictPolicy = EDatasmithImportAssetConflictPolicy(
+        3,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EDatasmithImportActorPolicy(pub u8);
+impl EDatasmithImportActorPolicy {
+    pub const UPDATE: EDatasmithImportActorPolicy = EDatasmithImportActorPolicy(0);
+    pub const FULL: EDatasmithImportActorPolicy = EDatasmithImportActorPolicy(1);
+    pub const IGNORE: EDatasmithImportActorPolicy = EDatasmithImportActorPolicy(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EDatasmithImportMaterialQuality(pub u8);
+impl EDatasmithImportMaterialQuality {
+    pub const USE_NO_FRESNEL_CURVES: EDatasmithImportMaterialQuality = EDatasmithImportMaterialQuality(
+        0,
+    );
+    pub const USE_SIMPLIFIER_FRESNEL_CURVES: EDatasmithImportMaterialQuality = EDatasmithImportMaterialQuality(
+        1,
+    );
+    pub const USE_REAL_FRESNEL_CURVES: EDatasmithImportMaterialQuality = EDatasmithImportMaterialQuality(
+        2,
+    );
 }

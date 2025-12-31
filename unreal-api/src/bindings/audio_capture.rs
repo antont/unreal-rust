@@ -2,7 +2,8 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
-pub use crate::bindings::prelude::*;
+pub use crate::bindings::opague_definitions::*;
+pub use crate::core_data::*;
 #[repr(C, align(8))]
 pub struct FAudioInputDeviceInfo {
     pub device_name: FString,
@@ -23,3 +24,4 @@ pub struct UAudioCaptureBlueprintLibrary {}
 pub struct UAudioCaptureComponent {
     pub jitter_latency_frames: i32,
 }
+pub struct FGetAvailableAudioInputDevices_OnObtainDevicesEvent;

@@ -2,7 +2,8 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
-pub use crate::bindings::prelude::*;
+pub use crate::bindings::opague_definitions::*;
+pub use crate::core_data::*;
 #[repr(C, align(8))]
 pub struct FDetailsSectionSelection {
     pub section_names: TSet<FName>,
@@ -54,10 +55,24 @@ pub struct UEditConditionTestObject {
     pub double_property: f64,
     pub integer_property: i32,
     pub flags_76: u8,
-    pub u_object_ptr: UPtr<UObject>,
-    pub soft_class_ptr: TSoftObjectPtr<UClass>,
-    pub weak_object_ptr: TWeakObjectPtr<UObject>,
+    pub u_object_ptr: UPtr<crate::bindings::core_u_object::UObject>,
+    pub soft_class_ptr: TSoftObjectPtr<crate::bindings::core_u_object::UClass>,
+    pub weak_object_ptr: TWeakObjectPtr<crate::bindings::core_u_object::UObject>,
 }
 pub struct UPropertyEditorSinglePropertyTestClass {
-    pub vector: FVector,
+    pub vector: crate::bindings::core_u_object::FVector,
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EditConditionByteEnum(pub u8);
+impl EditConditionByteEnum {
+    pub const FIRST: EditConditionByteEnum = EditConditionByteEnum(15);
+    pub const SECOND: EditConditionByteEnum = EditConditionByteEnum(31);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EditConditionTestEnum(pub i32);
+impl EditConditionTestEnum {
+    pub const FIRST: EditConditionTestEnum = EditConditionTestEnum(15);
+    pub const SECOND: EditConditionTestEnum = EditConditionTestEnum(31);
 }

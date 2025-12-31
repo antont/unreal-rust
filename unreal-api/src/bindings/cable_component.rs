@@ -2,16 +2,17 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
-pub use crate::bindings::prelude::*;
+pub use crate::bindings::opague_definitions::*;
+pub use crate::core_data::*;
 pub struct ACableActor {
     pub cable_component: UPtr<UCableComponent>,
 }
 pub struct UCableComponent {
     pub b_attach_start: bool,
     pub b_attach_end: bool,
-    pub attach_end_to: FComponentReference,
+    pub attach_end_to: crate::bindings::engine::FComponentReference,
     pub attach_end_to_socket_name: FName,
-    pub end_location: FVector,
+    pub end_location: crate::bindings::core_u_object::FVector,
     pub cable_length: f32,
     pub num_segments: i32,
     pub substep_time: f32,
@@ -22,7 +23,7 @@ pub struct UCableComponent {
     pub b_skip_cable_update_when_not_owner_recently_rendered: bool,
     pub b_enable_collision: bool,
     pub collision_friction: f32,
-    pub cable_force: FVector,
+    pub cable_force: crate::bindings::core_u_object::FVector,
     pub cable_gravity_scale: f32,
     pub cable_width: f32,
     pub num_sides: i32,

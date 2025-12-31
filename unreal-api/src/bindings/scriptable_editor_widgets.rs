@@ -2,10 +2,11 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
-pub use crate::bindings::prelude::*;
+pub use crate::bindings::opague_definitions::*;
+pub use crate::core_data::*;
 pub struct UPropertyViewBase {
-    pub object: TSoftObjectPtr<UObject>,
-    pub soft_object_path_deprecated: FSoftObjectPath,
+    pub object: TSoftObjectPtr<crate::bindings::core_u_object::UObject>,
+    pub soft_object_path_deprecated: crate::bindings::core_u_object::FSoftObjectPath,
     pub b_auto_load_asset: bool,
     pub on_property_changed: FPropertyViewBase_OnPropertyChanged,
 }
@@ -27,3 +28,4 @@ pub struct USinglePropertyView {
     pub property_name: FName,
     pub name_override: FText,
 }
+pub struct FPropertyViewBase_OnPropertyChanged;

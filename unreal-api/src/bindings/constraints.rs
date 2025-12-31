@@ -2,10 +2,11 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
-pub use crate::bindings::prelude::*;
+pub use crate::bindings::opague_definitions::*;
+pub use crate::core_data::*;
 #[repr(C, align(8))]
 pub struct FConstraintsInWorld {
-    pub world: TWeakObjectPtr<UWorld>,
+    pub world: TWeakObjectPtr<crate::bindings::engine::UWorld>,
     pub constraints: TArray<TWeakObjectPtr<UTickableConstraint>>,
 }
 #[repr(C, align(16))]
@@ -34,13 +35,16 @@ pub struct UConstraintSubsystem {
     pub on_constraint_added_to_system_bp: FConstraintSubsystem_OnConstraintAddedToSystem_BP,
     pub on_constraint_removed_from_system_bp: FConstraintSubsystem_OnConstraintRemovedFromSystem_BP,
     pub constraints_in_world: TArray<FConstraintsInWorld>,
-    pub constraints_config: TMap<TSubclassOf<UObject>, UPtr<UTickableConstraint>>,
+    pub constraints_config: TMap<
+        TSubclassOf<crate::bindings::core_u_object::UObject>,
+        UPtr<UTickableConstraint>,
+    >,
 }
 pub struct UTransformableHandle {
-    pub constraint_binding_id: FMovieSceneObjectBindingID,
+    pub constraint_binding_id: crate::bindings::movie_scene::FMovieSceneObjectBindingID,
 }
 pub struct UTransformableComponentHandle {
-    pub component: TWeakObjectPtr<USceneComponent>,
+    pub component: TWeakObjectPtr<crate::bindings::engine::USceneComponent>,
     pub socket_name: FName,
 }
 pub struct UTickableTransformConstraint {
@@ -49,26 +53,30 @@ pub struct UTickableTransformConstraint {
     pub b_maintain_offset: bool,
     pub weight: f32,
     pub b_dynamic_offset: bool,
-    pub ty: ETransformConstraintType,
+    pub ty: crate::bindings::animation_core::ETransformConstraintType,
     pub b_use_current_offset: bool,
 }
 pub struct UTickableTranslationConstraint {
-    pub offset_translation: FVector,
-    pub axis_filter: FFilterOptionPerAxis,
+    pub offset_translation: crate::bindings::core_u_object::FVector,
+    pub axis_filter: crate::bindings::animation_core::FFilterOptionPerAxis,
 }
 pub struct UTickableRotationConstraint {
-    pub offset_rotation: FQuat,
-    pub axis_filter: FFilterOptionPerAxis,
+    pub offset_rotation: crate::bindings::core_u_object::FQuat,
+    pub axis_filter: crate::bindings::animation_core::FFilterOptionPerAxis,
 }
 pub struct UTickableScaleConstraint {
-    pub offset_scale: FVector,
-    pub axis_filter: FFilterOptionPerAxis,
+    pub offset_scale: crate::bindings::core_u_object::FVector,
+    pub axis_filter: crate::bindings::animation_core::FFilterOptionPerAxis,
 }
 pub struct UTickableParentConstraint {
-    pub offset_transform: FTransform,
+    pub offset_transform: crate::bindings::core_u_object::FTransform,
     pub b_scaling: bool,
-    pub transform_filter: FTransformFilter,
+    pub transform_filter: crate::bindings::animation_core::FTransformFilter,
 }
 pub struct UTickableLookAtConstraint {
-    pub axis: FVector,
+    pub axis: crate::bindings::core_u_object::FVector,
 }
+pub struct FConstraintsManager_OnConstraintAdded_BP;
+pub struct FConstraintsManager_OnConstraintRemoved_BP;
+pub struct FConstraintSubsystem_OnConstraintAddedToSystem_BP;
+pub struct FConstraintSubsystem_OnConstraintRemovedFromSystem_BP;

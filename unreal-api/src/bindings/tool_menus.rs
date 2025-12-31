@@ -2,10 +2,11 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
-pub use crate::bindings::prelude::*;
+pub use crate::bindings::opague_definitions::*;
+pub use crate::core_data::*;
 #[repr(C, align(8))]
 pub struct FToolMenuContext {
-    pub context_objects: TArray<UPtr<UObject>>,
+    pub context_objects: TArray<UPtr<crate::bindings::core_u_object::UObject>>,
 }
 #[repr(C, align(8))]
 pub struct FToolDynamicUIAction {
@@ -32,8 +33,8 @@ pub struct FToolMenuOwner {}
 pub struct FToolMenuEntry {
     pub name: FName,
     pub owner: FToolMenuOwner,
-    pub ty: EMultiBlockType,
-    pub user_interface_action_type: EUserInterfaceActionType,
+    pub ty: crate::bindings::slate::EMultiBlockType,
+    pub user_interface_action_type: crate::bindings::slate::EUserInterfaceActionType,
     pub tutorial_highlight_name: FName,
     pub insert_position: FToolMenuInsert,
     pub b_should_close_window_after_menu_selection: bool,
@@ -50,8 +51,8 @@ pub struct FScriptSlateIcon {
 #[repr(C, align(4))]
 pub struct FToolMenuEntryScriptDataAdvanced {
     pub tutorial_highlight: FName,
-    pub entry_type: EMultiBlockType,
-    pub user_interface_action_type: EUserInterfaceActionType,
+    pub entry_type: crate::bindings::slate::EMultiBlockType,
+    pub user_interface_action_type: crate::bindings::slate::EUserInterfaceActionType,
     pub style_name_override: FName,
     pub b_is_sub_menu: bool,
     pub b_open_sub_menu_on_click: bool,
@@ -72,7 +73,7 @@ pub struct FToolMenuEntryScriptData {
 }
 #[repr(C, align(8))]
 pub struct FToolMenuProfileMap {
-    pub menu_profiles: TMap<FName, FToolMenuProfile>,
+    pub menu_profiles: TMap<FName, crate::bindings::slate::FToolMenuProfile>,
 }
 #[repr(C, align(8))]
 pub struct FToolMenuSection {
@@ -88,7 +89,7 @@ pub struct UToolMenu {
     pub menu_parent: FName,
     pub style_name: FName,
     pub tutorial_highlight_name: FName,
-    pub menu_type: EMultiBoxType,
+    pub menu_type: crate::bindings::slate::EMultiBoxType,
     pub b_should_cleanup_context_on_destroy: bool,
     pub b_should_close_window_after_menu_selection: bool,
     pub b_close_self_only: bool,
@@ -112,7 +113,7 @@ pub struct UToolMenuEntryScript {
 }
 pub struct UToolMenuProfileContext {}
 pub struct UToolMenus {
-    pub customized_menus: TArray<FCustomizedToolMenu>,
+    pub customized_menus: TArray<crate::bindings::slate::FCustomizedToolMenu>,
     pub menu_substitutions_during_generate: TMap<FName, FName>,
     pub menus: TMap<FName, UPtr<UToolMenu>>,
     pub menu_profiles: TMap<FName, FToolMenuProfileMap>,
@@ -122,3 +123,42 @@ pub struct UToolMenuEntryExtensions {}
 pub struct UToolMenuSectionExtensions {}
 pub struct UToolMenuSectionDynamic {}
 pub struct UToolMenuWidgetCollectionContext {}
+pub struct FToolDynamicUIAction_ExecuteAction;
+pub struct FToolDynamicUIAction_CanExecuteAction;
+pub struct FToolDynamicUIAction_GetActionCheckState;
+pub struct FToolDynamicUIAction_IsActionVisibleDelegate;
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EToolMenuStringCommandType(pub u8);
+impl EToolMenuStringCommandType {
+    pub const COMMAND: EToolMenuStringCommandType = EToolMenuStringCommandType(0);
+    pub const PYTHON: EToolMenuStringCommandType = EToolMenuStringCommandType(1);
+    pub const CUSTOM: EToolMenuStringCommandType = EToolMenuStringCommandType(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EToolMenuInsertType(pub u8);
+impl EToolMenuInsertType {
+    pub const DEFAULT: EToolMenuInsertType = EToolMenuInsertType(0);
+    pub const BEFORE: EToolMenuInsertType = EToolMenuInsertType(1);
+    pub const AFTER: EToolMenuInsertType = EToolMenuInsertType(2);
+    pub const FIRST: EToolMenuInsertType = EToolMenuInsertType(3);
+    pub const LAST: EToolMenuInsertType = EToolMenuInsertType(4);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EToolMenuInsertFallback(pub u8);
+impl EToolMenuInsertFallback {
+    pub const NONE: EToolMenuInsertFallback = EToolMenuInsertFallback(0);
+    pub const INSERT: EToolMenuInsertFallback = EToolMenuInsertFallback(1);
+    pub const LOG: EToolMenuInsertFallback = EToolMenuInsertFallback(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EToolMenuSectionAlign(pub u8);
+impl EToolMenuSectionAlign {
+    pub const DEFAULT: EToolMenuSectionAlign = EToolMenuSectionAlign(0);
+    pub const FIRST: EToolMenuSectionAlign = EToolMenuSectionAlign(1);
+    pub const MIDDLE: EToolMenuSectionAlign = EToolMenuSectionAlign(2);
+    pub const LAST: EToolMenuSectionAlign = EToolMenuSectionAlign(3);
+}

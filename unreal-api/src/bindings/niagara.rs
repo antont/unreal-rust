@@ -2,7 +2,8 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
-pub use crate::bindings::prelude::*;
+pub use crate::bindings::opague_definitions::*;
+pub use crate::core_data::*;
 #[repr(C, align(8))]
 pub struct FNiagaraDataChannelUpdateContext {
     pub reader: UPtr<UNiagaraDataChannelReader>,
@@ -35,14 +36,14 @@ pub struct FNDIDynamicMeshSimCacheSection {
     pub triangle_offset: u32,
     pub max_triangles: u32,
     pub allocated_triangles: u32,
-    pub material: UPtr<UMaterialInterface>,
+    pub material: UPtr<crate::bindings::engine::UMaterialInterface>,
 }
 #[repr(C, align(8))]
 pub struct FNDIDynamicMeshSimCacheFrame {
     pub num_triangles: u32,
     pub num_vertices: u32,
     pub num_tex_coords: u32,
-    pub local_bounds: FBox,
+    pub local_bounds: crate::bindings::core_u_object::FBox,
     pub vertex_buffer_size: u32,
     pub position_offset: u32,
     pub tangent_basis_offset: u32,
@@ -90,11 +91,11 @@ pub struct FNiagaraVariableBase {
 }
 #[repr(C, align(8))]
 pub struct FNiagaraTypeDefinition {
-    pub class_struct_or_enum: UPtr<UObject>,
+    pub class_struct_or_enum: UPtr<crate::bindings::core_u_object::UObject>,
     pub underlying_type: u16,
     pub flags: u8,
-    pub _struct_deprecated: UPtr<UStruct>,
-    pub enum__deprecated: UPtr<UEnum>,
+    pub _struct_deprecated: UPtr<crate::bindings::core_u_object::UStruct>,
+    pub enum__deprecated: UPtr<crate::bindings::core_u_object::UEnum>,
 }
 #[repr(C, align(4))]
 pub struct FNiagaraTypeDefinitionHandle {
@@ -102,10 +103,10 @@ pub struct FNiagaraTypeDefinitionHandle {
 }
 #[repr(C, align(8))]
 pub struct FNiagaraMeshRendererMeshPropertiesBase {
-    pub mesh: UPtr<UStaticMesh>,
-    pub scale: FVector,
-    pub rotation: FRotator,
-    pub pivot_offset: FVector,
+    pub mesh: UPtr<crate::bindings::engine::UStaticMesh>,
+    pub scale: crate::bindings::core_u_object::FVector,
+    pub rotation: crate::bindings::core_u_object::FRotator,
+    pub pivot_offset: crate::bindings::core_u_object::FVector,
     pub pivot_offset_space: ENiagaraMeshPivotOffsetSpace,
 }
 #[repr(C, align(8))]
@@ -119,15 +120,17 @@ pub struct FNiagaraMeshRendererMeshProperties {
     pub lod_bias: i32,
     pub lod_distance_factor: f32,
     pub b_use_lod_range: bool,
-    pub lod_range: FIntVector2,
+    pub lod_range: crate::bindings::core_u_object::FIntVector2,
 }
 #[repr(C, align(8))]
 pub struct FNiagaraParameterBinding {
     pub resolved_parameter: FNiagaraVariableBase,
     pub aliased_parameter: FNiagaraVariableBase,
-    pub allowed_data_interfaces: TArray<TSubclassOf<UObject>>,
-    pub allowed_objects: TArray<TSubclassOf<UObject>>,
-    pub allowed_interfaces: TArray<TSubclassOf<UObject>>,
+    pub allowed_data_interfaces: TArray<
+        TSubclassOf<crate::bindings::core_u_object::UObject>,
+    >,
+    pub allowed_objects: TArray<TSubclassOf<crate::bindings::core_u_object::UObject>>,
+    pub allowed_interfaces: TArray<TSubclassOf<crate::bindings::core_u_object::UObject>>,
 }
 #[repr(C, align(8))]
 pub struct FNiagaraParameterBindingWithValue {
@@ -157,8 +160,8 @@ pub struct FNiagaraStackSection {
 }
 #[repr(C, align(8))]
 pub struct FNDIRenderTargetSimCacheFrame {
-    pub size: FIntVector,
-    pub format: EPixelFormat,
+    pub size: crate::bindings::core_u_object::FIntVector,
+    pub format: crate::bindings::core_u_object::EPixelFormat,
     pub uncompressed_size: i32,
     pub compressed_size: i32,
 }
@@ -181,7 +184,7 @@ pub struct FNDIDataChannel_GPUScriptParameterAccessInfo {
 pub struct FNDIDataChannelCompiledData {
     pub function_info: TArray<FNDIDataChannelFunctionInfo>,
     pub gpu_script_parameter_infos: TMap<
-        FNiagaraCompileHash,
+        crate::bindings::niagara_core::FNiagaraCompileHash,
         FNDIDataChannel_GPUScriptParameterAccessInfo,
     >,
     pub total_params: u32,
@@ -216,7 +219,7 @@ pub struct FNiagaraDynamicMeshSection {
 }
 #[repr(C, align(8))]
 pub struct FNiagaraDynamicMeshMaterial {
-    pub material: UPtr<UMaterialInterface>,
+    pub material: UPtr<crate::bindings::engine::UMaterialInterface>,
     pub material_user_param_binding: FNiagaraUserParameterBinding,
 }
 #[repr(C, align(4))]
@@ -239,8 +242,8 @@ pub struct FNiagaraUObjectPropertyReaderRemap {
 pub struct FMovieSceneNiagaraSystemTrackTemplate {}
 #[repr(C, align(8))]
 pub struct FMovieSceneNiagaraSystemTrackImplementation {
-    pub spawn_section_start_frame: FFrameNumber,
-    pub spawn_section_end_frame: FFrameNumber,
+    pub spawn_section_start_frame: crate::bindings::core_u_object::FFrameNumber,
+    pub spawn_section_end_frame: crate::bindings::core_u_object::FFrameNumber,
     pub spawn_section_start_behavior: ENiagaraSystemSpawnSectionStartBehavior,
     pub spawn_section_evaluate_behavior: ENiagaraSystemSpawnSectionEvaluateBehavior,
     pub spawn_section_end_behavior: ENiagaraSystemSpawnSectionEndBehavior,
@@ -253,26 +256,26 @@ pub struct FMovieSceneNiagaraParameterSectionTemplate {
 }
 #[repr(C, align(8))]
 pub struct FMovieSceneNiagaraBoolParameterSectionTemplate {
-    pub bool_channel: FMovieSceneBoolChannel,
+    pub bool_channel: crate::bindings::movie_scene::FMovieSceneBoolChannel,
 }
 #[repr(C, align(8))]
 pub struct FMovieSceneNiagaraColorParameterSectionTemplate {
-    pub red_channel: FMovieSceneFloatChannel,
-    pub green_channel: FMovieSceneFloatChannel,
-    pub blue_channel: FMovieSceneFloatChannel,
-    pub alpha_channel: FMovieSceneFloatChannel,
+    pub red_channel: crate::bindings::movie_scene::FMovieSceneFloatChannel,
+    pub green_channel: crate::bindings::movie_scene::FMovieSceneFloatChannel,
+    pub blue_channel: crate::bindings::movie_scene::FMovieSceneFloatChannel,
+    pub alpha_channel: crate::bindings::movie_scene::FMovieSceneFloatChannel,
 }
 #[repr(C, align(8))]
 pub struct FMovieSceneNiagaraFloatParameterSectionTemplate {
-    pub float_channel: FMovieSceneFloatChannel,
+    pub float_channel: crate::bindings::movie_scene::FMovieSceneFloatChannel,
 }
 #[repr(C, align(8))]
 pub struct FMovieSceneNiagaraIntegerParameterSectionTemplate {
-    pub integer_channel: FMovieSceneIntegerChannel,
+    pub integer_channel: crate::bindings::movie_scene::FMovieSceneIntegerChannel,
 }
 #[repr(C, align(8))]
 pub struct FMovieSceneNiagaraVectorParameterSectionTemplate {
-    pub vector_channels: FMovieSceneFloatChannel,
+    pub vector_channels: crate::bindings::movie_scene::FMovieSceneFloatChannel,
     pub channels_used: i32,
 }
 #[repr(C, align(8))]
@@ -281,12 +284,12 @@ pub struct FNiagaraAssetTagDefinition {
     pub asset_flags: i32,
     pub description: FText,
     pub display_type: ENiagaraAssetTagDefinitionImportance,
-    pub color: FLinearColor,
-    pub tag_guid: FGuid,
+    pub color: crate::bindings::core_u_object::FLinearColor,
+    pub tag_guid: crate::bindings::core_u_object::FGuid,
 }
 #[repr(C, align(4))]
 pub struct FNiagaraAssetTagDefinitionReference {
-    pub asset_tag_definition_guid: FGuid,
+    pub asset_tag_definition_guid: crate::bindings::core_u_object::FGuid,
 }
 #[repr(C, align(8))]
 pub struct FEmitterCompiledScriptPair {}
@@ -298,8 +301,8 @@ pub struct FNiagaraBakerTextureSource {
 #[repr(C, align(8))]
 pub struct FNiagaraBakerCameraSettings {
     pub view_mode: ENiagaraBakerViewMode,
-    pub viewport_location: FVector,
-    pub viewport_rotation: FRotator,
+    pub viewport_location: crate::bindings::core_u_object::FVector,
+    pub viewport_rotation: crate::bindings::core_u_object::FRotator,
     pub orbit_distance: f32,
     pub fov: f32,
     pub ortho_width: f32,
@@ -311,9 +314,9 @@ pub struct FNiagaraBakerTextureSettings {
     pub output_name: FName,
     pub source_binding: FNiagaraBakerTextureSource,
     pub flags_48: u8,
-    pub frame_size: FIntPoint,
-    pub texture_size: FIntPoint,
-    pub generated_texture: UPtr<UTexture2D>,
+    pub frame_size: crate::bindings::core_u_object::FIntPoint,
+    pub texture_size: crate::bindings::core_u_object::FIntPoint,
+    pub generated_texture: UPtr<crate::bindings::engine::UTexture2D>,
 }
 #[repr(C, align(8))]
 pub struct FNiagaraDataSetProperties {
@@ -350,8 +353,8 @@ pub struct FNiagaraFunctionSignature {
 #[repr(C, align(8))]
 pub struct FNiagaraScriptUObjectCompileInfo {
     pub variable: FNiagaraVariableBase,
-    pub object: UPtr<UObject>,
-    pub object_path: FSoftObjectPath,
+    pub object: UPtr<crate::bindings::core_u_object::UObject>,
+    pub object_path: crate::bindings::core_u_object::FSoftObjectPath,
     pub registered_parameter_map_read: FName,
     pub registered_parameter_map_writes: TArray<FName>,
 }
@@ -359,7 +362,7 @@ pub struct FNiagaraScriptUObjectCompileInfo {
 pub struct FNiagaraResolvedUObjectInfo {
     pub read_variable_name: FName,
     pub resolved_variable: FNiagaraVariableBase,
-    pub object: UPtr<UObject>,
+    pub object: UPtr<crate::bindings::core_u_object::UObject>,
 }
 #[repr(C, align(8))]
 pub struct FNiagaraExternalUObjectInfo {
@@ -471,9 +474,9 @@ pub struct FNiagaraScriptVariableBinding {
 #[repr(C, align(8))]
 pub struct FNiagaraCompileDependency {
     pub linker_error_message: FString,
-    pub node_guid: FGuid,
-    pub pin_guid: FGuid,
-    pub stack_guids: TArray<FGuid>,
+    pub node_guid: crate::bindings::core_u_object::FGuid,
+    pub pin_guid: crate::bindings::core_u_object::FGuid,
+    pub stack_guids: TArray<crate::bindings::core_u_object::FGuid>,
     pub dependent_variable: FNiagaraVariableBase,
     pub b_dependent_variable_from_custom_iteration_namespace: bool,
 }
@@ -484,7 +487,7 @@ pub struct FNiagaraScriptAsyncCompileData {
 }
 #[repr(C, align(8))]
 pub struct FNiagaraSystemAsyncCompileResults {
-    pub root_objects: TArray<UPtr<UObject>>,
+    pub root_objects: TArray<UPtr<crate::bindings::core_u_object::UObject>>,
     pub exposed_variables: TArray<FNiagaraVariable>,
 }
 #[repr(C, align(8))]
@@ -513,13 +516,13 @@ pub struct FNiagaraComponentPropertyBinding {
 pub struct FNiagaraCulledComponentInfo {}
 #[repr(C, align(8))]
 pub struct FNiagaraDataChannelSearchParameters {
-    pub owning_component: UPtr<USceneComponent>,
-    pub location: FVector,
+    pub owning_component: UPtr<crate::bindings::engine::USceneComponent>,
+    pub location: crate::bindings::core_u_object::FVector,
     pub flags_32: u8,
 }
 #[repr(C, align(8))]
 pub struct FNDCAccessContextBase {
-    pub owning_component: UPtr<USceneComponent>,
+    pub owning_component: UPtr<crate::bindings::engine::USceneComponent>,
     pub flags_8: u8,
 }
 #[repr(C, align(4))]
@@ -528,19 +531,19 @@ pub struct FNDCSpawnedSystemRef {
 }
 #[repr(C, align(8))]
 pub struct FNDCAccessContext {
-    pub location: FVector,
+    pub location: crate::bindings::core_u_object::FVector,
     pub flags_40: u8,
-    pub system_to_spawn: UPtr<UObject>,
+    pub system_to_spawn: UPtr<crate::bindings::core_u_object::UObject>,
     pub spawned_systems: TArray<FNDCSpawnedSystemRef>,
 }
 #[repr(C, align(8))]
 pub struct FNDCAccessContextLegacy {
-    pub location: FVector,
+    pub location: crate::bindings::core_u_object::FVector,
     pub flags_40: u8,
 }
 #[repr(C, align(8))]
 pub struct FNDCAccessContextInst {
-    pub access_context: FInstancedStruct,
+    pub access_context: crate::bindings::core_u_object::FInstancedStruct,
 }
 #[repr(C, align(8))]
 pub struct FNiagaraDataChannelGameDataLayout {
@@ -569,22 +572,22 @@ pub struct FNiagaraDataChannelReference {
 }
 #[repr(C, align(8))]
 pub struct FNiagaraDataChannelVariable {
-    pub version: FGuid,
+    pub version: crate::bindings::core_u_object::FGuid,
 }
 #[repr(C, align(8))]
 pub struct FNDCAccessContext_MapBase {}
 #[repr(C, align(8))]
 pub struct FNDCAccessContext_GameplayBurst {
     pub flags_72: u8,
-    pub cell_size_override: FVector,
-    pub system_bounds_padding: FVector,
-    pub gameplay_tag: FGameplayTag,
+    pub cell_size_override: crate::bindings::core_u_object::FVector,
+    pub system_bounds_padding: crate::bindings::core_u_object::FVector,
+    pub gameplay_tag: crate::bindings::gameplay_tags::FGameplayTag,
 }
 #[repr(C, align(8))]
 pub struct FNDCGameplayBurstAttachmentSettings {
     pub speed_threshold: f32,
-    pub gameplay_tags: FGameplayTagContainer,
-    pub component_types: TArray<TSubclassOf<USceneComponent>>,
+    pub gameplay_tags: crate::bindings::gameplay_tags::FGameplayTagContainer,
+    pub component_types: TArray<TSubclassOf<crate::bindings::engine::USceneComponent>>,
 }
 #[repr(C, align(8))]
 pub struct FNDCMapEntryBase {
@@ -597,7 +600,7 @@ pub struct FNDCMapEntry_GameplayBurst {}
 #[repr(C, align(8))]
 pub struct FNDCIsland {
     pub owner: UPtr<UNiagaraDataChannelHandler_Islands>,
-    pub bounds: FBoxSphereBounds,
+    pub bounds: crate::bindings::core_u_object::FBoxSphereBounds,
     pub spawned_components: TArray<UPtr<UNiagaraComponent>>,
 }
 #[repr(C, align(4))]
@@ -606,7 +609,7 @@ pub struct FNDCIslandDebugDrawSettings {
 }
 #[repr(C, align(8))]
 pub struct FNDCMapEntry {
-    pub entry_data: FInstancedStruct,
+    pub entry_data: crate::bindings::core_u_object::FInstancedStruct,
 }
 #[repr(C, align(8))]
 pub struct FNDCMapKey {}
@@ -622,20 +625,20 @@ pub struct FNiagaraDataInterfaceEmitterBinding {
 }
 #[repr(C, align(8))]
 pub struct FBasicParticleData {
-    pub position: FVector,
+    pub position: crate::bindings::core_u_object::FVector,
     pub size: f32,
-    pub velocity: FVector,
+    pub velocity: crate::bindings::core_u_object::FVector,
 }
 #[repr(C, align(4))]
 pub struct FMeshTriCoordinate {
     pub tri: i32,
-    pub bary_coord: FVector3f,
+    pub bary_coord: crate::bindings::core_u_object::FVector3f,
 }
 #[repr(C, align(8))]
 pub struct FNiagaraDataInterfaceSplineLUT {
-    pub positions: TArray<FVector>,
-    pub scales: TArray<FVector>,
-    pub rotations: TArray<FQuat>,
+    pub positions: TArray<crate::bindings::core_u_object::FVector>,
+    pub scales: TArray<crate::bindings::core_u_object::FVector>,
+    pub rotations: TArray<crate::bindings::core_u_object::FQuat>,
     pub spline_length: f32,
     pub spline_distance_step: f32,
     pub inv_spline_distance_step: f32,
@@ -657,7 +660,7 @@ pub struct FNiagaraOutlinerEmitterInstanceData {
 #[repr(C, align(8))]
 pub struct FNiagaraOutlinerSystemInstanceData {
     pub component_name: FString,
-    pub lwc_tile: FVector3f,
+    pub lwc_tile: crate::bindings::core_u_object::FVector3f,
     pub emitters: TArray<FNiagaraOutlinerEmitterInstanceData>,
     pub actual_execution_state: ENiagaraExecutionState,
     pub requested_execution_state: ENiagaraExecutionState,
@@ -666,7 +669,7 @@ pub struct FNiagaraOutlinerSystemInstanceData {
     pub pool_method: ENCPoolMethod,
     pub average_time: FNiagaraOutlinerTimingData,
     pub max_time: FNiagaraOutlinerTimingData,
-    pub tick_group: ETickingGroup,
+    pub tick_group: crate::bindings::engine::ETickingGroup,
     pub gpu_tick_stage: ENiagaraGpuComputeTickStage,
     pub flags_96: u8,
 }
@@ -693,18 +696,18 @@ pub struct FNiagaraOutlinerData {
 }
 #[repr(C, align(4))]
 pub struct FNiagaraDebuggerRequestConnection {
-    pub session_id: FGuid,
-    pub instance_id: FGuid,
+    pub session_id: crate::bindings::core_u_object::FGuid,
+    pub instance_id: crate::bindings::core_u_object::FGuid,
 }
 #[repr(C, align(4))]
 pub struct FNiagaraDebuggerAcceptConnection {
-    pub session_id: FGuid,
-    pub instance_id: FGuid,
+    pub session_id: crate::bindings::core_u_object::FGuid,
+    pub instance_id: crate::bindings::core_u_object::FGuid,
 }
 #[repr(C, align(4))]
 pub struct FNiagaraDebuggerConnectionClosed {
-    pub session_id: FGuid,
-    pub instance_id: FGuid,
+    pub session_id: crate::bindings::core_u_object::FGuid,
+    pub instance_id: crate::bindings::core_u_object::FGuid,
 }
 #[repr(C, align(8))]
 pub struct FNiagaraDebuggerExecuteConsoleCommand {
@@ -720,7 +723,7 @@ pub struct FNiagaraDebugHudTextOptions {
     pub font: ENiagaraDebugHudFont,
     pub horizontal_alignment: ENiagaraDebugHudHAlign,
     pub vertical_alignment: ENiagaraDebugHudVAlign,
-    pub screen_offset: FVector2D,
+    pub screen_offset: crate::bindings::core_u_object::FVector2D,
 }
 #[repr(C, align(8))]
 pub struct FNiagaraDebugHUDVariable {
@@ -766,7 +769,7 @@ pub struct FNiagaraDebugHUDSettingsData {
     pub b_use_max_particles_to_display: bool,
     pub max_particles_to_display: i32,
     pub b_use_particle_display_clip: bool,
-    pub particle_display_clip: FVector2D,
+    pub particle_display_clip: crate::bindings::core_u_object::FVector2D,
     pub b_use_particle_display_center_radius: bool,
     pub particle_display_center_radius: f32,
     pub perf_report_frames: i32,
@@ -777,29 +780,29 @@ pub struct FNiagaraDebugHUDSettingsData {
     pub perf_history_frames: i32,
     pub b_use_perf_graph_time_range: bool,
     pub perf_graph_time_range: f32,
-    pub perf_graph_size: FVector2D,
-    pub perf_graph_axis_color: FLinearColor,
+    pub perf_graph_size: crate::bindings::core_u_object::FVector2D,
+    pub perf_graph_axis_color: crate::bindings::core_u_object::FLinearColor,
     pub smoothing_width: i32,
     pub overview_font: ENiagaraDebugHudFont,
-    pub overview_location: FVector2D,
+    pub overview_location: crate::bindings::core_u_object::FVector2D,
     pub system_text_options: FNiagaraDebugHudTextOptions,
     pub particle_text_options: FNiagaraDebugHudTextOptions,
     pub b_draw_bounds_enabled: bool,
     pub b_draw_bounds_wireframe: bool,
     pub draw_bounds_alpha: f32,
-    pub default_background_color: FLinearColor,
-    pub overview_heading_color: FLinearColor,
-    pub overview_detail_color: FLinearColor,
-    pub overview_detail_highlight_color: FLinearColor,
-    pub in_world_error_text_color: FLinearColor,
-    pub in_world_text_color: FLinearColor,
-    pub message_info_text_color: FLinearColor,
-    pub message_warning_text_color: FLinearColor,
-    pub message_error_text_color: FLinearColor,
+    pub default_background_color: crate::bindings::core_u_object::FLinearColor,
+    pub overview_heading_color: crate::bindings::core_u_object::FLinearColor,
+    pub overview_detail_color: crate::bindings::core_u_object::FLinearColor,
+    pub overview_detail_highlight_color: crate::bindings::core_u_object::FLinearColor,
+    pub in_world_error_text_color: crate::bindings::core_u_object::FLinearColor,
+    pub in_world_text_color: crate::bindings::core_u_object::FLinearColor,
+    pub message_info_text_color: crate::bindings::core_u_object::FLinearColor,
+    pub message_warning_text_color: crate::bindings::core_u_object::FLinearColor,
+    pub message_error_text_color: crate::bindings::core_u_object::FLinearColor,
     pub system_color_table_opacity: f32,
     pub system_color_seed: u32,
-    pub system_color_hsv_min: FVector,
-    pub system_color_hsv_max: FVector,
+    pub system_color_hsv_min: crate::bindings::core_u_object::FVector,
+    pub system_color_hsv_max: crate::bindings::core_u_object::FVector,
     pub playback_mode: ENiagaraDebugPlaybackMode,
     pub b_playback_rate_enabled: bool,
     pub playback_rate: f32,
@@ -835,7 +838,7 @@ pub struct FNiagaraSystemSimCacheCaptureReply {
 }
 #[repr(C, align(4))]
 pub struct FNiagaraGraphViewSettings {
-    pub location: FDeprecateSlateVector2D,
+    pub location: crate::bindings::slate_core::FDeprecateSlateVector2D,
     pub zoom: f32,
     pub b_is_valid: bool,
 }
@@ -947,7 +950,7 @@ pub struct FNiagaraEventScriptProperties {
     pub execution_mode: EScriptExecutionMode,
     pub spawn_number: u32,
     pub max_events_per_frame: u32,
-    pub source_emitter_id: FGuid,
+    pub source_emitter_id: crate::bindings::core_u_object::FGuid,
     pub source_event_name: FName,
     pub b_random_spawn_number: bool,
     pub min_spawn_number: u32,
@@ -967,7 +970,7 @@ pub struct FVersionedNiagaraEmitterData {
     pub version_change_description: FText,
     pub update_script_execution: ENiagaraPythonUpdateScriptReference,
     pub python_update_script: FString,
-    pub script_asset: FFilePath,
+    pub script_asset: crate::bindings::core_u_object::FFilePath,
     pub b_deprecated: bool,
     pub deprecation_message: FText,
     pub b_local_space: bool,
@@ -977,7 +980,7 @@ pub struct FVersionedNiagaraEmitterData {
     pub flags_124: u8,
     pub sim_target: ENiagaraSimTarget,
     pub calculate_bounds_mode: ENiagaraEmitterCalculateBoundMode,
-    pub fixed_bounds: FBox,
+    pub fixed_bounds: crate::bindings::core_u_object::FBox,
     pub flags_192: u8,
     pub event_handler_script_props: TArray<FNiagaraEventScriptProperties>,
     pub platforms: FNiagaraPlatformSet,
@@ -1030,24 +1033,27 @@ pub struct FNiagaraSimStageExecutionLoopData {
 #[repr(C, align(8))]
 pub struct FVersionedNiagaraEmitter {
     pub emitter: UPtr<UNiagaraEmitter>,
-    pub version: FGuid,
+    pub version: crate::bindings::core_u_object::FGuid,
 }
 #[repr(C, align(8))]
 pub struct FNiagaraParameterStore {
-    pub owner: TWeakObjectPtr<UObject>,
+    pub owner: TWeakObjectPtr<crate::bindings::core_u_object::UObject>,
     pub parameter_offsets: TMap<FNiagaraVariable, i32>,
     pub sorted_parameter_offsets: TArray<FNiagaraVariableWithOffset>,
     pub parameter_data: TArray<u8>,
     pub data_interfaces: TArray<UPtr<UNiagaraDataInterface>>,
-    pub u_objects: TArray<UPtr<UObject>>,
+    pub u_objects: TArray<UPtr<crate::bindings::core_u_object::UObject>>,
     pub original_position_data: TArray<FNiagaraPositionSource>,
     pub debug_name: FString,
-    pub parameter_guid_mapping: TMap<FNiagaraVariable, FGuid>,
+    pub parameter_guid_mapping: TMap<
+        FNiagaraVariable,
+        crate::bindings::core_u_object::FGuid,
+    >,
 }
 #[repr(C, align(8))]
 pub struct FNiagaraPositionSource {
     pub name: FName,
-    pub value: FVector,
+    pub value: crate::bindings::core_u_object::FVector,
 }
 #[repr(C, align(8))]
 pub struct FNiagaraVariableWithOffset {
@@ -1058,13 +1064,13 @@ pub struct FNiagaraVariableWithOffset {
 pub struct FNiagaraAssetVersion {
     pub major_version: i32,
     pub minor_version: i32,
-    pub version_guid: FGuid,
+    pub version_guid: crate::bindings::core_u_object::FGuid,
     pub b_is_visible_in_version_selector: bool,
 }
 #[repr(C, align(8))]
 pub struct FNiagaraEmitterHandle {
     pub name: FName,
-    pub id: FGuid,
+    pub id: crate::bindings::core_u_object::FGuid,
     pub id_name: FName,
     pub b_is_enabled: bool,
     pub emitter_mode: ENiagaraEmitterMode,
@@ -1077,31 +1083,34 @@ pub struct FNiagaraEmitterHandle {
 }
 #[repr(C, align(8))]
 pub struct FNiagaraCollisionEventPayload {
-    pub collision_pos: FVector,
-    pub collision_normal: FVector,
-    pub collision_velocity: FVector,
+    pub collision_pos: crate::bindings::core_u_object::FVector,
+    pub collision_normal: crate::bindings::core_u_object::FVector,
+    pub collision_velocity: crate::bindings::core_u_object::FVector,
     pub particle_index: i32,
     pub physical_material_index: i32,
 }
 #[repr(C, align(8))]
 pub struct FNiagaraMeshMICOverride {
-    pub original_material: UPtr<UMaterialInterface>,
-    pub replacement_material: UPtr<UMaterialInstanceConstant>,
+    pub original_material: UPtr<crate::bindings::engine::UMaterialInterface>,
+    pub replacement_material: UPtr<crate::bindings::engine::UMaterialInstanceConstant>,
 }
 #[repr(C, align(8))]
 pub struct FNiagaraMeshMaterialOverride {
-    pub explicit_mat: UPtr<UMaterialInterface>,
+    pub explicit_mat: UPtr<crate::bindings::engine::UMaterialInterface>,
     pub user_param_binding: FNiagaraUserParameterBinding,
 }
 #[repr(C, align(8))]
 pub struct FNiagaraMessageStore {
-    pub message_key_to_message_map: TMap<FGuid, UPtr<UNiagaraMessageDataBase>>,
-    pub dismissed_message_keys: TArray<FGuid>,
+    pub message_key_to_message_map: TMap<
+        crate::bindings::core_u_object::FGuid,
+        UPtr<UNiagaraMessageDataBase>,
+    >,
+    pub dismissed_message_keys: TArray<crate::bindings::core_u_object::FGuid>,
 }
 #[repr(C, align(8))]
 pub struct FParameterDefinitionsSubscription {
     pub definitions: UPtr<UNiagaraParameterDefinitionsBase>,
-    pub definitions_id_deprecated: FGuid,
+    pub definitions_id_deprecated: crate::bindings::core_u_object::FGuid,
     pub cached_change_id_hash: i32,
 }
 #[repr(C, align(8))]
@@ -1148,12 +1157,12 @@ pub struct FNiagaraRendererMaterialScalarParameter {
 #[repr(C, align(4))]
 pub struct FNiagaraRendererMaterialVectorParameter {
     pub material_parameter_name: FName,
-    pub value: FLinearColor,
+    pub value: crate::bindings::core_u_object::FLinearColor,
 }
 #[repr(C, align(8))]
 pub struct FNiagaraRendererMaterialTextureParameter {
     pub material_parameter_name: FName,
-    pub texture: UPtr<UTexture>,
+    pub texture: UPtr<crate::bindings::engine::UTexture>,
 }
 #[repr(C, align(4))]
 pub struct FNiagaraRendererMaterialStaticBoolParameter {
@@ -1181,8 +1190,8 @@ pub struct FNiagaraRendererReadbackParameters {
 }
 #[repr(C, align(4))]
 pub struct FNiagaraRibbonShapeCustomVertex {
-    pub position: FVector2f,
-    pub normal: FVector2f,
+    pub position: crate::bindings::core_u_object::FVector2f,
+    pub normal: crate::bindings::core_u_object::FVector2f,
     pub texture_v: f32,
 }
 #[repr(C, align(8))]
@@ -1192,8 +1201,8 @@ pub struct FNiagaraRibbonUVSettings {
     pub trailing_edge_mode: ENiagaraRibbonUVEdgeMode,
     pub flags_3: u8,
     pub tiling_length: f32,
-    pub offset: FVector2D,
-    pub scale: FVector2D,
+    pub offset: crate::bindings::core_u_object::FVector2D,
+    pub scale: crate::bindings::core_u_object::FVector2D,
 }
 #[repr(C, align(8))]
 pub struct FNiagaraScalabilityManager {
@@ -1216,16 +1225,18 @@ pub struct FNiagaraCompilerTag {
 }
 #[repr(C, align(8))]
 pub struct FNiagaraVMExecutableDataId {
-    pub compiler_version_id: FGuid,
+    pub compiler_version_id: crate::bindings::core_u_object::FGuid,
     pub interpolated_spawn_mode: ENiagaraInterpolatedSpawnMode,
-    pub script_usage_type_id: FGuid,
+    pub script_usage_type_id: crate::bindings::core_u_object::FGuid,
     pub script_usage_type: ENiagaraScriptUsage,
     pub additional_defines: TArray<FString>,
     pub additional_variables: TArray<FNiagaraVariableBase>,
     pub flags_72: u8,
-    pub base_script_compile_hash: FNiagaraCompileHash,
-    pub referenced_compile_hashes: TArray<FNiagaraCompileHash>,
-    pub script_version_id: FGuid,
+    pub base_script_compile_hash: crate::bindings::niagara_core::FNiagaraCompileHash,
+    pub referenced_compile_hashes: TArray<
+        crate::bindings::niagara_core::FNiagaraCompileHash,
+    >,
+    pub script_version_id: crate::bindings::core_u_object::FGuid,
 }
 #[repr(C, align(8))]
 pub struct FNiagaraVMExecutableByteCode {
@@ -1258,15 +1269,19 @@ pub struct FNiagaraVMExecutableData {
     pub last_hlsl_translation_gpu: FString,
     pub last_assembly_translation: FString,
     pub last_op_count: u32,
-    pub shader_script_parameters_metadata: FNiagaraShaderScriptParametersMetadata,
+    pub shader_script_parameters_metadata: crate::bindings::niagara_shader::FNiagaraShaderScriptParametersMetadata,
     pub parameter_collection_paths: TArray<FString>,
     pub last_compile_status: ENiagaraScriptCompileStatus,
-    pub simulation_stage_meta_data: TArray<FSimulationStageMetaData>,
+    pub simulation_stage_meta_data: TArray<
+        crate::bindings::niagara_shader::FSimulationStageMetaData,
+    >,
     pub b_reads_attribute_data: bool,
     pub attributes_written: TArray<FNiagaraVariableBase>,
     pub static_variables_written: TArray<FNiagaraVariable>,
     pub error_msg: FString,
-    pub last_compile_events: TArray<FNiagaraCompileEvent>,
+    pub last_compile_events: TArray<
+        crate::bindings::niagara_shader::FNiagaraCompileEvent,
+    >,
     pub experimental_context_data: TArray<u8>,
     pub last_experimental_assembly_script: FString,
     pub flags_664: u8,
@@ -1292,7 +1307,7 @@ pub struct FVersionedNiagaraScriptData {
     pub b_use_python_script_conversion: bool,
     pub conversion_script_execution: ENiagaraPythonUpdateScriptReference,
     pub python_conversion_script: FString,
-    pub conversion_script_asset: FFilePath,
+    pub conversion_script_asset: crate::bindings::core_u_object::FFilePath,
     pub conversion_utility: TSubclassOf<UNiagaraConvertInPlaceUtilityBase>,
     pub flags_208: u8,
     pub experimental_message: FText,
@@ -1310,7 +1325,7 @@ pub struct FVersionedNiagaraScriptData {
     pub last_generated_vm_id: FNiagaraVMExecutableDataId,
     pub update_script_execution: ENiagaraPythonUpdateScriptReference,
     pub python_update_script: FString,
-    pub script_asset: FFilePath,
+    pub script_asset: crate::bindings::core_u_object::FFilePath,
     pub parameter_definitions_subscriptions: TArray<FParameterDefinitionsSubscription>,
     pub input_sections_deprecated: TArray<FNiagaraStackSection>,
     pub source: UPtr<UNiagaraScriptSourceBase>,
@@ -1331,7 +1346,7 @@ pub struct FNiagaraScriptExecutionParameterStore {
 pub struct FNiagaraScriptInstanceParameterStore {}
 #[repr(C, align(8))]
 pub struct FNiagaraScriptHighlight {
-    pub color: FLinearColor,
+    pub color: crate::bindings::core_u_object::FLinearColor,
     pub display_name: FText,
 }
 #[repr(C, align(8))]
@@ -1342,19 +1357,19 @@ pub struct FNiagaraSimCacheDataBuffers {
 }
 #[repr(C, align(8))]
 pub struct FNiagaraSimCacheEmitterFrame {
-    pub local_bounds: FBox,
+    pub local_bounds: crate::bindings::core_u_object::FBox,
     pub total_spawned_particles: i32,
     pub particle_data_buffers: FNiagaraSimCacheDataBuffers,
 }
 #[repr(C, align(8))]
 pub struct FNiagaraSimCacheSystemFrame {
-    pub local_bounds: FBox,
+    pub local_bounds: crate::bindings::core_u_object::FBox,
     pub system_data_buffers: FNiagaraSimCacheDataBuffers,
 }
 #[repr(C, align(16))]
 pub struct FNiagaraSimCacheFrame {
-    pub local_to_world: FTransform,
-    pub lwc_tile: FVector3f,
+    pub local_to_world: crate::bindings::core_u_object::FTransform,
+    pub lwc_tile: crate::bindings::core_u_object::FVector3f,
     pub simulation_age: f32,
     pub simulation_tick_count: i32,
     pub system_data: FNiagaraSimCacheSystemFrame,
@@ -1459,9 +1474,9 @@ pub struct FNiagaraDistributionBase {
     pub flags_9: u8,
     pub lookup_value_mode: u8,
     pub parameter_binding: FNiagaraVariableBase,
-    pub parameter_expression: FInstancedStruct,
+    pub parameter_expression: crate::bindings::core_u_object::FInstancedStruct,
     pub channel_constants_and_ranges: TArray<f32>,
-    pub channel_curves: TArray<FRichCurve>,
+    pub channel_curves: TArray<crate::bindings::engine::FRichCurve>,
     pub max_lut_sample_count: i32,
 }
 #[repr(C, align(8))]
@@ -1534,10 +1549,10 @@ pub struct FNiagaraDouble {
 }
 #[repr(C, align(16))]
 pub struct FNiagaraMatrix {
-    pub row0: FVector4f,
-    pub row1: FVector4f,
-    pub row2: FVector4f,
-    pub row3: FVector4f,
+    pub row0: crate::bindings::core_u_object::FVector4f,
+    pub row1: crate::bindings::core_u_object::FVector4f,
+    pub row2: crate::bindings::core_u_object::FVector4f,
+    pub row3: crate::bindings::core_u_object::FVector4f,
 }
 #[repr(C, align(4))]
 pub struct FNiagaraEmitterID {
@@ -1573,9 +1588,9 @@ pub struct FNiagaraInputConditionMetadata {
 #[repr(C, align(8))]
 pub struct FNiagaraEnumParameterMetaData {
     pub override_name: FName,
-    pub icon_override: UPtr<UTexture2D>,
+    pub icon_override: UPtr<crate::bindings::engine::UTexture2D>,
     pub b_use_color_override: bool,
-    pub color_override: FLinearColor,
+    pub color_override: crate::bindings::core_u_object::FLinearColor,
 }
 #[repr(C, align(8))]
 pub struct FWidgetNamedInputValue {
@@ -1588,7 +1603,7 @@ pub struct FWidgetSegmentValueOverride {
     pub enum_index_to_override: i32,
     pub b_override_display_name: bool,
     pub display_name_override: FText,
-    pub display_icon: UPtr<UTexture2D>,
+    pub display_icon: UPtr<crate::bindings::engine::UTexture2D>,
 }
 #[repr(C, align(8))]
 pub struct FNiagaraWidgetNamedIntegerInputValue {
@@ -1615,18 +1630,18 @@ pub struct FNiagaraBoolParameterMetaData {
     pub display_mode: ENiagaraBoolDisplayMode,
     pub override_name_true: FName,
     pub override_name_false: FName,
-    pub icon_override_true: UPtr<UTexture2D>,
-    pub icon_override_false: UPtr<UTexture2D>,
+    pub icon_override_true: UPtr<crate::bindings::engine::UTexture2D>,
+    pub icon_override_false: UPtr<crate::bindings::engine::UTexture2D>,
 }
 #[repr(C, align(8))]
 pub struct FNiagaraVariableMetaData {
     pub description: FText,
-    pub display_unit: EUnit,
+    pub display_unit: crate::bindings::core_u_object::EUnit,
     pub b_advanced_display: bool,
     pub b_display_in_overview_stack: bool,
     pub inline_parameter_sort_priority: i32,
     pub b_override_color: bool,
-    pub inline_parameter_color_override: FLinearColor,
+    pub inline_parameter_color_override: crate::bindings::core_u_object::FLinearColor,
     pub inline_parameter_enum_overrides: TArray<FNiagaraEnumParameterMetaData>,
     pub b_enable_bool_override: bool,
     pub inline_parameter_bool_override: FNiagaraBoolParameterMetaData,
@@ -1636,7 +1651,7 @@ pub struct FNiagaraVariableMetaData {
     pub property_meta_data: TMap<FName, FString>,
     pub alternate_aliases: TArray<FName>,
     pub widget_customization: FNiagaraInputParameterCustomization,
-    pub variable_guid: FGuid,
+    pub variable_guid: crate::bindings::core_u_object::FGuid,
     pub b_is_static_switch_deprecated: bool,
     pub static_switch_default_value_deprecated: i32,
     pub category_name_deprecated: FText,
@@ -1645,7 +1660,7 @@ pub struct FNiagaraVariableMetaData {
 }
 #[repr(C, align(8))]
 pub struct FNiagaraVariant {
-    pub object: UPtr<UObject>,
+    pub object: UPtr<crate::bindings::core_u_object::UObject>,
     pub data_interface: UPtr<UNiagaraDataInterface>,
     pub bytes: TArray<u8>,
     pub current_mode: ENiagaraVariantMode,
@@ -1658,7 +1673,7 @@ pub struct FNiagaraStatelessExpression {}
 pub struct FNiagaraStatelessExpressionColor {}
 #[repr(C, align(8))]
 pub struct FNiagaraStatelessExpressionColorConstant {
-    pub a: FLinearColor,
+    pub a: crate::bindings::core_u_object::FLinearColor,
 }
 #[repr(C, align(8))]
 pub struct FNiagaraStatelessExpressionColorBinding {
@@ -1666,23 +1681,23 @@ pub struct FNiagaraStatelessExpressionColorBinding {
 }
 #[repr(C, align(8))]
 pub struct FNiagaraStatelessExpressionColorAdd {
-    pub a: FInstancedStruct,
-    pub b: FInstancedStruct,
+    pub a: crate::bindings::core_u_object::FInstancedStruct,
+    pub b: crate::bindings::core_u_object::FInstancedStruct,
 }
 #[repr(C, align(8))]
 pub struct FNiagaraStatelessExpressionColorSubtract {
-    pub a: FInstancedStruct,
-    pub b: FInstancedStruct,
+    pub a: crate::bindings::core_u_object::FInstancedStruct,
+    pub b: crate::bindings::core_u_object::FInstancedStruct,
 }
 #[repr(C, align(8))]
 pub struct FNiagaraStatelessExpressionColorMultiply {
-    pub a: FInstancedStruct,
-    pub b: FInstancedStruct,
+    pub a: crate::bindings::core_u_object::FInstancedStruct,
+    pub b: crate::bindings::core_u_object::FInstancedStruct,
 }
 #[repr(C, align(8))]
 pub struct FNiagaraStatelessExpressionColorDivide {
-    pub a: FInstancedStruct,
-    pub b: FInstancedStruct,
+    pub a: crate::bindings::core_u_object::FInstancedStruct,
+    pub b: crate::bindings::core_u_object::FInstancedStruct,
 }
 #[repr(C, align(8))]
 pub struct FNiagaraStatelessExpressionFloat {}
@@ -1696,29 +1711,29 @@ pub struct FNiagaraStatelessExpressionFloatBinding {
 }
 #[repr(C, align(8))]
 pub struct FNiagaraStatelessExpressionFloatAdd {
-    pub a: FInstancedStruct,
-    pub b: FInstancedStruct,
+    pub a: crate::bindings::core_u_object::FInstancedStruct,
+    pub b: crate::bindings::core_u_object::FInstancedStruct,
 }
 #[repr(C, align(8))]
 pub struct FNiagaraStatelessExpressionFloatSubtract {
-    pub a: FInstancedStruct,
-    pub b: FInstancedStruct,
+    pub a: crate::bindings::core_u_object::FInstancedStruct,
+    pub b: crate::bindings::core_u_object::FInstancedStruct,
 }
 #[repr(C, align(8))]
 pub struct FNiagaraStatelessExpressionFloatMultiply {
-    pub a: FInstancedStruct,
-    pub b: FInstancedStruct,
+    pub a: crate::bindings::core_u_object::FInstancedStruct,
+    pub b: crate::bindings::core_u_object::FInstancedStruct,
 }
 #[repr(C, align(8))]
 pub struct FNiagaraStatelessExpressionFloatDivide {
-    pub a: FInstancedStruct,
-    pub b: FInstancedStruct,
+    pub a: crate::bindings::core_u_object::FInstancedStruct,
+    pub b: crate::bindings::core_u_object::FInstancedStruct,
 }
 #[repr(C, align(8))]
 pub struct FNiagaraStatelessExpressionVec2 {}
 #[repr(C, align(8))]
 pub struct FNiagaraStatelessExpressionVec2Constant {
-    pub a: FVector2f,
+    pub a: crate::bindings::core_u_object::FVector2f,
 }
 #[repr(C, align(8))]
 pub struct FNiagaraStatelessExpressionVec2Binding {
@@ -1726,29 +1741,29 @@ pub struct FNiagaraStatelessExpressionVec2Binding {
 }
 #[repr(C, align(8))]
 pub struct FNiagaraStatelessExpressionVec2Add {
-    pub a: FInstancedStruct,
-    pub b: FInstancedStruct,
+    pub a: crate::bindings::core_u_object::FInstancedStruct,
+    pub b: crate::bindings::core_u_object::FInstancedStruct,
 }
 #[repr(C, align(8))]
 pub struct FNiagaraStatelessExpressionVec2Subtract {
-    pub a: FInstancedStruct,
-    pub b: FInstancedStruct,
+    pub a: crate::bindings::core_u_object::FInstancedStruct,
+    pub b: crate::bindings::core_u_object::FInstancedStruct,
 }
 #[repr(C, align(8))]
 pub struct FNiagaraStatelessExpressionVec2Multiply {
-    pub a: FInstancedStruct,
-    pub b: FInstancedStruct,
+    pub a: crate::bindings::core_u_object::FInstancedStruct,
+    pub b: crate::bindings::core_u_object::FInstancedStruct,
 }
 #[repr(C, align(8))]
 pub struct FNiagaraStatelessExpressionVec2Divide {
-    pub a: FInstancedStruct,
-    pub b: FInstancedStruct,
+    pub a: crate::bindings::core_u_object::FInstancedStruct,
+    pub b: crate::bindings::core_u_object::FInstancedStruct,
 }
 #[repr(C, align(8))]
 pub struct FNiagaraStatelessExpressionVec3 {}
 #[repr(C, align(8))]
 pub struct FNiagaraStatelessExpressionVec3Constant {
-    pub a: FVector3f,
+    pub a: crate::bindings::core_u_object::FVector3f,
 }
 #[repr(C, align(8))]
 pub struct FNiagaraStatelessExpressionVec3Binding {
@@ -1756,29 +1771,29 @@ pub struct FNiagaraStatelessExpressionVec3Binding {
 }
 #[repr(C, align(8))]
 pub struct FNiagaraStatelessExpressionVec3Add {
-    pub a: FInstancedStruct,
-    pub b: FInstancedStruct,
+    pub a: crate::bindings::core_u_object::FInstancedStruct,
+    pub b: crate::bindings::core_u_object::FInstancedStruct,
 }
 #[repr(C, align(8))]
 pub struct FNiagaraStatelessExpressionVec3Subtract {
-    pub a: FInstancedStruct,
-    pub b: FInstancedStruct,
+    pub a: crate::bindings::core_u_object::FInstancedStruct,
+    pub b: crate::bindings::core_u_object::FInstancedStruct,
 }
 #[repr(C, align(8))]
 pub struct FNiagaraStatelessExpressionVec3Multiply {
-    pub a: FInstancedStruct,
-    pub b: FInstancedStruct,
+    pub a: crate::bindings::core_u_object::FInstancedStruct,
+    pub b: crate::bindings::core_u_object::FInstancedStruct,
 }
 #[repr(C, align(8))]
 pub struct FNiagaraStatelessExpressionVec3Divide {
-    pub a: FInstancedStruct,
-    pub b: FInstancedStruct,
+    pub a: crate::bindings::core_u_object::FInstancedStruct,
+    pub b: crate::bindings::core_u_object::FInstancedStruct,
 }
 #[repr(C, align(8))]
 pub struct FNiagaraStatelessExpressionVec4 {}
 #[repr(C, align(16))]
 pub struct FNiagaraStatelessExpressionVec4Constant {
-    pub a: FVector4f,
+    pub a: crate::bindings::core_u_object::FVector4f,
 }
 #[repr(C, align(8))]
 pub struct FNiagaraStatelessExpressionVec4Binding {
@@ -1786,23 +1801,23 @@ pub struct FNiagaraStatelessExpressionVec4Binding {
 }
 #[repr(C, align(8))]
 pub struct FNiagaraStatelessExpressionVec4Add {
-    pub a: FInstancedStruct,
-    pub b: FInstancedStruct,
+    pub a: crate::bindings::core_u_object::FInstancedStruct,
+    pub b: crate::bindings::core_u_object::FInstancedStruct,
 }
 #[repr(C, align(8))]
 pub struct FNiagaraStatelessExpressionVec4Subtract {
-    pub a: FInstancedStruct,
-    pub b: FInstancedStruct,
+    pub a: crate::bindings::core_u_object::FInstancedStruct,
+    pub b: crate::bindings::core_u_object::FInstancedStruct,
 }
 #[repr(C, align(8))]
 pub struct FNiagaraStatelessExpressionVec4Multiply {
-    pub a: FInstancedStruct,
-    pub b: FInstancedStruct,
+    pub a: crate::bindings::core_u_object::FInstancedStruct,
+    pub b: crate::bindings::core_u_object::FInstancedStruct,
 }
 #[repr(C, align(8))]
 pub struct FNiagaraStatelessExpressionVec4Divide {
-    pub a: FInstancedStruct,
-    pub b: FInstancedStruct,
+    pub a: crate::bindings::core_u_object::FInstancedStruct,
+    pub b: crate::bindings::core_u_object::FInstancedStruct,
 }
 #[repr(C, align(8))]
 pub struct FNiagaraStatelessDynamicParameterSet {
@@ -1815,66 +1830,66 @@ pub struct FNiagaraStatelessDynamicParameterSet {
 #[repr(C, align(8))]
 pub struct FNiagaraDistributionFloat {
     pub values: TArray<f32>,
-    pub values_time_range: FVector2f,
+    pub values_time_range: crate::bindings::core_u_object::FVector2f,
 }
 #[repr(C, align(8))]
 pub struct FNiagaraDistributionRangeInt {
     pub mode: ENiagaraDistributionMode,
     pub parameter_binding: FNiagaraVariableBase,
-    pub parameter_expression: FInstancedStruct,
+    pub parameter_expression: crate::bindings::core_u_object::FInstancedStruct,
     pub min: i32,
     pub max: i32,
 }
 #[repr(C, align(8))]
 pub struct FNiagaraDistributionRangeVector2 {
-    pub min: FVector2f,
-    pub max: FVector2f,
+    pub min: crate::bindings::core_u_object::FVector2f,
+    pub max: crate::bindings::core_u_object::FVector2f,
 }
 #[repr(C, align(8))]
 pub struct FNiagaraDistributionRangeVector3 {
-    pub min: FVector3f,
-    pub max: FVector3f,
+    pub min: crate::bindings::core_u_object::FVector3f,
+    pub max: crate::bindings::core_u_object::FVector3f,
 }
 #[repr(C, align(8))]
 pub struct FNiagaraDistributionRangeColor {
-    pub min: FLinearColor,
-    pub max: FLinearColor,
+    pub min: crate::bindings::core_u_object::FLinearColor,
+    pub max: crate::bindings::core_u_object::FLinearColor,
 }
 #[repr(C, align(8))]
 pub struct FNiagaraDistributionRangeRotator {
-    pub min: FRotator3f,
-    pub max: FRotator3f,
+    pub min: crate::bindings::core_u_object::FRotator3f,
+    pub max: crate::bindings::core_u_object::FRotator3f,
 }
 #[repr(C, align(8))]
 pub struct FNiagaraDistributionVector2 {
-    pub values: TArray<FVector2f>,
-    pub values_time_range: FVector2f,
+    pub values: TArray<crate::bindings::core_u_object::FVector2f>,
+    pub values_time_range: crate::bindings::core_u_object::FVector2f,
 }
 #[repr(C, align(8))]
 pub struct FNiagaraDistributionVector3 {
-    pub values: TArray<FVector3f>,
-    pub values_time_range: FVector2f,
+    pub values: TArray<crate::bindings::core_u_object::FVector3f>,
+    pub values_time_range: crate::bindings::core_u_object::FVector2f,
 }
 #[repr(C, align(8))]
 pub struct FNiagaraDistributionPosition {}
 #[repr(C, align(8))]
 pub struct FNiagaraDistributionColor {
-    pub values: TArray<FLinearColor>,
-    pub values_time_range: FVector2f,
+    pub values: TArray<crate::bindings::core_u_object::FLinearColor>,
+    pub values_time_range: crate::bindings::core_u_object::FVector2f,
 }
 #[repr(C, align(8))]
 pub struct FNiagaraDistributionCurveFloat {
     pub values: TArray<f32>,
-    pub values_time_range: FVector2f,
+    pub values_time_range: crate::bindings::core_u_object::FVector2f,
 }
 #[repr(C, align(8))]
 pub struct FNiagaraDistributionCurveVector3 {
-    pub values: TArray<FVector3f>,
-    pub values_time_range: FVector2f,
+    pub values: TArray<crate::bindings::core_u_object::FVector3f>,
+    pub values_time_range: crate::bindings::core_u_object::FVector2f,
 }
 #[repr(C, align(8))]
 pub struct FNiagaraStatelessSpawnInfo {
-    pub source_id: FGuid,
+    pub source_id: crate::bindings::core_u_object::FGuid,
     pub ty: ENiagaraStatelessSpawnInfoType,
     pub spawn_time: f32,
     pub amount: FNiagaraDistributionRangeInt,
@@ -1888,7 +1903,7 @@ pub struct UNiagaraDataInterfacePlatformSet {
     pub platforms: FNiagaraPlatformSet,
 }
 pub struct UNiagaraSystem {
-    pub thumbnail_image: UPtr<UTexture2D>,
+    pub thumbnail_image: UPtr<crate::bindings::engine::UTexture2D>,
     pub b_expose_to_library_deprecated: bool,
     pub library_visibility: ENiagaraScriptLibraryVisibility,
     pub b_is_template_asset_deprecated: bool,
@@ -1896,7 +1911,7 @@ pub struct UNiagaraSystem {
     pub asset_tags_deprecated: TArray<FNiagaraAssetTagDefinitionReference>,
     pub template_asset_description: FText,
     pub category: FText,
-    pub preview_movie_path: FSoftObjectPath,
+    pub preview_movie_path: crate::bindings::core_u_object::FSoftObjectPath,
     pub scratch_pad_scripts: TArray<UPtr<UNiagaraScript>>,
     pub editor_only_added_parameters: FNiagaraParameterStore,
     pub update_context: FNiagaraSystemUpdateContext,
@@ -1905,7 +1920,7 @@ pub struct UNiagaraSystem {
     pub flags_856: u8,
     pub flags_857: u8,
     pub large_world_coordinate_tile_update_mode: TOptional<ENiagaraLwcTileUpdateMode>,
-    pub custom_depth_stencil_write_mask: ERendererStencilMask,
+    pub custom_depth_stencil_write_mask: crate::bindings::engine::ERendererStencilMask,
     pub custom_depth_stencil_value: i32,
     pub translucency_sort_priority: i32,
     pub translucency_sort_distance_offset: f32,
@@ -1926,9 +1941,9 @@ pub struct UNiagaraSystem {
     pub exposed_parameters: FNiagaraUserRedirectionParameterStore,
     pub editor_data: UPtr<UNiagaraEditorDataBase>,
     pub editor_parameters: UPtr<UNiagaraEditorParametersAdapterBase>,
-    pub fixed_bounds: FBox,
+    pub fixed_bounds: crate::bindings::core_u_object::FBox,
     pub b_use_initial_streaming_bounds: bool,
-    pub initial_streaming_bounds: FBox,
+    pub initial_streaming_bounds: crate::bindings::core_u_object::FBox,
     pub b_needs_gpu_context_init_for_data_interfaces: bool,
     pub b_determinism: bool,
     pub b_fixed_tick_delta: bool,
@@ -1941,11 +1956,11 @@ pub struct UNiagaraSystem {
     pub baker_generated_settings: UPtr<UNiagaraBakerSettings>,
     pub flags_3064: u8,
     pub message_key_to_message_map_deprecated: TMap<
-        FGuid,
+        crate::bindings::core_u_object::FGuid,
         UPtr<UNiagaraMessageDataBase>,
     >,
     pub message_store: FNiagaraMessageStore,
-    pub system_state_data_struct: FInstancedStruct,
+    pub system_state_data_struct: crate::bindings::core_u_object::FInstancedStruct,
 }
 pub struct UNiagaraConvertInPlaceUtilityBase {}
 pub struct UNiagaraDataInterfaceDynamicMeshSimCacheData {
@@ -1954,7 +1969,7 @@ pub struct UNiagaraDataInterfaceDynamicMeshSimCacheData {
     pub gpu_frame_indices: TArray<i32>,
 }
 pub struct UNiagaraParameterDefinitionsBase {
-    pub unique_id: FGuid,
+    pub unique_id: crate::bindings::core_u_object::FGuid,
 }
 pub struct UNiagaraRenderableMeshArrayInterface {}
 pub struct INiagaraRenderableMeshArrayInterface {}
@@ -1973,7 +1988,7 @@ pub struct UNDIRenderTargetSimCacheData {
 pub struct UNiagaraDataInterfaceActorComponent {
     pub source_mode: ENDIActorComponentSourceMode,
     pub local_player_index: i32,
-    pub source_actor: TLazyObjectPtr<AActor>,
+    pub source_actor: TLazyObjectPtr<crate::bindings::engine::AActor>,
     pub actor_or_component_parameter: FNiagaraUserParameterBinding,
     pub b_require_current_frame_data: bool,
 }
@@ -2007,7 +2022,7 @@ pub struct UNiagaraDataInterfaceDataChannelRead {
 }
 pub struct UNDIDataChannelWriteSimCacheData {
     pub frame_data: TArray<FNDIDataChannelWriteSimCacheFrame>,
-    pub data_channel_reference: FSoftObjectPath,
+    pub data_channel_reference: crate::bindings::core_u_object::FSoftObjectPath,
     pub data_interface: UPtr<UNiagaraDataInterfaceDataChannelWrite>,
 }
 pub struct UNiagaraDataInterfaceDataChannelWrite {
@@ -2023,7 +2038,7 @@ pub struct UNiagaraDataInterfaceDataChannelWrite {
     pub compiled_data: FNDIDataChannelWriteCompiledData,
 }
 pub struct UNiagaraDataInterfaceDataTable {
-    pub data_table: UPtr<UDataTable>,
+    pub data_table: UPtr<crate::bindings::engine::UDataTable>,
     pub filtered_row_names: TArray<FName>,
     pub object_parameter_binding: FNiagaraUserParameterBinding,
     pub b_create_filtered_table: bool,
@@ -2039,7 +2054,7 @@ pub struct UNiagaraDataInterfaceDynamicMesh {
     pub b_has_colors: bool,
     pub b_has_tangent_basis: bool,
     pub b_clear_triangles_per_frame: bool,
-    pub default_bounds: FBox,
+    pub default_bounds: crate::bindings::core_u_object::FBox,
 }
 pub struct UNiagaraDataInterfaceEmitterProperties {
     pub emitter_binding: FNiagaraDataInterfaceEmitterBinding,
@@ -2054,9 +2069,9 @@ pub struct UNDIMemoryBufferSimCacheData {
     pub buffer_data: TArray<u32>,
 }
 pub struct UNiagaraDataInterfacePhysicsAsset {
-    pub default_source: UPtr<UPhysicsAsset>,
-    pub soft_source_actor: TSoftObjectPtr<AActor>,
-    pub source_actor_deprecated: UPtr<AActor>,
+    pub default_source: UPtr<crate::bindings::engine::UPhysicsAsset>,
+    pub soft_source_actor: TSoftObjectPtr<crate::bindings::engine::AActor>,
+    pub source_actor_deprecated: UPtr<crate::bindings::engine::AActor>,
     pub mesh_user_parameter: FNiagaraUserParameterBinding,
 }
 pub struct UNiagaraPhysicsAssetDICollectorInterface {}
@@ -2066,21 +2081,24 @@ pub struct UNiagaraDataInterfaceSceneCapture2D {
     pub scene_capture_user_parameter: FNiagaraUserParameterBinding,
     pub b_auto_move_with_component: bool,
     pub auto_move_offset_location_mode: ENDISceneCapture2DOffsetMode,
-    pub auto_move_offset_location: FVector,
+    pub auto_move_offset_location: crate::bindings::core_u_object::FVector,
     pub auto_move_offset_rotation_mode: ENDISceneCapture2DOffsetMode,
-    pub auto_move_offset_rotation: FRotator,
-    pub managed_capture_source: ESceneCaptureSource,
-    pub managed_texture_size: FIntPoint,
-    pub managed_texture_format: ETextureRenderTargetFormat,
-    pub managed_projection_type: ECameraProjectionMode,
+    pub auto_move_offset_rotation: crate::bindings::core_u_object::FRotator,
+    pub managed_capture_source: crate::bindings::engine::ESceneCaptureSource,
+    pub managed_texture_size: crate::bindings::core_u_object::FIntPoint,
+    pub managed_texture_format: crate::bindings::engine::ETextureRenderTargetFormat,
+    pub managed_projection_type: crate::bindings::engine::ECameraProjectionMode,
     pub managed_fov_angle: f32,
     pub managed_ortho_width: f32,
     pub b_managed_capture_every_frame: bool,
     pub b_managed_capture_on_movement: bool,
     pub b_managed_hide_attach_component: bool,
-    pub managed_hiden_actors: TArray<UPtr<AActor>>,
-    pub managed_show_only_actors: TArray<UPtr<AActor>>,
-    pub managed_capture_components: TMap<u64, UPtr<USceneCaptureComponent2D>>,
+    pub managed_hiden_actors: TArray<UPtr<crate::bindings::engine::AActor>>,
+    pub managed_show_only_actors: TArray<UPtr<crate::bindings::engine::AActor>>,
+    pub managed_capture_components: TMap<
+        u64,
+        UPtr<crate::bindings::engine::USceneCaptureComponent2D>,
+    >,
 }
 pub struct UNiagaraDataInterfaceSimCacheReader {
     pub sim_cache_binding: FNiagaraUserParameterBinding,
@@ -2097,10 +2115,10 @@ pub struct UNDISimpleCounterSimCacheData {
 pub struct UNiagaraDataInterfaceSocketReader {
     pub source_mode: ENDISocketReaderSourceMode,
     pub filtered_sockets: TArray<FName>,
-    pub editor_preview_asset: TSoftObjectPtr<UObject>,
-    pub source_actor: TLazyObjectPtr<AActor>,
-    pub source_asset: UPtr<UObject>,
-    pub attach_component_class: TSubclassOf<UObject>,
+    pub editor_preview_asset: TSoftObjectPtr<crate::bindings::core_u_object::UObject>,
+    pub source_actor: TLazyObjectPtr<crate::bindings::engine::AActor>,
+    pub source_asset: UPtr<crate::bindings::core_u_object::UObject>,
+    pub attach_component_class: TSubclassOf<crate::bindings::core_u_object::UObject>,
     pub attach_component_tag: FName,
     pub object_parameter_binding: FNiagaraUserParameterBinding,
     pub b_update_sockets_per_frame: bool,
@@ -2108,11 +2126,11 @@ pub struct UNiagaraDataInterfaceSocketReader {
 }
 pub struct UNiagaraDataInterfaceStaticMesh {
     pub source_mode: ENDIStaticMesh_SourceMode,
-    pub preview_mesh: TSoftObjectPtr<UStaticMesh>,
-    pub default_mesh: UPtr<UStaticMesh>,
-    pub soft_source_actor: TSoftObjectPtr<AActor>,
-    pub source_deprecated: UPtr<AActor>,
-    pub source_component: TWeakObjectPtr<UStaticMeshComponent>,
+    pub preview_mesh: TSoftObjectPtr<crate::bindings::engine::UStaticMesh>,
+    pub default_mesh: UPtr<crate::bindings::engine::UStaticMesh>,
+    pub soft_source_actor: TSoftObjectPtr<crate::bindings::engine::AActor>,
+    pub source_deprecated: UPtr<crate::bindings::engine::AActor>,
+    pub source_component: TWeakObjectPtr<crate::bindings::engine::UStaticMeshComponent>,
     pub section_filter: FNDIStaticMeshSectionFilter,
     pub b_capture_transforms_per_frame: bool,
     pub b_use_physics_body_velocity: bool,
@@ -2127,11 +2145,13 @@ pub struct UNiagaraDataInterfaceUObjectPropertyReader {
     pub source_mode: ENDIObjectPropertyReaderSourceMode,
     pub u_object_parameter_binding: FNiagaraUserParameterBinding,
     pub property_remap: TArray<FNiagaraUObjectPropertyReaderRemap>,
-    pub source_actor: TSoftObjectPtr<AActor>,
-    pub source_actor_component_class: TSubclassOf<UObject>,
+    pub source_actor: TSoftObjectPtr<crate::bindings::engine::AActor>,
+    pub source_actor_component_class: TSubclassOf<
+        crate::bindings::core_u_object::UObject,
+    >,
 }
 pub struct UNiagaraDataInterfaceVirtualTexture {
-    pub texture: UPtr<URuntimeVirtualTexture>,
+    pub texture: UPtr<crate::bindings::engine::URuntimeVirtualTexture>,
     pub texture_user_parameter: FNiagaraUserParameterBinding,
 }
 pub struct UMovieSceneNiagaraSystemSpawnSection {
@@ -2142,7 +2162,7 @@ pub struct UMovieSceneNiagaraSystemSpawnSection {
     pub b_allow_scalability: bool,
 }
 pub struct UMovieSceneNiagaraTrack {
-    pub sections: TArray<UPtr<UMovieSceneSection>>,
+    pub sections: TArray<UPtr<crate::bindings::movie_scene::UMovieSceneSection>>,
 }
 pub struct UMovieSceneNiagaraSystemTrack {}
 pub struct UMovieSceneNiagaraParameterTrack {
@@ -2157,8 +2177,8 @@ pub struct UMovieSceneNiagaraVectorParameterTrack {
 }
 pub struct ANiagaraActor {
     pub niagara_component: UPtr<UNiagaraComponent>,
-    pub sprite_component: UPtr<UBillboardComponent>,
-    pub arrow_component: UPtr<UArrowComponent>,
+    pub sprite_component: UPtr<crate::bindings::engine::UBillboardComponent>,
+    pub arrow_component: UPtr<crate::bindings::engine::UArrowComponent>,
     pub flags_1160: u8,
 }
 pub struct UDEPRECATED_NiagaraAssetTagDefinitions {
@@ -2191,10 +2211,10 @@ pub struct UNiagaraBakerOutputStaticMesh {
 pub struct UNiagaraBakerOutputTexture2D {
     pub source_binding: FNiagaraBakerTextureSource,
     pub flags_96: u8,
-    pub frame_size: FIntPoint,
-    pub atlas_texture_size: FIntPoint,
-    pub texture_address_x: TextureAddress,
-    pub texture_address_y: TextureAddress,
+    pub frame_size: crate::bindings::core_u_object::FIntPoint,
+    pub atlas_texture_size: crate::bindings::core_u_object::FIntPoint,
+    pub texture_address_x: crate::bindings::engine::TextureAddress,
+    pub texture_address_y: crate::bindings::engine::TextureAddress,
     pub atlas_asset_path_format: FString,
     pub frames_asset_path_format: FString,
     pub frames_export_path_format: FString,
@@ -2211,7 +2231,7 @@ pub struct UNiagaraBakerSettings {
     pub duration_seconds: f32,
     pub frames_per_second: i32,
     pub flags_60: u8,
-    pub frames_per_dimension: FIntPoint,
+    pub frames_per_dimension: crate::bindings::core_u_object::FIntPoint,
     pub outputs: TArray<UPtr<UNiagaraBakerOutput>>,
     pub camera_settings: TArray<FNiagaraBakerCameraSettings>,
     pub current_camera_index: i32,
@@ -2219,8 +2239,8 @@ pub struct UNiagaraBakerSettings {
     pub flags_120: u8,
     pub output_textures_deprecated: TArray<FNiagaraBakerTextureSettings>,
     pub camera_viewport_mode_deprecated: ENiagaraBakerViewMode,
-    pub camera_viewport_location_deprecated: FVector,
-    pub camera_viewport_rotation_deprecated: FRotator,
+    pub camera_viewport_location_deprecated: crate::bindings::core_u_object::FVector,
+    pub camera_viewport_rotation_deprecated: crate::bindings::core_u_object::FRotator,
     pub camera_orbit_distance_deprecated: f32,
     pub camera_fov_deprecated: f32,
     pub camera_ortho_width_deprecated: f32,
@@ -2244,11 +2264,11 @@ pub struct UNiagaraComponent {
     pub max_time_before_force_update_transform: f32,
     pub occlusion_query_mode: ENiagaraOcclusionQueryMode,
     pub on_system_finished: FNiagaraComponent_OnSystemFinished,
-    pub auto_attach_parent: TWeakObjectPtr<USceneComponent>,
+    pub auto_attach_parent: TWeakObjectPtr<crate::bindings::engine::USceneComponent>,
     pub auto_attach_socket_name: FName,
-    pub auto_attach_location_rule: EAttachmentRule,
-    pub auto_attach_rotation_rule: EAttachmentRule,
-    pub auto_attach_scale_rule: EAttachmentRule,
+    pub auto_attach_location_rule: crate::bindings::engine::EAttachmentRule,
+    pub auto_attach_rotation_rule: crate::bindings::engine::EAttachmentRule,
+    pub auto_attach_scale_rule: crate::bindings::engine::EAttachmentRule,
     pub flags_2624: u8,
     pub sim_cache_debug_num_frames_to_capture: TOptional<i32>,
     pub flags_2648: u8,
@@ -2265,12 +2285,12 @@ pub struct UNiagaraRendererProperties {
     pub b_is_enabled: bool,
     pub b_allow_in_cull_proxies: bool,
     pub renderer_enabled_binding: FNiagaraVariableAttributeBinding,
-    pub outer_emitter_version: FGuid,
+    pub outer_emitter_version: crate::bindings::core_u_object::FGuid,
     pub b_motion_blur_enabled_deprecated: bool,
     pub b_debug_draw_enabled: bool,
 }
 pub struct UNiagaraComponentRendererProperties {
-    pub component_type: TSubclassOf<USceneComponent>,
+    pub component_type: TSubclassOf<crate::bindings::engine::USceneComponent>,
     pub component_count_limit: u32,
     pub enabled_binding: FNiagaraVariableAttributeBinding,
     pub renderer_visibility_tag_binding: FNiagaraVariableAttributeBinding,
@@ -2280,7 +2300,7 @@ pub struct UNiagaraComponentRendererProperties {
     pub b_visualize_components: bool,
     pub b_only_create_components_on_particle_spawn_deprecated: bool,
     pub renderer_visibility: i32,
-    pub template_component: UPtr<USceneComponent>,
+    pub template_component: UPtr<crate::bindings::engine::USceneComponent>,
     pub property_bindings: TArray<FNiagaraComponentPropertyBinding>,
 }
 pub struct UNiagaraCullProxyComponent {
@@ -2290,8 +2310,8 @@ pub struct UNiagaraDataChannel {
     pub channel_variables: TArray<FNiagaraDataChannelVariable>,
     pub b_keep_previous_frame_data: bool,
     pub b_enforce_tick_group_read_write_order: bool,
-    pub final_write_tick_group: ETickingGroup,
-    pub version_guid: FGuid,
+    pub final_write_tick_group: crate::bindings::engine::ETickingGroup,
+    pub version_guid: crate::bindings::core_u_object::FGuid,
     pub variables_deprecated: TArray<FNiagaraVariable>,
 }
 pub struct UNiagaraDataChannelReader {
@@ -2311,17 +2331,17 @@ pub struct UNiagaraDataChannelHandler {
     pub reader: UPtr<UNiagaraDataChannelReader>,
 }
 pub struct UNiagaraDataChannel_MapBase {
-    pub default_system_to_spawn: UPtr<UObject>,
+    pub default_system_to_spawn: UPtr<crate::bindings::core_u_object::UObject>,
 }
 pub struct UNiagaraDataChannel_GameplayBurst {
-    pub cell_size: FVector,
-    pub system_bounds_padding: FVector,
+    pub cell_size: crate::bindings::core_u_object::FVector,
+    pub system_bounds_padding: crate::bindings::core_u_object::FVector,
     pub attachment_settings: FNDCGameplayBurstAttachmentSettings,
 }
 pub struct UNiagaraDataChannelHandler_MapBase {
     pub entry_pool: TArray<FNDCMapEntry>,
     pub spawned_components_to_active_entry: TMap<UPtr<UNiagaraComponent>, i32>,
-    pub default_system_to_spawn: UPtr<UObject>,
+    pub default_system_to_spawn: UPtr<crate::bindings::core_u_object::UObject>,
 }
 pub struct UNiagaraDataChannelHandler_GameplayBurst {
     pub attachment_settings: FNDCGameplayBurstAttachmentSettings,
@@ -2330,9 +2350,9 @@ pub struct UNiagaraDataChannel_Global {}
 pub struct UNiagaraDataChannelHandler_Global {}
 pub struct UNiagaraDataChannel_Islands {
     pub mode: ENiagraDataChannel_IslandMode,
-    pub initial_extents: FVector,
-    pub max_extents: FVector,
-    pub per_element_extents: FVector,
+    pub initial_extents: crate::bindings::core_u_object::FVector,
+    pub max_extents: crate::bindings::core_u_object::FVector,
+    pub per_element_extents: crate::bindings::core_u_object::FVector,
     pub systems: TArray<TSoftObjectPtr<UNiagaraSystem>>,
     pub island_pool_size: i32,
     pub debug_draw_settings: FNDCIslandDebugDrawSettings,
@@ -2344,7 +2364,7 @@ pub struct UNiagaraDataChannelHandler_Islands {
     pub island_pool: TArray<FNDCIsland>,
 }
 pub struct UNiagaraDataInterface2DArrayTexture {
-    pub texture: UPtr<UTexture>,
+    pub texture: UPtr<crate::bindings::engine::UTexture>,
     pub texture_user_parameter: FNiagaraUserParameterBinding,
 }
 pub struct UNDIArraySimCacheData {
@@ -2356,30 +2376,30 @@ pub struct UNiagaraDataInterfaceArrayFloat {
     pub float_data: TArray<f32>,
 }
 pub struct UNiagaraDataInterfaceArrayFloat2 {
-    pub float_data: TArray<FVector2D>,
-    pub internal_float_data: TArray<FVector2f>,
+    pub float_data: TArray<crate::bindings::core_u_object::FVector2D>,
+    pub internal_float_data: TArray<crate::bindings::core_u_object::FVector2f>,
 }
 pub struct UNiagaraDataInterfaceArrayFloat3 {
-    pub float_data: TArray<FVector>,
-    pub internal_float_data: TArray<FVector3f>,
+    pub float_data: TArray<crate::bindings::core_u_object::FVector>,
+    pub internal_float_data: TArray<crate::bindings::core_u_object::FVector3f>,
 }
 pub struct UNiagaraDataInterfaceArrayPosition {
     pub position_data: TArray<FNiagaraPosition>,
 }
 pub struct UNiagaraDataInterfaceArrayFloat4 {
-    pub float_data: TArray<FVector4>,
-    pub internal_float_data: TArray<FVector4f>,
+    pub float_data: TArray<crate::bindings::core_u_object::FVector4>,
+    pub internal_float_data: TArray<crate::bindings::core_u_object::FVector4f>,
 }
 pub struct UNiagaraDataInterfaceArrayColor {
-    pub color_data: TArray<FLinearColor>,
+    pub color_data: TArray<crate::bindings::core_u_object::FLinearColor>,
 }
 pub struct UNiagaraDataInterfaceArrayQuat {
-    pub quat_data: TArray<FQuat>,
-    pub internal_quat_data: TArray<FQuat4f>,
+    pub quat_data: TArray<crate::bindings::core_u_object::FQuat>,
+    pub internal_quat_data: TArray<crate::bindings::core_u_object::FQuat4f>,
 }
 pub struct UNiagaraDataInterfaceArrayMatrix {
-    pub matrix_data: TArray<FMatrix>,
-    pub internal_matrix_data: TArray<FMatrix44f>,
+    pub matrix_data: TArray<crate::bindings::core_u_object::FMatrix>,
+    pub internal_matrix_data: TArray<crate::bindings::core_u_object::FMatrix44f>,
 }
 pub struct UNiagaraDataInterfaceArrayFunctionLibrary {}
 pub struct UNiagaraDataInterfaceArrayInt32 {
@@ -2396,23 +2416,23 @@ pub struct UNiagaraDataInterfaceArrayNiagaraID {
     pub int_data: TArray<FNiagaraID>,
 }
 pub struct UNiagaraDataInterfaceAudioSubmix {
-    pub submix: UPtr<USoundSubmix>,
+    pub submix: UPtr<crate::bindings::engine::USoundSubmix>,
 }
 pub struct UNiagaraDataInterfaceAudioOscilloscope {
-    pub submix: UPtr<USoundSubmix>,
+    pub submix: UPtr<crate::bindings::engine::USoundSubmix>,
     pub resolution: i32,
     pub scope_in_milliseconds: f32,
 }
 pub struct UNiagaraDataInterfaceAudioPlayerSettings {
     pub b_override_concurrency: bool,
-    pub concurrency: UPtr<USoundConcurrency>,
+    pub concurrency: UPtr<crate::bindings::engine::USoundConcurrency>,
     pub b_override_attenuation_settings: bool,
-    pub attenuation_settings: FSoundAttenuationSettings,
+    pub attenuation_settings: crate::bindings::engine::FSoundAttenuationSettings,
 }
 pub struct UNiagaraDataInterfaceAudioPlayer {
-    pub sound_to_play: UPtr<USoundBase>,
-    pub attenuation: UPtr<USoundAttenuation>,
-    pub concurrency: UPtr<USoundConcurrency>,
+    pub sound_to_play: UPtr<crate::bindings::engine::USoundBase>,
+    pub attenuation: UPtr<crate::bindings::engine::USoundAttenuation>,
+    pub concurrency: UPtr<crate::bindings::engine::USoundConcurrency>,
     pub parameter_names: TArray<FName>,
     pub configuration_user_parameter: FNiagaraUserParameterBinding,
     pub b_limit_plays_per_tick: bool,
@@ -2438,32 +2458,32 @@ pub struct UNiagaraDataInterfaceCurveBase {
     pub lut_max_time: f32,
     pub lut_inv_time_range: f32,
     pub lut_num_samples_minus_one: f32,
-    pub curve_asset: UPtr<UCurveBase>,
+    pub curve_asset: UPtr<crate::bindings::engine::UCurveBase>,
     pub flags_200: u8,
     pub optimize_threshold: f32,
     pub exposed_name: FName,
-    pub exposed_texture: UPtr<UTexture2D>,
+    pub exposed_texture: UPtr<crate::bindings::engine::UTexture2D>,
 }
 pub struct UNiagaraDataInterfaceColorCurve {
-    pub red_curve: FRichCurve,
-    pub green_curve: FRichCurve,
-    pub blue_curve: FRichCurve,
-    pub alpha_curve: FRichCurve,
-    pub red_curve_cooked_editor_cache: FRichCurve,
-    pub green_curve_cooked_editor_cache: FRichCurve,
-    pub blue_curve_cooked_editor_cache: FRichCurve,
-    pub alpha_curve_cooked_editor_cache: FRichCurve,
+    pub red_curve: crate::bindings::engine::FRichCurve,
+    pub green_curve: crate::bindings::engine::FRichCurve,
+    pub blue_curve: crate::bindings::engine::FRichCurve,
+    pub alpha_curve: crate::bindings::engine::FRichCurve,
+    pub red_curve_cooked_editor_cache: crate::bindings::engine::FRichCurve,
+    pub green_curve_cooked_editor_cache: crate::bindings::engine::FRichCurve,
+    pub blue_curve_cooked_editor_cache: crate::bindings::engine::FRichCurve,
+    pub alpha_curve_cooked_editor_cache: crate::bindings::engine::FRichCurve,
 }
 pub struct UNiagaraDataInterfaceCubeTexture {
-    pub texture: UPtr<UTexture>,
+    pub texture: UPtr<crate::bindings::engine::UTexture>,
     pub texture_user_parameter: FNiagaraUserParameterBinding,
 }
 pub struct UNiagaraDataInterfaceCurlNoise {
     pub seed: u32,
 }
 pub struct UNiagaraDataInterfaceCurve {
-    pub curve: FRichCurve,
-    pub curve_cooked_editor_cache: FRichCurve,
+    pub curve: crate::bindings::engine::FRichCurve,
+    pub curve_cooked_editor_cache: crate::bindings::engine::FRichCurve,
 }
 pub struct UNiagaraParticleCallbackHandler {}
 pub struct INiagaraParticleCallbackHandler {}
@@ -2480,14 +2500,17 @@ pub struct UNiagaraDataInterfaceGrid2D {
     pub num_cells_max_axis: i32,
     pub num_attributes: i32,
     pub set_grid_from_max_axis: bool,
-    pub world_b_box_size: FVector2D,
+    pub world_b_box_size: crate::bindings::core_u_object::FVector2D,
 }
 pub struct UNiagaraDataInterfaceGrid2DCollection {
     pub render_target_user_parameter: FNiagaraUserParameterBinding,
     pub override_buffer_format: ENiagaraGpuBufferFormat,
     pub flags_265: u8,
     pub preview_attribute: FName,
-    pub managed_render_targets: TMap<u64, UPtr<UTextureRenderTarget2DArray>>,
+    pub managed_render_targets: TMap<
+        u64,
+        UPtr<crate::bindings::engine::UTextureRenderTarget2DArray>,
+    >,
 }
 pub struct UNiagaraDataInterfaceGrid2DCollectionReader {
     pub emitter_name: FString,
@@ -2495,11 +2518,11 @@ pub struct UNiagaraDataInterfaceGrid2DCollectionReader {
 }
 pub struct UNiagaraDataInterfaceGrid3D {
     pub clear_before_non_iteration_stage: bool,
-    pub num_cells: FIntVector,
+    pub num_cells: crate::bindings::core_u_object::FIntVector,
     pub cell_size: f32,
     pub num_cells_max_axis: i32,
     pub set_resolution_method: ESetResolutionMethod,
-    pub world_b_box_size: FVector,
+    pub world_b_box_size: crate::bindings::core_u_object::FVector,
 }
 pub struct UNiagaraDataInterfaceGrid3DCollection {
     pub num_attributes: i32,
@@ -2513,26 +2536,28 @@ pub struct UNiagaraDataInterfaceGrid3DCollectionReader {
     pub di_name: FString,
 }
 pub struct UNiagaraDataInterfaceIntRenderTarget2D {
-    pub size: FIntPoint,
+    pub size: crate::bindings::core_u_object::FIntPoint,
     pub flags_160: u8,
-    pub preview_display_range: FVector2D,
+    pub preview_display_range: crate::bindings::core_u_object::FVector2D,
     pub render_target_user_parameter: FNiagaraUserParameterBinding,
 }
 pub struct UNiagaraDataInterfaceLandscape {
-    pub source_landscape: UPtr<AActor>,
+    pub source_landscape: UPtr<crate::bindings::engine::AActor>,
     pub source_mode: ENDILandscape_SourceMode,
-    pub physical_materials: TArray<UPtr<UPhysicalMaterial>>,
+    pub physical_materials: TArray<
+        UPtr<crate::bindings::physics_core::UPhysicalMaterial>,
+    >,
     pub b_virtual_textures_supported: bool,
 }
 pub struct UNDILandscapeSimCacheData {
-    pub height_field_textures: TArray<UPtr<UTexture2D>>,
+    pub height_field_textures: TArray<UPtr<crate::bindings::engine::UTexture2D>>,
 }
 pub struct UNiagaraDataInterfaceMaterialInstanceDynamic {
-    pub default_material_inst: UPtr<UMaterialInstanceDynamic>,
+    pub default_material_inst: UPtr<crate::bindings::engine::UMaterialInstanceDynamic>,
     pub instanced_material_param_binding: FNiagaraParameterBinding,
 }
 pub struct UNiagaraDataInterfaceMaterialParameterCollection {
-    pub default_collection: UPtr<UMaterialParameterCollection>,
+    pub default_collection: UPtr<crate::bindings::engine::UMaterialParameterCollection>,
     pub collection_binding: FNiagaraParameterBinding,
 }
 pub struct UNiagaraDataInterfaceMeshRendererInfo {
@@ -2552,32 +2577,32 @@ pub struct UNiagaraDataInterfaceRasterizationGrid3D {
     pub reset_value: i32,
 }
 pub struct UNiagaraDataInterfaceRenderTarget2D {
-    pub size: FIntPoint,
+    pub size: crate::bindings::core_u_object::FIntPoint,
     pub mip_map_generation: ENiagaraMipMapGeneration,
-    pub mip_map_generation_type: ENiagaraMipMapGenerationType,
-    pub override_render_target_format: ETextureRenderTargetFormat,
-    pub override_render_target_filter: TextureFilter,
+    pub mip_map_generation_type: crate::bindings::niagara_shader::ENiagaraMipMapGenerationType,
+    pub override_render_target_format: crate::bindings::engine::ETextureRenderTargetFormat,
+    pub override_render_target_filter: crate::bindings::engine::TextureFilter,
     pub flags_172: u8,
     pub render_target_user_parameter: FNiagaraUserParameterBinding,
 }
 pub struct UNiagaraDataInterfaceRenderTarget2DArray {
-    pub size: FIntVector,
-    pub override_render_target_format: ETextureRenderTargetFormat,
-    pub override_render_target_filter: TextureFilter,
+    pub size: crate::bindings::core_u_object::FIntVector,
+    pub override_render_target_format: crate::bindings::engine::ETextureRenderTargetFormat,
+    pub override_render_target_filter: crate::bindings::engine::TextureFilter,
     pub flags_166: u8,
     pub render_target_user_parameter: FNiagaraUserParameterBinding,
 }
 pub struct UNiagaraDataInterfaceRenderTargetCube {
     pub size: i32,
-    pub override_render_target_format: ETextureRenderTargetFormat,
-    pub override_render_target_filter: TextureFilter,
+    pub override_render_target_format: crate::bindings::engine::ETextureRenderTargetFormat,
+    pub override_render_target_filter: crate::bindings::engine::TextureFilter,
     pub flags_158: u8,
     pub render_target_user_parameter: FNiagaraUserParameterBinding,
 }
 pub struct UNiagaraDataInterfaceRenderTargetVolume {
-    pub size: FIntVector,
-    pub override_render_target_format: ETextureRenderTargetFormat,
-    pub override_render_target_filter: TextureFilter,
+    pub size: crate::bindings::core_u_object::FIntVector,
+    pub override_render_target_format: crate::bindings::engine::ETextureRenderTargetFormat,
+    pub override_render_target_filter: crate::bindings::engine::TextureFilter,
     pub flags_174: u8,
     pub render_target_user_parameter: FNiagaraUserParameterBinding,
 }
@@ -2585,7 +2610,7 @@ pub struct UNiagaraDataInterfaceRigidMeshCollisionQuery {
     pub tag_deprecated: FString,
     pub actor_tags: TArray<FName>,
     pub component_tags: TArray<FName>,
-    pub source_actors: TArray<TSoftObjectPtr<AActor>>,
+    pub source_actors: TArray<TSoftObjectPtr<crate::bindings::engine::AActor>>,
     pub only_use_moveable: bool,
     pub use_complex_collisions: bool,
     pub b_filter_by_object_type: bool,
@@ -2597,12 +2622,12 @@ pub struct UNiagaraDataInterfaceRigidMeshCollisionQuery {
 pub struct UNiagaraDIRigidMeshCollisionFunctionLibrary {}
 pub struct UNiagaraDataInterfaceSkeletalMesh {
     pub source_mode: ENDISkeletalMesh_SourceMode,
-    pub preview_mesh: TSoftObjectPtr<USkeletalMesh>,
-    pub default_mesh: UPtr<USkeletalMesh>,
-    pub soft_source_actor: TSoftObjectPtr<AActor>,
+    pub preview_mesh: TSoftObjectPtr<crate::bindings::engine::USkeletalMesh>,
+    pub default_mesh: UPtr<crate::bindings::engine::USkeletalMesh>,
+    pub soft_source_actor: TSoftObjectPtr<crate::bindings::engine::AActor>,
     pub component_tags: TArray<FName>,
-    pub source_deprecated: UPtr<AActor>,
-    pub source_component: UPtr<USkeletalMeshComponent>,
+    pub source_deprecated: UPtr<crate::bindings::engine::AActor>,
+    pub source_component: UPtr<crate::bindings::engine::USkeletalMeshComponent>,
     pub mesh_user_parameter: FNiagaraUserParameterBinding,
     pub skinning_mode: ENDISkeletalMesh_SkinningMode,
     pub sampling_regions: TArray<FName>,
@@ -2616,13 +2641,13 @@ pub struct UNiagaraDataInterfaceSkeletalMesh {
     pub b_read_deformed_geometry: bool,
 }
 pub struct UNiagaraDataInterfaceSparseVolumeTexture {
-    pub sparse_volume_texture: UPtr<USparseVolumeTexture>,
+    pub sparse_volume_texture: UPtr<crate::bindings::engine::USparseVolumeTexture>,
     pub sparse_volume_texture_user_parameter: FNiagaraUserParameterBinding,
     pub blocking_streaming_requests: bool,
 }
 pub struct UNiagaraDataInterfaceSpline {
-    pub soft_source_actor: TSoftObjectPtr<AActor>,
-    pub source_deprecated: UPtr<AActor>,
+    pub soft_source_actor: TSoftObjectPtr<crate::bindings::engine::AActor>,
+    pub source_deprecated: UPtr<crate::bindings::engine::AActor>,
     pub spline_user_parameter: FNiagaraUserParameterBinding,
     pub b_use_lut: bool,
     pub num_lut_steps: i32,
@@ -2631,56 +2656,56 @@ pub struct UNiagaraDataInterfaceSpriteRendererInfo {
     pub sprite_renderer: UPtr<UNiagaraSpriteRendererProperties>,
 }
 pub struct UNiagaraDataInterfaceTexture {
-    pub texture: UPtr<UTexture>,
+    pub texture: UPtr<crate::bindings::engine::UTexture>,
     pub texture_user_parameter: FNiagaraUserParameterBinding,
 }
 pub struct UNiagaraDataInterfaceVector2DCurve {
-    pub x_curve: FRichCurve,
-    pub y_curve: FRichCurve,
-    pub x_curve_cooked_editor_cache: FRichCurve,
-    pub y_curve_cooked_editor_cache: FRichCurve,
+    pub x_curve: crate::bindings::engine::FRichCurve,
+    pub y_curve: crate::bindings::engine::FRichCurve,
+    pub x_curve_cooked_editor_cache: crate::bindings::engine::FRichCurve,
+    pub y_curve_cooked_editor_cache: crate::bindings::engine::FRichCurve,
 }
 pub struct UNiagaraDataInterfaceVector4Curve {
-    pub x_curve: FRichCurve,
-    pub y_curve: FRichCurve,
-    pub z_curve: FRichCurve,
-    pub w_curve: FRichCurve,
-    pub x_curve_cooked_editor_cache: FRichCurve,
-    pub y_curve_cooked_editor_cache: FRichCurve,
-    pub z_curve_cooked_editor_cache: FRichCurve,
-    pub w_curve_cooked_editor_cache: FRichCurve,
+    pub x_curve: crate::bindings::engine::FRichCurve,
+    pub y_curve: crate::bindings::engine::FRichCurve,
+    pub z_curve: crate::bindings::engine::FRichCurve,
+    pub w_curve: crate::bindings::engine::FRichCurve,
+    pub x_curve_cooked_editor_cache: crate::bindings::engine::FRichCurve,
+    pub y_curve_cooked_editor_cache: crate::bindings::engine::FRichCurve,
+    pub z_curve_cooked_editor_cache: crate::bindings::engine::FRichCurve,
+    pub w_curve_cooked_editor_cache: crate::bindings::engine::FRichCurve,
 }
 pub struct UNiagaraDataInterfaceVectorCurve {
-    pub x_curve: FRichCurve,
-    pub y_curve: FRichCurve,
-    pub z_curve: FRichCurve,
-    pub x_curve_cooked_editor_cache: FRichCurve,
-    pub y_curve_cooked_editor_cache: FRichCurve,
-    pub z_curve_cooked_editor_cache: FRichCurve,
+    pub x_curve: crate::bindings::engine::FRichCurve,
+    pub y_curve: crate::bindings::engine::FRichCurve,
+    pub z_curve: crate::bindings::engine::FRichCurve,
+    pub x_curve_cooked_editor_cache: crate::bindings::engine::FRichCurve,
+    pub y_curve_cooked_editor_cache: crate::bindings::engine::FRichCurve,
+    pub z_curve_cooked_editor_cache: crate::bindings::engine::FRichCurve,
 }
 pub struct UNiagaraDataInterfaceVectorField {
-    pub field: UPtr<UVectorField>,
+    pub field: UPtr<crate::bindings::engine::UVectorField>,
     pub b_tile_x: bool,
     pub b_tile_y: bool,
     pub b_tile_z: bool,
 }
 pub struct UNiagaraDataInterfaceVirtualTextureSample {
-    pub texture: UPtr<UTexture>,
+    pub texture: UPtr<crate::bindings::engine::UTexture>,
     pub texture_user_parameter: FNiagaraUserParameterBinding,
 }
 pub struct UNiagaraDataInterfaceVolumeCache {
     pub volume_cache: UPtr<UVolumeCache>,
 }
 pub struct UNiagaraDataInterfaceVolumeTexture {
-    pub texture: UPtr<UTexture>,
+    pub texture: UPtr<crate::bindings::engine::UTexture>,
     pub texture_user_parameter: FNiagaraUserParameterBinding,
 }
 pub struct UNiagaraDebugHUDSettings {
     pub data: FNiagaraDebugHUDSettingsData,
 }
 pub struct UNiagaraDecalRendererProperties {
-    pub material: UPtr<UMaterialInterface>,
-    pub mic_material: UPtr<UMaterialInstanceConstant>,
+    pub material: UPtr<crate::bindings::engine::UMaterialInterface>,
+    pub mic_material: UPtr<crate::bindings::engine::UMaterialInstanceConstant>,
     pub material_parameter_binding: FNiagaraParameterBinding,
     pub source_mode: ENiagaraRendererSourceDataMode,
     pub renderer_visibility: i32,
@@ -2703,16 +2728,16 @@ pub struct ANiagaraEditorPreviewActor {
     pub motion_type: ENiagaraEditorPreviewActorShapeType,
     pub shape_tension: f64,
     pub shape_scale: f64,
-    pub shape_rotation: FRotator,
-    pub custom_shape_points: TArray<FVector>,
+    pub shape_rotation: crate::bindings::core_u_object::FRotator,
+    pub custom_shape_points: TArray<crate::bindings::core_u_object::FVector>,
     pub circle_radius: f64,
     pub circle_end_radius: TOptional<f64>,
     pub circle_rotation_rate: TOptional<f64>,
-    pub square_size: FVector2D,
-    pub triangle_size: FVector2D,
+    pub square_size: crate::bindings::core_u_object::FVector2D,
+    pub triangle_size: crate::bindings::core_u_object::FVector2D,
     pub rotation_mode: ENiagaraEditorPreviewActorRotationMode,
     pub niagara_component: UPtr<UNiagaraComponent>,
-    pub arrow_component: UPtr<UArrowComponent>,
+    pub arrow_component: UPtr<crate::bindings::engine::UArrowComponent>,
 }
 pub struct UNiagaraSignificanceHandler {}
 pub struct UNiagaraSignificanceHandlerDistance {}
@@ -2731,22 +2756,22 @@ pub struct UNiagaraEffectType {
     pub validation_rule_sets: TArray<UPtr<UNiagaraValidationRuleSet>>,
     pub performance_baseline_controller: UPtr<UNiagaraBaselineController>,
     pub perf_baseline_stats: FNiagaraPerfBaselineStats,
-    pub perf_baseline_version: FGuid,
+    pub perf_baseline_version: crate::bindings::core_u_object::FGuid,
 }
 pub struct UNiagaraEmitterBase {
     pub unique_emitter_name: FString,
 }
 pub struct UNiagaraEmitter {
-    pub exposed_version: FGuid,
+    pub exposed_version: crate::bindings::core_u_object::FGuid,
     pub b_versioning_enabled: bool,
     pub version_data: TArray<FVersionedNiagaraEmitterData>,
     pub b_is_inheritable: bool,
     pub template_asset_description: FText,
-    pub preview_movie_path: FSoftObjectPath,
+    pub preview_movie_path: crate::bindings::core_u_object::FSoftObjectPath,
     pub category: FText,
-    pub thumbnail_image: UPtr<UTexture2D>,
+    pub thumbnail_image: UPtr<crate::bindings::engine::UTexture2D>,
     pub library_visibility: ENiagaraScriptLibraryVisibility,
-    pub version_to_open_in_editor: FGuid,
+    pub version_to_open_in_editor: crate::bindings::core_u_object::FGuid,
     pub b_local_space_deprecated: bool,
     pub b_determinism_deprecated: bool,
     pub random_seed_deprecated: i32,
@@ -2760,7 +2785,7 @@ pub struct UNiagaraEmitter {
     pub attributes_to_preserve_deprecated: TArray<FString>,
     pub parent_scratch_pad_scripts_deprecated: TArray<UPtr<UNiagaraScript>>,
     pub sim_target_deprecated: ENiagaraSimTarget,
-    pub fixed_bounds_deprecated: FBox,
+    pub fixed_bounds_deprecated: crate::bindings::core_u_object::FBox,
     pub min_detail_level_deprecated: i32,
     pub max_detail_level_deprecated: i32,
     pub global_spawn_count_scale_overrides_deprecated: FNiagaraDetailsLevelScaleOverrides,
@@ -2775,7 +2800,7 @@ pub struct UNiagaraEmitter {
     pub b_expose_to_library_deprecated: bool,
     pub b_is_template_asset_deprecated: bool,
     pub scratch_pad_scripts_deprecated: TArray<UPtr<UNiagaraScript>>,
-    pub change_id: FGuid,
+    pub change_id: crate::bindings::core_u_object::FGuid,
     pub editor_data_deprecated: UPtr<UNiagaraEditorDataBase>,
     pub editor_parameters_deprecated: UPtr<UNiagaraEditorParametersAdapterBase>,
     pub renderer_properties_deprecated: TArray<UPtr<UNiagaraRendererProperties>>,
@@ -2787,7 +2812,7 @@ pub struct UNiagaraEmitter {
     pub parent_at_last_merge_deprecated: UPtr<UNiagaraEmitter>,
     pub parameter_definitions_subscriptions: TArray<FParameterDefinitionsSubscription>,
     pub message_key_to_message_map_deprecated: TMap<
-        FGuid,
+        crate::bindings::core_u_object::FGuid,
         UPtr<UNiagaraMessageDataBase>,
     >,
     pub message_store: FNiagaraMessageStore,
@@ -2798,11 +2823,11 @@ pub struct UNiagaraEventReceiverEmitterAction_SpawnParticles {
 }
 pub struct UNiagaraFunctionLibrary {}
 pub struct ANiagaraLensEffectBase {
-    pub desired_relative_transform: FTransform,
+    pub desired_relative_transform: crate::bindings::core_u_object::FTransform,
     pub base_authored_fov: f32,
     pub flags_1284: u8,
-    pub emitters_to_treat_as_same: TArray<TSubclassOf<AActor>>,
-    pub owning_camera_manager: UPtr<APlayerCameraManager>,
+    pub emitters_to_treat_as_same: TArray<TSubclassOf<crate::bindings::engine::AActor>>,
+    pub owning_camera_manager: UPtr<crate::bindings::engine::APlayerCameraManager>,
 }
 pub struct UNiagaraLightRendererProperties {
     pub source_mode: ENiagaraRendererSourceDataMode,
@@ -2811,7 +2836,7 @@ pub struct UNiagaraLightRendererProperties {
     pub default_exponent: f32,
     pub specular_scale: f32,
     pub diffuse_scale: f32,
-    pub color_add: FVector3f,
+    pub color_add: crate::bindings::core_u_object::FVector3f,
     pub inverse_exposure_blend: f32,
     pub renderer_visibility: i32,
     pub light_rendering_enabled_binding: FNiagaraVariableAttributeBinding,
@@ -2835,9 +2860,9 @@ pub struct UNiagaraMeshRendererProperties {
     pub flags_1040: u8,
     pub override_materials: TArray<FNiagaraMeshMaterialOverride>,
     pub mic_override_materials: TArray<FNiagaraMeshMICOverride>,
-    pub sub_image_size: FVector2D,
-    pub locked_axis: FVector,
-    pub mesh_bounds_scale: FVector,
+    pub sub_image_size: crate::bindings::core_u_object::FVector2D,
+    pub locked_axis: crate::bindings::core_u_object::FVector,
+    pub mesh_bounds_scale: crate::bindings::core_u_object::FVector,
     pub facing_mode: ENiagaraMeshFacingMode,
     pub locked_axis_space: ENiagaraMeshLockedAxisSpace,
     pub min_camera_distance: f32,
@@ -2866,13 +2891,13 @@ pub struct UNiagaraMeshRendererProperties {
     pub prev_mesh_orientation_binding: FNiagaraVariableAttributeBinding,
     pub prev_camera_offset_binding: FNiagaraVariableAttributeBinding,
     pub prev_velocity_binding: FNiagaraVariableAttributeBinding,
-    pub first_flipbook_frame: UPtr<UStaticMesh>,
+    pub first_flipbook_frame: UPtr<crate::bindings::engine::UStaticMesh>,
     pub flipbook_suffix_format: FString,
     pub flipbook_suffix_num_digits: u32,
     pub num_flipbook_frames: u32,
     pub material_param_valid_mask: u32,
-    pub particle_mesh_deprecated: UPtr<UStaticMesh>,
-    pub pivot_offset_deprecated: FVector,
+    pub particle_mesh_deprecated: UPtr<crate::bindings::engine::UStaticMesh>,
+    pub pivot_offset_deprecated: crate::bindings::core_u_object::FVector,
     pub pivot_offset_space_deprecated: ENiagaraMeshPivotOffsetSpace,
 }
 pub struct UNiagaraMessageDataBase {}
@@ -2880,14 +2905,18 @@ pub struct UNiagaraParameterCollectionInstance {
     pub collection: UPtr<UNiagaraParameterCollection>,
     pub overriden_parameters: TArray<FNiagaraVariable>,
     pub parameter_storage: FNiagaraParameterStore,
-    pub source_material_collection_instance: UPtr<UMaterialParameterCollectionInstance>,
+    pub source_material_collection_instance: UPtr<
+        crate::bindings::engine::UMaterialParameterCollectionInstance,
+    >,
 }
 pub struct UNiagaraParameterCollection {
     pub namespace: FName,
     pub parameters: TArray<FNiagaraVariable>,
-    pub source_material_collection: UPtr<UMaterialParameterCollection>,
+    pub source_material_collection: UPtr<
+        crate::bindings::engine::UMaterialParameterCollection,
+    >,
     pub default_instance: UPtr<UNiagaraParameterCollectionInstance>,
-    pub compile_id: FGuid,
+    pub compile_id: crate::bindings::core_u_object::FGuid,
 }
 pub struct UNiagaraBaselineController {
     pub test_duration: f32,
@@ -2901,7 +2930,7 @@ pub struct UNiagaraBaselineController_Basic {
 }
 pub struct ANiagaraPerfBaselineActor {
     pub controller: UPtr<UNiagaraBaselineController>,
-    pub label: UPtr<UTextRenderComponent>,
+    pub label: UPtr<crate::bindings::engine::UTextRenderComponent>,
 }
 pub struct UNiagaraPrecompileContainer {
     pub scripts: TArray<UPtr<UNiagaraScript>>,
@@ -2922,20 +2951,20 @@ pub struct UNiagaraPreviewAxis_InterpParamFloat {
     pub max: f32,
 }
 pub struct UNiagaraPreviewAxis_InterpParamVector2D {
-    pub min: FVector2D,
-    pub max: FVector2D,
+    pub min: crate::bindings::core_u_object::FVector2D,
+    pub max: crate::bindings::core_u_object::FVector2D,
 }
 pub struct UNiagaraPreviewAxis_InterpParamVector {
-    pub min: FVector,
-    pub max: FVector,
+    pub min: crate::bindings::core_u_object::FVector,
+    pub max: crate::bindings::core_u_object::FVector,
 }
 pub struct UNiagaraPreviewAxis_InterpParamVector4 {
-    pub min: FVector4,
-    pub max: FVector4,
+    pub min: crate::bindings::core_u_object::FVector4,
+    pub max: crate::bindings::core_u_object::FVector4,
 }
 pub struct UNiagaraPreviewAxis_InterpParamLinearColor {
-    pub min: FLinearColor,
-    pub max: FLinearColor,
+    pub min: crate::bindings::core_u_object::FLinearColor,
+    pub max: crate::bindings::core_u_object::FLinearColor,
 }
 pub struct ANiagaraPreviewGrid {
     pub system: UPtr<UNiagaraSystem>,
@@ -2947,24 +2976,24 @@ pub struct ANiagaraPreviewGrid {
     pub spacing_y: f32,
     pub num_x: i32,
     pub num_y: i32,
-    pub preview_components: TArray<UPtr<UChildActorComponent>>,
-    pub sprite_component: UPtr<UBillboardComponent>,
-    pub arrow_component: UPtr<UArrowComponent>,
+    pub preview_components: TArray<UPtr<crate::bindings::engine::UChildActorComponent>>,
+    pub sprite_component: UPtr<crate::bindings::engine::UBillboardComponent>,
+    pub arrow_component: UPtr<crate::bindings::engine::UArrowComponent>,
 }
 pub struct UNiagaraRibbonRendererProperties {
-    pub material: UPtr<UMaterialInterface>,
-    pub mic_material: UPtr<UMaterialInstanceConstant>,
+    pub material: UPtr<crate::bindings::engine::UMaterialInterface>,
+    pub mic_material: UPtr<crate::bindings::engine::UMaterialInstanceConstant>,
     pub material_user_param_binding: FNiagaraUserParameterBinding,
     pub uv0_settings: FNiagaraRibbonUVSettings,
     pub uv1_settings: FNiagaraRibbonUVSettings,
     pub facing_mode: ENiagaraRibbonFacingMode,
     pub uv0_tiling_distance_deprecated: f32,
-    pub uv0_scale_deprecated: FVector2D,
-    pub uv0_offset_deprecated: FVector2D,
+    pub uv0_scale_deprecated: crate::bindings::core_u_object::FVector2D,
+    pub uv0_offset_deprecated: crate::bindings::core_u_object::FVector2D,
     pub uv0_age_offset_mode_deprecated: ENiagaraRibbonAgeOffsetMode,
     pub uv1_tiling_distance_deprecated: f32,
-    pub uv1_scale_deprecated: FVector2D,
-    pub uv1_offset_deprecated: FVector2D,
+    pub uv1_scale_deprecated: crate::bindings::core_u_object::FVector2D,
+    pub uv1_offset_deprecated: crate::bindings::core_u_object::FVector2D,
     pub uv1_age_offset_mode_deprecated: ENiagaraRibbonAgeOffsetMode,
     pub max_num_ribbons: i32,
     pub draw_direction: ENiagaraRibbonDrawDirection,
@@ -3012,14 +3041,14 @@ pub struct UNiagaraScratchPadContainer {
 pub struct UNiagaraScript {
     pub validation_rules: TArray<UPtr<UNiagaraValidationRule>>,
     pub usage: ENiagaraScriptUsage,
-    pub usage_id: FGuid,
-    pub preview_movie_path: FSoftObjectPath,
-    pub exposed_version: FGuid,
+    pub usage_id: crate::bindings::core_u_object::FGuid,
+    pub preview_movie_path: crate::bindings::core_u_object::FSoftObjectPath,
+    pub exposed_version: crate::bindings::core_u_object::FGuid,
     pub b_versioning_enabled: bool,
     pub version_data: TArray<FVersionedNiagaraScriptData>,
     pub rapid_iteration_parameters: FNiagaraParameterStore,
     pub rapid_iteration_parameters_cooked_editor_cache: FNiagaraParameterStore,
-    pub version_to_open_in_editor: FGuid,
+    pub version_to_open_in_editor: crate::bindings::core_u_object::FGuid,
     pub usage_index_deprecated: i32,
     pub module_usage_bitmask_deprecated: i32,
     pub category_deprecated: FText,
@@ -3045,7 +3074,7 @@ pub struct UNiagaraScript {
     pub script_execution_param_store: FNiagaraScriptExecutionParameterStore,
     pub script_execution_bound_parameters: TArray<FNiagaraBoundParameter>,
     pub cached_script_vm_id: FNiagaraVMExecutableDataId,
-    pub active_compile_roots: TArray<UPtr<UObject>>,
+    pub active_compile_roots: TArray<UPtr<crate::bindings::core_u_object::UObject>>,
     pub cached_script_vm: FNiagaraVMExecutableData,
     pub cached_parameter_collection_references: TArray<
         UPtr<UNiagaraParameterCollection>,
@@ -3060,9 +3089,15 @@ pub struct UNiagaraScript {
     pub data_interfaces_pending_invalidation: TArray<UPtr<UNiagaraDataInterface>>,
 }
 pub struct UNiagaraSettings {
-    pub additional_parameter_types: TArray<FSoftObjectPath>,
-    pub additional_payload_types: TArray<FSoftObjectPath>,
-    pub additional_parameter_enums: TArray<FSoftObjectPath>,
+    pub additional_parameter_types: TArray<
+        crate::bindings::core_u_object::FSoftObjectPath,
+    >,
+    pub additional_payload_types: TArray<
+        crate::bindings::core_u_object::FSoftObjectPath,
+    >,
+    pub additional_parameter_enums: TArray<
+        crate::bindings::core_u_object::FSoftObjectPath,
+    >,
     pub b_system_viewport_in_orbit_mode: bool,
     pub b_show_convertible_inputs_in_stack: bool,
     pub quick_sim_cache_capture_frame_count: i32,
@@ -3074,15 +3109,15 @@ pub struct UNiagaraSettings {
     pub invalid_namespace_write_severity: ENiagaraCompileErrorSeverity,
     pub b_limit_delta_time: bool,
     pub max_delta_time_per_tick: f32,
-    pub default_effect_type: FSoftObjectPath,
+    pub default_effect_type: crate::bindings::core_u_object::FSoftObjectPath,
     pub b_allow_create_actor_from_system_with_no_effect_type: bool,
-    pub position_pin_type_color: FLinearColor,
+    pub position_pin_type_color: crate::bindings::core_u_object::FLinearColor,
     pub byte_code_strip_option: ENiagaraStripScriptByteCodeOption,
     pub compilation_mode: ENiagaraCompilationMode,
     pub b_enable_hlsl2021: bool,
     pub quality_levels: TArray<FText>,
     pub component_renderer_warnings_per_class: TMap<FString, FText>,
-    pub default_render_target_format: ETextureRenderTargetFormat,
+    pub default_render_target_format: crate::bindings::engine::ETextureRenderTargetFormat,
     pub default_grid_format: ENiagaraGpuBufferFormat,
     pub default_renderer_motion_vector_setting: ENiagaraDefaultRendererMotionVectorSetting,
     pub default_pixel_coverage_mode: ENiagaraDefaultRendererPixelCoverageMode,
@@ -3104,7 +3139,7 @@ pub struct UNiagaraSettings {
     pub b_generate_meta_data_on_compile: bool,
 }
 pub struct UNiagaraSimCache {
-    pub cache_guid: FGuid,
+    pub cache_guid: crate::bindings::core_u_object::FGuid,
     pub soft_niagara_system: TSoftObjectPtr<UNiagaraSystem>,
     pub start_seconds: f32,
     pub duration_seconds: f32,
@@ -3114,7 +3149,10 @@ pub struct UNiagaraSimCache {
     pub cached_script_vm_ids: TArray<FNiagaraVMExecutableDataId>,
     pub cache_layout: FNiagaraSimCacheLayout,
     pub cache_frames: TArray<FNiagaraSimCacheFrame>,
-    pub data_interface_storage: TMap<FNiagaraVariableBase, UPtr<UObject>>,
+    pub data_interface_storage: TMap<
+        FNiagaraVariableBase,
+        UPtr<crate::bindings::core_u_object::UObject>,
+    >,
     pub debug_data: UPtr<UNiagaraSimCacheDebugData>,
 }
 pub struct UNiagaraSimCacheDebugData {
@@ -3130,24 +3168,24 @@ pub struct UNiagaraSimulationStageBase {
     pub script: UPtr<UNiagaraScript>,
     pub simulation_stage_name: FName,
     pub flags_116: u8,
-    pub outer_emitter_version: FGuid,
+    pub outer_emitter_version: crate::bindings::core_u_object::FGuid,
 }
 pub struct UNiagaraSimulationStageGeneric {
     pub enabled_binding: FNiagaraVariableAttributeBinding,
-    pub iteration_source: ENiagaraIterationSource,
+    pub iteration_source: crate::bindings::niagara_core::ENiagaraIterationSource,
     pub num_iterations: FNiagaraParameterBindingWithValue,
-    pub execute_behavior: ENiagaraSimStageExecuteBehavior,
+    pub execute_behavior: crate::bindings::niagara_shader::ENiagaraSimStageExecuteBehavior,
     pub flags_892: u8,
     pub data_interface: FNiagaraVariableDataInterfaceBinding,
     pub flags_968: u8,
     pub particle_iteration_state_binding: FNiagaraVariableAttributeBinding,
-    pub particle_iteration_state_range: FIntPoint,
+    pub particle_iteration_state_range: crate::bindings::core_u_object::FIntPoint,
     pub flags_1376: u8,
     pub override_gpu_dispatch_num_threads_x: FNiagaraParameterBindingWithValue,
     pub override_gpu_dispatch_num_threads_y: FNiagaraParameterBindingWithValue,
     pub override_gpu_dispatch_num_threads_z: FNiagaraParameterBindingWithValue,
-    pub direct_dispatch_type: ENiagaraGpuDispatchType,
-    pub direct_dispatch_element_type: ENiagaraDirectDispatchElementType,
+    pub direct_dispatch_type: crate::bindings::niagara_shader::ENiagaraGpuDispatchType,
+    pub direct_dispatch_element_type: crate::bindings::niagara_shader::ENiagaraDirectDispatchElementType,
     pub element_count_x: FNiagaraParameterBindingWithValue,
     pub element_count_y: FNiagaraParameterBindingWithValue,
     pub element_count_z: FNiagaraParameterBindingWithValue,
@@ -3156,22 +3194,22 @@ pub struct UNiagaraSimulationStageGeneric {
     pub element_count_y_binding_deprecated: FNiagaraVariableAttributeBinding,
     pub element_count_z_binding_deprecated: FNiagaraVariableAttributeBinding,
     pub flags_5072: u8,
-    pub override_gpu_dispatch_type_deprecated: ENiagaraGpuDispatchType,
+    pub override_gpu_dispatch_type_deprecated: crate::bindings::niagara_shader::ENiagaraGpuDispatchType,
     pub iterations_deprecated: i32,
     pub num_iterations_binding_deprecated: FNiagaraVariableAttributeBinding,
-    pub override_gpu_dispatch_num_threads_deprecated: FIntVector,
+    pub override_gpu_dispatch_num_threads_deprecated: crate::bindings::core_u_object::FIntVector,
 }
 pub struct UNiagaraSpriteRendererProperties {
-    pub material: UPtr<UMaterialInterface>,
-    pub mic_material: UPtr<UMaterialInstanceConstant>,
+    pub material: UPtr<crate::bindings::engine::UMaterialInterface>,
+    pub mic_material: UPtr<crate::bindings::engine::UMaterialInstanceConstant>,
     pub material_user_param_binding: FNiagaraUserParameterBinding,
     pub source_mode: ENiagaraRendererSourceDataMode,
     pub alignment: ENiagaraSpriteAlignment,
     pub facing_mode: ENiagaraSpriteFacingMode,
     pub sort_mode: ENiagaraSortMode,
     pub macro_uv_radius: f32,
-    pub pivot_in_uv_space: FVector2D,
-    pub sub_image_size: FVector2D,
+    pub pivot_in_uv_space: crate::bindings::core_u_object::FVector2D,
+    pub sub_image_size: crate::bindings::core_u_object::FVector2D,
     pub flags_800: u8,
     pub sort_precision: ENiagaraRendererSortPrecision,
     pub gpu_translucent_latency: ENiagaraRendererGpuTranslucentLatency,
@@ -3212,9 +3250,9 @@ pub struct UNiagaraSpriteRendererProperties {
     pub prev_camera_offset_binding: FNiagaraVariableAttributeBinding,
     pub prev_pivot_offset_binding: FNiagaraVariableAttributeBinding,
     pub b_use_material_cutout_texture: bool,
-    pub cutout_texture: UPtr<UTexture2D>,
-    pub bounding_mode: ESubUVBoundingVertexCount,
-    pub opacity_source_mode: EOpacitySourceMode,
+    pub cutout_texture: UPtr<crate::bindings::engine::UTexture2D>,
+    pub bounding_mode: crate::bindings::engine::ESubUVBoundingVertexCount,
+    pub opacity_source_mode: crate::bindings::engine::EOpacitySourceMode,
     pub alpha_threshold: f32,
     pub material_param_valid_mask: u32,
 }
@@ -3226,8 +3264,8 @@ pub struct UNiagaraValidationRule {
     pub b_is_config_disabled: bool,
 }
 pub struct UNiagaraVolumeRendererProperties {
-    pub material: UPtr<UMaterialInterface>,
-    pub mic_material: UPtr<UMaterialInstanceConstant>,
+    pub material: UPtr<crate::bindings::engine::UMaterialInterface>,
+    pub mic_material: UPtr<crate::bindings::engine::UMaterialInstanceConstant>,
     pub material_parameter_binding: FNiagaraParameterBinding,
     pub renderer_visibility: i32,
     pub step_factor: f32,
@@ -3251,11 +3289,11 @@ pub struct UNiagaraStatelessModule_AddVelocity {
     pub linear_velocity_distribution: FNiagaraDistributionRangeVector3,
     pub linear_velocity_scale: FNiagaraDistributionRangeFloat,
     pub cone_velocity_distribution: FNiagaraDistributionRangeFloat,
-    pub cone_rotation: FRotator,
+    pub cone_rotation: crate::bindings::core_u_object::FRotator,
     pub cone_angle: f32,
     pub inner_cone: f32,
     pub point_velocity_distribution: FNiagaraDistributionRangeFloat,
-    pub point_origin: FVector3f,
+    pub point_origin: crate::bindings::core_u_object::FVector3f,
     pub b_speed_falloff_from_cone_axis_enabled: bool,
     pub speed_falloff_from_cone_axis: f32,
     pub coordinate_space: ENiagaraCoordinateSpace,
@@ -3306,7 +3344,7 @@ pub struct UNiagaraStatelessModule_InitialMeshOrientation {
     pub orientation_vector: FNiagaraDistributionRangeVector3,
     pub mesh_axis_to_orient: FNiagaraDistributionRangeVector3,
     pub rotation: FNiagaraDistributionRangeVector3,
-    pub random_rotation_range_deprecated: FVector3f,
+    pub random_rotation_range_deprecated: crate::bindings::core_u_object::FVector3f,
 }
 pub struct UNiagaraStatelessModule_LightAttributes {
     pub flags_104: u8,
@@ -3414,12 +3452,14 @@ pub struct UNiagaraStatelessModule_SubUVAnimation {
     pub random_change_interval: f32,
 }
 pub struct UNiagaraStatelessEmitter {
-    pub emitter_template_class_deprecated: TSubclassOf<UObject>,
+    pub emitter_template_class_deprecated: TSubclassOf<
+        crate::bindings::core_u_object::UObject,
+    >,
     pub emitter_template: UPtr<UNiagaraStatelessEmitterTemplate>,
     pub flags_128: u8,
     pub allowed_feature_mask: u32,
     pub random_seed: i32,
-    pub fixed_bounds: FBox,
+    pub fixed_bounds: crate::bindings::core_u_object::FBox,
     pub emitter_state: FNiagaraEmitterStateData,
     pub spawn_infos: TArray<FNiagaraStatelessSpawnInfo>,
     pub modules: TArray<UPtr<UNiagaraStatelessModule>>,
@@ -3433,14 +3473,1394 @@ pub struct UNiagaraStatelessEmitter {
     >,
 }
 pub struct UNiagaraStatelessEmitterTemplate {
-    pub modules: TArray<TSubclassOf<UObject>>,
+    pub modules: TArray<TSubclassOf<crate::bindings::core_u_object::UObject>>,
     pub b_exposed_to_library: bool,
 }
 pub struct UNiagaraStatelessEmitterDefault {}
 pub struct UVolumeCache {
     pub file_path: FString,
     pub cache_type: EVolumeCacheType,
-    pub resolution: FIntVector,
+    pub resolution: crate::bindings::core_u_object::FIntVector,
     pub frame_range_start: i32,
     pub frame_range_end: i32,
+}
+pub struct FSubscribeToNiagaraDataChannel_UpdateDelegate;
+pub struct FSubscribeToNiagaraDataChannel_WithContext_UpdateDelegate;
+pub struct FSubscribeToDataChannelUpdates_UpdateDelegate;
+pub struct FSubscribeToDataChannelUpdates_WithContext_UpdateDelegate;
+pub struct FNiagaraComponent_OnSystemFinished;
+pub struct FAsyncNiagaraCaptureSimCache_CaptureComplete;
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENiagaraSimCacheAttributeCaptureMode(pub u8);
+impl ENiagaraSimCacheAttributeCaptureMode {
+    pub const ALL: ENiagaraSimCacheAttributeCaptureMode = ENiagaraSimCacheAttributeCaptureMode(
+        0,
+    );
+    pub const RENDERING_ONLY: ENiagaraSimCacheAttributeCaptureMode = ENiagaraSimCacheAttributeCaptureMode(
+        1,
+    );
+    pub const EXPLICIT_ATTRIBUTES: ENiagaraSimCacheAttributeCaptureMode = ENiagaraSimCacheAttributeCaptureMode(
+        2,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENiagaraDataSetType(pub u8);
+impl ENiagaraDataSetType {
+    pub const PARTICLE_DATA: ENiagaraDataSetType = ENiagaraDataSetType(0);
+    pub const SHARED: ENiagaraDataSetType = ENiagaraDataSetType(1);
+    pub const EVENT: ENiagaraDataSetType = ENiagaraDataSetType(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENiagaraSimTarget(pub u8);
+impl ENiagaraSimTarget {
+    pub const CPU_SIM: ENiagaraSimTarget = ENiagaraSimTarget(0);
+    pub const GPU_COMPUTE_SIM: ENiagaraSimTarget = ENiagaraSimTarget(1);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENiagaraMeshPivotOffsetSpace(pub u8);
+impl ENiagaraMeshPivotOffsetSpace {
+    pub const MESH: ENiagaraMeshPivotOffsetSpace = ENiagaraMeshPivotOffsetSpace(0);
+    pub const SIMULATION: ENiagaraMeshPivotOffsetSpace = ENiagaraMeshPivotOffsetSpace(1);
+    pub const WORLD: ENiagaraMeshPivotOffsetSpace = ENiagaraMeshPivotOffsetSpace(2);
+    pub const LOCAL: ENiagaraMeshPivotOffsetSpace = ENiagaraMeshPivotOffsetSpace(3);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENiagaraMeshLODMode(pub u8);
+impl ENiagaraMeshLODMode {
+    pub const LOD_LEVEL: ENiagaraMeshLODMode = ENiagaraMeshLODMode(0);
+    pub const LOD_BIAS: ENiagaraMeshLODMode = ENiagaraMeshLODMode(1);
+    pub const BY_COMPONENT_BOUNDS: ENiagaraMeshLODMode = ENiagaraMeshLODMode(2);
+    pub const COMPONENT_ORIGIN: ENiagaraMeshLODMode = ENiagaraMeshLODMode(3);
+    pub const PER_PARTICLE: ENiagaraMeshLODMode = ENiagaraMeshLODMode(4);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENiagaraSystemSpawnSectionStartBehavior(pub u8);
+impl ENiagaraSystemSpawnSectionStartBehavior {
+    pub const ACTIVATE: ENiagaraSystemSpawnSectionStartBehavior = ENiagaraSystemSpawnSectionStartBehavior(
+        0,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENiagaraSystemSpawnSectionEvaluateBehavior(pub u8);
+impl ENiagaraSystemSpawnSectionEvaluateBehavior {
+    pub const ACTIVATE_IF_INACTIVE: ENiagaraSystemSpawnSectionEvaluateBehavior = ENiagaraSystemSpawnSectionEvaluateBehavior(
+        0,
+    );
+    pub const NONE: ENiagaraSystemSpawnSectionEvaluateBehavior = ENiagaraSystemSpawnSectionEvaluateBehavior(
+        1,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENiagaraSystemSpawnSectionEndBehavior(pub u8);
+impl ENiagaraSystemSpawnSectionEndBehavior {
+    pub const SET_SYSTEM_INACTIVE: ENiagaraSystemSpawnSectionEndBehavior = ENiagaraSystemSpawnSectionEndBehavior(
+        0,
+    );
+    pub const DEACTIVATE: ENiagaraSystemSpawnSectionEndBehavior = ENiagaraSystemSpawnSectionEndBehavior(
+        1,
+    );
+    pub const NONE: ENiagaraSystemSpawnSectionEndBehavior = ENiagaraSystemSpawnSectionEndBehavior(
+        2,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENiagaraAgeUpdateMode(pub u8);
+impl ENiagaraAgeUpdateMode {
+    pub const TICK_DELTA_TIME: ENiagaraAgeUpdateMode = ENiagaraAgeUpdateMode(0);
+    pub const DESIRED_AGE: ENiagaraAgeUpdateMode = ENiagaraAgeUpdateMode(1);
+    pub const DESIRED_AGE_NO_SEEK: ENiagaraAgeUpdateMode = ENiagaraAgeUpdateMode(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENiagaraAssetTagDefinitionImportance(pub u8);
+impl ENiagaraAssetTagDefinitionImportance {
+    pub const PRIMARY: ENiagaraAssetTagDefinitionImportance = ENiagaraAssetTagDefinitionImportance(
+        0,
+    );
+    pub const SECONDARY: ENiagaraAssetTagDefinitionImportance = ENiagaraAssetTagDefinitionImportance(
+        1,
+    );
+    pub const INTERNAL: ENiagaraAssetTagDefinitionImportance = ENiagaraAssetTagDefinitionImportance(
+        2,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENiagaraBakerViewMode(pub i32);
+impl ENiagaraBakerViewMode {
+    pub const PERSPECTIVE: ENiagaraBakerViewMode = ENiagaraBakerViewMode(0);
+    pub const ORTHO_FRONT: ENiagaraBakerViewMode = ENiagaraBakerViewMode(1);
+    pub const ORTHO_BACK: ENiagaraBakerViewMode = ENiagaraBakerViewMode(2);
+    pub const ORTHO_LEFT: ENiagaraBakerViewMode = ENiagaraBakerViewMode(3);
+    pub const ORTHO_RIGHT: ENiagaraBakerViewMode = ENiagaraBakerViewMode(4);
+    pub const ORTHO_TOP: ENiagaraBakerViewMode = ENiagaraBakerViewMode(5);
+    pub const ORTHO_BOTTOM: ENiagaraBakerViewMode = ENiagaraBakerViewMode(6);
+    pub const NUM: ENiagaraBakerViewMode = ENiagaraBakerViewMode(7);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENiagaraBindingSource(pub u8);
+impl ENiagaraBindingSource {
+    pub const IMPLICIT_FROM_SOURCE: ENiagaraBindingSource = ENiagaraBindingSource(0);
+    pub const EXPLICIT_PARTICLES: ENiagaraBindingSource = ENiagaraBindingSource(1);
+    pub const EXPLICIT_EMITTER: ENiagaraBindingSource = ENiagaraBindingSource(2);
+    pub const EXPLICIT_SYSTEM: ENiagaraBindingSource = ENiagaraBindingSource(3);
+    pub const EXPLICIT_USER: ENiagaraBindingSource = ENiagaraBindingSource(4);
+    pub const MAX_BINDING_SOURCE: ENiagaraBindingSource = ENiagaraBindingSource(5);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENiagaraStructConversionType(pub u8);
+impl ENiagaraStructConversionType {
+    pub const COPY_ONLY: ENiagaraStructConversionType = ENiagaraStructConversionType(0);
+    pub const DOUBLE_TO_FLOAT: ENiagaraStructConversionType = ENiagaraStructConversionType(
+        1,
+    );
+    pub const VECTOR2: ENiagaraStructConversionType = ENiagaraStructConversionType(2);
+    pub const VECTOR3: ENiagaraStructConversionType = ENiagaraStructConversionType(3);
+    pub const VECTOR4: ENiagaraStructConversionType = ENiagaraStructConversionType(4);
+    pub const QUAT: ENiagaraStructConversionType = ENiagaraStructConversionType(5);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENiagaraDataInterfaceEmitterBindingMode(pub i32);
+impl ENiagaraDataInterfaceEmitterBindingMode {
+    pub const SELF: ENiagaraDataInterfaceEmitterBindingMode = ENiagaraDataInterfaceEmitterBindingMode(
+        0,
+    );
+    pub const OTHER: ENiagaraDataInterfaceEmitterBindingMode = ENiagaraDataInterfaceEmitterBindingMode(
+        1,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENiagaraExecutionState(pub u32);
+impl ENiagaraExecutionState {
+    pub const ACTIVE: ENiagaraExecutionState = ENiagaraExecutionState(0);
+    pub const INACTIVE: ENiagaraExecutionState = ENiagaraExecutionState(1);
+    pub const INACTIVE_CLEAR: ENiagaraExecutionState = ENiagaraExecutionState(2);
+    pub const COMPLETE: ENiagaraExecutionState = ENiagaraExecutionState(3);
+    pub const DISABLED: ENiagaraExecutionState = ENiagaraExecutionState(4);
+    pub const NUM: ENiagaraExecutionState = ENiagaraExecutionState(5);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENCPoolMethod(pub u8);
+impl ENCPoolMethod {
+    pub const NONE: ENCPoolMethod = ENCPoolMethod(0);
+    pub const AUTO_RELEASE: ENCPoolMethod = ENCPoolMethod(1);
+    pub const MANUAL_RELEASE: ENCPoolMethod = ENCPoolMethod(2);
+    pub const MANUAL_RELEASE_ON_COMPLETE: ENCPoolMethod = ENCPoolMethod(3);
+    pub const FREE_IN_POOL: ENCPoolMethod = ENCPoolMethod(4);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENiagaraGpuComputeTickStage(pub u8);
+impl ENiagaraGpuComputeTickStage {
+    pub const PRE_INIT_VIEWS: ENiagaraGpuComputeTickStage = ENiagaraGpuComputeTickStage(
+        0,
+    );
+    pub const POST_INIT_VIEWS: ENiagaraGpuComputeTickStage = ENiagaraGpuComputeTickStage(
+        1,
+    );
+    pub const POST_OPAQUE_RENDER: ENiagaraGpuComputeTickStage = ENiagaraGpuComputeTickStage(
+        2,
+    );
+    pub const MAX: ENiagaraGpuComputeTickStage = ENiagaraGpuComputeTickStage(3);
+    pub const FIRST: ENiagaraGpuComputeTickStage = ENiagaraGpuComputeTickStage(0);
+    pub const LAST: ENiagaraGpuComputeTickStage = ENiagaraGpuComputeTickStage(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENiagaraDebugHudFont(pub i32);
+impl ENiagaraDebugHudFont {
+    pub const SMALL: ENiagaraDebugHudFont = ENiagaraDebugHudFont(0);
+    pub const NORMAL: ENiagaraDebugHudFont = ENiagaraDebugHudFont(1);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENiagaraDebugHudHAlign(pub u8);
+impl ENiagaraDebugHudHAlign {
+    pub const LEFT: ENiagaraDebugHudHAlign = ENiagaraDebugHudHAlign(0);
+    pub const CENTER: ENiagaraDebugHudHAlign = ENiagaraDebugHudHAlign(1);
+    pub const RIGHT: ENiagaraDebugHudHAlign = ENiagaraDebugHudHAlign(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENiagaraDebugHudVAlign(pub u8);
+impl ENiagaraDebugHudVAlign {
+    pub const TOP: ENiagaraDebugHudVAlign = ENiagaraDebugHudVAlign(0);
+    pub const CENTER: ENiagaraDebugHudVAlign = ENiagaraDebugHudVAlign(1);
+    pub const BOTTOM: ENiagaraDebugHudVAlign = ENiagaraDebugHudVAlign(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENiagaraDebugHUDOverviewMode(pub i32);
+impl ENiagaraDebugHUDOverviewMode {
+    pub const OVERVIEW: ENiagaraDebugHUDOverviewMode = ENiagaraDebugHUDOverviewMode(0);
+    pub const SCALABILITY: ENiagaraDebugHUDOverviewMode = ENiagaraDebugHUDOverviewMode(
+        1,
+    );
+    pub const PERFORMANCE: ENiagaraDebugHUDOverviewMode = ENiagaraDebugHUDOverviewMode(
+        2,
+    );
+    pub const PERFORMANCE_GRAPH: ENiagaraDebugHUDOverviewMode = ENiagaraDebugHUDOverviewMode(
+        3,
+    );
+    pub const GPU_COMPUTE_PERFORMANCE: ENiagaraDebugHUDOverviewMode = ENiagaraDebugHUDOverviewMode(
+        4,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENiagaraDebugHUDDOverviewSort(pub i32);
+impl ENiagaraDebugHUDDOverviewSort {
+    pub const NAME: ENiagaraDebugHUDDOverviewSort = ENiagaraDebugHUDDOverviewSort(0);
+    pub const NUMBER_REGISTERED: ENiagaraDebugHUDDOverviewSort = ENiagaraDebugHUDDOverviewSort(
+        1,
+    );
+    pub const NUMBER_ACTIVE: ENiagaraDebugHUDDOverviewSort = ENiagaraDebugHUDDOverviewSort(
+        2,
+    );
+    pub const NUMBER_SCALABILITY: ENiagaraDebugHUDDOverviewSort = ENiagaraDebugHUDDOverviewSort(
+        3,
+    );
+    pub const MEMORY_USAGE: ENiagaraDebugHUDDOverviewSort = ENiagaraDebugHUDDOverviewSort(
+        4,
+    );
+    pub const RECENTLY_VISIBILTY: ENiagaraDebugHUDDOverviewSort = ENiagaraDebugHUDDOverviewSort(
+        5,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENiagaraDebugHudVerbosity(pub i32);
+impl ENiagaraDebugHudVerbosity {
+    pub const NONE: ENiagaraDebugHudVerbosity = ENiagaraDebugHudVerbosity(0);
+    pub const BASIC: ENiagaraDebugHudVerbosity = ENiagaraDebugHudVerbosity(1);
+    pub const VERBOSE: ENiagaraDebugHudVerbosity = ENiagaraDebugHudVerbosity(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENiagaraDebugHUDPerfSampleMode(pub i32);
+impl ENiagaraDebugHUDPerfSampleMode {
+    pub const FRAME_TOTAL: ENiagaraDebugHUDPerfSampleMode = ENiagaraDebugHUDPerfSampleMode(
+        0,
+    );
+    pub const PER_INSTANCE_AVERAGE: ENiagaraDebugHUDPerfSampleMode = ENiagaraDebugHUDPerfSampleMode(
+        1,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENiagaraDebugHUDPerfUnits(pub i32);
+impl ENiagaraDebugHUDPerfUnits {
+    pub const MICROSECONDS: ENiagaraDebugHUDPerfUnits = ENiagaraDebugHUDPerfUnits(0);
+    pub const MILLISECONDS: ENiagaraDebugHUDPerfUnits = ENiagaraDebugHUDPerfUnits(1);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENiagaraDebugHUDPerfGraphMode(pub i32);
+impl ENiagaraDebugHUDPerfGraphMode {
+    pub const GAME_THREAD: ENiagaraDebugHUDPerfGraphMode = ENiagaraDebugHUDPerfGraphMode(
+        0,
+    );
+    pub const RENDER_THREAD: ENiagaraDebugHUDPerfGraphMode = ENiagaraDebugHUDPerfGraphMode(
+        1,
+    );
+    pub const GPU: ENiagaraDebugHUDPerfGraphMode = ENiagaraDebugHUDPerfGraphMode(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENiagaraDebugPlaybackMode(pub u8);
+impl ENiagaraDebugPlaybackMode {
+    pub const PLAY: ENiagaraDebugPlaybackMode = ENiagaraDebugPlaybackMode(0);
+    pub const LOOP: ENiagaraDebugPlaybackMode = ENiagaraDebugPlaybackMode(1);
+    pub const PAUSED: ENiagaraDebugPlaybackMode = ENiagaraDebugPlaybackMode(2);
+    pub const STEP: ENiagaraDebugPlaybackMode = ENiagaraDebugPlaybackMode(3);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENiagaraCVarConditionResponse(pub u8);
+impl ENiagaraCVarConditionResponse {
+    pub const NONE: ENiagaraCVarConditionResponse = ENiagaraCVarConditionResponse(0);
+    pub const ENABLE: ENiagaraCVarConditionResponse = ENiagaraCVarConditionResponse(1);
+    pub const DISABLE: ENiagaraCVarConditionResponse = ENiagaraCVarConditionResponse(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENiagaraCullProxyMode(pub u32);
+impl ENiagaraCullProxyMode {
+    pub const NONE: ENiagaraCullProxyMode = ENiagaraCullProxyMode(0);
+    pub const INSTANCED_RENDERED: ENiagaraCullProxyMode = ENiagaraCullProxyMode(1);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EScriptExecutionMode(pub u8);
+impl EScriptExecutionMode {
+    pub const EVERY_PARTICLE: EScriptExecutionMode = EScriptExecutionMode(0);
+    pub const SPAWNED_PARTICLES: EScriptExecutionMode = EScriptExecutionMode(1);
+    pub const SINGLE_PARTICLE: EScriptExecutionMode = EScriptExecutionMode(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENiagaraPythonUpdateScriptReference(pub u8);
+impl ENiagaraPythonUpdateScriptReference {
+    pub const NONE: ENiagaraPythonUpdateScriptReference = ENiagaraPythonUpdateScriptReference(
+        0,
+    );
+    pub const SCRIPT_ASSET: ENiagaraPythonUpdateScriptReference = ENiagaraPythonUpdateScriptReference(
+        1,
+    );
+    pub const DIRECT_TEXT_ENTRY: ENiagaraPythonUpdateScriptReference = ENiagaraPythonUpdateScriptReference(
+        2,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENiagaraInterpolatedSpawnMode(pub u8);
+impl ENiagaraInterpolatedSpawnMode {
+    pub const NO_INTERPOLATION: ENiagaraInterpolatedSpawnMode = ENiagaraInterpolatedSpawnMode(
+        0,
+    );
+    pub const RUN_UPDATE_SCRIPT: ENiagaraInterpolatedSpawnMode = ENiagaraInterpolatedSpawnMode(
+        1,
+    );
+    pub const INTERPOLATION: ENiagaraInterpolatedSpawnMode = ENiagaraInterpolatedSpawnMode(
+        2,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENiagaraEmitterCalculateBoundMode(pub u8);
+impl ENiagaraEmitterCalculateBoundMode {
+    pub const DYNAMIC: ENiagaraEmitterCalculateBoundMode = ENiagaraEmitterCalculateBoundMode(
+        0,
+    );
+    pub const FIXED: ENiagaraEmitterCalculateBoundMode = ENiagaraEmitterCalculateBoundMode(
+        1,
+    );
+    pub const PROGRAMMABLE: ENiagaraEmitterCalculateBoundMode = ENiagaraEmitterCalculateBoundMode(
+        2,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EParticleAllocationMode(pub u8);
+impl EParticleAllocationMode {
+    pub const AUTOMATIC_ESTIMATE: EParticleAllocationMode = EParticleAllocationMode(0);
+    pub const MANUAL_ESTIMATE: EParticleAllocationMode = EParticleAllocationMode(1);
+    pub const FIXED_COUNT: EParticleAllocationMode = EParticleAllocationMode(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENiagaraEmitterDefaultSummaryState(pub u8);
+impl ENiagaraEmitterDefaultSummaryState {
+    pub const DEFAULT: ENiagaraEmitterDefaultSummaryState = ENiagaraEmitterDefaultSummaryState(
+        0,
+    );
+    pub const SUMMARY: ENiagaraEmitterDefaultSummaryState = ENiagaraEmitterDefaultSummaryState(
+        1,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENiagaraEmitterMode(pub u8);
+impl ENiagaraEmitterMode {
+    pub const STANDARD: ENiagaraEmitterMode = ENiagaraEmitterMode(0);
+    pub const STATELESS: ENiagaraEmitterMode = ENiagaraEmitterMode(1);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENiagaraDeviceProfileRedirectMode(pub u8);
+impl ENiagaraDeviceProfileRedirectMode {
+    pub const C_VAR: ENiagaraDeviceProfileRedirectMode = ENiagaraDeviceProfileRedirectMode(
+        0,
+    );
+    pub const DEVICE_PROFILE: ENiagaraDeviceProfileRedirectMode = ENiagaraDeviceProfileRedirectMode(
+        1,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENiagaraRibbonUVDistributionMode(pub u8);
+impl ENiagaraRibbonUVDistributionMode {
+    pub const SCALED_UNIFORMLY: ENiagaraRibbonUVDistributionMode = ENiagaraRibbonUVDistributionMode(
+        0,
+    );
+    pub const SCALED_USING_RIBBON_SEGMENT_LENGTH: ENiagaraRibbonUVDistributionMode = ENiagaraRibbonUVDistributionMode(
+        1,
+    );
+    pub const TILED_OVER_RIBBON_LENGTH: ENiagaraRibbonUVDistributionMode = ENiagaraRibbonUVDistributionMode(
+        2,
+    );
+    pub const TILED_FROM_START_OVER_RIBBON_LENGTH: ENiagaraRibbonUVDistributionMode = ENiagaraRibbonUVDistributionMode(
+        3,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENiagaraRibbonUVEdgeMode(pub u8);
+impl ENiagaraRibbonUVEdgeMode {
+    pub const SMOOTH_TRANSITION: ENiagaraRibbonUVEdgeMode = ENiagaraRibbonUVEdgeMode(0);
+    pub const LOCKED: ENiagaraRibbonUVEdgeMode = ENiagaraRibbonUVEdgeMode(1);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENiagaraModuleDependencyType(pub u8);
+impl ENiagaraModuleDependencyType {
+    pub const PRE_DEPENDENCY: ENiagaraModuleDependencyType = ENiagaraModuleDependencyType(
+        0,
+    );
+    pub const POST_DEPENDENCY: ENiagaraModuleDependencyType = ENiagaraModuleDependencyType(
+        1,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENiagaraModuleDependencyScriptConstraint(pub u8);
+impl ENiagaraModuleDependencyScriptConstraint {
+    pub const SAME_SCRIPT: ENiagaraModuleDependencyScriptConstraint = ENiagaraModuleDependencyScriptConstraint(
+        0,
+    );
+    pub const ALL_SCRIPTS: ENiagaraModuleDependencyScriptConstraint = ENiagaraModuleDependencyScriptConstraint(
+        1,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENiagaraScriptUsage(pub u8);
+impl ENiagaraScriptUsage {
+    pub const FUNCTION: ENiagaraScriptUsage = ENiagaraScriptUsage(0);
+    pub const MODULE: ENiagaraScriptUsage = ENiagaraScriptUsage(1);
+    pub const DYNAMIC_INPUT: ENiagaraScriptUsage = ENiagaraScriptUsage(2);
+    pub const PARTICLE_SPAWN_SCRIPT: ENiagaraScriptUsage = ENiagaraScriptUsage(3);
+    pub const PARTICLE_SPAWN_SCRIPT_INTERPOLATED: ENiagaraScriptUsage = ENiagaraScriptUsage(
+        4,
+    );
+    pub const PARTICLE_UPDATE_SCRIPT: ENiagaraScriptUsage = ENiagaraScriptUsage(5);
+    pub const PARTICLE_EVENT_SCRIPT: ENiagaraScriptUsage = ENiagaraScriptUsage(6);
+    pub const PARTICLE_SIMULATION_STAGE_SCRIPT: ENiagaraScriptUsage = ENiagaraScriptUsage(
+        7,
+    );
+    pub const PARTICLE_GPU_COMPUTE_SCRIPT: ENiagaraScriptUsage = ENiagaraScriptUsage(8);
+    pub const EMITTER_SPAWN_SCRIPT: ENiagaraScriptUsage = ENiagaraScriptUsage(9);
+    pub const EMITTER_UPDATE_SCRIPT: ENiagaraScriptUsage = ENiagaraScriptUsage(10);
+    pub const SYSTEM_SPAWN_SCRIPT: ENiagaraScriptUsage = ENiagaraScriptUsage(11);
+    pub const SYSTEM_UPDATE_SCRIPT: ENiagaraScriptUsage = ENiagaraScriptUsage(12);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENiagaraScriptCompileStatus(pub u8);
+impl ENiagaraScriptCompileStatus {
+    pub const NCS_UNKNOWN: ENiagaraScriptCompileStatus = ENiagaraScriptCompileStatus(0);
+    pub const NCS_DIRTY: ENiagaraScriptCompileStatus = ENiagaraScriptCompileStatus(1);
+    pub const NCS_ERROR: ENiagaraScriptCompileStatus = ENiagaraScriptCompileStatus(2);
+    pub const NCS_UP_TO_DATE: ENiagaraScriptCompileStatus = ENiagaraScriptCompileStatus(
+        3,
+    );
+    pub const NCS_BEING_CREATED: ENiagaraScriptCompileStatus = ENiagaraScriptCompileStatus(
+        4,
+    );
+    pub const NCS_UP_TO_DATE_WITH_WARNINGS: ENiagaraScriptCompileStatus = ENiagaraScriptCompileStatus(
+        5,
+    );
+    pub const NCS_COMPUTE_UP_TO_DATE_WITH_WARNINGS: ENiagaraScriptCompileStatus = ENiagaraScriptCompileStatus(
+        6,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENiagaraInlineDynamicInputFormatTokenUsage(pub i32);
+impl ENiagaraInlineDynamicInputFormatTokenUsage {
+    pub const INPUT: ENiagaraInlineDynamicInputFormatTokenUsage = ENiagaraInlineDynamicInputFormatTokenUsage(
+        0,
+    );
+    pub const DECORATOR: ENiagaraInlineDynamicInputFormatTokenUsage = ENiagaraInlineDynamicInputFormatTokenUsage(
+        1,
+    );
+    pub const LINE_BREAK: ENiagaraInlineDynamicInputFormatTokenUsage = ENiagaraInlineDynamicInputFormatTokenUsage(
+        2,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENiagaraScriptLibraryVisibility(pub u8);
+impl ENiagaraScriptLibraryVisibility {
+    pub const INVALID: ENiagaraScriptLibraryVisibility = ENiagaraScriptLibraryVisibility(
+        0,
+    );
+    pub const UNEXPOSED: ENiagaraScriptLibraryVisibility = ENiagaraScriptLibraryVisibility(
+        1,
+    );
+    pub const LIBRARY: ENiagaraScriptLibraryVisibility = ENiagaraScriptLibraryVisibility(
+        2,
+    );
+    pub const HIDDEN: ENiagaraScriptLibraryVisibility = ENiagaraScriptLibraryVisibility(
+        3,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENiagaraNumericOutputTypeSelectionMode(pub u8);
+impl ENiagaraNumericOutputTypeSelectionMode {
+    pub const NONE: ENiagaraNumericOutputTypeSelectionMode = ENiagaraNumericOutputTypeSelectionMode(
+        0,
+    );
+    pub const LARGEST: ENiagaraNumericOutputTypeSelectionMode = ENiagaraNumericOutputTypeSelectionMode(
+        1,
+    );
+    pub const SMALLEST: ENiagaraNumericOutputTypeSelectionMode = ENiagaraNumericOutputTypeSelectionMode(
+        2,
+    );
+    pub const SCALAR: ENiagaraNumericOutputTypeSelectionMode = ENiagaraNumericOutputTypeSelectionMode(
+        3,
+    );
+    pub const CUSTOM: ENiagaraNumericOutputTypeSelectionMode = ENiagaraNumericOutputTypeSelectionMode(
+        4,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENiagaraSystemInactiveResponse(pub u8);
+impl ENiagaraSystemInactiveResponse {
+    pub const COMPLETE: ENiagaraSystemInactiveResponse = ENiagaraSystemInactiveResponse(
+        0,
+    );
+    pub const KILL: ENiagaraSystemInactiveResponse = ENiagaraSystemInactiveResponse(1);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENiagaraLoopBehavior(pub u8);
+impl ENiagaraLoopBehavior {
+    pub const INFINITE: ENiagaraLoopBehavior = ENiagaraLoopBehavior(0);
+    pub const MULTIPLE: ENiagaraLoopBehavior = ENiagaraLoopBehavior(1);
+    pub const ONCE: ENiagaraLoopBehavior = ENiagaraLoopBehavior(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENiagaraDistributionMode(pub u8);
+impl ENiagaraDistributionMode {
+    pub const ARRAY: ENiagaraDistributionMode = ENiagaraDistributionMode(0);
+    pub const BINDING: ENiagaraDistributionMode = ENiagaraDistributionMode(1);
+    pub const EXPRESSION: ENiagaraDistributionMode = ENiagaraDistributionMode(2);
+    pub const UNIFORM_CONSTANT: ENiagaraDistributionMode = ENiagaraDistributionMode(3);
+    pub const NON_UNIFORM_CONSTANT: ENiagaraDistributionMode = ENiagaraDistributionMode(
+        4,
+    );
+    pub const UNIFORM_RANGE: ENiagaraDistributionMode = ENiagaraDistributionMode(5);
+    pub const NON_UNIFORM_RANGE: ENiagaraDistributionMode = ENiagaraDistributionMode(6);
+    pub const UNIFORM_CURVE: ENiagaraDistributionMode = ENiagaraDistributionMode(7);
+    pub const NON_UNIFORM_CURVE: ENiagaraDistributionMode = ENiagaraDistributionMode(8);
+    pub const COLOR_GRADIENT: ENiagaraDistributionMode = ENiagaraDistributionMode(9);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENiagaraEmitterInactiveResponse(pub u8);
+impl ENiagaraEmitterInactiveResponse {
+    pub const COMPLETE: ENiagaraEmitterInactiveResponse = ENiagaraEmitterInactiveResponse(
+        0,
+    );
+    pub const KILL: ENiagaraEmitterInactiveResponse = ENiagaraEmitterInactiveResponse(1);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENiagaraLoopDurationMode(pub u8);
+impl ENiagaraLoopDurationMode {
+    pub const FIXED: ENiagaraLoopDurationMode = ENiagaraLoopDurationMode(0);
+    pub const INFINITE: ENiagaraLoopDurationMode = ENiagaraLoopDurationMode(1);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENiagaraExecutionStateManagement(pub u32);
+impl ENiagaraExecutionStateManagement {
+    pub const AWAKEN: ENiagaraExecutionStateManagement = ENiagaraExecutionStateManagement(
+        0,
+    );
+    pub const SLEEP_AND_LET_PARTICLES_FINISH: ENiagaraExecutionStateManagement = ENiagaraExecutionStateManagement(
+        1,
+    );
+    pub const SLEEP_AND_CLEAR_PARTICLES: ENiagaraExecutionStateManagement = ENiagaraExecutionStateManagement(
+        2,
+    );
+    pub const KILL_IMMEDIATELY: ENiagaraExecutionStateManagement = ENiagaraExecutionStateManagement(
+        3,
+    );
+    pub const KILL_AFTER_PARTICLES_FINISH: ENiagaraExecutionStateManagement = ENiagaraExecutionStateManagement(
+        4,
+    );
+    pub const NUM: ENiagaraExecutionStateManagement = ENiagaraExecutionStateManagement(
+        5,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENiagaraInputWidgetType(pub u8);
+impl ENiagaraInputWidgetType {
+    pub const DEFAULT: ENiagaraInputWidgetType = ENiagaraInputWidgetType(0);
+    pub const SLIDER: ENiagaraInputWidgetType = ENiagaraInputWidgetType(1);
+    pub const VOLUME: ENiagaraInputWidgetType = ENiagaraInputWidgetType(2);
+    pub const NUMERIC_DROPDOWN: ENiagaraInputWidgetType = ENiagaraInputWidgetType(3);
+    pub const ENUM_STYLE: ENiagaraInputWidgetType = ENiagaraInputWidgetType(4);
+    pub const SEGMENTED_BUTTONS: ENiagaraInputWidgetType = ENiagaraInputWidgetType(5);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENiagaraBoolDisplayMode(pub u8);
+impl ENiagaraBoolDisplayMode {
+    pub const DISPLAY_ALWAYS: ENiagaraBoolDisplayMode = ENiagaraBoolDisplayMode(0);
+    pub const DISPLAY_IF_TRUE: ENiagaraBoolDisplayMode = ENiagaraBoolDisplayMode(1);
+    pub const DISPLAY_IF_FALSE: ENiagaraBoolDisplayMode = ENiagaraBoolDisplayMode(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENiagaraVariantMode(pub i32);
+impl ENiagaraVariantMode {
+    pub const NONE: ENiagaraVariantMode = ENiagaraVariantMode(0);
+    pub const OBJECT: ENiagaraVariantMode = ENiagaraVariantMode(1);
+    pub const DATA_INTERFACE: ENiagaraVariantMode = ENiagaraVariantMode(2);
+    pub const BYTES: ENiagaraVariantMode = ENiagaraVariantMode(3);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENiagaraStatelessSpawnInfoType(pub i32);
+impl ENiagaraStatelessSpawnInfoType {
+    pub const BURST: ENiagaraStatelessSpawnInfoType = ENiagaraStatelessSpawnInfoType(0);
+    pub const RATE: ENiagaraStatelessSpawnInfoType = ENiagaraStatelessSpawnInfoType(1);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENiagaraDefaultMode(pub u8);
+impl ENiagaraDefaultMode {
+    pub const VALUE: ENiagaraDefaultMode = ENiagaraDefaultMode(0);
+    pub const BINDING: ENiagaraDefaultMode = ENiagaraDefaultMode(1);
+    pub const CUSTOM: ENiagaraDefaultMode = ENiagaraDefaultMode(2);
+    pub const FAIL_IF_PREVIOUSLY_NOT_SET: ENiagaraDefaultMode = ENiagaraDefaultMode(3);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENiagaraOcclusionQueryMode(pub u8);
+impl ENiagaraOcclusionQueryMode {
+    pub const DEFAULT: ENiagaraOcclusionQueryMode = ENiagaraOcclusionQueryMode(0);
+    pub const ALWAYS_ENABLED: ENiagaraOcclusionQueryMode = ENiagaraOcclusionQueryMode(1);
+    pub const ALWAYS_DISABLED: ENiagaraOcclusionQueryMode = ENiagaraOcclusionQueryMode(
+        2,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENiagaraTickBehavior(pub u8);
+impl ENiagaraTickBehavior {
+    pub const USE_PREREQS: ENiagaraTickBehavior = ENiagaraTickBehavior(0);
+    pub const USE_COMPONENT_TICK_GROUP: ENiagaraTickBehavior = ENiagaraTickBehavior(1);
+    pub const FORCE_TICK_FIRST: ENiagaraTickBehavior = ENiagaraTickBehavior(2);
+    pub const FORCE_TICK_LAST: ENiagaraTickBehavior = ENiagaraTickBehavior(3);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENiagartaDataChannelReadResult(pub u8);
+impl ENiagartaDataChannelReadResult {
+    pub const SUCCESS: ENiagartaDataChannelReadResult = ENiagartaDataChannelReadResult(
+        0,
+    );
+    pub const FAILURE: ENiagartaDataChannelReadResult = ENiagartaDataChannelReadResult(
+        1,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENiagaraScriptTemplateSpecification(pub u8);
+impl ENiagaraScriptTemplateSpecification {
+    pub const NONE: ENiagaraScriptTemplateSpecification = ENiagaraScriptTemplateSpecification(
+        0,
+    );
+    pub const TEMPLATE: ENiagaraScriptTemplateSpecification = ENiagaraScriptTemplateSpecification(
+        1,
+    );
+    pub const BEHAVIOR: ENiagaraScriptTemplateSpecification = ENiagaraScriptTemplateSpecification(
+        2,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENDIActorComponentSourceMode(pub u8);
+impl ENDIActorComponentSourceMode {
+    pub const DEFAULT: ENDIActorComponentSourceMode = ENDIActorComponentSourceMode(0);
+    pub const ATTACH_PARENT: ENDIActorComponentSourceMode = ENDIActorComponentSourceMode(
+        1,
+    );
+    pub const LOCAL_PLAYER: ENDIActorComponentSourceMode = ENDIActorComponentSourceMode(
+        2,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENiagaraGpuSyncMode(pub u8);
+impl ENiagaraGpuSyncMode {
+    pub const NONE: ENiagaraGpuSyncMode = ENiagaraGpuSyncMode(0);
+    pub const SYNC_CPU_TO_GPU: ENiagaraGpuSyncMode = ENiagaraGpuSyncMode(1);
+    pub const SYNC_GPU_TO_CPU: ENiagaraGpuSyncMode = ENiagaraGpuSyncMode(2);
+    pub const SYNC_BOTH: ENiagaraGpuSyncMode = ENiagaraGpuSyncMode(3);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENDICollisionQuery_AsyncGpuTraceProvider(pub u8);
+impl ENDICollisionQuery_AsyncGpuTraceProvider {
+    pub const DEFAULT: ENDICollisionQuery_AsyncGpuTraceProvider = ENDICollisionQuery_AsyncGpuTraceProvider(
+        0,
+    );
+    pub const HWRT: ENDICollisionQuery_AsyncGpuTraceProvider = ENDICollisionQuery_AsyncGpuTraceProvider(
+        1,
+    );
+    pub const GSDF: ENDICollisionQuery_AsyncGpuTraceProvider = ENDICollisionQuery_AsyncGpuTraceProvider(
+        2,
+    );
+    pub const NONE: ENDICollisionQuery_AsyncGpuTraceProvider = ENDICollisionQuery_AsyncGpuTraceProvider(
+        3,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENiagaraDataChannelAllocationMode(pub u8);
+impl ENiagaraDataChannelAllocationMode {
+    pub const STATIC: ENiagaraDataChannelAllocationMode = ENiagaraDataChannelAllocationMode(
+        0,
+    );
+    pub const DYNAMIC: ENiagaraDataChannelAllocationMode = ENiagaraDataChannelAllocationMode(
+        1,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENDISceneCapture2DSourceMode(pub u8);
+impl ENDISceneCapture2DSourceMode {
+    pub const USER_PARAMETER_THEN_ATTACH_PARENT: ENDISceneCapture2DSourceMode = ENDISceneCapture2DSourceMode(
+        0,
+    );
+    pub const USER_PARAMETER_ONLY: ENDISceneCapture2DSourceMode = ENDISceneCapture2DSourceMode(
+        1,
+    );
+    pub const ATTACH_PARENT_ONLY: ENDISceneCapture2DSourceMode = ENDISceneCapture2DSourceMode(
+        2,
+    );
+    pub const MANAGED: ENDISceneCapture2DSourceMode = ENDISceneCapture2DSourceMode(3);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENDISceneCapture2DOffsetMode(pub u8);
+impl ENDISceneCapture2DOffsetMode {
+    pub const DISABLED: ENDISceneCapture2DOffsetMode = ENDISceneCapture2DOffsetMode(0);
+    pub const RELATIVE_LOCAL: ENDISceneCapture2DOffsetMode = ENDISceneCapture2DOffsetMode(
+        1,
+    );
+    pub const RELATIVE_WORLD: ENDISceneCapture2DOffsetMode = ENDISceneCapture2DOffsetMode(
+        2,
+    );
+    pub const ABSOLUTE_WORLD: ENDISceneCapture2DOffsetMode = ENDISceneCapture2DOffsetMode(
+        3,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENDISocketReaderSourceMode(pub u8);
+impl ENDISocketReaderSourceMode {
+    pub const DEFAULT: ENDISocketReaderSourceMode = ENDISocketReaderSourceMode(0);
+    pub const PARAMETER_BINDING_ONLY: ENDISocketReaderSourceMode = ENDISocketReaderSourceMode(
+        1,
+    );
+    pub const ATTACHED_PARENT_ONLY: ENDISocketReaderSourceMode = ENDISocketReaderSourceMode(
+        2,
+    );
+    pub const SOURCE_ONLY: ENDISocketReaderSourceMode = ENDISocketReaderSourceMode(3);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENDIStaticMesh_SourceMode(pub u8);
+impl ENDIStaticMesh_SourceMode {
+    pub const DEFAULT: ENDIStaticMesh_SourceMode = ENDIStaticMesh_SourceMode(0);
+    pub const SOURCE: ENDIStaticMesh_SourceMode = ENDIStaticMesh_SourceMode(1);
+    pub const ATTACH_PARENT: ENDIStaticMesh_SourceMode = ENDIStaticMesh_SourceMode(2);
+    pub const DEFAULT_MESH_ONLY: ENDIStaticMesh_SourceMode = ENDIStaticMesh_SourceMode(
+        3,
+    );
+    pub const MESH_PARAMETER_BINDING: ENDIStaticMesh_SourceMode = ENDIStaticMesh_SourceMode(
+        4,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENDIObjectPropertyReaderSourceMode(pub u8);
+impl ENDIObjectPropertyReaderSourceMode {
+    pub const BINDING: ENDIObjectPropertyReaderSourceMode = ENDIObjectPropertyReaderSourceMode(
+        0,
+    );
+    pub const ATTACH_PARENT_ACTOR: ENDIObjectPropertyReaderSourceMode = ENDIObjectPropertyReaderSourceMode(
+        1,
+    );
+    pub const BINDING_THEN_ATTACH_PARENT_ACTOR: ENDIObjectPropertyReaderSourceMode = ENDIObjectPropertyReaderSourceMode(
+        2,
+    );
+    pub const ATTACH_PARENT: ENDIObjectPropertyReaderSourceMode = ENDIObjectPropertyReaderSourceMode(
+        3,
+    );
+    pub const BINDING_THEN_ATTACH_PARENT: ENDIObjectPropertyReaderSourceMode = ENDIObjectPropertyReaderSourceMode(
+        4,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENiagaraRendererMotionVectorSetting(pub u8);
+impl ENiagaraRendererMotionVectorSetting {
+    pub const AUTO_DETECT: ENiagaraRendererMotionVectorSetting = ENiagaraRendererMotionVectorSetting(
+        0,
+    );
+    pub const PRECISE: ENiagaraRendererMotionVectorSetting = ENiagaraRendererMotionVectorSetting(
+        1,
+    );
+    pub const APPROXIMATE: ENiagaraRendererMotionVectorSetting = ENiagaraRendererMotionVectorSetting(
+        2,
+    );
+    pub const DISABLE: ENiagaraRendererMotionVectorSetting = ENiagaraRendererMotionVectorSetting(
+        3,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENiagraDataChannel_IslandMode(pub u8);
+impl ENiagraDataChannel_IslandMode {
+    pub const ALIGNED_STATIC: ENiagraDataChannel_IslandMode = ENiagraDataChannel_IslandMode(
+        0,
+    );
+    pub const DYNAMIC: ENiagraDataChannel_IslandMode = ENiagraDataChannel_IslandMode(1);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENDIExport_GPUAllocationMode(pub u8);
+impl ENDIExport_GPUAllocationMode {
+    pub const FIXED_SIZE: ENDIExport_GPUAllocationMode = ENDIExport_GPUAllocationMode(0);
+    pub const PER_PARTICLE: ENDIExport_GPUAllocationMode = ENDIExport_GPUAllocationMode(
+        1,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENiagaraGpuBufferFormat(pub u8);
+impl ENiagaraGpuBufferFormat {
+    pub const FLOAT: ENiagaraGpuBufferFormat = ENiagaraGpuBufferFormat(0);
+    pub const HALF_FLOAT: ENiagaraGpuBufferFormat = ENiagaraGpuBufferFormat(1);
+    pub const UNSIGNED_NORMALIZED_BYTE: ENiagaraGpuBufferFormat = ENiagaraGpuBufferFormat(
+        2,
+    );
+    pub const MAX: ENiagaraGpuBufferFormat = ENiagaraGpuBufferFormat(3);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ESetResolutionMethod(pub i32);
+impl ESetResolutionMethod {
+    pub const INDEPENDENT: ESetResolutionMethod = ESetResolutionMethod(0);
+    pub const MAX_AXIS: ESetResolutionMethod = ESetResolutionMethod(1);
+    pub const CELL_SIZE: ESetResolutionMethod = ESetResolutionMethod(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENDILandscape_SourceMode(pub u8);
+impl ENDILandscape_SourceMode {
+    pub const DEFAULT: ENDILandscape_SourceMode = ENDILandscape_SourceMode(0);
+    pub const SOURCE: ENDILandscape_SourceMode = ENDILandscape_SourceMode(1);
+    pub const ATTACH_PARENT: ENDILandscape_SourceMode = ENDILandscape_SourceMode(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENiagaraMipMapGeneration(pub u8);
+impl ENiagaraMipMapGeneration {
+    pub const DISABLED: ENiagaraMipMapGeneration = ENiagaraMipMapGeneration(0);
+    pub const POST_STAGE: ENiagaraMipMapGeneration = ENiagaraMipMapGeneration(1);
+    pub const POST_SIMULATE: ENiagaraMipMapGeneration = ENiagaraMipMapGeneration(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENDISkeletalMesh_SourceMode(pub u8);
+impl ENDISkeletalMesh_SourceMode {
+    pub const DEFAULT: ENDISkeletalMesh_SourceMode = ENDISkeletalMesh_SourceMode(0);
+    pub const SOURCE: ENDISkeletalMesh_SourceMode = ENDISkeletalMesh_SourceMode(1);
+    pub const ATTACH_PARENT: ENDISkeletalMesh_SourceMode = ENDISkeletalMesh_SourceMode(
+        2,
+    );
+    pub const DEFAULT_MESH_ONLY: ENDISkeletalMesh_SourceMode = ENDISkeletalMesh_SourceMode(
+        3,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENDISkeletalMesh_SkinningMode(pub u8);
+impl ENDISkeletalMesh_SkinningMode {
+    pub const INVALID: ENDISkeletalMesh_SkinningMode = ENDISkeletalMesh_SkinningMode(
+        255,
+    );
+    pub const NONE: ENDISkeletalMesh_SkinningMode = ENDISkeletalMesh_SkinningMode(0);
+    pub const SKIN_ON_THE_FLY: ENDISkeletalMesh_SkinningMode = ENDISkeletalMesh_SkinningMode(
+        1,
+    );
+    pub const PRE_SKIN: ENDISkeletalMesh_SkinningMode = ENDISkeletalMesh_SkinningMode(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENiagaraRendererSourceDataMode(pub u8);
+impl ENiagaraRendererSourceDataMode {
+    pub const PARTICLES: ENiagaraRendererSourceDataMode = ENiagaraRendererSourceDataMode(
+        0,
+    );
+    pub const EMITTER: ENiagaraRendererSourceDataMode = ENiagaraRendererSourceDataMode(
+        1,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENiagaraEditorPreviewActorPlaybackType(pub i32);
+impl ENiagaraEditorPreviewActorPlaybackType {
+    pub const ONCE: ENiagaraEditorPreviewActorPlaybackType = ENiagaraEditorPreviewActorPlaybackType(
+        0,
+    );
+    pub const LOOPING: ENiagaraEditorPreviewActorPlaybackType = ENiagaraEditorPreviewActorPlaybackType(
+        1,
+    );
+    pub const PING_PONG: ENiagaraEditorPreviewActorPlaybackType = ENiagaraEditorPreviewActorPlaybackType(
+        2,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENiagaraEditorPreviewActorShapeType(pub i32);
+impl ENiagaraEditorPreviewActorShapeType {
+    pub const CIRCLE: ENiagaraEditorPreviewActorShapeType = ENiagaraEditorPreviewActorShapeType(
+        0,
+    );
+    pub const SQUARE: ENiagaraEditorPreviewActorShapeType = ENiagaraEditorPreviewActorShapeType(
+        1,
+    );
+    pub const TRIANGLE: ENiagaraEditorPreviewActorShapeType = ENiagaraEditorPreviewActorShapeType(
+        2,
+    );
+    pub const CUSTOM: ENiagaraEditorPreviewActorShapeType = ENiagaraEditorPreviewActorShapeType(
+        3,
+    );
+    pub const BLUEPRINT: ENiagaraEditorPreviewActorShapeType = ENiagaraEditorPreviewActorShapeType(
+        4,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENiagaraEditorPreviewActorRotationMode(pub i32);
+impl ENiagaraEditorPreviewActorRotationMode {
+    pub const NONE: ENiagaraEditorPreviewActorRotationMode = ENiagaraEditorPreviewActorRotationMode(
+        0,
+    );
+    pub const DIRECTION_OF_TRAVEL: ENiagaraEditorPreviewActorRotationMode = ENiagaraEditorPreviewActorRotationMode(
+        1,
+    );
+    pub const BLUEPRINT: ENiagaraEditorPreviewActorRotationMode = ENiagaraEditorPreviewActorRotationMode(
+        2,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENiagaraScalabilityUpdateFrequency(pub i32);
+impl ENiagaraScalabilityUpdateFrequency {
+    pub const SPAWN_ONLY: ENiagaraScalabilityUpdateFrequency = ENiagaraScalabilityUpdateFrequency(
+        0,
+    );
+    pub const LOW: ENiagaraScalabilityUpdateFrequency = ENiagaraScalabilityUpdateFrequency(
+        1,
+    );
+    pub const MEDIUM: ENiagaraScalabilityUpdateFrequency = ENiagaraScalabilityUpdateFrequency(
+        2,
+    );
+    pub const HIGH: ENiagaraScalabilityUpdateFrequency = ENiagaraScalabilityUpdateFrequency(
+        3,
+    );
+    pub const CONTINUOUS: ENiagaraScalabilityUpdateFrequency = ENiagaraScalabilityUpdateFrequency(
+        4,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENiagaraCullReaction(pub i32);
+impl ENiagaraCullReaction {
+    pub const DEACTIVATE: ENiagaraCullReaction = ENiagaraCullReaction(0);
+    pub const DEACTIVATE_IMMEDIATE: ENiagaraCullReaction = ENiagaraCullReaction(1);
+    pub const DEACTIVATE_RESUME: ENiagaraCullReaction = ENiagaraCullReaction(2);
+    pub const DEACTIVATE_IMMEDIATE_RESUME: ENiagaraCullReaction = ENiagaraCullReaction(
+        3,
+    );
+    pub const PAUSE_RESUME: ENiagaraCullReaction = ENiagaraCullReaction(4);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENiagaraSortMode(pub u8);
+impl ENiagaraSortMode {
+    pub const NONE: ENiagaraSortMode = ENiagaraSortMode(0);
+    pub const VIEW_DEPTH: ENiagaraSortMode = ENiagaraSortMode(1);
+    pub const VIEW_DISTANCE: ENiagaraSortMode = ENiagaraSortMode(2);
+    pub const CUSTOM_ASCENDING: ENiagaraSortMode = ENiagaraSortMode(3);
+    pub const CUSTOM_DECENDING: ENiagaraSortMode = ENiagaraSortMode(4);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENiagaraRendererSortPrecision(pub u8);
+impl ENiagaraRendererSortPrecision {
+    pub const DEFAULT: ENiagaraRendererSortPrecision = ENiagaraRendererSortPrecision(0);
+    pub const LOW: ENiagaraRendererSortPrecision = ENiagaraRendererSortPrecision(1);
+    pub const HIGH: ENiagaraRendererSortPrecision = ENiagaraRendererSortPrecision(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENiagaraRendererGpuTranslucentLatency(pub u8);
+impl ENiagaraRendererGpuTranslucentLatency {
+    pub const PROJECT_DEFAULT: ENiagaraRendererGpuTranslucentLatency = ENiagaraRendererGpuTranslucentLatency(
+        0,
+    );
+    pub const IMMEDIATE: ENiagaraRendererGpuTranslucentLatency = ENiagaraRendererGpuTranslucentLatency(
+        1,
+    );
+    pub const LATENT: ENiagaraRendererGpuTranslucentLatency = ENiagaraRendererGpuTranslucentLatency(
+        2,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENiagaraMeshFacingMode(pub u8);
+impl ENiagaraMeshFacingMode {
+    pub const DEFAULT: ENiagaraMeshFacingMode = ENiagaraMeshFacingMode(0);
+    pub const VELOCITY: ENiagaraMeshFacingMode = ENiagaraMeshFacingMode(1);
+    pub const CAMERA_POSITION: ENiagaraMeshFacingMode = ENiagaraMeshFacingMode(2);
+    pub const CAMERA_PLANE: ENiagaraMeshFacingMode = ENiagaraMeshFacingMode(3);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENiagaraMeshLockedAxisSpace(pub u8);
+impl ENiagaraMeshLockedAxisSpace {
+    pub const SIMULATION: ENiagaraMeshLockedAxisSpace = ENiagaraMeshLockedAxisSpace(0);
+    pub const WORLD: ENiagaraMeshLockedAxisSpace = ENiagaraMeshLockedAxisSpace(1);
+    pub const LOCAL: ENiagaraMeshLockedAxisSpace = ENiagaraMeshLockedAxisSpace(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENiagaraPreviewGridResetMode(pub u8);
+impl ENiagaraPreviewGridResetMode {
+    pub const NEVER: ENiagaraPreviewGridResetMode = ENiagaraPreviewGridResetMode(0);
+    pub const INDIVIDUAL: ENiagaraPreviewGridResetMode = ENiagaraPreviewGridResetMode(1);
+    pub const ALL: ENiagaraPreviewGridResetMode = ENiagaraPreviewGridResetMode(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENiagaraRibbonFacingMode(pub u8);
+impl ENiagaraRibbonFacingMode {
+    pub const SCREEN: ENiagaraRibbonFacingMode = ENiagaraRibbonFacingMode(0);
+    pub const CUSTOM: ENiagaraRibbonFacingMode = ENiagaraRibbonFacingMode(1);
+    pub const CUSTOM_SIDE_VECTOR: ENiagaraRibbonFacingMode = ENiagaraRibbonFacingMode(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENiagaraRibbonAgeOffsetMode(pub u8);
+impl ENiagaraRibbonAgeOffsetMode {
+    pub const SCALE: ENiagaraRibbonAgeOffsetMode = ENiagaraRibbonAgeOffsetMode(0);
+    pub const CLIP: ENiagaraRibbonAgeOffsetMode = ENiagaraRibbonAgeOffsetMode(1);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENiagaraRibbonDrawDirection(pub u8);
+impl ENiagaraRibbonDrawDirection {
+    pub const FRONT_TO_BACK: ENiagaraRibbonDrawDirection = ENiagaraRibbonDrawDirection(
+        0,
+    );
+    pub const BACK_TO_FRONT: ENiagaraRibbonDrawDirection = ENiagaraRibbonDrawDirection(
+        1,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENiagaraRibbonShapeMode(pub u8);
+impl ENiagaraRibbonShapeMode {
+    pub const PLANE: ENiagaraRibbonShapeMode = ENiagaraRibbonShapeMode(0);
+    pub const MULTI_PLANE: ENiagaraRibbonShapeMode = ENiagaraRibbonShapeMode(1);
+    pub const TUBE: ENiagaraRibbonShapeMode = ENiagaraRibbonShapeMode(2);
+    pub const CUSTOM: ENiagaraRibbonShapeMode = ENiagaraRibbonShapeMode(3);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENiagaraRibbonTessellationMode(pub u8);
+impl ENiagaraRibbonTessellationMode {
+    pub const AUTOMATIC: ENiagaraRibbonTessellationMode = ENiagaraRibbonTessellationMode(
+        0,
+    );
+    pub const CUSTOM: ENiagaraRibbonTessellationMode = ENiagaraRibbonTessellationMode(1);
+    pub const DISABLED: ENiagaraRibbonTessellationMode = ENiagaraRibbonTessellationMode(
+        2,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENiagaraLwcTileUpdateMode(pub u8);
+impl ENiagaraLwcTileUpdateMode {
+    pub const RESET_SIMULATION: ENiagaraLwcTileUpdateMode = ENiagaraLwcTileUpdateMode(0);
+    pub const REBASE: ENiagaraLwcTileUpdateMode = ENiagaraLwcTileUpdateMode(1);
+    pub const REBASE_OR_RESET_SIMULATION: ENiagaraLwcTileUpdateMode = ENiagaraLwcTileUpdateMode(
+        2,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENiagaraCompileErrorSeverity(pub u8);
+impl ENiagaraCompileErrorSeverity {
+    pub const IGNORE: ENiagaraCompileErrorSeverity = ENiagaraCompileErrorSeverity(0);
+    pub const LOG_ONLY: ENiagaraCompileErrorSeverity = ENiagaraCompileErrorSeverity(1);
+    pub const WARNING: ENiagaraCompileErrorSeverity = ENiagaraCompileErrorSeverity(2);
+    pub const ERROR: ENiagaraCompileErrorSeverity = ENiagaraCompileErrorSeverity(3);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENiagaraStripScriptByteCodeOption(pub u8);
+impl ENiagaraStripScriptByteCodeOption {
+    pub const DEFAULT: ENiagaraStripScriptByteCodeOption = ENiagaraStripScriptByteCodeOption(
+        0,
+    );
+    pub const STRIP_ORIGINAL: ENiagaraStripScriptByteCodeOption = ENiagaraStripScriptByteCodeOption(
+        1,
+    );
+    pub const STRIP_EXPERIMENTAL: ENiagaraStripScriptByteCodeOption = ENiagaraStripScriptByteCodeOption(
+        2,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENiagaraCompilationMode(pub i32);
+impl ENiagaraCompilationMode {
+    pub const ORIGINAL: ENiagaraCompilationMode = ENiagaraCompilationMode(0);
+    pub const ASYNC_TASKS: ENiagaraCompilationMode = ENiagaraCompilationMode(1);
+    pub const VERIFY: ENiagaraCompilationMode = ENiagaraCompilationMode(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENiagaraDefaultRendererMotionVectorSetting(pub u8);
+impl ENiagaraDefaultRendererMotionVectorSetting {
+    pub const PRECISE: ENiagaraDefaultRendererMotionVectorSetting = ENiagaraDefaultRendererMotionVectorSetting(
+        0,
+    );
+    pub const APPROXIMATE: ENiagaraDefaultRendererMotionVectorSetting = ENiagaraDefaultRendererMotionVectorSetting(
+        1,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENiagaraDefaultRendererPixelCoverageMode(pub u8);
+impl ENiagaraDefaultRendererPixelCoverageMode {
+    pub const ENABLED: ENiagaraDefaultRendererPixelCoverageMode = ENiagaraDefaultRendererPixelCoverageMode(
+        0,
+    );
+    pub const DISABLED: ENiagaraDefaultRendererPixelCoverageMode = ENiagaraDefaultRendererPixelCoverageMode(
+        1,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENiagaraDefaultSortPrecision(pub u8);
+impl ENiagaraDefaultSortPrecision {
+    pub const LOW: ENiagaraDefaultSortPrecision = ENiagaraDefaultSortPrecision(0);
+    pub const HIGH: ENiagaraDefaultSortPrecision = ENiagaraDefaultSortPrecision(1);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENiagaraDefaultGpuTranslucentLatency(pub u8);
+impl ENiagaraDefaultGpuTranslucentLatency {
+    pub const IMMEDIATE: ENiagaraDefaultGpuTranslucentLatency = ENiagaraDefaultGpuTranslucentLatency(
+        0,
+    );
+    pub const LATENT: ENiagaraDefaultGpuTranslucentLatency = ENiagaraDefaultGpuTranslucentLatency(
+        1,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENDISkelMesh_GpuMaxInfluences(pub u8);
+impl ENDISkelMesh_GpuMaxInfluences {
+    pub const ALLOW_MAX4: ENDISkelMesh_GpuMaxInfluences = ENDISkelMesh_GpuMaxInfluences(
+        0,
+    );
+    pub const ALLOW_MAX8: ENDISkelMesh_GpuMaxInfluences = ENDISkelMesh_GpuMaxInfluences(
+        1,
+    );
+    pub const UNLIMITED: ENDISkelMesh_GpuMaxInfluences = ENDISkelMesh_GpuMaxInfluences(
+        2,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENDISkelMesh_GpuUniformSamplingFormat(pub u8);
+impl ENDISkelMesh_GpuUniformSamplingFormat {
+    pub const FULL: ENDISkelMesh_GpuUniformSamplingFormat = ENDISkelMesh_GpuUniformSamplingFormat(
+        0,
+    );
+    pub const LIMITED_24_8: ENDISkelMesh_GpuUniformSamplingFormat = ENDISkelMesh_GpuUniformSamplingFormat(
+        1,
+    );
+    pub const LIMITED_23_9: ENDISkelMesh_GpuUniformSamplingFormat = ENDISkelMesh_GpuUniformSamplingFormat(
+        2,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENDISkelMesh_AdjacencyTriangleIndexFormat(pub u8);
+impl ENDISkelMesh_AdjacencyTriangleIndexFormat {
+    pub const FULL: ENDISkelMesh_AdjacencyTriangleIndexFormat = ENDISkelMesh_AdjacencyTriangleIndexFormat(
+        0,
+    );
+    pub const HALF: ENDISkelMesh_AdjacencyTriangleIndexFormat = ENDISkelMesh_AdjacencyTriangleIndexFormat(
+        1,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENiagaraSpriteAlignment(pub u8);
+impl ENiagaraSpriteAlignment {
+    pub const UNALIGNED: ENiagaraSpriteAlignment = ENiagaraSpriteAlignment(0);
+    pub const VELOCITY_ALIGNED: ENiagaraSpriteAlignment = ENiagaraSpriteAlignment(1);
+    pub const CUSTOM_ALIGNMENT: ENiagaraSpriteAlignment = ENiagaraSpriteAlignment(2);
+    pub const AUTOMATIC: ENiagaraSpriteAlignment = ENiagaraSpriteAlignment(3);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENiagaraSpriteFacingMode(pub u8);
+impl ENiagaraSpriteFacingMode {
+    pub const FACE_CAMERA: ENiagaraSpriteFacingMode = ENiagaraSpriteFacingMode(0);
+    pub const FACE_CAMERA_PLANE: ENiagaraSpriteFacingMode = ENiagaraSpriteFacingMode(1);
+    pub const CUSTOM_FACING_VECTOR: ENiagaraSpriteFacingMode = ENiagaraSpriteFacingMode(
+        2,
+    );
+    pub const FACE_CAMERA_POSITION: ENiagaraSpriteFacingMode = ENiagaraSpriteFacingMode(
+        3,
+    );
+    pub const FACE_CAMERA_DISTANCE_BLEND: ENiagaraSpriteFacingMode = ENiagaraSpriteFacingMode(
+        4,
+    );
+    pub const AUTOMATIC: ENiagaraSpriteFacingMode = ENiagaraSpriteFacingMode(5);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENiagaraRendererPixelCoverageMode(pub u8);
+impl ENiagaraRendererPixelCoverageMode {
+    pub const AUTOMATIC: ENiagaraRendererPixelCoverageMode = ENiagaraRendererPixelCoverageMode(
+        0,
+    );
+    pub const DISABLED: ENiagaraRendererPixelCoverageMode = ENiagaraRendererPixelCoverageMode(
+        1,
+    );
+    pub const ENABLED: ENiagaraRendererPixelCoverageMode = ENiagaraRendererPixelCoverageMode(
+        2,
+    );
+    pub const ENABLED_RGBA: ENiagaraRendererPixelCoverageMode = ENiagaraRendererPixelCoverageMode(
+        3,
+    );
+    pub const ENABLED_RGB: ENiagaraRendererPixelCoverageMode = ENiagaraRendererPixelCoverageMode(
+        4,
+    );
+    pub const ENABLED_A: ENiagaraRendererPixelCoverageMode = ENiagaraRendererPixelCoverageMode(
+        5,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENiagaraCoordinateSpace(pub u32);
+impl ENiagaraCoordinateSpace {
+    pub const SIMULATION: ENiagaraCoordinateSpace = ENiagaraCoordinateSpace(0);
+    pub const WORLD: ENiagaraCoordinateSpace = ENiagaraCoordinateSpace(1);
+    pub const LOCAL: ENiagaraCoordinateSpace = ENiagaraCoordinateSpace(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENSM_VelocityType(pub i32);
+impl ENSM_VelocityType {
+    pub const LINEAR: ENSM_VelocityType = ENSM_VelocityType(0);
+    pub const FROM_POINT: ENSM_VelocityType = ENSM_VelocityType(1);
+    pub const IN_CONE: ENSM_VelocityType = ENSM_VelocityType(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENSMInitialMeshOrientationMode(pub i32);
+impl ENSMInitialMeshOrientationMode {
+    pub const NONE: ENSMInitialMeshOrientationMode = ENSMInitialMeshOrientationMode(0);
+    pub const RANDOM: ENSMInitialMeshOrientationMode = ENSMInitialMeshOrientationMode(1);
+    pub const ORIENT_TO_AXIS: ENSMInitialMeshOrientationMode = ENSMInitialMeshOrientationMode(
+        2,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENSM_ShapePrimitive(pub u8);
+impl ENSM_ShapePrimitive {
+    pub const BOX: ENSM_ShapePrimitive = ENSM_ShapePrimitive(0);
+    pub const CYLINDER: ENSM_ShapePrimitive = ENSM_ShapePrimitive(1);
+    pub const PLANE: ENSM_ShapePrimitive = ENSM_ShapePrimitive(2);
+    pub const RING: ENSM_ShapePrimitive = ENSM_ShapePrimitive(3);
+    pub const SPHERE: ENSM_ShapePrimitive = ENSM_ShapePrimitive(4);
+    pub const MAX: ENSM_ShapePrimitive = ENSM_ShapePrimitive(5);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENSM_SurfaceExpansionMode(pub u8);
+impl ENSM_SurfaceExpansionMode {
+    pub const INNER: ENSM_SurfaceExpansionMode = ENSM_SurfaceExpansionMode(0);
+    pub const CENTERED: ENSM_SurfaceExpansionMode = ENSM_SurfaceExpansionMode(1);
+    pub const OUTSIDE: ENSM_SurfaceExpansionMode = ENSM_SurfaceExpansionMode(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENSMSubUVAnimation_Mode(pub i32);
+impl ENSMSubUVAnimation_Mode {
+    pub const DIRECT_SET: ENSMSubUVAnimation_Mode = ENSMSubUVAnimation_Mode(0);
+    pub const INFINITE_LOOP: ENSMSubUVAnimation_Mode = ENSMSubUVAnimation_Mode(1);
+    pub const LINEAR: ENSMSubUVAnimation_Mode = ENSMSubUVAnimation_Mode(2);
+    pub const RANDOM: ENSMSubUVAnimation_Mode = ENSMSubUVAnimation_Mode(3);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EVolumeCacheType(pub u8);
+impl EVolumeCacheType {
+    pub const OPEN_VDB: EVolumeCacheType = EVolumeCacheType(0);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENiagaraFunctionDebugState(pub u8);
+impl ENiagaraFunctionDebugState {
+    pub const NO_DEBUG: ENiagaraFunctionDebugState = ENiagaraFunctionDebugState(0);
+    pub const BASIC: ENiagaraFunctionDebugState = ENiagaraFunctionDebugState(1);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENiagaraInputNodeUsage(pub u8);
+impl ENiagaraInputNodeUsage {
+    pub const UNDEFINED: ENiagaraInputNodeUsage = ENiagaraInputNodeUsage(0);
+    pub const PARAMETER: ENiagaraInputNodeUsage = ENiagaraInputNodeUsage(1);
+    pub const ATTRIBUTE: ENiagaraInputNodeUsage = ENiagaraInputNodeUsage(2);
+    pub const SYSTEM_CONSTANT: ENiagaraInputNodeUsage = ENiagaraInputNodeUsage(3);
+    pub const TRANSLATOR_CONSTANT: ENiagaraInputNodeUsage = ENiagaraInputNodeUsage(4);
+    pub const RAPID_ITERATION_PARAMETER: ENiagaraInputNodeUsage = ENiagaraInputNodeUsage(
+        5,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ENiagaraValidationSeverity(pub i32);
+impl ENiagaraValidationSeverity {
+    pub const INFO: ENiagaraValidationSeverity = ENiagaraValidationSeverity(0);
+    pub const WARNING: ENiagaraValidationSeverity = ENiagaraValidationSeverity(1);
+    pub const ERROR: ENiagaraValidationSeverity = ENiagaraValidationSeverity(2);
 }

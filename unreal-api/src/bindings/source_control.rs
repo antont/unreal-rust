@@ -2,7 +2,8 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
-pub use crate::bindings::prelude::*;
+pub use crate::bindings::opague_definitions::*;
+pub use crate::core_data::*;
 #[repr(C, align(8))]
 pub struct FSourceControlState {
     pub filename: FString,
@@ -37,3 +38,5 @@ pub struct USourceControlPreferences {
     pub specific_collection_changelist_tags: TMap<FName, FString>,
     pub b_requires_revision_control_to_rename_localizable_assets: bool,
 }
+pub struct FAsyncQueryFileState_FileStateCallback;
+pub struct FAsyncQueryFileStates_FileStateCallback;

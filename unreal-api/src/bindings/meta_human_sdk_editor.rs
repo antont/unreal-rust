@@ -2,11 +2,12 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
-pub use crate::bindings::prelude::*;
+pub use crate::bindings::opague_definitions::*;
+pub use crate::core_data::*;
 #[repr(C, align(8))]
 pub struct FMetaHumanAssetReportItem {
     pub message: FText,
-    pub project_item: UPtr<UObject>,
+    pub project_item: UPtr<crate::bindings::core_u_object::UObject>,
     pub source_item: FString,
 }
 #[repr(C, align(1))]
@@ -24,7 +25,9 @@ pub struct FMetaHumanAggregateDetails {
     pub b_contains_grooms: bool,
     pub b_contains_clothing: bool,
     pub b_is_editable_character: bool,
-    pub platforms_included: TArray<EMetaHumanQualityLevel>,
+    pub platforms_included: TArray<
+        crate::bindings::meta_human_sdk_runtime::EMetaHumanQualityLevel,
+    >,
     pub num_unique_characters: i32,
     pub num_virtual_textures: i32,
     pub num_substrate_materials: i32,
@@ -35,17 +38,17 @@ pub struct FMetaHumanAggregateDetails {
     pub b_has_lods: bool,
     pub card_mesh_count: i32,
     pub card_mesh_vertices: i32,
-    pub card_mesh_texture_resolution: FIntVector2,
+    pub card_mesh_texture_resolution: crate::bindings::core_u_object::FIntVector2,
     pub volume_mesh_count: i32,
     pub volume_mesh_vertices: i32,
-    pub volume_mesh_texture_resolution: FIntVector2,
+    pub volume_mesh_texture_resolution: crate::bindings::core_u_object::FIntVector2,
     pub num_materials: i32,
     pub engine_version: FString,
 }
 #[repr(C, align(8))]
 pub struct FMetaHumanAssetDescription {
     pub name: FName,
-    pub asset_data: FAssetData,
+    pub asset_data: crate::bindings::core_u_object::FAssetData,
     pub dependent_packages: TArray<FName>,
     pub asset_type: EMetaHumanAssetType,
     pub details: FMetaHumanAggregateDetails,
@@ -112,11 +115,39 @@ pub struct UMetaHumanCloudServicesSettings {
 }
 pub struct UMetaHumanSDKSettings {
     pub version_service_base_url: FString,
-    pub cinematic_import_path: FDirectoryPath,
-    pub optimized_import_path: FDirectoryPath,
-    pub character_asset_packaging_path: FDirectoryPath,
-    pub character_assembly_packaging_path: FDirectoryPath,
-    pub skeletal_clothing_packaging_path: FDirectoryPath,
-    pub outfit_packaging_path: FDirectoryPath,
-    pub groom_packaging_path: FDirectoryPath,
+    pub cinematic_import_path: crate::bindings::core_u_object::FDirectoryPath,
+    pub optimized_import_path: crate::bindings::core_u_object::FDirectoryPath,
+    pub character_asset_packaging_path: crate::bindings::core_u_object::FDirectoryPath,
+    pub character_assembly_packaging_path: crate::bindings::core_u_object::FDirectoryPath,
+    pub skeletal_clothing_packaging_path: crate::bindings::core_u_object::FDirectoryPath,
+    pub outfit_packaging_path: crate::bindings::core_u_object::FDirectoryPath,
+    pub groom_packaging_path: crate::bindings::core_u_object::FDirectoryPath,
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EMetaHumanAssetType(pub u8);
+impl EMetaHumanAssetType {
+    pub const CHARACTER: EMetaHumanAssetType = EMetaHumanAssetType(0);
+    pub const CHARACTER_ASSEMBLY: EMetaHumanAssetType = EMetaHumanAssetType(1);
+    pub const SKELETAL_CLOTHING: EMetaHumanAssetType = EMetaHumanAssetType(2);
+    pub const OUTFIT_CLOTHING: EMetaHumanAssetType = EMetaHumanAssetType(3);
+    pub const GROOM: EMetaHumanAssetType = EMetaHumanAssetType(4);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EMetaHumanOperationResult(pub u8);
+impl EMetaHumanOperationResult {
+    pub const SUCCESS: EMetaHumanOperationResult = EMetaHumanOperationResult(0);
+    pub const FAILURE: EMetaHumanOperationResult = EMetaHumanOperationResult(1);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EMetaHumanCloudServiceEnvironment(pub i32);
+impl EMetaHumanCloudServiceEnvironment {
+    pub const PRODUCTION: EMetaHumanCloudServiceEnvironment = EMetaHumanCloudServiceEnvironment(
+        0,
+    );
+    pub const GAME_DEV: EMetaHumanCloudServiceEnvironment = EMetaHumanCloudServiceEnvironment(
+        1,
+    );
 }

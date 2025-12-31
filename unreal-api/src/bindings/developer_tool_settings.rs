@@ -2,7 +2,8 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
-pub use crate::bindings::prelude::*;
+pub use crate::bindings::opague_definitions::*;
+pub use crate::core_data::*;
 #[repr(C, align(8))]
 pub struct FPakOrderFileSpec {
     pub pattern: FString,
@@ -40,7 +41,7 @@ pub struct UCookerSettings {
     pub b_cook_blueprint_component_template_data: bool,
 }
 pub struct UPlatformsMenuSettings {
-    pub staging_directory: FDirectoryPath,
+    pub staging_directory: crate::bindings::core_u_object::FDirectoryPath,
     pub launch_on_target: FString,
     pub cook_platform: FName,
     pub cook_build_target: FString,
@@ -75,7 +76,7 @@ pub struct UProjectPackagingSettings {
     pub for_distribution: bool,
     pub include_debug_files: bool,
     pub blueprint_nativization_method: EProjectPackagingBlueprintNativizationMethod,
-    pub nativize_blueprint_assets: TArray<FFilePath>,
+    pub nativize_blueprint_assets: TArray<crate::bindings::core_u_object::FFilePath>,
     pub b_include_nativized_assets_in_project_generation: bool,
     pub b_exclude_monolithic_engine_headers_in_nativized_code: bool,
     pub use_pak_file: bool,
@@ -88,7 +89,7 @@ pub struct UProjectPackagingSettings {
     pub b_force_one_chunk_per_file: bool,
     pub max_chunk_size: i64,
     pub b_build_http_chunk_install_data: bool,
-    pub http_chunk_install_data_directory: FDirectoryPath,
+    pub http_chunk_install_data_directory: crate::bindings::core_u_object::FDirectoryPath,
     pub write_back_metadata_to_asset_registry: EAssetRegistryWritebackMethod,
     pub b_write_plugin_size_summary_jsons: bool,
     pub b_compressed: bool,
@@ -109,7 +110,7 @@ pub struct UProjectPackagingSettings {
     pub b_share_material_shader_code: bool,
     pub b_deterministic_shader_code_order: bool,
     pub b_shared_material_native_libraries: bool,
-    pub applocal_prerequisites_directory: FDirectoryPath,
+    pub applocal_prerequisites_directory: crate::bindings::core_u_object::FDirectoryPath,
     pub include_crash_reporter: bool,
     pub internationalization_preset: EProjectPackagingInternationalizationPresets,
     pub cultures_to_stage: TArray<FString>,
@@ -131,16 +132,165 @@ pub struct UProjectPackagingSettings {
     pub ini_section_blacklist: TArray<FString>,
     pub ini_section_denylist: TArray<FString>,
     pub early_downloader_pak_file_files_deprecated: TArray<FString>,
-    pub maps_to_cook: TArray<FFilePath>,
-    pub directories_to_always_cook: TArray<FDirectoryPath>,
-    pub directories_to_never_cook: TArray<FDirectoryPath>,
-    pub test_directories_to_not_search: TArray<FDirectoryPath>,
-    pub directories_to_always_stage_as_ufs: TArray<FDirectoryPath>,
-    pub directories_to_always_stage_as_non_ufs: TArray<FDirectoryPath>,
-    pub directories_to_always_stage_as_ufs_server: TArray<FDirectoryPath>,
-    pub directories_to_always_stage_as_non_ufs_server: TArray<FDirectoryPath>,
+    pub maps_to_cook: TArray<crate::bindings::core_u_object::FFilePath>,
+    pub directories_to_always_cook: TArray<
+        crate::bindings::core_u_object::FDirectoryPath,
+    >,
+    pub directories_to_never_cook: TArray<
+        crate::bindings::core_u_object::FDirectoryPath,
+    >,
+    pub test_directories_to_not_search: TArray<
+        crate::bindings::core_u_object::FDirectoryPath,
+    >,
+    pub directories_to_always_stage_as_ufs: TArray<
+        crate::bindings::core_u_object::FDirectoryPath,
+    >,
+    pub directories_to_always_stage_as_non_ufs: TArray<
+        crate::bindings::core_u_object::FDirectoryPath,
+    >,
+    pub directories_to_always_stage_as_ufs_server: TArray<
+        crate::bindings::core_u_object::FDirectoryPath,
+    >,
+    pub directories_to_always_stage_as_non_ufs_server: TArray<
+        crate::bindings::core_u_object::FDirectoryPath,
+    >,
     pub project_custom_builds: TArray<FProjectBuildSettings>,
     pub b_retain_staged_directory: bool,
     pub engine_custom_builds: TArray<FProjectBuildSettings>,
     pub custom_stage_copy_handler: FString,
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ECookProgressDisplayMode(pub i32);
+impl ECookProgressDisplayMode {
+    pub const NOTHING: ECookProgressDisplayMode = ECookProgressDisplayMode(0);
+    pub const REMAINING_PACKAGES: ECookProgressDisplayMode = ECookProgressDisplayMode(1);
+    pub const PACKAGE_NAMES: ECookProgressDisplayMode = ECookProgressDisplayMode(2);
+    pub const NAMES_AND_REMAINING_PACKAGES: ECookProgressDisplayMode = ECookProgressDisplayMode(
+        3,
+    );
+    pub const INSTIGATORS: ECookProgressDisplayMode = ECookProgressDisplayMode(4);
+    pub const INSTIGATORS_AND_COUNT: ECookProgressDisplayMode = ECookProgressDisplayMode(
+        5,
+    );
+    pub const INSTIGATORS_AND_NAMES: ECookProgressDisplayMode = ECookProgressDisplayMode(
+        6,
+    );
+    pub const INSTIGATORS_AND_NAMES_AND_COUNT: ECookProgressDisplayMode = ECookProgressDisplayMode(
+        7,
+    );
+    pub const MAX: ECookProgressDisplayMode = ECookProgressDisplayMode(8);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EBlueprintComponentDataCookingMethod(pub i32);
+impl EBlueprintComponentDataCookingMethod {
+    pub const DISABLED: EBlueprintComponentDataCookingMethod = EBlueprintComponentDataCookingMethod(
+        0,
+    );
+    pub const ALL_BLUEPRINTS: EBlueprintComponentDataCookingMethod = EBlueprintComponentDataCookingMethod(
+        1,
+    );
+    pub const ENABLED_BLUEPRINTS_ONLY: EBlueprintComponentDataCookingMethod = EBlueprintComponentDataCookingMethod(
+        2,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EBlueprintPropertyGuidsCookingMethod(pub i32);
+impl EBlueprintPropertyGuidsCookingMethod {
+    pub const DISABLED: EBlueprintPropertyGuidsCookingMethod = EBlueprintPropertyGuidsCookingMethod(
+        0,
+    );
+    pub const ALL_BLUEPRINTS: EBlueprintPropertyGuidsCookingMethod = EBlueprintPropertyGuidsCookingMethod(
+        1,
+    );
+    pub const ENABLED_BLUEPRINTS_ONLY: EBlueprintPropertyGuidsCookingMethod = EBlueprintPropertyGuidsCookingMethod(
+        2,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct ETextureFormatASTCCompressor(pub i32);
+impl ETextureFormatASTCCompressor {
+    pub const INTEL_ISPC: ETextureFormatASTCCompressor = ETextureFormatASTCCompressor(0);
+    pub const ARM: ETextureFormatASTCCompressor = ETextureFormatASTCCompressor(1);
+    pub const MAX: ETextureFormatASTCCompressor = ETextureFormatASTCCompressor(2);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EProjectPackagingBuildConfigurations(pub u8);
+impl EProjectPackagingBuildConfigurations {
+    pub const PPBC_DEBUG: EProjectPackagingBuildConfigurations = EProjectPackagingBuildConfigurations(
+        0,
+    );
+    pub const PPBC_DEBUG_GAME: EProjectPackagingBuildConfigurations = EProjectPackagingBuildConfigurations(
+        1,
+    );
+    pub const PPBC_DEVELOPMENT: EProjectPackagingBuildConfigurations = EProjectPackagingBuildConfigurations(
+        2,
+    );
+    pub const PPBC_TEST: EProjectPackagingBuildConfigurations = EProjectPackagingBuildConfigurations(
+        3,
+    );
+    pub const PPBC_SHIPPING: EProjectPackagingBuildConfigurations = EProjectPackagingBuildConfigurations(
+        4,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EProjectPackagingBuild(pub i32);
+impl EProjectPackagingBuild {
+    pub const ALWAYS: EProjectPackagingBuild = EProjectPackagingBuild(0);
+    pub const NEVER: EProjectPackagingBuild = EProjectPackagingBuild(1);
+    pub const IF_PROJECT_HAS_CODE: EProjectPackagingBuild = EProjectPackagingBuild(2);
+    pub const IF_EDITOR_WAS_BUILT_LOCALLY: EProjectPackagingBuild = EProjectPackagingBuild(
+        3,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EProjectPackagingBlueprintNativizationMethod(pub u8);
+impl EProjectPackagingBlueprintNativizationMethod {
+    pub const DISABLED: EProjectPackagingBlueprintNativizationMethod = EProjectPackagingBlueprintNativizationMethod(
+        0,
+    );
+    pub const INCLUSIVE: EProjectPackagingBlueprintNativizationMethod = EProjectPackagingBlueprintNativizationMethod(
+        1,
+    );
+    pub const EXCLUSIVE: EProjectPackagingBlueprintNativizationMethod = EProjectPackagingBlueprintNativizationMethod(
+        2,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EAssetRegistryWritebackMethod(pub u8);
+impl EAssetRegistryWritebackMethod {
+    pub const DISABLED: EAssetRegistryWritebackMethod = EAssetRegistryWritebackMethod(0);
+    pub const ORIGINAL_FILE: EAssetRegistryWritebackMethod = EAssetRegistryWritebackMethod(
+        1,
+    );
+    pub const ADJACENT_FILE: EAssetRegistryWritebackMethod = EAssetRegistryWritebackMethod(
+        2,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EProjectPackagingInternationalizationPresets(pub u8);
+impl EProjectPackagingInternationalizationPresets {
+    pub const ENGLISH: EProjectPackagingInternationalizationPresets = EProjectPackagingInternationalizationPresets(
+        0,
+    );
+    pub const EFIGS: EProjectPackagingInternationalizationPresets = EProjectPackagingInternationalizationPresets(
+        1,
+    );
+    pub const EFIGSCJK: EProjectPackagingInternationalizationPresets = EProjectPackagingInternationalizationPresets(
+        2,
+    );
+    pub const CJK: EProjectPackagingInternationalizationPresets = EProjectPackagingInternationalizationPresets(
+        3,
+    );
+    pub const ALL: EProjectPackagingInternationalizationPresets = EProjectPackagingInternationalizationPresets(
+        4,
+    );
 }

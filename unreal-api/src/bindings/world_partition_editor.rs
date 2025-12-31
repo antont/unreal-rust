@@ -2,9 +2,12 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
-pub use crate::bindings::prelude::*;
+pub use crate::bindings::opague_definitions::*;
+pub use crate::core_data::*;
 pub struct UWorldPartitionConvertOptions {
-    pub commandlet_class: TSubclassOf<UWorldPartitionConvertCommandlet>,
+    pub commandlet_class: TSubclassOf<
+        crate::bindings::unreal_ed::UWorldPartitionConvertCommandlet,
+    >,
     pub b_in_place: bool,
     pub b_delete_source_levels: bool,
     pub b_generate_ini: bool,
@@ -19,16 +22,18 @@ pub struct UContentBundleEditorSubsystem {
 }
 pub struct UContentBundleEditorSubsystemModule {}
 pub struct UActorEditorContextContentBundleState {
-    pub content_bundle_guid: FGuid,
+    pub content_bundle_guid: crate::bindings::core_u_object::FGuid,
 }
 pub struct UContentBundleEditingSubmodule {
-    pub editing_content_bundles_stack: TArray<FGuid>,
-    pub editing_content_bundle_guid: FGuid,
+    pub editing_content_bundles_stack: TArray<crate::bindings::core_u_object::FGuid>,
+    pub editing_content_bundle_guid: crate::bindings::core_u_object::FGuid,
 }
 pub struct UWorldPartitionHLODEditorSubsystem {}
 pub struct UHLODLayerFactory {}
 pub struct UWorldPartitionEditorSettings {
-    pub commandlet_class: TSubclassOf<UWorldPartitionConvertCommandlet>,
+    pub commandlet_class: TSubclassOf<
+        crate::bindings::unreal_ed::UWorldPartitionConvertCommandlet,
+    >,
     pub instanced_foliage_grid_size: i32,
     pub minimap_low_quality_world_units_per_pixel_threshold: i32,
     pub b_enable_loading_in_editor: bool,
@@ -40,6 +45,6 @@ pub struct UWorldPartitionEditorSettings {
     pub hlod_max_draw_distance: f64,
 }
 pub struct UWorldPartitionEditorState {
-    pub loaded_editor_regions: TArray<FBox>,
+    pub loaded_editor_regions: TArray<crate::bindings::core_u_object::FBox>,
     pub loaded_editor_location_volumes: TArray<FName>,
 }

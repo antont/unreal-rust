@@ -2,7 +2,8 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
-pub use crate::bindings::prelude::*;
+pub use crate::bindings::opague_definitions::*;
+pub use crate::core_data::*;
 #[repr(C, align(8))]
 pub struct FLocalizableMessageParameterInt {
     pub value: i64,
@@ -28,5 +29,5 @@ pub struct FLocalizableMessage {
 #[repr(C, align(8))]
 pub struct FLocalizableMessageParameterEntry {
     pub key: FString,
-    pub value: FInstancedStruct,
+    pub value: crate::bindings::core_u_object::FInstancedStruct,
 }

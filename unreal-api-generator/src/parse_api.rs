@@ -50,13 +50,13 @@ pub enum ClassFlag {
     Unknown,
 }
 
-#[derive(Debug, Copy, Clone, Serialize, Deserialize)]
+#[derive(Debug, Copy, Clone, PartialEq, Hash, Serialize, Deserialize)]
 pub enum TypeUsageHint {
     UObject,
     ScriptInterface,
 }
 
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone, PartialEq, Hash, Serialize, Deserialize)]
 #[serde(tag = "Kind")]
 pub enum Type {
     Concrete {
@@ -113,6 +113,8 @@ pub enum DelegateKind {
 pub struct DelegateDefinition {
     #[serde(rename = "Name")]
     pub name: String,
+    #[serde(rename = "Package")]
+    pub package: String,
     #[serde(rename = "Kind")]
     pub kind: DelegateKind,
     #[serde(rename = "Function")]
@@ -150,6 +152,8 @@ pub enum EnumKind {
 pub struct EnumDefinition {
     #[serde(rename = "Name")]
     pub enum_name: String,
+    #[serde(rename = "Package")]
+    pub package: String,
     #[serde(rename = "Type")]
     pub ty: Type,
     #[serde(rename = "Kind")]

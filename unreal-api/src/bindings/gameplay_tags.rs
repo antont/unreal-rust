@@ -2,7 +2,8 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
-pub use crate::bindings::prelude::*;
+pub use crate::bindings::opague_definitions::*;
+pub use crate::core_data::*;
 #[repr(C, align(8))]
 pub struct FGameplayTagContainerNetSerializerSerializationHelper {
     pub gameplay_tags: TArray<FGameplayTag>,
@@ -98,7 +99,7 @@ pub struct UEditableGameplayTagQueryExpression_NoExprMatch {
 }
 pub struct UGameplayTagsManager {
     pub tag_sources: TMap<FName, FGameplayTagSource>,
-    pub gameplay_tag_tables: TArray<UPtr<UDataTable>>,
+    pub gameplay_tag_tables: TArray<UPtr<crate::bindings::engine::UDataTable>>,
 }
 pub struct UGameplayTagsList {
     pub config_file_name: FString,
@@ -119,7 +120,7 @@ pub struct UGameplayTagsSettings {
     pub b_dynamic_replication: bool,
     pub invalid_tag_characters: FString,
     pub category_remapping: TArray<FGameplayTagCategoryRemap>,
-    pub gameplay_tag_table_list: TArray<FSoftObjectPath>,
+    pub gameplay_tag_table_list: TArray<crate::bindings::core_u_object::FSoftObjectPath>,
     pub commonly_replicated_tags: TArray<FName>,
     pub num_bits_for_container_size: i32,
     pub net_index_first_bit_segment: i32,
@@ -131,4 +132,22 @@ pub struct UGameplayTagsSettings {
 pub struct UGameplayTagsDeveloperSettings {
     pub developer_config_name: FString,
     pub favorite_tag_source: FName,
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EGameplayTagSourceType(pub u8);
+impl EGameplayTagSourceType {
+    pub const NATIVE: EGameplayTagSourceType = EGameplayTagSourceType(0);
+    pub const DEFAULT_TAG_LIST: EGameplayTagSourceType = EGameplayTagSourceType(1);
+    pub const TAG_LIST: EGameplayTagSourceType = EGameplayTagSourceType(2);
+    pub const RESTRICTED_TAG_LIST: EGameplayTagSourceType = EGameplayTagSourceType(3);
+    pub const DATA_TABLE: EGameplayTagSourceType = EGameplayTagSourceType(4);
+    pub const INVALID: EGameplayTagSourceType = EGameplayTagSourceType(5);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EGameplayContainerMatchType(pub u8);
+impl EGameplayContainerMatchType {
+    pub const ANY: EGameplayContainerMatchType = EGameplayContainerMatchType(0);
+    pub const ALL: EGameplayContainerMatchType = EGameplayContainerMatchType(1);
 }

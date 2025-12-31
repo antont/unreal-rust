@@ -2,7 +2,8 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
-pub use crate::bindings::prelude::*;
+pub use crate::bindings::opague_definitions::*;
+pub use crate::core_data::*;
 #[repr(C, align(8))]
 pub struct FValidateAssetsDetails {}
 #[repr(C, align(4))]
@@ -21,7 +22,10 @@ pub struct FValidateAssetsResults {
     pub num_warnings: i32,
     pub num_unable_to_validate: i32,
     pub b_asset_limit_reached: bool,
-    pub validator_statistics: TMap<FTopLevelAssetPath, FValidatorStatistics>,
+    pub validator_statistics: TMap<
+        crate::bindings::core_u_object::FTopLevelAssetPath,
+        FValidatorStatistics,
+    >,
     pub assets_details: TMap<FString, FValidateAssetsDetails>,
 }
 #[repr(C, align(8))]
@@ -29,7 +33,7 @@ pub struct FValidateAssetsSettings {
     pub b_skip_excluded_directories: bool,
     pub b_show_if_no_failures: bool,
     pub b_collect_per_asset_details: bool,
-    pub validation_usecase: EDataValidationUsecase,
+    pub validation_usecase: crate::bindings::core_u_object::EDataValidationUsecase,
     pub b_load_assets_for_validation: bool,
     pub b_unload_assets_loaded_for_validation: bool,
     pub b_load_external_objects_for_validation: bool,
@@ -60,19 +64,22 @@ pub struct UDataValidationChangelist {}
 pub struct UDataValidationCommandlet {}
 pub struct ADataValidationTestActor {
     pub b_pass_validation: bool,
-    pub sprite_component: UPtr<UBillboardComponent>,
+    pub sprite_component: UPtr<crate::bindings::engine::UBillboardComponent>,
 }
 pub struct UEditorValidatorBase {
     pub b_is_enabled: bool,
     pub b_is_config_disabled: bool,
     pub b_only_print_custom_message: bool,
-    pub current_object_being_validated: UPtr<UObject>,
+    pub current_object_being_validated: UPtr<crate::bindings::core_u_object::UObject>,
 }
 pub struct UDirtyFilesChangelistValidator {}
 pub struct UEditorValidatorSubsystem {
-    pub excluded_directories: TArray<FDirectoryPath>,
+    pub excluded_directories: TArray<crate::bindings::core_u_object::FDirectoryPath>,
     pub b_validate_on_save: bool,
-    pub validators: TMap<FTopLevelAssetPath, UPtr<UEditorValidatorBase>>,
+    pub validators: TMap<
+        crate::bindings::core_u_object::FTopLevelAssetPath,
+        UPtr<UEditorValidatorBase>,
+    >,
     pub b_allow_blueprint_validators: bool,
 }
 pub struct UEditorValidator_Localization {}
@@ -82,3 +89,37 @@ pub struct UPackageFileValidator {
     pub b_validate_payload_hashes: bool,
 }
 pub struct UWorldPartitionChangelistValidator {}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EMaterialEditorValidationFeatureLevel(pub i32);
+impl EMaterialEditorValidationFeatureLevel {
+    pub const CURRENT_MAX_FEATURE_LEVEL: EMaterialEditorValidationFeatureLevel = EMaterialEditorValidationFeatureLevel(
+        6,
+    );
+    pub const ES3_1: EMaterialEditorValidationFeatureLevel = EMaterialEditorValidationFeatureLevel(
+        1,
+    );
+    pub const SM5: EMaterialEditorValidationFeatureLevel = EMaterialEditorValidationFeatureLevel(
+        3,
+    );
+    pub const SM6: EMaterialEditorValidationFeatureLevel = EMaterialEditorValidationFeatureLevel(
+        4,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EMaterialEditorValidationQualityLevel(pub u8);
+impl EMaterialEditorValidationQualityLevel {
+    pub const LOW: EMaterialEditorValidationQualityLevel = EMaterialEditorValidationQualityLevel(
+        0,
+    );
+    pub const MEDIUM: EMaterialEditorValidationQualityLevel = EMaterialEditorValidationQualityLevel(
+        2,
+    );
+    pub const HIGH: EMaterialEditorValidationQualityLevel = EMaterialEditorValidationQualityLevel(
+        1,
+    );
+    pub const EPIC: EMaterialEditorValidationQualityLevel = EMaterialEditorValidationQualityLevel(
+        3,
+    );
+}

@@ -173,6 +173,7 @@ struct FRustReflection_Enum
 	FString Name;
 	TUniquePtr<RustReflection_Type> Type;
 	FString Kind;
+	FString Package;
 
 	TMap<FString, FString> Metadata;
 
@@ -193,6 +194,7 @@ struct FRustReflection_Opague
 struct FRustReflection_Delegate
 {
 	FString Name;
+	FString Package;
 	FString Namespace;
 	FString Kind;
 	FRustReflection_Function Function;

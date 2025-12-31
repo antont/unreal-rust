@@ -2,7 +2,8 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
-pub use crate::bindings::prelude::*;
+pub use crate::bindings::opague_definitions::*;
+pub use crate::core_data::*;
 #[repr(C, align(8))]
 pub struct FDataflowBaseElement {}
 #[repr(C, align(1))]
@@ -17,7 +18,7 @@ pub struct FDataflowNumericTypes {
 }
 #[repr(C, align(16))]
 pub struct FDataflowVectorTypes {
-    pub value: FVector4,
+    pub value: crate::bindings::core_u_object::FVector4,
 }
 #[repr(C, align(8))]
 pub struct FDataflowStringTypes {
@@ -29,7 +30,7 @@ pub struct FDataflowBoolTypes {
 }
 #[repr(C, align(16))]
 pub struct FDataflowTransformTypes {
-    pub value: FTransform,
+    pub value: crate::bindings::core_u_object::FTransform,
 }
 #[repr(C, align(8))]
 pub struct FDataflowStringConvertibleTypes {
@@ -37,7 +38,7 @@ pub struct FDataflowStringConvertibleTypes {
 }
 #[repr(C, align(8))]
 pub struct FDataflowUObjectConvertibleTypes {
-    pub value: UPtr<UObject>,
+    pub value: UPtr<crate::bindings::core_u_object::UObject>,
 }
 #[repr(C, align(8))]
 pub struct FDataflowSelectionTypes {
@@ -47,7 +48,7 @@ pub struct FDataflowSelectionTypes {
 pub struct FDataflowSelection {}
 #[repr(C, align(8))]
 pub struct FDataflowVectorArrayTypes {
-    pub value: TArray<FVector4>,
+    pub value: TArray<crate::bindings::core_u_object::FVector4>,
 }
 #[repr(C, align(8))]
 pub struct FDataflowNumericArrayTypes {
@@ -63,20 +64,20 @@ pub struct FDataflowBoolArrayTypes {
 }
 #[repr(C, align(8))]
 pub struct FDataflowTransformArrayTypes {
-    pub value: TArray<FTransform>,
+    pub value: TArray<crate::bindings::core_u_object::FTransform>,
 }
 #[repr(C, align(8))]
 pub struct FDataflowRotationTypes {
-    pub value: FRotator,
+    pub value: crate::bindings::core_u_object::FRotator,
 }
 #[repr(C, align(8))]
 pub struct FDataflowConnection {}
 #[repr(C, align(8))]
 pub struct FDataflowNode {
     pub b_override_color: bool,
-    pub override_color: FLinearColor,
+    pub override_color: crate::bindings::core_u_object::FLinearColor,
     pub b_active: bool,
-    pub frozen_properties: FInstancedPropertyBag,
+    pub frozen_properties: crate::bindings::core_u_object::FInstancedPropertyBag,
     pub b_is_frozen: bool,
 }
 #[repr(C, align(8))]
@@ -116,7 +117,7 @@ pub struct FConvertUObjectConvertibleTypesDataflowNode {
 }
 #[repr(C, align(8))]
 pub struct FConvertSelectionTypesDataflowNode {
-    pub collection: FManagedArrayCollection,
+    pub collection: crate::bindings::chaos::FManagedArrayCollection,
     pub in_: FDataflowSelectionTypes,
     pub b_all_elements_must_be_selected: bool,
     pub out: FDataflowSelectionTypes,
@@ -128,13 +129,13 @@ pub struct FConvertSelectionTypesToIndexArrayDataflowNode {
 }
 #[repr(C, align(8))]
 pub struct FConvertIndexToSelectionTypesDataflowNode {
-    pub collection: FManagedArrayCollection,
+    pub collection: crate::bindings::chaos::FManagedArrayCollection,
     pub in_: i32,
     pub out: FDataflowSelectionTypes,
 }
 #[repr(C, align(8))]
 pub struct FConvertIndexArrayToSelectionTypesDataflowNode {
-    pub collection: FManagedArrayCollection,
+    pub collection: crate::bindings::chaos::FManagedArrayCollection,
     pub in_: TArray<i32>,
     pub out: FDataflowSelectionTypes,
 }
@@ -198,7 +199,7 @@ pub struct FDataflowForceDependencyNode {
 pub struct FDataflowImage {}
 #[repr(C, align(8))]
 pub struct FDataflowImageFromColorNode {
-    pub fill_color: FLinearColor,
+    pub fill_color: crate::bindings::core_u_object::FLinearColor,
     pub resolution: EDataflowImageResolution,
     pub image: FDataflowImage,
 }
@@ -357,18 +358,18 @@ pub struct FDataflowMaterialSelection {}
 pub struct FDataflowCurveSelection {}
 #[repr(C, align(4))]
 pub struct FNodeColors {
-    pub node_title_color: FLinearColor,
-    pub node_body_tint_color: FLinearColor,
+    pub node_title_color: crate::bindings::core_u_object::FLinearColor,
+    pub node_body_tint_color: crate::bindings::core_u_object::FLinearColor,
 }
 #[repr(C, align(4))]
 pub struct FPinSettings {
-    pub pin_color: FLinearColor,
+    pub pin_color: crate::bindings::core_u_object::FLinearColor,
     pub wire_thickness: f32,
 }
 #[repr(C, align(8))]
 pub struct FTransformLevelColors {
-    pub level_colors: TArray<FLinearColor>,
-    pub blank_color: FLinearColor,
+    pub level_colors: TArray<crate::bindings::core_u_object::FLinearColor>,
+    pub blank_color: crate::bindings::core_u_object::FLinearColor,
 }
 #[repr(C, align(8))]
 pub struct FDataflowTerminalNode {}
@@ -471,4 +472,77 @@ pub struct UDataflowSettings {
     pub node_colors_map: TMap<FName, FNodeColors>,
     pub pin_settings_map: TMap<FName, FPinSettings>,
     pub transform_level_colors: FTransformLevelColors,
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EDataflowImageResolution(pub i32);
+impl EDataflowImageResolution {
+    pub const RESOLUTION16: EDataflowImageResolution = EDataflowImageResolution(16);
+    pub const RESOLUTION32: EDataflowImageResolution = EDataflowImageResolution(32);
+    pub const RESOLUTION64: EDataflowImageResolution = EDataflowImageResolution(64);
+    pub const RESOLUTION128: EDataflowImageResolution = EDataflowImageResolution(128);
+    pub const RESOLUTION256: EDataflowImageResolution = EDataflowImageResolution(256);
+    pub const RESOLUTION512: EDataflowImageResolution = EDataflowImageResolution(512);
+    pub const RESOLUTION1024: EDataflowImageResolution = EDataflowImageResolution(1024);
+    pub const RESOLUTION2048: EDataflowImageResolution = EDataflowImageResolution(2048);
+    pub const RESOLUTION4096: EDataflowImageResolution = EDataflowImageResolution(4096);
+    pub const RESOLUTION8192: EDataflowImageResolution = EDataflowImageResolution(8192);
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EDataflowImageCombineResolutionOption(pub i32);
+impl EDataflowImageCombineResolutionOption {
+    pub const LOWEST: EDataflowImageCombineResolutionOption = EDataflowImageCombineResolutionOption(
+        0,
+    );
+    pub const HIGHEST: EDataflowImageCombineResolutionOption = EDataflowImageCombineResolutionOption(
+        1,
+    );
+    pub const USER_DEFINED: EDataflowImageCombineResolutionOption = EDataflowImageCombineResolutionOption(
+        2,
+    );
+}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct EDataflowMathConstantsEnum(pub u8);
+impl EDataflowMathConstantsEnum {
+    pub const DATAFLOW_MATH_CONSTANTS_PI: EDataflowMathConstantsEnum = EDataflowMathConstantsEnum(
+        0,
+    );
+    pub const DATAFLOW_MATH_CONSTANTS_HALF_PI: EDataflowMathConstantsEnum = EDataflowMathConstantsEnum(
+        1,
+    );
+    pub const DATAFLOW_MATH_CONSTANTS_TWO_PI: EDataflowMathConstantsEnum = EDataflowMathConstantsEnum(
+        2,
+    );
+    pub const DATAFLOW_MATH_CONSTANTS_FOUR_PI: EDataflowMathConstantsEnum = EDataflowMathConstantsEnum(
+        3,
+    );
+    pub const DATAFLOW_MATH_CONSTANTS_INV_PI: EDataflowMathConstantsEnum = EDataflowMathConstantsEnum(
+        4,
+    );
+    pub const DATAFLOW_MATH_CONSTANTS_INV_TWO_PI: EDataflowMathConstantsEnum = EDataflowMathConstantsEnum(
+        5,
+    );
+    pub const DATAFLOW_MATH_CONSTANTS_SQRT2: EDataflowMathConstantsEnum = EDataflowMathConstantsEnum(
+        6,
+    );
+    pub const DATAFLOW_MATH_CONSTANTS_INV_SQRT2: EDataflowMathConstantsEnum = EDataflowMathConstantsEnum(
+        7,
+    );
+    pub const DATAFLOW_MATH_CONSTANTS_SQRT3: EDataflowMathConstantsEnum = EDataflowMathConstantsEnum(
+        8,
+    );
+    pub const DATAFLOW_MATH_CONSTANTS_INV_SQRT3: EDataflowMathConstantsEnum = EDataflowMathConstantsEnum(
+        9,
+    );
+    pub const DATAFLOW_MATH_CONSTANTS_E: EDataflowMathConstantsEnum = EDataflowMathConstantsEnum(
+        10,
+    );
+    pub const DATAFLOW_MATH_CONSTANTS_GAMMA: EDataflowMathConstantsEnum = EDataflowMathConstantsEnum(
+        11,
+    );
+    pub const DATAFLOW_MATH_CONSTANTS_GOLDEN_RATIO: EDataflowMathConstantsEnum = EDataflowMathConstantsEnum(
+        12,
+    );
 }

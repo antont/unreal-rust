@@ -2,7 +2,8 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
-pub use crate::bindings::prelude::*;
+pub use crate::bindings::opague_definitions::*;
+pub use crate::core_data::*;
 #[repr(C, align(8))]
 pub struct FTedsAlertColumn {
     pub message: FText,
@@ -30,3 +31,11 @@ pub struct FAlertHeaderWidgetTag {}
 pub struct FAlertHeaderActiveWidgetTag {}
 pub struct UTedsAlertsFactory {}
 pub struct UAlertWidgetFactory {}
+#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct FTedsAlertColumnType(pub u8);
+impl FTedsAlertColumnType {
+    pub const WARNING: FTedsAlertColumnType = FTedsAlertColumnType(0);
+    pub const ERROR: FTedsAlertColumnType = FTedsAlertColumnType(1);
+    pub const MAX: FTedsAlertColumnType = FTedsAlertColumnType(2);
+}
