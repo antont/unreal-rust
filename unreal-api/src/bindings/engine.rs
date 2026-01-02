@@ -9188,7 +9188,106 @@ pub struct UVolumetricCloudComponent {
     pub flags_800: u8,
     __padding_end: [u8; 31],
 }
-impl UVolumetricCloudComponent {}
+impl UVolumetricCloudComponent {
+    pub fn verify_layout() {
+        log::warn!(
+            "{} = {} vs {}", "layer_bottom_altitude",
+            std::mem::offset_of!(UVolumetricCloudComponent, layer_bottom_altitude),
+            656usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "layer_height",
+            std::mem::offset_of!(UVolumetricCloudComponent, layer_height), 660usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "tracing_start_max_distance",
+            std::mem::offset_of!(UVolumetricCloudComponent, tracing_start_max_distance),
+            664usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "tracing_start_distance_from_camera",
+            std::mem::offset_of!(UVolumetricCloudComponent,
+            tracing_start_distance_from_camera), 668usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "tracing_max_distance_mode",
+            std::mem::offset_of!(UVolumetricCloudComponent, tracing_max_distance_mode),
+            672usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "tracing_max_distance",
+            std::mem::offset_of!(UVolumetricCloudComponent, tracing_max_distance),
+            676usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "planet_radius",
+            std::mem::offset_of!(UVolumetricCloudComponent, planet_radius), 680usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "ground_albedo",
+            std::mem::offset_of!(UVolumetricCloudComponent, ground_albedo), 684usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "material", std::mem::offset_of!(UVolumetricCloudComponent,
+            material), 688usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "sky_light_cloud_bottom_occlusion",
+            std::mem::offset_of!(UVolumetricCloudComponent,
+            sky_light_cloud_bottom_occlusion), 740usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "view_sample_count_scale",
+            std::mem::offset_of!(UVolumetricCloudComponent, view_sample_count_scale),
+            744usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "reflection_view_sample_count_scale_value",
+            std::mem::offset_of!(UVolumetricCloudComponent,
+            reflection_view_sample_count_scale_value), 748usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "shadow_view_sample_count_scale",
+            std::mem::offset_of!(UVolumetricCloudComponent,
+            shadow_view_sample_count_scale), 760usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "shadow_reflection_view_sample_count_scale_value",
+            std::mem::offset_of!(UVolumetricCloudComponent,
+            shadow_reflection_view_sample_count_scale_value), 764usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "shadow_tracing_distance",
+            std::mem::offset_of!(UVolumetricCloudComponent, shadow_tracing_distance),
+            776usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "stop_tracing_transmittance_threshold",
+            std::mem::offset_of!(UVolumetricCloudComponent,
+            stop_tracing_transmittance_threshold), 780usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "aerial_pespective_rayleigh_scattering_start_distance",
+            std::mem::offset_of!(UVolumetricCloudComponent,
+            aerial_pespective_rayleigh_scattering_start_distance), 784usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "aerial_pespective_rayleigh_scattering_fade_distance",
+            std::mem::offset_of!(UVolumetricCloudComponent,
+            aerial_pespective_rayleigh_scattering_fade_distance), 788usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "aerial_pespective_mie_scattering_start_distance",
+            std::mem::offset_of!(UVolumetricCloudComponent,
+            aerial_pespective_mie_scattering_start_distance), 792usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "aerial_pespective_mie_scattering_fade_distance",
+            std::mem::offset_of!(UVolumetricCloudComponent,
+            aerial_pespective_mie_scattering_fade_distance), 796usize
+        );
+    }
+}
 #[repr(C, align(8))]
 pub struct AVolumetricCloud {
     #[doc(hidden)]
@@ -12286,689 +12385,689 @@ pub struct AWorldSettings {
     __padding_end: [u8; 732],
 }
 impl AWorldSettings {}
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FDelegateArray_Delegates {
-    _opague: u8,
+    _opague: [u8; 32],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FTimelineEventEntry_EventFunc {
-    _opague: u8,
+    _opague: [u8; 32],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FTimelineVectorTrack_InterpFunc {
-    _opague: u8,
+    _opague: [u8; 32],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FTimelineFloatTrack_InterpFunc {
-    _opague: u8,
+    _opague: [u8; 32],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FTimelineLinearColorTrack_InterpFunc {
-    _opague: u8,
+    _opague: [u8; 32],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FTimeline_EventFunc {
-    _opague: u8,
+    _opague: [u8; 32],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FTimeline_InterpFunc {
-    _opague: u8,
+    _opague: [u8; 32],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FTimeline_TimelinePostUpdateFunc {
-    _opague: u8,
+    _opague: [u8; 32],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FTimeline_TimelineFinishedFunc {
-    _opague: u8,
+    _opague: [u8; 32],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FK2_ClearTimerDelegate_Delegate {
-    _opague: u8,
+    _opague: [u8; 32],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FK2_GetTimerElapsedTimeDelegate_Delegate {
-    _opague: u8,
+    _opague: [u8; 32],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FK2_GetTimerRemainingTimeDelegate_Delegate {
-    _opague: u8,
+    _opague: [u8; 32],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FK2_IsTimerActiveDelegate_Delegate {
-    _opague: u8,
+    _opague: [u8; 32],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FK2_IsTimerPausedDelegate_Delegate {
-    _opague: u8,
+    _opague: [u8; 32],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FK2_PauseTimerDelegate_Delegate {
-    _opague: u8,
+    _opague: [u8; 32],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FK2_SetTimerDelegate_Delegate {
-    _opague: u8,
+    _opague: [u8; 32],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FK2_SetTimerForNextTickDelegate_Delegate {
-    _opague: u8,
+    _opague: [u8; 32],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FK2_TimerExistsDelegate_Delegate {
-    _opague: u8,
+    _opague: [u8; 32],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FK2_UnPauseTimerDelegate_Delegate {
-    _opague: u8,
+    _opague: [u8; 32],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FLoadAsset_OnLoaded {
-    _opague: u8,
+    _opague: [u8; 32],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FLoadAssetClass_OnLoaded {
-    _opague: u8,
+    _opague: [u8; 32],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FLoadAssets_OnLoaded {
-    _opague: u8,
+    _opague: [u8; 32],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FAddEvent_EventFunc {
-    _opague: u8,
+    _opague: [u8; 32],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FAddInterpFloat_InterpFunc {
-    _opague: u8,
+    _opague: [u8; 32],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FAddInterpLinearColor_InterpFunc {
-    _opague: u8,
+    _opague: [u8; 32],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FAddInterpVector_InterpFunc {
-    _opague: u8,
+    _opague: [u8; 32],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FOnRep_Timeline_EventFunc {
-    _opague: u8,
+    _opague: [u8; 32],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FSetTimelineFinishedFunc_NewTimelineFinishedFunc {
-    _opague: u8,
+    _opague: [u8; 32],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FSetTimelinePostUpdateFunc_NewTimelinePostUpdateFunc {
-    _opague: u8,
+    _opague: [u8; 32],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FPlayQuantized_InDelegate {
-    _opague: u8,
+    _opague: [u8; 32],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FAddDisplayDelegate_Delegate {
-    _opague: u8,
+    _opague: [u8; 32],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FAsyncLoadOrCreateSaveGameForLocalPlayer_Delegate {
-    _opague: u8,
+    _opague: [u8; 32],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FAddEnvelopeFollowerDelegate_OnSubmixEnvelopeBP {
-    _opague: u8,
+    _opague: [u8; 32],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FAddSpectralAnalysisDelegate_OnSubmixSpectralAnalysisBP {
-    _opague: u8,
+    _opague: [u8; 32],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FRemoveEnvelopeFollowerDelegate_OnSubmixEnvelopeBP {
-    _opague: u8,
+    _opague: [u8; 32],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FRemoveSpectralAnalysisDelegate_OnSubmixSpectralAnalysisBP {
-    _opague: u8,
+    _opague: [u8; 32],
 }
-#[repr(transparent)]
+#[repr(C, align(1))]
 pub struct FActor_OnTakeAnyDamage {
-    _opague: u8,
+    _opague: [u8; 1],
 }
-#[repr(transparent)]
+#[repr(C, align(1))]
 pub struct FActor_OnTakePointDamage {
-    _opague: u8,
+    _opague: [u8; 1],
 }
-#[repr(transparent)]
+#[repr(C, align(1))]
 pub struct FActor_OnTakeRadialDamage {
-    _opague: u8,
+    _opague: [u8; 1],
 }
-#[repr(transparent)]
+#[repr(C, align(1))]
 pub struct FActor_OnActorBeginOverlap {
-    _opague: u8,
+    _opague: [u8; 1],
 }
-#[repr(transparent)]
+#[repr(C, align(1))]
 pub struct FActor_OnActorEndOverlap {
-    _opague: u8,
+    _opague: [u8; 1],
 }
-#[repr(transparent)]
+#[repr(C, align(1))]
 pub struct FActor_OnBeginCursorOver {
-    _opague: u8,
+    _opague: [u8; 1],
 }
-#[repr(transparent)]
+#[repr(C, align(1))]
 pub struct FActor_OnEndCursorOver {
-    _opague: u8,
+    _opague: [u8; 1],
 }
-#[repr(transparent)]
+#[repr(C, align(1))]
 pub struct FActor_OnClicked {
-    _opague: u8,
+    _opague: [u8; 1],
 }
-#[repr(transparent)]
+#[repr(C, align(1))]
 pub struct FActor_OnReleased {
-    _opague: u8,
+    _opague: [u8; 1],
 }
-#[repr(transparent)]
+#[repr(C, align(1))]
 pub struct FActor_OnInputTouchBegin {
-    _opague: u8,
+    _opague: [u8; 1],
 }
-#[repr(transparent)]
+#[repr(C, align(1))]
 pub struct FActor_OnInputTouchEnd {
-    _opague: u8,
+    _opague: [u8; 1],
 }
-#[repr(transparent)]
+#[repr(C, align(1))]
 pub struct FActor_OnInputTouchEnter {
-    _opague: u8,
+    _opague: [u8; 1],
 }
-#[repr(transparent)]
+#[repr(C, align(1))]
 pub struct FActor_OnInputTouchLeave {
-    _opague: u8,
+    _opague: [u8; 1],
 }
-#[repr(transparent)]
+#[repr(C, align(1))]
 pub struct FActor_OnActorHit {
-    _opague: u8,
+    _opague: [u8; 1],
 }
-#[repr(transparent)]
+#[repr(C, align(1))]
 pub struct FActor_OnDestroyed {
-    _opague: u8,
+    _opague: [u8; 1],
 }
-#[repr(transparent)]
+#[repr(C, align(1))]
 pub struct FActor_OnEndPlay {
-    _opague: u8,
+    _opague: [u8; 1],
 }
-#[repr(transparent)]
+#[repr(C, align(1))]
 pub struct FActorComponent_OnComponentActivated {
-    _opague: u8,
+    _opague: [u8; 1],
 }
-#[repr(transparent)]
+#[repr(C, align(1))]
 pub struct FActorComponent_OnComponentDeactivated {
-    _opague: u8,
+    _opague: [u8; 1],
 }
-#[repr(transparent)]
+#[repr(C, align(1))]
 pub struct FSceneComponent_PhysicsVolumeChangedDelegate {
-    _opague: u8,
+    _opague: [u8; 1],
 }
-#[repr(transparent)]
+#[repr(C, align(1))]
 pub struct FPrimitiveComponent_OnComponentHit {
-    _opague: u8,
+    _opague: [u8; 1],
 }
-#[repr(transparent)]
+#[repr(C, align(1))]
 pub struct FPrimitiveComponent_OnComponentBeginOverlap {
-    _opague: u8,
+    _opague: [u8; 1],
 }
-#[repr(transparent)]
+#[repr(C, align(1))]
 pub struct FPrimitiveComponent_OnComponentEndOverlap {
-    _opague: u8,
+    _opague: [u8; 1],
 }
-#[repr(transparent)]
+#[repr(C, align(1))]
 pub struct FPrimitiveComponent_OnComponentWake {
-    _opague: u8,
+    _opague: [u8; 1],
 }
-#[repr(transparent)]
+#[repr(C, align(1))]
 pub struct FPrimitiveComponent_OnComponentSleep {
-    _opague: u8,
+    _opague: [u8; 1],
 }
-#[repr(transparent)]
+#[repr(C, align(1))]
 pub struct FPrimitiveComponent_OnComponentPhysicsStateChanged {
-    _opague: u8,
+    _opague: [u8; 1],
 }
-#[repr(transparent)]
+#[repr(C, align(1))]
 pub struct FPrimitiveComponent_OnBeginCursorOver {
-    _opague: u8,
+    _opague: [u8; 1],
 }
-#[repr(transparent)]
+#[repr(C, align(1))]
 pub struct FPrimitiveComponent_OnEndCursorOver {
-    _opague: u8,
+    _opague: [u8; 1],
 }
-#[repr(transparent)]
+#[repr(C, align(1))]
 pub struct FPrimitiveComponent_OnClicked {
-    _opague: u8,
+    _opague: [u8; 1],
 }
-#[repr(transparent)]
+#[repr(C, align(1))]
 pub struct FPrimitiveComponent_OnReleased {
-    _opague: u8,
+    _opague: [u8; 1],
 }
-#[repr(transparent)]
+#[repr(C, align(1))]
 pub struct FPrimitiveComponent_OnInputTouchBegin {
-    _opague: u8,
+    _opague: [u8; 1],
 }
-#[repr(transparent)]
+#[repr(C, align(1))]
 pub struct FPrimitiveComponent_OnInputTouchEnd {
-    _opague: u8,
+    _opague: [u8; 1],
 }
-#[repr(transparent)]
+#[repr(C, align(1))]
 pub struct FPrimitiveComponent_OnInputTouchEnter {
-    _opague: u8,
+    _opague: [u8; 1],
 }
-#[repr(transparent)]
+#[repr(C, align(1))]
 pub struct FPrimitiveComponent_OnInputTouchLeave {
-    _opague: u8,
+    _opague: [u8; 1],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FController_OnInstigatedAnyDamage {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FController_OnPossessedPawnChanged {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(1))]
 pub struct FPawn_ReceiveControllerChangedDelegate {
-    _opague: u8,
+    _opague: [u8; 1],
 }
-#[repr(transparent)]
+#[repr(C, align(1))]
 pub struct FPawn_ReceiveRestartedDelegate {
-    _opague: u8,
+    _opague: [u8; 1],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FCharacter_OnReachedJumpApex {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FCharacter_LandedDelegate {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FCharacter_MovementModeChangedDelegate {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FCharacter_OnCharacterMovementUpdated {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FGameInstance_OnPawnControllerChangedDelegates {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FGameInstance_OnInputDeviceConnectionChange {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FGameInstance_OnUserInputDevicePairingChange {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FSkeletalMeshComponent_OnConstraintBroken {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FSkeletalMeshComponent_OnPlasticDeformation {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FSkeletalMeshComponent_OnAnimInitialized {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FAnimInstance_OnMontageBlendingOut {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FAnimInstance_OnMontageBlendedIn {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FAnimInstance_OnMontageStarted {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FAnimInstance_OnMontageEnded {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FAnimInstance_OnAllMontageInstancesEnded {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FAnimInstance_OnMontageSectionChanged {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FAnimSingleNodeInstance_PostEvaluateAnimEvent {
-    _opague: u8,
+    _opague: [u8; 32],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FPlatformInterfaceBase_Delegates {
-    _opague: u8,
+    _opague: [u8; 32],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FEmitter_OnParticleSpawn {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FEmitter_OnParticleBurst {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FEmitter_OnParticleDeath {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FEmitter_OnParticleCollide {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FInGameAdManager_ClickedBannerDelegates {
-    _opague: u8,
+    _opague: [u8; 32],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FInGameAdManager_ClosedAdDelegates {
-    _opague: u8,
+    _opague: [u8; 32],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FLevelStreaming_OnLevelLoaded {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FLevelStreaming_OnLevelUnloaded {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FLevelStreaming_OnLevelShown {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FLevelStreaming_OnLevelHidden {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FTimelineComponent_EventFunc {
-    _opague: u8,
+    _opague: [u8; 32],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FAnimDataModel_ModifiedEventDynamic {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FAsyncActionLoadPrimaryAsset_Completed {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FAsyncActionLoadPrimaryAssetClass_Completed {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FAsyncActionLoadPrimaryAssetList_Completed {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FAsyncActionLoadPrimaryAssetClassList_Completed {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FAsyncActionChangePrimaryAssetBundles_Completed {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FCanvasRenderTarget2D_OnCanvasRenderTargetUpdate {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FApplicationLifecycleComponent_ApplicationWillDeactivateDelegate {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FApplicationLifecycleComponent_ApplicationHasReactivatedDelegate {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FApplicationLifecycleComponent_ApplicationWillEnterBackgroundDelegate {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FApplicationLifecycleComponent_ApplicationHasEnteredForegroundDelegate {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FApplicationLifecycleComponent_ApplicationWillTerminateDelegate {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FApplicationLifecycleComponent_ApplicationShouldUnloadResourcesDelegate {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FApplicationLifecycleComponent_ApplicationReceivedStartupArgumentsDelegate {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FApplicationLifecycleComponent_OnTemperatureChangeDelegate {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FApplicationLifecycleComponent_OnLowPowerModeDelegate {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FAudioComponent_OnAudioPlayStateChanged {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FAudioComponent_OnAudioVirtualizationChanged {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FAudioComponent_OnAudioFinished {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FAudioComponent_OnAudioPlaybackPercent {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FAudioComponent_OnAudioSingleEnvelopeValue {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FAudioComponent_OnAudioMultiEnvelopeValue {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FAudioComponent_OnQueueSubtitles {
-    _opague: u8,
+    _opague: [u8; 32],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FForceFeedbackComponent_OnForceFeedbackFinished {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FInterpToMovementComponent_OnInterpToReverse {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FInterpToMovementComponent_OnInterpToStop {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FInterpToMovementComponent_OnWaitBeginDelegate {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FInterpToMovementComponent_OnWaitEndDelegate {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FInterpToMovementComponent_OnResetDelegate {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FPlatformEventsComponent_PlatformChangedToLaptopModeDelegate {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FPlatformEventsComponent_PlatformChangedToTabletModeDelegate {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FProjectileMovementComponent_OnProjectileBounce {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FProjectileMovementComponent_OnProjectileStop {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FDataDrivenCVarEngineSubsystem_OnDataDrivenCVarDelegate {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FAsyncActionHandleSaveGame_Completed {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FInputDeviceSubsystem_OnInputHardwareDeviceChanged {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FGameUserSettings_OnGameUserSettingsUINeedsUpdate {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FPlatformGameInstance_ApplicationWillDeactivateDelegate {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FPlatformGameInstance_ApplicationHasReactivatedDelegate {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FPlatformGameInstance_ApplicationWillEnterBackgroundDelegate {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FPlatformGameInstance_ApplicationHasEnteredForegroundDelegate {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FPlatformGameInstance_ApplicationWillTerminateDelegate {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FPlatformGameInstance_ApplicationShouldUnloadResourcesDelegate {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FPlatformGameInstance_ApplicationReceivedStartupArgumentsDelegate {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FPlatformGameInstance_ApplicationRegisteredForRemoteNotificationsDelegate {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FPlatformGameInstance_ApplicationRegisteredForUserNotificationsDelegate {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FPlatformGameInstance_ApplicationFailedToRegisterForRemoteNotificationsDelegate {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FPlatformGameInstance_ApplicationReceivedRemoteNotificationDelegate {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FPlatformGameInstance_ApplicationReceivedLocalNotificationDelegate {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FPlatformGameInstance_ApplicationReceivedScreenOrientationChangedNotificationDelegate {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FParticleSystemComponent_OnParticleSpawn {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FParticleSystemComponent_OnParticleBurst {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FParticleSystemComponent_OnParticleDeath {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FParticleSystemComponent_OnParticleCollide {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FParticleSystemComponent_OnSystemFinished {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FClusterUnionComponent_OnComponentAddedEvent {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FClusterUnionComponent_OnComponentRemovedEvent {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FClusterUnionComponent_OnComponentBoundsChangedEvent {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FChaosEventRelay_OnCollisionEvent {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FChaosEventRelay_OnBreakEvent {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FChaosEventRelay_OnRemovalEvent {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FChaosEventRelay_OnCrumblingEvent {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FPhysicsConstraintComponent_OnConstraintBroken {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FPhysicsConstraintComponent_OnPlasticDeformation {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FPlayerCameraManager_OnAudioFadeChangeEvent {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FPlayerState_OnPawnSet {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FSoundSubmix_OnSubmixRecordedFileDone {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FDataLayerManager_OnDataLayerInstanceRuntimeStateChanged {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FDataLayerSubsystem_OnDataLayerRuntimeStateChanged {
-    _opague: u8,
+    _opague: [u8; 24],
 }
 #[repr(transparent)]
 pub struct EFormatArgumentType(pub u8);

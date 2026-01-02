@@ -19,19 +19,19 @@ pub struct UMobilePatchingLibrary {
     __padding_end: [u8; 48],
 }
 impl UMobilePatchingLibrary {}
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FStartInstall_OnSucceeded {
-    _opague: u8,
+    _opague: [u8; 32],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FStartInstall_OnFailed {
-    _opague: u8,
+    _opague: [u8; 32],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FRequestContent_OnSucceeded {
-    _opague: u8,
+    _opague: [u8; 32],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FRequestContent_OnFailed {
-    _opague: u8,
+    _opague: [u8; 32],
 }

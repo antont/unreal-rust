@@ -40,11 +40,11 @@ pub struct USourceControlPreferences {
     __padding_end: [u8; 216],
 }
 impl USourceControlPreferences {}
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FAsyncQueryFileState_FileStateCallback {
-    _opague: u8,
+    _opague: [u8; 32],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FAsyncQueryFileStates_FileStateCallback {
-    _opague: u8,
+    _opague: [u8; 32],
 }

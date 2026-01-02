@@ -39,9 +39,9 @@ pub struct UMeshReconstructorBase {
     __padding_end: [u8; 48],
 }
 impl UMeshReconstructorBase {}
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FMockDataMeshTrackerComponent_OnMeshTrackerUpdated {
-    _opague: u8,
+    _opague: [u8; 24],
 }
 #[repr(transparent)]
 pub struct EMeshTrackerVertexColorMode(pub u8);

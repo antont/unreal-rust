@@ -155,17 +155,17 @@ pub struct UWidgetGraphSchema {
     __padding_end: [u8; 152],
 }
 impl UWidgetGraphSchema {}
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FAssetThumbnailWidgetSettings_HighlightedTextDelegate {
-    _opague: u8,
+    _opague: [u8; 32],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FSetThumbnailSettings_HighlightedTextDelegate {
-    _opague: u8,
+    _opague: [u8; 32],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FAssetThumbnailWidget_HighlightedTextDelegate {
-    _opague: u8,
+    _opague: [u8; 32],
 }
 #[repr(transparent)]
 pub struct EThumbnailLabelType_BlueprintType(pub u8);

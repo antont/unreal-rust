@@ -189,45 +189,45 @@ pub struct UPythonGeneratedStruct {
     __padding_end: [u8; 1040],
 }
 impl UPythonGeneratedStruct {}
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FFuncTakingPyTestDelegate_InDelegate {
-    _opague: u8,
+    _opague: [u8; 32],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FCheckDelegateTypeHints_Param1 {
-    _opague: u8,
+    _opague: [u8; 32],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FCheckDelegateTypeHints_ReturnValue {
-    _opague: u8,
+    _opague: [u8; 32],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FPyTestObject_Delegate {
-    _opague: u8,
+    _opague: [u8; 32],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FPyTestObject_MulticastDelegate {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FPyTestStructDelegate_OnNameCollisionTestDelegate {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FPyTestVectorDelegate_OnNameCollisionTestDelegate {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FPyTestTypeHint_DelegateProp {
-    _opague: u8,
+    _opague: [u8; 32],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FPyTestTypeHint_MulticastDelegateProp {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FPyTestTypeHint_SlateTickDelegate {
-    _opague: u8,
+    _opague: [u8; 32],
 }
 #[repr(transparent)]
 pub struct EPyTestEnum(pub u8);

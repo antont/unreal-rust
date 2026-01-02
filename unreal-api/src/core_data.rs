@@ -41,7 +41,7 @@ pub struct TArray<T> {
 // TODO: Generate
 #[repr(C, align(8))]
 pub struct FScriptSet {
-    __opague: [u8; 80]
+    __opague: [u8; 80],
 }
 
 #[repr(transparent)]
@@ -50,17 +50,14 @@ pub struct TSet<T> {
     _marker: std::marker::PhantomData<T>,
 }
 
-#[repr(C)]
-pub struct FScriptSparseArray {
-    pub data: *mut u8,
-    pub num_elements: i32,
-    pub max_elements: i32,
-    pub free_indices: *mut i32,
+#[repr(C, align(8))]
+pub struct FScriptMap {
+    __opague: [u8; 80],
 }
 
 #[repr(transparent)]
 pub struct TMap<Key, Value> {
-    sparse_array: FScriptSparseArray,
+    sparse_array: FScriptMap,
     _key_marker: std::marker::PhantomData<Key>,
     _value_marker: std::marker::PhantomData<Value>,
 }
@@ -72,9 +69,14 @@ pub struct FString {
     pub max: i32,
 }
 
+#[repr(C, align(8))]
+pub struct FFieldPath {
+    __opague: [u8; 48],
+}
+
 #[repr(transparent)]
 pub struct TFieldPath<T> {
-    // TODO: Layout
+    field_path: FFieldPath,
     _marker: std::marker::PhantomData<T>,
 }
 
@@ -94,15 +96,21 @@ pub struct TSubclassOf<T> {
     _marker: std::marker::PhantomData<T>,
 }
 
-#[repr(transparent)]
+#[repr(C)]
 pub struct TOptional<T> {
-    // TODO: Layout
-    _marker: std::marker::PhantomData<T>,
+    pub is_set: bool,
+    // TODO: this is bad and we might need maybeunit here
+    pub data: T,
+}
+
+#[repr(C, align(8))]
+pub struct FSoftObjectPtr {
+    __opague: [u8; 48],
 }
 
 #[repr(transparent)]
 pub struct TSoftObjectPtr<T> {
-    // TODO: Layout
+    soft_object_ptr: FSoftObjectPtr,
     _marker: std::marker::PhantomData<T>,
 }
 

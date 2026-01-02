@@ -38,7 +38,7 @@ pub struct UAudioAnalyzerSubsystem {
     __padding_end: [u8; 88],
 }
 impl UAudioAnalyzerSubsystem {}
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FAudioAnalyzerNRT_OnAnalysisComplete {
-    _opague: u8,
+    _opague: [u8; 24],
 }

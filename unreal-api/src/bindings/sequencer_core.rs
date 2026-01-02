@@ -27,7 +27,7 @@ pub struct USequencerViewModelStructExtensions {
     __padding_end: [u8; 48],
 }
 impl USequencerViewModelStructExtensions {}
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FSequencerOutlinerScriptingObject_OnSelectionChanged {
-    _opague: u8,
+    _opague: [u8; 24],
 }

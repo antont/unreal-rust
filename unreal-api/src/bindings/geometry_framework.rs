@@ -82,9 +82,9 @@ pub struct UDynamicMeshPool {
     __padding_end: [u8; 120],
 }
 impl UDynamicMeshPool {}
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FDynamicMesh_MeshModifiedBPEvent {
-    _opague: u8,
+    _opague: [u8; 24],
 }
 #[repr(transparent)]
 pub struct EDynamicMeshChangeType(pub u8);

@@ -231,69 +231,69 @@ pub struct USynesthesiaSpectrumAnalyzer {
     __padding_end: [u8; 112],
 }
 impl USynesthesiaSpectrumAnalyzer {}
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FConstantQAnalyzer_OnConstantQResults {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FConstantQAnalyzer_OnLatestConstantQResults {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FLKFSAnalyzer_OnOverallLKFSResults {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FLKFSAnalyzer_OnPerChannelLKFSResults {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FLKFSAnalyzer_OnLatestOverallLKFSResults {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FLKFSAnalyzer_OnLatestPerChannelLKFSResults {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FLoudnessAnalyzer_OnOverallLoudnessResults {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FLoudnessAnalyzer_OnPerChannelLoudnessResults {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FLoudnessAnalyzer_OnLatestOverallLoudnessResults {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FLoudnessAnalyzer_OnLatestPerChannelLoudnessResults {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FMeterAnalyzer_OnOverallMeterResults {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FMeterAnalyzer_OnPerChannelMeterResults {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FMeterAnalyzer_OnLatestOverallMeterResults {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FMeterAnalyzer_OnLatestPerChannelMeterResults {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FSynesthesiaSpectrumAnalyzer_OnSpectrumResults {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FSynesthesiaSpectrumAnalyzer_OnLatestSpectrumResults {
-    _opague: u8,
+    _opague: [u8; 24],
 }
 #[repr(transparent)]
 pub struct EConstantQFFTSizeEnum(pub u8);

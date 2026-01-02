@@ -68,25 +68,25 @@ pub struct ULegacyLevelViewportToolbarContext {
     __padding_end: [u8; 80],
 }
 impl ULegacyLevelViewportToolbarContext {}
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FLevelEditorSubsystem_OnPreSaveWorld {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FLevelEditorSubsystem_OnPostSaveWorld {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FLevelEditorSubsystem_OnEditorCameraMoved {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FLevelEditorSubsystem_OnMapChanged {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FLevelEditorSubsystem_OnMapOpened {
-    _opague: u8,
+    _opague: [u8; 24],
 }
 #[repr(transparent)]
 pub struct ELevelEditorMenuContext(pub u8);

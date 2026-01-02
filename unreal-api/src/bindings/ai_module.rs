@@ -1164,61 +1164,61 @@ pub struct UVisualLoggerExtension {
     __padding_end: [u8; 48],
 }
 impl UVisualLoggerExtension {}
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FAIAsyncTaskBlueprintProxy_OnSuccess {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FAIAsyncTaskBlueprintProxy_OnFail {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FAIController_ReceiveMoveCompleted {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FEnvQueryInstanceBlueprintWrapper_OnQueryFinishedEvent {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FGeneratedNavLinksProxy_OnSmartLinkReached {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FNavLinkProxy_OnSmartLinkReached {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FAIPerceptionComponent_OnPerceptionUpdated {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FAIPerceptionComponent_OnTargetPerceptionForgotten {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FAIPerceptionComponent_OnTargetPerceptionUpdated {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FAIPerceptionComponent_OnTargetPerceptionInfoUpdated {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FPawnSensingComponent_OnSeePawn {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FPawnSensingComponent_OnHearNoise {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FAITask_MoveTo_OnRequestFailed {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FAITask_MoveTo_OnMoveFinished {
-    _opague: u8,
+    _opague: [u8; 24],
 }
 #[repr(transparent)]
 pub struct EBTDecoratorLogic(pub u8);

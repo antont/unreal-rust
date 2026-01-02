@@ -14,7 +14,7 @@ pub struct UAnimationSequencerDataModel {
     __padding_end: [u8; 488],
 }
 impl UAnimationSequencerDataModel {}
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FAnimationSequencerDataModel_ModifiedEventDynamic {
-    _opague: u8,
+    _opague: [u8; 24],
 }

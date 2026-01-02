@@ -52,29 +52,29 @@ pub struct UGameplayTask_WaitDelay {
     __padding_end: [u8; 168],
 }
 impl UGameplayTask_WaitDelay {}
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FGameplayTasksComponent_OnClaimedResourcesChange {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FGameplayTask_SpawnActor_Success {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FGameplayTask_SpawnActor_DidNotSpawn {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FGameplayTask_TimeLimitedExecution_OnFinished {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FGameplayTask_TimeLimitedExecution_OnTimeExpired {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FGameplayTask_WaitDelay_OnFinish {
-    _opague: u8,
+    _opague: [u8; 24],
 }
 #[repr(transparent)]
 pub struct EGameplayTaskRunResult(pub u8);

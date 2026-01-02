@@ -24,9 +24,9 @@ pub struct ULocationServices {
     __padding_end: [u8; 48],
 }
 impl ULocationServices {}
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FLocationServicesImpl_OnLocationChanged {
-    _opague: u8,
+    _opague: [u8; 24],
 }
 #[repr(transparent)]
 pub struct ELocationAccuracy(pub u8);

@@ -119,12 +119,9 @@ pub fn generate_layout_tests(ctx: &Context, api: &Api) -> TokenStream {
     tokens.extend(struct_tests);
 
     quote! {
-        #[cfg(test)]
-        mod tests {
-            #(
-                #tokens
-            )*
-        }
+        #(
+            #tokens
+        )*
     }
 }
 
@@ -266,6 +263,7 @@ pub fn generate_class(
             "UWorldPartition",
             "UStaticMesh",
             "UWidget",
+            "UVolumetricCloudComponent"
         ];
         let layout_check_tokens = if allow_list.contains(&class_def.class_name.as_str()) {
             Some(generate_layout_check(
@@ -573,13 +571,15 @@ pub fn generate_delegate(
 ) -> Result<(String, TokenStream), Box<dyn Error>> {
     let name = format_ident!("{}", delegate_def.name);
     let module_name = module_name_from_package(&delegate_def.package);
+    let alignment = Literal::u32_unsuffixed(delegate_def.alignment);
+    let size = Literal::u32_unsuffixed(delegate_def.size);
     Ok((
         module_name,
         quote! {
-            #[repr(transparent)]
+            #[repr(C, align(#alignment))]
             pub struct #name
             {
-                _opague: u8
+                _opague: [u8; #size]
             }
         },
     ))
@@ -758,9 +758,13 @@ pub fn generate_crate(api: &Api, out_path: &Path) -> Result<(), Box<dyn Error>> 
         )*
 
         pub mod opague_definitions;
-        #mod_tests
+
+        #[cfg(test)]
+        mod tests;
+        
     };
 
+    save_file(&mod_tests, &out_path.join("tests.rs"));
     save_file(&mod_tokens, &out_path.join("mod.rs"));
     save_file(&opague_tokens, &out_path.join("opague_definitions.rs"));
     Ok(())

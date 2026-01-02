@@ -19,13 +19,13 @@ pub struct UImageWriteBlueprintLibrary {
     __padding_end: [u8; 48],
 }
 impl UImageWriteBlueprintLibrary {}
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FImageWriteOptions_OnComplete {
-    _opague: u8,
+    _opague: [u8; 32],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FExportToDisk_OnComplete {
-    _opague: u8,
+    _opague: [u8; 32],
 }
 #[repr(transparent)]
 pub struct EDesiredImageFormat(pub u8);

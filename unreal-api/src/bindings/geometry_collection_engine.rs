@@ -362,45 +362,45 @@ pub struct UGeometryCollectionISMPoolDebugDrawComponent {
     __padding_end: [u8; 1744],
 }
 impl UGeometryCollectionISMPoolDebugDrawComponent {}
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FChaosDestructionListener_OnCollisionEvents {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FChaosDestructionListener_OnBreakingEvents {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FChaosDestructionListener_OnTrailingEvents {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FChaosDestructionListener_OnRemovalEvents {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FGeometryCollectionComponent_NotifyGeometryCollectionPhysicsStateChange {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FGeometryCollectionComponent_NotifyGeometryCollectionPhysicsLoadingStateChange {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FGeometryCollectionComponent_OnChaosBreakEvent {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FGeometryCollectionComponent_OnChaosRemovalEvent {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FGeometryCollectionComponent_OnChaosCrumblingEvent {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FGeometryCollectionComponent_OnChaosPhysicsCollision {
-    _opague: u8,
+    _opague: [u8; 24],
 }
 #[repr(transparent)]
 pub struct EChaosBreakingSortMethod(pub u8);

@@ -20,13 +20,13 @@ pub struct UAppleImageUtilsBaseAsyncTaskBlueprintProxy {
     __padding_end: [u8; 8],
 }
 impl UAppleImageUtilsBaseAsyncTaskBlueprintProxy {}
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FAppleImageUtilsBaseAsyncTaskBlueprintProxy_OnSuccess {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FAppleImageUtilsBaseAsyncTaskBlueprintProxy_OnFailure {
-    _opague: u8,
+    _opague: [u8; 24],
 }
 #[repr(transparent)]
 pub struct ETextureRotationDirection(pub u8);

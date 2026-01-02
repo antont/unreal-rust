@@ -1363,29 +1363,29 @@ pub struct UVolumeCache {
     __padding_end: [u8; 104],
 }
 impl UVolumeCache {}
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FSubscribeToNiagaraDataChannel_UpdateDelegate {
-    _opague: u8,
+    _opague: [u8; 32],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FSubscribeToNiagaraDataChannel_WithContext_UpdateDelegate {
-    _opague: u8,
+    _opague: [u8; 32],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FSubscribeToDataChannelUpdates_UpdateDelegate {
-    _opague: u8,
+    _opague: [u8; 32],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FSubscribeToDataChannelUpdates_WithContext_UpdateDelegate {
-    _opague: u8,
+    _opague: [u8; 32],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FNiagaraComponent_OnSystemFinished {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FAsyncNiagaraCaptureSimCache_CaptureComplete {
-    _opague: u8,
+    _opague: [u8; 24],
 }
 #[repr(transparent)]
 pub struct ENiagaraSimCacheAttributeCaptureMode(pub u8);

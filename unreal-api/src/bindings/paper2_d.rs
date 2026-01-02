@@ -228,9 +228,9 @@ pub struct UTileMapBlueprintLibrary {
     __padding_end: [u8; 48],
 }
 impl UTileMapBlueprintLibrary {}
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FPaperFlipbookComponent_OnFinishedPlaying {
-    _opague: u8,
+    _opague: [u8; 24],
 }
 #[repr(transparent)]
 pub struct ESpriteShapeType(pub u8);

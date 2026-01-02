@@ -23,7 +23,7 @@ pub struct UNamingTokensEditableText {
     pub contexts: TArray<UPtr<crate::bindings::core_u_object::UObject>>,
 }
 impl UNamingTokensEditableText {}
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FNamingTokensEditableText_OnPreEvaluateNamingTokens {
-    _opague: u8,
+    _opague: [u8; 24],
 }

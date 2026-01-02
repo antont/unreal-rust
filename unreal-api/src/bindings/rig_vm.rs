@@ -3975,41 +3975,41 @@ pub struct URigVMProjectSettings {
     __padding_end: [u8; 120],
 }
 impl URigVMProjectSettings {}
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FRigVMUserWorkflow_PerformDynamicDelegate {
-    _opague: u8,
+    _opague: [u8; 32],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FGetSupportedWorkflows_PerformDynamicDelegate {
-    _opague: u8,
+    _opague: [u8; 32],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FGetWorkflows_PerformDynamicDelegate {
-    _opague: u8,
+    _opague: [u8; 32],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FMakeOptionsForWorkflow_PerformDynamicDelegate {
-    _opague: u8,
+    _opague: [u8; 32],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FPerformUserWorkflow_PerformDynamicDelegate {
-    _opague: u8,
+    _opague: [u8; 32],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FProvideWorkflows_PerformDynamicDelegate {
-    _opague: u8,
+    _opague: [u8; 32],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FRigVMUserWorkflowOptions_PerformDynamicDelegate {
-    _opague: u8,
+    _opague: [u8; 32],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FRigVMUserWorkflowProvider__DelegateSignature_PerformDynamicDelegate {
-    _opague: u8,
+    _opague: [u8; 32],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FCallPython_PerformDynamicDelegate {
-    _opague: u8,
+    _opague: [u8; 32],
 }
 #[repr(transparent)]
 pub struct ERigVMUserWorkflowType(pub u8);

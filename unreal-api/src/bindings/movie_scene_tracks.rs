@@ -991,25 +991,25 @@ pub struct UMovieSceneVisibilityTrack {
     __padding_end: [u8; 480],
 }
 impl UMovieSceneVisibilityTrack {}
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FMovieSceneAudioSection_OnQueueSubtitles {
-    _opague: u8,
+    _opague: [u8; 32],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FMovieSceneAudioSection_OnAudioFinished {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FMovieSceneAudioSection_OnAudioPlaybackPercent {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FMovieSceneAsyncAction_SequencePrediction_Result {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FMovieSceneAsyncAction_SequencePrediction_Failure {
-    _opague: u8,
+    _opague: [u8; 24],
 }
 #[repr(transparent)]
 pub struct MovieScene3DPathSection_Axis(pub u8);

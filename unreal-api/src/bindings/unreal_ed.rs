@@ -2908,81 +2908,81 @@ pub struct UCookOnTheFlyServer {
     __padding_end: [u8; 1976],
 }
 impl UCookOnTheFlyServer {}
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FAddOnExtractAssetFromFile_Delegate {
-    _opague: u8,
+    _opague: [u8; 32],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FRemoveOnExtractAssetFromFile_Delegate {
-    _opague: u8,
+    _opague: [u8; 32],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FEditorActorSubsystem_OnNewActorsDropped {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FEditorActorSubsystem_OnNewActorsPlaced {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FEditorActorSubsystem_OnEditCutActorsBegin {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FEditorActorSubsystem_OnEditCutActorsEnd {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FEditorActorSubsystem_OnEditCopyActorsBegin {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FEditorActorSubsystem_OnEditCopyActorsEnd {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FEditorActorSubsystem_OnEditPasteActorsBegin {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FEditorActorSubsystem_OnEditPasteActorsEnd {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FEditorActorSubsystem_OnDuplicateActorsBegin {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FEditorActorSubsystem_OnDuplicateActorsEnd {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FEditorActorSubsystem_OnDeleteActorsBegin {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FEditorActorSubsystem_OnDeleteActorsEnd {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FEditorActorSubsystem_OnActorLabelChanged {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FImportSubsystem_OnAssetPreImport_BP {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FImportSubsystem_OnAssetPostImport_BP {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FImportSubsystem_OnAssetReimport_BP {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FImportSubsystem_OnAssetPostLODImport_BP {
-    _opague: u8,
+    _opague: [u8; 24],
 }
 #[repr(transparent)]
 pub struct ELevelViewportType(pub u8);

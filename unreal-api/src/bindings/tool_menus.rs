@@ -170,21 +170,21 @@ pub struct UToolMenuWidgetCollectionContext {
     __padding_end: [u8; 64],
 }
 impl UToolMenuWidgetCollectionContext {}
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FToolDynamicUIAction_ExecuteAction {
-    _opague: u8,
+    _opague: [u8; 32],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FToolDynamicUIAction_CanExecuteAction {
-    _opague: u8,
+    _opague: [u8; 32],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FToolDynamicUIAction_GetActionCheckState {
-    _opague: u8,
+    _opague: [u8; 32],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FToolDynamicUIAction_IsActionVisibleDelegate {
-    _opague: u8,
+    _opague: [u8; 32],
 }
 #[repr(transparent)]
 pub struct EToolMenuStringCommandType(pub u8);

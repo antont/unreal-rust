@@ -207,45 +207,45 @@ pub struct UInterchangeSceneImportAsset {
     __padding_end: [u8; 216],
 }
 impl UInterchangeSceneImportAsset {}
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FImportAssetParameters_OnAssetDone {
-    _opague: u8,
+    _opague: [u8; 32],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FImportAssetParameters_OnAssetsImportDone {
-    _opague: u8,
+    _opague: [u8; 32],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FImportAssetParameters_OnSceneObjectDone {
-    _opague: u8,
+    _opague: [u8; 32],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FImportAssetParameters_OnSceneImportDone {
-    _opague: u8,
+    _opague: [u8; 32],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FImportAsset_OnAssetDone {
-    _opague: u8,
+    _opague: [u8; 32],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FImportScene_OnAssetDone {
-    _opague: u8,
+    _opague: [u8; 32],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FReimportAsset_OnAssetDone {
-    _opague: u8,
+    _opague: [u8; 32],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FScriptedImportAssetAsync_OnAssetDone {
-    _opague: u8,
+    _opague: [u8; 32],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FScriptedImportSceneAsync_OnAssetDone {
-    _opague: u8,
+    _opague: [u8; 32],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FScriptedReimportAssetAsync_OnAssetDone {
-    _opague: u8,
+    _opague: [u8; 32],
 }
 #[repr(transparent)]
 pub struct EInterchangePipelineConfigurationDialogResult(pub u8);

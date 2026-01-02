@@ -33,9 +33,9 @@ pub struct UAssetRegistryImpl {
     __padding_end: [u8; 5880],
 }
 impl UAssetRegistryImpl {}
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FSortByPredicate_SortingPredicate {
-    _opague: u8,
+    _opague: [u8; 32],
 }
 #[repr(transparent)]
 pub struct EAssetRegistrySortOrder(pub u8);

@@ -838,25 +838,25 @@ pub struct USkeletalControlLibrary {
     __padding_end: [u8; 48],
 }
 impl USkeletalControlLibrary {}
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FPlayMontageCallbackProxy_OnCompleted {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FPlayMontageCallbackProxy_OnBlendOut {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FPlayMontageCallbackProxy_OnInterrupted {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FPlayMontageCallbackProxy_OnNotifyBegin {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FPlayMontageCallbackProxy_OnNotifyEnd {
-    _opague: u8,
+    _opague: [u8; 24],
 }
 #[repr(transparent)]
 pub struct ERotationComponent(pub u8);

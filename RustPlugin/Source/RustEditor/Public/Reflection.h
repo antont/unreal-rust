@@ -205,6 +205,8 @@ struct FRustReflection_Delegate
 	FString Package;
 	FString Namespace;
 	FString Kind;
+	uint32 Alignment;
+	uint32 Size;
 	FRustReflection_Function Function;
 	TSharedPtr<FJsonObject> ToJson();
 };

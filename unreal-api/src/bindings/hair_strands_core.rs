@@ -491,9 +491,9 @@ pub struct UNiagaraDataInterfacePressureGrid {
     __padding_end: [u8; 168],
 }
 impl UNiagaraDataInterfacePressureGrid {}
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FBuild_CompletionDelegate {
-    _opague: u8,
+    _opague: [u8; 32],
 }
 #[repr(transparent)]
 pub struct EGroomCacheImportType(pub u8);

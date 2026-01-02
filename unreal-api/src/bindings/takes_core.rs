@@ -90,11 +90,11 @@ pub struct UTakesCoreBlueprintLibrary {
     __padding_end: [u8; 48],
 }
 impl UTakesCoreBlueprintLibrary {}
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FSetOnTakeRecorderSlateChanged_OnTakeRecorderSlateChanged {
-    _opague: u8,
+    _opague: [u8; 32],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FSetOnTakeRecorderTakeNumberChanged_OnTakeRecorderTakeNumberChanged {
-    _opague: u8,
+    _opague: [u8; 32],
 }

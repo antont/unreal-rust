@@ -127,6 +127,10 @@ pub enum DelegateKind {
 pub struct DelegateDefinition {
     #[serde(rename = "Name")]
     pub name: String,
+    #[serde(rename = "Size")]
+    pub size: u32,
+    #[serde(rename = "Alignment")]
+    pub alignment: u32,
     #[serde(rename = "Package")]
     pub package: String,
     #[serde(rename = "Kind")]
@@ -313,7 +317,6 @@ impl Api {
                 .iter()
                 .find(|def| &def.struct_name == super_struct)
         {
-            println!("{}", struct_def.struct_name);
             return self.is_struct_blueprint_type(super_struct_def);
         }
 

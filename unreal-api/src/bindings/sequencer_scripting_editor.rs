@@ -44,11 +44,11 @@ pub struct USequencerToolsFunctionLibrary {
     __padding_end: [u8; 48],
 }
 impl USequencerToolsFunctionLibrary {}
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FExportAnimSequenceWaitForDelegate_Delegate {
-    _opague: u8,
+    _opague: [u8; 32],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FRenderMovie_OnFinishedCallback {
-    _opague: u8,
+    _opague: [u8; 32],
 }

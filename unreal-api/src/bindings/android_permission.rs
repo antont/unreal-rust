@@ -14,7 +14,7 @@ pub struct UAndroidPermissionFunctionLibrary {
     __padding_end: [u8; 48],
 }
 impl UAndroidPermissionFunctionLibrary {}
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FAndroidPermissionCallbackProxy_OnPermissionsGrantedDynamicDelegate {
-    _opague: u8,
+    _opague: [u8; 24],
 }

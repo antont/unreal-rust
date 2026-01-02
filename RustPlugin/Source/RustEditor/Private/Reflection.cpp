@@ -820,6 +820,8 @@ TSharedPtr<FJsonObject> FRustReflection_Delegate::ToJson()
 {
 	TSharedPtr<FJsonObject> Json = MakeShared<FJsonObject>();
 	Json->SetStringField(TEXT("Name"), Name);
+	Json->SetNumberField(TEXT("Size"), Size);
+	Json->SetNumberField(TEXT("Alignment"), Alignment);
 	Json->SetStringField(TEXT("Package"), Package);
 	Json->SetStringField(TEXT("Namespace"), Namespace);
 	Json->SetStringField(TEXT("Kind"), Kind);
@@ -1015,7 +1017,7 @@ void FRustReflection_Root::ExportToJson_Classes(TSharedPtr<FJsonObject> Json)
 		auto Class = FRustReflection_UClass::FromClass(*It);
 		JsonClasses.Add(MakeShared<FJsonValueObject>(Class.ToJson()));
 	}
-
+	
 	Json->SetArrayField(TEXT("Classes"), JsonClasses);
 }
 
@@ -1134,6 +1136,8 @@ void FRustReflection_Root::ExportToJson_Delegates(TSharedPtr<FJsonObject> Json)
 					continue;
 				}
 				Delegate.Package = InnerProperty->GetOutermost()->GetPackage()->GetName();
+				Delegate.Size = InnerProperty->GetSize();
+				Delegate.Alignment = InnerProperty->GetMinAlignment();
 				Delegate.Namespace = Struct->GetName();
 				Delegate.Kind = TEXT("Multicast");
 				Delegate.Function = FRustReflection_Function::FromFunction(
@@ -1152,6 +1156,8 @@ void FRustReflection_Root::ExportToJson_Delegates(TSharedPtr<FJsonObject> Json)
 				{
 					continue;
 				}
+				Delegate.Size = InnerProperty->GetSize();
+				Delegate.Alignment = InnerProperty->GetMinAlignment();
 				Delegate.Namespace = Struct->GetName();
 				Delegate.Kind = TEXT("Single");
 				Delegate.Package = InnerProperty->GetOutermost()->GetPackage()->GetName();
@@ -1166,6 +1172,8 @@ void FRustReflection_Root::ExportToJson_Delegates(TSharedPtr<FJsonObject> Json)
 			}
 		}
 	};
+	
+	FFieldPath
 
 	TArray<TSharedPtr<FJsonValue>> JsonDelegates;
 	for (auto& Delegate : Delegates)

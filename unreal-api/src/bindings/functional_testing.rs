@@ -258,37 +258,37 @@ pub struct UTraceQueryTestResults {
     __padding_end: [u8; 1],
 }
 impl UTraceQueryTestResults {}
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FFunctionalTest_OnTestPrepare {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FFunctionalTest_OnTestStart {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FFunctionalTest_OnTestFinished {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FFunctionalAITestBase_OnAISpawned {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FFunctionalAITestBase_OnAllAISPawned {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FFunctionalTestingManager_OnSetupTests {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FFunctionalTestingManager_OnTestsComplete {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FFunctionalTestingManager_OnTestsBegin {
-    _opague: u8,
+    _opague: [u8; 24],
 }
 #[repr(transparent)]
 pub struct EComparisonTolerance(pub u8);

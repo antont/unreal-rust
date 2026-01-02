@@ -183,13 +183,13 @@ pub struct AProceduralFoliageVolume {
     __padding_end: [u8; 8],
 }
 impl AProceduralFoliageVolume {}
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FFoliageInstancedStaticMeshComponent_OnInstanceTakePointDamage {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FFoliageInstancedStaticMeshComponent_OnInstanceTakeRadialDamage {
-    _opague: u8,
+    _opague: [u8; 24],
 }
 #[repr(transparent)]
 pub struct EFoliageScaling(pub u8);

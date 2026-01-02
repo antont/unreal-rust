@@ -147,9 +147,9 @@ pub struct UStateTreeSchema {
     __padding_end: [u8; 48],
 }
 impl UStateTreeSchema {}
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FBindDelegate_Delegate {
-    _opague: u8,
+    _opague: [u8; 32],
 }
 #[repr(transparent)]
 pub struct EStateTreeDataSourceType(pub u8);

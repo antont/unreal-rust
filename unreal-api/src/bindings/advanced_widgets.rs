@@ -45,27 +45,27 @@ pub struct URadialSlider {
     __padding_end: [u8; 148],
 }
 impl URadialSlider {}
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FRadialSlider_ValueDelegate {
-    _opague: u8,
+    _opague: [u8; 32],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FRadialSlider_OnMouseCaptureBegin {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FRadialSlider_OnMouseCaptureEnd {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FRadialSlider_OnControllerCaptureBegin {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FRadialSlider_OnControllerCaptureEnd {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FRadialSlider_OnValueChanged {
-    _opague: u8,
+    _opague: [u8; 24],
 }

@@ -47,25 +47,25 @@ pub struct UAssetToolsImpl {
     __padding_end: [u8; 1064],
 }
 impl UAssetToolsImpl {}
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FBeginAdvancedCopyPackages_OnCopyComplete {
-    _opague: u8,
+    _opague: [u8; 32],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FCreateAssetAsync_OnComplete {
-    _opague: u8,
+    _opague: [u8; 32],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FCreateAssetAsync_OnCancelled {
-    _opague: u8,
+    _opague: [u8; 32],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FCreateAssetWithDialogAsync_OnComplete {
-    _opague: u8,
+    _opague: [u8; 32],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FCreateAssetWithDialogAsync_OnCancelled {
-    _opague: u8,
+    _opague: [u8; 32],
 }
 #[repr(transparent)]
 pub struct EAssetMigrationConflict(pub u8);

@@ -61,13 +61,13 @@ pub struct UK2Node_GetAttributeKeysGeneric {
     __padding_end: [u8; 368],
 }
 impl UK2Node_GetAttributeKeysGeneric {}
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FReplaceAnimNotifies_OnNotifyReplaced {
-    _opague: u8,
+    _opague: [u8; 32],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FReplaceAnimNotifyStates_OnNotifyStateReplaced {
-    _opague: u8,
+    _opague: [u8; 32],
 }
 #[repr(transparent)]
 pub struct EAnimDataEvalType(pub u8);

@@ -19,7 +19,7 @@ pub struct USinglePropertyView {
     __padding_end: [u8; 880],
 }
 impl USinglePropertyView {}
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FPropertyViewBase_OnPropertyChanged {
-    _opague: u8,
+    _opague: [u8; 24],
 }

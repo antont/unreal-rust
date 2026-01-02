@@ -122,77 +122,77 @@ pub struct UTakeRecorderNamingTokensData {
     __padding_end: [u8; 264],
 }
 impl UTakeRecorderNamingTokensData {}
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FSetOnTakeRecorderCancelled_OnTakeRecorderCancelled {
-    _opague: u8,
+    _opague: [u8; 32],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FSetOnTakeRecorderFinished_OnTakeRecorderFinished {
-    _opague: u8,
+    _opague: [u8; 32],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FSetOnTakeRecorderMarkedFrameAdded_OnTakeRecorderMarkedFrameAdded {
-    _opague: u8,
+    _opague: [u8; 32],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FSetOnTakeRecorderPanelChanged_OnTakeRecorderPanelChanged {
-    _opague: u8,
+    _opague: [u8; 32],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FSetOnTakeRecorderPreInitialize_OnTakeRecorderPreInitialize {
-    _opague: u8,
+    _opague: [u8; 32],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FSetOnTakeRecorderStarted_OnTakeRecorderStarted {
-    _opague: u8,
+    _opague: [u8; 32],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FSetOnTakeRecorderStopped_OnTakeRecorderStopped {
-    _opague: u8,
+    _opague: [u8; 32],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FTakeRecorderSubsystem_TakeRecorderPreInitialize {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FTakeRecorderSubsystem_TakeRecorderInitialized {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FTakeRecorderSubsystem_TakeRecorderStarted {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FTakeRecorderSubsystem_TakeRecorderStopped {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FTakeRecorderSubsystem_TakeRecorderFinished {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FTakeRecorderSubsystem_TakeRecorderCancelled {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FTakeRecorderSubsystem_TakeRecorderMarkedFrameAdded {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FTakeRecorderSubsystem_TakeRecorderSlateChanged {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FTakeRecorderSubsystem_TakeRecorderTakeNumberChanged {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FTakeRecorderSubsystem_TakeRecorderSourceAdded {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FTakeRecorderSubsystem_TakeRecorderSourceRemoved {
-    _opague: u8,
+    _opague: [u8; 24],
 }
 #[repr(transparent)]
 pub struct ETakeRecorderMode(pub u8);

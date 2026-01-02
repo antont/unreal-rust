@@ -263,13 +263,13 @@ pub struct URigVMControllerSettings {
     __padding_end: [u8; 136],
 }
 impl URigVMControllerSettings {}
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FRegisterProvider_InProvider {
-    _opague: u8,
+    _opague: [u8; 32],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FRigVMController_ModifiedEventDynamic {
-    _opague: u8,
+    _opague: [u8; 24],
 }
 #[repr(transparent)]
 pub struct ERigVMTagDisplayMode(pub u8);

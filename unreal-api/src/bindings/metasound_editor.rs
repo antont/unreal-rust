@@ -189,109 +189,109 @@ pub struct UMetaSoundSourceFactory {
     __padding_end: [u8; 144],
 }
 impl UMetaSoundSourceFactory {}
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FMetaSoundEditorBuilderListener_OnDocumentDisplayNameChangedDelegate {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FMetaSoundEditorBuilderListener_OnDocumentDescriptionChangedDelegate {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FMetaSoundEditorBuilderListener_OnDocumentAuthorChangedDelegate {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FMetaSoundEditorBuilderListener_OnDocumentKeywordsChangedDelegate {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FMetaSoundEditorBuilderListener_OnDocumentCategoryHierarchyChangedDelegate {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FMetaSoundEditorBuilderListener_OnDocumentIsDeprecatedChangedDelegate {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FMetaSoundEditorBuilderListener_OnGraphInputAddedDelegate {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FMetaSoundEditorBuilderListener_OnRemovingGraphInputDelegate {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FMetaSoundEditorBuilderListener_OnGraphInputNameChangedDelegate {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FMetaSoundEditorBuilderListener_OnGraphInputDisplayNameChangedDelegate {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FMetaSoundEditorBuilderListener_OnGraphInputDataTypeChangedDelegate {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FMetaSoundEditorBuilderListener_OnGraphInputDescriptionChangedDelegate {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FMetaSoundEditorBuilderListener_OnGraphInputSortOrderIndexChangedDelegate {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FMetaSoundEditorBuilderListener_OnGraphInputIsConstructorPinChangedDelegate {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FMetaSoundEditorBuilderListener_OnGraphInputIsAdvancedDisplayChangedDelegate {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FMetaSoundEditorBuilderListener_OnGraphInputDefaultChangedDelegate {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FMetaSoundEditorBuilderListener_OnGraphInputInheritsDefaultChangedDelegate {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FMetaSoundEditorBuilderListener_OnGraphOutputAddedDelegate {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FMetaSoundEditorBuilderListener_OnRemovingGraphOutputDelegate {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FMetaSoundEditorBuilderListener_OnGraphOutputNameChangedDelegate {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FMetaSoundEditorBuilderListener_OnGraphOutputDisplayNameChangedDelegate {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FMetaSoundEditorBuilderListener_OnGraphOutputDataTypeChangedDelegate {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FMetaSoundEditorBuilderListener_OnGraphOutputDescriptionChangedDelegate {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FMetaSoundEditorBuilderListener_OnGraphOutputSortOrderIndexChangedDelegate {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FMetaSoundEditorBuilderListener_OnGraphOutputIsConstructorPinChangedDelegate {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FMetaSoundEditorBuilderListener_OnGraphOutputIsAdvancedDisplayChangedDelegate {
-    _opague: u8,
+    _opague: [u8; 24],
 }
 #[repr(transparent)]
 pub struct EMetasoundActiveAnalyzerEnvelopeDirection(pub u8);

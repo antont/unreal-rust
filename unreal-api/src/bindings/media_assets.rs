@@ -149,49 +149,49 @@ pub struct UMediaBlueprintFunctionLibrary {
     __padding_end: [u8; 48],
 }
 impl UMediaBlueprintFunctionLibrary {}
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FMediaPlayer_OnEndReached {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FMediaPlayer_OnMediaClosed {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FMediaPlayer_OnMediaOpened {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FMediaPlayer_OnMediaOpenFailed {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FMediaPlayer_OnPlaybackResumed {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FMediaPlayer_OnPlaybackSuspended {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FMediaPlayer_OnSeekCompleted {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FMediaPlayer_OnTracksChanged {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FMediaPlayer_OnMetadataChanged {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FMediaPlayer_OnBufferingStart {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FMediaPlayer_OnBufferingCompleted {
-    _opague: u8,
+    _opague: [u8; 24],
 }
 #[repr(transparent)]
 pub struct EMediaPlayerTrack(pub u8);

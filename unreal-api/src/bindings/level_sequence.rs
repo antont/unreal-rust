@@ -160,7 +160,7 @@ pub struct ALevelSequenceMediaController {
     __padding_end: [u8; 12],
 }
 impl ALevelSequenceMediaController {}
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FLevelSequencePlayer_OnCameraCut {
-    _opague: u8,
+    _opague: [u8; 24],
 }

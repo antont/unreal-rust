@@ -5267,37 +5267,37 @@ pub struct UControlRigNumericalValidationPass {
     __padding_end: [u8; 208],
 }
 impl UControlRigNumericalValidationPass {}
-#[repr(transparent)]
+#[repr(C, align(1))]
 pub struct FControlRig_OnControlSelected_BP {
-    _opague: u8,
+    _opague: [u8; 1],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FControlRigComponent_OnPreInitializeDelegate {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FControlRigComponent_OnPostInitializeDelegate {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FControlRigComponent_OnPreConstructionDelegate {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FControlRigComponent_OnPostConstructionDelegate {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FControlRigComponent_OnPreForwardsSolveDelegate {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FControlRigComponent_OnPostForwardsSolveDelegate {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FRigHierarchy_ModifiedEventDynamic {
-    _opague: u8,
+    _opague: [u8; 24],
 }
 #[repr(transparent)]
 pub struct ERigElementType(pub u8);

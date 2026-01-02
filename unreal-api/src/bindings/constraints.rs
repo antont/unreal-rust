@@ -106,19 +106,19 @@ pub struct UTickableLookAtConstraint {
     pub axis: crate::bindings::core_u_object::FVector,
 }
 impl UTickableLookAtConstraint {}
-#[repr(transparent)]
+#[repr(C, align(1))]
 pub struct FConstraintsManager_OnConstraintAdded_BP {
-    _opague: u8,
+    _opague: [u8; 1],
 }
-#[repr(transparent)]
+#[repr(C, align(1))]
 pub struct FConstraintsManager_OnConstraintRemoved_BP {
-    _opague: u8,
+    _opague: [u8; 1],
 }
-#[repr(transparent)]
+#[repr(C, align(1))]
 pub struct FConstraintSubsystem_OnConstraintAddedToSystem_BP {
-    _opague: u8,
+    _opague: [u8; 1],
 }
-#[repr(transparent)]
+#[repr(C, align(1))]
 pub struct FConstraintSubsystem_OnConstraintRemovedFromSystem_BP {
-    _opague: u8,
+    _opague: [u8; 1],
 }

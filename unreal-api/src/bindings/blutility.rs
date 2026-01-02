@@ -266,45 +266,45 @@ pub struct UToolMenuWidget {
     __padding_end: [u8; 4],
 }
 impl UToolMenuWidget {}
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FAsyncCaptureScene_Complete {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FAsyncImageExport_Complete {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FAsyncRegisterAndExecuteTask_OnFinished {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FAsyncEditorDelay_Complete {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FAsyncEditorWaitForGameWorld_Complete {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FAsyncEditorOpenMapAndFocusActor_Complete {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FEditorUtilitySubsystem_OnBeginPIE {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FEditorUtilitySubsystem_OnEndPIE {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FGlobalEditorUtilityBase_OnEachSelectedActor {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FGlobalEditorUtilityBase_OnEachSelectedAsset {
-    _opague: u8,
+    _opague: [u8; 24],
 }
 #[repr(transparent)]
 pub struct ECastToWidgetBlueprintCases(pub u8);

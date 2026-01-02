@@ -1034,9 +1034,9 @@ pub struct UNiagaraDataChannelWriteModuleData {
     __padding_end: [u8; 72],
 }
 impl UNiagaraDataChannelWriteModuleData {}
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FNiagaraClipboardFunction_OnPastedFunctionCallNodeDelegate {
-    _opague: u8,
+    _opague: [u8; 32],
 }
 #[repr(transparent)]
 pub struct ENiagaraNamespaceMetadataOptions(pub i32);

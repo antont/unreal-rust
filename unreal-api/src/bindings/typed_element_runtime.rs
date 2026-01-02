@@ -58,13 +58,13 @@ pub struct UTypedElementPrimitiveCustomDataInterface {}
 pub struct ITypedElementPrimitiveCustomDataInterface {}
 pub struct UTypedElementSelectionInterface {}
 pub struct ITypedElementSelectionInterface {}
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FTypedElementSelectionSet_OnPreSelectionChange {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FTypedElementSelectionSet_OnSelectionChange {
-    _opague: u8,
+    _opague: [u8; 24],
 }
 #[repr(transparent)]
 pub struct ETypedElementChildInclusionMethod(pub u8);

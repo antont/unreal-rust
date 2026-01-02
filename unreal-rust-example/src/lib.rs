@@ -5,7 +5,7 @@ use std::mem::offset_of;
 use bevy_ecs::prelude::*;
 use unreal_api::api::UnrealApi;
 use unreal_api::bindings::core_u_object::FTransform;
-use unreal_api::bindings::engine::{AActor, FBodyInstance, FHitResult, UCharacterMovementComponent, USceneComponent, UStaticMesh, UWorldPartition};
+use unreal_api::bindings::engine::{AActor, FBodyInstance, FHitResult, UCharacterMovementComponent, USceneComponent, UStaticMesh, UVolumetricCloudComponent, UWorldPartition};
 use unreal_api::bindings::umg::UWidget;
 use unreal_api::core::{ActorHitEvent, Despawn};
 use unreal_api::ffi::{UFunctionOpague, Utf8Str};
@@ -362,7 +362,7 @@ fn update(query: Query<(Entity, &ActorComponent)>) {
     }
 
     log::warn!("-----------------");
-    UWidget::verify_layout();
+    UVolumetricCloudComponent::verify_layout();
 
     // log::warn!(
     //     "{} {} {} {}",

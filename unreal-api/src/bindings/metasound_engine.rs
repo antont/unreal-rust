@@ -119,17 +119,17 @@ pub struct UMetaSoundSource {
     __padding_end: [u8; 440],
 }
 impl UMetaSoundSource {}
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FAudition_OnCreateGenerator {
-    _opague: u8,
+    _opague: [u8; 32],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FWatchOutput_OnOutputValueChanged {
-    _opague: u8,
+    _opague: [u8; 32],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FUnwatchOutput_OnOutputValueChanged {
-    _opague: u8,
+    _opague: [u8; 32],
 }
 #[repr(transparent)]
 pub struct EMetaSoundBuilderResult(pub u8);

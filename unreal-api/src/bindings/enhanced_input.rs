@@ -440,33 +440,33 @@ pub struct UEnhancedInputUserSettings {
     __padding_end: [u8; 432],
 }
 impl UEnhancedInputUserSettings {}
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FEnhancedInputLocalPlayerSubsystem_ControlMappingsRebuiltDelegate {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FEnhancedInputLocalPlayerSubsystem_OnMappingContextAdded {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FEnhancedInputLocalPlayerSubsystem_OnMappingContextRemoved {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FEnhancedInputLocalPlayerSubsystem_OnPostUserSettingsInitialized {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FEnhancedInputUserSettings_OnSettingsChanged {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FEnhancedInputUserSettings_OnSettingsApplied {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FEnhancedInputUserSettings_OnKeyProfileChanged {
-    _opague: u8,
+    _opague: [u8; 24],
 }
 #[repr(transparent)]
 pub struct EPlayerMappableKeySlot(pub u8);

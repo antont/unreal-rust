@@ -663,25 +663,25 @@ pub struct UMovieSceneTimeWarpCurve {
     __padding_end: [u8; 464],
 }
 impl UMovieSceneTimeWarpCurve {}
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FMovieSceneSequencePlayer_OnPlay {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FMovieSceneSequencePlayer_OnPlayReverse {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FMovieSceneSequencePlayer_OnStop {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FMovieSceneSequencePlayer_OnPause {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FMovieSceneSequencePlayer_OnFinished {
-    _opague: u8,
+    _opague: [u8; 24],
 }
 #[repr(transparent)]
 pub struct EMovieSceneCompletionMode(pub u8);

@@ -235,17 +235,17 @@ pub struct USplineNavModifierComponent {
     __padding_end: [u8; 688],
 }
 impl USplineNavModifierComponent {}
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FNavigationPath_PathUpdatedNotifier {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FNavigationSystemV1_OnNavDataRegisteredEvent {
-    _opague: u8,
+    _opague: [u8; 24],
 }
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FNavigationSystemV1_OnNavigationGenerationFinishedDelegate {
-    _opague: u8,
+    _opague: [u8; 24],
 }
 #[repr(transparent)]
 pub struct EHeightFieldRenderMode(pub u8);

@@ -44,7 +44,7 @@ pub struct UAudioCaptureComponent {
     __padding_end: [u8; 188],
 }
 impl UAudioCaptureComponent {}
-#[repr(transparent)]
+#[repr(C, align(8))]
 pub struct FGetAvailableAudioInputDevices_OnObtainDevicesEvent {
-    _opague: u8,
+    _opague: [u8; 32],
 }
