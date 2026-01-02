@@ -4,18 +4,11 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
-#[repr(C, align(1))]
-pub struct FSoundWaveCloudStreamingPlatformProjectSettings {
-    pub enablement_setting: ESoundWaveCloudStreamingPlatformProjectEnableType,
-}
-#[repr(C, align(1))]
-pub struct FSoundWaveCloudStreamingPlatformSettings {
-    pub enablement_setting: ESoundWaveCloudStreamingPlatformEnableType,
-}
 #[repr(C, align(4))]
 pub struct FSoundGeneratorOutput {
     pub name: FName,
 }
+impl FSoundGeneratorOutput {}
 #[repr(C, align(8))]
 pub struct FAudioParameter {
     pub param_name: FName,
@@ -30,8 +23,9 @@ pub struct FAudioParameter {
     pub array_object_param: TArray<UPtr<crate::bindings::core_u_object::UObject>>,
     pub array_string_param: TArray<FString>,
     pub param_type: EAudioParameterType,
-    pub type_name: FName,
+    __padding_end: [u8; 31],
 }
+impl FAudioParameter {}
 #[repr(C, align(8))]
 pub struct FSoundWaveCuePoint {
     pub cue_point_id: i32,
@@ -39,30 +33,83 @@ pub struct FSoundWaveCuePoint {
     pub frame_position: i64,
     pub frame_length: i64,
     pub b_is_loop_region: bool,
+    __padding_end: [u8; 7],
 }
+impl FSoundWaveCuePoint {}
 pub struct UAudioPropertiesSheetAssetUserInterface {}
 pub struct IAudioPropertiesSheetAssetUserInterface {}
-pub struct UAudioPropertiesSheetAssetBase {}
-pub struct USpatializationPluginSourceSettingsBase {}
-pub struct USourceDataOverridePluginSourceSettingsBase {}
-pub struct UOcclusionPluginSourceSettingsBase {}
-pub struct UReverbPluginSourceSettingsBase {}
+#[repr(C, align(8))]
+pub struct UAudioPropertiesSheetAssetBase {
+    __padding_end: [u8; 48],
+}
+impl UAudioPropertiesSheetAssetBase {}
+#[repr(C, align(8))]
+pub struct USpatializationPluginSourceSettingsBase {
+    __padding_end: [u8; 48],
+}
+impl USpatializationPluginSourceSettingsBase {}
+#[repr(C, align(8))]
+pub struct USourceDataOverridePluginSourceSettingsBase {
+    __padding_end: [u8; 48],
+}
+impl USourceDataOverridePluginSourceSettingsBase {}
+#[repr(C, align(8))]
+pub struct UOcclusionPluginSourceSettingsBase {
+    __padding_end: [u8; 48],
+}
+impl UOcclusionPluginSourceSettingsBase {}
+#[repr(C, align(8))]
+pub struct UReverbPluginSourceSettingsBase {
+    __padding_end: [u8; 48],
+}
+impl UReverbPluginSourceSettingsBase {}
 pub struct UAudioParameterControllerInterface {}
 pub struct IAudioParameterControllerInterface {}
-pub struct UAudioEndpointSettingsBase {}
-pub struct UDummyEndpointSettings {}
-pub struct USoundModulatorBase {}
-pub struct USoundfieldEndpointSettingsBase {}
-pub struct USoundfieldEncodingSettingsBase {}
-pub struct USoundfieldEffectSettingsBase {}
+#[repr(C, align(8))]
+pub struct UAudioEndpointSettingsBase {
+    __padding_end: [u8; 48],
+}
+impl UAudioEndpointSettingsBase {}
+#[repr(C, align(8))]
+pub struct UDummyEndpointSettings {
+    __padding_end: [u8; 48],
+}
+impl UDummyEndpointSettings {}
+#[repr(C, align(8))]
+pub struct USoundModulatorBase {
+    __padding_end: [u8; 56],
+}
+impl USoundModulatorBase {}
+#[repr(C, align(8))]
+pub struct USoundfieldEndpointSettingsBase {
+    __padding_end: [u8; 48],
+}
+impl USoundfieldEndpointSettingsBase {}
+#[repr(C, align(8))]
+pub struct USoundfieldEncodingSettingsBase {
+    __padding_end: [u8; 48],
+}
+impl USoundfieldEncodingSettingsBase {}
+#[repr(C, align(8))]
+pub struct USoundfieldEffectSettingsBase {
+    __padding_end: [u8; 48],
+}
+impl USoundfieldEffectSettingsBase {}
+#[repr(C, align(8))]
 pub struct USoundfieldEffectBase {
-    pub settings: UPtr<USoundfieldEffectSettingsBase>,
+    __padding_end: [u8; 56],
 }
-pub struct UWaveformTransformationBase {}
+impl USoundfieldEffectBase {}
+#[repr(C, align(8))]
+pub struct UWaveformTransformationBase {
+    __padding_end: [u8; 96],
+}
+impl UWaveformTransformationBase {}
+#[repr(C, align(8))]
 pub struct UWaveformTransformationChain {
-    pub transformations: TArray<UPtr<UWaveformTransformationBase>>,
+    __padding_end: [u8; 64],
 }
-#[allow(non_camel_case_types)]
+impl UWaveformTransformationChain {}
 #[repr(transparent)]
 pub struct ESoundWaveCloudStreamingPlatformProjectEnableType(pub u8);
 impl ESoundWaveCloudStreamingPlatformProjectEnableType {
@@ -73,7 +120,6 @@ impl ESoundWaveCloudStreamingPlatformProjectEnableType {
         1,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ESoundWaveCloudStreamingPlatformEnableType(pub u8);
 impl ESoundWaveCloudStreamingPlatformEnableType {
@@ -87,7 +133,6 @@ impl ESoundWaveCloudStreamingPlatformEnableType {
         2,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EAudioParameterType(pub u8);
 impl EAudioParameterType {

@@ -5,92 +5,187 @@
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[repr(C, align(8))]
-pub struct FCameraNodeGraphSchemaAction_NewInterfaceParameterNode {
-    pub parameter_definition: crate::bindings::gameplay_cameras::FCameraObjectInterfaceParameterDefinition,
+pub struct UGameplayCameraActorFactory {
+    __padding_end: [u8; 144],
 }
+impl UGameplayCameraActorFactory {}
 #[repr(C, align(8))]
-pub struct FCameraNodeGraphSchemaAction_AddInterfaceParameterNode {
-    pub interface_parameter: UPtr<
-        crate::bindings::gameplay_cameras::UCameraObjectInterfaceParameterBase,
-    >,
+pub struct UGameplayCameraRigActorFactory {
+    __padding_end: [u8; 144],
 }
+impl UGameplayCameraRigActorFactory {}
 #[repr(C, align(8))]
-pub struct FObjectTreeGraphSchemaAction_NewNode {
-    pub object_outer: UPtr<crate::bindings::core_u_object::UObject>,
-    pub object_class: TSubclassOf<crate::bindings::core_u_object::UObject>,
+pub struct UAssetDefinition_CameraAsset {
+    __padding_end: [u8; 72],
 }
+impl UAssetDefinition_CameraAsset {}
 #[repr(C, align(8))]
-pub struct FObjectTreeGraphSchemaAction_NewComment {}
-pub struct UGameplayCameraActorFactory {}
-pub struct UGameplayCameraRigActorFactory {}
-pub struct UAssetDefinition_CameraAsset {}
-pub struct UAssetDefinition_CameraRigAsset {}
-pub struct UAssetDefinition_CameraRigProxyAsset {}
-pub struct UAssetDefinition_CameraShakeAsset {}
-pub struct UAssetDefinition_CameraVariableCollection {}
+pub struct UAssetDefinition_CameraRigAsset {
+    __padding_end: [u8; 72],
+}
+impl UAssetDefinition_CameraRigAsset {}
+#[repr(C, align(8))]
+pub struct UAssetDefinition_CameraRigProxyAsset {
+    __padding_end: [u8; 72],
+}
+impl UAssetDefinition_CameraRigProxyAsset {}
+#[repr(C, align(8))]
+pub struct UAssetDefinition_CameraShakeAsset {
+    __padding_end: [u8; 72],
+}
+impl UAssetDefinition_CameraShakeAsset {}
+#[repr(C, align(8))]
+pub struct UAssetDefinition_CameraVariableCollection {
+    __padding_end: [u8; 72],
+}
+impl UAssetDefinition_CameraVariableCollection {}
+#[repr(C, align(8))]
 pub struct UCameraAssetEditor {
-    pub camera_asset: UPtr<crate::bindings::gameplay_cameras::UCameraAsset>,
+    __padding_end: [u8; 72],
 }
+impl UCameraAssetEditor {}
+#[repr(C, align(8))]
 pub struct UCameraRigAssetEditor {
-    pub camera_rig_asset: UPtr<crate::bindings::gameplay_cameras::UCameraRigAsset>,
+    __padding_end: [u8; 72],
 }
+impl UCameraRigAssetEditor {}
+#[repr(C, align(8))]
 pub struct UCameraRigProxyAssetEditor {
-    pub camera_rig_proxy_asset: UPtr<
-        crate::bindings::gameplay_cameras::UCameraRigProxyAsset,
-    >,
+    __padding_end: [u8; 72],
 }
+impl UCameraRigProxyAssetEditor {}
+#[repr(C, align(8))]
 pub struct UCameraRigTransitionEditor {
-    pub transition_owner: UPtr<crate::bindings::core_u_object::UObject>,
+    __padding_end: [u8; 72],
 }
+impl UCameraRigTransitionEditor {}
+#[repr(C, align(8))]
 pub struct UCameraShakeAssetEditor {
-    pub camera_shake_asset: UPtr<crate::bindings::gameplay_cameras::UCameraShakeAsset>,
+    __padding_end: [u8; 72],
 }
-pub struct UCameraVariableCollectionEditor {}
-pub struct UGameplayCamerasDebuggerMenuContext {}
+impl UCameraShakeAssetEditor {}
+#[repr(C, align(8))]
+pub struct UCameraVariableCollectionEditor {
+    __padding_end: [u8; 72],
+}
+impl UCameraVariableCollectionEditor {}
+#[repr(C, align(8))]
+pub struct UGameplayCamerasDebuggerMenuContext {
+    __padding_end: [u8; 64],
+}
+impl UGameplayCamerasDebuggerMenuContext {}
+#[repr(C, align(8))]
 pub struct UObjectTreeGraphNode {
-    pub weak_object: TWeakObjectPtr<crate::bindings::core_u_object::UObject>,
-    pub self_pin_direction_override: crate::bindings::engine::EEdGraphPinDirection,
-    pub b_override_self_pin_direction: bool,
+    __padding_end: [u8; 208],
 }
-pub struct UCameraNodeGraphNode {}
-pub struct UObjectTreeGraphSchema {}
-pub struct UCameraNodeGraphSchema {}
-pub struct UCameraObjectInterfaceParameterGraphNode {}
-pub struct UCameraRigCameraNodeGraphSchema {}
-pub struct UCameraRigTransitionGraphSchemaBase {}
-pub struct UCameraRigTransitionGraphSchema {}
-pub struct UCameraShakeCameraNodeGraphSchema {}
-pub struct UCameraSharedTransitionGraphSchema {}
+impl UObjectTreeGraphNode {}
+#[repr(C, align(8))]
+pub struct UCameraNodeGraphNode {
+    __padding_end: [u8; 208],
+}
+impl UCameraNodeGraphNode {}
+#[repr(C, align(8))]
+pub struct UObjectTreeGraphSchema {
+    __padding_end: [u8; 48],
+}
+impl UObjectTreeGraphSchema {}
+#[repr(C, align(8))]
+pub struct UCameraNodeGraphSchema {
+    __padding_end: [u8; 240],
+}
+impl UCameraNodeGraphSchema {}
+#[repr(C, align(8))]
+pub struct UCameraObjectInterfaceParameterGraphNode {
+    __padding_end: [u8; 208],
+}
+impl UCameraObjectInterfaceParameterGraphNode {}
+#[repr(C, align(8))]
+pub struct UCameraRigCameraNodeGraphSchema {
+    __padding_end: [u8; 240],
+}
+impl UCameraRigCameraNodeGraphSchema {}
+#[repr(C, align(8))]
+pub struct UCameraRigTransitionGraphSchemaBase {
+    __padding_end: [u8; 48],
+}
+impl UCameraRigTransitionGraphSchemaBase {}
+#[repr(C, align(8))]
+pub struct UCameraRigTransitionGraphSchema {
+    __padding_end: [u8; 48],
+}
+impl UCameraRigTransitionGraphSchema {}
+#[repr(C, align(8))]
+pub struct UCameraShakeCameraNodeGraphSchema {
+    __padding_end: [u8; 240],
+}
+impl UCameraShakeCameraNodeGraphSchema {}
+#[repr(C, align(8))]
+pub struct UCameraSharedTransitionGraphSchema {
+    __padding_end: [u8; 48],
+}
+impl UCameraSharedTransitionGraphSchema {}
+#[repr(C, align(8))]
 pub struct UObjectTreeGraph {
-    pub root_object_node: UPtr<UObjectTreeGraphNode>,
+    __padding_end: [u8; 568],
 }
+impl UObjectTreeGraph {}
+#[repr(C, align(8))]
 pub struct UObjectTreeGraphCommentNode {
-    pub weak_object: TWeakObjectPtr<
-        crate::bindings::gameplay_cameras::UObjectTreeGraphComment,
-    >,
+    __padding_end: [u8; 304],
 }
+impl UObjectTreeGraphCommentNode {}
+#[repr(C, align(8))]
 pub struct UCameraAssetFactory {
-    pub camera_director_class: TSubclassOf<
-        crate::bindings::gameplay_cameras::UCameraDirector,
-    >,
+    __padding_end: [u8; 144],
 }
-pub struct UCameraRigAssetFactory {}
-pub struct UCameraRigProxyAssetFactory {}
-pub struct UCameraShakeAssetFactory {}
-pub struct UCameraVariableCollectionFactory {}
+impl UCameraAssetFactory {}
+#[repr(C, align(8))]
+pub struct UCameraRigAssetFactory {
+    __padding_end: [u8; 136],
+}
+impl UCameraRigAssetFactory {}
+#[repr(C, align(8))]
+pub struct UCameraRigProxyAssetFactory {
+    __padding_end: [u8; 136],
+}
+impl UCameraRigProxyAssetFactory {}
+#[repr(C, align(8))]
+pub struct UCameraShakeAssetFactory {
+    __padding_end: [u8; 136],
+}
+impl UCameraShakeAssetFactory {}
+#[repr(C, align(8))]
+pub struct UCameraVariableCollectionFactory {
+    __padding_end: [u8; 136],
+}
+impl UCameraVariableCollectionFactory {}
+#[repr(C, align(8))]
 pub struct UGameplayCamerasEditorSettings {
-    pub camera_node_title_color: crate::bindings::core_u_object::FLinearColor,
-    pub camera_asset_title_color: crate::bindings::core_u_object::FLinearColor,
-    pub camera_rig_asset_title_color: crate::bindings::core_u_object::FLinearColor,
-    pub camera_shake_asset_title_color: crate::bindings::core_u_object::FLinearColor,
-    pub camera_rig_transition_title_color: crate::bindings::core_u_object::FLinearColor,
-    pub camera_rig_transition_condition_title_color: crate::bindings::core_u_object::FLinearColor,
-    pub camera_blend_node_title_color: crate::bindings::core_u_object::FLinearColor,
-    pub last_camera_asset_toolkit_mode_name: FName,
-    pub b_enable_run_in_editor: bool,
+    __padding_end: [u8; 232],
 }
-pub struct UCameraAssetEditorMenuContext {}
-pub struct UEdGraphSchema_CameraNodeK2 {}
-pub struct UCameraRigAssetEditorMenuContext {}
-pub struct UCameraShakeAssetEditorMenuContext {}
-pub struct UCameraVariableCollectionEditorMenuContext {}
+impl UGameplayCamerasEditorSettings {}
+#[repr(C, align(8))]
+pub struct UCameraAssetEditorMenuContext {
+    __padding_end: [u8; 64],
+}
+impl UCameraAssetEditorMenuContext {}
+#[repr(C, align(8))]
+pub struct UEdGraphSchema_CameraNodeK2 {
+    __padding_end: [u8; 152],
+}
+impl UEdGraphSchema_CameraNodeK2 {}
+#[repr(C, align(8))]
+pub struct UCameraRigAssetEditorMenuContext {
+    __padding_end: [u8; 64],
+}
+impl UCameraRigAssetEditorMenuContext {}
+#[repr(C, align(8))]
+pub struct UCameraShakeAssetEditorMenuContext {
+    __padding_end: [u8; 64],
+}
+impl UCameraShakeAssetEditorMenuContext {}
+#[repr(C, align(8))]
+pub struct UCameraVariableCollectionEditorMenuContext {
+    __padding_end: [u8; 64],
+}
+impl UCameraVariableCollectionEditorMenuContext {}

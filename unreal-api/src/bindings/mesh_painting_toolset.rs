@@ -5,120 +5,142 @@
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[repr(C, align(8))]
-pub struct FPaintTexture2DData {
-    pub painting_texture2_d: UPtr<crate::bindings::engine::UTexture2D>,
-    pub paint_render_target_texture: UPtr<
-        crate::bindings::engine::UTextureRenderTarget2D,
-    >,
-    pub paint_render_target_texture_adapter: UPtr<
-        crate::bindings::engine::UVirtualTextureAdapter,
-    >,
-    pub paint_brush_render_target_texture: UPtr<
-        crate::bindings::engine::UTextureRenderTarget2D,
-    >,
-    pub brush_render_target_texture: UPtr<
-        crate::bindings::engine::UTextureRenderTarget2D,
-    >,
-    pub brush_mask_render_target_texture: UPtr<
-        crate::bindings::engine::UTextureRenderTarget2D,
-    >,
-    pub seam_mask_render_target_texture: UPtr<
-        crate::bindings::engine::UTextureRenderTarget2D,
-    >,
-    pub texture_override_components: TArray<
-        UPtr<crate::bindings::engine::UMeshComponent>,
-    >,
-    pub painted_components: TArray<UPtr<crate::bindings::engine::UMeshComponent>>,
-}
 pub struct UMeshPaintingToolProperties {
-    pub paint_color: crate::bindings::core_u_object::FLinearColor,
-    pub erase_color: crate::bindings::core_u_object::FLinearColor,
-    pub b_enable_flow: bool,
-    pub b_only_front_facing_triangles: bool,
+    __padding_end: [u8; 256],
 }
+impl UMeshPaintingToolProperties {}
+#[repr(C, align(8))]
 pub struct UMeshPaintingSubsystem {
-    pub last_painted_component: UPtr<crate::bindings::engine::UMeshComponent>,
+    __padding_end: [u8; 256],
 }
+impl UMeshPaintingSubsystem {}
 pub struct UMeshPaintSelectionInterface {}
 pub struct IMeshPaintSelectionInterface {}
+#[repr(C, align(8))]
 pub struct UMeshPaintSelectionMechanic {
-    pub cached_clicked_components: TArray<UPtr<crate::bindings::engine::UMeshComponent>>,
-    pub cached_clicked_actors: TArray<UPtr<crate::bindings::engine::AActor>>,
+    __padding_end: [u8; 96],
 }
-pub struct UVertexAdapterClickToolBuilder {}
-pub struct UTextureColorAdapterClickToolBuilder {}
-pub struct UTextureAssetAdapterClickToolBuilder {}
+impl UMeshPaintSelectionMechanic {}
+#[repr(C, align(8))]
+pub struct UVertexAdapterClickToolBuilder {
+    __padding_end: [u8; 48],
+}
+impl UVertexAdapterClickToolBuilder {}
+#[repr(C, align(8))]
+pub struct UTextureColorAdapterClickToolBuilder {
+    __padding_end: [u8; 48],
+}
+impl UTextureColorAdapterClickToolBuilder {}
+#[repr(C, align(8))]
+pub struct UTextureAssetAdapterClickToolBuilder {
+    __padding_end: [u8; 48],
+}
+impl UTextureAssetAdapterClickToolBuilder {}
+#[repr(C, align(8))]
 pub struct UMeshClickTool {
-    pub selection_mechanic: UPtr<UMeshPaintSelectionMechanic>,
+    __padding_end: [u8; 224],
 }
-pub struct UVertexAdapterClickTool {}
-pub struct UTextureColorAdapterClickTool {}
-pub struct UTextureAssetAdapterClickTool {}
-pub struct UMeshTextureColorPaintingToolBuilder {}
-pub struct UMeshTextureAssetPaintingToolBuilder {}
+impl UMeshClickTool {}
+#[repr(C, align(8))]
+pub struct UVertexAdapterClickTool {
+    __padding_end: [u8; 224],
+}
+impl UVertexAdapterClickTool {}
+#[repr(C, align(8))]
+pub struct UTextureColorAdapterClickTool {
+    __padding_end: [u8; 224],
+}
+impl UTextureColorAdapterClickTool {}
+#[repr(C, align(8))]
+pub struct UTextureAssetAdapterClickTool {
+    __padding_end: [u8; 224],
+}
+impl UTextureAssetAdapterClickTool {}
+#[repr(C, align(8))]
+pub struct UMeshTextureColorPaintingToolBuilder {
+    __padding_end: [u8; 56],
+}
+impl UMeshTextureColorPaintingToolBuilder {}
+#[repr(C, align(8))]
+pub struct UMeshTextureAssetPaintingToolBuilder {
+    __padding_end: [u8; 56],
+}
+impl UMeshTextureAssetPaintingToolBuilder {}
+#[repr(C, align(8))]
 pub struct UMeshTexturePaintingToolProperties {
-    pub b_enable_seam_painting: bool,
-    pub paint_brush: UPtr<crate::bindings::engine::UTexture2D>,
-    pub paint_brush_rotation_offset: f32,
-    pub b_rotate_brush_towards_direction: bool,
-    pub b_write_red: bool,
-    pub b_write_green: bool,
-    pub b_write_blue: bool,
-    pub b_write_alpha: bool,
+    __padding_end: [u8; 288],
 }
+impl UMeshTexturePaintingToolProperties {}
+#[repr(C, align(8))]
 pub struct UMeshTextureColorPaintingToolProperties {
-    pub b_propagate_to_vertex_color: bool,
+    __padding_end: [u8; 296],
 }
+impl UMeshTextureColorPaintingToolProperties {}
+#[repr(C, align(8))]
 pub struct UMeshTextureAssetPaintingToolProperties {
-    pub uv_channel: i32,
-    pub paint_texture: UPtr<crate::bindings::engine::UTexture2D>,
+    __padding_end: [u8; 304],
 }
+impl UMeshTextureAssetPaintingToolProperties {}
+#[repr(C, align(8))]
 pub struct UMeshTexturePaintingTool {
-    pub paint_target_data: TMap<
-        UPtr<crate::bindings::engine::UTexture2D>,
-        FPaintTexture2DData,
-    >,
-    pub selection_mechanic: UPtr<UMeshPaintSelectionMechanic>,
-    pub texture_properties: UPtr<UMeshTexturePaintingToolProperties>,
-    pub painting_texture2_d: UPtr<crate::bindings::engine::UTexture2D>,
+    __padding_end: [u8; 1320],
 }
+impl UMeshTexturePaintingTool {}
+#[repr(C, align(8))]
 pub struct UMeshTextureColorPaintingTool {
-    pub color_properties: UPtr<UMeshTextureColorPaintingToolProperties>,
-    pub mesh_paint_dummy_texture: UPtr<crate::bindings::engine::UTexture>,
+    __padding_end: [u8; 1336],
 }
+impl UMeshTextureColorPaintingTool {}
+#[repr(C, align(8))]
 pub struct UMeshTextureAssetPaintingTool {
-    pub asset_properties: UPtr<UMeshTextureAssetPaintingToolProperties>,
+    __padding_end: [u8; 1328],
 }
-pub struct UMeshVertexColorPaintingToolBuilder {}
-pub struct UMeshVertexWeightPaintingToolBuilder {}
+impl UMeshTextureAssetPaintingTool {}
+#[repr(C, align(8))]
+pub struct UMeshVertexColorPaintingToolBuilder {
+    __padding_end: [u8; 48],
+}
+impl UMeshVertexColorPaintingToolBuilder {}
+#[repr(C, align(8))]
+pub struct UMeshVertexWeightPaintingToolBuilder {
+    __padding_end: [u8; 48],
+}
+impl UMeshVertexWeightPaintingToolBuilder {}
+#[repr(C, align(8))]
 pub struct UMeshVertexPaintingToolProperties {
-    pub b_paint_on_specific_lod: bool,
-    pub lod_index: i32,
-    pub vertex_preview_size: f32,
+    __padding_end: [u8; 272],
 }
+impl UMeshVertexPaintingToolProperties {}
+#[repr(C, align(8))]
 pub struct UMeshVertexColorPaintingToolProperties {
-    pub b_write_red: bool,
-    pub b_write_green: bool,
-    pub b_write_blue: bool,
-    pub b_write_alpha: bool,
+    __padding_end: [u8; 280],
 }
+impl UMeshVertexColorPaintingToolProperties {}
+#[repr(C, align(8))]
 pub struct UMeshVertexWeightPaintingToolProperties {
-    pub texture_weight_type: EMeshPaintWeightTypes,
-    pub paint_texture_weight_index: EMeshPaintTextureIndex,
-    pub erase_texture_weight_index: EMeshPaintTextureIndex,
+    __padding_end: [u8; 280],
 }
+impl UMeshVertexWeightPaintingToolProperties {}
+#[repr(C, align(8))]
 pub struct UMeshVertexPaintingTool {
-    pub selection_mechanic: UPtr<UMeshPaintSelectionMechanic>,
-    pub vertex_properties: UPtr<UMeshVertexPaintingToolProperties>,
+    __padding_end: [u8; 1200],
 }
+impl UMeshVertexPaintingTool {}
+#[repr(C, align(8))]
 pub struct UMeshVertexColorPaintingTool {
-    pub color_properties: UPtr<UMeshVertexColorPaintingToolProperties>,
+    __padding_end: [u8; 1208],
 }
+impl UMeshVertexColorPaintingTool {}
+#[repr(C, align(8))]
 pub struct UMeshVertexWeightPaintingTool {
-    pub weight_properties: UPtr<UMeshVertexWeightPaintingToolProperties>,
+    __padding_end: [u8; 1208],
 }
-pub struct UTexturePaintToolset {}
-#[allow(non_camel_case_types)]
+impl UMeshVertexWeightPaintingTool {}
+#[repr(C, align(8))]
+pub struct UTexturePaintToolset {
+    __padding_end: [u8; 48],
+}
+impl UTexturePaintToolset {}
 #[repr(transparent)]
 pub struct EMeshPaintWeightTypes(pub u8);
 impl EMeshPaintWeightTypes {
@@ -127,7 +149,6 @@ impl EMeshPaintWeightTypes {
     pub const ARGB: EMeshPaintWeightTypes = EMeshPaintWeightTypes(4);
     pub const ONE_MINUS_ARGB: EMeshPaintWeightTypes = EMeshPaintWeightTypes(5);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMeshPaintTextureIndex(pub u8);
 impl EMeshPaintTextureIndex {
@@ -137,7 +158,6 @@ impl EMeshPaintTextureIndex {
     pub const TEXTURE_FOUR: EMeshPaintTextureIndex = EMeshPaintTextureIndex(3);
     pub const TEXTURE_FIVE: EMeshPaintTextureIndex = EMeshPaintTextureIndex(4);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMeshPaintDataColorViewMode(pub u8);
 impl EMeshPaintDataColorViewMode {

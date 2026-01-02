@@ -4,6 +4,8 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
+#[repr(C, align(8))]
 pub struct UAndroidMediaSettings {
-    pub cacheable_video_sample_buffers: bool,
+    __padding_end: [u8; 56],
 }
+impl UAndroidMediaSettings {}

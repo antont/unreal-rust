@@ -4,4 +4,8 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
-pub struct UInsightsSkeletalMeshComponent {}
+#[repr(C, align(16))]
+pub struct UInsightsSkeletalMeshComponent {
+    __padding_end: [u8; 4672],
+}
+impl UInsightsSkeletalMeshComponent {}

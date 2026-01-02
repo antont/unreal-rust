@@ -4,32 +4,21 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
-#[repr(C, align(4))]
-pub struct FOutputLogCategorySettings {
-    pub name: FName,
-    pub b_enabled: bool,
-}
 #[repr(C, align(8))]
-pub struct FOutputLogFilterSettings {
-    pub messages_filter: ELogLevelFilter,
-    pub warnings_filter: ELogLevelFilter,
-    pub errors_filter: ELogLevelFilter,
-    pub filter_text: FText,
-    pub categories: TArray<FOutputLogCategorySettings>,
-    pub b_select_new_categories: bool,
+pub struct UConsoleInputBoxMenuContext {
+    __padding_end: [u8; 64],
 }
-pub struct UConsoleInputBoxMenuContext {}
-pub struct UOutputLogMenuContext {}
+impl UConsoleInputBoxMenuContext {}
+#[repr(C, align(8))]
+pub struct UOutputLogMenuContext {
+    __padding_end: [u8; 64],
+}
+impl UOutputLogMenuContext {}
+#[repr(C, align(8))]
 pub struct UOutputLogSettings {
-    pub log_font_size: i32,
-    pub log_timestamp_mode: crate::bindings::core_u_object::ELogTimes,
-    pub category_colorization_mode: ELogCategoryColorizationMode,
-    pub b_cycle_to_output_log_drawer: bool,
-    pub b_enable_output_log_word_wrap: bool,
-    pub b_enable_output_log_clear_on_pie: bool,
-    pub output_log_tab_filter: FOutputLogFilterSettings,
+    __padding_end: [u8; 144],
 }
-#[allow(non_camel_case_types)]
+impl UOutputLogSettings {}
 #[repr(transparent)]
 pub struct ELogLevelFilter(pub u8);
 impl ELogLevelFilter {
@@ -37,7 +26,6 @@ impl ELogLevelFilter {
     pub const ENABLED: ELogLevelFilter = ELogLevelFilter(1);
     pub const ALL: ELogLevelFilter = ELogLevelFilter(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ELogCategoryColorizationMode(pub u8);
 impl ELogCategoryColorizationMode {

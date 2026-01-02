@@ -5,7 +5,7 @@
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[repr(C, align(8))]
-pub struct FContentBrowserCompiledAssetDataFilter {}
-#[repr(C, align(8))]
-pub struct FContentBrowserCompiledUnsupportedAssetDataFilter {}
-pub struct UContentBrowserAssetDataSource {}
+pub struct UContentBrowserAssetDataSource {
+    __padding_end: [u8; 728],
+}
+impl UContentBrowserAssetDataSource {}

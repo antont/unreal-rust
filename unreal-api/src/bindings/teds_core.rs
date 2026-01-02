@@ -5,74 +5,170 @@
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[repr(C, align(8))]
-pub struct FEditorDataHierarchyData_Template {
-    pub parent: crate::bindings::typed_element_framework::FTedsRowHandle,
-    pub children: TArray<crate::bindings::typed_element_framework::FTedsRowHandle>,
-}
-#[repr(C, align(1))]
-pub struct FEditorDataHierarchyParentTag_Template {}
-#[repr(C, align(1))]
-pub struct FEditorDataHierarchyChildTag_Template {}
-#[repr(C, align(8))]
-pub struct FEditorDataHierarchyUnresolvedParent_Template {}
-#[repr(C, align(8))]
-pub struct FTestDynamicColumn {}
-#[repr(C, align(1))]
-pub struct FTestDynamicTag {}
-#[repr(C, align(1))]
-pub struct FTedsSharedColumn {}
-#[repr(C, align(1))]
-pub struct FTypedElementMementoTag {}
-#[repr(C, align(4))]
-pub struct FTedsValueTagColumn {
-    pub value: FName,
-}
-#[repr(C, align(16))]
-pub struct FTypedElementQueryProcessorData {}
 pub struct UEditorDataStorageSettings {
-    pub chunk_memory_size: EChunkMemorySize,
-    pub table_specific_chunk_memory_size: TMap<FName, EChunkMemorySize>,
+    __padding_end: [u8; 136],
 }
-pub struct UTedsMementoTranslatorBase {}
+impl UEditorDataStorageSettings {}
+#[repr(C, align(8))]
+pub struct UTedsMementoTranslatorBase {
+    __padding_end: [u8; 48],
+}
+impl UTedsMementoTranslatorBase {}
+#[repr(C, align(8))]
 pub struct UTedsDefaultMementoTranslator {
-    pub memento_type: UPtr<crate::bindings::core_u_object::UScriptStruct>,
+    __padding_end: [u8; 88],
 }
-pub struct UTedsSelectionColumnMementoTranslator {}
+impl UTedsDefaultMementoTranslator {}
+#[repr(C, align(8))]
+pub struct UTedsSelectionColumnMementoTranslator {
+    __padding_end: [u8; 88],
+}
+impl UTedsSelectionColumnMementoTranslator {}
+#[repr(C, align(8))]
 pub struct UTedsObjectReinstancingManager {
-    pub data_storage: UPtr<UEditorDataStorage>,
-    pub data_storage_compatibility: UPtr<UEditorDataStorageCompatibility>,
+    __padding_end: [u8; 176],
 }
-pub struct UObjectNameDataStorageFactory {}
-pub struct UObjectWorldDataStorageFactory {}
+impl UTedsObjectReinstancingManager {}
+#[repr(C, align(8))]
+pub struct UObjectNameDataStorageFactory {
+    __padding_end: [u8; 48],
+}
+impl UObjectNameDataStorageFactory {}
+#[repr(C, align(8))]
+pub struct UObjectWorldDataStorageFactory {
+    __padding_end: [u8; 48],
+}
+impl UObjectWorldDataStorageFactory {}
+#[repr(C, align(16))]
 pub struct UTypedElementQueryProcessorCallbackAdapterProcessorBase {
-    pub data: FTypedElementQueryProcessorData,
+    __padding_end: [u8; 1152],
 }
-pub struct UTypedElementQueryProcessorCallbackAdapterProcessor {}
-pub struct UTypedElementQueryProcessorCallbackAdapterProcessorWith1Subquery {}
-pub struct UTypedElementQueryProcessorCallbackAdapterProcessorWith2Subqueries {}
-pub struct UTypedElementQueryProcessorCallbackAdapterProcessorWith3Subqueries {}
-pub struct UTypedElementQueryProcessorCallbackAdapterProcessorWith4Subqueries {}
-pub struct UTypedElementQueryProcessorCallbackAdapterProcessorWith5Subqueries {}
-pub struct UTypedElementQueryProcessorCallbackAdapterProcessorWith6Subqueries {}
-pub struct UTypedElementQueryProcessorCallbackAdapterProcessorWith7Subqueries {}
-pub struct UTypedElementQueryProcessorCallbackAdapterProcessorWith8Subqueries {}
-pub struct UTypedElementQueryObserverCallbackAdapterProcessorBase {}
-pub struct UTypedElementQueryObserverCallbackAdapterProcessor {}
-pub struct UTypedElementQueryObserverCallbackAdapterProcessorWith1Subquery {}
-pub struct UTypedElementQueryObserverCallbackAdapterProcessorWith2Subqueries {}
-pub struct UTypedElementQueryObserverCallbackAdapterProcessorWith3Subqueries {}
-pub struct UTypedElementQueryObserverCallbackAdapterProcessorWith4Subqueries {}
-pub struct UTypedElementQueryObserverCallbackAdapterProcessorWith5Subqueries {}
-pub struct UTypedElementQueryObserverCallbackAdapterProcessorWith6Subqueries {}
-pub struct UTypedElementQueryObserverCallbackAdapterProcessorWith7Subqueries {}
-pub struct UTypedElementQueryObserverCallbackAdapterProcessorWith8Subqueries {}
-pub struct UDefaultPropertySorterFactory {}
-pub struct UTypedElementHiearchyQueriesFactory {}
-pub struct UTypedElementRemoveSyncToWorldTagFactory {}
-pub struct UEditorDataStorage {}
-pub struct UEditorDataStorageCompatibility {}
-pub struct UEditorDataStorageUi {}
-#[allow(non_camel_case_types)]
+impl UTypedElementQueryProcessorCallbackAdapterProcessorBase {}
+#[repr(C, align(16))]
+pub struct UTypedElementQueryProcessorCallbackAdapterProcessor {
+    __padding_end: [u8; 1152],
+}
+impl UTypedElementQueryProcessorCallbackAdapterProcessor {}
+#[repr(C, align(16))]
+pub struct UTypedElementQueryProcessorCallbackAdapterProcessorWith1Subquery {
+    __padding_end: [u8; 2032],
+}
+impl UTypedElementQueryProcessorCallbackAdapterProcessorWith1Subquery {}
+#[repr(C, align(16))]
+pub struct UTypedElementQueryProcessorCallbackAdapterProcessorWith2Subqueries {
+    __padding_end: [u8; 2912],
+}
+impl UTypedElementQueryProcessorCallbackAdapterProcessorWith2Subqueries {}
+#[repr(C, align(16))]
+pub struct UTypedElementQueryProcessorCallbackAdapterProcessorWith3Subqueries {
+    __padding_end: [u8; 3792],
+}
+impl UTypedElementQueryProcessorCallbackAdapterProcessorWith3Subqueries {}
+#[repr(C, align(16))]
+pub struct UTypedElementQueryProcessorCallbackAdapterProcessorWith4Subqueries {
+    __padding_end: [u8; 4672],
+}
+impl UTypedElementQueryProcessorCallbackAdapterProcessorWith4Subqueries {}
+#[repr(C, align(16))]
+pub struct UTypedElementQueryProcessorCallbackAdapterProcessorWith5Subqueries {
+    __padding_end: [u8; 5552],
+}
+impl UTypedElementQueryProcessorCallbackAdapterProcessorWith5Subqueries {}
+#[repr(C, align(16))]
+pub struct UTypedElementQueryProcessorCallbackAdapterProcessorWith6Subqueries {
+    __padding_end: [u8; 6432],
+}
+impl UTypedElementQueryProcessorCallbackAdapterProcessorWith6Subqueries {}
+#[repr(C, align(16))]
+pub struct UTypedElementQueryProcessorCallbackAdapterProcessorWith7Subqueries {
+    __padding_end: [u8; 7312],
+}
+impl UTypedElementQueryProcessorCallbackAdapterProcessorWith7Subqueries {}
+#[repr(C, align(16))]
+pub struct UTypedElementQueryProcessorCallbackAdapterProcessorWith8Subqueries {
+    __padding_end: [u8; 8192],
+}
+impl UTypedElementQueryProcessorCallbackAdapterProcessorWith8Subqueries {}
+#[repr(C, align(16))]
+pub struct UTypedElementQueryObserverCallbackAdapterProcessorBase {
+    __padding_end: [u8; 1184],
+}
+impl UTypedElementQueryObserverCallbackAdapterProcessorBase {}
+#[repr(C, align(16))]
+pub struct UTypedElementQueryObserverCallbackAdapterProcessor {
+    __padding_end: [u8; 1184],
+}
+impl UTypedElementQueryObserverCallbackAdapterProcessor {}
+#[repr(C, align(16))]
+pub struct UTypedElementQueryObserverCallbackAdapterProcessorWith1Subquery {
+    __padding_end: [u8; 2064],
+}
+impl UTypedElementQueryObserverCallbackAdapterProcessorWith1Subquery {}
+#[repr(C, align(16))]
+pub struct UTypedElementQueryObserverCallbackAdapterProcessorWith2Subqueries {
+    __padding_end: [u8; 2944],
+}
+impl UTypedElementQueryObserverCallbackAdapterProcessorWith2Subqueries {}
+#[repr(C, align(16))]
+pub struct UTypedElementQueryObserverCallbackAdapterProcessorWith3Subqueries {
+    __padding_end: [u8; 3824],
+}
+impl UTypedElementQueryObserverCallbackAdapterProcessorWith3Subqueries {}
+#[repr(C, align(16))]
+pub struct UTypedElementQueryObserverCallbackAdapterProcessorWith4Subqueries {
+    __padding_end: [u8; 4704],
+}
+impl UTypedElementQueryObserverCallbackAdapterProcessorWith4Subqueries {}
+#[repr(C, align(16))]
+pub struct UTypedElementQueryObserverCallbackAdapterProcessorWith5Subqueries {
+    __padding_end: [u8; 5584],
+}
+impl UTypedElementQueryObserverCallbackAdapterProcessorWith5Subqueries {}
+#[repr(C, align(16))]
+pub struct UTypedElementQueryObserverCallbackAdapterProcessorWith6Subqueries {
+    __padding_end: [u8; 6464],
+}
+impl UTypedElementQueryObserverCallbackAdapterProcessorWith6Subqueries {}
+#[repr(C, align(16))]
+pub struct UTypedElementQueryObserverCallbackAdapterProcessorWith7Subqueries {
+    __padding_end: [u8; 7344],
+}
+impl UTypedElementQueryObserverCallbackAdapterProcessorWith7Subqueries {}
+#[repr(C, align(16))]
+pub struct UTypedElementQueryObserverCallbackAdapterProcessorWith8Subqueries {
+    __padding_end: [u8; 8224],
+}
+impl UTypedElementQueryObserverCallbackAdapterProcessorWith8Subqueries {}
+#[repr(C, align(8))]
+pub struct UDefaultPropertySorterFactory {
+    __padding_end: [u8; 48],
+}
+impl UDefaultPropertySorterFactory {}
+#[repr(C, align(8))]
+pub struct UTypedElementHiearchyQueriesFactory {
+    __padding_end: [u8; 48],
+}
+impl UTypedElementHiearchyQueriesFactory {}
+#[repr(C, align(8))]
+pub struct UTypedElementRemoveSyncToWorldTagFactory {
+    __padding_end: [u8; 48],
+}
+impl UTypedElementRemoveSyncToWorldTagFactory {}
+#[repr(C, align(8))]
+pub struct UEditorDataStorage {
+    __padding_end: [u8; 328],
+}
+impl UEditorDataStorage {}
+#[repr(C, align(8))]
+pub struct UEditorDataStorageCompatibility {
+    __padding_end: [u8; 752],
+}
+impl UEditorDataStorageCompatibility {}
+#[repr(C, align(8))]
+pub struct UEditorDataStorageUi {
+    __padding_end: [u8; 280],
+}
+impl UEditorDataStorageUi {}
 #[repr(transparent)]
 pub struct EChunkMemorySize(pub i32);
 impl EChunkMemorySize {

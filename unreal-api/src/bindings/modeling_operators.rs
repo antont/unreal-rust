@@ -4,51 +4,41 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
+#[repr(C, align(8))]
 pub struct URecomputeUVsToolProperties {
-    pub b_enable_polygroup_support: bool,
-    pub island_generation: ERecomputeUVsPropertiesIslandMode,
-    pub unwrap_type: ERecomputeUVsPropertiesUnwrapType,
-    pub auto_rotation: ERecomputeUVsToolOrientationMode,
-    pub b_preserve_irregularity: bool,
-    pub smoothing_steps: i32,
-    pub smoothing_alpha: f32,
-    pub merging_distortion_threshold: f32,
-    pub merging_angle_threshold: f32,
-    pub layout_type: ERecomputeUVsPropertiesLayoutType,
-    pub texture_resolution: i32,
-    pub normalize_scale: f32,
-    pub b_enable_udim_layout: bool,
-    pub b_udimcvar_enabled: bool,
+    __padding_end: [u8; 240],
 }
+impl URecomputeUVsToolProperties {}
+#[repr(C, align(8))]
 pub struct UUVLayoutProperties {
-    pub layout_type: EUVLayoutType,
-    pub texture_resolution: i32,
-    pub scale: f32,
-    pub translation: crate::bindings::core_u_object::FVector2D,
-    pub b_preserve_scale: bool,
-    pub b_preserve_rotation: bool,
-    pub b_allow_flips: bool,
-    pub b_enable_udim_layout: bool,
-    pub b_udimcvar_enabled: bool,
+    __padding_end: [u8; 224],
 }
-pub struct UGenerateCrossSectionOpFactory {}
+impl UUVLayoutProperties {}
+#[repr(C, align(8))]
+pub struct UGenerateCrossSectionOpFactory {
+    __padding_end: [u8; 208],
+}
+impl UGenerateCrossSectionOpFactory {}
+#[repr(C, align(16))]
 pub struct URecomputeUVsOpFactory {
-    pub settings: UPtr<URecomputeUVsToolProperties>,
+    __padding_end: [u8; 304],
 }
+impl URecomputeUVsOpFactory {}
+#[repr(C, align(8))]
 pub struct UUVEditorTexelDensitySettings {
-    pub texel_density_mode: ETexelDensityToolMode,
-    pub target_world_units: f32,
-    pub target_pixel_count: f32,
-    pub texture_resolution: f32,
-    pub b_enable_udim_layout: bool,
+    __padding_end: [u8; 208],
 }
+impl UUVEditorTexelDensitySettings {}
+#[repr(C, align(16))]
 pub struct UUVTexelDensityOperatorFactory {
-    pub settings: UPtr<UUVEditorTexelDensitySettings>,
+    __padding_end: [u8; 384],
 }
+impl UUVTexelDensityOperatorFactory {}
+#[repr(C, align(16))]
 pub struct UUVLayoutOperatorFactory {
-    pub settings: UPtr<UUVLayoutProperties>,
+    __padding_end: [u8; 384],
 }
-#[allow(non_camel_case_types)]
+impl UUVLayoutOperatorFactory {}
 #[repr(transparent)]
 pub struct ERecomputeUVsPropertiesIslandMode(pub i32);
 impl ERecomputeUVsPropertiesIslandMode {
@@ -59,7 +49,6 @@ impl ERecomputeUVsPropertiesIslandMode {
         1,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ERecomputeUVsPropertiesUnwrapType(pub i32);
 impl ERecomputeUVsPropertiesUnwrapType {
@@ -76,7 +65,6 @@ impl ERecomputeUVsPropertiesUnwrapType {
         3,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ERecomputeUVsToolOrientationMode(pub i32);
 impl ERecomputeUVsToolOrientationMode {
@@ -87,7 +75,6 @@ impl ERecomputeUVsToolOrientationMode {
         1,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ERecomputeUVsPropertiesLayoutType(pub i32);
 impl ERecomputeUVsPropertiesLayoutType {
@@ -107,7 +94,6 @@ impl ERecomputeUVsPropertiesLayoutType {
         4,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EUVLayoutType(pub i32);
 impl EUVLayoutType {
@@ -116,7 +102,6 @@ impl EUVLayoutType {
     pub const REPACK: EUVLayoutType = EUVLayoutType(2);
     pub const NORMALIZE: EUVLayoutType = EUVLayoutType(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ETexelDensityToolMode(pub i32);
 impl ETexelDensityToolMode {
@@ -124,7 +109,6 @@ impl ETexelDensityToolMode {
     pub const APPLY_TO_WHOLE: ETexelDensityToolMode = ETexelDensityToolMode(1);
     pub const NORMALIZE: ETexelDensityToolMode = ETexelDensityToolMode(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ECSGOperation(pub u8);
 impl ECSGOperation {
@@ -133,21 +117,18 @@ impl ECSGOperation {
     pub const INTERSECT: ECSGOperation = ECSGOperation(2);
     pub const UNION: ECSGOperation = ECSGOperation(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ETrimOperation(pub u8);
 impl ETrimOperation {
     pub const TRIM_A: ETrimOperation = ETrimOperation(0);
     pub const TRIM_B: ETrimOperation = ETrimOperation(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ETrimSide(pub u8);
 impl ETrimSide {
     pub const REMOVE_INSIDE: ETrimSide = ETrimSide(0);
     pub const REMOVE_OUTSIDE: ETrimSide = ETrimSide(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EHoleFillOpFillType(pub u8);
 impl EHoleFillOpFillType {
@@ -157,7 +138,6 @@ impl EHoleFillOpFillType {
     pub const MINIMAL: EHoleFillOpFillType = EHoleFillOpFillType(3);
     pub const SMOOTH: EHoleFillOpFillType = EHoleFillOpFillType(4);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ERemeshSmoothingType(pub u8);
 impl ERemeshSmoothingType {
@@ -165,7 +145,6 @@ impl ERemeshSmoothingType {
     pub const COTANGENT: ERemeshSmoothingType = ERemeshSmoothingType(1);
     pub const MEAN_VALUE: ERemeshSmoothingType = ERemeshSmoothingType(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ERemeshType(pub u8);
 impl ERemeshType {
@@ -173,7 +152,6 @@ impl ERemeshType {
     pub const FULL_PASS: ERemeshType = ERemeshType(1);
     pub const NORMAL_FLOW: ERemeshType = ERemeshType(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EUVProjectionMethod(pub u8);
 impl EUVProjectionMethod {
@@ -182,7 +160,6 @@ impl EUVProjectionMethod {
     pub const PLANE: EUVProjectionMethod = EUVProjectionMethod(2);
     pub const EXP_MAP: EUVProjectionMethod = EUVProjectionMethod(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ENormalCalculationMethod(pub u8);
 impl ENormalCalculationMethod {
@@ -192,7 +169,6 @@ impl ENormalCalculationMethod {
         2,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ESplitNormalMethod(pub u8);
 impl ESplitNormalMethod {
@@ -202,7 +178,6 @@ impl ESplitNormalMethod {
     pub const PER_TRIANGLE: ESplitNormalMethod = ESplitNormalMethod(3);
     pub const PER_VERTEX: ESplitNormalMethod = ESplitNormalMethod(4);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EFlattenCurveMethod(pub u8);
 impl EFlattenCurveMethod {
@@ -212,7 +187,6 @@ impl EFlattenCurveMethod {
     pub const ALONG_Y: EFlattenCurveMethod = EFlattenCurveMethod(3);
     pub const ALONG_Z: EFlattenCurveMethod = EFlattenCurveMethod(4);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ECombineCurvesMethod(pub u8);
 impl ECombineCurvesMethod {
@@ -222,14 +196,12 @@ impl ECombineCurvesMethod {
     pub const DIFFERENCE: ECombineCurvesMethod = ECombineCurvesMethod(3);
     pub const EXCLUSIVE_OR: ECombineCurvesMethod = ECombineCurvesMethod(4);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EOffsetOpenCurvesMethod(pub u8);
 impl EOffsetOpenCurvesMethod {
     pub const TREAT_AS_CLOSED: EOffsetOpenCurvesMethod = EOffsetOpenCurvesMethod(0);
     pub const OFFSET: EOffsetOpenCurvesMethod = EOffsetOpenCurvesMethod(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EOffsetClosedCurvesMethod(pub u8);
 impl EOffsetClosedCurvesMethod {
@@ -241,7 +213,6 @@ impl EOffsetClosedCurvesMethod {
         2,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EOpenCurveEndShapes(pub u8);
 impl EOpenCurveEndShapes {
@@ -249,7 +220,6 @@ impl EOpenCurveEndShapes {
     pub const ROUND: EOpenCurveEndShapes = EOpenCurveEndShapes(1);
     pub const BUTT: EOpenCurveEndShapes = EOpenCurveEndShapes(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EOffsetJoinMethod(pub u8);
 impl EOffsetJoinMethod {
@@ -257,7 +227,6 @@ impl EOffsetJoinMethod {
     pub const MITER: EOffsetJoinMethod = EOffsetJoinMethod(1);
     pub const ROUND: EOffsetJoinMethod = EOffsetJoinMethod(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMorphologyOperation(pub u8);
 impl EMorphologyOperation {

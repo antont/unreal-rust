@@ -6,89 +6,116 @@ pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[repr(C, align(8))]
 pub struct FInterchangeTestScreenshotParameters {
-    pub b_auto_focus: bool,
-    pub camera_location: crate::bindings::core_u_object::FVector,
-    pub camera_rotation: crate::bindings::core_u_object::FRotator,
-    pub focus_actor_name: FString,
-    pub focus_actor_class: TSubclassOf<crate::bindings::engine::AActor>,
-    pub comparison_tolerance: crate::bindings::functional_testing::EComparisonTolerance,
-    pub view_mode: crate::bindings::engine::EViewModeIndex,
-    pub wireframe_opacity: f32,
+    __padding_end: [u8; 88],
 }
-#[repr(C, align(8))]
-pub struct FInterchangeTestFunctionResult {
-    pub infos: TArray<FString>,
-    pub warnings: TArray<FString>,
-    pub errors: TArray<FString>,
-}
-#[repr(C, align(8))]
-pub struct FInterchangeTestFunction {
-    pub asset_class: TSubclassOf<crate::bindings::core_u_object::UObject>,
-    pub optional_asset_name: FString,
-    pub check_function: UPtr<crate::bindings::core_u_object::UFunction>,
-    pub parameters: TMap<FName, FString>,
-}
+impl FInterchangeTestScreenshotParameters {}
 #[repr(C, align(8))]
 pub struct FInterchangeTestPlanPipelineSettings {
-    pub custom_pipelines: TArray<
-        UPtr<crate::bindings::interchange_core::UInterchangePipelineBase>,
-    >,
-    pub parent_test_step: UPtr<UInterchangeImportTestStepBase>,
+    __padding_end: [u8; 24],
 }
+impl FInterchangeTestPlanPipelineSettings {}
+#[repr(C, align(8))]
 pub struct UInterchangeImportTestSettings {
-    pub import_tests_path: FString,
-    pub import_files: TArray<FString>,
+    __padding_end: [u8; 80],
 }
-pub struct UImportTestFunctionsBase {}
-pub struct UActorImportTestFunctions {}
-pub struct UAnimationImportTestFunctions {}
-pub struct UAssetImportTestFunctions {}
-pub struct UInterchangeResultImportTestFunctions {}
-pub struct ULevelSequenceImportTestFunctions {}
-pub struct ULevelVariantSetsImportTestFunctions {}
-pub struct ULightImportTestFunctions {}
-pub struct UMaterialImportTestFunctions {}
-pub struct UMaterialXTestFunctions {}
-pub struct UPointLightImportTestFunctions {}
-pub struct USkeletalMeshImportTestFunctions {}
-pub struct USpotLightImportTestFunctions {}
-pub struct UStaticMeshImportTestFunctions {}
-pub struct UTextureImportTestFunctions {}
+impl UInterchangeImportTestSettings {}
+#[repr(C, align(8))]
+pub struct UImportTestFunctionsBase {
+    __padding_end: [u8; 48],
+}
+impl UImportTestFunctionsBase {}
+#[repr(C, align(8))]
+pub struct UActorImportTestFunctions {
+    __padding_end: [u8; 48],
+}
+impl UActorImportTestFunctions {}
+#[repr(C, align(8))]
+pub struct UAnimationImportTestFunctions {
+    __padding_end: [u8; 48],
+}
+impl UAnimationImportTestFunctions {}
+#[repr(C, align(8))]
+pub struct UAssetImportTestFunctions {
+    __padding_end: [u8; 48],
+}
+impl UAssetImportTestFunctions {}
+#[repr(C, align(8))]
+pub struct UInterchangeResultImportTestFunctions {
+    __padding_end: [u8; 48],
+}
+impl UInterchangeResultImportTestFunctions {}
+#[repr(C, align(8))]
+pub struct ULevelSequenceImportTestFunctions {
+    __padding_end: [u8; 48],
+}
+impl ULevelSequenceImportTestFunctions {}
+#[repr(C, align(8))]
+pub struct ULevelVariantSetsImportTestFunctions {
+    __padding_end: [u8; 48],
+}
+impl ULevelVariantSetsImportTestFunctions {}
+#[repr(C, align(8))]
+pub struct ULightImportTestFunctions {
+    __padding_end: [u8; 48],
+}
+impl ULightImportTestFunctions {}
+#[repr(C, align(8))]
+pub struct UMaterialImportTestFunctions {
+    __padding_end: [u8; 48],
+}
+impl UMaterialImportTestFunctions {}
+#[repr(C, align(8))]
+pub struct UMaterialXTestFunctions {
+    __padding_end: [u8; 48],
+}
+impl UMaterialXTestFunctions {}
+#[repr(C, align(8))]
+pub struct UPointLightImportTestFunctions {
+    __padding_end: [u8; 48],
+}
+impl UPointLightImportTestFunctions {}
+#[repr(C, align(8))]
+pub struct USkeletalMeshImportTestFunctions {
+    __padding_end: [u8; 48],
+}
+impl USkeletalMeshImportTestFunctions {}
+#[repr(C, align(8))]
+pub struct USpotLightImportTestFunctions {
+    __padding_end: [u8; 48],
+}
+impl USpotLightImportTestFunctions {}
+#[repr(C, align(8))]
+pub struct UStaticMeshImportTestFunctions {
+    __padding_end: [u8; 48],
+}
+impl UStaticMeshImportTestFunctions {}
+#[repr(C, align(8))]
+pub struct UTextureImportTestFunctions {
+    __padding_end: [u8; 48],
+}
+impl UTextureImportTestFunctions {}
+#[repr(C, align(8))]
 pub struct UInterchangeImportTestPlan {
-    pub description: FString,
-    pub steps_deprecated: TArray<UPtr<UInterchangeImportTestStepBase>>,
-    pub world_path: crate::bindings::core_u_object::FSoftObjectPath,
-    pub import_step: UPtr<UInterchangeImportTestStepImport>,
-    pub reimport_stack: TArray<UPtr<UInterchangeImportTestStepReimport>>,
+    __padding_end: [u8; 160],
 }
+impl UInterchangeImportTestPlan {}
+#[repr(C, align(8))]
 pub struct UInterchangeImportTestStepBase {
-    pub tests: TArray<FInterchangeTestFunction>,
+    __padding_end: [u8; 72],
 }
+impl UInterchangeImportTestStepBase {}
+#[repr(C, align(8))]
 pub struct UInterchangeImportTestStepImport {
-    pub source_file: crate::bindings::core_u_object::FFilePath,
-    pub b_use_override_pipeline_stack: bool,
-    pub pipeline_stack: TArray<
-        UPtr<crate::bindings::interchange_core::UInterchangePipelineBase>,
-    >,
-    pub pipeline_settings: FInterchangeTestPlanPipelineSettings,
-    pub b_empty_destination_folder_prior_to_import: bool,
-    pub b_import_into_level: bool,
-    pub b_take_screenshot: bool,
-    pub screenshot_parameters: FInterchangeTestScreenshotParameters,
-    pub last_source_file_extension: FString,
+    __padding_end: [u8; 280],
 }
+impl UInterchangeImportTestStepImport {}
+#[repr(C, align(8))]
 pub struct UInterchangeImportTestStepReimport {
-    pub source_file_to_reimport: crate::bindings::core_u_object::FFilePath,
-    pub b_use_override_pipeline_stack: bool,
-    pub pipeline_stack: TArray<
-        UPtr<crate::bindings::interchange_core::UInterchangePipelineBase>,
-    >,
-    pub pipeline_settings: FInterchangeTestPlanPipelineSettings,
-    pub b_import_into_level: bool,
-    pub asset_type_to_reimport: TSubclassOf<crate::bindings::core_u_object::UObject>,
-    pub asset_name_to_reimport: FString,
-    pub b_take_screenshot: bool,
-    pub screenshot_parameters: FInterchangeTestScreenshotParameters,
-    pub last_source_file_extension: FString,
+    __padding_end: [u8; 288],
 }
-pub struct UInterchangeTestsBlueprintFunctionLibrary {}
+impl UInterchangeImportTestStepReimport {}
+#[repr(C, align(8))]
+pub struct UInterchangeTestsBlueprintFunctionLibrary {
+    __padding_end: [u8; 48],
+}
+impl UInterchangeTestsBlueprintFunctionLibrary {}

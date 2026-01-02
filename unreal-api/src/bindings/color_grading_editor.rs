@@ -4,5 +4,13 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
-pub struct UColorGradingMixerContextObject {}
-pub struct UColorGradingMixerObjectFilter {}
+#[repr(C, align(8))]
+pub struct UColorGradingMixerContextObject {
+    __padding_end: [u8; 48],
+}
+impl UColorGradingMixerContextObject {}
+#[repr(C, align(8))]
+pub struct UColorGradingMixerObjectFilter {
+    __padding_end: [u8; 48],
+}
+impl UColorGradingMixerObjectFilter {}

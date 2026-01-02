@@ -4,16 +4,6 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
-#[repr(C, align(16))]
-pub struct FBoneClipboardData {
-    pub bone_name: FName,
-    pub global: crate::bindings::core_u_object::FTransform,
-    pub parent_index: i32,
-}
-#[repr(C, align(8))]
-pub struct FHierarchyClipboardData {
-    pub bones: TArray<FBoneClipboardData>,
-}
 #[repr(C, align(8))]
 pub struct FMirrorOptions {
     pub mirror_axis: crate::bindings::core_u_object::EAxis,
@@ -21,7 +11,9 @@ pub struct FMirrorOptions {
     pub left_string: FString,
     pub right_string: FString,
     pub b_mirror_children: bool,
+    __padding_end: [u8; 7],
 }
+impl FMirrorOptions {}
 #[repr(C, align(8))]
 pub struct FOrientOptions {
     pub primary: EOrientAxis,
@@ -29,21 +21,24 @@ pub struct FOrientOptions {
     pub b_use_plane_as_secondary: bool,
     pub secondary_target: crate::bindings::core_u_object::FVector,
     pub b_orient_children: bool,
+    __padding_end: [u8; 7],
 }
+impl FOrientOptions {}
+#[repr(C, align(8))]
 pub struct USkeletonModifier {
-    pub skeletal_mesh: TWeakObjectPtr<crate::bindings::engine::USkeletalMesh>,
-    pub weak_dynamic_mesh: TWeakObjectPtr<
-        crate::bindings::geometry_framework::UDynamicMesh,
-    >,
+    __padding_end: [u8; 112],
 }
+impl USkeletonModifier {}
+#[repr(C, align(8))]
 pub struct USkeletalMeshMergeOptions {
-    pub merge_type: ESKeletalMeshMergeType,
-    pub b_merge_all: bool,
+    __padding_end: [u8; 56],
 }
+impl USkeletalMeshMergeOptions {}
+#[repr(C, align(8))]
 pub struct USkinWeightModifier {
-    pub mesh: UPtr<crate::bindings::engine::USkeletalMesh>,
+    __padding_end: [u8; 80],
 }
-#[allow(non_camel_case_types)]
+impl USkinWeightModifier {}
 #[repr(transparent)]
 pub struct EOrientAxis(pub u8);
 impl EOrientAxis {
@@ -55,7 +50,6 @@ impl EOrientAxis {
     pub const NEGATIVE_Y: EOrientAxis = EOrientAxis(5);
     pub const NEGATIVE_Z: EOrientAxis = EOrientAxis(6);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ESKeletalMeshMergeType(pub u8);
 impl ESKeletalMeshMergeType {

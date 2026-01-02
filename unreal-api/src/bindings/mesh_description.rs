@@ -8,22 +8,49 @@ pub use crate::core_data::*;
 pub struct FElementID {
     pub id_value: i32,
 }
+impl FElementID {}
 #[repr(C, align(4))]
-pub struct FVertexID {}
-#[repr(C, align(4))]
-pub struct FVertexInstanceID {}
-#[repr(C, align(4))]
-pub struct FEdgeID {}
-#[repr(C, align(4))]
-pub struct FUVID {}
-#[repr(C, align(4))]
-pub struct FTriangleID {}
-#[repr(C, align(4))]
-pub struct FPolygonGroupID {}
-#[repr(C, align(4))]
-pub struct FPolygonID {}
-pub struct UMeshDescriptionBase {}
-pub struct UMeshDescriptionBaseBulkData {
-    pub preallocated_mesh_description: UPtr<UMeshDescriptionBase>,
-    pub mesh_description: UPtr<UMeshDescriptionBase>,
+pub struct FVertexID {
+    __padding_end: [u8; 4],
 }
+impl FVertexID {}
+#[repr(C, align(4))]
+pub struct FVertexInstanceID {
+    __padding_end: [u8; 4],
+}
+impl FVertexInstanceID {}
+#[repr(C, align(4))]
+pub struct FEdgeID {
+    __padding_end: [u8; 4],
+}
+impl FEdgeID {}
+#[repr(C, align(4))]
+pub struct FUVID {
+    __padding_end: [u8; 4],
+}
+impl FUVID {}
+#[repr(C, align(4))]
+pub struct FTriangleID {
+    __padding_end: [u8; 4],
+}
+impl FTriangleID {}
+#[repr(C, align(4))]
+pub struct FPolygonGroupID {
+    __padding_end: [u8; 4],
+}
+impl FPolygonGroupID {}
+#[repr(C, align(4))]
+pub struct FPolygonID {
+    __padding_end: [u8; 4],
+}
+impl FPolygonID {}
+#[repr(C, align(8))]
+pub struct UMeshDescriptionBase {
+    __padding_end: [u8; 760],
+}
+impl UMeshDescriptionBase {}
+#[repr(C, align(8))]
+pub struct UMeshDescriptionBaseBulkData {
+    __padding_end: [u8; 72],
+}
+impl UMeshDescriptionBaseBulkData {}

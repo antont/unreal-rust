@@ -4,8 +4,8 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
+#[repr(C, align(8))]
 pub struct UMoviePlayerSettings {
-    pub b_wait_for_movies_to_complete: bool,
-    pub b_movies_are_skippable: bool,
-    pub startup_movies: TArray<FString>,
+    __padding_end: [u8; 72],
 }
+impl UMoviePlayerSettings {}

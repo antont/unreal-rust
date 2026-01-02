@@ -5,20 +5,20 @@
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[repr(C, align(8))]
-pub struct FNiagaraVariableCommonReference {
-    pub name: FName,
-    pub underlying_type: UPtr<crate::bindings::core_u_object::UObject>,
+pub struct UNiagaraNotifyOnChanged {
+    __padding_end: [u8; 80],
 }
+impl UNiagaraNotifyOnChanged {}
 #[repr(C, align(8))]
-pub struct FNiagaraCompileHash {
-    pub data_hash: TArray<u8>,
+pub struct UNiagaraDataInterfaceBase {
+    __padding_end: [u8; 80],
 }
-pub struct UNiagaraNotifyOnChanged {}
-pub struct UNiagaraDataInterfaceBase {}
+impl UNiagaraDataInterfaceBase {}
+#[repr(C, align(8))]
 pub struct UNiagaraMergeable {
-    pub merge_id: crate::bindings::core_u_object::FGuid,
+    __padding_end: [u8; 96],
 }
-#[allow(non_camel_case_types)]
+impl UNiagaraMergeable {}
 #[repr(transparent)]
 pub struct ENiagaraIterationSource(pub u8);
 impl ENiagaraIterationSource {

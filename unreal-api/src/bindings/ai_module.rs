@@ -10,6 +10,7 @@ pub struct FActorPerceptionUpdateInfo {
     pub target: TWeakObjectPtr<crate::bindings::engine::AActor>,
     pub stimulus: FAIStimulus,
 }
+impl FActorPerceptionUpdateInfo {}
 #[repr(C, align(8))]
 pub struct FAIStimulus {
     pub age: f32,
@@ -18,39 +19,22 @@ pub struct FAIStimulus {
     pub stimulus_location: crate::bindings::core_u_object::FVector,
     pub receiver_location: crate::bindings::core_u_object::FVector,
     pub tag: FName,
+    #[doc(hidden)]
+    __padding_92: [u8; 16],
     pub flags_92: u8,
+    __padding_end: [u8; 3],
 }
+impl FAIStimulus {}
 #[repr(C, align(4))]
 pub struct FAIRequestID {
-    pub request_id: u32,
+    __padding_end: [u8; 4],
 }
+impl FAIRequestID {}
 #[repr(C, align(1))]
 pub struct FGenericTeamId {
     pub team_id: u8,
 }
-#[repr(C, align(4))]
-pub struct FSimpleIndexedHandleBase {}
-#[repr(C, align(4))]
-pub struct FIndexedHandleBase {}
-#[repr(C, align(4))]
-pub struct FCompactIndexedHandleBase {}
-#[repr(C, align(4))]
-pub struct FSequentialIDBase {
-    pub value: u32,
-}
-#[repr(C, align(8))]
-pub struct FAIMoveRequest {
-    pub goal_actor: TWeakObjectPtr<crate::bindings::engine::AActor>,
-}
-#[repr(C, align(4))]
-pub struct FIntervalCountdown {
-    pub interval: f32,
-}
-#[repr(C, align(8))]
-pub struct FBehaviorTreeTemplateInfo {
-    pub asset: UPtr<UBehaviorTree>,
-    pub template: UPtr<UBTCompositeNode>,
-}
+impl FGenericTeamId {}
 #[repr(C, align(8))]
 pub struct FBlackboardKeySelector {
     pub allowed_types: TArray<UPtr<UBlackboardKeyType>>,
@@ -58,195 +42,96 @@ pub struct FBlackboardKeySelector {
     pub selected_key_type: TSubclassOf<UBlackboardKeyType>,
     pub selected_key_id: i32,
     pub flags_44: u8,
+    __padding_end: [u8; 3],
 }
-#[repr(C, align(8))]
-pub struct FBlackboardEntry {
-    pub entry_name: FName,
-    pub entry_description: FString,
-    pub entry_category: FName,
-    pub key_type: UPtr<UBlackboardKeyType>,
-    pub flags_56: u8,
-}
-#[repr(C, align(2))]
-pub struct FBTDecoratorLogic {
-    pub operation: EBTDecoratorLogic,
-    pub number: u16,
-}
-#[repr(C, align(8))]
-pub struct FBTCompositeChild {
-    pub child_composite: UPtr<UBTCompositeNode>,
-    pub child_task: UPtr<UBTTaskNode>,
-    pub decorators: TArray<UPtr<UBTDecorator>>,
-    pub decorator_ops: TArray<FBTDecoratorLogic>,
-}
+impl FBlackboardKeySelector {}
 #[repr(C, align(8))]
 pub struct FValueOrBlackboardKeyBase {
+    #[doc(hidden)]
+    __padding_8: [u8; 8],
     pub key: FName,
+    __padding_end: [u8; 4],
 }
+impl FValueOrBlackboardKeyBase {}
 #[repr(C, align(8))]
 pub struct FValueOrBBKey_Bool {
-    pub default_value: bool,
+    __padding_end: [u8; 32],
 }
+impl FValueOrBBKey_Bool {}
 #[repr(C, align(8))]
 pub struct FValueOrBBKey_Class {
-    pub default_value: TSubclassOf<crate::bindings::core_u_object::UObject>,
-    pub base_class: TSubclassOf<crate::bindings::core_u_object::UObject>,
+    __padding_end: [u8; 40],
 }
+impl FValueOrBBKey_Class {}
 #[repr(C, align(8))]
 pub struct FValueOrBBKey_Enum {
-    pub default_value: u8,
-    pub enum_type: UPtr<crate::bindings::core_u_object::UEnum>,
-    pub native_enum_type_name: FString,
+    __padding_end: [u8; 56],
 }
+impl FValueOrBBKey_Enum {}
 #[repr(C, align(8))]
 pub struct FValueOrBBKey_Float {
-    pub default_value: f32,
+    __padding_end: [u8; 32],
 }
+impl FValueOrBBKey_Float {}
 #[repr(C, align(8))]
 pub struct FValueOrBBKey_Int32 {
-    pub default_value: i32,
+    __padding_end: [u8; 32],
 }
+impl FValueOrBBKey_Int32 {}
 #[repr(C, align(8))]
 pub struct FValueOrBBKey_Name {
-    pub default_value: FName,
+    __padding_end: [u8; 40],
 }
+impl FValueOrBBKey_Name {}
 #[repr(C, align(8))]
 pub struct FValueOrBBKey_String {
-    pub default_value: FString,
+    __padding_end: [u8; 40],
 }
+impl FValueOrBBKey_String {}
 #[repr(C, align(8))]
 pub struct FValueOrBBKey_Object {
-    pub default_value: UPtr<crate::bindings::core_u_object::UObject>,
-    pub base_class: TSubclassOf<crate::bindings::core_u_object::UObject>,
+    __padding_end: [u8; 40],
 }
+impl FValueOrBBKey_Object {}
 #[repr(C, align(8))]
 pub struct FValueOrBBKey_Rotator {
-    pub default_value: crate::bindings::core_u_object::FRotator,
+    __padding_end: [u8; 48],
 }
+impl FValueOrBBKey_Rotator {}
 #[repr(C, align(8))]
 pub struct FValueOrBBKey_Vector {
-    pub default_value: crate::bindings::core_u_object::FVector,
+    __padding_end: [u8; 48],
 }
+impl FValueOrBBKey_Vector {}
 #[repr(C, align(8))]
 pub struct FValueOrBBKey_Struct {
-    pub default_value: crate::bindings::core_u_object::FInstancedStruct,
-    pub b_can_edit_default_value_type: bool,
+    __padding_end: [u8; 48],
 }
-#[repr(C, align(8))]
-pub struct FAIDataProviderValue {
-    pub data_binding: UPtr<UAIDataProvider>,
-    pub data_field: FName,
-}
-#[repr(C, align(8))]
-pub struct FAIDataProviderTypedValue {
-    pub property_type_deprecated: TSubclassOf<crate::bindings::core_u_object::UObject>,
-}
-#[repr(C, align(8))]
-pub struct FAIDataProviderStructValue {}
-#[repr(C, align(8))]
-pub struct FAIDataProviderIntValue {
-    pub default_value: i32,
-}
-#[repr(C, align(8))]
-pub struct FAIDataProviderFloatValue {
-    pub default_value: f32,
-}
-#[repr(C, align(8))]
-pub struct FAIDataProviderBoolValue {
-    pub default_value: bool,
-}
-#[repr(C, align(8))]
-pub struct FEnvQueryManagerConfig {
-    pub max_allowed_testing_time: f32,
-    pub b_test_queries_using_breadth: bool,
-    pub query_count_warning_threshold: i32,
-    pub query_count_warning_interval: f64,
-    pub execution_time_warning_seconds: f64,
-    pub handling_result_time_warning_seconds: f64,
-    pub generation_time_warning_seconds: f64,
-}
-#[repr(C, align(8))]
-pub struct FEnvQueryRequest {
-    pub query_template: UPtr<UEnvQuery>,
-    pub owner: UPtr<crate::bindings::core_u_object::UObject>,
-    pub world: UPtr<crate::bindings::engine::UWorld>,
-}
-#[repr(C, align(8))]
-pub struct FEnvQueryInstanceCache {
-    pub template: UPtr<UEnvQuery>,
-    pub instance: FEnvQueryInstance,
-}
+impl FValueOrBBKey_Struct {}
 #[repr(C, align(8))]
 pub struct FEnvQueryResult {
+    #[doc(hidden)]
+    __padding_16: [u8; 16],
     pub item_type: TSubclassOf<UEnvQueryItemType>,
+    #[doc(hidden)]
+    __padding_44: [u8; 20],
     pub option_index: i32,
     pub query_id: i32,
+    __padding_end: [u8; 12],
 }
+impl FEnvQueryResult {}
 #[repr(C, align(8))]
 pub struct FEnvQueryInstance {
-    pub world: UPtr<crate::bindings::engine::UWorld>,
-    pub context_cache: TArray<FEnvQueryInstanceContextCacheItem>,
-    pub options: TArray<FEnvQueryOptionInstance>,
-    pub item_type_vector_cdo: UPtr<UEnvQueryItemType_VectorBase>,
-    pub item_type_actor_cdo: UPtr<UEnvQueryItemType_ActorBase>,
+    __padding_end: [u8; 448],
 }
-#[repr(C, align(8))]
-pub struct FEnvQueryOptionInstance {
-    pub generator: UPtr<UEnvQueryGenerator>,
-    pub tests: TArray<UPtr<UEnvQueryTest>>,
-    pub item_type: TSubclassOf<UEnvQueryItemType>,
-}
-#[repr(C, align(8))]
-pub struct FEnvQueryInstanceContextCacheItem {
-    pub class: TSubclassOf<crate::bindings::core_u_object::UObject>,
-    pub context_data: FEnvQueryContextData,
-}
-#[repr(C, align(8))]
-pub struct FEnvQueryContextData {
-    pub value_type: TSubclassOf<UEnvQueryItemType>,
-}
+impl FEnvQueryInstance {}
 #[repr(C, align(4))]
 pub struct FEnvNamedValue {
     pub param_name: FName,
     pub param_type: EAIParamType,
     pub value: f32,
 }
-#[repr(C, align(8))]
-pub struct FEnvDirection {
-    pub line_from: TSubclassOf<UEnvQueryContext>,
-    pub line_to: TSubclassOf<UEnvQueryContext>,
-    pub rotation: TSubclassOf<UEnvQueryContext>,
-    pub dir_mode: EEnvDirection,
-}
-#[repr(C, align(8))]
-pub struct FEnvTraceData {
-    pub version_num: i32,
-    pub navigation_filter: TSubclassOf<
-        crate::bindings::navigation_system::UNavigationQueryFilter,
-    >,
-    pub project_down: f32,
-    pub project_up: f32,
-    pub extent_x: f32,
-    pub extent_y: f32,
-    pub extent_z: f32,
-    pub post_projection_vertical_offset: f32,
-    pub trace_channel: crate::bindings::engine::ETraceTypeQuery,
-    pub serialized_channel: crate::bindings::engine::ECollisionChannel,
-    pub trace_profile_name: FName,
-    pub trace_shape: EEnvTraceShape,
-    pub trace_mode: EEnvQueryTrace,
-    pub flags_60: u8,
-}
-#[repr(C, align(8))]
-pub struct FEnvOverlapData {
-    pub extent_x: f32,
-    pub extent_y: f32,
-    pub extent_z: f32,
-    pub shape_offset: crate::bindings::core_u_object::FVector,
-    pub overlap_channel: crate::bindings::engine::ECollisionChannel,
-    pub overlap_shape: EEnvOverlapShape,
-    pub flags_44: u8,
-}
+impl FEnvNamedValue {}
 #[repr(C, align(8))]
 pub struct FAIDynamicParam {
     pub param_name: FName,
@@ -255,46 +140,21 @@ pub struct FAIDynamicParam {
     pub value: f32,
     pub bb_key: FBlackboardKeySelector,
 }
-#[repr(C, align(8))]
-pub struct FEQSParametrizedQueryExecutionRequest {
-    pub query_template: UPtr<UEnvQuery>,
-    pub query_config: TArray<FAIDynamicParam>,
-    pub eqs_query_blackboard_key: FBlackboardKeySelector,
-    pub run_mode: EEnvQueryRunMode,
-    pub flags_76: u8,
-}
-#[repr(C, align(4))]
-pub struct FCrowdAvoidanceConfig {
-    pub velocity_bias: f32,
-    pub desired_velocity_weight: f32,
-    pub current_velocity_weight: f32,
-    pub side_bias_weight: f32,
-    pub impact_time_weight: f32,
-    pub impact_time_range: f32,
-    pub custom_pattern_idx: u8,
-    pub adaptive_divisions: u8,
-    pub adaptive_rings: u8,
-    pub adaptive_depth: u8,
-}
-#[repr(C, align(8))]
-pub struct FCrowdAvoidanceSamplingPattern {
-    pub angles: TArray<f32>,
-    pub radii: TArray<f32>,
-}
-#[repr(C, align(8))]
-pub struct FRecastGraphWrapper {
-    pub recast_nav_mesh_actor: UPtr<crate::bindings::navigation_system::ARecastNavMesh>,
-}
+impl FAIDynamicParam {}
 #[repr(C, align(8))]
 pub struct FActorPerceptionBlueprintInfo {
     pub target: UPtr<crate::bindings::engine::AActor>,
     pub last_sensed_stimuli: TArray<FAIStimulus>,
     pub flags_24: u8,
+    __padding_end: [u8; 7],
 }
+impl FActorPerceptionBlueprintInfo {}
 #[repr(C, align(4))]
 pub struct FAISenseAffiliationFilter {
     pub flags_0: u8,
+    __padding_end: [u8; 3],
 }
+impl FAISenseAffiliationFilter {}
 #[repr(C, align(8))]
 pub struct FAIDamageEvent {
     pub amount: f32,
@@ -303,59 +163,71 @@ pub struct FAIDamageEvent {
     pub damaged_actor: UPtr<crate::bindings::engine::AActor>,
     pub instigator: UPtr<crate::bindings::engine::AActor>,
     pub tag: FName,
+    __padding_end: [u8; 4],
 }
+impl FAIDamageEvent {}
 #[repr(C, align(8))]
 pub struct FAINoiseEvent {
+    #[doc(hidden)]
+    __padding_8: [u8; 8],
     pub noise_location: crate::bindings::core_u_object::FVector,
     pub loudness: f32,
     pub max_range: f32,
     pub instigator: UPtr<crate::bindings::engine::AActor>,
     pub tag: FName,
+    __padding_end: [u8; 4],
 }
+impl FAINoiseEvent {}
 #[repr(C, align(8))]
-pub struct FAIPredictionEvent {
-    pub requestor: UPtr<crate::bindings::engine::AActor>,
-    pub predicted_actor: UPtr<crate::bindings::engine::AActor>,
-}
-#[repr(C, align(8))]
-pub struct FAISightEvent {
-    pub seen_actor: UPtr<crate::bindings::engine::AActor>,
-    pub observer: UPtr<crate::bindings::engine::AActor>,
-}
-#[repr(C, align(8))]
-pub struct FAITeamStimulusEvent {
-    pub broadcaster: UPtr<crate::bindings::engine::AActor>,
-    pub enemy: UPtr<crate::bindings::engine::AActor>,
-}
-#[repr(C, align(8))]
-pub struct FAITouchEvent {
-    pub touch_receiver: UPtr<crate::bindings::engine::AActor>,
-    pub other_actor: UPtr<crate::bindings::engine::AActor>,
-}
 pub struct UAIAsyncTaskBlueprintProxy {
-    pub on_success: FAIAsyncTaskBlueprintProxy_OnSuccess,
-    pub on_fail: FAIAsyncTaskBlueprintProxy_OnFail,
+    __padding_end: [u8; 128],
 }
+impl UAIAsyncTaskBlueprintProxy {}
 pub struct UAIResourceInterface {}
 pub struct IAIResourceInterface {}
-pub struct UAISenseBlueprintListener {}
+#[repr(C, align(8))]
+pub struct UAISenseBlueprintListener {
+    __padding_end: [u8; 368],
+}
+impl UAISenseBlueprintListener {}
+#[repr(C, align(8))]
 pub struct UAISenseConfig {
+    #[doc(hidden)]
+    __padding_48: [u8; 48],
     pub debug_color: crate::bindings::core_u_object::FColor,
     pub max_age: f32,
     pub flags_56: u8,
+    __padding_end: [u8; 23],
 }
+impl UAISenseConfig {}
+#[repr(C, align(8))]
 pub struct UAISenseConfig_Blueprint {
+    #[doc(hidden)]
+    __padding_80: [u8; 80],
     pub implementation: TSubclassOf<UAISense_Blueprint>,
 }
+impl UAISenseConfig_Blueprint {}
+#[repr(C, align(8))]
 pub struct UAISenseConfig_Hearing {
+    #[doc(hidden)]
+    __padding_80: [u8; 80],
     pub implementation: TSubclassOf<UAISense_Hearing>,
     pub hearing_range: f32,
     pub lo_s_hearing_range: f32,
-    pub flags_96: u8,
+    #[doc(hidden)]
+    __padding_100: [u8; 4],
     pub detection_by_affiliation: FAISenseAffiliationFilter,
 }
-pub struct UAISenseConfig_Prediction {}
+impl UAISenseConfig_Hearing {}
+#[repr(C, align(8))]
+pub struct UAISenseConfig_Prediction {
+    __padding_end: [u8; 80],
+}
+impl UAISenseConfig_Prediction {}
+#[repr(C, align(8))]
 pub struct UAISenseConfig_Sight {
+    #[doc(hidden)]
+    __padding_80: [u8; 80],
     pub implementation: TSubclassOf<UAISense_Sight>,
     pub sight_radius: f32,
     pub lose_sight_radius: f32,
@@ -364,774 +236,990 @@ pub struct UAISenseConfig_Sight {
     pub auto_success_range_from_last_seen_location: f32,
     pub point_of_view_backward_offset: f32,
     pub near_clipping_radius: f32,
+    __padding_end: [u8; 4],
 }
-pub struct UAISenseConfig_Team {}
+impl UAISenseConfig_Sight {}
+#[repr(C, align(8))]
+pub struct UAISenseConfig_Team {
+    __padding_end: [u8; 80],
+}
+impl UAISenseConfig_Team {}
+#[repr(C, align(8))]
 pub struct UAISenseConfig_Touch {
+    #[doc(hidden)]
+    __padding_80: [u8; 80],
     pub detection_by_affiliation: FAISenseAffiliationFilter,
+    __padding_end: [u8; 4],
 }
-pub struct UAISenseEvent {}
+impl UAISenseConfig_Touch {}
+#[repr(C, align(8))]
+pub struct UAISenseEvent {
+    __padding_end: [u8; 48],
+}
+impl UAISenseEvent {}
+#[repr(C, align(8))]
 pub struct UAISenseEvent_Damage {
+    #[doc(hidden)]
+    __padding_48: [u8; 48],
     pub event: FAIDamageEvent,
 }
+impl UAISenseEvent_Damage {}
+#[repr(C, align(8))]
 pub struct UAISenseEvent_Hearing {
+    #[doc(hidden)]
+    __padding_48: [u8; 48],
     pub event: FAINoiseEvent,
 }
+impl UAISenseEvent_Hearing {}
 pub struct UCrowdAgentInterface {}
 pub struct ICrowdAgentInterface {}
 pub struct UEQSQueryResultSourceInterface {}
 pub struct IEQSQueryResultSourceInterface {}
 pub struct UGenericTeamAgentInterface {}
 pub struct IGenericTeamAgentInterface {}
+#[repr(C, align(8))]
 pub struct AAIController {
+    #[doc(hidden)]
+    __padding_1376: [u8; 1376],
     pub flags_1376: u8,
-    pub path_following_component: UPtr<UPathFollowingComponent>,
+    #[doc(hidden)]
+    __padding_1392: [u8; 8],
     pub brain_component: UPtr<UBrainComponent>,
-    pub perception_component: UPtr<UAIPerceptionComponent>,
+    #[doc(hidden)]
+    __padding_1408: [u8; 8],
     pub blackboard: UPtr<UBlackboardComponent>,
-    pub cached_gameplay_tasks_component: UPtr<
-        crate::bindings::gameplay_tasks::UGameplayTasksComponent,
-    >,
+    #[doc(hidden)]
+    __padding_1424: [u8; 8],
     pub default_navigation_filter_class: TSubclassOf<
         crate::bindings::navigation_system::UNavigationQueryFilter,
     >,
-    pub receive_move_completed: FAIController_ReceiveMoveCompleted,
+    __padding_end: [u8; 32],
 }
-pub struct UAIResource_Movement {}
-pub struct UAIResource_Logic {}
+impl AAIController {}
+#[repr(C, align(8))]
+pub struct UAIResource_Movement {
+    __padding_end: [u8; 64],
+}
+impl UAIResource_Movement {}
+#[repr(C, align(8))]
+pub struct UAIResource_Logic {
+    __padding_end: [u8; 64],
+}
+impl UAIResource_Logic {}
+#[repr(C, align(8))]
 pub struct UAISubsystem {
-    pub ai_system: UPtr<UAISystem>,
+    __padding_end: [u8; 64],
 }
+impl UAISubsystem {}
+#[repr(C, align(8))]
 pub struct UAISystem {
-    pub perception_system_class_name: crate::bindings::core_u_object::FSoftClassPath,
-    pub hot_spot_manager_class_name: crate::bindings::core_u_object::FSoftClassPath,
-    pub env_query_manager_class_name: crate::bindings::core_u_object::FSoftClassPath,
-    pub acceptance_radius: f32,
-    pub pathfollowing_regular_path_point_acceptance_radius: f32,
-    pub pathfollowing_nav_link_acceptance_radius: f32,
-    pub b_finish_move_on_goal_overlap: bool,
-    pub b_accept_partial_paths: bool,
-    pub b_allow_strafing: bool,
-    pub b_allow_controllers_as_eqs_querier: bool,
-    pub b_enable_debugger_plugin: bool,
-    pub b_forget_stale_actors: bool,
-    pub b_add_blackboard_self_key: bool,
-    pub b_clear_bb_entry_on_bteqs_fail: bool,
-    pub b_blackboard_key_decorator_allows_none_as_value: bool,
-    pub default_blackboard: TSoftObjectPtr<UBlackboardData>,
-    pub default_sight_collision_channel: crate::bindings::engine::ECollisionChannel,
-    pub behavior_tree_manager: UPtr<UBehaviorTreeManager>,
-    pub environment_query_manager: UPtr<UEnvQueryManager>,
-    pub perception_system: UPtr<UAIPerceptionSystem>,
-    pub all_proxy_objects: TArray<UPtr<UAIAsyncTaskBlueprintProxy>>,
-    pub hot_spot_manager: UPtr<UAIHotSpotManager>,
-    pub nav_local_grids: UPtr<UNavLocalGridManager>,
+    __padding_end: [u8; 472],
 }
+impl UAISystem {}
+#[repr(C, align(8))]
 pub struct UBehaviorTree {
-    pub root_node: UPtr<UBTCompositeNode>,
-    pub bt_graph: UPtr<crate::bindings::engine::UEdGraph>,
-    pub last_edited_documents: TArray<crate::bindings::engine::FEditedDocumentInfo>,
-    pub blackboard_asset: UPtr<UBlackboardData>,
-    pub root_decorators: TArray<UPtr<UBTDecorator>>,
-    pub root_decorator_ops: TArray<FBTDecoratorLogic>,
+    __padding_end: [u8; 136],
 }
+impl UBehaviorTree {}
+#[repr(C, align(8))]
 pub struct UBrainComponent {
-    pub blackboard_comp: UPtr<UBlackboardComponent>,
-    pub ai_owner: UPtr<AAIController>,
+    __padding_end: [u8; 328],
 }
+impl UBrainComponent {}
+#[repr(C, align(8))]
 pub struct UBehaviorTreeComponent {
-    pub node_instances: TArray<UPtr<UBTNode>>,
+    #[doc(hidden)]
+    __padding_848: [u8; 848],
     pub default_behavior_tree_asset: UPtr<UBehaviorTree>,
+    __padding_end: [u8; 32],
 }
+impl UBehaviorTreeComponent {}
+#[repr(C, align(8))]
 pub struct UBehaviorTreeManager {
-    pub max_debugger_steps: i32,
-    pub loaded_templates: TArray<FBehaviorTreeTemplateInfo>,
-    pub active_components: TArray<UPtr<UBehaviorTreeComponent>>,
+    __padding_end: [u8; 88],
 }
-pub struct UBehaviorTreeTypes {}
+impl UBehaviorTreeManager {}
+#[repr(C, align(8))]
+pub struct UBehaviorTreeTypes {
+    __padding_end: [u8; 48],
+}
+impl UBehaviorTreeTypes {}
 pub struct UBlackboardAssetProvider {}
 pub struct IBlackboardAssetProvider {}
+#[repr(C, align(8))]
 pub struct UBlackboardComponent {
-    pub brain_comp: UPtr<UBrainComponent>,
-    pub default_blackboard_asset: UPtr<UBlackboardData>,
-    pub blackboard_asset: UPtr<UBlackboardData>,
-    pub key_instances: TArray<UPtr<UBlackboardKeyType>>,
+    __padding_end: [u8; 504],
 }
+impl UBlackboardComponent {}
+#[repr(C, align(8))]
 pub struct UBlackboardData {
-    pub parent: UPtr<UBlackboardData>,
-    pub parent_keys: TArray<FBlackboardEntry>,
-    pub keys: TArray<FBlackboardEntry>,
-    pub flags_96: u8,
+    __padding_end: [u8; 104],
 }
-pub struct UBlackboardKeyType {}
+impl UBlackboardData {}
+#[repr(C, align(8))]
+pub struct UBlackboardKeyType {
+    __padding_end: [u8; 56],
+}
+impl UBlackboardKeyType {}
+#[repr(C, align(8))]
 pub struct UBlackboardKeyType_Bool {
-    pub b_default_value: bool,
+    __padding_end: [u8; 64],
 }
+impl UBlackboardKeyType_Bool {}
+#[repr(C, align(8))]
 pub struct UBlackboardKeyType_Class {
-    pub base_class: TSubclassOf<crate::bindings::core_u_object::UObject>,
-    pub default_value: TSubclassOf<crate::bindings::core_u_object::UObject>,
+    __padding_end: [u8; 72],
 }
+impl UBlackboardKeyType_Class {}
+#[repr(C, align(8))]
 pub struct UBlackboardKeyType_Enum {
-    pub enum_type: UPtr<crate::bindings::core_u_object::UEnum>,
-    pub enum_name: FString,
-    pub default_value: u8,
-    pub flags_84: u8,
+    __padding_end: [u8; 88],
 }
+impl UBlackboardKeyType_Enum {}
+#[repr(C, align(8))]
 pub struct UBlackboardKeyType_Float {
-    pub default_value: f32,
+    __padding_end: [u8; 64],
 }
+impl UBlackboardKeyType_Float {}
+#[repr(C, align(8))]
 pub struct UBlackboardKeyType_Int {
-    pub default_value: i32,
+    __padding_end: [u8; 64],
 }
+impl UBlackboardKeyType_Int {}
+#[repr(C, align(8))]
 pub struct UBlackboardKeyType_Name {
-    pub default_value: FName,
+    __padding_end: [u8; 72],
 }
+impl UBlackboardKeyType_Name {}
+#[repr(C, align(8))]
 pub struct UBlackboardKeyType_NativeEnum {
-    pub enum_name: FString,
-    pub enum_type: UPtr<crate::bindings::core_u_object::UEnum>,
+    __padding_end: [u8; 80],
 }
+impl UBlackboardKeyType_NativeEnum {}
+#[repr(C, align(8))]
 pub struct UBlackboardKeyType_Object {
-    pub base_class: TSubclassOf<crate::bindings::core_u_object::UObject>,
-    pub default_value: UPtr<crate::bindings::core_u_object::UObject>,
+    __padding_end: [u8; 72],
 }
+impl UBlackboardKeyType_Object {}
+#[repr(C, align(8))]
 pub struct UBlackboardKeyType_Rotator {
-    pub default_value: crate::bindings::core_u_object::FRotator,
-    pub b_use_default_value: bool,
+    __padding_end: [u8; 88],
 }
+impl UBlackboardKeyType_Rotator {}
+#[repr(C, align(8))]
 pub struct UBlackboardKeyType_String {
-    pub string_value: FString,
-    pub default_value: FString,
+    __padding_end: [u8; 88],
 }
+impl UBlackboardKeyType_String {}
+#[repr(C, align(8))]
 pub struct UBlackboardKeyType_Struct {
-    pub default_value: crate::bindings::core_u_object::FInstancedStruct,
-    pub value: crate::bindings::core_u_object::FInstancedStruct,
+    __padding_end: [u8; 88],
 }
+impl UBlackboardKeyType_Struct {}
+#[repr(C, align(8))]
 pub struct UBlackboardKeyType_Vector {
-    pub default_value: crate::bindings::core_u_object::FVector,
-    pub b_use_default_value: bool,
+    __padding_end: [u8; 88],
 }
+impl UBlackboardKeyType_Vector {}
+#[repr(C, align(8))]
 pub struct UBTNode {
-    pub node_name: FString,
-    pub tree_asset: UPtr<UBehaviorTree>,
-    pub parent_node: UPtr<UBTCompositeNode>,
-    pub execution_index: u16,
-    pub memory_offset: u16,
-    pub tree_depth: u8,
-    pub flags_101: u8,
+    __padding_end: [u8; 104],
 }
-pub struct UBTAuxiliaryNode {}
+impl UBTNode {}
+#[repr(C, align(8))]
+pub struct UBTAuxiliaryNode {
+    __padding_end: [u8; 112],
+}
+impl UBTAuxiliaryNode {}
+#[repr(C, align(8))]
 pub struct UBTCompositeNode {
-    pub children: TArray<FBTCompositeChild>,
-    pub services: TArray<UPtr<UBTService>>,
-    pub flags_136: u8,
+    __padding_end: [u8; 144],
 }
+impl UBTCompositeNode {}
+#[repr(C, align(8))]
 pub struct UBTDecorator {
-    pub flags_112: u8,
-    pub flow_abort_mode: EBTFlowAbortMode,
+    __padding_end: [u8; 120],
 }
-pub struct UBTFunctionLibrary {}
+impl UBTDecorator {}
+#[repr(C, align(8))]
+pub struct UBTFunctionLibrary {
+    __padding_end: [u8; 48],
+}
+impl UBTFunctionLibrary {}
+#[repr(C, align(8))]
 pub struct UBTService {
-    pub interval: f32,
-    pub random_deviation: f32,
-    pub flags_120: u8,
+    __padding_end: [u8; 128],
 }
+impl UBTService {}
+#[repr(C, align(8))]
 pub struct UBTTaskNode {
-    pub services: TArray<UPtr<UBTService>>,
-    pub flags_120: u8,
+    __padding_end: [u8; 128],
 }
-pub struct UBTComposite_Selector {}
-pub struct UBTComposite_Sequence {}
+impl UBTTaskNode {}
+#[repr(C, align(8))]
+pub struct UBTComposite_Selector {
+    __padding_end: [u8; 144],
+}
+impl UBTComposite_Selector {}
+#[repr(C, align(8))]
+pub struct UBTComposite_Sequence {
+    __padding_end: [u8; 144],
+}
+impl UBTComposite_Sequence {}
+#[repr(C, align(8))]
 pub struct UBTComposite_SimpleParallel {
-    pub finish_mode: EBTParallelMode,
+    __padding_end: [u8; 152],
 }
+impl UBTComposite_SimpleParallel {}
+#[repr(C, align(8))]
 pub struct UBTDecorator_BlackboardBase {
-    pub blackboard_key: FBlackboardKeySelector,
+    __padding_end: [u8; 168],
 }
+impl UBTDecorator_BlackboardBase {}
+#[repr(C, align(8))]
 pub struct UBTDecorator_Blackboard {
-    pub int_value: i32,
-    pub float_value: f32,
-    pub string_value: FString,
-    pub cached_description: FString,
-    pub operation_type: u8,
-    pub notify_observer: EBTBlackboardRestart,
-    pub basic_operation: EBasicKeyOperation,
-    pub arithmetic_operation: EArithmeticKeyOperation,
-    pub text_operation: ETextKeyOperation,
+    __padding_end: [u8; 216],
 }
+impl UBTDecorator_Blackboard {}
+#[repr(C, align(8))]
 pub struct UBTDecorator_BlueprintBase {
-    pub ai_owner: UPtr<AAIController>,
-    pub actor_owner: UPtr<crate::bindings::engine::AActor>,
-    pub observed_key_names: TArray<FName>,
+    #[doc(hidden)]
+    __padding_168: [u8; 168],
     pub custom_description: FString,
-    pub flags_184: u8,
+    __padding_end: [u8; 8],
 }
+impl UBTDecorator_BlueprintBase {}
+#[repr(C, align(8))]
 pub struct UBTDecorator_CheckGameplayTagsOnActor {
-    pub actor_to_check: FBlackboardKeySelector,
-    pub tags_to_match: crate::bindings::gameplay_tags::EGameplayContainerMatchType,
-    pub gameplay_tags: crate::bindings::gameplay_tags::FGameplayTagContainer,
-    pub cached_description: FString,
+    __padding_end: [u8; 224],
 }
+impl UBTDecorator_CheckGameplayTagsOnActor {}
+#[repr(C, align(8))]
 pub struct UBTDecorator_CompareBBEntries {
-    pub operator: EBlackBoardEntryComparison,
-    pub blackboard_key_a: FBlackboardKeySelector,
-    pub blackboard_key_b: FBlackboardKeySelector,
+    __padding_end: [u8; 224],
 }
-pub struct UBTDecorator_ConditionalLoop {}
+impl UBTDecorator_CompareBBEntries {}
+#[repr(C, align(8))]
+pub struct UBTDecorator_ConditionalLoop {
+    __padding_end: [u8; 216],
+}
+impl UBTDecorator_ConditionalLoop {}
+#[repr(C, align(8))]
 pub struct UBTDecorator_ConeCheck {
-    pub cone_half_angle: FValueOrBBKey_Float,
-    pub cone_origin: FBlackboardKeySelector,
-    pub cone_direction: FBlackboardKeySelector,
-    pub observed: FBlackboardKeySelector,
+    __padding_end: [u8; 296],
 }
+impl UBTDecorator_ConeCheck {}
+#[repr(C, align(8))]
 pub struct UBTDecorator_Cooldown {
-    pub cool_down_time: FValueOrBBKey_Float,
+    __padding_end: [u8; 152],
 }
+impl UBTDecorator_Cooldown {}
+#[repr(C, align(8))]
 pub struct UBTDecorator_DoesPathExist {
-    pub blackboard_key_a: FBlackboardKeySelector,
-    pub blackboard_key_b: FBlackboardKeySelector,
-    pub flags_216: u8,
-    pub path_query_type: FValueOrBBKey_Enum,
-    pub filter_class: FValueOrBBKey_Class,
+    __padding_end: [u8; 320],
 }
-pub struct UBTDecorator_ForceSuccess {}
+impl UBTDecorator_DoesPathExist {}
+#[repr(C, align(8))]
+pub struct UBTDecorator_ForceSuccess {
+    __padding_end: [u8; 120],
+}
+impl UBTDecorator_ForceSuccess {}
+#[repr(C, align(8))]
 pub struct UBTDecorator_IsAtLocation {
-    pub acceptable_radius: f32,
-    pub parametrized_acceptable_radius: FAIDataProviderFloatValue,
-    pub geometric_distance_type: FAIDistanceType,
-    pub flags_244: u8,
-    pub b_use_nav_agent_goal_location: FValueOrBBKey_Bool,
-    pub b_path_finding_based_test: FValueOrBBKey_Bool,
+    __padding_end: [u8; 312],
 }
+impl UBTDecorator_IsAtLocation {}
+#[repr(C, align(8))]
 pub struct UBTDecorator_IsBBEntryOfClass {
-    pub test_class: FValueOrBBKey_Class,
+    __padding_end: [u8; 208],
 }
+impl UBTDecorator_IsBBEntryOfClass {}
+#[repr(C, align(8))]
 pub struct UBTDecorator_KeepInCone {
-    pub cone_half_angle: FValueOrBBKey_Float,
-    pub cone_origin: FBlackboardKeySelector,
-    pub observed: FBlackboardKeySelector,
-    pub flags_248: u8,
+    __padding_end: [u8; 256],
 }
+impl UBTDecorator_KeepInCone {}
+#[repr(C, align(8))]
 pub struct UBTDecorator_Loop {
-    pub num_loops: FValueOrBBKey_Int32,
-    pub b_infinite_loop: bool,
-    pub infinite_loop_timeout_time: FValueOrBBKey_Float,
+    __padding_end: [u8; 192],
 }
+impl UBTDecorator_Loop {}
+#[repr(C, align(8))]
 pub struct UBTDecorator_LoopUntil {
-    pub required_result: FValueOrBBKey_Enum,
+    __padding_end: [u8; 176],
 }
-pub struct UBTDecorator_ReachedMoveGoal {}
+impl UBTDecorator_LoopUntil {}
+#[repr(C, align(8))]
+pub struct UBTDecorator_ReachedMoveGoal {
+    __padding_end: [u8; 120],
+}
+impl UBTDecorator_ReachedMoveGoal {}
+#[repr(C, align(8))]
 pub struct UBTDecorator_SetTagCooldown {
-    pub cooldown_tag: crate::bindings::gameplay_tags::FGameplayTag,
-    pub cooldown_duration: FValueOrBBKey_Float,
-    pub b_add_to_existing_duration: FValueOrBBKey_Bool,
+    __padding_end: [u8; 200],
 }
+impl UBTDecorator_SetTagCooldown {}
+#[repr(C, align(8))]
 pub struct UBTDecorator_TagCooldown {
-    pub cooldown_tag: crate::bindings::gameplay_tags::FGameplayTag,
-    pub cooldown_duration: FValueOrBBKey_Float,
-    pub b_add_to_existing_duration: FValueOrBBKey_Bool,
-    pub b_activates_cooldown: FValueOrBBKey_Bool,
+    __padding_end: [u8; 232],
 }
+impl UBTDecorator_TagCooldown {}
+#[repr(C, align(8))]
 pub struct UBTDecorator_TimeLimit {
-    pub time_limit: FValueOrBBKey_Float,
+    __padding_end: [u8; 152],
 }
+impl UBTDecorator_TimeLimit {}
+#[repr(C, align(8))]
 pub struct UBTService_BlackboardBase {
-    pub blackboard_key: FBlackboardKeySelector,
+    __padding_end: [u8; 176],
 }
+impl UBTService_BlackboardBase {}
+#[repr(C, align(8))]
 pub struct UBTService_BlueprintBase {
-    pub ai_owner: UPtr<AAIController>,
-    pub actor_owner: UPtr<crate::bindings::engine::AActor>,
+    #[doc(hidden)]
+    __padding_160: [u8; 160],
     pub custom_description: FString,
-    pub flags_176: u8,
+    __padding_end: [u8; 8],
 }
+impl UBTService_BlueprintBase {}
+#[repr(C, align(8))]
 pub struct UBTService_DefaultFocus {
-    pub focus_priority: u8,
+    __padding_end: [u8; 184],
 }
+impl UBTService_DefaultFocus {}
+#[repr(C, align(8))]
 pub struct UBTService_RunEQS {
-    pub eqs_request: FEQSParametrizedQueryExecutionRequest,
-    pub b_update_bb_on_fail: bool,
+    __padding_end: [u8; 288],
 }
+impl UBTService_RunEQS {}
+#[repr(C, align(8))]
 pub struct UBTTask_BlackboardBase {
-    pub blackboard_key: FBlackboardKeySelector,
+    __padding_end: [u8; 176],
 }
+impl UBTTask_BlackboardBase {}
+#[repr(C, align(8))]
 pub struct UBTTask_BlueprintBase {
-    pub ai_owner: UPtr<AAIController>,
-    pub actor_owner: UPtr<crate::bindings::engine::AActor>,
-    pub tick_interval: FIntervalCountdown,
+    #[doc(hidden)]
+    __padding_176: [u8; 176],
     pub custom_description: FString,
-    pub flags_192: u8,
+    __padding_end: [u8; 8],
 }
+impl UBTTask_BlueprintBase {}
+#[repr(C, align(8))]
 pub struct UBTTask_FinishWithResult {
-    pub result: FValueOrBBKey_Enum,
+    __padding_end: [u8; 184],
 }
+impl UBTTask_FinishWithResult {}
+#[repr(C, align(8))]
 pub struct UBTTask_GameplayTaskBase {
-    pub b_wait_for_gameplay_task: FValueOrBBKey_Bool,
+    __padding_end: [u8; 160],
 }
+impl UBTTask_GameplayTaskBase {}
+#[repr(C, align(8))]
 pub struct UBTTask_MakeNoise {
-    pub loudnes: FValueOrBBKey_Float,
+    __padding_end: [u8; 160],
 }
+impl UBTTask_MakeNoise {}
+#[repr(C, align(8))]
 pub struct UBTTask_MoveTo {
-    pub acceptable_radius: FValueOrBBKey_Float,
-    pub filter_class: FValueOrBBKey_Class,
-    pub observed_blackboard_value_tolerance: FValueOrBBKey_Float,
-    pub b_allow_strafe: FValueOrBBKey_Bool,
-    pub b_allow_partial_path: FValueOrBBKey_Bool,
-    pub b_track_moving_goal: FValueOrBBKey_Bool,
-    pub b_require_navigable_end_location: FValueOrBBKey_Bool,
-    pub b_project_goal_location: FValueOrBBKey_Bool,
-    pub b_reach_test_includes_agent_radius: FValueOrBBKey_Bool,
-    pub b_reach_test_includes_goal_radius: FValueOrBBKey_Bool,
-    pub b_start_from_previous_path: FValueOrBBKey_Bool,
-    pub flags_536: u8,
+    __padding_end: [u8; 544],
 }
-pub struct UBTTask_MoveDirectlyToward {}
+impl UBTTask_MoveTo {}
+#[repr(C, align(8))]
+pub struct UBTTask_MoveDirectlyToward {
+    __padding_end: [u8; 544],
+}
+impl UBTTask_MoveDirectlyToward {}
+#[repr(C, align(8))]
 pub struct UBTTask_PlayAnimation {
-    pub animation_to_play: FValueOrBBKey_Object,
-    pub b_looping: FValueOrBBKey_Bool,
-    pub b_non_blocking: FValueOrBBKey_Bool,
-    pub my_owner_comp: UPtr<UBehaviorTreeComponent>,
-    pub cached_skel_mesh: UPtr<crate::bindings::engine::USkeletalMeshComponent>,
+    __padding_end: [u8; 280],
 }
+impl UBTTask_PlayAnimation {}
+#[repr(C, align(8))]
 pub struct UBTTask_PlaySound {
-    pub sound_to_play: FValueOrBBKey_Object,
+    __padding_end: [u8; 168],
 }
+impl UBTTask_PlaySound {}
+#[repr(C, align(8))]
 pub struct UBTTask_RotateToFaceBBEntry {
-    pub precision: FValueOrBBKey_Float,
+    __padding_end: [u8; 208],
 }
+impl UBTTask_RotateToFaceBBEntry {}
+#[repr(C, align(8))]
 pub struct UBTTask_RunBehavior {
-    pub behavior_asset: UPtr<UBehaviorTree>,
+    __padding_end: [u8; 136],
 }
+impl UBTTask_RunBehavior {}
+#[repr(C, align(8))]
 pub struct UBTTask_RunBehaviorDynamic {
-    pub injection_tag: crate::bindings::gameplay_tags::FGameplayTag,
-    pub default_behavior_asset: UPtr<UBehaviorTree>,
-    pub behavior_asset: UPtr<UBehaviorTree>,
+    __padding_end: [u8; 160],
 }
+impl UBTTask_RunBehaviorDynamic {}
+#[repr(C, align(8))]
 pub struct UBTTask_RunEQSQuery {
-    pub b_use_bb_key: bool,
-    pub eqs_request: FEQSParametrizedQueryExecutionRequest,
-    pub b_update_bb_on_fail: bool,
+    __padding_end: [u8; 296],
 }
+impl UBTTask_RunEQSQuery {}
+#[repr(C, align(8))]
 pub struct UBTTask_SetKeyValueBool {
-    pub value: FValueOrBBKey_Bool,
+    __padding_end: [u8; 208],
 }
+impl UBTTask_SetKeyValueBool {}
+#[repr(C, align(8))]
 pub struct UBTTask_SetKeyValueClass {
-    pub base_class: TSubclassOf<crate::bindings::core_u_object::UObject>,
-    pub value: FValueOrBBKey_Class,
+    __padding_end: [u8; 224],
 }
+impl UBTTask_SetKeyValueClass {}
+#[repr(C, align(8))]
 pub struct UBTTask_SetKeyValueEnum {
-    pub enum_type: UPtr<crate::bindings::core_u_object::UEnum>,
-    pub value: FValueOrBBKey_Enum,
+    __padding_end: [u8; 240],
 }
+impl UBTTask_SetKeyValueEnum {}
+#[repr(C, align(8))]
 pub struct UBTTask_SetKeyValueInt32 {
-    pub value: FValueOrBBKey_Int32,
+    __padding_end: [u8; 208],
 }
+impl UBTTask_SetKeyValueInt32 {}
+#[repr(C, align(8))]
 pub struct UBTTask_SetKeyValueFloat {
-    pub value: FValueOrBBKey_Float,
+    __padding_end: [u8; 208],
 }
+impl UBTTask_SetKeyValueFloat {}
+#[repr(C, align(8))]
 pub struct UBTTask_SetKeyValueName {
-    pub value: FValueOrBBKey_Name,
+    __padding_end: [u8; 216],
 }
+impl UBTTask_SetKeyValueName {}
+#[repr(C, align(8))]
 pub struct UBTTask_SetKeyValueString {
-    pub value: FValueOrBBKey_String,
+    __padding_end: [u8; 216],
 }
+impl UBTTask_SetKeyValueString {}
+#[repr(C, align(8))]
 pub struct UBTTask_SetKeyValueObject {
-    pub base_class: TSubclassOf<crate::bindings::core_u_object::UObject>,
-    pub value: FValueOrBBKey_Object,
+    __padding_end: [u8; 224],
 }
+impl UBTTask_SetKeyValueObject {}
+#[repr(C, align(8))]
 pub struct UBTTask_SetKeyValueRotator {
-    pub value: FValueOrBBKey_Rotator,
+    __padding_end: [u8; 224],
 }
+impl UBTTask_SetKeyValueRotator {}
+#[repr(C, align(8))]
 pub struct UBTTask_SetKeyValueStruct {
-    pub struct_type: UPtr<crate::bindings::core_u_object::UScriptStruct>,
-    pub value: FValueOrBBKey_Struct,
+    __padding_end: [u8; 232],
 }
+impl UBTTask_SetKeyValueStruct {}
+#[repr(C, align(8))]
 pub struct UBTTask_SetKeyValueVector {
-    pub value: FValueOrBBKey_Vector,
+    __padding_end: [u8; 224],
 }
+impl UBTTask_SetKeyValueVector {}
+#[repr(C, align(8))]
 pub struct UBTTask_SetTagCooldown {
-    pub cooldown_tag: crate::bindings::gameplay_tags::FGameplayTag,
-    pub b_add_to_existing_duration: FValueOrBBKey_Bool,
-    pub cooldown_duration: FValueOrBBKey_Float,
+    __padding_end: [u8; 208],
 }
+impl UBTTask_SetTagCooldown {}
+#[repr(C, align(8))]
 pub struct UBTTask_Wait {
-    pub wait_time: FValueOrBBKey_Float,
-    pub random_deviation: FValueOrBBKey_Float,
+    __padding_end: [u8; 192],
 }
+impl UBTTask_Wait {}
+#[repr(C, align(8))]
 pub struct UBTTask_WaitBlackboardTime {
-    pub blackboard_key: FBlackboardKeySelector,
+    __padding_end: [u8; 240],
 }
-pub struct UValueOrBBKeyBlueprintUtility {}
-pub struct UAIBlueprintHelperLibrary {}
-pub struct UAIDataProvider {}
+impl UBTTask_WaitBlackboardTime {}
+#[repr(C, align(8))]
+pub struct UValueOrBBKeyBlueprintUtility {
+    __padding_end: [u8; 48],
+}
+impl UValueOrBBKeyBlueprintUtility {}
+#[repr(C, align(8))]
+pub struct UAIBlueprintHelperLibrary {
+    __padding_end: [u8; 48],
+}
+impl UAIBlueprintHelperLibrary {}
+#[repr(C, align(8))]
+pub struct UAIDataProvider {
+    __padding_end: [u8; 48],
+}
+impl UAIDataProvider {}
+#[repr(C, align(8))]
 pub struct UAIDataProvider_QueryParams {
-    pub param_name: FName,
-    pub float_value: f32,
-    pub int_value: i32,
-    pub bool_value: bool,
+    __padding_end: [u8; 72],
 }
+impl UAIDataProvider_QueryParams {}
+#[repr(C, align(8))]
 pub struct UAIDataProvider_Random {
-    pub min: f32,
-    pub max: f32,
-    pub flags_80: u8,
+    __padding_end: [u8; 88],
 }
-pub struct ADetourCrowdAIController {}
-pub struct UEnvQueryContext {}
-pub struct UEnvQueryContext_BlueprintBase {}
-pub struct UEnvQueryContext_Item {}
+impl UAIDataProvider_Random {}
+#[repr(C, align(8))]
+pub struct ADetourCrowdAIController {
+    __padding_end: [u8; 1464],
+}
+impl ADetourCrowdAIController {}
+#[repr(C, align(8))]
+pub struct UEnvQueryContext {
+    __padding_end: [u8; 48],
+}
+impl UEnvQueryContext {}
+#[repr(C, align(8))]
+pub struct UEnvQueryContext_BlueprintBase {
+    __padding_end: [u8; 56],
+}
+impl UEnvQueryContext_BlueprintBase {}
+#[repr(C, align(8))]
+pub struct UEnvQueryContext_Item {
+    __padding_end: [u8; 48],
+}
+impl UEnvQueryContext_Item {}
+#[repr(C, align(8))]
 pub struct UEnvQueryContext_NavigationData {
-    pub nav_agent_properties: crate::bindings::engine::FNavAgentProperties,
+    __padding_end: [u8; 112],
 }
-pub struct UEnvQueryContext_Querier {}
+impl UEnvQueryContext_NavigationData {}
+#[repr(C, align(8))]
+pub struct UEnvQueryContext_Querier {
+    __padding_end: [u8; 48],
+}
+impl UEnvQueryContext_Querier {}
+#[repr(C, align(8))]
 pub struct UEnvQuery {
-    pub ed_graph: UPtr<crate::bindings::engine::UEdGraph>,
-    pub query_name: FName,
-    pub options: TArray<UPtr<UEnvQueryOption>>,
+    __padding_end: [u8; 96],
 }
-pub struct UEnvQueryDebugHelpers {}
+impl UEnvQuery {}
+#[repr(C, align(8))]
+pub struct UEnvQueryDebugHelpers {
+    __padding_end: [u8; 48],
+}
+impl UEnvQueryDebugHelpers {}
+#[repr(C, align(8))]
 pub struct UEnvQueryNode {
-    pub ver_num: i32,
+    __padding_end: [u8; 56],
 }
+impl UEnvQueryNode {}
+#[repr(C, align(8))]
 pub struct UEnvQueryGenerator {
-    pub option_name: FString,
-    pub item_type: TSubclassOf<UEnvQueryItemType>,
-    pub flags_80: u8,
-    pub env_query_result_normalization_option: EEnvQueryResultNormalizationOption,
+    __padding_end: [u8; 88],
 }
+impl UEnvQueryGenerator {}
+#[repr(C, align(8))]
 pub struct UEnvQueryInstanceBlueprintWrapper {
+    #[doc(hidden)]
+    __padding_56: [u8; 56],
     pub query_id: i32,
+    #[doc(hidden)]
+    __padding_96: [u8; 32],
     pub item_type: TSubclassOf<UEnvQueryItemType>,
     pub option_index: i32,
-    pub on_query_finished_event: FEnvQueryInstanceBlueprintWrapper_OnQueryFinishedEvent,
+    __padding_end: [u8; 36],
 }
+impl UEnvQueryInstanceBlueprintWrapper {}
+#[repr(C, align(8))]
 pub struct UEnvQueryManager {
-    pub instance_cache: TArray<FEnvQueryInstanceCache>,
-    pub local_contexts: TArray<UPtr<UEnvQueryContext>>,
-    pub gc_shielded_wrappers: TArray<UPtr<UEnvQueryInstanceBlueprintWrapper>>,
-    pub max_allowed_testing_time: f32,
-    pub b_test_queries_using_breadth: bool,
-    pub query_count_warning_threshold: i32,
-    pub query_count_warning_interval: f64,
-    pub execution_time_warning_seconds: f64,
-    pub handling_result_time_warning_seconds: f64,
-    pub generation_time_warning_seconds: f64,
+    __padding_end: [u8; 528],
 }
+impl UEnvQueryManager {}
+#[repr(C, align(8))]
 pub struct UEnvQueryOption {
-    pub generator: UPtr<UEnvQueryGenerator>,
-    pub tests: TArray<UPtr<UEnvQueryTest>>,
+    __padding_end: [u8; 72],
 }
+impl UEnvQueryOption {}
+#[repr(C, align(8))]
 pub struct UEnvQueryTest {
-    pub test_order: i32,
-    pub test_purpose: EEnvTestPurpose,
-    pub test_comment: FString,
-    pub multiple_context_filter_op: EEnvTestFilterOperator,
-    pub multiple_context_score_op: EEnvTestScoreOperator,
-    pub filter_type: EEnvTestFilterType,
-    pub bool_value: FAIDataProviderBoolValue,
-    pub float_value_min: FAIDataProviderFloatValue,
-    pub float_value_max: FAIDataProviderFloatValue,
-    pub scoring_equation: EEnvTestScoreEquation,
-    pub clamp_min_type: EEnvQueryTestClamping,
-    pub clamp_max_type: EEnvQueryTestClamping,
-    pub normalization_type: EEQSNormalizationType,
-    pub score_clamp_min: FAIDataProviderFloatValue,
-    pub score_clamp_max: FAIDataProviderFloatValue,
-    pub scoring_factor: FAIDataProviderFloatValue,
-    pub reference_value: FAIDataProviderFloatValue,
-    pub b_define_reference_value: bool,
-    pub flags_600: u8,
+    __padding_end: [u8; 608],
 }
-pub struct UEnvQueryTypes {}
-pub struct UEQSRenderingComponent {}
+impl UEnvQueryTest {}
+#[repr(C, align(8))]
+pub struct UEnvQueryTypes {
+    __padding_end: [u8; 48],
+}
+impl UEnvQueryTypes {}
+#[repr(C, align(16))]
+pub struct UEQSRenderingComponent {
+    __padding_end: [u8; 1792],
+}
+impl UEQSRenderingComponent {}
+#[repr(C, align(16))]
 pub struct AEQSTestingPawn {
-    pub query_template: UPtr<UEnvQuery>,
-    pub query_params: TArray<FEnvNamedValue>,
-    pub query_config: TArray<FAIDynamicParam>,
-    pub time_limit_per_step: f32,
-    pub step_to_debug_draw: i32,
-    pub highlight_mode: EEnvQueryHightlightMode,
-    pub flags_2172: u8,
-    pub querying_mode: EEnvQueryRunMode,
-    pub nav_agent_properties: crate::bindings::engine::FNavAgentProperties,
-    pub ed_render_comp: UPtr<UEQSRenderingComponent>,
-    pub step_results: TArray<FEnvQueryInstance>,
+    __padding_end: [u8; 2288],
 }
+impl AEQSTestingPawn {}
+#[repr(C, align(8))]
 pub struct UEnvQueryGenerator_ActorsOfClass {
-    pub searched_actor_class: TSubclassOf<crate::bindings::engine::AActor>,
-    pub generate_only_actors_in_radius: FAIDataProviderBoolValue,
-    pub search_radius: FAIDataProviderFloatValue,
-    pub search_center: TSubclassOf<UEnvQueryContext>,
+    __padding_end: [u8; 232],
 }
+impl UEnvQueryGenerator_ActorsOfClass {}
+#[repr(C, align(8))]
 pub struct UEnvQueryGenerator_BlueprintBase {
-    pub generators_action_description: FText,
-    pub context: TSubclassOf<UEnvQueryContext>,
-    pub generated_item_type: TSubclassOf<UEnvQueryItemType>,
+    __padding_end: [u8; 136],
 }
+impl UEnvQueryGenerator_BlueprintBase {}
+#[repr(C, align(8))]
 pub struct UEnvQueryGenerator_Composite {
-    pub generators: TArray<UPtr<UEnvQueryGenerator>>,
-    pub flags_104: u8,
-    pub forced_item_type: TSubclassOf<UEnvQueryItemType>,
+    __padding_end: [u8; 120],
 }
+impl UEnvQueryGenerator_Composite {}
+#[repr(C, align(8))]
 pub struct UEnvQueryGenerator_ProjectedPoints {
-    pub projection_data: FEnvTraceData,
-    pub nav_data_override_context: TSubclassOf<UEnvQueryContext>,
+    __padding_end: [u8; 160],
 }
+impl UEnvQueryGenerator_ProjectedPoints {}
+#[repr(C, align(8))]
 pub struct UEnvQueryGenerator_Cone {
-    pub aligned_points_distance: FAIDataProviderFloatValue,
-    pub cone_degrees: FAIDataProviderFloatValue,
-    pub angle_step: FAIDataProviderFloatValue,
-    pub range: FAIDataProviderFloatValue,
-    pub center_actor: TSubclassOf<UEnvQueryContext>,
-    pub flags_424: u8,
+    __padding_end: [u8; 432],
 }
+impl UEnvQueryGenerator_Cone {}
+#[repr(C, align(8))]
 pub struct UEnvQueryGenerator_CurrentLocation {
-    pub query_context: TSubclassOf<UEnvQueryContext>,
+    __padding_end: [u8; 168],
 }
+impl UEnvQueryGenerator_CurrentLocation {}
+#[repr(C, align(8))]
 pub struct UEnvQueryGenerator_Donut {
-    pub inner_radius: FAIDataProviderFloatValue,
-    pub outer_radius: FAIDataProviderFloatValue,
-    pub number_of_rings: FAIDataProviderIntValue,
-    pub points_per_ring: FAIDataProviderIntValue,
-    pub arc_direction: FEnvDirection,
-    pub arc_angle: FAIDataProviderFloatValue,
-    pub b_use_spiral_pattern: bool,
-    pub center: TSubclassOf<UEnvQueryContext>,
-    pub flags_528: u8,
+    __padding_end: [u8; 536],
 }
+impl UEnvQueryGenerator_Donut {}
+#[repr(C, align(8))]
 pub struct UEnvQueryGenerator_OnCircle {
-    pub circle_radius: FAIDataProviderFloatValue,
-    pub point_on_circle_spacing_method: EPointOnCircleSpacingMethod,
-    pub space_between: FAIDataProviderFloatValue,
-    pub number_of_points: FAIDataProviderIntValue,
-    pub arc_direction: FEnvDirection,
-    pub arc_direction_offset_degrees: FAIDataProviderFloatValue,
-    pub arc_angle: FAIDataProviderFloatValue,
-    pub circle_center: TSubclassOf<UEnvQueryContext>,
-    pub b_ignore_any_context_actors_when_generating_circle: bool,
-    pub circle_center_z_offset: FAIDataProviderFloatValue,
-    pub trace_data: FEnvTraceData,
-    pub flags_664: u8,
+    __padding_end: [u8; 672],
 }
+impl UEnvQueryGenerator_OnCircle {}
+#[repr(C, align(8))]
 pub struct UEnvQueryGenerator_SimpleGrid {
-    pub grid_size: FAIDataProviderFloatValue,
-    pub space_between: FAIDataProviderFloatValue,
-    pub generate_around: TSubclassOf<UEnvQueryContext>,
+    __padding_end: [u8; 296],
 }
+impl UEnvQueryGenerator_SimpleGrid {}
+#[repr(C, align(8))]
 pub struct UEnvQueryGenerator_PathingGrid {
-    pub path_to_item: FAIDataProviderBoolValue,
-    pub navigation_filter: TSubclassOf<
-        crate::bindings::navigation_system::UNavigationQueryFilter,
-    >,
-    pub scan_range_multiplier: FAIDataProviderFloatValue,
+    __padding_end: [u8; 432],
 }
+impl UEnvQueryGenerator_PathingGrid {}
+#[repr(C, align(8))]
 pub struct UEnvQueryGenerator_PerceivedActors {
-    pub allowed_actor_class: TSubclassOf<crate::bindings::engine::AActor>,
-    pub search_radius: FAIDataProviderFloatValue,
-    pub listener_context: TSubclassOf<UEnvQueryContext>,
-    pub sense_to_use: TSubclassOf<UAISense>,
-    pub b_include_known_actors: bool,
+    __padding_end: [u8; 184],
 }
-pub struct UEnvQueryItemType {}
-pub struct UEnvQueryItemType_VectorBase {}
-pub struct UEnvQueryItemType_ActorBase {}
-pub struct UEnvQueryItemType_Actor {}
-pub struct UEnvQueryItemType_Direction {}
-pub struct UEnvQueryItemType_Point {}
+impl UEnvQueryGenerator_PerceivedActors {}
+#[repr(C, align(8))]
+pub struct UEnvQueryItemType {
+    __padding_end: [u8; 56],
+}
+impl UEnvQueryItemType {}
+#[repr(C, align(8))]
+pub struct UEnvQueryItemType_VectorBase {
+    __padding_end: [u8; 56],
+}
+impl UEnvQueryItemType_VectorBase {}
+#[repr(C, align(8))]
+pub struct UEnvQueryItemType_ActorBase {
+    __padding_end: [u8; 56],
+}
+impl UEnvQueryItemType_ActorBase {}
+#[repr(C, align(8))]
+pub struct UEnvQueryItemType_Actor {
+    __padding_end: [u8; 56],
+}
+impl UEnvQueryItemType_Actor {}
+#[repr(C, align(8))]
+pub struct UEnvQueryItemType_Direction {
+    __padding_end: [u8; 56],
+}
+impl UEnvQueryItemType_Direction {}
+#[repr(C, align(8))]
+pub struct UEnvQueryItemType_Point {
+    __padding_end: [u8; 56],
+}
+impl UEnvQueryItemType_Point {}
+#[repr(C, align(8))]
 pub struct UEnvQueryTest_Distance {
-    pub test_mode: EEnvTestDistance,
-    pub distance_to: TSubclassOf<UEnvQueryContext>,
+    __padding_end: [u8; 624],
 }
+impl UEnvQueryTest_Distance {}
+#[repr(C, align(8))]
 pub struct UEnvQueryTest_Dot {
-    pub line_a: FEnvDirection,
-    pub line_b: FEnvDirection,
-    pub test_mode: EEnvTestDot,
-    pub b_absolute_value: bool,
+    __padding_end: [u8; 680],
 }
+impl UEnvQueryTest_Dot {}
+#[repr(C, align(8))]
 pub struct UEnvQueryTest_GameplayTags {
-    pub tag_query_to_match: crate::bindings::gameplay_tags::FGameplayTagQuery,
-    pub b_search_components_for_tags: bool,
-    pub b_reject_incompatible_items: bool,
-    pub b_updated_to_use_query: bool,
-    pub tags_to_match: crate::bindings::gameplay_tags::EGameplayContainerMatchType,
-    pub gameplay_tags: crate::bindings::gameplay_tags::FGameplayTagContainer,
+    __padding_end: [u8; 720],
 }
+impl UEnvQueryTest_GameplayTags {}
+#[repr(C, align(8))]
 pub struct UEnvQueryTest_Overlap {
-    pub overlap_data: FEnvOverlapData,
+    __padding_end: [u8; 656],
 }
+impl UEnvQueryTest_Overlap {}
+#[repr(C, align(8))]
 pub struct UEnvQueryTest_Pathfinding {
-    pub test_mode: EEnvTestPathfinding,
-    pub context: TSubclassOf<UEnvQueryContext>,
-    pub path_from_context: FAIDataProviderBoolValue,
-    pub skip_unreachable: FAIDataProviderBoolValue,
-    pub filter_class: TSubclassOf<
-        crate::bindings::navigation_system::UNavigationQueryFilter,
-    >,
+    __padding_end: [u8; 760],
 }
+impl UEnvQueryTest_Pathfinding {}
+#[repr(C, align(8))]
 pub struct UEnvQueryTest_PathfindingBatch {
-    pub scan_range_multiplier: FAIDataProviderFloatValue,
+    __padding_end: [u8; 824],
 }
+impl UEnvQueryTest_PathfindingBatch {}
+#[repr(C, align(8))]
 pub struct UEnvQueryTest_Project {
-    pub projection_data: FEnvTraceData,
+    __padding_end: [u8; 672],
 }
-pub struct UEnvQueryTest_Random {}
+impl UEnvQueryTest_Project {}
+#[repr(C, align(8))]
+pub struct UEnvQueryTest_Random {
+    __padding_end: [u8; 608],
+}
+impl UEnvQueryTest_Random {}
+#[repr(C, align(8))]
 pub struct UEnvQueryTest_Trace {
-    pub trace_data: FEnvTraceData,
-    pub trace_from_context: FAIDataProviderBoolValue,
-    pub item_height_offset: FAIDataProviderFloatValue,
-    pub context_height_offset: FAIDataProviderFloatValue,
-    pub context: TSubclassOf<UEnvQueryContext>,
+    __padding_end: [u8; 872],
 }
+impl UEnvQueryTest_Trace {}
+#[repr(C, align(8))]
 pub struct UEnvQueryTest_Volume {
-    pub volume_context: TSubclassOf<UEnvQueryContext>,
-    pub volume_class: TSubclassOf<crate::bindings::engine::AVolume>,
-    pub flags_624: u8,
+    __padding_end: [u8; 632],
 }
-pub struct AGridPathAIController {}
-pub struct UAIHotSpotManager {}
+impl UEnvQueryTest_Volume {}
+#[repr(C, align(8))]
+pub struct AGridPathAIController {
+    __padding_end: [u8; 1464],
+}
+impl AGridPathAIController {}
+#[repr(C, align(8))]
+pub struct UAIHotSpotManager {
+    __padding_end: [u8; 48],
+}
+impl UAIHotSpotManager {}
+#[repr(C, align(8))]
 pub struct UPathFollowingComponent {
-    pub movement_comp: UPtr<crate::bindings::engine::UNavMovementComponent>,
-    pub my_nav_data: UPtr<crate::bindings::navigation_system::ANavigationData>,
+    __padding_end: [u8; 888],
 }
+impl UPathFollowingComponent {}
+#[repr(C, align(8))]
 pub struct UCrowdFollowingComponent {
-    pub crowd_agent_move_direction: crate::bindings::core_u_object::FVector,
-    pub avoidance_group_deprecated: crate::bindings::engine::FNavAvoidanceMask,
-    pub groups_to_avoid_deprecated: crate::bindings::engine::FNavAvoidanceMask,
-    pub groups_to_ignore_deprecated: crate::bindings::engine::FNavAvoidanceMask,
+    __padding_end: [u8; 984],
 }
+impl UCrowdFollowingComponent {}
+#[repr(C, align(8))]
 pub struct UCrowdManager {
-    pub my_nav_data: UPtr<crate::bindings::navigation_system::ANavigationData>,
-    pub avoidance_config: TArray<FCrowdAvoidanceConfig>,
-    pub sampling_patterns: TArray<FCrowdAvoidanceSamplingPattern>,
-    pub max_agents: i32,
-    pub max_agent_radius: f32,
-    pub max_avoided_agents: i32,
-    pub max_avoided_walls: i32,
-    pub navmesh_check_interval: f32,
-    pub path_optimization_interval: f32,
-    pub separation_dir_clamp: f32,
-    pub path_offset_radius_multiplier: f32,
-    pub flags_120: u8,
+    __padding_end: [u8; 256],
 }
+impl UCrowdManager {}
+#[repr(C, align(8))]
 pub struct UGeneratedNavLinksProxy {
-    pub on_smart_link_reached: FGeneratedNavLinksProxy_OnSmartLinkReached,
+    __padding_end: [u8; 96],
 }
+impl UGeneratedNavLinksProxy {}
+#[repr(C, align(8))]
 pub struct UGridPathFollowingComponent {
-    pub grid_manager: UPtr<UNavLocalGridManager>,
+    __padding_end: [u8; 936],
 }
-pub struct UNavFilter_AIControllerDefault {}
+impl UGridPathFollowingComponent {}
+#[repr(C, align(8))]
+pub struct UNavFilter_AIControllerDefault {
+    __padding_end: [u8; 80],
+}
+impl UNavFilter_AIControllerDefault {}
+#[repr(C, align(8))]
 pub struct ANavLinkProxy {
+    #[doc(hidden)]
+    __padding_1152: [u8; 1152],
     pub point_links: TArray<crate::bindings::engine::FNavigationLink>,
-    pub segment_links: TArray<crate::bindings::engine::FNavigationSegmentLink>,
-    pub smart_link_comp: UPtr<
-        crate::bindings::navigation_system::UNavLinkCustomComponent,
-    >,
-    pub b_smart_link_is_relevant: bool,
-    pub ed_render_comp: UPtr<
-        crate::bindings::navigation_system::UNavLinkRenderingComponent,
-    >,
-    pub sprite_component: UPtr<crate::bindings::engine::UBillboardComponent>,
-    pub on_smart_link_reached: FNavLinkProxy_OnSmartLinkReached,
+    __padding_end: [u8; 88],
 }
-pub struct UNavLocalGridManager {}
-pub struct UPathFollowingManager {}
+impl ANavLinkProxy {}
+#[repr(C, align(8))]
+pub struct UNavLocalGridManager {
+    __padding_end: [u8; 96],
+}
+impl UNavLocalGridManager {}
+#[repr(C, align(8))]
+pub struct UPathFollowingManager {
+    __padding_end: [u8; 48],
+}
+impl UPathFollowingManager {}
+#[repr(C, align(8))]
 pub struct UAIPerceptionComponent {
-    pub senses_config: TArray<UPtr<UAISenseConfig>>,
-    pub dominant_sense: TSubclassOf<UAISense>,
-    pub ai_owner: UPtr<AAIController>,
-    pub on_perception_updated: FAIPerceptionComponent_OnPerceptionUpdated,
-    pub on_target_perception_forgotten: FAIPerceptionComponent_OnTargetPerceptionForgotten,
-    pub on_target_perception_updated: FAIPerceptionComponent_OnTargetPerceptionUpdated,
-    pub on_target_perception_info_updated: FAIPerceptionComponent_OnTargetPerceptionInfoUpdated,
+    __padding_end: [u8; 512],
 }
+impl UAIPerceptionComponent {}
 pub struct UAIPerceptionListenerInterface {}
 pub struct IAIPerceptionListenerInterface {}
+#[repr(C, align(8))]
 pub struct UAIPerceptionStimuliSourceComponent {
+    #[doc(hidden)]
+    __padding_240: [u8; 240],
     pub flags_240: u8,
     pub register_as_source_for_senses: TArray<TSubclassOf<UAISense>>,
 }
+impl UAIPerceptionStimuliSourceComponent {}
+#[repr(C, align(8))]
 pub struct UAIPerceptionSystem {
-    pub senses: TArray<UPtr<UAISense>>,
-    pub perception_aging_rate: f32,
+    __padding_end: [u8; 336],
 }
+impl UAIPerceptionSystem {}
+#[repr(C, align(8))]
 pub struct UAISense {
+    #[doc(hidden)]
+    __padding_48: [u8; 48],
     pub notify_type: EAISenseNotifyType,
+    #[doc(hidden)]
+    __padding_52: [u8; 3],
     pub flags_52: u8,
-    pub perception_system_instance: UPtr<UAIPerceptionSystem>,
+    __padding_end: [u8; 107],
 }
+impl UAISense {}
+#[repr(C, align(8))]
 pub struct UAISenseConfig_Damage {
+    #[doc(hidden)]
+    __padding_80: [u8; 80],
     pub implementation: TSubclassOf<UAISense_Damage>,
 }
+impl UAISenseConfig_Damage {}
+#[repr(C, align(8))]
 pub struct UAISense_Blueprint {
+    #[doc(hidden)]
+    __padding_160: [u8; 160],
     pub listener_data_type: TSubclassOf<
         crate::bindings::core_u_object::UUserDefinedStruct,
     >,
     pub listener_container: TArray<UPtr<UAIPerceptionComponent>>,
-    pub unprocessed_events: TArray<UPtr<UAISenseEvent>>,
+    __padding_end: [u8; 16],
 }
+impl UAISense_Blueprint {}
+#[repr(C, align(8))]
 pub struct UAISense_Damage {
-    pub registered_events: TArray<FAIDamageEvent>,
+    __padding_end: [u8; 176],
 }
+impl UAISense_Damage {}
+#[repr(C, align(8))]
 pub struct UAISense_Hearing {
-    pub noise_events: TArray<FAINoiseEvent>,
-    pub speed_of_sound_sq: f32,
+    __padding_end: [u8; 264],
 }
+impl UAISense_Hearing {}
+#[repr(C, align(8))]
 pub struct UAISense_Prediction {
-    pub registered_events: TArray<FAIPredictionEvent>,
+    __padding_end: [u8; 176],
 }
+impl UAISense_Prediction {}
+#[repr(C, align(8))]
 pub struct UAISense_Sight {
-    pub max_traces_per_tick: i32,
-    pub max_async_traces_per_tick: i32,
-    pub min_queries_per_time_slice_check: i32,
-    pub max_time_slice_per_tick: f64,
-    pub high_importance_query_distance_threshold: f32,
-    pub max_query_importance: f32,
-    pub sight_limit_query_importance: f32,
-    pub pending_queries_budget_reduction_ratio: f32,
-    pub b_use_asynchronous_trace_for_default_sight_queries: bool,
+    __padding_end: [u8; 488],
 }
+impl UAISense_Sight {}
+#[repr(C, align(8))]
 pub struct UAISense_Team {
-    pub registered_events: TArray<FAITeamStimulusEvent>,
+    __padding_end: [u8; 176],
 }
+impl UAISense_Team {}
+#[repr(C, align(8))]
 pub struct UAISense_Touch {
-    pub registered_events: TArray<FAITouchEvent>,
+    __padding_end: [u8; 256],
 }
+impl UAISense_Touch {}
 pub struct UAISightTargetInterface {}
 pub struct IAISightTargetInterface {}
+#[repr(C, align(8))]
 pub struct UPawnSensingComponent {
+    #[doc(hidden)]
+    __padding_240: [u8; 240],
     pub hearing_threshold: f32,
     pub los_hearing_threshold: f32,
     pub sight_radius: f32,
     pub sensing_interval: f32,
     pub hearing_max_sound_age: f32,
     pub flags_260: u8,
-    pub on_see_pawn: FPawnSensingComponent_OnSeePawn,
-    pub on_hear_noise: FPawnSensingComponent_OnHearNoise,
+    #[doc(hidden)]
+    __padding_320: [u8; 56],
     pub peripheral_vision_angle: f32,
-    pub peripheral_vision_cosine: f32,
+    __padding_end: [u8; 4],
 }
+impl UPawnSensingComponent {}
+#[repr(C, align(8))]
 pub struct UAITask {
+    #[doc(hidden)]
+    __padding_128: [u8; 128],
     pub owner_controller: UPtr<AAIController>,
 }
-pub struct UAITask_LockLogic {}
-pub struct UAITask_MoveTo {
-    pub on_request_failed: FAITask_MoveTo_OnRequestFailed,
-    pub on_move_finished: FAITask_MoveTo_OnMoveFinished,
-    pub move_request: FAIMoveRequest,
+impl UAITask {}
+#[repr(C, align(8))]
+pub struct UAITask_LockLogic {
+    __padding_end: [u8; 136],
 }
-pub struct UAITask_RunEQS {}
-pub struct UVisualLoggerExtension {}
-pub struct FAIAsyncTaskBlueprintProxy_OnSuccess;
-pub struct FAIAsyncTaskBlueprintProxy_OnFail;
-pub struct FAIController_ReceiveMoveCompleted;
-pub struct FEnvQueryInstanceBlueprintWrapper_OnQueryFinishedEvent;
-pub struct FGeneratedNavLinksProxy_OnSmartLinkReached;
-pub struct FNavLinkProxy_OnSmartLinkReached;
-pub struct FAIPerceptionComponent_OnPerceptionUpdated;
-pub struct FAIPerceptionComponent_OnTargetPerceptionForgotten;
-pub struct FAIPerceptionComponent_OnTargetPerceptionUpdated;
-pub struct FAIPerceptionComponent_OnTargetPerceptionInfoUpdated;
-pub struct FPawnSensingComponent_OnSeePawn;
-pub struct FPawnSensingComponent_OnHearNoise;
-pub struct FAITask_MoveTo_OnRequestFailed;
-pub struct FAITask_MoveTo_OnMoveFinished;
-#[allow(non_camel_case_types)]
+impl UAITask_LockLogic {}
+#[repr(C, align(8))]
+pub struct UAITask_MoveTo {
+    __padding_end: [u8; 360],
+}
+impl UAITask_MoveTo {}
+#[repr(C, align(8))]
+pub struct UAITask_RunEQS {
+    __padding_end: [u8; 280],
+}
+impl UAITask_RunEQS {}
+#[repr(C, align(8))]
+pub struct UVisualLoggerExtension {
+    __padding_end: [u8; 48],
+}
+impl UVisualLoggerExtension {}
+#[repr(transparent)]
+pub struct FAIAsyncTaskBlueprintProxy_OnSuccess {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FAIAsyncTaskBlueprintProxy_OnFail {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FAIController_ReceiveMoveCompleted {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FEnvQueryInstanceBlueprintWrapper_OnQueryFinishedEvent {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FGeneratedNavLinksProxy_OnSmartLinkReached {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FNavLinkProxy_OnSmartLinkReached {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FAIPerceptionComponent_OnPerceptionUpdated {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FAIPerceptionComponent_OnTargetPerceptionForgotten {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FAIPerceptionComponent_OnTargetPerceptionUpdated {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FAIPerceptionComponent_OnTargetPerceptionInfoUpdated {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FPawnSensingComponent_OnSeePawn {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FPawnSensingComponent_OnHearNoise {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FAITask_MoveTo_OnRequestFailed {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FAITask_MoveTo_OnMoveFinished {
+    _opague: u8,
+}
 #[repr(transparent)]
 pub struct EBTDecoratorLogic(pub u8);
 impl EBTDecoratorLogic {
@@ -1141,7 +1229,6 @@ impl EBTDecoratorLogic {
     pub const OR: EBTDecoratorLogic = EBTDecoratorLogic(3);
     pub const NOT: EBTDecoratorLogic = EBTDecoratorLogic(4);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EAIParamType(pub u8);
 impl EAIParamType {
@@ -1150,14 +1237,12 @@ impl EAIParamType {
     pub const BOOL: EAIParamType = EAIParamType(2);
     pub const MAX: EAIParamType = EAIParamType(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EEnvDirection(pub u8);
 impl EEnvDirection {
     pub const TWO_POINTS: EEnvDirection = EEnvDirection(0);
     pub const ROTATION: EEnvDirection = EEnvDirection(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EEnvTraceShape(pub u8);
 impl EEnvTraceShape {
@@ -1166,7 +1251,6 @@ impl EEnvTraceShape {
     pub const SPHERE: EEnvTraceShape = EEnvTraceShape(2);
     pub const CAPSULE: EEnvTraceShape = EEnvTraceShape(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EEnvQueryTrace(pub u8);
 impl EEnvQueryTrace {
@@ -1176,7 +1260,6 @@ impl EEnvQueryTrace {
     pub const GEOMETRY_BY_PROFILE: EEnvQueryTrace = EEnvQueryTrace(3);
     pub const NAVIGATION_OVER_LEDGES: EEnvQueryTrace = EEnvQueryTrace(4);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EEnvOverlapShape(pub u8);
 impl EEnvOverlapShape {
@@ -1184,7 +1267,6 @@ impl EEnvOverlapShape {
     pub const SPHERE: EEnvOverlapShape = EEnvOverlapShape(1);
     pub const CAPSULE: EEnvOverlapShape = EEnvOverlapShape(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EEnvQueryRunMode(pub u8);
 impl EEnvQueryRunMode {
@@ -1193,7 +1275,6 @@ impl EEnvQueryRunMode {
     pub const RANDOM_BEST25_PCT: EEnvQueryRunMode = EEnvQueryRunMode(2);
     pub const ALL_MATCHING: EEnvQueryRunMode = EEnvQueryRunMode(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EGenericAICheck(pub u8);
 impl EGenericAICheck {
@@ -1206,7 +1287,6 @@ impl EGenericAICheck {
     pub const IS_TRUE: EGenericAICheck = EGenericAICheck(6);
     pub const MAX: EGenericAICheck = EGenericAICheck(7);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EPathFollowingResult(pub u8);
 impl EPathFollowingResult {
@@ -1217,7 +1297,6 @@ impl EPathFollowingResult {
     pub const SKIPPED_DEPRECATED: EPathFollowingResult = EPathFollowingResult(4);
     pub const INVALID: EPathFollowingResult = EPathFollowingResult(5);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EPathFollowingStatus(pub u8);
 impl EPathFollowingStatus {
@@ -1226,7 +1305,6 @@ impl EPathFollowingStatus {
     pub const PAUSED: EPathFollowingStatus = EPathFollowingStatus(2);
     pub const MOVING: EPathFollowingStatus = EPathFollowingStatus(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EPathFollowingRequestResult(pub u8);
 impl EPathFollowingRequestResult {
@@ -1238,7 +1316,6 @@ impl EPathFollowingRequestResult {
         2,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EBTNodeResult(pub u8);
 impl EBTNodeResult {
@@ -1247,7 +1324,6 @@ impl EBTNodeResult {
     pub const ABORTED: EBTNodeResult = EBTNodeResult(2);
     pub const IN_PROGRESS: EBTNodeResult = EBTNodeResult(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EPathFollowingAction(pub u8);
 impl EPathFollowingAction {
@@ -1257,7 +1333,6 @@ impl EPathFollowingAction {
     pub const PARTIAL_PATH: EPathFollowingAction = EPathFollowingAction(3);
     pub const PATH_TO_GOAL: EPathFollowingAction = EPathFollowingAction(4);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EAIOptionFlag(pub u8);
 impl EAIOptionFlag {
@@ -1266,7 +1341,6 @@ impl EAIOptionFlag {
     pub const DISABLE: EAIOptionFlag = EAIOptionFlag(2);
     pub const MAX: EAIOptionFlag = EAIOptionFlag(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EBTFlowAbortMode(pub u8);
 impl EBTFlowAbortMode {
@@ -1275,28 +1349,24 @@ impl EBTFlowAbortMode {
     pub const SELF: EBTFlowAbortMode = EBTFlowAbortMode(2);
     pub const BOTH: EBTFlowAbortMode = EBTFlowAbortMode(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EBTParallelMode(pub u8);
 impl EBTParallelMode {
     pub const ABORT_BACKGROUND: EBTParallelMode = EBTParallelMode(0);
     pub const WAIT_FOR_BACKGROUND: EBTParallelMode = EBTParallelMode(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EBTBlackboardRestart(pub u8);
 impl EBTBlackboardRestart {
     pub const VALUE_CHANGE: EBTBlackboardRestart = EBTBlackboardRestart(0);
     pub const RESULT_CHANGE: EBTBlackboardRestart = EBTBlackboardRestart(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EBasicKeyOperation(pub u8);
 impl EBasicKeyOperation {
     pub const SET: EBasicKeyOperation = EBasicKeyOperation(0);
     pub const NOT_SET: EBasicKeyOperation = EBasicKeyOperation(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EArithmeticKeyOperation(pub u8);
 impl EArithmeticKeyOperation {
@@ -1307,7 +1377,6 @@ impl EArithmeticKeyOperation {
     pub const GREATER: EArithmeticKeyOperation = EArithmeticKeyOperation(4);
     pub const GREATER_OR_EQUAL: EArithmeticKeyOperation = EArithmeticKeyOperation(5);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ETextKeyOperation(pub u8);
 impl ETextKeyOperation {
@@ -1316,14 +1385,12 @@ impl ETextKeyOperation {
     pub const CONTAIN: ETextKeyOperation = ETextKeyOperation(2);
     pub const NOT_CONTAIN: ETextKeyOperation = ETextKeyOperation(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EBlackBoardEntryComparison(pub u8);
 impl EBlackBoardEntryComparison {
     pub const EQUAL: EBlackBoardEntryComparison = EBlackBoardEntryComparison(0);
     pub const NOT_EQUAL: EBlackBoardEntryComparison = EBlackBoardEntryComparison(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct FAIDistanceType(pub u8);
 impl FAIDistanceType {
@@ -1332,7 +1399,6 @@ impl FAIDistanceType {
     pub const DISTANCE_Z: FAIDistanceType = FAIDistanceType(2);
     pub const MAX: FAIDistanceType = FAIDistanceType(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EEnvQueryResultNormalizationOption(pub u8);
 impl EEnvQueryResultNormalizationOption {
@@ -1346,7 +1412,6 @@ impl EEnvQueryResultNormalizationOption {
         2,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EEnvQueryStatus(pub u8);
 impl EEnvQueryStatus {
@@ -1357,7 +1422,6 @@ impl EEnvQueryStatus {
     pub const OWNER_LOST: EEnvQueryStatus = EEnvQueryStatus(4);
     pub const MISSING_PARAM: EEnvQueryStatus = EEnvQueryStatus(5);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EEnvTestPurpose(pub u8);
 impl EEnvTestPurpose {
@@ -1365,14 +1429,12 @@ impl EEnvTestPurpose {
     pub const SCORE: EEnvTestPurpose = EEnvTestPurpose(1);
     pub const FILTER_AND_SCORE: EEnvTestPurpose = EEnvTestPurpose(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EEnvTestFilterOperator(pub u8);
 impl EEnvTestFilterOperator {
     pub const ALL_PASS: EEnvTestFilterOperator = EEnvTestFilterOperator(0);
     pub const ANY_PASS: EEnvTestFilterOperator = EEnvTestFilterOperator(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EEnvTestScoreOperator(pub u8);
 impl EEnvTestScoreOperator {
@@ -1381,7 +1443,6 @@ impl EEnvTestScoreOperator {
     pub const MAX_SCORE: EEnvTestScoreOperator = EEnvTestScoreOperator(2);
     pub const MULTIPLY: EEnvTestScoreOperator = EEnvTestScoreOperator(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EEnvTestFilterType(pub u8);
 impl EEnvTestFilterType {
@@ -1390,7 +1451,6 @@ impl EEnvTestFilterType {
     pub const RANGE: EEnvTestFilterType = EEnvTestFilterType(2);
     pub const MATCH: EEnvTestFilterType = EEnvTestFilterType(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EEnvTestScoreEquation(pub u8);
 impl EEnvTestScoreEquation {
@@ -1400,7 +1460,6 @@ impl EEnvTestScoreEquation {
     pub const SQUARE_ROOT: EEnvTestScoreEquation = EEnvTestScoreEquation(3);
     pub const CONSTANT: EEnvTestScoreEquation = EEnvTestScoreEquation(4);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EEnvQueryTestClamping(pub u8);
 impl EEnvQueryTestClamping {
@@ -1408,14 +1467,12 @@ impl EEnvQueryTestClamping {
     pub const SPECIFIED_VALUE: EEnvQueryTestClamping = EEnvQueryTestClamping(1);
     pub const FILTER_THRESHOLD: EEnvQueryTestClamping = EEnvQueryTestClamping(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EEQSNormalizationType(pub u8);
 impl EEQSNormalizationType {
     pub const ABSOLUTE: EEQSNormalizationType = EEQSNormalizationType(0);
     pub const RELATIVE_TO_SCORES: EEQSNormalizationType = EEQSNormalizationType(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EEnvQueryHightlightMode(pub u8);
 impl EEnvQueryHightlightMode {
@@ -1423,7 +1480,6 @@ impl EEnvQueryHightlightMode {
     pub const BEST5_PCT: EEnvQueryHightlightMode = EEnvQueryHightlightMode(1);
     pub const BEST25_PCT: EEnvQueryHightlightMode = EEnvQueryHightlightMode(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EPointOnCircleSpacingMethod(pub u8);
 impl EPointOnCircleSpacingMethod {
@@ -1434,7 +1490,6 @@ impl EPointOnCircleSpacingMethod {
         1,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EEnvTestDistance(pub u8);
 impl EEnvTestDistance {
@@ -1443,14 +1498,12 @@ impl EEnvTestDistance {
     pub const DISTANCE_Z: EEnvTestDistance = EEnvTestDistance(2);
     pub const DISTANCE_ABSOLUTE_Z: EEnvTestDistance = EEnvTestDistance(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EEnvTestDot(pub u8);
 impl EEnvTestDot {
     pub const DOT3_D: EEnvTestDot = EEnvTestDot(0);
     pub const DOT2_D: EEnvTestDot = EEnvTestDot(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EEnvTestPathfinding(pub u8);
 impl EEnvTestPathfinding {
@@ -1458,7 +1511,6 @@ impl EEnvTestPathfinding {
     pub const PATH_COST: EEnvTestPathfinding = EEnvTestPathfinding(1);
     pub const PATH_LENGTH: EEnvTestPathfinding = EEnvTestPathfinding(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EAISenseNotifyType(pub u8);
 impl EAISenseNotifyType {

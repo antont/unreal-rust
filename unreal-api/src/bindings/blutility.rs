@@ -5,161 +5,307 @@
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[repr(C, align(8))]
-pub struct FAssetActionSupportCondition {
-    pub filter: FString,
-    pub failure_reason: FString,
-    pub b_show_in_menu_if_filter_fails: bool,
+pub struct UEditorFunctionLibrary {
+    __padding_end: [u8; 48],
 }
+impl UEditorFunctionLibrary {}
 #[repr(C, align(8))]
-pub struct FBlutilityFunctionData {
-    pub class: TSoftObjectPtr<crate::bindings::core_u_object::UClass>,
-    pub name: FName,
-    pub name_text: FText,
-    pub category: FString,
-    pub tooltip_text: FText,
-}
-pub struct UEditorFunctionLibrary {}
 pub struct UEditorUtilityToolMenuEntry {
-    pub b_run_editor_utility_on_startup: bool,
+    __padding_end: [u8; 240],
 }
+impl UEditorUtilityToolMenuEntry {}
+#[repr(C, align(8))]
 pub struct UEditorUtilityToolMenuSection {
-    pub b_run_editor_utility_on_startup: bool,
+    __padding_end: [u8; 64],
 }
+impl UEditorUtilityToolMenuSection {}
 pub struct UEditorUtilityExtension {}
 pub struct IEditorUtilityExtension {}
+#[repr(C, align(8))]
 pub struct UEditorUtilityObject {
-    pub b_run_editor_utility_on_startup: bool,
+    __padding_end: [u8; 64],
 }
+impl UEditorUtilityObject {}
+#[repr(C, align(8))]
 pub struct UActorActionUtility {
-    pub supported_classes: TArray<
-        TSoftObjectPtr<crate::bindings::core_u_object::UClass>,
-    >,
+    __padding_end: [u8; 88],
 }
+impl UActorActionUtility {}
+#[repr(C, align(8))]
 pub struct UAssetActionUtility {
-    pub b_is_action_for_blueprints: bool,
-    pub supported_classes: TArray<
-        TSoftObjectPtr<crate::bindings::core_u_object::UClass>,
-    >,
-    pub supported_conditions: TArray<FAssetActionSupportCondition>,
+    __padding_end: [u8; 112],
 }
+impl UAssetActionUtility {}
+#[repr(C, align(8))]
 pub struct UAsyncCaptureScene {
-    pub complete: FAsyncCaptureScene_Complete,
-    pub scene_capture: UPtr<crate::bindings::engine::ASceneCapture2D>,
-    pub scene_capture_rt: UPtr<crate::bindings::engine::UTextureRenderTarget2D>,
+    __padding_end: [u8; 104],
 }
+impl UAsyncCaptureScene {}
+#[repr(C, align(8))]
 pub struct UAsyncImageExport {
-    pub complete: FAsyncImageExport_Complete,
-    pub texture_to_export: UPtr<crate::bindings::engine::UTexture>,
-    pub quality: i32,
-    pub target_file: FString,
+    __padding_end: [u8; 112],
 }
+impl UAsyncImageExport {}
+#[repr(C, align(8))]
 pub struct UAsyncRegisterAndExecuteTask {
-    pub on_finished: FAsyncRegisterAndExecuteTask_OnFinished,
+    __padding_end: [u8; 80],
 }
+impl UAsyncRegisterAndExecuteTask {}
+#[repr(C, align(8))]
 pub struct AEditorUtilityActor {
-    pub editor_only_input_component: UPtr<crate::bindings::engine::UInputComponent>,
+    #[doc(hidden)]
+    __padding_1144: [u8; 1144],
     pub b_receives_editor_input: bool,
+    __padding_end: [u8; 7],
 }
-pub struct UEditorUtilityActorComponent {}
-pub struct UEditorUtilityBlueprint {}
+impl AEditorUtilityActor {}
+#[repr(C, align(8))]
+pub struct UEditorUtilityActorComponent {
+    __padding_end: [u8; 240],
+}
+impl UEditorUtilityActorComponent {}
+#[repr(C, align(8))]
+pub struct UEditorUtilityBlueprint {
+    __padding_end: [u8; 1432],
+}
+impl UEditorUtilityBlueprint {}
+#[repr(C, align(8))]
 pub struct UEditorUtilityBlueprintFactory {
-    pub parent_class: TSubclassOf<crate::bindings::core_u_object::UObject>,
+    __padding_end: [u8; 160],
 }
-pub struct AEditorUtilityCamera {}
-pub struct UEditorUtilityBlueprintAsyncActionBase {}
+impl UEditorUtilityBlueprintFactory {}
+#[repr(C, align(16))]
+pub struct AEditorUtilityCamera {
+    __padding_end: [u8; 3136],
+}
+impl AEditorUtilityCamera {}
+#[repr(C, align(8))]
+pub struct UEditorUtilityBlueprintAsyncActionBase {
+    __padding_end: [u8; 56],
+}
+impl UEditorUtilityBlueprintAsyncActionBase {}
+#[repr(C, align(8))]
 pub struct UAsyncEditorDelay {
-    pub complete: FAsyncEditorDelay_Complete,
+    __padding_end: [u8; 96],
 }
+impl UAsyncEditorDelay {}
+#[repr(C, align(8))]
 pub struct UAsyncEditorWaitForGameWorld {
-    pub complete: FAsyncEditorWaitForGameWorld_Complete,
+    __padding_end: [u8; 88],
 }
+impl UAsyncEditorWaitForGameWorld {}
+#[repr(C, align(8))]
 pub struct UAsyncEditorOpenMapAndFocusActor {
-    pub complete: FAsyncEditorOpenMapAndFocusActor_Complete,
+    __padding_end: [u8; 136],
 }
-pub struct UEditorUtilityLibrary {}
+impl UAsyncEditorOpenMapAndFocusActor {}
+#[repr(C, align(8))]
+pub struct UEditorUtilityLibrary {
+    __padding_end: [u8; 48],
+}
+impl UEditorUtilityLibrary {}
+#[repr(C, align(16))]
 pub struct UEditorUtilitySubsystem {
-    pub loaded_u_is: TArray<crate::bindings::core_u_object::FSoftObjectPath>,
-    pub startup_objects: TArray<crate::bindings::core_u_object::FSoftObjectPath>,
-    pub on_begin_pie: FEditorUtilitySubsystem_OnBeginPIE,
-    pub on_end_pie: FEditorUtilitySubsystem_OnEndPIE,
-    pub object_instances: TMap<
-        UPtr<crate::bindings::core_u_object::UObject>,
-        UPtr<crate::bindings::core_u_object::UObject>,
-    >,
-    pub active_task_stack: TArray<UPtr<UEditorUtilityTask>>,
-    pub referenced_objects: TSet<UPtr<crate::bindings::core_u_object::UObject>>,
+    __padding_end: [u8; 688],
 }
+impl UEditorUtilitySubsystem {}
+#[repr(C, align(8))]
 pub struct UEditorUtilityTask {
-    pub b_run_editor_utility_on_startup: bool,
-    pub my_task_manager: UPtr<UEditorUtilitySubsystem>,
-    pub my_parent_task: UPtr<UEditorUtilityTask>,
-    pub b_cancel_requested: bool,
+    __padding_end: [u8; 128],
 }
+impl UEditorUtilityTask {}
+#[repr(C, align(8))]
 pub struct UEditorUtilityWidget {
+    #[doc(hidden)]
+    __padding_1296: [u8; 1296],
     pub tab_display_name: FText,
     pub help_text: FString,
-    pub b_always_reregister_with_windows_menu: bool,
+    #[doc(hidden)]
+    __padding_1329: [u8; 1],
     pub b_auto_run_default_action: bool,
-    pub b_run_editor_utility_on_startup: bool,
+    __padding_end: [u8; 6],
 }
+impl UEditorUtilityWidget {}
+#[repr(C, align(8))]
 pub struct UEditorUtilityWidgetBlueprint {
-    pub b_is_enabled_in_pie: bool,
-    pub b_is_enabled_in_debugging: bool,
-    pub b_spawn_as_nomad_tab: bool,
-    pub created_umg_widget: UPtr<UEditorUtilityWidget>,
+    __padding_end: [u8; 1672],
 }
+impl UEditorUtilityWidgetBlueprint {}
+#[repr(C, align(8))]
 pub struct UEditorUtilityWidgetBlueprintFactory {
-    pub blueprint_type: crate::bindings::engine::EBlueprintType,
-    pub parent_class: TSubclassOf<crate::bindings::umg::UUserWidget>,
+    __padding_end: [u8; 160],
 }
-pub struct UEditorUtilityButton {}
-pub struct UEditorUtilityCheckBox {}
-pub struct UEditorUtilityCircularThrobber {}
-pub struct UEditorUtilityComboBoxKey {}
-pub struct UEditorUtilityComboBoxString {}
-pub struct UEditorUtilityEditableText {}
-pub struct UEditorUtilityEditableTextBox {}
-pub struct UEditorUtilityExpandableArea {}
-pub struct UEditorUtilityInputKeySelector {}
-pub struct UEditorUtilityListView {}
-pub struct UEditorUtilityMultiLineEditableText {}
-pub struct UEditorUtilityMultiLineEditableTextBox {}
-pub struct UEditorUtilityProgressBar {}
-pub struct UEditorUtilityScrollBar {}
-pub struct UEditorUtilityScrollBox {}
-pub struct UEditorUtilitySlider {}
-pub struct UEditorUtilitySpinBox {}
-pub struct UEditorUtilityThrobber {}
-pub struct UEditorUtilityTreeView {}
+impl UEditorUtilityWidgetBlueprintFactory {}
+#[repr(C, align(16))]
+pub struct UEditorUtilityButton {
+    __padding_end: [u8; 2160],
+}
+impl UEditorUtilityButton {}
+#[repr(C, align(16))]
+pub struct UEditorUtilityCheckBox {
+    __padding_end: [u8; 3664],
+}
+impl UEditorUtilityCheckBox {}
+#[repr(C, align(16))]
+pub struct UEditorUtilityCircularThrobber {
+    __padding_end: [u8; 960],
+}
+impl UEditorUtilityCircularThrobber {}
+#[repr(C, align(16))]
+pub struct UEditorUtilityComboBoxKey {
+    __padding_end: [u8; 8000],
+}
+impl UEditorUtilityComboBoxKey {}
+#[repr(C, align(16))]
+pub struct UEditorUtilityComboBoxString {
+    __padding_end: [u8; 8128],
+}
+impl UEditorUtilityComboBoxString {}
+#[repr(C, align(16))]
+pub struct UEditorUtilityEditableText {
+    __padding_end: [u8; 1696],
+}
+impl UEditorUtilityEditableText {}
+#[repr(C, align(16))]
+pub struct UEditorUtilityEditableTextBox {
+    __padding_end: [u8; 4768],
+}
+impl UEditorUtilityEditableTextBox {}
+#[repr(C, align(16))]
+pub struct UEditorUtilityExpandableArea {
+    __padding_end: [u8; 1488],
+}
+impl UEditorUtilityExpandableArea {}
+#[repr(C, align(16))]
+pub struct UEditorUtilityInputKeySelector {
+    __padding_end: [u8; 2816],
+}
+impl UEditorUtilityInputKeySelector {}
+#[repr(C, align(16))]
+pub struct UEditorUtilityListView {
+    __padding_end: [u8; 5088],
+}
+impl UEditorUtilityListView {}
+#[repr(C, align(16))]
+pub struct UEditorUtilityMultiLineEditableText {
+    __padding_end: [u8; 1744],
+}
+impl UEditorUtilityMultiLineEditableText {}
+#[repr(C, align(16))]
+pub struct UEditorUtilityMultiLineEditableTextBox {
+    __padding_end: [u8; 5584],
+}
+impl UEditorUtilityMultiLineEditableTextBox {}
+#[repr(C, align(16))]
+pub struct UEditorUtilityProgressBar {
+    __padding_end: [u8; 1504],
+}
+impl UEditorUtilityProgressBar {}
+#[repr(C, align(16))]
+pub struct UEditorUtilityScrollBar {
+    __padding_end: [u8; 2672],
+}
+impl UEditorUtilityScrollBar {}
+#[repr(C, align(16))]
+pub struct UEditorUtilityScrollBox {
+    __padding_end: [u8; 3760],
+}
+impl UEditorUtilityScrollBox {}
+#[repr(C, align(16))]
+pub struct UEditorUtilitySlider {
+    __padding_end: [u8; 2224],
+}
+impl UEditorUtilitySlider {}
+#[repr(C, align(16))]
+pub struct UEditorUtilitySpinBox {
+    __padding_end: [u8; 2592],
+}
+impl UEditorUtilitySpinBox {}
+#[repr(C, align(16))]
+pub struct UEditorUtilityThrobber {
+    __padding_end: [u8; 928],
+}
+impl UEditorUtilityThrobber {}
+#[repr(C, align(16))]
+pub struct UEditorUtilityTreeView {
+    __padding_end: [u8; 5216],
+}
+impl UEditorUtilityTreeView {}
+#[repr(C, align(8))]
 pub struct UEditorUtilityWidgetProjectSettings {
-    pub b_search_generated_classes_for_scripted_actions: bool,
+    __padding_end: [u8; 1176],
 }
+impl UEditorUtilityWidgetProjectSettings {}
+#[repr(C, align(8))]
 pub struct UDEPRECATED_GlobalEditorUtilityBase {
+    #[doc(hidden)]
+    __padding_48: [u8; 48],
     pub help_text: FString,
-    pub b_dirtied_selection_set: bool,
+    #[doc(hidden)]
+    __padding_65: [u8; 1],
     pub b_auto_run_default_action: bool,
-    pub on_each_selected_actor: FGlobalEditorUtilityBase_OnEachSelectedActor,
-    pub on_each_selected_asset: FGlobalEditorUtilityBase_OnEachSelectedAsset,
+    __padding_end: [u8; 54],
 }
+impl UDEPRECATED_GlobalEditorUtilityBase {}
+#[repr(C, align(8))]
 pub struct ADEPRECATED_PlacedEditorUtilityBase {
+    #[doc(hidden)]
+    __padding_1136: [u8; 1136],
     pub help_text: FString,
 }
+impl ADEPRECATED_PlacedEditorUtilityBase {}
+#[repr(C, align(8))]
 pub struct UToolMenuWidget {
+    #[doc(hidden)]
+    __padding_696: [u8; 696],
     pub menu_name: FString,
     pub menu_type: crate::bindings::slate::EMultiBoxType,
+    #[doc(hidden)]
+    __padding_736: [u8; 20],
     pub full_menu_name: FName,
+    __padding_end: [u8; 4],
 }
-pub struct FAsyncCaptureScene_Complete;
-pub struct FAsyncImageExport_Complete;
-pub struct FAsyncRegisterAndExecuteTask_OnFinished;
-pub struct FAsyncEditorDelay_Complete;
-pub struct FAsyncEditorWaitForGameWorld_Complete;
-pub struct FAsyncEditorOpenMapAndFocusActor_Complete;
-pub struct FEditorUtilitySubsystem_OnBeginPIE;
-pub struct FEditorUtilitySubsystem_OnEndPIE;
-pub struct FGlobalEditorUtilityBase_OnEachSelectedActor;
-pub struct FGlobalEditorUtilityBase_OnEachSelectedAsset;
-#[allow(non_camel_case_types)]
+impl UToolMenuWidget {}
+#[repr(transparent)]
+pub struct FAsyncCaptureScene_Complete {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FAsyncImageExport_Complete {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FAsyncRegisterAndExecuteTask_OnFinished {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FAsyncEditorDelay_Complete {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FAsyncEditorWaitForGameWorld_Complete {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FAsyncEditorOpenMapAndFocusActor_Complete {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FEditorUtilitySubsystem_OnBeginPIE {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FEditorUtilitySubsystem_OnEndPIE {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FGlobalEditorUtilityBase_OnEachSelectedActor {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FGlobalEditorUtilityBase_OnEachSelectedAsset {
+    _opague: u8,
+}
 #[repr(transparent)]
 pub struct ECastToWidgetBlueprintCases(pub u8);
 impl ECastToWidgetBlueprintCases {

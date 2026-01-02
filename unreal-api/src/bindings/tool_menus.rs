@@ -6,8 +6,9 @@ pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[repr(C, align(8))]
 pub struct FToolMenuContext {
-    pub context_objects: TArray<UPtr<crate::bindings::core_u_object::UObject>>,
+    __padding_end: [u8; 104],
 }
+impl FToolMenuContext {}
 #[repr(C, align(8))]
 pub struct FToolDynamicUIAction {
     pub execute_action: FToolDynamicUIAction_ExecuteAction,
@@ -15,20 +16,27 @@ pub struct FToolDynamicUIAction {
     pub get_action_check_state: FToolDynamicUIAction_GetActionCheckState,
     pub is_action_visible_delegate: FToolDynamicUIAction_IsActionVisibleDelegate,
 }
+impl FToolDynamicUIAction {}
 #[repr(C, align(8))]
 pub struct FToolMenuStringCommand {
     pub ty: EToolMenuStringCommandType,
     pub custom_type: FName,
     pub string: FString,
 }
+impl FToolMenuStringCommand {}
 #[repr(C, align(4))]
 pub struct FToolMenuInsert {
     pub name: FName,
     pub position: EToolMenuInsertType,
     pub fallback: EToolMenuInsertFallback,
+    __padding_end: [u8; 2],
 }
+impl FToolMenuInsert {}
 #[repr(C, align(8))]
-pub struct FToolMenuOwner {}
+pub struct FToolMenuOwner {
+    __padding_end: [u8; 16],
+}
+impl FToolMenuOwner {}
 #[repr(C, align(8))]
 pub struct FToolMenuEntry {
     pub name: FName,
@@ -40,14 +48,16 @@ pub struct FToolMenuEntry {
     pub b_should_close_window_after_menu_selection: bool,
     pub script_object: UPtr<UToolMenuEntryScript>,
     pub style_name_override: FName,
-    pub b_command_is_keybind_only: bool,
+    __padding_end: [u8; 1916],
 }
+impl FToolMenuEntry {}
 #[repr(C, align(4))]
 pub struct FScriptSlateIcon {
     pub style_set_name: FName,
     pub style_name: FName,
     pub small_style_name: FName,
 }
+impl FScriptSlateIcon {}
 #[repr(C, align(4))]
 pub struct FToolMenuEntryScriptDataAdvanced {
     pub tutorial_highlight: FName,
@@ -59,6 +69,7 @@ pub struct FToolMenuEntryScriptDataAdvanced {
     pub b_should_close_window_after_menu_selection: bool,
     pub b_simple_combo_box: bool,
 }
+impl FToolMenuEntryScriptDataAdvanced {}
 #[repr(C, align(8))]
 pub struct FToolMenuEntryScriptData {
     pub menu: FName,
@@ -71,10 +82,7 @@ pub struct FToolMenuEntryScriptData {
     pub insert_position: FToolMenuInsert,
     pub advanced: FToolMenuEntryScriptDataAdvanced,
 }
-#[repr(C, align(8))]
-pub struct FToolMenuProfileMap {
-    pub menu_profiles: TMap<FName, crate::bindings::slate::FToolMenuProfile>,
-}
+impl FToolMenuEntryScriptData {}
 #[repr(C, align(8))]
 pub struct FToolMenuSection {
     pub name: FName,
@@ -83,14 +91,20 @@ pub struct FToolMenuSection {
     pub insert_position: FToolMenuInsert,
     pub context: FToolMenuContext,
     pub tool_menu_section_dynamic: UPtr<UToolMenuSectionDynamic>,
+    __padding_end: [u8; 400],
 }
+impl FToolMenuSection {}
+#[repr(C, align(8))]
 pub struct UToolMenu {
+    #[doc(hidden)]
+    __padding_48: [u8; 48],
     pub menu_name: FName,
     pub menu_parent: FName,
     pub style_name: FName,
     pub tutorial_highlight_name: FName,
     pub menu_type: crate::bindings::slate::EMultiBoxType,
-    pub b_should_cleanup_context_on_destroy: bool,
+    #[doc(hidden)]
+    __padding_98: [u8; 1],
     pub b_should_close_window_after_menu_selection: bool,
     pub b_close_self_only: bool,
     pub b_searchable: bool,
@@ -100,34 +114,78 @@ pub struct UToolMenu {
     pub b_tool_bar_force_small_icons: bool,
     pub b_prevent_customization: bool,
     pub menu_owner: FToolMenuOwner,
-    pub context: FToolMenuContext,
-    pub sections: TArray<FToolMenuSection>,
-    pub sub_menu_parent: UPtr<UToolMenu>,
-    pub sub_menu_source_entry_name: FName,
+    __padding_end: [u8; 192],
 }
-pub struct UToolMenuContextBase {}
-pub struct USlateTabManagerContext {}
+impl UToolMenu {}
+#[repr(C, align(8))]
+pub struct UToolMenuContextBase {
+    __padding_end: [u8; 48],
+}
+impl UToolMenuContextBase {}
+#[repr(C, align(8))]
+pub struct USlateTabManagerContext {
+    __padding_end: [u8; 64],
+}
+impl USlateTabManagerContext {}
+#[repr(C, align(8))]
 pub struct UToolMenuEntryScript {
+    #[doc(hidden)]
+    __padding_48: [u8; 48],
     pub data: FToolMenuEntryScriptData,
-    pub b_has_registered_menu_entry: bool,
+    __padding_end: [u8; 8],
 }
-pub struct UToolMenuProfileContext {}
+impl UToolMenuEntryScript {}
+#[repr(C, align(8))]
+pub struct UToolMenuProfileContext {
+    __padding_end: [u8; 64],
+}
+impl UToolMenuProfileContext {}
+#[repr(C, align(8))]
 pub struct UToolMenus {
-    pub customized_menus: TArray<crate::bindings::slate::FCustomizedToolMenu>,
-    pub menu_substitutions_during_generate: TMap<FName, FName>,
-    pub menus: TMap<FName, UPtr<UToolMenu>>,
-    pub menu_profiles: TMap<FName, FToolMenuProfileMap>,
+    __padding_end: [u8; 928],
 }
-pub struct UToolMenuContextExtensions {}
-pub struct UToolMenuEntryExtensions {}
-pub struct UToolMenuSectionExtensions {}
-pub struct UToolMenuSectionDynamic {}
-pub struct UToolMenuWidgetCollectionContext {}
-pub struct FToolDynamicUIAction_ExecuteAction;
-pub struct FToolDynamicUIAction_CanExecuteAction;
-pub struct FToolDynamicUIAction_GetActionCheckState;
-pub struct FToolDynamicUIAction_IsActionVisibleDelegate;
-#[allow(non_camel_case_types)]
+impl UToolMenus {}
+#[repr(C, align(8))]
+pub struct UToolMenuContextExtensions {
+    __padding_end: [u8; 48],
+}
+impl UToolMenuContextExtensions {}
+#[repr(C, align(8))]
+pub struct UToolMenuEntryExtensions {
+    __padding_end: [u8; 48],
+}
+impl UToolMenuEntryExtensions {}
+#[repr(C, align(8))]
+pub struct UToolMenuSectionExtensions {
+    __padding_end: [u8; 48],
+}
+impl UToolMenuSectionExtensions {}
+#[repr(C, align(8))]
+pub struct UToolMenuSectionDynamic {
+    __padding_end: [u8; 48],
+}
+impl UToolMenuSectionDynamic {}
+#[repr(C, align(8))]
+pub struct UToolMenuWidgetCollectionContext {
+    __padding_end: [u8; 64],
+}
+impl UToolMenuWidgetCollectionContext {}
+#[repr(transparent)]
+pub struct FToolDynamicUIAction_ExecuteAction {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FToolDynamicUIAction_CanExecuteAction {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FToolDynamicUIAction_GetActionCheckState {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FToolDynamicUIAction_IsActionVisibleDelegate {
+    _opague: u8,
+}
 #[repr(transparent)]
 pub struct EToolMenuStringCommandType(pub u8);
 impl EToolMenuStringCommandType {
@@ -135,7 +193,6 @@ impl EToolMenuStringCommandType {
     pub const PYTHON: EToolMenuStringCommandType = EToolMenuStringCommandType(1);
     pub const CUSTOM: EToolMenuStringCommandType = EToolMenuStringCommandType(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EToolMenuInsertType(pub u8);
 impl EToolMenuInsertType {
@@ -145,7 +202,6 @@ impl EToolMenuInsertType {
     pub const FIRST: EToolMenuInsertType = EToolMenuInsertType(3);
     pub const LAST: EToolMenuInsertType = EToolMenuInsertType(4);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EToolMenuInsertFallback(pub u8);
 impl EToolMenuInsertFallback {
@@ -153,7 +209,6 @@ impl EToolMenuInsertFallback {
     pub const INSERT: EToolMenuInsertFallback = EToolMenuInsertFallback(1);
     pub const LOG: EToolMenuInsertFallback = EToolMenuInsertFallback(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EToolMenuSectionAlign(pub u8);
 impl EToolMenuSectionAlign {

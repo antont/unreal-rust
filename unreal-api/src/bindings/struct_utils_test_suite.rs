@@ -4,66 +4,28 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
-#[repr(C, align(1))]
-pub struct FTestStructSimpleBase {}
-#[repr(C, align(4))]
-pub struct FTestStructSimple {
-    pub float: f32,
-}
-#[repr(C, align(4))]
-pub struct FTestStructSimpleNonZeroDefault {
-    pub float: f32,
-}
 #[repr(C, align(8))]
-pub struct FTestStructComplex {
-    pub string: FString,
-    pub string_array: TArray<FString>,
+pub struct UBagTestObject1 {
+    __padding_end: [u8; 48],
 }
-#[repr(C, align(4))]
-pub struct FTestStructSimple1 {
-    pub float: f32,
-}
-#[repr(C, align(4))]
-pub struct FTestStructSimple2 {
-    pub float: f32,
-}
-#[repr(C, align(4))]
-pub struct FTestStructSimple3 {
-    pub float: f32,
-}
-#[repr(C, align(4))]
-pub struct FTestStructSimple4 {
-    pub float: f32,
-}
-#[repr(C, align(4))]
-pub struct FTestStructSimple5 {
-    pub float: f32,
-}
-#[repr(C, align(4))]
-pub struct FTestStructSimple6 {
-    pub float: f32,
-}
-#[repr(C, align(4))]
-pub struct FTestStructSimple7 {
-    pub float: f32,
-}
-#[repr(C, align(4))]
-pub struct FTestStructHashable1 {
-    pub float: f32,
-}
-#[repr(C, align(1))]
-pub struct FTestStructNonTrivialDestructor {}
+impl UBagTestObject1 {}
 #[repr(C, align(8))]
-pub struct FTestStructWithSubClassOf {
-    pub class_property: TSubclassOf<UBagTestObject1>,
-    pub soft_class_property: TSoftObjectPtr<crate::bindings::core_u_object::UClass>,
+pub struct UBagTestObject2 {
+    __padding_end: [u8; 48],
 }
-pub struct UBagTestObject1 {}
-pub struct UBagTestObject2 {}
-pub struct UBagTestObject1Derived {}
+impl UBagTestObject2 {}
+#[repr(C, align(8))]
+pub struct UBagTestObject1Derived {
+    __padding_end: [u8; 48],
+}
+impl UBagTestObject1Derived {}
+#[repr(C, align(8))]
 pub struct UTestObjectWithPropertyBag {
-    pub bag: crate::bindings::core_u_object::FInstancedPropertyBag,
+    __padding_end: [u8; 64],
 }
+impl UTestObjectWithPropertyBag {}
+#[repr(C, align(8))]
 pub struct UTestObjectWithInstanceStruct {
-    pub value: crate::bindings::core_u_object::FInstancedStruct,
+    __padding_end: [u8; 64],
 }
+impl UTestObjectWithInstanceStruct {}

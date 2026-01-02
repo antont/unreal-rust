@@ -4,42 +4,31 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
+#[repr(C, align(8))]
 pub struct UParameterizeMeshToolProperties {
-    pub method: EParameterizeMeshUVMethod,
+    __padding_end: [u8; 192],
 }
+impl UParameterizeMeshToolProperties {}
+#[repr(C, align(8))]
 pub struct UParameterizeMeshToolUVAtlasProperties {
-    pub island_stretch: f32,
-    pub num_islands: i32,
-    pub texture_resolution: i32,
-    pub b_use_polygroups: bool,
-    pub b_layout_udim_per_polygroup: bool,
-    pub b_polygroups_enabled: bool,
-    pub b_udi_ms_enabled: bool,
+    __padding_end: [u8; 200],
 }
+impl UParameterizeMeshToolUVAtlasProperties {}
+#[repr(C, align(8))]
 pub struct UParameterizeMeshToolXAtlasProperties {
-    pub max_iterations: i32,
+    __padding_end: [u8; 192],
 }
+impl UParameterizeMeshToolXAtlasProperties {}
+#[repr(C, align(8))]
 pub struct UParameterizeMeshToolPatchBuilderProperties {
-    pub initial_patches: i32,
-    pub curvature_alignment: f32,
-    pub merging_distortion_threshold: f32,
-    pub merging_angle_threshold: f32,
-    pub smoothing_steps: i32,
-    pub smoothing_alpha: f32,
-    pub b_repack: bool,
-    pub texture_resolution: i32,
-    pub b_use_polygroups: bool,
-    pub b_layout_udim_per_polygroup: bool,
-    pub b_polygroups_enabled: bool,
-    pub b_udi_ms_enabled: bool,
+    __padding_end: [u8; 224],
 }
+impl UParameterizeMeshToolPatchBuilderProperties {}
+#[repr(C, align(16))]
 pub struct UParameterizeMeshOperatorFactory {
-    pub settings: UPtr<UParameterizeMeshToolProperties>,
-    pub uv_atlas_properties: UPtr<UParameterizeMeshToolUVAtlasProperties>,
-    pub x_atlas_properties: UPtr<UParameterizeMeshToolXAtlasProperties>,
-    pub patch_builder_properties: UPtr<UParameterizeMeshToolPatchBuilderProperties>,
+    __padding_end: [u8; 304],
 }
-#[allow(non_camel_case_types)]
+impl UParameterizeMeshOperatorFactory {}
 #[repr(transparent)]
 pub struct EParameterizeMeshUVMethod(pub i32);
 impl EParameterizeMeshUVMethod {
@@ -47,7 +36,6 @@ impl EParameterizeMeshUVMethod {
     pub const UV_ATLAS: EParameterizeMeshUVMethod = EParameterizeMeshUVMethod(1);
     pub const X_ATLAS: EParameterizeMeshUVMethod = EParameterizeMeshUVMethod(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EEmbeddedPolygonOpMethod(pub u8);
 impl EEmbeddedPolygonOpMethod {
@@ -57,7 +45,6 @@ impl EEmbeddedPolygonOpMethod {
     pub const CUT_THROUGH: EEmbeddedPolygonOpMethod = EEmbeddedPolygonOpMethod(3);
     pub const CUT_OUTSIDE: EEmbeddedPolygonOpMethod = EEmbeddedPolygonOpMethod(4);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ESimplifyType(pub u8);
 impl ESimplifyType {
@@ -69,7 +56,6 @@ impl ESimplifyType {
     pub const MINIMAL_POLYGROUP: ESimplifyType = ESimplifyType(5);
     pub const CLUSTER_BASED: ESimplifyType = ESimplifyType(6);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ESimplifyTargetType(pub u8);
 impl ESimplifyTargetType {
@@ -79,7 +65,6 @@ impl ESimplifyTargetType {
     pub const EDGE_LENGTH: ESimplifyTargetType = ESimplifyTargetType(3);
     pub const MINIMAL_PLANAR: ESimplifyTargetType = ESimplifyTargetType(4);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMeshTangentsType(pub u8);
 impl EMeshTangentsType {

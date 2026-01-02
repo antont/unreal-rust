@@ -5,45 +5,40 @@
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[repr(C, align(8))]
-pub struct FBlueprintActionMenuItem {}
-#[repr(C, align(8))]
-pub struct FBlueprintCompiledData {
-    pub intermediate_graphs: TArray<UPtr<crate::bindings::engine::UEdGraph>>,
+pub struct UBlueprintEditorToolMenuContext {
+    __padding_end: [u8; 64],
 }
+impl UBlueprintEditorToolMenuContext {}
 #[repr(C, align(8))]
-pub struct FBlueprintDragDropMenuItem {}
-#[repr(C, align(8))]
-pub struct FFavoritedBlueprintPaletteItem {}
-#[repr(C, align(8))]
-pub struct FBlueprintDependency {
-    pub dependency_type: EBPDependencyType,
-    pub package_name: FName,
-    pub native_object_name: FName,
-    pub hash: FString,
+pub struct USSCSEditorMenuContext {
+    __padding_end: [u8; 88],
 }
+impl USSCSEditorMenuContext {}
 #[repr(C, align(8))]
-pub struct FBlueprintDependencies {
-    pub blueprint_dependencies: TArray<FBlueprintDependency>,
+pub struct UBlueprintCompilerExtension {
+    __padding_end: [u8; 48],
 }
+impl UBlueprintCompilerExtension {}
 #[repr(C, align(8))]
-pub struct FBPGraphClipboardData {
-    pub graph_name: FName,
-    pub graph_type: crate::bindings::engine::EGraphType,
-    pub original_blueprint: TWeakObjectPtr<crate::bindings::engine::UBlueprint>,
-    pub nodes_string: FString,
-}
-pub struct UBlueprintEditorToolMenuContext {}
-pub struct USSCSEditorMenuContext {}
-pub struct UBlueprintCompilerExtension {}
 pub struct UBlueprintPaletteFavorites {
-    pub custom_favorites: TArray<FString>,
-    pub current_favorites: TArray<FFavoritedBlueprintPaletteItem>,
-    pub current_profile: FString,
+    __padding_end: [u8; 128],
 }
-pub struct UJsonObjectGraphFunctionLibrary {}
-pub struct USCSEditorExtensionContext {}
-pub struct USubobjectEditorExtensionContext {}
-#[allow(non_camel_case_types)]
+impl UBlueprintPaletteFavorites {}
+#[repr(C, align(8))]
+pub struct UJsonObjectGraphFunctionLibrary {
+    __padding_end: [u8; 48],
+}
+impl UJsonObjectGraphFunctionLibrary {}
+#[repr(C, align(8))]
+pub struct USCSEditorExtensionContext {
+    __padding_end: [u8; 80],
+}
+impl USCSEditorExtensionContext {}
+#[repr(C, align(8))]
+pub struct USubobjectEditorExtensionContext {
+    __padding_end: [u8; 64],
+}
+impl USubobjectEditorExtensionContext {}
 #[repr(transparent)]
 pub struct EBPDependencyType(pub i32);
 impl EBPDependencyType {
@@ -51,7 +46,6 @@ impl EBPDependencyType {
     pub const STRUCT: EBPDependencyType = EBPDependencyType(1);
     pub const CLASS: EBPDependencyType = EBPDependencyType(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EFiBIndexAllPermission(pub i32);
 impl EFiBIndexAllPermission {

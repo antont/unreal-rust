@@ -9,32 +9,49 @@ pub struct FStaticMeshReductionSettings {
     pub percent_triangles: f32,
     pub screen_size: f32,
 }
+impl FStaticMeshReductionSettings {}
 #[repr(C, align(8))]
 pub struct FStaticMeshReductionOptions {
     pub b_auto_compute_lod_screen_size: bool,
     pub reduction_settings: TArray<FStaticMeshReductionSettings>,
 }
+impl FStaticMeshReductionOptions {}
 #[repr(C, align(8))]
 pub struct FJoinStaticMeshActorsOptions {
     pub b_destroy_source_actors: bool,
     pub new_actor_label: FString,
     pub b_rename_components_from_source: bool,
+    __padding_end: [u8; 7],
 }
+impl FJoinStaticMeshActorsOptions {}
 #[repr(C, align(8))]
 pub struct FMergeStaticMeshActorsOptions {
+    #[doc(hidden)]
+    __padding_32: [u8; 32],
     pub b_spawn_merged_actor: bool,
     pub base_package_name: FString,
     pub mesh_merging_settings: crate::bindings::engine::FMeshMergingSettings,
 }
+impl FMergeStaticMeshActorsOptions {}
 #[repr(C, align(8))]
 pub struct FCreateProxyMeshActorOptions {
+    #[doc(hidden)]
+    __padding_32: [u8; 32],
     pub b_spawn_merged_actor: bool,
     pub base_package_name: FString,
     pub mesh_proxy_settings: crate::bindings::engine::FMeshProxySettings,
 }
-pub struct UStaticMeshEditorUISubsystem {}
-pub struct UStaticMeshEditorSubsystem {}
-#[allow(non_camel_case_types)]
+impl FCreateProxyMeshActorOptions {}
+#[repr(C, align(8))]
+pub struct UStaticMeshEditorUISubsystem {
+    __padding_end: [u8; 56],
+}
+impl UStaticMeshEditorUISubsystem {}
+#[repr(C, align(8))]
+pub struct UStaticMeshEditorSubsystem {
+    __padding_end: [u8; 56],
+}
+impl UStaticMeshEditorSubsystem {}
 #[repr(transparent)]
 pub struct EScriptCollisionShapeType(pub u8);
 impl EScriptCollisionShapeType {

@@ -329,37 +329,34 @@ static TArray<FString> GetFunctionFlagStrings(UFunction* Function)
 	return ActiveFlags;
 }
 
-
-TUniquePtr<RustReflection_Type> FromUClass(UClass* Class)
-{
-	return MakeContainerType(TEXT("TSubclassOf"), MakeConcreteType(Class->GetPrefixCPP() + Class->GetName()));
-}
-
 TSharedPtr<FJsonObject> RustReflection_MapType::ToJson()
 {
 	auto Json = MakeShared<FJsonObject>();
 	Json->SetStringField(TEXT("Kind"), TEXT("Map"));
 	Json->SetObjectField(TEXT("KeyType"), KeyType->ToJson());
 	Json->SetObjectField(TEXT("ValueType"), ValueType->ToJson());
+	Json->SetNumberField(TEXT("ArrayDim"), ArrayDim);
 
 	return Json;
 }
 
-TUniquePtr<RustReflection_ConcreteType> MakeConcreteType(FString Name, TOptional<FString> Hint)
+TUniquePtr<RustReflection_ConcreteType> MakeConcreteType(FString Name, int32 ArrayDim, TOptional<FString> Hint)
 {
 	auto Type = MakeUnique<RustReflection_ConcreteType>();
 	Type->TypeName = Name;
 	Type->Hint = Hint;
+	Type->ArrayDim = ArrayDim;
 
 	return Type;
 }
 
 TUniquePtr<RustReflection_ContainerType> MakeContainerType(FString ContainerTypeName,
-                                                           TUniquePtr<RustReflection_Type> InnerType)
+                                                           TUniquePtr<RustReflection_Type> InnerType, int32 ArrayDim)
 {
 	auto ContainerType = MakeUnique<RustReflection_ContainerType>();
 	ContainerType->ContainerTypeName = ContainerTypeName;
 	ContainerType->InnerType = MoveTemp(InnerType);
+	ContainerType->ArrayDim = ArrayDim;
 
 	return ContainerType;
 }
@@ -373,19 +370,19 @@ TUniquePtr<RustReflection_Type> FromProperty(FProperty* Property)
 
 	if (FArrayProperty* ArrayProperty = CastField<FArrayProperty>(Property))
 	{
-		return MakeContainerType(TEXT("TArray"), FromProperty(ArrayProperty->Inner));
+		return MakeContainerType(TEXT("TArray"), FromProperty(ArrayProperty->Inner), Property->ArrayDim);
 	}
 
 	if (auto* ClassProperty = CastField<FClassProperty>(Property))
 	{
 		return MakeContainerType(
 			TEXT("TSubclassOf"),
-			MakeConcreteType(GetCppNameFromUClass(ClassProperty->MetaClass)));
+			MakeConcreteType(GetCppNameFromUClass(ClassProperty->MetaClass), 1), Property->ArrayDim);
 	}
 
 	if (auto* ObjectProperty = CastField<FObjectProperty>(Property))
 	{
-		return MakeConcreteType(GetCppNameFromUClass(ObjectProperty->PropertyClass),
+		return MakeConcreteType(GetCppNameFromUClass(ObjectProperty->PropertyClass), Property->ArrayDim,
 		                        TOptional<FString>(TEXT("UObject")));
 	}
 
@@ -393,7 +390,7 @@ TUniquePtr<RustReflection_Type> FromProperty(FProperty* Property)
 	{
 		if (InnerProperty->IsNativeBool())
 		{
-			return MakeConcreteType(TEXT("bool"));
+			return MakeConcreteType(TEXT("bool"), Property->ArrayDim);
 		}
 		else
 		{
@@ -406,31 +403,32 @@ TUniquePtr<RustReflection_Type> FromProperty(FProperty* Property)
 
 	if (auto* InnerProperty = CastField<FStrProperty>(Property))
 	{
-		return MakeConcreteType(TEXT("FString"));
+		return MakeConcreteType(TEXT("FString"), Property->ArrayDim);
 	}
 
 	if (auto* InnerProperty = CastField<FAnsiStrProperty>(Property))
 	{
-		return MakeConcreteType(TEXT("FAnsiString"));
+		return MakeConcreteType(TEXT("FAnsiString"), Property->ArrayDim);
 	}
 
 	if (auto* InnerProperty = CastField<FStructProperty>(Property))
 	{
-		return MakeConcreteType(InnerProperty->Struct->GetStructCPPName());
+		return MakeConcreteType(InnerProperty->Struct->GetStructCPPName(), Property->ArrayDim);
 	}
 
 	if (auto* InnerProperty = CastField<FFieldPathProperty>(Property))
 	{
 		return MakeContainerType(
 			TEXT("TFieldPath"),
-			MakeConcreteType(FString::Printf(TEXT("F%s"), *InnerProperty->PropertyClass->GetName())));
+			MakeConcreteType(FString::Printf(TEXT("F%s"), *InnerProperty->PropertyClass->GetName()),
+			                 Property->ArrayDim), 1);
 	}
 
 	if (auto* InnerProperty = CastField<FSetProperty>(Property))
 	{
 		return MakeContainerType(
 			TEXT("TSet"),
-			FromProperty(InnerProperty->ElementProp));
+			FromProperty(InnerProperty->ElementProp), Property->ArrayDim);
 	}
 
 	if (auto* InnerProperty = CastField<FMapProperty>(Property))
@@ -444,50 +442,50 @@ TUniquePtr<RustReflection_Type> FromProperty(FProperty* Property)
 
 	if (auto* InnerProperty = CastField<FEnumProperty>(Property))
 	{
-		return MakeConcreteType(InnerProperty->GetEnum()->CppType);
+		return MakeConcreteType(InnerProperty->GetEnum()->CppType, Property->ArrayDim);
 	}
 
 	if (auto* InnerProperty = CastField<FOptionalProperty>(Property))
 	{
 		return MakeContainerType(
 			TEXT("TOptional"),
-			FromProperty(InnerProperty->GetValueProperty()));
+			FromProperty(InnerProperty->GetValueProperty()), Property->ArrayDim);
 	}
 
 	if (auto* InnerProperty = CastField<FNameProperty>(Property))
 	{
-		return MakeConcreteType(TEXT("FName"));
+		return MakeConcreteType(TEXT("FName"), Property->ArrayDim);
 	}
 
 	if (auto* InnerProperty = CastField<FTextProperty>(Property))
 	{
-		return MakeConcreteType(TEXT("FText"));
+		return MakeConcreteType(TEXT("FText"), Property->ArrayDim);
 	}
 
 	if (auto* InnerProperty = CastField<FUtf8StrProperty>(Property))
 	{
-		return MakeConcreteType(TEXT("FUtf8String"));
+		return MakeConcreteType(TEXT("FUtf8String"), Property->ArrayDim);
 	}
 
 	if (auto* InnerProperty = CastField<FLazyObjectProperty>(Property))
 	{
 		return MakeContainerType(
 			TEXT("TLazyObjectPtr"),
-			MakeConcreteType(GetCppNameFromUClass(InnerProperty->PropertyClass)));
+			MakeConcreteType(GetCppNameFromUClass(InnerProperty->PropertyClass), 1), Property->ArrayDim);
 	}
 
 	if (auto* InnerProperty = CastField<FSoftObjectProperty>(Property))
 	{
 		return MakeContainerType(
 			TEXT("TSoftObjectPtr"),
-			MakeConcreteType(GetCppNameFromUClass(InnerProperty->PropertyClass)));
+			MakeConcreteType(GetCppNameFromUClass(InnerProperty->PropertyClass), 1), Property->ArrayDim);
 	}
 
 	if (auto* InnerProperty = CastField<FSoftClassProperty>(Property))
 	{
 		return MakeContainerType(
 			TEXT("TSoftClassPtr"),
-			MakeConcreteType(GetCppNameFromUClass(InnerProperty->MetaClass)));
+			MakeConcreteType(GetCppNameFromUClass(InnerProperty->MetaClass), 1), Property->ArrayDim);
 	}
 
 	if (auto* InnerProperty = CastField<FInterfaceProperty>(Property))
@@ -495,11 +493,12 @@ TUniquePtr<RustReflection_Type> FromProperty(FProperty* Property)
 		FString InterfaceName;
 		if (InnerProperty->InterfaceClass == UInterface::StaticClass())
 		{
-			return MakeConcreteType(TEXT("FScriptInterface"));
+			return MakeConcreteType(TEXT("FScriptInterface"), Property->ArrayDim);
 		}
 		else
 		{
 			return MakeConcreteType(FString::Printf(TEXT("I%s"), *InnerProperty->InterfaceClass.GetName()),
+			                        Property->ArrayDim,
 			                        TOptional<FString>((TEXT("ScriptInterface"))));
 		}
 	}
@@ -508,7 +507,7 @@ TUniquePtr<RustReflection_Type> FromProperty(FProperty* Property)
 	{
 		return MakeContainerType(
 			TEXT("TWeakObjectPtr"),
-			MakeConcreteType(GetCppNameFromUClass(InnerProperty->PropertyClass)));
+			MakeConcreteType(GetCppNameFromUClass(InnerProperty->PropertyClass), 1), Property->ArrayDim);
 	}
 
 	if (auto* InnerProperty = CastField<FMulticastDelegateProperty>(Property))
@@ -516,7 +515,8 @@ TUniquePtr<RustReflection_Type> FromProperty(FProperty* Property)
 		auto OwningProperty = InnerProperty->GetOwnerStruct();
 		auto SignatureName = InnerProperty->GetName();
 		// SignatureName.RemoveFromEnd(TEXT("Delegate"));
-		return MakeConcreteType(FString::Printf(TEXT("F%s_%s"), *OwningProperty->GetName(), *SignatureName));
+		return MakeConcreteType(FString::Printf(TEXT("F%s_%s"), *OwningProperty->GetName(), *SignatureName),
+		                        Property->ArrayDim);
 	}
 
 	if (auto* InnerProperty = CastField<FDelegateProperty>(Property))
@@ -524,24 +524,26 @@ TUniquePtr<RustReflection_Type> FromProperty(FProperty* Property)
 		auto OwningProperty = InnerProperty->GetOwnerStruct();
 		auto SignatureName = InnerProperty->GetName();
 		// SignatureName.RemoveFromEnd(TEXT("Delegate"));
-		return MakeConcreteType(FString::Printf(TEXT("F%s_%s"), *OwningProperty->GetName(), *SignatureName));
+		return MakeConcreteType(FString::Printf(TEXT("F%s_%s"), *OwningProperty->GetName(), *SignatureName),
+		                        Property->ArrayDim);
 	}
 
 	if (auto* InnerProperty = CastField<FByteProperty>(Property))
 	{
 		if (InnerProperty->Enum != nullptr)
 		{
-			return MakeConcreteType(InnerProperty->Enum.GetName());
+			return MakeConcreteType(InnerProperty->Enum.GetName(), Property->ArrayDim);
 		}
 
-		return MakeConcreteType(TEXT("uint8"));
+		return MakeConcreteType(TEXT("uint8"), Property->ArrayDim);
 	}
 
 	if (auto* InnerProperty = CastField<FNumericProperty>(Property))
 	{
-		return MakeConcreteType(InnerProperty->GetCPPType(nullptr, 0));
+		return MakeConcreteType(InnerProperty->GetCPPType(nullptr, 0), Property->ArrayDim);
 	};
-	return MakeConcreteType(FString::Format(TEXT("GeneratorInvalid_ {0}"), {*Property->GetNameCPP()}));
+	return MakeConcreteType(FString::Format(TEXT("GeneratorInvalid_ {0}"), {*Property->GetNameCPP()}),
+	                        Property->ArrayDim);
 }
 
 FRustReflection_Property FRustReflection_Property::FromProperty(FProperty* Property)
@@ -551,6 +553,8 @@ FRustReflection_Property FRustReflection_Property::FromProperty(FProperty* Prope
 	PropertyReflection.Type = ::FromProperty(Property);
 	PropertyReflection.PropertyFlags = GetPropertyFlagStrings(Property->GetPropertyFlags());
 	PropertyReflection.Offset = Property->GetOffset_ForUFunction();
+	PropertyReflection.Size = Property->GetSize();
+	PropertyReflection.Alignment = Property->GetMinAlignment();
 
 	auto DocText = Property->GetToolTipText();
 	if (!DocText.IsEmpty())
@@ -565,6 +569,7 @@ TSharedPtr<FJsonObject> RustReflection_ConcreteType::ToJson()
 {
 	auto Json = MakeShared<FJsonObject>();
 	Json->SetStringField(TEXT("Kind"), TEXT("Concrete"));
+	Json->SetNumberField(TEXT("ArrayDim"), ArrayDim);
 	Json->SetStringField(TEXT("TypeName"), TypeName);
 	if (Hint.IsSet())
 	{
@@ -580,6 +585,7 @@ TSharedPtr<FJsonObject> RustReflection_Bitfield::ToJson()
 	Json->SetStringField(TEXT("Kind"), TEXT("Bitfield"));
 	Json->SetNumberField(TEXT("Offset"), Offset);
 	Json->SetNumberField(TEXT("FieldMask"), FieldMask);
+	Json->SetNumberField(TEXT("ArrayDim"), ArrayDim);
 	return Json;
 }
 
@@ -589,6 +595,7 @@ TSharedPtr<FJsonObject> RustReflection_ContainerType::ToJson()
 	Json->SetStringField(TEXT("Kind"), TEXT("Container"));
 	Json->SetStringField(TEXT("ContainerTypeName"), ContainerTypeName);
 	Json->SetObjectField(TEXT("InnerType"), InnerType->ToJson());
+	Json->SetNumberField(TEXT("ArrayDim"), ArrayDim);
 
 	return Json;
 }
@@ -640,7 +647,12 @@ FRustReflection_UStruct FRustReflection_UStruct::FromStruct(UStruct* Struct)
 	FRustReflection_UStruct ReflectionStruct;
 	// ReflectionStruct.StructFlags = GetClassFlagStrings(->ClassFlags);
 	ReflectionStruct.StructName = Struct->GetPrefixCPP() + Struct->GetName();
+	if (auto SuperStruct = Struct->GetSuperStruct())
+	{
+		ReflectionStruct.SuperStuctName = SuperStruct->GetPrefixCPP() + SuperStruct->GetName();
+	}
 
+	ReflectionStruct.Metadata = GetAllMetadata(Struct);
 	ReflectionStruct.Package = Struct->GetOutermost()->GetPackage()->GetName();
 
 	for (TFieldIterator<FProperty> ParamIt(Struct, EFieldIteratorFlags::ExcludeSuper); ParamIt; ++ParamIt)
@@ -656,6 +668,7 @@ FRustReflection_UStruct FRustReflection_UStruct::FromStruct(UStruct* Struct)
 
 	ReflectionStruct.MinAlignment = Struct->MinAlignment;
 	ReflectionStruct.PropertySizes = Struct->PropertiesSize;
+	ReflectionStruct.Size = Struct->GetStructureSize();
 
 	if (auto ScriptStruct = Cast<UScriptStruct>(Struct))
 	{
@@ -674,6 +687,7 @@ FRustReflection_UClass FRustReflection_UClass::FromClass(UClass* Class)
 
 	FString Prefix = Class->GetPrefixCPP();
 	ClassReflection.bIsInterface = Class->IsChildOf(UInterface::StaticClass()) && Class != UInterface::StaticClass();
+	ClassReflection.Metadata = GetAllMetadata(Class);
 
 	ClassReflection.ClassFlags = GetClassFlagStrings(Class->ClassFlags);
 	ClassReflection.ClassName = Prefix + Class->GetName();
@@ -874,6 +888,8 @@ TSharedPtr<FJsonObject> FRustReflection_Property::ToJson()
 	}
 
 	Json->SetNumberField(TEXT("Offset"), Offset);
+	Json->SetNumberField(TEXT("Size"), Size);
+	Json->SetNumberField(TEXT("Alignment"), Alignment);
 
 	return Json;
 }
@@ -903,11 +919,12 @@ TSharedPtr<FJsonObject> FRustReflection_UStruct::ToJson()
 		JsonFlags.Add(MakeShared<FJsonValueString>(Flag));
 	}
 
+	WriteMetadataField(Json, Metadata);
 	Json->SetArrayField(TEXT("Flags"), JsonFlags);
 
-	if (SuperClassName.IsSet())
+	if (SuperStuctName.IsSet())
 	{
-		Json->SetStringField(TEXT("SuperClass"), SuperClassName.GetValue());
+		Json->SetStringField(TEXT("SuperStruct"), SuperStuctName.GetValue());
 	}
 	Json->SetStringField(TEXT("Package"), Package);
 
@@ -916,9 +933,10 @@ TSharedPtr<FJsonObject> FRustReflection_UStruct::ToJson()
 	{
 		JsonProperties.Add(MakeShared<FJsonValueObject>(Property.ToJson()));
 	}
-
+	FScriptArray Arr;
 	Json->SetNumberField(TEXT("MinAlignment"), MinAlignment);
 	Json->SetNumberField(TEXT("PropertySizes"), PropertySizes);
+	Json->SetNumberField(TEXT("Size"), Size);
 	Json->SetBoolField(TEXT("IsPlainOldData"), bIsPlainOldData);
 
 	Json->SetArrayField(TEXT("Properties"), JsonProperties);
@@ -943,6 +961,7 @@ TSharedPtr<FJsonObject> FRustReflection_UClass::ToJson()
 		JsonFlags.Add(MakeShared<FJsonValueString>(Flag));
 	}
 
+	WriteMetadataField(Json, Metadata);
 	Json->SetArrayField(TEXT("Flags"), JsonFlags);
 
 	if (SuperClassName.IsSet())
@@ -1198,7 +1217,7 @@ void FRustReflection_Root::ExportToJson_Enum(TSharedPtr<FJsonObject> Json)
 			if (auto* InnerProperty = CastField<FByteProperty>(FoundEnumProperty))
 			{
 				Enum = InnerProperty->Enum;
-				Type = MakeConcreteType(TEXT("uint8"));
+				Type = MakeConcreteType(TEXT("uint8"), 1);
 			}
 
 			if (Enum != nullptr && !FoundEnums.Contains(Enum))

@@ -4,7 +4,13 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
+#[repr(C, align(8))]
 pub struct ULightMixerEditorSettings {
-    pub b_hide_object_mixer_menu_item: bool,
+    __padding_end: [u8; 56],
 }
-pub struct ULightMixerObjectFilter {}
+impl ULightMixerEditorSettings {}
+#[repr(C, align(8))]
+pub struct ULightMixerObjectFilter {
+    __padding_end: [u8; 48],
+}
+impl ULightMixerObjectFilter {}

@@ -16,14 +16,17 @@ pub struct FGroomCacheImportSettings {
     pub b_override_conversion_settings: bool,
     pub conversion_settings: FGroomConversionSettings,
 }
+impl FGroomCacheImportSettings {}
 #[repr(C, align(8))]
 pub struct FGroomConversionSettings {
     pub rotation: crate::bindings::core_u_object::FVector,
     pub scale: crate::bindings::core_u_object::FVector,
 }
+impl FGroomConversionSettings {}
 #[repr(C, align(4))]
 pub struct FHairGroupDesc {
-    pub hair_length: f32,
+    #[doc(hidden)]
+    __padding_4: [u8; 4],
     pub hair_width: f32,
     pub hair_width_override: bool,
     pub hair_root_scale: f32,
@@ -41,101 +44,61 @@ pub struct FHairGroupDesc {
     pub b_use_stable_rasterization_override: bool,
     pub b_scatter_scene_lighting: bool,
     pub b_scatter_scene_lighting_override: bool,
-    pub b_support_voxelization: bool,
-    pub b_support_voxelization_override: bool,
+    #[doc(hidden)]
+    __padding_56: [u8; 4],
     pub hair_length_scale: f32,
     pub hair_length_scale_override: bool,
+    __padding_end: [u8; 3],
 }
+impl FHairGroupDesc {}
 #[repr(C, align(4))]
 pub struct FHairGroupLODInfo {
-    pub num_points: i32,
-    pub num_curves: i32,
+    __padding_end: [u8; 8],
 }
+impl FHairGroupLODInfo {}
 #[repr(C, align(8))]
 pub struct FHairGroupInfo {
-    pub group_index: i32,
-    pub group_id: i32,
-    pub group_name: FName,
-    pub num_curves: i32,
-    pub num_guides: i32,
-    pub num_curve_vertices: i32,
-    pub num_guide_vertices: i32,
-    pub max_curve_length: f32,
-    pub flags: u32,
-    pub lod_infos: TArray<FHairGroupLODInfo>,
+    __padding_end: [u8; 64],
 }
+impl FHairGroupInfo {}
 #[repr(C, align(8))]
 pub struct FHairGroupsMaterial {
-    pub material: UPtr<crate::bindings::engine::UMaterialInterface>,
-    pub slot_name: FName,
+    __padding_end: [u8; 24],
 }
+impl FHairGroupsMaterial {}
 #[repr(C, align(8))]
 pub struct FHairGroupInfoWithVisibility {
-    pub b_is_visible: bool,
+    __padding_end: [u8; 72],
 }
+impl FHairGroupInfoWithVisibility {}
 #[repr(C, align(4))]
 pub struct FHairGroupCardsInfo {
-    pub num_cards: i32,
-    pub num_card_vertices: i32,
+    __padding_end: [u8; 8],
 }
+impl FHairGroupCardsInfo {}
 #[repr(C, align(8))]
 pub struct FHairGroupCardsTextures {
-    pub layout: EHairTextureLayout,
-    pub textures: TArray<UPtr<crate::bindings::engine::UTexture2D>>,
-    pub depth_texture_deprecated: UPtr<crate::bindings::engine::UTexture2D>,
-    pub coverage_texture_deprecated: UPtr<crate::bindings::engine::UTexture2D>,
-    pub tangent_texture_deprecated: UPtr<crate::bindings::engine::UTexture2D>,
-    pub attribute_texture_deprecated: UPtr<crate::bindings::engine::UTexture2D>,
-    pub auxilary_data_texture_deprecated: UPtr<crate::bindings::engine::UTexture2D>,
-    pub material_texture_deprecated: UPtr<crate::bindings::engine::UTexture2D>,
+    __padding_end: [u8; 80],
 }
+impl FHairGroupCardsTextures {}
 #[repr(C, align(8))]
 pub struct FHairGroupsCardsSourceDescription {
-    pub material: UPtr<crate::bindings::engine::UMaterialInterface>,
-    pub material_slot_name: FName,
-    pub source_type_deprecated: EHairCardsSourceType,
-    pub procedural_mesh_deprecated: UPtr<crate::bindings::engine::UStaticMesh>,
-    pub b_invert_uv: bool,
-    pub guide_type: EHairCardsGuideType,
-    pub imported_mesh: UPtr<crate::bindings::engine::UStaticMesh>,
-    pub textures: FHairGroupCardsTextures,
-    pub group_index: i32,
-    pub lod_index: i32,
-    pub generation_settings: UPtr<UHairCardGenerationSettings>,
-    pub cards_info: FHairGroupCardsInfo,
-    pub imported_mesh_key: FString,
+    __padding_end: [u8; 168],
 }
-#[repr(C, align(8))]
-pub struct FGroomDataflowSettings {
-    pub skeletal_meshes: TArray<UPtr<crate::bindings::engine::USkeletalMesh>>,
-    pub mesh_lo_ds: TArray<i32>,
-    pub preview_binding_asset: TSoftObjectPtr<UGroomBindingAsset>,
-    pub preview_animation_asset: TSoftObjectPtr<
-        crate::bindings::engine::UAnimationAsset,
-    >,
-}
+impl FHairGroupsCardsSourceDescription {}
 #[repr(C, align(4))]
 pub struct FHairLODSettings {
-    pub curve_decimation: f32,
-    pub vertex_decimation: f32,
-    pub angular_threshold: f32,
-    pub screen_size: f32,
-    pub thickness_scale: f32,
-    pub b_visible: bool,
-    pub geometry_type: EGroomGeometryType,
-    pub binding_type: EGroomBindingType,
-    pub simulation: EGroomOverrideType,
-    pub global_interpolation: EGroomOverrideType,
+    __padding_end: [u8; 28],
 }
+impl FHairLODSettings {}
 #[repr(C, align(4))]
 pub struct FHairDecimationSettings {
-    pub curve_decimation: f32,
-    pub vertex_decimation: f32,
+    __padding_end: [u8; 8],
 }
+impl FHairDecimationSettings {}
 #[repr(C, align(4))]
 pub struct FHairInterpolationSettings {
     pub guide_type: EGroomGuideType,
-    pub b_override_guides_deprecated: bool,
     pub hair_to_guide_density: f32,
     pub rigged_guide_num_curves: i32,
     pub rigged_guide_num_points: i32,
@@ -144,110 +107,79 @@ pub struct FHairInterpolationSettings {
     pub b_randomize_guide: bool,
     pub b_use_unique_guide: bool,
 }
+impl FHairInterpolationSettings {}
 #[repr(C, align(4))]
 pub struct FHairDeformationSettings {
-    pub b_enable_rigging_deprecated: bool,
-    pub num_curves_deprecated: i32,
-    pub num_points_deprecated: i32,
+    __padding_end: [u8; 12],
 }
+impl FHairDeformationSettings {}
 #[repr(C, align(4))]
 pub struct FHairGroupsInterpolation {
-    pub decimation_settings: FHairDecimationSettings,
-    pub interpolation_settings: FHairInterpolationSettings,
-    pub rigging_settings: FHairDeformationSettings,
-    pub group_name: FName,
+    __padding_end: [u8; 52],
 }
+impl FHairGroupsInterpolation {}
 #[repr(C, align(8))]
 pub struct FHairGroupsLOD {
-    pub auto_lod_bias: f32,
-    pub lo_ds: TArray<FHairLODSettings>,
+    __padding_end: [u8; 24],
 }
+impl FHairGroupsLOD {}
 #[repr(C, align(8))]
 pub struct FHairGroupsMeshesSourceDescription {
-    pub material: UPtr<crate::bindings::engine::UMaterialInterface>,
-    pub material_slot_name: FName,
-    pub imported_mesh: UPtr<crate::bindings::engine::UStaticMesh>,
-    pub textures: FHairGroupCardsTextures,
-    pub group_index: i32,
-    pub lod_index: i32,
-    pub imported_mesh_key: FString,
+    __padding_end: [u8; 136],
 }
+impl FHairGroupsMeshesSourceDescription {}
 #[repr(C, align(8))]
 pub struct FHairSolverSettings {
-    pub b_enable_deformation: bool,
-    pub enable_simulation: bool,
-    pub niagara_solver: EGroomNiagaraSolvers,
-    pub custom_system: TSoftObjectPtr<crate::bindings::niagara::UNiagaraSystem>,
-    pub gravity_preloading: f32,
-    pub sub_steps: i32,
-    pub iteration_count: i32,
-    pub b_force_visible: bool,
+    __padding_end: [u8; 72],
 }
+impl FHairSolverSettings {}
 #[repr(C, align(8))]
 pub struct FHairExternalForces {
-    pub gravity_vector: crate::bindings::core_u_object::FVector,
-    pub air_drag: f32,
-    pub air_velocity: crate::bindings::core_u_object::FVector,
+    __padding_end: [u8; 56],
 }
+impl FHairExternalForces {}
 #[repr(C, align(8))]
 pub struct FHairBendConstraint {
-    pub solve_bend: bool,
-    pub project_bend: bool,
-    pub bend_damping: f32,
-    pub bend_stiffness: f32,
-    pub bend_scale: crate::bindings::engine::FRuntimeFloatCurve,
+    __padding_end: [u8; 152],
 }
+impl FHairBendConstraint {}
 #[repr(C, align(8))]
 pub struct FHairStretchConstraint {
-    pub solve_stretch: bool,
-    pub project_stretch: bool,
-    pub stretch_damping: f32,
-    pub stretch_stiffness: f32,
-    pub stretch_scale: crate::bindings::engine::FRuntimeFloatCurve,
+    __padding_end: [u8; 152],
 }
+impl FHairStretchConstraint {}
 #[repr(C, align(8))]
 pub struct FHairCollisionConstraint {
-    pub solve_collision: bool,
-    pub project_collision: bool,
-    pub static_friction: f32,
-    pub kinetic_friction: f32,
-    pub strands_viscosity: f32,
-    pub grid_dimension: crate::bindings::core_u_object::FIntVector,
-    pub collision_radius: f32,
-    pub radius_scale: crate::bindings::engine::FRuntimeFloatCurve,
+    __padding_end: [u8; 168],
 }
+impl FHairCollisionConstraint {}
 #[repr(C, align(8))]
 pub struct FHairMaterialConstraints {
-    pub bend_constraint: FHairBendConstraint,
-    pub stretch_constraint: FHairStretchConstraint,
-    pub collision_constraint: FHairCollisionConstraint,
+    __padding_end: [u8; 472],
 }
+impl FHairMaterialConstraints {}
 #[repr(C, align(8))]
 pub struct FHairStrandsParameters {
-    pub strands_size: EGroomStrandsSize,
-    pub strands_density: f32,
-    pub strands_smoothing: f32,
-    pub strands_thickness: f32,
-    pub thickness_scale: crate::bindings::engine::FRuntimeFloatCurve,
+    __padding_end: [u8; 152],
 }
+impl FHairStrandsParameters {}
 #[repr(C, align(8))]
 pub struct FHairGroupsPhysics {
-    pub solver_settings: FHairSolverSettings,
-    pub external_forces: FHairExternalForces,
-    pub material_constraints: FHairMaterialConstraints,
-    pub strands_parameters: FHairStrandsParameters,
-    pub group_name: FName,
+    __padding_end: [u8; 768],
 }
+impl FHairGroupsPhysics {}
 #[repr(C, align(1))]
 pub struct FHairSimulationSolver {
     pub b_enable_simulation: bool,
 }
+impl FHairSimulationSolver {}
 #[repr(C, align(8))]
 pub struct FHairSimulationForces {
     pub gravity_vector: crate::bindings::core_u_object::FVector,
     pub air_drag: f32,
     pub air_velocity: crate::bindings::core_u_object::FVector,
 }
+impl FHairSimulationForces {}
 #[repr(C, align(4))]
 pub struct FHairSimulationConstraints {
     pub bend_damping: f32,
@@ -259,6 +191,7 @@ pub struct FHairSimulationConstraints {
     pub strands_viscosity: f32,
     pub collision_radius: f32,
 }
+impl FHairSimulationConstraints {}
 #[repr(C, align(8))]
 pub struct FHairSimulationSetup {
     pub b_reset_simulation: bool,
@@ -268,7 +201,9 @@ pub struct FHairSimulationSetup {
     pub angular_velocity_scale: f32,
     pub local_bone: FString,
     pub teleport_distance: f32,
+    __padding_end: [u8; 4],
 }
+impl FHairSimulationSetup {}
 #[repr(C, align(8))]
 pub struct FHairSimulationSettings {
     pub b_override_settings: bool,
@@ -277,6 +212,7 @@ pub struct FHairSimulationSettings {
     pub external_forces: FHairSimulationForces,
     pub material_constraints: FHairSimulationConstraints,
 }
+impl FHairSimulationSettings {}
 #[repr(C, align(4))]
 pub struct FHairGeometrySettings {
     pub hair_width: f32,
@@ -284,56 +220,39 @@ pub struct FHairGeometrySettings {
     pub hair_root_scale: f32,
     pub hair_tip_scale: f32,
 }
+impl FHairGeometrySettings {}
 #[repr(C, align(4))]
 pub struct FHairShadowSettings {
     pub hair_shadow_density: f32,
     pub hair_raytracing_radius_scale: f32,
     pub b_use_hair_raytracing_geometry: bool,
     pub b_voxelize: bool,
+    __padding_end: [u8; 2],
 }
+impl FHairShadowSettings {}
 #[repr(C, align(1))]
 pub struct FHairAdvancedRenderingSettings {
     pub b_use_stable_rasterization: bool,
     pub b_scatter_scene_lighting: bool,
 }
+impl FHairAdvancedRenderingSettings {}
 #[repr(C, align(8))]
 pub struct FHairGroupsRendering {
-    pub material_slot_name: FName,
-    pub material: UPtr<crate::bindings::engine::UMaterialInterface>,
-    pub geometry_settings: FHairGeometrySettings,
-    pub shadow_settings: FHairShadowSettings,
-    pub advanced_settings: FHairAdvancedRenderingSettings,
-    pub group_name: FName,
+    __padding_end: [u8; 72],
 }
+impl FHairGroupsRendering {}
 #[repr(C, align(4))]
 pub struct FGoomBindingGroupInfo {
-    pub ren_root_count: i32,
-    pub ren_lod_count: i32,
-    pub sim_root_count: i32,
-    pub sim_lod_count: i32,
+    __padding_end: [u8; 16],
 }
-#[repr(C, align(4))]
-pub struct FGroomAnimationInfo {
-    pub num_frames: u32,
-    pub seconds_per_frame: f32,
-    pub duration: f32,
-    pub start_time: f32,
-    pub end_time: f32,
-    pub start_frame: i32,
-    pub end_frame: i32,
-    pub attributes: EGroomCacheAttributes,
-}
-#[repr(C, align(4))]
-pub struct FGroomCacheInfo {
-    pub version: i32,
-    pub ty: EGroomCacheType,
-    pub animation_info: FGroomAnimationInfo,
-}
+impl FGoomBindingGroupInfo {}
 #[repr(C, align(8))]
 pub struct FFollicleMaskOptions {
     pub groom: UPtr<UGroomAsset>,
     pub channel: EFollicleMaskChannel,
+    __padding_end: [u8; 7],
 }
+impl FFollicleMaskOptions {}
 #[repr(C, align(4))]
 pub struct FGroomHairGroupPreview {
     pub group_index: i32,
@@ -341,11 +260,11 @@ pub struct FGroomHairGroupPreview {
     pub group_id: i32,
     pub curve_count: i32,
     pub guide_count: i32,
-    pub attributes: u32,
-    pub attribute_flags: u32,
-    pub flags: u32,
+    #[doc(hidden)]
+    __padding_40: [u8; 12],
     pub interpolation_settings: FHairGroupsInterpolation,
 }
+impl FGroomHairGroupPreview {}
 #[repr(C, align(4))]
 pub struct FGroomBuildSettings {
     pub b_override_guides: bool,
@@ -355,39 +274,31 @@ pub struct FGroomBuildSettings {
     pub b_randomize_guide: bool,
     pub b_use_unique_guide: bool,
 }
+impl FGroomBuildSettings {}
 #[repr(C, align(8))]
-pub struct FMovieSceneGroomCacheParams {
-    pub groom_cache: UPtr<UGroomCache>,
-    pub first_loop_start_frame_offset: crate::bindings::core_u_object::FFrameNumber,
-    pub start_frame_offset: crate::bindings::core_u_object::FFrameNumber,
-    pub end_frame_offset: crate::bindings::core_u_object::FFrameNumber,
-    pub play_rate: f32,
-    pub flags_24: u8,
-}
-#[repr(C, align(8))]
-pub struct FMovieSceneGroomCacheSectionTemplateParameters {
-    pub section_start_time: crate::bindings::core_u_object::FFrameNumber,
-    pub section_end_time: crate::bindings::core_u_object::FFrameNumber,
-}
-#[repr(C, align(8))]
-pub struct FMovieSceneGroomCacheSectionTemplate {
-    pub params: FMovieSceneGroomCacheSectionTemplateParameters,
-}
 pub struct UGroomCacheImportOptions {
+    #[doc(hidden)]
+    __padding_48: [u8; 48],
     pub import_settings: FGroomCacheImportSettings,
 }
+impl UGroomCacheImportOptions {}
+#[repr(C, align(8))]
 pub struct UGroomCacheImportData {
-    pub settings: FGroomCacheImportSettings,
+    __padding_end: [u8; 208],
 }
+impl UGroomCacheImportData {}
+#[repr(C, align(8))]
 pub struct AGroomActor {
+    #[doc(hidden)]
+    __padding_1136: [u8; 1136],
     pub groom_component: UPtr<UGroomComponent>,
-    pub sprite_component: UPtr<crate::bindings::engine::UBillboardComponent>,
+    __padding_end: [u8; 8],
 }
+impl AGroomActor {}
+#[repr(C, align(16))]
 pub struct UGroomAsset {
-    pub lod_mode: EGroomLODMode,
-    pub auto_lod_bias: f32,
-    pub dataflow_settings: FGroomDataflowSettings,
-    pub hair_groups_info: TArray<FHairGroupInfoWithVisibility>,
+    #[doc(hidden)]
+    __padding_352: [u8; 352],
     pub hair_groups_rendering: TArray<FHairGroupsRendering>,
     pub hair_groups_physics: TArray<FHairGroupsPhysics>,
     pub hair_groups_interpolation: TArray<FHairGroupsInterpolation>,
@@ -399,24 +310,28 @@ pub struct UGroomAsset {
     pub enable_simulation_cache: bool,
     pub hair_interpolation_type: EGroomInterpolationType,
     pub rigged_skeletal_mesh: UPtr<crate::bindings::engine::USkeletalMesh>,
-    pub deformed_group_sections: TArray<i32>,
-    pub min_lod: crate::bindings::core_u_object::FPerPlatformInt,
-    pub disable_below_min_lod_stripping: crate::bindings::core_u_object::FPerPlatformBool,
-    pub effective_lod_bias: TArray<f32>,
-    pub thumbnail_info: UPtr<crate::bindings::engine::UThumbnailInfo>,
-    pub asset_import_data: UPtr<crate::bindings::engine::UAssetImportData>,
-    pub asset_user_data: TArray<UPtr<crate::bindings::engine::UAssetUserData>>,
-    pub hair_description_type: EHairDescriptionType,
+    __padding_end: [u8; 672],
 }
-pub struct UHairCardGenerationSettings {}
+impl UGroomAsset {}
+#[repr(C, align(8))]
+pub struct UHairCardGenerationSettings {
+    __padding_end: [u8; 48],
+}
+impl UHairCardGenerationSettings {}
+#[repr(C, align(8))]
 pub struct UDataflowGroomContent {
-    pub binding_asset: UPtr<UGroomBindingAsset>,
+    __padding_end: [u8; 240],
 }
+impl UDataflowGroomContent {}
+#[repr(C, align(8))]
 pub struct UGroomAssetImportData {
-    pub import_options: UPtr<UGroomImportOptions>,
-    pub hair_strands_textures_options: UPtr<UGroomCreateStrandsTexturesOptions>,
+    __padding_end: [u8; 112],
 }
+impl UGroomAssetImportData {}
+#[repr(C, align(16))]
 pub struct UGroomBindingAsset {
+    #[doc(hidden)]
+    __padding_56: [u8; 56],
     pub groom_binding_type: EGroomBindingMeshType,
     pub groom: UPtr<UGroomAsset>,
     pub source_skeletal_mesh: UPtr<crate::bindings::engine::USkeletalMesh>,
@@ -431,48 +346,56 @@ pub struct UGroomBindingAsset {
     pub matching_section: i32,
     pub target_binding_attribute: FName,
     pub group_infos: TArray<FGoomBindingGroupInfo>,
-    pub thumbnail_info: UPtr<crate::bindings::engine::UThumbnailInfo>,
+    __padding_end: [u8; 176],
 }
+impl UGroomBindingAsset {}
+#[repr(C, align(8))]
 pub struct UGroomBindingAssetList {
-    pub bindings: TArray<UPtr<UGroomBindingAsset>>,
+    __padding_end: [u8; 64],
 }
-pub struct UGroomBlueprintLibrary {}
+impl UGroomBindingAssetList {}
+#[repr(C, align(8))]
+pub struct UGroomBlueprintLibrary {
+    __padding_end: [u8; 48],
+}
+impl UGroomBlueprintLibrary {}
+#[repr(C, align(8))]
 pub struct UGroomCache {
-    pub asset_import_data: UPtr<crate::bindings::engine::UAssetImportData>,
-    pub asset_user_data: TArray<UPtr<crate::bindings::engine::UAssetUserData>>,
-    pub groom_cache_info: FGroomCacheInfo,
+    __padding_end: [u8; 160],
 }
+impl UGroomCache {}
+#[repr(C, align(16))]
 pub struct UGroomComponent {
+    #[doc(hidden)]
+    __padding_1592: [u8; 1592],
     pub groom_asset: UPtr<UGroomAsset>,
     pub groom_cache: UPtr<UGroomCache>,
-    pub niagara_components: TArray<UPtr<crate::bindings::niagara::UNiagaraComponent>>,
-    pub source_skeletal_mesh: UPtr<crate::bindings::engine::USkeletalMesh>,
+    #[doc(hidden)]
+    __padding_1632: [u8; 24],
     pub binding_asset: UPtr<UGroomBindingAsset>,
     pub physics_asset: UPtr<crate::bindings::engine::UPhysicsAsset>,
+    #[doc(hidden)]
+    __padding_1664: [u8; 16],
     pub simulation_settings: FHairSimulationSettings,
     pub mesh_deformer: UPtr<crate::bindings::engine::UMeshDeformer>,
     pub mesh_deformer_instance: UPtr<crate::bindings::engine::UMeshDeformerInstance>,
     pub mesh_deformer_instance_settings: UPtr<
         crate::bindings::engine::UMeshDeformerInstanceSettings,
     >,
-    pub strands_debug_material: UPtr<crate::bindings::engine::UMaterialInterface>,
-    pub strands_default_material: UPtr<crate::bindings::engine::UMaterialInterface>,
-    pub cards_default_material: UPtr<crate::bindings::engine::UMaterialInterface>,
-    pub meshes_default_material: UPtr<crate::bindings::engine::UMaterialInterface>,
-    pub angular_springs_system: UPtr<crate::bindings::niagara::UNiagaraSystem>,
-    pub cosserat_rods_system: UPtr<crate::bindings::niagara::UNiagaraSystem>,
+    #[doc(hidden)]
+    __padding_1880: [u8; 48],
     pub attachment_name: FString,
+    #[doc(hidden)]
+    __padding_2032: [u8; 136],
     pub groom_groups_desc: TArray<FHairGroupDesc>,
     pub b_use_cards: bool,
-    pub b_running: bool,
-    pub b_looping: bool,
-    pub b_manual_tick: bool,
-    pub elapsed_time: f32,
-    pub groom_asset_being_loaded: UPtr<UGroomAsset>,
-    pub binding_asset_being_loaded: UPtr<UGroomBindingAsset>,
+    __padding_end: [u8; 143],
 }
+impl UGroomComponent {}
+#[repr(C, align(8))]
 pub struct UGroomCreateBindingOptions {
-    pub groom_asset: TWeakObjectPtr<UGroomAsset>,
+    #[doc(hidden)]
+    __padding_56: [u8; 56],
     pub groom_binding_type: EGroomBindingMeshType,
     pub source_skeletal_mesh: UPtr<crate::bindings::engine::USkeletalMesh>,
     pub target_skeletal_mesh: UPtr<crate::bindings::engine::USkeletalMesh>,
@@ -481,13 +404,22 @@ pub struct UGroomCreateBindingOptions {
     pub num_interpolation_points: i32,
     pub matching_section: i32,
     pub target_binding_attribute: FName,
+    __padding_end: [u8; 4],
 }
+impl UGroomCreateBindingOptions {}
+#[repr(C, align(8))]
 pub struct UGroomCreateFollicleMaskOptions {
+    #[doc(hidden)]
+    __padding_48: [u8; 48],
     pub resolution: i32,
     pub root_radius: i32,
     pub grooms: TArray<FFollicleMaskOptions>,
 }
+impl UGroomCreateFollicleMaskOptions {}
+#[repr(C, align(8))]
 pub struct UGroomCreateStrandsTexturesOptions {
+    #[doc(hidden)]
+    __padding_48: [u8; 48],
     pub layout: EHairTextureLayout,
     pub resolution: i32,
     pub trace_type: EStrandsTexturesTraceType,
@@ -502,40 +434,67 @@ pub struct UGroomCreateStrandsTexturesOptions {
     pub dilation: i32,
     pub generated_textures: TArray<UPtr<crate::bindings::engine::UTexture2D>>,
 }
+impl UGroomCreateStrandsTexturesOptions {}
+#[repr(C, align(8))]
 pub struct UGroomImportOptions {
+    #[doc(hidden)]
+    __padding_48: [u8; 48],
     pub conversion_settings: FGroomConversionSettings,
     pub interpolation_settings: TArray<FHairGroupsInterpolation>,
 }
+impl UGroomImportOptions {}
+#[repr(C, align(8))]
 pub struct UGroomHairGroupsPreview {
+    #[doc(hidden)]
+    __padding_48: [u8; 48],
     pub groups: TArray<FGroomHairGroupPreview>,
 }
+impl UGroomHairGroupsPreview {}
+#[repr(C, align(8))]
 pub struct UGroomHairGroupsMapping {
+    #[doc(hidden)]
+    __padding_48: [u8; 48],
     pub old_group_names: TArray<FName>,
     pub new_group_names: TArray<FName>,
     pub old_to_new_group_index_mapping: TArray<i32>,
     pub new_to_old_group_index_mapping: TArray<i32>,
+    __padding_end: [u8; 16],
 }
+impl UGroomHairGroupsMapping {}
+#[repr(C, align(8))]
 pub struct UGroomPluginSettings {
-    pub groom_cache_look_ahead_buffer: f32,
+    __padding_end: [u8; 56],
 }
+impl UGroomPluginSettings {}
+#[repr(C, align(8))]
 pub struct UMovieSceneGroomCacheSection {
-    pub params: FMovieSceneGroomCacheParams,
+    __padding_end: [u8; 400],
 }
+impl UMovieSceneGroomCacheSection {}
+#[repr(C, align(8))]
 pub struct UMovieSceneGroomCacheTrack {
-    pub animation_sections: TArray<
-        UPtr<crate::bindings::movie_scene::UMovieSceneSection>,
-    >,
+    __padding_end: [u8; 408],
 }
+impl UMovieSceneGroomCacheTrack {}
+#[repr(C, align(8))]
 pub struct UNiagaraDataInterfaceHairStrands {
-    pub default_source: UPtr<UGroomAsset>,
-    pub source_actor: UPtr<crate::bindings::engine::AActor>,
+    __padding_end: [u8; 184],
 }
+impl UNiagaraDataInterfaceHairStrands {}
+#[repr(C, align(8))]
 pub struct UNiagaraDataInterfaceVelocityGrid {
-    pub grid_size: crate::bindings::core_u_object::FIntVector,
+    __padding_end: [u8; 168],
 }
-pub struct UNiagaraDataInterfacePressureGrid {}
-pub struct FBuild_CompletionDelegate;
-#[allow(non_camel_case_types)]
+impl UNiagaraDataInterfaceVelocityGrid {}
+#[repr(C, align(8))]
+pub struct UNiagaraDataInterfacePressureGrid {
+    __padding_end: [u8; 168],
+}
+impl UNiagaraDataInterfacePressureGrid {}
+#[repr(transparent)]
+pub struct FBuild_CompletionDelegate {
+    _opague: u8,
+}
 #[repr(transparent)]
 pub struct EGroomCacheImportType(pub u8);
 impl EGroomCacheImportType {
@@ -544,7 +503,6 @@ impl EGroomCacheImportType {
     pub const GUIDES: EGroomCacheImportType = EGroomCacheImportType(2);
     pub const ALL: EGroomCacheImportType = EGroomCacheImportType(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EHairTextureLayout(pub u8);
 impl EHairTextureLayout {
@@ -553,21 +511,18 @@ impl EHairTextureLayout {
     pub const LAYOUT2: EHairTextureLayout = EHairTextureLayout(2);
     pub const LAYOUT3: EHairTextureLayout = EHairTextureLayout(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EHairCardsSourceType(pub u8);
 impl EHairCardsSourceType {
     pub const PROCEDURAL: EHairCardsSourceType = EHairCardsSourceType(0);
     pub const IMPORTED: EHairCardsSourceType = EHairCardsSourceType(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EHairCardsGuideType(pub u8);
 impl EHairCardsGuideType {
     pub const GENERATED: EHairCardsGuideType = EHairCardsGuideType(0);
     pub const GUIDE_BASED: EHairCardsGuideType = EHairCardsGuideType(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EGroomGeometryType(pub u8);
 impl EGroomGeometryType {
@@ -575,7 +530,6 @@ impl EGroomGeometryType {
     pub const CARDS: EGroomGeometryType = EGroomGeometryType(1);
     pub const MESHES: EGroomGeometryType = EGroomGeometryType(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EGroomBindingType(pub u8);
 impl EGroomBindingType {
@@ -583,7 +537,6 @@ impl EGroomBindingType {
     pub const RIGID: EGroomBindingType = EGroomBindingType(1);
     pub const SKINNING: EGroomBindingType = EGroomBindingType(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EGroomOverrideType(pub u8);
 impl EGroomOverrideType {
@@ -591,7 +544,6 @@ impl EGroomOverrideType {
     pub const ENABLE: EGroomOverrideType = EGroomOverrideType(1);
     pub const DISABLE: EGroomOverrideType = EGroomOverrideType(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EGroomGuideType(pub u8);
 impl EGroomGuideType {
@@ -599,7 +551,6 @@ impl EGroomGuideType {
     pub const GENERATED: EGroomGuideType = EGroomGuideType(1);
     pub const RIGGED: EGroomGuideType = EGroomGuideType(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EHairInterpolationQuality(pub u8);
 impl EHairInterpolationQuality {
@@ -608,7 +559,6 @@ impl EHairInterpolationQuality {
     pub const HIGH: EHairInterpolationQuality = EHairInterpolationQuality(2);
     pub const UNKNOWN: EHairInterpolationQuality = EHairInterpolationQuality(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EHairInterpolationWeight(pub u8);
 impl EHairInterpolationWeight {
@@ -618,7 +568,6 @@ impl EHairInterpolationWeight {
     pub const DISTANCE: EHairInterpolationWeight = EHairInterpolationWeight(3);
     pub const UNKNOWN: EHairInterpolationWeight = EHairInterpolationWeight(4);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EGroomNiagaraSolvers(pub u8);
 impl EGroomNiagaraSolvers {
@@ -627,7 +576,6 @@ impl EGroomNiagaraSolvers {
     pub const ANGULAR_SPRINGS: EGroomNiagaraSolvers = EGroomNiagaraSolvers(4);
     pub const CUSTOM_SOLVER: EGroomNiagaraSolvers = EGroomNiagaraSolvers(8);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EGroomStrandsSize(pub u8);
 impl EGroomStrandsSize {
@@ -638,7 +586,6 @@ impl EGroomStrandsSize {
     pub const SIZE16: EGroomStrandsSize = EGroomStrandsSize(16);
     pub const SIZE32: EGroomStrandsSize = EGroomStrandsSize(32);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EGroomCacheAttributes(pub u8);
 impl EGroomCacheAttributes {
@@ -651,7 +598,6 @@ impl EGroomCacheAttributes {
     pub const WIDTH_COLOR: EGroomCacheAttributes = EGroomCacheAttributes(6);
     pub const POSITION_WIDTH_COLOR: EGroomCacheAttributes = EGroomCacheAttributes(7);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EGroomCacheType(pub u8);
 impl EGroomCacheType {
@@ -659,7 +605,6 @@ impl EGroomCacheType {
     pub const STRANDS: EGroomCacheType = EGroomCacheType(1);
     pub const GUIDES: EGroomCacheType = EGroomCacheType(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EFollicleMaskChannel(pub u8);
 impl EFollicleMaskChannel {
@@ -668,7 +613,6 @@ impl EFollicleMaskChannel {
     pub const B: EFollicleMaskChannel = EFollicleMaskChannel(2);
     pub const A: EFollicleMaskChannel = EFollicleMaskChannel(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EGroomInterpolationQuality(pub u8);
 impl EGroomInterpolationQuality {
@@ -677,7 +621,6 @@ impl EGroomInterpolationQuality {
     pub const HIGH: EGroomInterpolationQuality = EGroomInterpolationQuality(2);
     pub const UNKNOWN: EGroomInterpolationQuality = EGroomInterpolationQuality(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EGroomInterpolationWeight(pub u8);
 impl EGroomInterpolationWeight {
@@ -686,7 +629,6 @@ impl EGroomInterpolationWeight {
     pub const INDEX: EGroomInterpolationWeight = EGroomInterpolationWeight(2);
     pub const UNKNOWN: EGroomInterpolationWeight = EGroomInterpolationWeight(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EGroomInterpolationType(pub u8);
 impl EGroomInterpolationType {
@@ -695,7 +637,6 @@ impl EGroomInterpolationType {
     pub const OFFSET_TRANSFORM: EGroomInterpolationType = EGroomInterpolationType(4);
     pub const SMOOTH_TRANSFORM: EGroomInterpolationType = EGroomInterpolationType(8);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EGroomBindingAssetBuildResult(pub u8);
 impl EGroomBindingAssetBuildResult {
@@ -704,14 +645,12 @@ impl EGroomBindingAssetBuildResult {
     );
     pub const FAILED: EGroomBindingAssetBuildResult = EGroomBindingAssetBuildResult(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EGroomBindingMeshType(pub u8);
 impl EGroomBindingMeshType {
     pub const SKELETAL_MESH: EGroomBindingMeshType = EGroomBindingMeshType(0);
     pub const GEOMETRY_CACHE: EGroomBindingMeshType = EGroomBindingMeshType(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EGroomLODMode(pub u8);
 impl EGroomLODMode {
@@ -719,7 +658,6 @@ impl EGroomLODMode {
     pub const MANUAL: EGroomLODMode = EGroomLODMode(1);
     pub const AUTO: EGroomLODMode = EGroomLODMode(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EHairDescriptionType(pub u8);
 impl EHairDescriptionType {
@@ -727,7 +665,6 @@ impl EHairDescriptionType {
     pub const EDIT: EHairDescriptionType = EHairDescriptionType(1);
     pub const COUNT: EHairDescriptionType = EHairDescriptionType(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EStrandsTexturesTraceType(pub u8);
 impl EStrandsTexturesTraceType {
@@ -737,7 +674,6 @@ impl EStrandsTexturesTraceType {
         2,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EStrandsTexturesMeshType(pub u8);
 impl EStrandsTexturesMeshType {

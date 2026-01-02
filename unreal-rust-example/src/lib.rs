@@ -1,8 +1,12 @@
 use std::collections::HashMap;
 use std::ffi::c_void;
+use std::mem::offset_of;
 
 use bevy_ecs::prelude::*;
 use unreal_api::api::UnrealApi;
+use unreal_api::bindings::core_u_object::FTransform;
+use unreal_api::bindings::engine::{AActor, FBodyInstance, FHitResult, UCharacterMovementComponent, USceneComponent, UStaticMesh, UWorldPartition};
+use unreal_api::bindings::umg::UWidget;
 use unreal_api::core::{ActorHitEvent, Despawn};
 use unreal_api::ffi::{UFunctionOpague, Utf8Str};
 use unreal_api::registry::USound;
@@ -357,49 +361,64 @@ fn update(query: Query<(Entity, &ActorComponent)>) {
         net_update_frequency2: Property<f32>,
     }
 
-    for (_entity, actor) in query.iter() {
-        let mut stack_alloc = StackAlloc::<24>::new();
-        let actor_ptr = actor.actor.0;
-        let aactor_ptr = unsafe { actor.actor.0.cast::<Actor>().as_ref().unwrap() };
-        log::info!(
-            "{} and {} {}",
-            std::mem::offset_of!(Actor, net_update_frequency),
-            std::mem::offset_of!(Actor, net_update_frequency2),
-            aactor_ptr.net_update_frequency.read()
-        );
-        let actor_class = unsafe { (bindings().actor_fns.get_class)(actor_ptr) };
-        let fn_name = Utf8Str::from("K2_GetActorLocation");
+    log::warn!("-----------------");
+    UWidget::verify_layout();
 
-        let mut fn_ptr: *mut UFunctionOpague = std::ptr::null_mut();
+    // log::warn!(
+    //     "{} {} {} {}",
+    //     offset_of!(FTransform, rotation),
+    //     offset_of!(FTransform, translation),
+    //     offset_of!(FTransform, scale3_d),
+    //     size_of::<FTransform>()
+    // );
 
-        #[repr(C)]
-        struct Params
-        {
-            out: FVector
-        }
-
-        unsafe {
-            let mut params = Params{
-                out: FVector {x: 0.0, y: 0.0, z: 0.0}
-            };
-
-            (bindings().core_fns.begin_trace)(c"MyGetActorLocation".as_ptr());
-            (bindings().core_fns.find_function_by_name)(actor_class, fn_name, &raw mut fn_ptr);
-            // (bindings().core_fns.initialize_values_in_param_buffer)(
-            //     fn_ptr,
-            //     stack_alloc.buffer_mut(),
-            // );
-            (bindings().core_fns.process_event)(actor_ptr, fn_ptr, &mut params as *mut _ as *mut c_void);
-            // (bindings().core_fns.process_event)(actor_ptr, fn_ptr, stack_alloc.buffer_mut());
-            // let data = *stack_alloc.buffer_mut().cast::<FVector>();
-            // (bindings().core_fns.destroy_values_in_param_buffer)(fn_ptr, stack_alloc.buffer_mut());
-            //
-            //
-            log::warn!("{:?}", params.out);
-
-            (bindings().core_fns.end_trace)();
-        }
-    }
+    // for (_entity, actor) in query.iter() {
+    //     let mut stack_alloc = StackAlloc::<24>::new();
+    //     let actor_ptr = unsafe { actor.actor.0 };
+    //     let actor = unsafe { actor.actor.0.cast::<AActor>().as_ref().unwrap() };
+    //
+    //     // log::warn!("{} {} {}", actor.pivot_offset.x, actor.pivot_offset.y, actor.pivot_offset.z);
+    //     log::warn!("{} {}", actor.net_update_frequency, actor.net_priority);
+    //     // let aactor_ptr = unsafe { actor.actor.0.cast::<Actor>().as_ref().unwrap() };
+    //     // log::info!(
+    //     //     "{} and {} {}",
+    //     //     std::mem::offset_of!(Actor, net_update_frequency),
+    //     //     std::mem::offset_of!(Actor, net_update_frequency2),
+    //     //     aactor_ptr.net_update_frequency.read()
+    //     // );
+    //     // let actor_class = unsafe { (bindings().actor_fns.get_class)(actor_ptr) };
+    //     // let fn_name = Utf8Str::from("K2_GetActorLocation");
+    //     //
+    //     // let mut fn_ptr: *mut UFunctionOpague = std::ptr::null_mut();
+    //     //
+    //     // #[repr(C)]
+    //     // struct Params
+    //     // {
+    //     //     out: FVector
+    //     // }
+    //
+    //     // unsafe {
+    //     //     let mut params = Params{
+    //     //         out: FVector {x: 0.0, y: 0.0, z: 0.0}
+    //     //     };
+    //     //
+    //     //     (bindings().core_fns.begin_trace)(c"MyGetActorLocation".as_ptr());
+    //     //     (bindings().core_fns.find_function_by_name)(actor_class, fn_name, &raw mut fn_ptr);
+    //     //     // (bindings().core_fns.initialize_values_in_param_buffer)(
+    //     //     //     fn_ptr,
+    //     //     //     stack_alloc.buffer_mut(),
+    //     //     // );
+    //     //     (bindings().core_fns.process_event)(actor_ptr, fn_ptr, &mut params as *mut _ as *mut c_void);
+    //     //     // (bindings().core_fns.process_event)(actor_ptr, fn_ptr, stack_alloc.buffer_mut());
+    //     //     // let data = *stack_alloc.buffer_mut().cast::<FVector>();
+    //     //     // (bindings().core_fns.destroy_values_in_param_buffer)(fn_ptr, stack_alloc.buffer_mut());
+    //     //     //
+    //     //     //
+    //     //     log::warn!("{:?}", params.out);
+    //     //
+    //     //     (bindings().core_fns.end_trace)();
+    //     // }
+    // }
 }
 
 fn update_camera(

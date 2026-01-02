@@ -5,485 +5,650 @@
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[repr(C, align(8))]
-pub struct FEdGraphSchemaAction_NewStateNode {}
-#[repr(C, align(8))]
-pub struct FEdGraphSchemaAction_NewStateComment {}
-#[repr(C, align(16))]
-pub struct FAnimGraphAttributeDesc {
-    pub name: FName,
-    pub icon: crate::bindings::slate_core::FSlateBrush,
-    pub display_name: FText,
-    pub tool_tip_text: FText,
-    pub color: crate::bindings::slate_core::FSlateColor,
-    pub display_mode: EAnimGraphAttributesDisplayMode,
-    pub blend: EAnimGraphAttributeBlend,
-    pub sort_order: i32,
-}
-#[repr(C, align(8))]
-pub struct FAnimGraphNodePropertyBinding {
-    pub pin_type: crate::bindings::engine::FEdGraphPinType,
-    pub promoted_pin_type: crate::bindings::engine::FEdGraphPinType,
-    pub property_name: FName,
-    pub array_index: i32,
-    pub path_as_text: FText,
-    pub property_path: TArray<FString>,
-    pub context_id: FName,
-    pub compiled_context: FText,
-    pub compiled_context_desc: FText,
-    pub ty: EAnimGraphNodePropertyBindingType,
-    pub b_is_bound: bool,
-    pub b_is_promotion: bool,
-    pub b_only_update_when_active: bool,
-}
-#[repr(C, align(8))]
-pub struct FAnimBlueprintFunctionPinInfo {
-    pub name: FName,
-    pub ty: crate::bindings::engine::FEdGraphPinType,
-}
-#[repr(C, align(16))]
-pub struct FAnimPreviewAttacheInstanceProxy {}
-#[repr(C, align(16))]
-pub struct FAnimPreviewInstanceProxy {}
-#[repr(C, align(8))]
-pub struct FNodeSpawnData {
-    pub cached_title: FText,
-    pub source_node: UPtr<UAnimGraphNode_Base>,
-    pub source_state_node: UPtr<UAnimStateNodeBase>,
-    pub anim_instance_class: TSubclassOf<crate::bindings::core_u_object::UObject>,
-    pub source_blueprint: UPtr<crate::bindings::engine::UAnimBlueprint>,
-    pub getter: UPtr<crate::bindings::core_u_object::UField>,
-    pub getter_context_string: FString,
-}
 pub struct UAnimationGraph {
-    pub blend_options: crate::bindings::engine::FAnimGraphBlendOptions,
+    __padding_end: [u8; 256],
 }
+impl UAnimationGraph {}
+#[repr(C, align(8))]
 pub struct UAnimationBlendSpaceSampleGraph {
-    pub result_node: UPtr<UAnimGraphNode_BlendSpaceSampleResult>,
+    __padding_end: [u8; 264],
 }
-pub struct UAnimBlueprintExtension {}
+impl UAnimationBlendSpaceSampleGraph {}
+#[repr(C, align(8))]
+pub struct UAnimBlueprintExtension {
+    __padding_end: [u8; 48],
+}
+impl UAnimBlueprintExtension {}
+#[repr(C, align(8))]
 pub struct UAnimBlueprintExtension_NodeRelevancy {
-    pub subsystem: crate::bindings::engine::FAnimSubsystemInstance_NodeRelevancy,
+    __padding_end: [u8; 216],
 }
+impl UAnimBlueprintExtension_NodeRelevancy {}
+#[repr(C, align(8))]
 pub struct UAnimBlueprintExtension_SharedLinkedAnimLayers {
-    pub subsystem: crate::bindings::engine::FAnimSubsystem_SharedLinkedAnimLayers,
+    __padding_end: [u8; 88],
 }
-pub struct UAnimGraphNodeBinding {}
+impl UAnimBlueprintExtension_SharedLinkedAnimLayers {}
+#[repr(C, align(8))]
+pub struct UAnimGraphNodeBinding {
+    __padding_end: [u8; 48],
+}
+impl UAnimGraphNodeBinding {}
 pub struct UAnimGraphNodeCustomizationInterface {}
 pub struct IAnimGraphNodeCustomizationInterface {}
 pub struct UClassVariableCreator {}
 pub struct IClassVariableCreator {}
-pub struct UAnimationConduitGraphSchema {}
+#[repr(C, align(8))]
+pub struct UAnimationConduitGraphSchema {
+    __padding_end: [u8; 152],
+}
+impl UAnimationConduitGraphSchema {}
+#[repr(C, align(8))]
 pub struct UAnimationCustomTransitionGraph {
-    pub my_result_node: UPtr<UAnimGraphNode_CustomTransitionResult>,
+    __padding_end: [u8; 264],
 }
+impl UAnimationCustomTransitionGraph {}
+#[repr(C, align(8))]
 pub struct UAnimationGraphSchema {
-    pub pn_sequence_name: FString,
-    pub name_never_as_pin: FName,
-    pub name_pin_hidden_by_default: FName,
-    pub name_pin_shown_by_default: FName,
-    pub name_always_as_pin: FName,
-    pub name_customize_property: FName,
-    pub name_on_evaluate: FName,
-    pub default_evaluation_handler_name: FName,
+    __padding_end: [u8; 256],
 }
-pub struct UAnimationCustomTransitionSchema {}
+impl UAnimationGraphSchema {}
+#[repr(C, align(8))]
+pub struct UAnimationCustomTransitionSchema {
+    __padding_end: [u8; 256],
+}
+impl UAnimationCustomTransitionSchema {}
+#[repr(C, align(8))]
 pub struct UAnimationStateGraph {
-    pub my_result_node: UPtr<UAnimGraphNode_StateResult>,
+    __padding_end: [u8; 264],
 }
-pub struct UAnimationStateGraphSchema {}
+impl UAnimationStateGraph {}
+#[repr(C, align(8))]
+pub struct UAnimationStateGraphSchema {
+    __padding_end: [u8; 256],
+}
+impl UAnimationStateGraphSchema {}
+#[repr(C, align(8))]
 pub struct UAnimationStateMachineGraph {
-    pub entry_node: UPtr<UAnimStateEntryNode>,
-    pub owner_anim_graph_node: UPtr<UAnimGraphNode_StateMachineBase>,
+    __padding_end: [u8; 208],
 }
-pub struct UAnimationStateMachineSchema {}
+impl UAnimationStateMachineGraph {}
+#[repr(C, align(8))]
+pub struct UAnimationStateMachineSchema {
+    __padding_end: [u8; 48],
+}
+impl UAnimationStateMachineSchema {}
+#[repr(C, align(8))]
 pub struct UAnimationTransitionGraph {
-    pub my_result_node: UPtr<UAnimGraphNode_TransitionResult>,
+    __padding_end: [u8; 264],
 }
-pub struct UAnimationTransitionSchema {}
-pub struct UAnimBlueprintExtension_Attributes {}
+impl UAnimationTransitionGraph {}
+#[repr(C, align(8))]
+pub struct UAnimationTransitionSchema {
+    __padding_end: [u8; 152],
+}
+impl UAnimationTransitionSchema {}
+#[repr(C, align(8))]
+pub struct UAnimBlueprintExtension_Attributes {
+    __padding_end: [u8; 48],
+}
+impl UAnimBlueprintExtension_Attributes {}
+#[repr(C, align(8))]
 pub struct UAnimBlueprintExtension_Base {
-    pub subsystem: crate::bindings::engine::FAnimSubsystem_Base,
+    __padding_end: [u8; 384],
 }
+impl UAnimBlueprintExtension_Base {}
+#[repr(C, align(8))]
 pub struct UAnimBlueprintExtension_BlendSpaceGraph {
-    pub class: TSubclassOf<crate::bindings::core_u_object::UObject>,
-    pub subsystem: crate::bindings::engine::FAnimSubsystem_BlendSpaceGraph,
+    __padding_end: [u8; 80],
 }
-pub struct UAnimBlueprintExtension_CachedPose {}
-pub struct UAnimBlueprintExtension_CallFunction {}
-pub struct UAnimBlueprintExtension_LinkedAnimGraph {}
-pub struct UAnimBlueprintExtension_LinkedInputPose {}
+impl UAnimBlueprintExtension_BlendSpaceGraph {}
+#[repr(C, align(8))]
+pub struct UAnimBlueprintExtension_CachedPose {
+    __padding_end: [u8; 128],
+}
+impl UAnimBlueprintExtension_CachedPose {}
+#[repr(C, align(8))]
+pub struct UAnimBlueprintExtension_CallFunction {
+    __padding_end: [u8; 136],
+}
+impl UAnimBlueprintExtension_CallFunction {}
+#[repr(C, align(8))]
+pub struct UAnimBlueprintExtension_LinkedAnimGraph {
+    __padding_end: [u8; 48],
+}
+impl UAnimBlueprintExtension_LinkedAnimGraph {}
+#[repr(C, align(8))]
+pub struct UAnimBlueprintExtension_LinkedInputPose {
+    __padding_end: [u8; 48],
+}
+impl UAnimBlueprintExtension_LinkedInputPose {}
+#[repr(C, align(8))]
 pub struct UAnimBlueprintExtension_PropertyAccess {
-    pub subsystem: crate::bindings::engine::FAnimSubsystem_PropertyAccess,
+    __padding_end: [u8; 312],
 }
-pub struct UAnimBlueprintExtension_StateMachine {}
+impl UAnimBlueprintExtension_PropertyAccess {}
+#[repr(C, align(8))]
+pub struct UAnimBlueprintExtension_StateMachine {
+    __padding_end: [u8; 96],
+}
+impl UAnimBlueprintExtension_StateMachine {}
+#[repr(C, align(8))]
 pub struct UAnimBlueprintExtension_Tag {
-    pub subsystem: crate::bindings::engine::FAnimSubsystem_Tag,
+    __padding_end: [u8; 240],
 }
-pub struct UAnimBlueprintPostCompileValidation {}
+impl UAnimBlueprintExtension_Tag {}
+#[repr(C, align(8))]
+pub struct UAnimBlueprintPostCompileValidation {
+    __padding_end: [u8; 48],
+}
+impl UAnimBlueprintPostCompileValidation {}
+#[repr(C, align(8))]
 pub struct UAnimGraphAttributes {
-    pub attributes: TArray<FAnimGraphAttributeDesc>,
+    __padding_end: [u8; 144],
 }
+impl UAnimGraphAttributes {}
+#[repr(C, align(8))]
 pub struct UAnimGraphNodeBinding_Base {
-    pub property_bindings: TMap<FName, FAnimGraphNodePropertyBinding>,
+    __padding_end: [u8; 128],
 }
+impl UAnimGraphNodeBinding_Base {}
+#[repr(C, align(8))]
 pub struct UAnimGraphNode_Base {
-    pub show_pin_for_properties: TArray<
-        crate::bindings::blueprint_graph::FOptionalPinFromProperty,
-    >,
-    pub property_bindings_deprecated: TMap<FName, FAnimGraphNodePropertyBinding>,
-    pub always_dynamic_properties: TSet<FName>,
-    pub blueprint_usage: EBlueprintUsage,
-    pub initial_update_function: crate::bindings::engine::FMemberReference,
-    pub become_relevant_function: crate::bindings::engine::FMemberReference,
-    pub update_function: crate::bindings::engine::FMemberReference,
-    pub binding: UPtr<UAnimGraphNodeBinding>,
-    pub tag: FName,
+    __padding_end: [u8; 680],
 }
+impl UAnimGraphNode_Base {}
+#[repr(C, align(8))]
 pub struct UAnimGraphNode_AssetPlayerBase {
-    pub sync_group_deprecated: crate::bindings::engine::FAnimationGroupReference,
+    __padding_end: [u8; 720],
 }
-pub struct UAnimGraphNode_BlendSpaceBase {}
+impl UAnimGraphNode_AssetPlayerBase {}
+#[repr(C, align(8))]
+pub struct UAnimGraphNode_BlendSpaceBase {
+    __padding_end: [u8; 720],
+}
+impl UAnimGraphNode_BlendSpaceBase {}
+#[repr(C, align(16))]
 pub struct UAnimGraphNode_AimOffsetLookAt {
-    pub node: crate::bindings::anim_graph_runtime::FAnimNode_AimOffsetLookAt,
+    __padding_end: [u8; 1488],
 }
-pub struct UAnimGraphNode_SkeletalControlBase {}
+impl UAnimGraphNode_AimOffsetLookAt {}
+#[repr(C, align(8))]
+pub struct UAnimGraphNode_SkeletalControlBase {
+    __padding_end: [u8; 680],
+}
+impl UAnimGraphNode_SkeletalControlBase {}
+#[repr(C, align(16))]
 pub struct UAnimGraphNode_AnimDynamics {
-    pub node: crate::bindings::anim_graph_runtime::FAnimNode_AnimDynamics,
-    pub b_preview_live: bool,
-    pub b_show_linear_limits: bool,
-    pub b_show_angular_limits: bool,
-    pub b_show_planar_limit: bool,
-    pub b_show_spherical_limit: bool,
-    pub b_show_collision_spheres: bool,
+    __padding_end: [u8; 2720],
 }
+impl UAnimGraphNode_AnimDynamics {}
+#[repr(C, align(8))]
 pub struct UAnimGraphNode_ApplyAdditive {
-    pub node: crate::bindings::anim_graph_runtime::FAnimNode_ApplyAdditive,
+    __padding_end: [u8; 1024],
 }
+impl UAnimGraphNode_ApplyAdditive {}
+#[repr(C, align(8))]
 pub struct UAnimGraphNode_ApplyLimits {
-    pub node: crate::bindings::anim_graph_runtime::FAnimNode_ApplyLimits,
+    __padding_end: [u8; 1136],
 }
+impl UAnimGraphNode_ApplyLimits {}
+#[repr(C, align(8))]
 pub struct UAnimGraphNode_ApplyMeshSpaceAdditive {
-    pub node: crate::bindings::engine::FAnimNode_ApplyMeshSpaceAdditive,
+    __padding_end: [u8; 1032],
 }
+impl UAnimGraphNode_ApplyMeshSpaceAdditive {}
+#[repr(C, align(8))]
 pub struct UAnimGraphNode_BlendBoneByChannel {
-    pub blend_node: crate::bindings::anim_graph_runtime::FAnimNode_BlendBoneByChannel,
+    __padding_end: [u8; 920],
 }
-pub struct UAnimGraphNode_BlendListBase {}
+impl UAnimGraphNode_BlendBoneByChannel {}
+#[repr(C, align(8))]
+pub struct UAnimGraphNode_BlendListBase {
+    __padding_end: [u8; 688],
+}
+impl UAnimGraphNode_BlendListBase {}
+#[repr(C, align(8))]
 pub struct UAnimGraphNode_BlendListByBool {
-    pub node: crate::bindings::anim_graph_runtime::FAnimNode_BlendListByBool,
+    __padding_end: [u8; 944],
 }
+impl UAnimGraphNode_BlendListByBool {}
+#[repr(C, align(8))]
 pub struct UAnimGraphNode_BlendListByEnum {
-    pub node: crate::bindings::anim_graph_runtime::FAnimNode_BlendListByEnum,
-    pub bound_enum: UPtr<crate::bindings::core_u_object::UEnum>,
-    pub visible_enum_entries: TArray<FName>,
+    __padding_end: [u8; 1008],
 }
+impl UAnimGraphNode_BlendListByEnum {}
+#[repr(C, align(8))]
 pub struct UAnimGraphNode_BlendListByInt {
-    pub node: crate::bindings::anim_graph_runtime::FAnimNode_BlendListByInt,
+    __padding_end: [u8; 936],
 }
+impl UAnimGraphNode_BlendListByInt {}
+#[repr(C, align(8))]
 pub struct UAnimGraphNode_BlendSpaceEvaluator {
-    pub node: crate::bindings::anim_graph_runtime::FAnimNode_BlendSpaceEvaluator,
+    __padding_end: [u8; 1104],
 }
+impl UAnimGraphNode_BlendSpaceEvaluator {}
+#[repr(C, align(8))]
 pub struct UAnimGraphNode_BlendSpaceGraphBase {
-    pub blend_space: UPtr<crate::bindings::engine::UBlendSpace>,
-    pub blend_space_class: TSubclassOf<crate::bindings::engine::UBlendSpace>,
-    pub blend_space_graph: UPtr<UBlendSpaceGraph>,
-    pub graphs: TArray<UPtr<crate::bindings::engine::UEdGraph>>,
+    __padding_end: [u8; 736],
 }
+impl UAnimGraphNode_BlendSpaceGraphBase {}
+#[repr(C, align(8))]
 pub struct UAnimGraphNode_BlendSpaceGraph {
-    pub node: crate::bindings::anim_graph_runtime::FAnimNode_BlendSpaceGraph,
+    __padding_end: [u8; 992],
 }
+impl UAnimGraphNode_BlendSpaceGraph {}
+#[repr(C, align(8))]
 pub struct UAnimGraphNode_BlendSpacePlayer {
-    pub node: crate::bindings::anim_graph_runtime::FAnimNode_BlendSpacePlayer,
+    __padding_end: [u8; 1000],
 }
+impl UAnimGraphNode_BlendSpacePlayer {}
+#[repr(C, align(8))]
 pub struct UAnimGraphNode_BlendSpaceSampleResult {
-    pub node: crate::bindings::anim_graph_runtime::FAnimNode_BlendSpaceSampleResult,
+    __padding_end: [u8; 880],
 }
+impl UAnimGraphNode_BlendSpaceSampleResult {}
+#[repr(C, align(8))]
 pub struct UAnimGraphNode_BoneDrivenController {
-    pub node: crate::bindings::anim_graph_runtime::FAnimNode_BoneDrivenController,
+    __padding_end: [u8; 1216],
 }
+impl UAnimGraphNode_BoneDrivenController {}
+#[repr(C, align(8))]
 pub struct UAnimGraphNode_CallFunction {
-    pub inner_graph: UPtr<crate::bindings::engine::UEdGraph>,
-    pub call_function_prototype: UPtr<
-        crate::bindings::blueprint_graph::UK2Node_CallFunction,
-    >,
-    pub node: crate::bindings::anim_graph_runtime::FAnimNode_CallFunction,
+    __padding_end: [u8; 936],
 }
+impl UAnimGraphNode_CallFunction {}
+#[repr(C, align(16))]
 pub struct UAnimGraphNode_CCDIK {
-    pub node: crate::bindings::anim_graph_runtime::FAnimNode_CCDIK,
+    __padding_end: [u8; 1504],
 }
+impl UAnimGraphNode_CCDIK {}
+#[repr(C, align(8))]
 pub struct UAnimGraphNode_ComponentToLocalSpace {
-    pub node: crate::bindings::engine::FAnimNode_ConvertComponentToLocalSpace,
+    __padding_end: [u8; 840],
 }
+impl UAnimGraphNode_ComponentToLocalSpace {}
+#[repr(C, align(16))]
 pub struct UAnimGraphNode_Constraint {
-    pub node: crate::bindings::anim_graph_runtime::FAnimNode_Constraint,
+    __padding_end: [u8; 1488],
 }
+impl UAnimGraphNode_Constraint {}
+#[repr(C, align(8))]
 pub struct UAnimGraphNode_CopyBone {
-    pub node: crate::bindings::anim_graph_runtime::FAnimNode_CopyBone,
+    __padding_end: [u8; 1248],
 }
+impl UAnimGraphNode_CopyBone {}
+#[repr(C, align(8))]
 pub struct UAnimGraphNode_CopyBoneDelta {
-    pub node: crate::bindings::anim_graph_runtime::FAnimNode_CopyBoneDelta,
+    __padding_end: [u8; 1160],
 }
+impl UAnimGraphNode_CopyBoneDelta {}
+#[repr(C, align(8))]
 pub struct UAnimGraphNode_CopyPoseFromMesh {
-    pub node: crate::bindings::anim_graph_runtime::FAnimNode_CopyPoseFromMesh,
+    __padding_end: [u8; 1144],
 }
+impl UAnimGraphNode_CopyPoseFromMesh {}
+#[repr(C, align(8))]
 pub struct UAnimGraphNode_CurveSource {
-    pub node: crate::bindings::anim_graph_runtime::FAnimNode_CurveSource,
+    __padding_end: [u8; 872],
 }
+impl UAnimGraphNode_CurveSource {}
+#[repr(C, align(8))]
 pub struct UAnimGraphNode_CustomProperty {
-    pub known_exposable_properties_deprecated: TArray<FName>,
-    pub exposed_property_names_deprecated: TArray<FName>,
-    pub custom_pin_properties: TArray<
-        crate::bindings::blueprint_graph::FOptionalPinFromProperty,
-    >,
+    __padding_end: [u8; 736],
 }
+impl UAnimGraphNode_CustomProperty {}
+#[repr(C, align(8))]
 pub struct UAnimGraphNode_StateResult {
-    pub node: crate::bindings::engine::FAnimNode_StateResult,
-    pub state_entry_function: crate::bindings::engine::FMemberReference,
-    pub state_fully_blended_in_function: crate::bindings::engine::FMemberReference,
-    pub state_exit_function: crate::bindings::engine::FMemberReference,
-    pub state_fully_blended_out_function: crate::bindings::engine::FMemberReference,
+    __padding_end: [u8; 1272],
 }
-pub struct UAnimGraphNode_CustomTransitionResult {}
+impl UAnimGraphNode_StateResult {}
+#[repr(C, align(8))]
+pub struct UAnimGraphNode_CustomTransitionResult {
+    __padding_end: [u8; 1272],
+}
+impl UAnimGraphNode_CustomTransitionResult {}
+#[repr(C, align(16))]
 pub struct UAnimGraphNode_DeadBlending {
-    pub node: crate::bindings::engine::FAnimNode_DeadBlending,
+    __padding_end: [u8; 2560],
 }
+impl UAnimGraphNode_DeadBlending {}
+#[repr(C, align(16))]
 pub struct UAnimGraphNode_Fabrik {
-    pub node: crate::bindings::anim_graph_runtime::FAnimNode_Fabrik,
+    __padding_end: [u8; 1552],
 }
+impl UAnimGraphNode_Fabrik {}
+#[repr(C, align(8))]
 pub struct UAnimGraphNode_HandIKRetargeting {
-    pub node: crate::bindings::anim_graph_runtime::FAnimNode_HandIKRetargeting,
+    __padding_end: [u8; 1232],
 }
+impl UAnimGraphNode_HandIKRetargeting {}
+#[repr(C, align(8))]
 pub struct UAnimGraphNode_RefPoseBase {
-    pub node: crate::bindings::anim_graph_runtime::FAnimNode_RefPose,
+    __padding_end: [u8; 824],
 }
-pub struct UAnimGraphNode_IdentityPose {}
+impl UAnimGraphNode_RefPoseBase {}
+#[repr(C, align(8))]
+pub struct UAnimGraphNode_IdentityPose {
+    __padding_end: [u8; 824],
+}
+impl UAnimGraphNode_IdentityPose {}
+#[repr(C, align(16))]
 pub struct UAnimGraphNode_Inertialization {
-    pub node: crate::bindings::engine::FAnimNode_Inertialization,
+    __padding_end: [u8; 2208],
 }
+impl UAnimGraphNode_Inertialization {}
+#[repr(C, align(8))]
 pub struct UAnimGraphNode_LayeredBoneBlend {
-    pub node: crate::bindings::anim_graph_runtime::FAnimNode_LayeredBoneBlend,
+    __padding_end: [u8; 1048],
 }
+impl UAnimGraphNode_LayeredBoneBlend {}
+#[repr(C, align(8))]
 pub struct UAnimGraphNode_LegIK {
-    pub node: crate::bindings::anim_graph_runtime::FAnimNode_LegIK,
+    __padding_end: [u8; 1160],
 }
+impl UAnimGraphNode_LegIK {}
+#[repr(C, align(8))]
 pub struct UAnimGraphNode_LinkedAnimGraphBase {
-    pub function_reference: crate::bindings::engine::FMemberReference,
+    __padding_end: [u8; 824],
 }
+impl UAnimGraphNode_LinkedAnimGraphBase {}
+#[repr(C, align(8))]
 pub struct UAnimGraphNode_LinkedAnimGraph {
-    pub node: crate::bindings::engine::FAnimNode_LinkedAnimGraph,
+    __padding_end: [u8; 1160],
 }
+impl UAnimGraphNode_LinkedAnimGraph {}
+#[repr(C, align(8))]
 pub struct UAnimGraphNode_LinkedAnimLayer {
-    pub node: crate::bindings::engine::FAnimNode_LinkedAnimLayer,
-    pub interface_guid: crate::bindings::core_u_object::FGuid,
+    __padding_end: [u8; 1232],
 }
+impl UAnimGraphNode_LinkedAnimLayer {}
+#[repr(C, align(8))]
 pub struct UAnimGraphNode_LinkedInputPose {
-    pub node: crate::bindings::engine::FAnimNode_LinkedInputPose,
-    pub inputs: TArray<FAnimBlueprintFunctionPinInfo>,
-    pub function_reference: crate::bindings::engine::FMemberReference,
-    pub input_pose_index: i32,
+    __padding_end: [u8; 1088],
 }
-pub struct UAnimGraphNode_LocalRefPose {}
+impl UAnimGraphNode_LinkedInputPose {}
+#[repr(C, align(8))]
+pub struct UAnimGraphNode_LocalRefPose {
+    __padding_end: [u8; 824],
+}
+impl UAnimGraphNode_LocalRefPose {}
+#[repr(C, align(8))]
 pub struct UAnimGraphNode_LocalToComponentSpace {
-    pub node: crate::bindings::engine::FAnimNode_ConvertLocalToComponentSpace,
+    __padding_end: [u8; 840],
 }
+impl UAnimGraphNode_LocalToComponentSpace {}
+#[repr(C, align(16))]
 pub struct UAnimGraphNode_LookAt {
-    pub node: crate::bindings::anim_graph_runtime::FAnimNode_LookAt,
+    __padding_end: [u8; 2048],
 }
+impl UAnimGraphNode_LookAt {}
+#[repr(C, align(8))]
 pub struct UAnimGraphNode_MakeDynamicAdditive {
-    pub node: crate::bindings::anim_graph_runtime::FAnimNode_MakeDynamicAdditive,
+    __padding_end: [u8; 872],
 }
+impl UAnimGraphNode_MakeDynamicAdditive {}
+#[repr(C, align(8))]
 pub struct UAnimGraphNode_MeshRefPose {
-    pub node: crate::bindings::anim_graph_runtime::FAnimNode_MeshSpaceRefPose,
+    __padding_end: [u8; 816],
 }
+impl UAnimGraphNode_MeshRefPose {}
+#[repr(C, align(8))]
 pub struct UAnimGraphNode_Mirror {
-    pub node: crate::bindings::anim_graph_runtime::FAnimNode_Mirror,
+    __padding_end: [u8; 920],
 }
+impl UAnimGraphNode_Mirror {}
+#[repr(C, align(8))]
 pub struct UAnimGraphNode_ModifyBone {
-    pub node: crate::bindings::anim_graph_runtime::FAnimNode_ModifyBone,
+    __padding_end: [u8; 1304],
 }
+impl UAnimGraphNode_ModifyBone {}
+#[repr(C, align(8))]
 pub struct UAnimGraphNode_ModifyCurve {
-    pub node: crate::bindings::anim_graph_runtime::FAnimNode_ModifyCurve,
+    __padding_end: [u8; 1096],
 }
+impl UAnimGraphNode_ModifyCurve {}
+#[repr(C, align(8))]
 pub struct UAnimGraphNode_MultiWayBlend {
-    pub node: crate::bindings::anim_graph_runtime::FAnimNode_MultiWayBlend,
+    __padding_end: [u8; 888],
 }
+impl UAnimGraphNode_MultiWayBlend {}
+#[repr(C, align(8))]
 pub struct UAnimGraphNode_ObserveBone {
-    pub node: crate::bindings::anim_graph_runtime::FAnimNode_ObserveBone,
+    __padding_end: [u8; 1200],
 }
-pub struct UAnimGraphNode_PoseHandler {}
+impl UAnimGraphNode_ObserveBone {}
+#[repr(C, align(8))]
+pub struct UAnimGraphNode_PoseHandler {
+    __padding_end: [u8; 720],
+}
+impl UAnimGraphNode_PoseHandler {}
+#[repr(C, align(8))]
 pub struct UAnimGraphNode_PoseBlendNode {
-    pub node: crate::bindings::anim_graph_runtime::FAnimNode_PoseBlendNode,
+    __padding_end: [u8; 1120],
 }
+impl UAnimGraphNode_PoseBlendNode {}
+#[repr(C, align(8))]
 pub struct UAnimGraphNode_PoseByName {
-    pub node: crate::bindings::anim_graph_runtime::FAnimNode_PoseByName,
+    __padding_end: [u8; 1096],
 }
+impl UAnimGraphNode_PoseByName {}
+#[repr(C, align(8))]
 pub struct UAnimGraphNode_PoseDriver {
+    #[doc(hidden)]
+    __padding_720: [u8; 720],
     pub node: crate::bindings::anim_graph_runtime::FAnimNode_PoseDriver,
-    pub axis_length: f32,
-    pub cone_subdivision: i32,
-    pub b_draw_debug_cones: bool,
-    pub last_preview_component: UPtr<crate::bindings::engine::USkeletalMeshComponent>,
+    __padding_end: [u8; 152],
 }
+impl UAnimGraphNode_PoseDriver {}
+#[repr(C, align(8))]
 pub struct UAnimGraphNode_PoseSnapshot {
-    pub node: crate::bindings::anim_graph_runtime::FAnimNode_PoseSnapshot,
+    __padding_end: [u8; 976],
 }
+impl UAnimGraphNode_PoseSnapshot {}
+#[repr(C, align(8))]
 pub struct UAnimGraphNode_RandomPlayer {
-    pub node: crate::bindings::anim_graph_runtime::FAnimNode_RandomPlayer,
+    __padding_end: [u8; 928],
 }
+impl UAnimGraphNode_RandomPlayer {}
+#[repr(C, align(8))]
 pub struct UAnimGraphNode_ResetRoot {
-    pub node: crate::bindings::anim_graph_runtime::FAnimNode_ResetRoot,
+    __padding_end: [u8; 1120],
 }
+impl UAnimGraphNode_ResetRoot {}
+#[repr(C, align(16))]
 pub struct UAnimGraphNode_RigidBody {
-    pub node: crate::bindings::anim_graph_runtime::FAnimNode_RigidBody,
+    __padding_end: [u8; 3344],
 }
+impl UAnimGraphNode_RigidBody {}
+#[repr(C, align(8))]
 pub struct UAnimGraphNode_Root {
-    pub node: crate::bindings::engine::FAnimNode_Root,
+    __padding_end: [u8; 880],
 }
+impl UAnimGraphNode_Root {}
+#[repr(C, align(8))]
 pub struct UAnimGraphNode_RotateRootBone {
-    pub node: crate::bindings::anim_graph_runtime::FAnimNode_RotateRootBone,
+    __padding_end: [u8; 984],
 }
+impl UAnimGraphNode_RotateRootBone {}
+#[repr(C, align(8))]
 pub struct UAnimGraphNode_RotationMultiplier {
-    pub node: crate::bindings::anim_graph_runtime::FAnimNode_RotationMultiplier,
+    __padding_end: [u8; 1248],
 }
+impl UAnimGraphNode_RotationMultiplier {}
+#[repr(C, align(8))]
 pub struct UAnimGraphNode_RotationOffsetBlendSpace {
-    pub node: crate::bindings::anim_graph_runtime::FAnimNode_RotationOffsetBlendSpace,
+    __padding_end: [u8; 1280],
 }
+impl UAnimGraphNode_RotationOffsetBlendSpace {}
+#[repr(C, align(8))]
 pub struct UAnimGraphNode_RotationOffsetBlendSpaceGraph {
-    pub node: crate::bindings::anim_graph_runtime::FAnimNode_RotationOffsetBlendSpaceGraph,
+    __padding_end: [u8; 1176],
 }
+impl UAnimGraphNode_RotationOffsetBlendSpaceGraph {}
+#[repr(C, align(8))]
 pub struct UAnimGraphNode_SaveCachedPose {
-    pub node: crate::bindings::engine::FAnimNode_SaveCachedPose,
-    pub cache_name: FString,
+    __padding_end: [u8; 976],
 }
+impl UAnimGraphNode_SaveCachedPose {}
+#[repr(C, align(8))]
 pub struct UAnimGraphNode_ScaleChainLength {
-    pub node: crate::bindings::anim_graph_runtime::FAnimNode_ScaleChainLength,
+    __padding_end: [u8; 952],
 }
+impl UAnimGraphNode_ScaleChainLength {}
+#[repr(C, align(8))]
 pub struct UAnimGraphNode_SequenceEvaluator {
-    pub node: crate::bindings::anim_graph_runtime::FAnimNode_SequenceEvaluator,
+    __padding_end: [u8; 960],
 }
+impl UAnimGraphNode_SequenceEvaluator {}
+#[repr(C, align(8))]
 pub struct UAnimGraphNode_SequencePlayer {
-    pub node: crate::bindings::engine::FAnimNode_SequencePlayer,
+    __padding_end: [u8; 1048],
 }
+impl UAnimGraphNode_SequencePlayer {}
+#[repr(C, align(8))]
 pub struct UAnimGraphNode_Slot {
-    pub node: crate::bindings::anim_graph_runtime::FAnimNode_Slot,
+    __padding_end: [u8; 984],
 }
+impl UAnimGraphNode_Slot {}
+#[repr(C, align(8))]
 pub struct UAnimGraphNode_SplineIK {
-    pub node: crate::bindings::anim_graph_runtime::FAnimNode_SplineIK,
+    __padding_end: [u8; 1632],
 }
+impl UAnimGraphNode_SplineIK {}
+#[repr(C, align(8))]
 pub struct UAnimGraphNode_SpringBone {
-    pub node: crate::bindings::anim_graph_runtime::FAnimNode_SpringBone,
+    __padding_end: [u8; 1392],
 }
+impl UAnimGraphNode_SpringBone {}
+#[repr(C, align(8))]
 pub struct UAnimGraphNode_StateMachineBase {
-    pub editor_state_machine_graph: UPtr<UAnimationStateMachineGraph>,
+    __padding_end: [u8; 712],
 }
+impl UAnimGraphNode_StateMachineBase {}
+#[repr(C, align(8))]
 pub struct UAnimGraphNode_StateMachine {
-    pub node: crate::bindings::engine::FAnimNode_StateMachine,
+    __padding_end: [u8; 1072],
 }
+impl UAnimGraphNode_StateMachine {}
+#[repr(C, align(8))]
 pub struct UAnimGraphNode_Sync {
-    pub node: crate::bindings::anim_graph_runtime::FAnimNode_Sync,
+    __padding_end: [u8; 856],
 }
+impl UAnimGraphNode_Sync {}
+#[repr(C, align(16))]
 pub struct UAnimGraphNode_Trail {
-    pub node: crate::bindings::anim_graph_runtime::FAnimNode_Trail,
+    __padding_end: [u8; 1744],
 }
+impl UAnimGraphNode_Trail {}
+#[repr(C, align(8))]
 pub struct UAnimGraphNode_TransitionPoseEvaluator {
+    #[doc(hidden)]
+    __padding_680: [u8; 680],
     pub node: crate::bindings::engine::FAnimNode_TransitionPoseEvaluator,
 }
+impl UAnimGraphNode_TransitionPoseEvaluator {}
+#[repr(C, align(8))]
 pub struct UAnimGraphNode_TransitionResult {
-    pub node: crate::bindings::engine::FAnimNode_TransitionResult,
+    __padding_end: [u8; 848],
 }
+impl UAnimGraphNode_TransitionResult {}
+#[repr(C, align(8))]
 pub struct UAnimGraphNode_TwistCorrectiveNode {
-    pub node: crate::bindings::anim_graph_runtime::FAnimNode_TwistCorrectiveNode,
+    __padding_end: [u8; 1296],
 }
+impl UAnimGraphNode_TwistCorrectiveNode {}
+#[repr(C, align(16))]
 pub struct UAnimGraphNode_TwoBoneIK {
-    pub node: crate::bindings::anim_graph_runtime::FAnimNode_TwoBoneIK,
-    pub b_enable_debug_draw: bool,
+    __padding_end: [u8; 1840],
 }
+impl UAnimGraphNode_TwoBoneIK {}
+#[repr(C, align(8))]
 pub struct UAnimGraphNode_TwoWayBlend {
-    pub blend_node: crate::bindings::anim_graph_runtime::FAnimNode_TwoWayBlend,
+    __padding_end: [u8; 1016],
 }
+impl UAnimGraphNode_TwoWayBlend {}
+#[repr(C, align(8))]
 pub struct UAnimGraphNode_UseCachedPose {
-    pub node: crate::bindings::engine::FAnimNode_UseCachedPose,
-    pub save_cached_pose_node: TWeakObjectPtr<UAnimGraphNode_SaveCachedPose>,
-    pub name_of_cache: FString,
+    __padding_end: [u8; 880],
 }
+impl UAnimGraphNode_UseCachedPose {}
+#[repr(C, align(8))]
 pub struct UAnimGraphSettings {
-    pub b_show_instanced_enum_blend_anim_node_blueprint_actions: bool,
+    __padding_end: [u8; 112],
 }
-pub struct UAnimPreviewAttacheInstance {}
+impl UAnimGraphSettings {}
+#[repr(C, align(16))]
+pub struct UAnimPreviewAttacheInstance {
+    __padding_end: [u8; 1136],
+}
+impl UAnimPreviewAttacheInstance {}
+#[repr(C, align(16))]
 pub struct UAnimPreviewInstance {
-    pub montage_preview_type: EMontagePreviewType,
-    pub montage_preview_start_section_idx: i32,
+    __padding_end: [u8; 1184],
 }
-pub struct UAnimStateNodeBase {}
+impl UAnimPreviewInstance {}
+#[repr(C, align(8))]
+pub struct UAnimStateNodeBase {
+    __padding_end: [u8; 192],
+}
+impl UAnimStateNodeBase {}
+#[repr(C, align(8))]
 pub struct UAnimStateAliasNode {
+    #[doc(hidden)]
+    __padding_192: [u8; 192],
     pub b_global_alias: bool,
-    pub state_alias_name: FString,
-    pub aliased_state_nodes: TSet<TWeakObjectPtr<UAnimStateNodeBase>>,
+    __padding_end: [u8; 103],
 }
+impl UAnimStateAliasNode {}
+#[repr(C, align(8))]
 pub struct UAnimStateConduitNode {
-    pub bound_graph: UPtr<crate::bindings::engine::UEdGraph>,
+    __padding_end: [u8; 200],
 }
-pub struct UAnimStateEntryNode {}
+impl UAnimStateConduitNode {}
+#[repr(C, align(8))]
+pub struct UAnimStateEntryNode {
+    __padding_end: [u8; 192],
+}
+impl UAnimStateEntryNode {}
+#[repr(C, align(8))]
 pub struct UAnimStateNode {
-    pub bound_graph: UPtr<crate::bindings::engine::UEdGraph>,
-    pub state_type: EAnimStateType,
-    pub state_entered: crate::bindings::engine::FAnimNotifyEvent,
-    pub state_left: crate::bindings::engine::FAnimNotifyEvent,
-    pub state_fully_blended: crate::bindings::engine::FAnimNotifyEvent,
-    pub b_always_reset_on_entry: bool,
+    __padding_end: [u8; 888],
 }
+impl UAnimStateNode {}
+#[repr(C, align(8))]
 pub struct UAnimStateTransitionNode {
-    pub bound_graph: UPtr<crate::bindings::engine::UEdGraph>,
-    pub custom_transition_graph: UPtr<crate::bindings::engine::UEdGraph>,
-    pub priority_order: i32,
-    pub crossfade_duration: f32,
-    pub crossfade_mode_deprecated: crate::bindings::engine::ETransitionBlendMode,
-    pub blend_mode: crate::bindings::engine::EAlphaBlendOption,
-    pub custom_blend_curve: UPtr<crate::bindings::engine::UCurveFloat>,
-    pub blend_profile_deprecated: UPtr<crate::bindings::engine::UBlendProfile>,
-    pub blend_profile_wrapper: crate::bindings::engine::FBlendProfileInterfaceWrapper,
-    pub b_automatic_rule_based_on_sequence_player_in_state: bool,
-    pub automatic_rule_trigger_time: f32,
-    pub min_time_before_reentry: f32,
-    pub sync_group_name_to_require_valid_markers_rule: FName,
+    #[doc(hidden)]
+    __padding_296: [u8; 296],
     pub logic_type: crate::bindings::engine::ETransitionLogicType,
-    pub transition_start: crate::bindings::engine::FAnimNotifyEvent,
-    pub transition_end: crate::bindings::engine::FAnimNotifyEvent,
-    pub transition_interrupt: crate::bindings::engine::FAnimNotifyEvent,
-    pub b_allow_inertialization_for_self_transitions: bool,
-    pub bidirectional: bool,
-    pub b_disabled: bool,
-    pub b_shared_rules: bool,
-    pub b_shared_crossfade: bool,
-    pub shared_rules_name: FString,
-    pub shared_rules_guid: crate::bindings::core_u_object::FGuid,
-    pub shared_color: crate::bindings::core_u_object::FLinearColor,
-    pub shared_crossfade_name: FString,
-    pub shared_crossfade_guid: crate::bindings::core_u_object::FGuid,
-    pub shared_crossfade_idx: i32,
-    pub cached_rotation: crate::bindings::core_u_object::FVector2D,
+    __padding_end: [u8; 791],
 }
+impl UAnimStateTransitionNode {}
+#[repr(C, align(8))]
 pub struct UBlendSpaceGraph {
-    pub blend_space: UPtr<crate::bindings::engine::UBlendSpace>,
+    __padding_end: [u8; 200],
 }
+impl UBlendSpaceGraph {}
+#[repr(C, align(8))]
 pub struct UK2Node_AnimGetter {
-    pub source_node: UPtr<UAnimGraphNode_Base>,
-    pub source_state_node: UPtr<UAnimStateNodeBase>,
-    pub getter_class: TSubclassOf<crate::bindings::core_u_object::UObject>,
-    pub source_anim_blueprint: UPtr<crate::bindings::engine::UAnimBlueprint>,
-    pub cached_title: FText,
-    pub contexts: TArray<FString>,
+    __padding_end: [u8; 408],
 }
+impl UK2Node_AnimGetter {}
+#[repr(C, align(8))]
 pub struct UK2Node_AnimNodeReference {
-    pub tag: FName,
+    __padding_end: [u8; 208],
 }
-pub struct UK2Node_PlayMontage {}
+impl UK2Node_AnimNodeReference {}
+#[repr(C, align(8))]
+pub struct UK2Node_PlayMontage {
+    __padding_end: [u8; 240],
+}
+impl UK2Node_PlayMontage {}
+#[repr(C, align(8))]
 pub struct UK2Node_TransitionRuleGetter {
-    pub getter_type: ETransitionGetter,
-    pub associated_anim_asset_player_node: UPtr<UAnimGraphNode_Base>,
-    pub associated_state_node: UPtr<UAnimStateNode>,
+    __padding_end: [u8; 216],
 }
-#[allow(non_camel_case_types)]
+impl UK2Node_TransitionRuleGetter {}
 #[repr(transparent)]
 pub struct EAnimGraphAttributesDisplayMode(pub i32);
 impl EAnimGraphAttributesDisplayMode {
@@ -497,14 +662,12 @@ impl EAnimGraphAttributesDisplayMode {
         2,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EAnimGraphAttributeBlend(pub i32);
 impl EAnimGraphAttributeBlend {
     pub const BLENDABLE: EAnimGraphAttributeBlend = EAnimGraphAttributeBlend(0);
     pub const NON_BLENDABLE: EAnimGraphAttributeBlend = EAnimGraphAttributeBlend(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EAnimGraphNodePropertyBindingType(pub i32);
 impl EAnimGraphNodePropertyBindingType {
@@ -518,7 +681,6 @@ impl EAnimGraphNodePropertyBindingType {
         2,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EBlueprintUsage(pub u8);
 impl EBlueprintUsage {
@@ -526,21 +688,18 @@ impl EBlueprintUsage {
     pub const DOES_NOT_USE_BLUEPRINT: EBlueprintUsage = EBlueprintUsage(1);
     pub const USES_BLUEPRINT: EBlueprintUsage = EBlueprintUsage(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMontagePreviewType(pub u8);
 impl EMontagePreviewType {
     pub const EMPT_NORMAL: EMontagePreviewType = EMontagePreviewType(0);
     pub const EMPT_ALL_SECTIONS: EMontagePreviewType = EMontagePreviewType(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EAnimStateType(pub u8);
 impl EAnimStateType {
     pub const AST_SINGLE_ANIMATION: EAnimStateType = EAnimStateType(0);
     pub const AST_BLEND_GRAPH: EAnimStateType = EAnimStateType(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ETransitionGetter(pub u8);
 impl ETransitionGetter {

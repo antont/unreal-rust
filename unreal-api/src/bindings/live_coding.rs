@@ -4,18 +4,11 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
+#[repr(C, align(8))]
 pub struct ULiveCodingSettings {
-    pub b_enabled: bool,
-    pub startup: ELiveCodingStartupMode,
-    pub b_enable_reinstancing: bool,
-    pub b_automatically_compile_new_classes: bool,
-    pub b_preload_engine_modules: bool,
-    pub b_preload_engine_plugin_modules: bool,
-    pub b_preload_project_modules: bool,
-    pub b_preload_project_plugin_modules: bool,
-    pub preload_named_modules: TArray<FName>,
+    __padding_end: [u8; 72],
 }
-#[allow(non_camel_case_types)]
+impl ULiveCodingSettings {}
 #[repr(transparent)]
 pub struct ELiveCodingStartupMode(pub u8);
 impl ELiveCodingStartupMode {

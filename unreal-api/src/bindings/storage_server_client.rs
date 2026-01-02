@@ -4,10 +4,8 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
+#[repr(C, align(8))]
 pub struct UZenStreamingSettings {
-    pub b_show_zen_badge: bool,
-    pub badge_position_x: f32,
-    pub badge_position_y: f32,
-    pub badge_fade_time: f32,
-    pub badge_alpha: f32,
+    __padding_end: [u8; 128],
 }
+impl UZenStreamingSettings {}

@@ -4,136 +4,120 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
-#[repr(C, align(8))]
-pub struct FGameplayTagContainerNetSerializerSerializationHelper {
-    pub gameplay_tags: TArray<FGameplayTag>,
-}
 #[repr(C, align(4))]
 pub struct FGameplayTag {
-    pub tag_name: FName,
+    __padding_end: [u8; 12],
 }
+impl FGameplayTag {}
 #[repr(C, align(8))]
 pub struct FGameplayTagContainer {
     pub gameplay_tags: TArray<FGameplayTag>,
-    pub parent_tags: TArray<FGameplayTag>,
+    __padding_end: [u8; 16],
 }
-#[repr(C, align(1))]
-pub struct FGameplayTagCreationWidgetHelper {}
+impl FGameplayTagContainer {}
 #[repr(C, align(8))]
 pub struct FGameplayTagQuery {
-    pub token_stream_version: i32,
-    pub tag_dictionary: TArray<FGameplayTag>,
-    pub query_token_stream: TArray<u8>,
-    pub user_description: FString,
-    pub auto_description: FString,
+    __padding_end: [u8; 72],
 }
-#[repr(C, align(8))]
-pub struct FGameplayTagContainerNetSerializerConfig {}
-#[repr(C, align(8))]
-pub struct FGameplayTagNetSerializerConfig {}
-#[repr(C, align(4))]
-pub struct FGameplayTagRedirect {
-    pub old_tag_name: FName,
-    pub new_tag_name: FName,
-}
+impl FGameplayTagQuery {}
 #[repr(C, align(8))]
 pub struct FGameplayTagTableRow {
+    #[doc(hidden)]
+    __padding_8: [u8; 8],
     pub tag: FName,
     pub dev_comment: FString,
 }
+impl FGameplayTagTableRow {}
 #[repr(C, align(8))]
 pub struct FRestrictedGameplayTagTableRow {
+    #[doc(hidden)]
+    __padding_40: [u8; 40],
     pub b_allow_non_restricted_children: bool,
+    __padding_end: [u8; 7],
 }
+impl FRestrictedGameplayTagTableRow {}
 #[repr(C, align(8))]
-pub struct FGameplayTagSource {
-    pub source_name: FName,
-    pub source_type: EGameplayTagSourceType,
-    pub source_tag_list: UPtr<UGameplayTagsList>,
-    pub source_restricted_tag_list: UPtr<URestrictedGameplayTagsList>,
+pub struct UBlueprintGameplayTagLibrary {
+    __padding_end: [u8; 48],
 }
-#[repr(C, align(8))]
-pub struct FGameplayTagNode {}
-#[repr(C, align(8))]
-pub struct FGameplayTagCategoryRemap {
-    pub base_category: FString,
-    pub remap_categories: TArray<FString>,
-}
-#[repr(C, align(8))]
-pub struct FRestrictedConfigInfo {
-    pub restricted_config_name: FString,
-    pub owners: TArray<FString>,
-}
-pub struct UBlueprintGameplayTagLibrary {}
+impl UBlueprintGameplayTagLibrary {}
 pub struct UGameplayTagAssetInterface {}
 pub struct IGameplayTagAssetInterface {}
+#[repr(C, align(8))]
 pub struct UEditableGameplayTagQuery {
-    pub user_description: FString,
-    pub root_expression: UPtr<UEditableGameplayTagQueryExpression>,
-    pub tag_query_export_text_helper: FGameplayTagQuery,
+    __padding_end: [u8; 160],
 }
-pub struct UEditableGameplayTagQueryExpression {}
+impl UEditableGameplayTagQuery {}
+#[repr(C, align(8))]
+pub struct UEditableGameplayTagQueryExpression {
+    __padding_end: [u8; 48],
+}
+impl UEditableGameplayTagQueryExpression {}
+#[repr(C, align(8))]
 pub struct UEditableGameplayTagQueryExpression_AnyTagsMatch {
-    pub tags: FGameplayTagContainer,
+    __padding_end: [u8; 80],
 }
+impl UEditableGameplayTagQueryExpression_AnyTagsMatch {}
+#[repr(C, align(8))]
 pub struct UEditableGameplayTagQueryExpression_AllTagsMatch {
-    pub tags: FGameplayTagContainer,
+    __padding_end: [u8; 80],
 }
+impl UEditableGameplayTagQueryExpression_AllTagsMatch {}
+#[repr(C, align(8))]
 pub struct UEditableGameplayTagQueryExpression_NoTagsMatch {
-    pub tags: FGameplayTagContainer,
+    __padding_end: [u8; 80],
 }
+impl UEditableGameplayTagQueryExpression_NoTagsMatch {}
+#[repr(C, align(8))]
 pub struct UEditableGameplayTagQueryExpression_AnyTagsExactMatch {
-    pub tags: FGameplayTagContainer,
+    __padding_end: [u8; 80],
 }
+impl UEditableGameplayTagQueryExpression_AnyTagsExactMatch {}
+#[repr(C, align(8))]
 pub struct UEditableGameplayTagQueryExpression_AllTagsExactMatch {
-    pub tags: FGameplayTagContainer,
+    __padding_end: [u8; 80],
 }
+impl UEditableGameplayTagQueryExpression_AllTagsExactMatch {}
+#[repr(C, align(8))]
 pub struct UEditableGameplayTagQueryExpression_AnyExprMatch {
-    pub expressions: TArray<UPtr<UEditableGameplayTagQueryExpression>>,
+    __padding_end: [u8; 64],
 }
+impl UEditableGameplayTagQueryExpression_AnyExprMatch {}
+#[repr(C, align(8))]
 pub struct UEditableGameplayTagQueryExpression_AllExprMatch {
-    pub expressions: TArray<UPtr<UEditableGameplayTagQueryExpression>>,
+    __padding_end: [u8; 64],
 }
+impl UEditableGameplayTagQueryExpression_AllExprMatch {}
+#[repr(C, align(8))]
 pub struct UEditableGameplayTagQueryExpression_NoExprMatch {
-    pub expressions: TArray<UPtr<UEditableGameplayTagQueryExpression>>,
+    __padding_end: [u8; 64],
 }
+impl UEditableGameplayTagQueryExpression_NoExprMatch {}
+#[repr(C, align(8))]
 pub struct UGameplayTagsManager {
-    pub tag_sources: TMap<FName, FGameplayTagSource>,
-    pub gameplay_tag_tables: TArray<UPtr<crate::bindings::engine::UDataTable>>,
+    __padding_end: [u8; 1248],
 }
+impl UGameplayTagsManager {}
+#[repr(C, align(8))]
 pub struct UGameplayTagsList {
-    pub config_file_name: FString,
-    pub gameplay_tag_redirects: TArray<FGameplayTagRedirect>,
-    pub gameplay_tag_list: TArray<FGameplayTagTableRow>,
+    __padding_end: [u8; 96],
 }
+impl UGameplayTagsList {}
+#[repr(C, align(8))]
 pub struct URestrictedGameplayTagsList {
-    pub config_file_name: FString,
-    pub restricted_gameplay_tag_list: TArray<FRestrictedGameplayTagTableRow>,
+    __padding_end: [u8; 80],
 }
+impl URestrictedGameplayTagsList {}
+#[repr(C, align(8))]
 pub struct UGameplayTagsSettings {
-    pub import_tags_from_config: bool,
-    pub warn_on_invalid_tags: bool,
-    pub clear_invalid_tags: bool,
-    pub allow_editor_tag_unloading: bool,
-    pub allow_game_tag_unloading: bool,
-    pub fast_replication: bool,
-    pub b_dynamic_replication: bool,
-    pub invalid_tag_characters: FString,
-    pub category_remapping: TArray<FGameplayTagCategoryRemap>,
-    pub gameplay_tag_table_list: TArray<crate::bindings::core_u_object::FSoftObjectPath>,
-    pub commonly_replicated_tags: TArray<FName>,
-    pub num_bits_for_container_size: i32,
-    pub net_index_first_bit_segment: i32,
-    pub restricted_config_files: TArray<FRestrictedConfigInfo>,
-    pub restricted_tag_list: FString,
-    pub new_tag_source: FString,
-    pub cleanup_unused_tags: FString,
+    __padding_end: [u8; 256],
 }
+impl UGameplayTagsSettings {}
+#[repr(C, align(8))]
 pub struct UGameplayTagsDeveloperSettings {
-    pub developer_config_name: FString,
-    pub favorite_tag_source: FName,
+    __padding_end: [u8; 136],
 }
-#[allow(non_camel_case_types)]
+impl UGameplayTagsDeveloperSettings {}
 #[repr(transparent)]
 pub struct EGameplayTagSourceType(pub u8);
 impl EGameplayTagSourceType {
@@ -144,7 +128,6 @@ impl EGameplayTagSourceType {
     pub const DATA_TABLE: EGameplayTagSourceType = EGameplayTagSourceType(4);
     pub const INVALID: EGameplayTagSourceType = EGameplayTagSourceType(5);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EGameplayContainerMatchType(pub u8);
 impl EGameplayContainerMatchType {

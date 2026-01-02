@@ -4,6 +4,8 @@ use std::ffi::c_void;
 pub struct FName {
     pub comparison_index: u32,
     pub number: u32,
+    // TODO: This is wrong. This only exists in editor builds
+    pub display_index: u32,
 }
 
 #[repr(transparent)]
@@ -23,7 +25,7 @@ pub struct TWeakObjectPtr<T> {
     _marker: std::marker::PhantomData<T>,
 }
 
-#[repr(C)]
+#[repr(C, align(8))]
 pub struct ScriptArray {
     pub data: *mut c_void,
     pub num: i32,
@@ -35,11 +37,11 @@ pub struct TArray<T> {
     // TODO: Layout
     _marker: std::marker::PhantomData<T>,
 }
-#[repr(C)]
+
+// TODO: Generate
+#[repr(C, align(8))]
 pub struct FScriptSet {
-    pub elements: *mut u8,
-    pub num_elements: i32,
-    pub max_elements: i32,
+    __opague: [u8; 80]
 }
 
 #[repr(transparent)]
@@ -120,15 +122,15 @@ pub struct FAnsiString {
     // TODO: Layout
 }
 
-#[repr(C)]
+// TODO: Verify or make opague
+#[repr(C, align(8))]
 pub struct FScriptInterface {
     pub object: *mut c_void,
     pub interface: *mut c_void,
 }
 
 #[repr(transparent)]
-pub struct TScriptInterface<T>
-{
+pub struct TScriptInterface<T> {
     interface: FScriptInterface,
     _marker: std::marker::PhantomData<T>,
 }

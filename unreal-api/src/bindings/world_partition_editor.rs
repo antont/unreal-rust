@@ -4,47 +4,48 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
+#[repr(C, align(8))]
 pub struct UWorldPartitionConvertOptions {
-    pub commandlet_class: TSubclassOf<
-        crate::bindings::unreal_ed::UWorldPartitionConvertCommandlet,
-    >,
-    pub b_in_place: bool,
-    pub b_delete_source_levels: bool,
-    pub b_generate_ini: bool,
-    pub b_report_only: bool,
-    pub b_verbose: bool,
-    pub b_skip_stable_guid_validation: bool,
-    pub b_only_merge_sub_levels: bool,
-    pub b_save_foliage_type_to_content_folder: bool,
+    __padding_end: [u8; 80],
 }
+impl UWorldPartitionConvertOptions {}
+#[repr(C, align(8))]
 pub struct UContentBundleEditorSubsystem {
-    pub content_bundle_editing_sub_module: UPtr<UContentBundleEditingSubmodule>,
+    __padding_end: [u8; 208],
 }
-pub struct UContentBundleEditorSubsystemModule {}
+impl UContentBundleEditorSubsystem {}
+#[repr(C, align(8))]
+pub struct UContentBundleEditorSubsystemModule {
+    __padding_end: [u8; 56],
+}
+impl UContentBundleEditorSubsystemModule {}
+#[repr(C, align(8))]
 pub struct UActorEditorContextContentBundleState {
-    pub content_bundle_guid: crate::bindings::core_u_object::FGuid,
+    __padding_end: [u8; 64],
 }
+impl UActorEditorContextContentBundleState {}
+#[repr(C, align(8))]
 pub struct UContentBundleEditingSubmodule {
-    pub editing_content_bundles_stack: TArray<crate::bindings::core_u_object::FGuid>,
-    pub editing_content_bundle_guid: crate::bindings::core_u_object::FGuid,
+    __padding_end: [u8; 144],
 }
-pub struct UWorldPartitionHLODEditorSubsystem {}
-pub struct UHLODLayerFactory {}
+impl UContentBundleEditingSubmodule {}
+#[repr(C, align(8))]
+pub struct UWorldPartitionHLODEditorSubsystem {
+    __padding_end: [u8; 208],
+}
+impl UWorldPartitionHLODEditorSubsystem {}
+#[repr(C, align(8))]
+pub struct UHLODLayerFactory {
+    __padding_end: [u8; 136],
+}
+impl UHLODLayerFactory {}
+#[repr(C, align(8))]
 pub struct UWorldPartitionEditorSettings {
-    pub commandlet_class: TSubclassOf<
-        crate::bindings::unreal_ed::UWorldPartitionConvertCommandlet,
-    >,
-    pub instanced_foliage_grid_size: i32,
-    pub minimap_low_quality_world_units_per_pixel_threshold: i32,
-    pub b_enable_loading_in_editor: bool,
-    pub b_enable_streaming_generation_log_on_pie: bool,
-    pub b_show_hlo_ds_in_editor: bool,
-    pub b_show_hlo_ds_over_loaded_regions: bool,
-    pub b_enable_advanced_hlod_settings: bool,
-    pub hlod_min_draw_distance: f64,
-    pub hlod_max_draw_distance: f64,
+    __padding_end: [u8; 184],
 }
+impl UWorldPartitionEditorSettings {}
+#[repr(C, align(8))]
 pub struct UWorldPartitionEditorState {
-    pub loaded_editor_regions: TArray<crate::bindings::core_u_object::FBox>,
-    pub loaded_editor_location_volumes: TArray<FName>,
+    __padding_end: [u8; 80],
 }
+impl UWorldPartitionEditorState {}

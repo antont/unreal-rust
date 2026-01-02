@@ -6,37 +6,28 @@ pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 pub struct UBaseSequencerAnimTool {}
 pub struct IBaseSequencerAnimTool {}
-pub struct UMotionTrailToolBuilder {}
+#[repr(C, align(8))]
+pub struct UMotionTrailToolBuilder {
+    __padding_end: [u8; 48],
+}
+impl UMotionTrailToolBuilder {}
+#[repr(C, align(16))]
 pub struct UMotionTrailTool {
-    pub transform_proxy: UPtr<
-        crate::bindings::interactive_tools_framework::UTransformProxy,
-    >,
-    pub transform_gizmo: UPtr<
-        crate::bindings::interactive_tools_framework::UCombinedTransformGizmo,
-    >,
-    pub trs_gizmo: UPtr<
-        crate::bindings::editor_interactive_tools_framework::UTransformGizmo,
-    >,
-    pub left_click_behavior: UPtr<
-        crate::bindings::interactive_tools_framework::USingleClickInputBehavior,
-    >,
-    pub right_click_behavior: UPtr<
-        crate::bindings::interactive_tools_framework::USingleClickInputBehavior,
-    >,
+    __padding_end: [u8; 720],
 }
-pub struct USequencerPivotToolBuilder {}
+impl UMotionTrailTool {}
+#[repr(C, align(8))]
+pub struct USequencerPivotToolBuilder {
+    __padding_end: [u8; 48],
+}
+impl USequencerPivotToolBuilder {}
+#[repr(C, align(16))]
 pub struct USequencerPivotTool {
-    pub click_behavior: UPtr<
-        crate::bindings::interactive_tools_framework::USingleClickInputBehavior,
-    >,
-    pub transform_proxy: UPtr<
-        crate::bindings::interactive_tools_framework::UTransformProxy,
-    >,
-    pub transform_gizmo: UPtr<
-        crate::bindings::interactive_tools_framework::UCombinedTransformGizmo,
-    >,
-    pub trs_gizmo: UPtr<
-        crate::bindings::editor_interactive_tools_framework::UTransformGizmo,
-    >,
+    __padding_end: [u8; 672],
 }
-pub struct USequencerToolsEditMode {}
+impl USequencerPivotTool {}
+#[repr(C, align(8))]
+pub struct USequencerToolsEditMode {
+    __padding_end: [u8; 352],
+}
+impl USequencerToolsEditMode {}

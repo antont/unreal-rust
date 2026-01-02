@@ -4,1405 +4,1127 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
-#[repr(C, align(4))]
-pub struct FPerlinLayerProperties {
-    pub frequency: f32,
-    pub intensity: f32,
-}
-#[repr(C, align(4))]
-pub struct FBrushToolRadius {
-    pub size_type: EBrushToolSizeType,
-    pub adaptive_size: f32,
-    pub world_radius: f32,
-    pub b_tool_supports_pressure_sensitivity: bool,
-    pub b_enable_pressure_sensitivity: bool,
-}
+#[repr(C, align(8))]
 pub struct UMeshSculptBrushOpProps {
-    pub b_is_strength_pressure_enabled: bool,
+    __padding_end: [u8; 192],
 }
+impl UMeshSculptBrushOpProps {}
+#[repr(C, align(8))]
 pub struct UBaseKelvinletBrushOpProps {
-    pub stiffness: f32,
-    pub incompressiblity: f32,
-    pub brush_steps: i32,
+    __padding_end: [u8; 208],
 }
+impl UBaseKelvinletBrushOpProps {}
+#[repr(C, align(8))]
 pub struct UScaleKelvinletBrushOpProps {
-    pub strength: f32,
-    pub falloff: f32,
+    __padding_end: [u8; 216],
 }
+impl UScaleKelvinletBrushOpProps {}
+#[repr(C, align(8))]
 pub struct UPullKelvinletBrushOpProps {
-    pub falloff: f32,
-    pub depth: f32,
+    __padding_end: [u8; 216],
 }
+impl UPullKelvinletBrushOpProps {}
+#[repr(C, align(8))]
 pub struct USharpPullKelvinletBrushOpProps {
-    pub falloff: f32,
-    pub depth: f32,
+    __padding_end: [u8; 216],
 }
+impl USharpPullKelvinletBrushOpProps {}
+#[repr(C, align(8))]
 pub struct UTwistKelvinletBrushOpProps {
-    pub strength: f32,
-    pub falloff: f32,
+    __padding_end: [u8; 216],
 }
+impl UTwistKelvinletBrushOpProps {}
+#[repr(C, align(8))]
 pub struct UEraseSculptLayerBrushOpProps {
-    pub strength: f32,
-    pub falloff: f32,
+    __padding_end: [u8; 200],
 }
+impl UEraseSculptLayerBrushOpProps {}
+#[repr(C, align(16))]
 pub struct UGroupEraseBrushOpProps {
-    pub group: i32,
-    pub b_only_erase_current: bool,
+    __padding_end: [u8; 256],
 }
+impl UGroupEraseBrushOpProps {}
+#[repr(C, align(8))]
 pub struct UGroupPaintBrushOpProps {
-    pub group: i32,
-    pub b_only_paint_ungrouped: bool,
+    __padding_end: [u8; 200],
 }
+impl UGroupPaintBrushOpProps {}
+#[repr(C, align(8))]
 pub struct UInflateBrushOpProps {
-    pub strength: f32,
-    pub falloff: f32,
+    __padding_end: [u8; 200],
 }
+impl UInflateBrushOpProps {}
+#[repr(C, align(8))]
 pub struct UMoveBrushOpProps {
-    pub strength: f32,
-    pub falloff: f32,
-    pub depth: f32,
-    pub axis_filters: crate::bindings::modeling_components::FModelingToolsAxisFilter,
+    __padding_end: [u8; 208],
 }
+impl UMoveBrushOpProps {}
+#[repr(C, align(8))]
 pub struct UPinchBrushOpProps {
-    pub strength: f32,
-    pub falloff: f32,
-    pub depth: f32,
-    pub b_perp_damping: bool,
+    __padding_end: [u8; 208],
 }
-pub struct UBasePlaneBrushOpProps {}
+impl UPinchBrushOpProps {}
+#[repr(C, align(8))]
+pub struct UBasePlaneBrushOpProps {
+    __padding_end: [u8; 192],
+}
+impl UBasePlaneBrushOpProps {}
+#[repr(C, align(8))]
 pub struct UPlaneBrushOpProps {
-    pub strength: f32,
-    pub falloff: f32,
-    pub depth: f32,
-    pub which_side: EPlaneBrushSideMode,
+    __padding_end: [u8; 208],
 }
+impl UPlaneBrushOpProps {}
+#[repr(C, align(8))]
 pub struct UViewAlignedPlaneBrushOpProps {
-    pub strength: f32,
-    pub falloff: f32,
-    pub depth: f32,
-    pub which_side: EPlaneBrushSideMode,
+    __padding_end: [u8; 208],
 }
+impl UViewAlignedPlaneBrushOpProps {}
+#[repr(C, align(8))]
 pub struct UFixedPlaneBrushOpProps {
-    pub strength: f32,
-    pub falloff: f32,
-    pub depth: f32,
-    pub which_side: EPlaneBrushSideMode,
+    __padding_end: [u8; 208],
 }
+impl UFixedPlaneBrushOpProps {}
+#[repr(C, align(8))]
 pub struct UStandardSculptBrushOpProps {
-    pub strength: f32,
-    pub falloff: f32,
+    __padding_end: [u8; 200],
 }
+impl UStandardSculptBrushOpProps {}
+#[repr(C, align(8))]
 pub struct UViewAlignedSculptBrushOpProps {
-    pub strength: f32,
-    pub falloff: f32,
+    __padding_end: [u8; 200],
 }
+impl UViewAlignedSculptBrushOpProps {}
+#[repr(C, align(8))]
 pub struct USculptMaxBrushOpProps {
-    pub strength: f32,
-    pub falloff: f32,
-    pub max_height: f32,
-    pub b_use_fixed_height: bool,
-    pub fixed_height: f32,
+    __padding_end: [u8; 216],
 }
-pub struct UBaseSmoothBrushOpProps {}
+impl USculptMaxBrushOpProps {}
+#[repr(C, align(8))]
+pub struct UBaseSmoothBrushOpProps {
+    __padding_end: [u8; 192],
+}
+impl UBaseSmoothBrushOpProps {}
+#[repr(C, align(8))]
 pub struct USmoothBrushOpProps {
-    pub strength: f32,
-    pub falloff: f32,
-    pub b_preserve_uv_flow: bool,
+    __padding_end: [u8; 208],
 }
+impl USmoothBrushOpProps {}
+#[repr(C, align(8))]
 pub struct USecondarySmoothBrushOpProps {
-    pub strength: f32,
-    pub falloff: f32,
-    pub b_preserve_uv_flow: bool,
+    __padding_end: [u8; 208],
 }
+impl USecondarySmoothBrushOpProps {}
+#[repr(C, align(8))]
 pub struct USmoothFillBrushOpProps {
-    pub strength: f32,
-    pub falloff: f32,
-    pub b_preserve_uv_flow: bool,
+    __padding_end: [u8; 208],
 }
+impl USmoothFillBrushOpProps {}
+#[repr(C, align(8))]
 pub struct UFlattenBrushOpProps {
-    pub strength: f32,
-    pub falloff: f32,
-    pub depth: f32,
-    pub which_side: EPlaneBrushSideMode,
+    __padding_end: [u8; 208],
 }
+impl UFlattenBrushOpProps {}
+#[repr(C, align(8))]
 pub struct UEraseBrushOpProps {
-    pub strength: f32,
-    pub falloff: f32,
+    __padding_end: [u8; 200],
 }
+impl UEraseBrushOpProps {}
+#[repr(C, align(8))]
 pub struct UVertexColorBaseBrushOpProps {
-    pub strength: f32,
-    pub falloff: f32,
-    pub blend_mode: EVertexColorPaintBrushOpBlendMode,
-    pub b_apply_falloff: bool,
+    __padding_end: [u8; 208],
 }
+impl UVertexColorBaseBrushOpProps {}
+#[repr(C, align(8))]
 pub struct UVertexColorPaintBrushOpProps {
-    pub color: crate::bindings::core_u_object::FLinearColor,
+    __padding_end: [u8; 224],
 }
-pub struct UVertexColorSoftenBrushOpProps {}
-pub struct UVertexColorSmoothBrushOpProps {}
+impl UVertexColorPaintBrushOpProps {}
+#[repr(C, align(8))]
+pub struct UVertexColorSoftenBrushOpProps {
+    __padding_end: [u8; 208],
+}
+impl UVertexColorSoftenBrushOpProps {}
+#[repr(C, align(8))]
+pub struct UVertexColorSmoothBrushOpProps {
+    __padding_end: [u8; 208],
+}
+impl UVertexColorSmoothBrushOpProps {}
+#[repr(C, align(16))]
 pub struct UPolyEditActivityContext {
-    pub common_properties: UPtr<UPolyEditCommonProperties>,
-    pub preview: UPtr<
-        crate::bindings::modeling_components::UMeshOpPreviewWithBackgroundCompute,
-    >,
-    pub selection_mechanic: UPtr<
-        crate::bindings::modeling_components::UPolygonSelectionMechanic,
-    >,
+    __padding_end: [u8; 256],
 }
+impl UPolyEditActivityContext {}
+#[repr(C, align(8))]
 pub struct UMeshConstraintProperties {
-    pub b_preserve_sharp_edges: bool,
-    pub mesh_boundary_constraint: EMeshBoundaryConstraint,
-    pub group_boundary_constraint: EGroupBoundaryConstraint,
-    pub material_boundary_constraint: EMaterialBoundaryConstraint,
-    pub b_prevent_normal_flips: bool,
-    pub b_prevent_tiny_triangles: bool,
+    __padding_end: [u8; 192],
 }
+impl UMeshConstraintProperties {}
+#[repr(C, align(8))]
 pub struct URemeshProperties {
-    pub smoothing_strength: f32,
-    pub b_flips: bool,
-    pub b_splits: bool,
-    pub b_collapses: bool,
+    __padding_end: [u8; 200],
 }
-pub struct UAddPrimitiveToolBuilder {}
+impl URemeshProperties {}
+#[repr(C, align(8))]
+pub struct UAddPrimitiveToolBuilder {
+    __padding_end: [u8; 56],
+}
+impl UAddPrimitiveToolBuilder {}
+#[repr(C, align(8))]
 pub struct UProceduralShapeToolProperties {
-    pub polygroup_mode: EMakeMeshPolygroupMode,
-    pub target_surface: EMakeMeshPlacementType,
-    pub pivot_location: EMakeMeshPivotLocation,
-    pub rotation: f32,
-    pub b_align_to_normal: bool,
-    pub b_show_gizmo: bool,
-    pub b_show_gizmo_options: bool,
+    __padding_end: [u8; 200],
 }
+impl UProceduralShapeToolProperties {}
+#[repr(C, align(8))]
 pub struct UProceduralBoxToolProperties {
-    pub width: f32,
-    pub depth: f32,
-    pub height: f32,
-    pub width_subdivisions: i32,
-    pub depth_subdivisions: i32,
-    pub height_subdivisions: i32,
+    __padding_end: [u8; 224],
 }
+impl UProceduralBoxToolProperties {}
+#[repr(C, align(8))]
 pub struct UProceduralRectangleToolProperties {
-    pub rectangle_type: EProceduralRectType,
-    pub width: f32,
-    pub depth: f32,
-    pub width_subdivisions: i32,
-    pub depth_subdivisions: i32,
-    pub b_maintain_dimension: bool,
-    pub corner_radius: f32,
-    pub corner_slices: i32,
+    __padding_end: [u8; 232],
 }
+impl UProceduralRectangleToolProperties {}
+#[repr(C, align(8))]
 pub struct UProceduralDiscToolProperties {
-    pub disc_type: EProceduralDiscType,
-    pub radius: f32,
-    pub radial_slices: i32,
-    pub radial_subdivisions: i32,
-    pub hole_radius: f32,
+    __padding_end: [u8; 224],
 }
+impl UProceduralDiscToolProperties {}
+#[repr(C, align(8))]
 pub struct UProceduralTorusToolProperties {
-    pub major_radius: f32,
-    pub minor_radius: f32,
-    pub major_slices: i32,
-    pub minor_slices: i32,
+    __padding_end: [u8; 216],
 }
+impl UProceduralTorusToolProperties {}
+#[repr(C, align(8))]
 pub struct UProceduralCylinderToolProperties {
-    pub radius: f32,
-    pub height: f32,
-    pub radial_slices: i32,
-    pub height_subdivisions: i32,
+    __padding_end: [u8; 216],
 }
+impl UProceduralCylinderToolProperties {}
+#[repr(C, align(8))]
 pub struct UProceduralConeToolProperties {
-    pub radius: f32,
-    pub height: f32,
-    pub radial_slices: i32,
-    pub height_subdivisions: i32,
+    __padding_end: [u8; 216],
 }
+impl UProceduralConeToolProperties {}
+#[repr(C, align(8))]
 pub struct UProceduralArrowToolProperties {
-    pub shaft_radius: f32,
-    pub shaft_height: f32,
-    pub head_radius: f32,
-    pub head_height: f32,
-    pub radial_slices: i32,
-    pub height_subdivisions: i32,
+    __padding_end: [u8; 224],
 }
+impl UProceduralArrowToolProperties {}
+#[repr(C, align(8))]
 pub struct UProceduralSphereToolProperties {
-    pub radius: f32,
-    pub subdivision_type: EProceduralSphereType,
-    pub subdivisions: i32,
-    pub horizontal_slices: i32,
-    pub vertical_slices: i32,
+    __padding_end: [u8; 224],
 }
+impl UProceduralSphereToolProperties {}
+#[repr(C, align(8))]
 pub struct UProceduralCapsuleToolProperties {
-    pub radius: f32,
-    pub cylinder_length: f32,
-    pub hemisphere_slices: i32,
-    pub cylinder_slices: i32,
-    pub cylinder_subdivisions: i32,
+    __padding_end: [u8; 224],
 }
+impl UProceduralCapsuleToolProperties {}
+#[repr(C, align(8))]
 pub struct UProceduralStairsToolProperties {
-    pub stairs_type: EProceduralStairsType,
-    pub num_steps: i32,
-    pub step_width: f32,
-    pub step_height: f32,
-    pub step_depth: f32,
-    pub curve_angle: f32,
-    pub spiral_angle: f32,
-    pub inner_radius: f32,
+    __padding_end: [u8; 232],
 }
+impl UProceduralStairsToolProperties {}
+#[repr(C, align(8))]
 pub struct UAddPrimitiveTool {
-    pub output_type_properties: UPtr<
-        crate::bindings::modeling_components::UCreateMeshObjectTypeProperties,
-    >,
-    pub shape_settings: UPtr<UProceduralShapeToolProperties>,
-    pub material_properties: UPtr<UNewMeshMaterialProperties>,
-    pub preview_mesh: UPtr<crate::bindings::modeling_components::UPreviewMesh>,
-    pub gizmo: UPtr<
-        crate::bindings::interactive_tools_framework::UCombinedTransformGizmo,
-    >,
-    pub drag_alignment_mechanic: UPtr<
-        crate::bindings::modeling_components::UDragAlignmentMechanic,
-    >,
-    pub asset_name: FString,
+    __padding_end: [u8; 360],
 }
-pub struct UAddBoxPrimitiveTool {}
-pub struct UAddCylinderPrimitiveTool {}
-pub struct UAddCapsulePrimitiveTool {}
-pub struct UAddConePrimitiveTool {}
-pub struct UAddRectanglePrimitiveTool {}
-pub struct UAddDiscPrimitiveTool {}
-pub struct UAddTorusPrimitiveTool {}
-pub struct UAddArrowPrimitiveTool {}
-pub struct UAddSpherePrimitiveTool {}
-pub struct UAddStairsPrimitiveTool {}
-pub struct UCombineMeshesToolBuilder {}
+impl UAddPrimitiveTool {}
+#[repr(C, align(8))]
+pub struct UAddBoxPrimitiveTool {
+    __padding_end: [u8; 360],
+}
+impl UAddBoxPrimitiveTool {}
+#[repr(C, align(8))]
+pub struct UAddCylinderPrimitiveTool {
+    __padding_end: [u8; 360],
+}
+impl UAddCylinderPrimitiveTool {}
+#[repr(C, align(8))]
+pub struct UAddCapsulePrimitiveTool {
+    __padding_end: [u8; 360],
+}
+impl UAddCapsulePrimitiveTool {}
+#[repr(C, align(8))]
+pub struct UAddConePrimitiveTool {
+    __padding_end: [u8; 360],
+}
+impl UAddConePrimitiveTool {}
+#[repr(C, align(8))]
+pub struct UAddRectanglePrimitiveTool {
+    __padding_end: [u8; 360],
+}
+impl UAddRectanglePrimitiveTool {}
+#[repr(C, align(8))]
+pub struct UAddDiscPrimitiveTool {
+    __padding_end: [u8; 360],
+}
+impl UAddDiscPrimitiveTool {}
+#[repr(C, align(8))]
+pub struct UAddTorusPrimitiveTool {
+    __padding_end: [u8; 360],
+}
+impl UAddTorusPrimitiveTool {}
+#[repr(C, align(8))]
+pub struct UAddArrowPrimitiveTool {
+    __padding_end: [u8; 360],
+}
+impl UAddArrowPrimitiveTool {}
+#[repr(C, align(8))]
+pub struct UAddSpherePrimitiveTool {
+    __padding_end: [u8; 360],
+}
+impl UAddSpherePrimitiveTool {}
+#[repr(C, align(8))]
+pub struct UAddStairsPrimitiveTool {
+    __padding_end: [u8; 360],
+}
+impl UAddStairsPrimitiveTool {}
+#[repr(C, align(8))]
+pub struct UCombineMeshesToolBuilder {
+    __padding_end: [u8; 56],
+}
+impl UCombineMeshesToolBuilder {}
+#[repr(C, align(8))]
 pub struct UCombineMeshesToolProperties {
-    pub b_is_duplicate_mode: bool,
-    pub output_write_to: crate::bindings::modeling_components::EBaseCreateFromSelectedTargetType,
-    pub output_new_name: FString,
-    pub output_existing_name: FString,
+    __padding_end: [u8; 224],
 }
+impl UCombineMeshesToolProperties {}
+#[repr(C, align(8))]
 pub struct UCombineMeshesTool {
-    pub basic_properties: UPtr<UCombineMeshesToolProperties>,
-    pub output_type_properties: UPtr<
-        crate::bindings::modeling_components::UCreateMeshObjectTypeProperties,
-    >,
-    pub handle_source_properties: UPtr<
-        crate::bindings::modeling_components::UOnAcceptHandleSourcesPropertiesBase,
-    >,
+    __padding_end: [u8; 272],
 }
-pub struct UDeleteGeometrySelectionCommand {}
-pub struct UDisconnectGeometrySelectionCommand {}
-pub struct UModifyGeometrySelectionCommand {}
-pub struct UModifyGeometrySelectionCommand_Invert {}
-pub struct UModifyGeometrySelectionCommand_ExpandToConnected {}
-pub struct UModifyGeometrySelectionCommand_InvertConnected {}
-pub struct UModifyGeometrySelectionCommand_Expand {}
-pub struct UModifyGeometrySelectionCommand_Contract {}
-pub struct URetriangulateGeometrySelectionCommand {}
-pub struct UConvertToPolygonsToolBuilder {}
+impl UCombineMeshesTool {}
+#[repr(C, align(8))]
+pub struct UDeleteGeometrySelectionCommand {
+    __padding_end: [u8; 48],
+}
+impl UDeleteGeometrySelectionCommand {}
+#[repr(C, align(8))]
+pub struct UDisconnectGeometrySelectionCommand {
+    __padding_end: [u8; 48],
+}
+impl UDisconnectGeometrySelectionCommand {}
+#[repr(C, align(8))]
+pub struct UModifyGeometrySelectionCommand {
+    __padding_end: [u8; 48],
+}
+impl UModifyGeometrySelectionCommand {}
+#[repr(C, align(8))]
+pub struct UModifyGeometrySelectionCommand_Invert {
+    __padding_end: [u8; 48],
+}
+impl UModifyGeometrySelectionCommand_Invert {}
+#[repr(C, align(8))]
+pub struct UModifyGeometrySelectionCommand_ExpandToConnected {
+    __padding_end: [u8; 48],
+}
+impl UModifyGeometrySelectionCommand_ExpandToConnected {}
+#[repr(C, align(8))]
+pub struct UModifyGeometrySelectionCommand_InvertConnected {
+    __padding_end: [u8; 48],
+}
+impl UModifyGeometrySelectionCommand_InvertConnected {}
+#[repr(C, align(8))]
+pub struct UModifyGeometrySelectionCommand_Expand {
+    __padding_end: [u8; 48],
+}
+impl UModifyGeometrySelectionCommand_Expand {}
+#[repr(C, align(8))]
+pub struct UModifyGeometrySelectionCommand_Contract {
+    __padding_end: [u8; 48],
+}
+impl UModifyGeometrySelectionCommand_Contract {}
+#[repr(C, align(8))]
+pub struct URetriangulateGeometrySelectionCommand {
+    __padding_end: [u8; 48],
+}
+impl URetriangulateGeometrySelectionCommand {}
+#[repr(C, align(8))]
+pub struct UConvertToPolygonsToolBuilder {
+    __padding_end: [u8; 48],
+}
+impl UConvertToPolygonsToolBuilder {}
+#[repr(C, align(8))]
 pub struct UConvertToPolygonsToolProperties {
-    pub conversion_mode: EConvertToPolygonsMode,
-    pub angle_tolerance: f32,
-    pub b_use_average_group_normal: bool,
-    pub num_points: i32,
-    pub b_split_existing: bool,
-    pub b_normal_weighted: bool,
-    pub normal_weighting: f32,
-    pub quad_adjacency_weight: f32,
-    pub quad_metric_clamp: f32,
-    pub quad_search_rounds: i32,
-    pub b_respect_uv_seams: bool,
-    pub b_respect_hard_normals: bool,
-    pub min_group_size: i32,
-    pub b_show_group_colors: bool,
-    pub b_calculate_normals: bool,
-    pub group_layer: FName,
-    pub options_list: TArray<FString>,
-    pub b_show_new_layer_name: bool,
-    pub new_layer_name: FString,
+    __padding_end: [u8; 288],
 }
+impl UConvertToPolygonsToolProperties {}
+#[repr(C, align(8))]
 pub struct UConvertToPolygonsOperatorFactory {
-    pub convert_to_polygons_tool: UPtr<UConvertToPolygonsTool>,
+    __padding_end: [u8; 64],
 }
+impl UConvertToPolygonsOperatorFactory {}
+#[repr(C, align(8))]
 pub struct UConvertToPolygonsTool {
-    pub settings: UPtr<UConvertToPolygonsToolProperties>,
-    pub copy_from_layer_properties: UPtr<
-        crate::bindings::modeling_components::UPolygroupLayersProperties,
-    >,
-    pub preview_compute: UPtr<
-        crate::bindings::modeling_components::UMeshOpPreviewWithBackgroundCompute,
-    >,
-    pub preview_geometry: UPtr<crate::bindings::modeling_components::UPreviewGeometry>,
-    pub unmodified_area_preview_mesh: UPtr<
-        crate::bindings::modeling_components::UPreviewMesh,
-    >,
+    __padding_end: [u8; 480],
 }
+impl UConvertToPolygonsTool {}
+#[repr(C, align(8))]
 pub struct UCSGMeshesToolProperties {
-    pub operation: crate::bindings::modeling_operators::ECSGOperation,
-    pub b_try_fix_holes: bool,
-    pub b_try_collapse_edges: bool,
-    pub winding_threshold: f32,
-    pub b_show_new_boundaries: bool,
-    pub b_show_subtracted_mesh: bool,
-    pub subtracted_mesh_opacity: f32,
-    pub subtracted_mesh_color: crate::bindings::core_u_object::FLinearColor,
-    pub b_use_first_mesh_materials: bool,
+    __padding_end: [u8; 224],
 }
+impl UCSGMeshesToolProperties {}
+#[repr(C, align(8))]
 pub struct UTrimMeshesToolProperties {
-    pub which_mesh: crate::bindings::modeling_operators::ETrimOperation,
-    pub trim_side: crate::bindings::modeling_operators::ETrimSide,
-    pub winding_threshold: f32,
-    pub b_show_trimming_mesh: bool,
-    pub opacity_of_trimming_mesh: f32,
-    pub color_of_trimming_mesh: crate::bindings::core_u_object::FLinearColor,
+    __padding_end: [u8; 216],
 }
+impl UTrimMeshesToolProperties {}
+#[repr(C, align(8))]
 pub struct UCSGMeshesTool {
-    pub csg_properties: UPtr<UCSGMeshesToolProperties>,
-    pub trim_properties: UPtr<UTrimMeshesToolProperties>,
-    pub original_mesh_previews: TArray<
-        UPtr<crate::bindings::modeling_components::UPreviewMesh>,
-    >,
-    pub previews_ghost_material: UPtr<crate::bindings::engine::UMaterialInstanceDynamic>,
-    pub drawn_line_set: UPtr<crate::bindings::modeling_components::ULineSetComponent>,
+    __padding_end: [u8; 400],
 }
-pub struct UCSGMeshesToolBuilder {}
+impl UCSGMeshesTool {}
+#[repr(C, align(8))]
+pub struct UCSGMeshesToolBuilder {
+    __padding_end: [u8; 56],
+}
+impl UCSGMeshesToolBuilder {}
+#[repr(C, align(8))]
 pub struct UCutMeshWithMeshToolProperties {
-    pub b_try_fix_holes: bool,
-    pub b_try_collapse_edges: bool,
-    pub winding_threshold: f32,
-    pub b_show_new_boundaries: bool,
-    pub b_use_first_mesh_materials: bool,
+    __padding_end: [u8; 200],
 }
+impl UCutMeshWithMeshToolProperties {}
+#[repr(C, align(8))]
 pub struct UCutMeshWithMeshTool {
-    pub cut_properties: UPtr<UCutMeshWithMeshToolProperties>,
-    pub intersect_preview_mesh: UPtr<crate::bindings::modeling_components::UPreviewMesh>,
-    pub drawn_line_set: UPtr<crate::bindings::modeling_components::ULineSetComponent>,
+    __padding_end: [u8; 960],
 }
-pub struct UCutMeshWithMeshToolBuilder {}
-pub struct UDeformMeshPolygonsToolBuilder {}
+impl UCutMeshWithMeshTool {}
+#[repr(C, align(8))]
+pub struct UCutMeshWithMeshToolBuilder {
+    __padding_end: [u8; 48],
+}
+impl UCutMeshWithMeshToolBuilder {}
+#[repr(C, align(8))]
+pub struct UDeformMeshPolygonsToolBuilder {
+    __padding_end: [u8; 56],
+}
+impl UDeformMeshPolygonsToolBuilder {}
+#[repr(C, align(8))]
 pub struct UDeformMeshPolygonsTransformProperties {
-    pub deformation_strategy: EGroupTopologyDeformationStrategy,
-    pub transform_mode: EQuickTransformerMode,
-    pub b_select_faces: bool,
-    pub b_select_edges: bool,
-    pub b_select_vertices: bool,
-    pub b_show_wireframe: bool,
-    pub selected_weight_scheme: EWeightScheme,
-    pub handle_weight: f64,
-    pub b_post_fix_handles: bool,
+    __padding_end: [u8; 216],
 }
+impl UDeformMeshPolygonsTransformProperties {}
+#[repr(C, align(16))]
 pub struct UDeformMeshPolygonsTool {
-    pub preview_mesh_actor: UPtr<
-        crate::bindings::interactive_tools_framework::AInternalToolFrameworkActor,
-    >,
-    pub dynamic_mesh_component: UPtr<
-        crate::bindings::geometry_framework::UDynamicMeshComponent,
-    >,
-    pub transform_props: UPtr<UDeformMeshPolygonsTransformProperties>,
+    __padding_end: [u8; 6208],
 }
+impl UDeformMeshPolygonsTool {}
+#[repr(C, align(8))]
 pub struct UDisplaceMeshCommonProperties {
-    pub displacement_type: EDisplaceMeshToolDisplaceType,
-    pub displace_intensity: f32,
-    pub random_seed: i32,
-    pub subdivision_type: EDisplaceMeshToolSubdivisionType,
-    pub subdivisions: i32,
-    pub weight_map: FName,
-    pub weight_maps_list: TArray<FString>,
-    pub b_invert_weight_map: bool,
-    pub b_show_wireframe: bool,
-    pub b_disable_size_warning: bool,
+    __padding_end: [u8; 240],
 }
+impl UDisplaceMeshCommonProperties {}
+#[repr(C, align(8))]
 pub struct USelectiveTessellationProperties {
-    pub selection_type: EDisplaceMeshToolTriangleSelectionType,
-    pub active_material: FName,
-    pub material_id_list: TArray<FString>,
+    __padding_end: [u8; 216],
 }
+impl USelectiveTessellationProperties {}
+#[repr(C, align(8))]
 pub struct UDisplaceMeshTextureMapProperties {
-    pub displacement_map: UPtr<crate::bindings::engine::UTexture2D>,
-    pub channel: EDisplaceMeshToolChannelType,
-    pub displacement_map_base_value: f32,
-    pub uv_scale: crate::bindings::core_u_object::FVector2D,
-    pub uv_offset: crate::bindings::core_u_object::FVector2D,
-    pub b_apply_adjustment_curve: bool,
-    pub adjustment_curve: UPtr<crate::bindings::engine::UCurveFloat>,
-    pub b_recalc_normals: bool,
+    __padding_end: [u8; 256],
 }
+impl UDisplaceMeshTextureMapProperties {}
+#[repr(C, align(8))]
 pub struct UDisplaceMeshDirectionalFilterProperties {
-    pub b_enable_filter: bool,
-    pub filter_direction: crate::bindings::core_u_object::FVector,
-    pub filter_width: f32,
+    __padding_end: [u8; 224],
 }
+impl UDisplaceMeshDirectionalFilterProperties {}
+#[repr(C, align(8))]
 pub struct UDisplaceMeshPerlinNoiseProperties {
-    pub perlin_layer_properties: TArray<FPerlinLayerProperties>,
+    __padding_end: [u8; 200],
 }
+impl UDisplaceMeshPerlinNoiseProperties {}
+#[repr(C, align(8))]
 pub struct UDisplaceMeshSineWaveProperties {
-    pub sine_wave_frequency: f32,
-    pub sine_wave_phase_shift: f32,
-    pub sine_wave_direction: crate::bindings::core_u_object::FVector,
+    __padding_end: [u8; 216],
 }
-pub struct UDisplaceMeshToolBuilder {}
+impl UDisplaceMeshSineWaveProperties {}
+#[repr(C, align(8))]
+pub struct UDisplaceMeshToolBuilder {
+    __padding_end: [u8; 48],
+}
+impl UDisplaceMeshToolBuilder {}
+#[repr(C, align(16))]
 pub struct UDisplaceMeshTool {
-    pub common_properties: UPtr<UDisplaceMeshCommonProperties>,
-    pub directional_filter_properties: UPtr<UDisplaceMeshDirectionalFilterProperties>,
-    pub texture_map_properties: UPtr<UDisplaceMeshTextureMapProperties>,
-    pub noise_properties: UPtr<UDisplaceMeshPerlinNoiseProperties>,
-    pub sine_wave_properties: UPtr<UDisplaceMeshSineWaveProperties>,
-    pub selective_tessellation_properties: UPtr<USelectiveTessellationProperties>,
-    pub active_contrast_curve_target: UPtr<crate::bindings::engine::UCurveFloat>,
-    pub mesh_statistics: UPtr<UMeshStatisticsProperties>,
-    pub preview_mesh_actor: UPtr<
-        crate::bindings::interactive_tools_framework::AInternalToolFrameworkActor,
-    >,
-    pub dynamic_mesh_component: UPtr<
-        crate::bindings::geometry_framework::UDynamicMeshComponent,
-    >,
+    __padding_end: [u8; 1296],
 }
-pub struct UDrawAndRevolveToolBuilder {}
+impl UDisplaceMeshTool {}
+#[repr(C, align(8))]
+pub struct UDrawAndRevolveToolBuilder {
+    __padding_end: [u8; 48],
+}
+impl UDrawAndRevolveToolBuilder {}
+#[repr(C, align(8))]
 pub struct URevolveProperties {
-    pub revolve_degrees_clamped: f64,
-    pub revolve_degrees: f64,
-    pub revolve_degrees_offset: f64,
-    pub steps_max_degrees: f64,
-    pub b_explicit_steps: bool,
-    pub num_explicit_steps: i32,
-    pub height_offset_per_degree: f64,
-    pub b_reverse_revolution_direction: bool,
-    pub b_flip_mesh: bool,
-    pub b_sharp_normals: bool,
-    pub sharp_normals_degree_threshold: f64,
-    pub b_path_at_midpoint_of_step: bool,
-    pub polygroup_mode: ERevolvePropertiesPolygroupMode,
-    pub quad_split_mode: ERevolvePropertiesQuadSplit,
+    __padding_end: [u8; 296],
 }
+impl URevolveProperties {}
+#[repr(C, align(8))]
 pub struct URevolveToolProperties {
-    pub cap_fill_mode: ERevolvePropertiesCapFillMode,
-    pub b_close_path_to_axis: bool,
-    pub draw_plane_origin: crate::bindings::core_u_object::FVector,
-    pub draw_plane_orientation: crate::bindings::core_u_object::FRotator,
-    pub b_enable_snapping: bool,
-    pub b_allowed_to_edit_draw_plane: bool,
+    __padding_end: [u8; 360],
 }
+impl URevolveToolProperties {}
+#[repr(C, align(8))]
 pub struct URevolveOperatorFactory {
-    pub revolve_tool: UPtr<UDrawAndRevolveTool>,
+    __padding_end: [u8; 64],
 }
+impl URevolveOperatorFactory {}
+#[repr(C, align(16))]
 pub struct UDrawAndRevolveTool {
-    pub control_points_mechanic: UPtr<
-        crate::bindings::modeling_components::UCurveControlPointsMechanic,
-    >,
-    pub plane_mechanic: UPtr<
-        crate::bindings::modeling_components::UConstructionPlaneMechanic,
-    >,
-    pub output_type_properties: UPtr<
-        crate::bindings::modeling_components::UCreateMeshObjectTypeProperties,
-    >,
-    pub settings: UPtr<URevolveToolProperties>,
-    pub material_properties: UPtr<UNewMeshMaterialProperties>,
-    pub preview: UPtr<
-        crate::bindings::modeling_components::UMeshOpPreviewWithBackgroundCompute,
-    >,
+    __padding_end: [u8; 464],
 }
-pub struct UDrawPolygonToolBuilder {}
+impl UDrawAndRevolveTool {}
+#[repr(C, align(8))]
+pub struct UDrawPolygonToolBuilder {
+    __padding_end: [u8; 48],
+}
+impl UDrawPolygonToolBuilder {}
+#[repr(C, align(8))]
 pub struct UDrawPolygonToolStandardProperties {
-    pub polygon_draw_mode: EDrawPolygonDrawMode,
-    pub b_allow_self_intersections: bool,
-    pub feature_size_ratio: f32,
-    pub radial_slices: i32,
-    pub distance: f32,
-    pub b_show_grid_gizmo: bool,
-    pub extrude_mode: EDrawPolygonExtrudeMode,
-    pub extrude_height: f32,
+    __padding_end: [u8; 208],
 }
+impl UDrawPolygonToolStandardProperties {}
+#[repr(C, align(8))]
 pub struct UDrawPolygonToolSnapProperties {
-    pub b_enable_snapping: bool,
-    pub b_snap_to_world_grid: bool,
-    pub b_snap_to_vertices: bool,
-    pub b_snap_to_edges: bool,
-    pub b_snap_to_axes: bool,
-    pub b_snap_to_lengths: bool,
-    pub b_snap_to_surfaces: bool,
-    pub snap_to_surfaces_offset: f32,
+    __padding_end: [u8; 200],
 }
+impl UDrawPolygonToolSnapProperties {}
+#[repr(C, align(16))]
 pub struct UDrawPolygonTool {
-    pub output_type_properties: UPtr<
-        crate::bindings::modeling_components::UCreateMeshObjectTypeProperties,
-    >,
-    pub polygon_properties: UPtr<UDrawPolygonToolStandardProperties>,
-    pub snap_properties: UPtr<UDrawPolygonToolSnapProperties>,
-    pub material_properties: UPtr<UNewMeshMaterialProperties>,
-    pub preview_mesh: UPtr<crate::bindings::modeling_components::UPreviewMesh>,
-    pub height_mechanic: UPtr<
-        crate::bindings::modeling_components::UPlaneDistanceFromHitMechanic,
-    >,
-    pub drag_alignment_mechanic: UPtr<
-        crate::bindings::modeling_components::UDragAlignmentMechanic,
-    >,
-    pub plane_mechanic: UPtr<
-        crate::bindings::modeling_components::UConstructionPlaneMechanic,
-    >,
+    __padding_end: [u8; 1488],
 }
+impl UDrawPolygonTool {}
+#[repr(C, align(8))]
 pub struct UDynamicMeshBrushTool {
-    pub preview_mesh: UPtr<crate::bindings::modeling_components::UPreviewMesh>,
+    __padding_end: [u8; 992],
 }
-pub struct UDynamicMeshSculptToolBuilder {}
+impl UDynamicMeshBrushTool {}
+#[repr(C, align(8))]
+pub struct UDynamicMeshSculptToolBuilder {
+    __padding_end: [u8; 64],
+}
+impl UDynamicMeshSculptToolBuilder {}
+#[repr(C, align(8))]
 pub struct UDynamicMeshBrushProperties {
-    pub brush_size: FBrushToolRadius,
-    pub brush_falloff_amount: f32,
-    pub depth: f32,
-    pub b_hit_back_faces: bool,
+    __padding_end: [u8; 224],
 }
+impl UDynamicMeshBrushProperties {}
+#[repr(C, align(8))]
 pub struct UDynamicMeshBrushSculptProperties {
-    pub b_is_remeshing_enabled: bool,
-    pub primary_brush_type: EDynamicMeshSculptBrushType,
-    pub primary_brush_speed: f32,
-    pub b_preserve_uv_flow: bool,
-    pub b_freeze_target: bool,
-    pub smooth_brush_speed: f32,
-    pub b_detail_preserving_smooth: bool,
+    __padding_end: [u8; 208],
 }
-pub struct UDynamicSculptToolActions {}
+impl UDynamicMeshBrushSculptProperties {}
+#[repr(C, align(8))]
+pub struct UDynamicSculptToolActions {
+    __padding_end: [u8; 192],
+}
+impl UDynamicSculptToolActions {}
+#[repr(C, align(8))]
 pub struct UBrushRemeshProperties {
-    pub b_enable_remeshing: bool,
-    pub triangle_size: i32,
-    pub preserve_detail: i32,
-    pub iterations: i32,
+    __padding_end: [u8; 216],
 }
+impl UBrushRemeshProperties {}
+#[repr(C, align(16))]
 pub struct UFixedPlaneBrushProperties {
-    pub b_property_set_enabled: bool,
-    pub b_show_gizmo: bool,
-    pub position: crate::bindings::core_u_object::FVector,
-    pub rotation: crate::bindings::core_u_object::FQuat,
+    __padding_end: [u8; 256],
 }
+impl UFixedPlaneBrushProperties {}
+#[repr(C, align(16))]
 pub struct UDynamicMeshSculptTool {
-    pub brush_properties: UPtr<UDynamicMeshBrushProperties>,
-    pub sculpt_properties: UPtr<UDynamicMeshBrushSculptProperties>,
-    pub sculpt_max_brush_properties: UPtr<USculptMaxBrushProperties>,
-    pub kelvin_brush_properties: UPtr<UKelvinBrushProperties>,
-    pub remesh_properties: UPtr<UBrushRemeshProperties>,
-    pub gizmo_properties: UPtr<UFixedPlaneBrushProperties>,
-    pub view_properties: UPtr<UMeshEditingViewProperties>,
-    pub sculpt_tool_actions: UPtr<UDynamicSculptToolActions>,
-    pub brush_indicator: UPtr<
-        crate::bindings::interactive_tools_framework::UBrushStampIndicator,
-    >,
-    pub brush_indicator_material: UPtr<
-        crate::bindings::engine::UMaterialInstanceDynamic,
-    >,
-    pub brush_indicator_mesh: UPtr<crate::bindings::modeling_components::UPreviewMesh>,
-    pub preview_mesh_actor: UPtr<
-        crate::bindings::interactive_tools_framework::AInternalToolFrameworkActor,
-    >,
-    pub dynamic_mesh_component: UPtr<
-        crate::bindings::modeling_components::UOctreeDynamicMeshComponent,
-    >,
-    pub active_override_material: UPtr<
-        crate::bindings::engine::UMaterialInstanceDynamic,
-    >,
-    pub plane_transform_gizmo: UPtr<
-        crate::bindings::interactive_tools_framework::UCombinedTransformGizmo,
-    >,
-    pub plane_transform_proxy: UPtr<
-        crate::bindings::interactive_tools_framework::UTransformProxy,
-    >,
+    __padding_end: [u8; 3808],
 }
-pub struct UEditMeshPolygonsToolBuilder {}
+impl UDynamicMeshSculptTool {}
+#[repr(C, align(8))]
+pub struct UEditMeshPolygonsToolBuilder {
+    __padding_end: [u8; 56],
+}
+impl UEditMeshPolygonsToolBuilder {}
+#[repr(C, align(8))]
 pub struct UPolyEditCommonProperties {
-    pub b_show_wireframe: bool,
-    pub b_show_selectable_corners: bool,
-    pub b_gizmo_visible: bool,
-    pub local_frame_mode: ELocalFrameMode,
-    pub b_lock_rotation: bool,
-    pub b_local_coord_system: bool,
+    __padding_end: [u8; 200],
 }
-pub struct UEditMeshPolygonsActionModeToolBuilder {}
-pub struct UEditMeshPolygonsSelectionModeToolBuilder {}
-pub struct UEditMeshPolygonsToolActionPropertySet {}
+impl UPolyEditCommonProperties {}
+#[repr(C, align(8))]
+pub struct UEditMeshPolygonsActionModeToolBuilder {
+    __padding_end: [u8; 64],
+}
+impl UEditMeshPolygonsActionModeToolBuilder {}
+#[repr(C, align(8))]
+pub struct UEditMeshPolygonsSelectionModeToolBuilder {
+    __padding_end: [u8; 64],
+}
+impl UEditMeshPolygonsSelectionModeToolBuilder {}
+#[repr(C, align(8))]
+pub struct UEditMeshPolygonsToolActionPropertySet {
+    __padding_end: [u8; 192],
+}
+impl UEditMeshPolygonsToolActionPropertySet {}
+#[repr(C, align(8))]
 pub struct UPolyEditTopologyProperties {
-    pub b_add_extra_corners: bool,
-    pub extra_corner_angle_threshold_degrees: f64,
+    __padding_end: [u8; 208],
 }
-pub struct UEditMeshPolygonsToolActions {}
-pub struct UEditMeshPolygonsToolActions_Triangles {}
-pub struct UEditMeshPolygonsToolUVActions {}
-pub struct UEditMeshPolygonsToolEdgeActions {}
-pub struct UEditMeshPolygonsToolEdgeActions_Triangles {}
+impl UPolyEditTopologyProperties {}
+#[repr(C, align(8))]
+pub struct UEditMeshPolygonsToolActions {
+    __padding_end: [u8; 192],
+}
+impl UEditMeshPolygonsToolActions {}
+#[repr(C, align(8))]
+pub struct UEditMeshPolygonsToolActions_Triangles {
+    __padding_end: [u8; 192],
+}
+impl UEditMeshPolygonsToolActions_Triangles {}
+#[repr(C, align(8))]
+pub struct UEditMeshPolygonsToolUVActions {
+    __padding_end: [u8; 192],
+}
+impl UEditMeshPolygonsToolUVActions {}
+#[repr(C, align(8))]
+pub struct UEditMeshPolygonsToolEdgeActions {
+    __padding_end: [u8; 192],
+}
+impl UEditMeshPolygonsToolEdgeActions {}
+#[repr(C, align(8))]
+pub struct UEditMeshPolygonsToolEdgeActions_Triangles {
+    __padding_end: [u8; 192],
+}
+impl UEditMeshPolygonsToolEdgeActions_Triangles {}
+#[repr(C, align(16))]
 pub struct UEditMeshPolygonsTool {
-    pub preview: UPtr<
-        crate::bindings::modeling_components::UMeshOpPreviewWithBackgroundCompute,
-    >,
-    pub common_props: UPtr<UPolyEditCommonProperties>,
-    pub edit_actions: UPtr<UEditMeshPolygonsToolActions>,
-    pub edit_actions_triangles: UPtr<UEditMeshPolygonsToolActions_Triangles>,
-    pub edit_edge_actions: UPtr<UEditMeshPolygonsToolEdgeActions>,
-    pub edit_edge_actions_triangles: UPtr<UEditMeshPolygonsToolEdgeActions_Triangles>,
-    pub edit_uv_actions: UPtr<UEditMeshPolygonsToolUVActions>,
-    pub topology_properties: UPtr<UPolyEditTopologyProperties>,
-    pub extrude_activity: UPtr<UPolyEditExtrudeActivity>,
-    pub inset_outset_activity: UPtr<UPolyEditInsetOutsetActivity>,
-    pub cut_faces_activity: UPtr<UPolyEditCutFacesActivity>,
-    pub planar_projection_uv_activity: UPtr<UPolyEditPlanarProjectionUVActivity>,
-    pub insert_edge_activity: UPtr<UPolyEditInsertEdgeActivity>,
-    pub insert_edge_loop_activity: UPtr<UPolyEditInsertEdgeLoopActivity>,
-    pub bevel_edge_activity: UPtr<UPolyEditBevelEdgeActivity>,
-    pub extrude_edge_activity: UPtr<UPolyEditExtrudeEdgeActivity>,
-    pub activity_context: UPtr<UPolyEditActivityContext>,
-    pub selection_mechanic: UPtr<
-        crate::bindings::modeling_components::UPolygonSelectionMechanic,
-    >,
-    pub drag_alignment_mechanic: UPtr<
-        crate::bindings::modeling_components::UDragAlignmentMechanic,
-    >,
-    pub transform_gizmo: UPtr<
-        crate::bindings::interactive_tools_framework::UCombinedTransformGizmo,
-    >,
-    pub transform_proxy: UPtr<
-        crate::bindings::interactive_tools_framework::UTransformProxy,
-    >,
+    __padding_end: [u8; 2336],
 }
-pub struct UHoleFillToolBuilder {}
+impl UEditMeshPolygonsTool {}
+#[repr(C, align(8))]
+pub struct UHoleFillToolBuilder {
+    __padding_end: [u8; 48],
+}
+impl UHoleFillToolBuilder {}
+#[repr(C, align(8))]
 pub struct USmoothHoleFillProperties {
-    pub b_constrain_to_hole_interior: bool,
-    pub remeshing_exterior_region_width: i32,
-    pub smoothing_exterior_region_width: i32,
-    pub smoothing_interior_region_width: i32,
-    pub interior_smoothness: f32,
-    pub fill_density_scalar: f64,
-    pub b_project_during_remesh: bool,
+    __padding_end: [u8; 224],
 }
+impl USmoothHoleFillProperties {}
+#[repr(C, align(8))]
 pub struct UHoleFillToolProperties {
-    pub fill_type: crate::bindings::modeling_operators::EHoleFillOpFillType,
-    pub b_remove_isolated_triangles: bool,
-    pub b_quick_fill_small_holes: bool,
+    __padding_end: [u8; 192],
 }
-pub struct UHoleFillToolActions {}
+impl UHoleFillToolProperties {}
+#[repr(C, align(8))]
+pub struct UHoleFillToolActions {
+    __padding_end: [u8; 192],
+}
+impl UHoleFillToolActions {}
+#[repr(C, align(8))]
 pub struct UHoleFillStatisticsProperties {
-    pub initial_holes: FString,
-    pub selected_holes: FString,
-    pub successful_fills: FString,
-    pub failed_fills: FString,
-    pub remaining_holes: FString,
+    __padding_end: [u8; 264],
 }
+impl UHoleFillStatisticsProperties {}
+#[repr(C, align(8))]
 pub struct UHoleFillOperatorFactory {
-    pub fill_tool: UPtr<UHoleFillTool>,
+    __padding_end: [u8; 64],
 }
+impl UHoleFillOperatorFactory {}
+#[repr(C, align(16))]
 pub struct UHoleFillTool {
-    pub smooth_hole_fill_properties: UPtr<USmoothHoleFillProperties>,
-    pub properties: UPtr<UHoleFillToolProperties>,
-    pub actions: UPtr<UHoleFillToolActions>,
-    pub statistics: UPtr<UHoleFillStatisticsProperties>,
-    pub preview: UPtr<
-        crate::bindings::modeling_components::UMeshOpPreviewWithBackgroundCompute,
-    >,
-    pub selection_mechanic: UPtr<
-        crate::bindings::modeling_components::UBoundarySelectionMechanic,
-    >,
+    __padding_end: [u8; 608],
 }
-pub struct ULatticeDeformerToolBuilder {}
+impl UHoleFillTool {}
+#[repr(C, align(8))]
+pub struct ULatticeDeformerToolBuilder {
+    __padding_end: [u8; 48],
+}
+impl ULatticeDeformerToolBuilder {}
+#[repr(C, align(8))]
 pub struct ULatticeDeformerToolProperties {
-    pub x_axis_resolution: i32,
-    pub y_axis_resolution: i32,
-    pub z_axis_resolution: i32,
-    pub padding: f32,
-    pub interpolation_type: crate::bindings::modeling_components::ELatticeInterpolationType,
-    pub b_deform_normals: bool,
-    pub b_can_change_resolution: bool,
-    pub gizmo_coordinate_system: crate::bindings::interactive_tools_framework::EToolContextCoordinateSystem,
-    pub b_set_pivot_mode: bool,
-    pub b_soft_deformation: bool,
+    __padding_end: [u8; 216],
 }
+impl ULatticeDeformerToolProperties {}
+#[repr(C, align(8))]
 pub struct ULatticeDeformerOperatorFactory {
-    pub lattice_deformer_tool: UPtr<ULatticeDeformerTool>,
+    __padding_end: [u8; 64],
 }
+impl ULatticeDeformerOperatorFactory {}
+#[repr(C, align(16))]
 pub struct ULatticeDeformerTool {
-    pub control_points_mechanic: UPtr<
-        crate::bindings::modeling_components::ULatticeControlPointsMechanic,
-    >,
-    pub settings: UPtr<ULatticeDeformerToolProperties>,
-    pub preview: UPtr<
-        crate::bindings::modeling_components::UMeshOpPreviewWithBackgroundCompute,
-    >,
-    pub sculpt_layer_properties: UPtr<UMeshSculptLayerProperties>,
-    pub lattice_storage: TScriptInterface<
-        crate::bindings::modeling_components::ILatticeStateStorage,
-    >,
-    pub b_lattice_deformed: bool,
+    __padding_end: [u8; 608],
 }
-pub struct UMeshAttributePaintToolBuilder {}
+impl ULatticeDeformerTool {}
+#[repr(C, align(16))]
+pub struct UMeshAttributePaintToolBuilder {
+    __padding_end: [u8; 112],
+}
+impl UMeshAttributePaintToolBuilder {}
+#[repr(C, align(8))]
 pub struct UMeshAttributePaintBrushOperationProperties {
-    pub b_isolate_geometry_selection: bool,
-    pub b_tool_has_selection: bool,
-    pub brush_action: EBrushActionMode,
-    pub brush_value: f32,
+    __padding_end: [u8; 200],
 }
+impl UMeshAttributePaintBrushOperationProperties {}
+#[repr(C, align(8))]
 pub struct UMeshAttributePaintToolVisualizationProperties {
-    pub material_mode: EMeshAttributePaintMaterialMode,
-    pub b_flat_shading: bool,
+    __padding_end: [u8; 192],
 }
+impl UMeshAttributePaintToolVisualizationProperties {}
+#[repr(C, align(8))]
 pub struct UMeshAttributePaintToolProperties {
-    pub attribute: FString,
+    __padding_end: [u8; 216],
 }
-pub struct UMeshAttributePaintEditActions {}
+impl UMeshAttributePaintToolProperties {}
+#[repr(C, align(8))]
+pub struct UMeshAttributePaintEditActions {
+    __padding_end: [u8; 192],
+}
+impl UMeshAttributePaintEditActions {}
+#[repr(C, align(16))]
 pub struct UMeshAttributePaintTool {
-    pub brush_action_props: UPtr<UMeshAttributePaintBrushOperationProperties>,
-    pub attrib_props: UPtr<UMeshAttributePaintToolProperties>,
-    pub view_properties: UPtr<UMeshAttributePaintToolVisualizationProperties>,
-    pub active_override_material: UPtr<
-        crate::bindings::engine::UMaterialInstanceDynamic,
-    >,
+    __padding_end: [u8; 2592],
 }
-pub struct UMeshGroupPaintToolBuilder {}
+impl UMeshAttributePaintTool {}
+#[repr(C, align(8))]
+pub struct UMeshGroupPaintToolBuilder {
+    __padding_end: [u8; 56],
+}
+impl UMeshGroupPaintToolBuilder {}
+#[repr(C, align(8))]
 pub struct UGroupPaintBrushFilterProperties {
-    pub primary_brush_type: EMeshGroupPaintBrushType,
-    pub sub_tool_type: EMeshGroupPaintInteractionType,
-    pub brush_size: f32,
-    pub brush_area_mode: EMeshGroupPaintBrushAreaType,
-    pub b_hit_back_faces: bool,
-    pub set_group: i32,
-    pub b_only_set_ungrouped: bool,
-    pub erase_group: i32,
-    pub b_only_erase_current: bool,
-    pub angle_threshold: f32,
-    pub b_uv_seams: bool,
-    pub b_normal_seams: bool,
-    pub visibility_filter: EMeshGroupPaintVisibilityType,
-    pub min_tri_vert_count: i32,
-    pub b_show_hit_group: bool,
-    pub b_show_all_groups: bool,
+    __padding_end: [u8; 232],
 }
-pub struct UMeshGroupPaintToolActionPropertySet {}
-pub struct UMeshGroupPaintToolFreezeActions {}
+impl UGroupPaintBrushFilterProperties {}
+#[repr(C, align(8))]
+pub struct UMeshGroupPaintToolActionPropertySet {
+    __padding_end: [u8; 192],
+}
+impl UMeshGroupPaintToolActionPropertySet {}
+#[repr(C, align(8))]
+pub struct UMeshGroupPaintToolFreezeActions {
+    __padding_end: [u8; 192],
+}
+impl UMeshGroupPaintToolFreezeActions {}
+#[repr(C, align(16))]
 pub struct UMeshSculptToolBase {
-    pub brush_properties: UPtr<USculptBrushProperties>,
-    pub gizmo_properties: UPtr<UWorkPlaneProperties>,
-    pub brush_op_prop_sets: TMap<i32, UPtr<UMeshSculptBrushOpProps>>,
-    pub secondary_brush_op_prop_sets: TMap<i32, UPtr<UMeshSculptBrushOpProps>>,
-    pub stroke_geometry: UPtr<crate::bindings::modeling_components::UPreviewGeometry>,
-    pub view_properties: UPtr<UMeshEditingViewProperties>,
-    pub active_override_material: UPtr<
-        crate::bindings::engine::UMaterialInstanceDynamic,
-    >,
-    pub brush_indicator: UPtr<
-        crate::bindings::interactive_tools_framework::UBrushStampIndicator,
-    >,
-    pub b_is_volumetric_indicator: bool,
-    pub brush_indicator_material: UPtr<
-        crate::bindings::engine::UMaterialInstanceDynamic,
-    >,
-    pub brush_indicator_mesh: UPtr<crate::bindings::modeling_components::UPreviewMesh>,
-    pub plane_transform_gizmo: UPtr<
-        crate::bindings::interactive_tools_framework::UCombinedTransformGizmo,
-    >,
-    pub plane_transform_proxy: UPtr<
-        crate::bindings::interactive_tools_framework::UTransformProxy,
-    >,
+    __padding_end: [u8; 3216],
 }
+impl UMeshSculptToolBase {}
+#[repr(C, align(16))]
 pub struct UMeshGroupPaintTool {
-    pub polygroup_layer_properties: UPtr<
-        crate::bindings::modeling_components::UPolygroupLayersProperties,
-    >,
-    pub filter_properties: UPtr<UGroupPaintBrushFilterProperties>,
-    pub paint_brush_op_properties: UPtr<UGroupPaintBrushOpProps>,
-    pub erase_brush_op_properties: UPtr<UGroupEraseBrushOpProps>,
-    pub freeze_actions: UPtr<UMeshGroupPaintToolFreezeActions>,
-    pub poly_lasso_mechanic: UPtr<
-        crate::bindings::modeling_components::UPolyLassoMarqueeMechanic,
-    >,
-    pub preview_mesh_actor: UPtr<
-        crate::bindings::interactive_tools_framework::AInternalToolFrameworkActor,
-    >,
-    pub dynamic_mesh_component: UPtr<
-        crate::bindings::geometry_framework::UDynamicMeshComponent,
-    >,
-    pub mesh_elements_display: UPtr<
-        crate::bindings::modeling_components::UMeshElementsVisualizer,
-    >,
+    __padding_end: [u8; 4304],
 }
-pub struct UMeshSpaceDeformerToolBuilder {}
+impl UMeshGroupPaintTool {}
+#[repr(C, align(8))]
+pub struct UMeshSpaceDeformerToolBuilder {
+    __padding_end: [u8; 48],
+}
+impl UMeshSpaceDeformerToolBuilder {}
+#[repr(C, align(8))]
 pub struct UMeshSpaceDeformerToolProperties {
-    pub selected_operation_type: ENonlinearOperationType,
-    pub upper_bounds_interval: f32,
-    pub lower_bounds_interval: f32,
-    pub bend_degrees: f32,
-    pub twist_degrees: f32,
-    pub flare_profile_type: EFlareProfileType,
-    pub flare_percent_y: f32,
-    pub b_lock_x_and_y_flaring: bool,
-    pub flare_percent_x: f32,
-    pub b_lock_bottom: bool,
-    pub b_show_original_mesh: bool,
-    pub b_draw_visualization: bool,
-    pub b_align_to_normal_on_ctrl_click: bool,
+    __padding_end: [u8; 224],
 }
-pub struct UMeshSpaceDeformerToolActionPropertySet {}
+impl UMeshSpaceDeformerToolProperties {}
+#[repr(C, align(8))]
+pub struct UMeshSpaceDeformerToolActionPropertySet {
+    __padding_end: [u8; 192],
+}
+impl UMeshSpaceDeformerToolActionPropertySet {}
+#[repr(C, align(8))]
 pub struct USpaceDeformerOperatorFactory {
-    pub space_deformer_tool: UPtr<UMeshSpaceDeformerTool>,
+    __padding_end: [u8; 64],
 }
+impl USpaceDeformerOperatorFactory {}
+#[repr(C, align(16))]
 pub struct UMeshSpaceDeformerTool {
-    pub settings: UPtr<UMeshSpaceDeformerToolProperties>,
-    pub tool_actions: UPtr<UMeshSpaceDeformerToolActionPropertySet>,
-    pub state_target: UPtr<
-        crate::bindings::interactive_tools_framework::UGizmoTransformChangeStateTarget,
-    >,
-    pub drag_alignment_mechanic: UPtr<
-        crate::bindings::modeling_components::UDragAlignmentMechanic,
-    >,
-    pub preview: UPtr<
-        crate::bindings::modeling_components::UMeshOpPreviewWithBackgroundCompute,
-    >,
-    pub original_mesh_preview: UPtr<crate::bindings::modeling_components::UPreviewMesh>,
-    pub interval_gizmo: UPtr<
-        crate::bindings::interactive_tools_framework::UIntervalGizmo,
-    >,
-    pub transform_gizmo: UPtr<
-        crate::bindings::interactive_tools_framework::UCombinedTransformGizmo,
-    >,
-    pub transform_proxy: UPtr<
-        crate::bindings::interactive_tools_framework::UTransformProxy,
-    >,
-    pub up_interval_source: UPtr<
-        crate::bindings::interactive_tools_framework::UGizmoLocalFloatParameterSource,
-    >,
-    pub down_interval_source: UPtr<
-        crate::bindings::interactive_tools_framework::UGizmoLocalFloatParameterSource,
-    >,
-    pub forward_interval_source: UPtr<
-        crate::bindings::interactive_tools_framework::UGizmoLocalFloatParameterSource,
-    >,
+    __padding_end: [u8; 768],
 }
-pub struct UMeshVertexPaintToolBuilder {}
+impl UMeshSpaceDeformerTool {}
+#[repr(C, align(8))]
+pub struct UMeshVertexPaintToolBuilder {
+    __padding_end: [u8; 56],
+}
+impl UMeshVertexPaintToolBuilder {}
+#[repr(C, align(8))]
 pub struct UVertexPaintBasicProperties {
-    pub primary_brush_type: EMeshVertexPaintBrushType,
-    pub sub_tool_type: EMeshVertexPaintInteractionType,
-    pub strength: f64,
-    pub paint_color: crate::bindings::core_u_object::FLinearColor,
-    pub b_is_paint_pressure_enabled: bool,
-    pub blend_mode: EMeshVertexPaintColorBlendMode,
-    pub secondary_action_type: EMeshVertexPaintSecondaryActionType,
-    pub erase_color: crate::bindings::core_u_object::FLinearColor,
-    pub b_is_erase_pressure_enabled: bool,
-    pub smooth_strength: f32,
-    pub channel_filter: crate::bindings::modeling_components::FModelingToolsColorChannelFilter,
-    pub b_hard_edges: bool,
+    __padding_end: [u8; 256],
 }
+impl UVertexPaintBasicProperties {}
+#[repr(C, align(8))]
 pub struct UVertexPaintBrushFilterProperties {
-    pub brush_area_mode: EMeshVertexPaintBrushAreaType,
-    pub angle_threshold: f32,
-    pub b_uv_seams: bool,
-    pub b_normal_seams: bool,
-    pub visibility_filter: EMeshVertexPaintVisibilityType,
-    pub b_isolate_geometry_selection: bool,
-    pub b_tool_has_selection: bool,
-    pub min_tri_vert_count: i32,
-    pub material_mode: EMeshVertexPaintMaterialMode,
-    pub b_show_hit_color: bool,
-    pub current_sub_tool_type: EMeshVertexPaintInteractionType,
+    __padding_end: [u8; 208],
 }
-pub struct UMeshVertexPaintToolActionPropertySet {}
-pub struct UMeshVertexPaintToolQuickActions {}
+impl UVertexPaintBrushFilterProperties {}
+#[repr(C, align(8))]
+pub struct UMeshVertexPaintToolActionPropertySet {
+    __padding_end: [u8; 192],
+}
+impl UMeshVertexPaintToolActionPropertySet {}
+#[repr(C, align(8))]
+pub struct UMeshVertexPaintToolQuickActions {
+    __padding_end: [u8; 192],
+}
+impl UMeshVertexPaintToolQuickActions {}
+#[repr(C, align(8))]
 pub struct UMeshVertexPaintToolUtilityActions {
-    pub operation: EMeshVertexPaintToolUtilityOperations,
-    pub source_channel: EMeshVertexPaintColorChannel,
-    pub source_value: f32,
-    pub weight_map: FName,
-    pub weight_maps_list: TArray<FString>,
-    pub target_channels: crate::bindings::modeling_components::FModelingToolsColorChannelFilter,
-    pub target_channel: EMeshVertexPaintColorChannel,
-    pub b_copy_to_hi_res: bool,
-    pub copy_to_lod_name: FString,
-    pub lod_names_list: TArray<FString>,
+    __padding_end: [u8; 272],
 }
+impl UMeshVertexPaintToolUtilityActions {}
+#[repr(C, align(16))]
 pub struct UMeshVertexPaintTool {
-    pub polygroup_layer_properties: UPtr<
-        crate::bindings::modeling_components::UPolygroupLayersProperties,
-    >,
-    pub basic_properties: UPtr<UVertexPaintBasicProperties>,
-    pub filter_properties: UPtr<UVertexPaintBrushFilterProperties>,
-    pub symmetry_properties: UPtr<UMeshSymmetryProperties>,
-    pub paint_brush_op_properties: UPtr<UVertexColorPaintBrushOpProps>,
-    pub erase_brush_op_properties: UPtr<UVertexColorPaintBrushOpProps>,
-    pub quick_actions: UPtr<UMeshVertexPaintToolQuickActions>,
-    pub utility_actions: UPtr<UMeshVertexPaintToolUtilityActions>,
-    pub poly_lasso_mechanic: UPtr<
-        crate::bindings::modeling_components::UPolyLassoMarqueeMechanic,
-    >,
-    pub preview_mesh_actor: UPtr<
-        crate::bindings::interactive_tools_framework::AInternalToolFrameworkActor,
-    >,
-    pub dynamic_mesh_component: UPtr<
-        crate::bindings::geometry_framework::UDynamicMeshComponent,
-    >,
-    pub mesh_elements_display: UPtr<
-        crate::bindings::modeling_components::UMeshElementsVisualizer,
-    >,
+    __padding_end: [u8; 4944],
 }
-pub struct UMeshVertexSculptToolBuilder {}
+impl UMeshVertexPaintTool {}
+#[repr(C, align(8))]
+pub struct UMeshVertexSculptToolBuilder {
+    __padding_end: [u8; 64],
+}
+impl UMeshVertexSculptToolBuilder {}
+#[repr(C, align(8))]
 pub struct UVertexBrushSculptProperties {
-    pub primary_brush_type: EMeshVertexSculptBrushType,
-    pub primary_brush_id: i32,
-    pub primary_falloff_type: EMeshSculptFalloffType,
-    pub brush_filter: EMeshVertexSculptBrushFilterType,
-    pub b_freeze_target: bool,
-    pub b_can_freeze_target: bool,
-    pub tool: TWeakObjectPtr<UMeshVertexSculptTool>,
+    __padding_end: [u8; 208],
 }
+impl UVertexBrushSculptProperties {}
+#[repr(C, align(8))]
 pub struct UVertexBrushAlphaProperties {
-    pub alpha: UPtr<crate::bindings::engine::UTexture2D>,
-    pub rotation_angle: f32,
-    pub b_randomize: bool,
-    pub random_range: f32,
-    pub tool: TWeakObjectPtr<UMeshVertexSculptTool>,
+    __padding_end: [u8; 216],
 }
+impl UVertexBrushAlphaProperties {}
+#[repr(C, align(8))]
 pub struct UMeshSymmetryProperties {
-    pub b_enable_symmetry: bool,
-    pub b_symmetry_can_be_enabled: bool,
+    __padding_end: [u8; 192],
 }
+impl UMeshSymmetryProperties {}
+#[repr(C, align(16))]
 pub struct UMeshVertexSculptTool {
-    pub sculpt_properties: UPtr<UVertexBrushSculptProperties>,
-    pub alpha_properties: UPtr<UVertexBrushAlphaProperties>,
-    pub brush_alpha: UPtr<crate::bindings::engine::UTexture2D>,
-    pub symmetry_properties: UPtr<UMeshSymmetryProperties>,
-    pub sculpt_layer_properties: UPtr<UMeshSculptLayerProperties>,
-    pub preview_mesh_actor: UPtr<
-        crate::bindings::interactive_tools_framework::AInternalToolFrameworkActor,
-    >,
-    pub dynamic_mesh_component: UPtr<
-        crate::bindings::geometry_framework::UDynamicMeshComponent,
-    >,
-    pub octree_geometry: UPtr<crate::bindings::modeling_components::UPreviewGeometry>,
+    __padding_end: [u8; 6128],
 }
+impl UMeshVertexSculptTool {}
+#[repr(C, align(8))]
 pub struct UOffsetMeshToolProperties {
-    pub offset_type: EOffsetMeshToolOffsetType,
-    pub distance: f32,
-    pub b_create_shell: bool,
+    __padding_end: [u8; 200],
 }
+impl UOffsetMeshToolProperties {}
+#[repr(C, align(8))]
 pub struct UOffsetWeightMapSetProperties {
-    pub min_distance: f32,
+    __padding_end: [u8; 232],
 }
+impl UOffsetWeightMapSetProperties {}
+#[repr(C, align(8))]
 pub struct UIterativeOffsetProperties {
-    pub steps: i32,
-    pub b_offset_boundaries: bool,
-    pub smoothing_per_step: f32,
-    pub b_reproject_smooth: bool,
+    __padding_end: [u8; 200],
 }
+impl UIterativeOffsetProperties {}
+#[repr(C, align(8))]
 pub struct UImplicitOffsetProperties {
-    pub smoothness: f32,
-    pub b_preserve_u_vs: bool,
+    __padding_end: [u8; 192],
 }
+impl UImplicitOffsetProperties {}
+#[repr(C, align(16))]
 pub struct UOffsetMeshTool {
-    pub offset_properties: UPtr<UOffsetMeshToolProperties>,
-    pub iterative_properties: UPtr<UIterativeOffsetProperties>,
-    pub implicit_properties: UPtr<UImplicitOffsetProperties>,
-    pub weight_map_properties: UPtr<UOffsetWeightMapSetProperties>,
+    __padding_end: [u8; 1216],
 }
-pub struct UOffsetMeshToolBuilder {}
-pub struct UProjectToTargetToolBuilder {}
+impl UOffsetMeshTool {}
+#[repr(C, align(8))]
+pub struct UOffsetMeshToolBuilder {
+    __padding_end: [u8; 48],
+}
+impl UOffsetMeshToolBuilder {}
+#[repr(C, align(8))]
+pub struct UProjectToTargetToolBuilder {
+    __padding_end: [u8; 48],
+}
+impl UProjectToTargetToolBuilder {}
+#[repr(C, align(8))]
 pub struct URemeshMeshToolProperties {
-    pub target_triangle_count: i32,
-    pub smoothing_type: crate::bindings::modeling_operators::ERemeshSmoothingType,
-    pub b_discard_attributes: bool,
-    pub b_show_group_colors: bool,
-    pub remesh_type: crate::bindings::modeling_operators::ERemeshType,
-    pub remesh_iterations: i32,
-    pub max_remesh_iterations: i32,
-    pub extra_projection_iterations: i32,
-    pub b_use_target_edge_length: bool,
-    pub target_edge_length: f32,
-    pub b_reproject: bool,
-    pub b_reproject_constraints: bool,
-    pub boundary_corner_angle_threshold: f32,
+    __padding_end: [u8; 240],
 }
+impl URemeshMeshToolProperties {}
+#[repr(C, align(8))]
 pub struct UProjectToTargetToolProperties {
-    pub b_world_space: bool,
-    pub b_parallel: bool,
-    pub face_projection_passes_per_remesh_iteration: i32,
-    pub surface_projection_speed: f32,
-    pub normal_alignment_speed: f32,
-    pub b_smooth_in_fill_areas: bool,
-    pub fill_area_distance_multiplier: f32,
-    pub fill_area_smooth_multiplier: f32,
+    __padding_end: [u8; 272],
 }
+impl UProjectToTargetToolProperties {}
+#[repr(C, align(8))]
 pub struct URemeshMeshTool {
-    pub basic_properties: UPtr<URemeshMeshToolProperties>,
-    pub mesh_statistics_properties: UPtr<UMeshStatisticsProperties>,
-    pub preview: UPtr<
-        crate::bindings::modeling_components::UMeshOpPreviewWithBackgroundCompute,
-    >,
-    pub mesh_elements_display: UPtr<
-        crate::bindings::modeling_components::UMeshElementsVisualizer,
-    >,
+    __padding_end: [u8; 312],
 }
-pub struct UProjectToTargetTool {}
+impl URemeshMeshTool {}
+#[repr(C, align(8))]
+pub struct UProjectToTargetTool {
+    __padding_end: [u8; 328],
+}
+impl UProjectToTargetTool {}
+#[repr(C, align(8))]
 pub struct UNewMeshMaterialProperties {
-    pub material: TWeakObjectPtr<crate::bindings::engine::UMaterialInterface>,
-    pub uv_scale: f32,
-    pub b_world_space_uv_scale: bool,
-    pub b_show_wireframe: bool,
-    pub b_show_extended_options: bool,
+    __padding_end: [u8; 200],
 }
+impl UNewMeshMaterialProperties {}
+#[repr(C, align(8))]
 pub struct UExistingMeshMaterialProperties {
-    pub material_mode: ESetMeshMaterialMode,
-    pub checker_density: f32,
-    pub override_material: UPtr<crate::bindings::engine::UMaterialInterface>,
-    pub uv_channel: FString,
-    pub uv_channel_names_list: TArray<FString>,
-    pub checker_material: UPtr<crate::bindings::engine::UMaterialInstanceDynamic>,
+    __padding_end: [u8; 240],
 }
+impl UExistingMeshMaterialProperties {}
+#[repr(C, align(8))]
 pub struct UMeshEditingViewProperties {
-    pub b_show_wireframe: bool,
-    pub material_mode: EMeshEditingMaterialModes,
-    pub b_flat_shading: bool,
-    pub color: crate::bindings::core_u_object::FLinearColor,
-    pub image: UPtr<crate::bindings::engine::UTexture2D>,
-    pub opacity: f64,
-    pub transparent_material_color: crate::bindings::core_u_object::FLinearColor,
-    pub b_two_sided: bool,
-    pub custom_material: TWeakObjectPtr<crate::bindings::engine::UMaterialInterface>,
+    __padding_end: [u8; 264],
 }
+impl UMeshEditingViewProperties {}
+#[repr(C, align(8))]
 pub struct UMeshSculptLayerProperties {
-    pub active_layer: i32,
-    pub layer_weights: TArray<f64>,
-    pub b_can_edit_layers: bool,
+    __padding_end: [u8; 112],
 }
+impl UMeshSculptLayerProperties {}
+#[repr(C, align(8))]
 pub struct UMeshStatisticsProperties {
-    pub mesh: FString,
-    pub uv: FString,
-    pub attributes: FString,
+    __padding_end: [u8; 232],
 }
+impl UMeshStatisticsProperties {}
+#[repr(C, align(8))]
 pub struct UMeshUVChannelProperties {
-    pub uv_channel: FString,
-    pub uv_channel_names_list: TArray<FString>,
+    __padding_end: [u8; 216],
 }
-pub struct URecomputeUVsToolBuilder {}
+impl UMeshUVChannelProperties {}
+#[repr(C, align(8))]
+pub struct URecomputeUVsToolBuilder {
+    __padding_end: [u8; 48],
+}
+impl URecomputeUVsToolBuilder {}
+#[repr(C, align(8))]
 pub struct URecomputeUVsTool {
-    pub uv_channel_properties: UPtr<UMeshUVChannelProperties>,
-    pub settings: UPtr<crate::bindings::modeling_operators::URecomputeUVsToolProperties>,
-    pub polygroup_layer_properties: UPtr<
-        crate::bindings::modeling_components::UPolygroupLayersProperties,
-    >,
-    pub material_settings: UPtr<UExistingMeshMaterialProperties>,
-    pub b_create_uv_layout_view_on_setup: bool,
-    pub uv_layout_view: UPtr<crate::bindings::modeling_components::UUVLayoutPreview>,
-    pub recompute_u_vs_op_factory: UPtr<
-        crate::bindings::modeling_operators::URecomputeUVsOpFactory,
-    >,
-    pub preview: UPtr<
-        crate::bindings::modeling_components::UMeshOpPreviewWithBackgroundCompute,
-    >,
+    __padding_end: [u8; 328],
 }
-pub struct URemeshMeshToolBuilder {}
-pub struct URemoveOccludedTrianglesToolBuilder {}
+impl URecomputeUVsTool {}
+#[repr(C, align(8))]
+pub struct URemeshMeshToolBuilder {
+    __padding_end: [u8; 48],
+}
+impl URemeshMeshToolBuilder {}
+#[repr(C, align(8))]
+pub struct URemoveOccludedTrianglesToolBuilder {
+    __padding_end: [u8; 48],
+}
+impl URemoveOccludedTrianglesToolBuilder {}
+#[repr(C, align(8))]
 pub struct URemoveOccludedTrianglesToolProperties {
-    pub occlusion_test_method: EOcclusionCalculationUIMode,
-    pub triangle_sampling: EOcclusionTriangleSamplingUIMode,
-    pub winding_iso_value: f64,
-    pub add_random_rays: i32,
-    pub add_triangle_samples: i32,
-    pub b_only_self_occlude: bool,
-    pub shrink_removal: i32,
-    pub min_area_island: f64,
-    pub min_tri_count_island: i32,
-    pub action: EOccludedAction,
+    __padding_end: [u8; 232],
 }
-pub struct URemoveOccludedTrianglesAdvancedProperties {}
+impl URemoveOccludedTrianglesToolProperties {}
+#[repr(C, align(8))]
+pub struct URemoveOccludedTrianglesAdvancedProperties {
+    __padding_end: [u8; 192],
+}
+impl URemoveOccludedTrianglesAdvancedProperties {}
+#[repr(C, align(8))]
 pub struct URemoveOccludedTrianglesOperatorFactory {
-    pub tool: UPtr<URemoveOccludedTrianglesTool>,
+    __padding_end: [u8; 72],
 }
+impl URemoveOccludedTrianglesOperatorFactory {}
+#[repr(C, align(16))]
 pub struct URemoveOccludedTrianglesTool {
-    pub basic_properties: UPtr<URemoveOccludedTrianglesToolProperties>,
-    pub polygroup_layers_properties: UPtr<
-        crate::bindings::modeling_components::UPolygroupLayersProperties,
-    >,
-    pub advanced_properties: UPtr<URemoveOccludedTrianglesAdvancedProperties>,
-    pub previews: TArray<
-        UPtr<crate::bindings::modeling_components::UMeshOpPreviewWithBackgroundCompute>,
-    >,
-    pub preview_copies: TArray<UPtr<crate::bindings::modeling_components::UPreviewMesh>>,
+    __padding_end: [u8; 528],
 }
+impl URemoveOccludedTrianglesTool {}
+#[repr(C, align(8))]
 pub struct USculptBrushProperties {
-    pub stroke_type: EMeshSculptStrokeType,
-    pub brush_size: FBrushToolRadius,
-    pub brush_falloff_amount: f32,
-    pub b_show_falloff: bool,
-    pub depth: f32,
-    pub b_hit_back_faces: bool,
-    pub flow_rate: f32,
-    pub ray_density: f32,
-    pub spacing: f32,
-    pub lazyness: f32,
-    pub b_show_per_brush_props: bool,
-    pub b_show_lazyness: bool,
-    pub b_show_flow_rate: bool,
-    pub b_show_spacing: bool,
+    __padding_end: [u8; 248],
 }
+impl USculptBrushProperties {}
+#[repr(C, align(8))]
 pub struct UKelvinBrushProperties {
-    pub fall_off_distance: f32,
-    pub stiffness: f32,
-    pub incompressiblity: f32,
-    pub brush_steps: i32,
+    __padding_end: [u8; 200],
 }
+impl UKelvinBrushProperties {}
+#[repr(C, align(16))]
 pub struct UWorkPlaneProperties {
-    pub b_property_set_enabled: bool,
-    pub b_show_gizmo: bool,
-    pub position: crate::bindings::core_u_object::FVector,
-    pub rotation: crate::bindings::core_u_object::FQuat,
+    __padding_end: [u8; 256],
 }
+impl UWorkPlaneProperties {}
+#[repr(C, align(8))]
 pub struct USculptMaxBrushProperties {
-    pub max_height: f32,
-    pub b_freeze_current_height: bool,
+    __padding_end: [u8; 192],
 }
+impl USculptMaxBrushProperties {}
+#[repr(C, align(8))]
 pub struct USmoothMeshToolProperties {
-    pub smoothing_type: ESmoothMeshToolSmoothType,
+    __padding_end: [u8; 192],
 }
+impl USmoothMeshToolProperties {}
+#[repr(C, align(8))]
 pub struct UIterativeSmoothProperties {
-    pub smoothing_per_step: f32,
-    pub steps: i32,
-    pub b_smooth_boundary: bool,
+    __padding_end: [u8; 200],
 }
+impl UIterativeSmoothProperties {}
+#[repr(C, align(8))]
 pub struct UDiffusionSmoothProperties {
-    pub smoothing_per_step: f32,
-    pub steps: i32,
-    pub b_preserve_u_vs: bool,
+    __padding_end: [u8; 200],
 }
+impl UDiffusionSmoothProperties {}
+#[repr(C, align(8))]
 pub struct UImplicitSmoothProperties {
-    pub smooth_speed: f32,
-    pub smoothness: f32,
-    pub b_preserve_u_vs: bool,
-    pub volume_correction: f32,
+    __padding_end: [u8; 200],
 }
+impl UImplicitSmoothProperties {}
+#[repr(C, align(8))]
 pub struct USmoothWeightMapSetProperties {
-    pub min_smooth_multiplier: f32,
+    __padding_end: [u8; 232],
 }
+impl USmoothWeightMapSetProperties {}
+#[repr(C, align(16))]
 pub struct USmoothMeshTool {
-    pub smooth_properties: UPtr<USmoothMeshToolProperties>,
-    pub iterative_properties: UPtr<UIterativeSmoothProperties>,
-    pub diffusion_properties: UPtr<UDiffusionSmoothProperties>,
-    pub implicit_properties: UPtr<UImplicitSmoothProperties>,
-    pub weight_map_properties: UPtr<USmoothWeightMapSetProperties>,
+    __padding_end: [u8; 1232],
 }
-pub struct USmoothMeshToolBuilder {}
+impl USmoothMeshTool {}
+#[repr(C, align(8))]
+pub struct USmoothMeshToolBuilder {
+    __padding_end: [u8; 48],
+}
+impl USmoothMeshToolBuilder {}
+#[repr(C, align(8))]
 pub struct UPolyEditBevelEdgeProperties {
-    pub bevel_distance: f64,
-    pub subdivisions: i32,
-    pub round_weight: f32,
-    pub b_infer_material_id: bool,
-    pub set_material_id: i32,
+    __padding_end: [u8; 208],
 }
+impl UPolyEditBevelEdgeProperties {}
+#[repr(C, align(8))]
 pub struct UPolyEditBevelEdgeActivity {
-    pub bevel_properties: UPtr<UPolyEditBevelEdgeProperties>,
-    pub activity_context: UPtr<UPolyEditActivityContext>,
+    __padding_end: [u8; 328],
 }
+impl UPolyEditBevelEdgeActivity {}
+#[repr(C, align(8))]
 pub struct UPolyEditCutProperties {
-    pub orientation: EPolyEditCutPlaneOrientation,
-    pub b_snap_to_vertices: bool,
+    __padding_end: [u8; 192],
 }
+impl UPolyEditCutProperties {}
+#[repr(C, align(16))]
 pub struct UPolyEditCutFacesActivity {
-    pub cut_properties: UPtr<UPolyEditCutProperties>,
-    pub edit_preview: UPtr<crate::bindings::modeling_components::UPolyEditPreviewMesh>,
-    pub surface_path_mechanic: UPtr<
-        crate::bindings::modeling_components::UCollectSurfacePathMechanic,
-    >,
-    pub activity_context: UPtr<UPolyEditActivityContext>,
+    __padding_end: [u8; 208],
 }
+impl UPolyEditCutFacesActivity {}
+#[repr(C, align(8))]
 pub struct UPolyEditExtrudeProperties {
-    pub distance_mode: EPolyEditExtrudeDistanceMode,
-    pub distance: f64,
-    pub direction_mode: EPolyEditExtrudeModeOptions,
-    pub direction: EPolyEditExtrudeDirection,
-    pub max_distance_scale_factor: f64,
-    pub b_shells_to_solids: bool,
-    pub measure_direction: EPolyEditExtrudeDirection,
-    pub b_use_colinearity_for_setting_border_groups: bool,
+    __padding_end: [u8; 232],
 }
+impl UPolyEditExtrudeProperties {}
+#[repr(C, align(8))]
 pub struct UPolyEditOffsetProperties {
-    pub distance_mode: EPolyEditExtrudeDistanceMode,
-    pub distance: f64,
-    pub direction_mode: EPolyEditOffsetModeOptions,
-    pub max_distance_scale_factor: f64,
-    pub b_shells_to_solids: bool,
-    pub measure_direction: EPolyEditExtrudeDirection,
-    pub b_use_colinearity_for_setting_border_groups: bool,
+    __padding_end: [u8; 232],
 }
+impl UPolyEditOffsetProperties {}
+#[repr(C, align(8))]
 pub struct UPolyEditPushPullProperties {
-    pub distance_mode: EPolyEditExtrudeDistanceMode,
-    pub distance: f64,
-    pub direction_mode: EPolyEditPushPullModeOptions,
-    pub single_direction: EPolyEditExtrudeDirection,
-    pub max_distance_scale_factor: f64,
-    pub b_shells_to_solids: bool,
-    pub measure_direction: EPolyEditExtrudeDirection,
-    pub b_use_colinearity_for_setting_border_groups: bool,
+    __padding_end: [u8; 232],
 }
+impl UPolyEditPushPullProperties {}
+#[repr(C, align(8))]
 pub struct UPolyEditExtrudeActivity {
-    pub extrude_properties: UPtr<UPolyEditExtrudeProperties>,
-    pub offset_properties: UPtr<UPolyEditOffsetProperties>,
-    pub push_pull_properties: UPtr<UPolyEditPushPullProperties>,
-    pub extrude_height_mechanic: UPtr<
-        crate::bindings::modeling_components::UPlaneDistanceFromHitMechanic,
-    >,
-    pub activity_context: UPtr<UPolyEditActivityContext>,
+    __padding_end: [u8; 472],
 }
+impl UPolyEditExtrudeActivity {}
+#[repr(C, align(8))]
 pub struct UPolyEditExtrudeEdgeActivityProperties {
-    pub direction_mode: EPolyEditExtrudeEdgeDirectionMode,
-    pub distance_mode: EPolyEditExtrudeEdgeDistanceMode,
-    pub distance: f64,
-    pub b_use_unselected_for_frames: bool,
-    pub b_adjust_to_extrude_evenly: bool,
+    __padding_end: [u8; 208],
 }
+impl UPolyEditExtrudeEdgeActivityProperties {}
+#[repr(C, align(16))]
 pub struct UPolyEditExtrudeEdgeActivity {
-    pub settings: UPtr<UPolyEditExtrudeEdgeActivityProperties>,
-    pub activity_context: UPtr<UPolyEditActivityContext>,
-    pub extrude_frame_proxy: UPtr<
-        crate::bindings::interactive_tools_framework::UTransformProxy,
-    >,
-    pub extrude_frame_gizmo: UPtr<
-        crate::bindings::interactive_tools_framework::UCombinedTransformGizmo,
-    >,
-    pub single_direction_proxy: UPtr<
-        crate::bindings::interactive_tools_framework::UTransformProxy,
-    >,
-    pub single_direction_gizmo: UPtr<
-        crate::bindings::interactive_tools_framework::UCombinedTransformGizmo,
-    >,
-    pub preview_geometry: UPtr<crate::bindings::modeling_components::UPreviewGeometry>,
+    __padding_end: [u8; 752],
 }
+impl UPolyEditExtrudeEdgeActivity {}
+#[repr(C, align(8))]
 pub struct UGroupEdgeInsertionProperties {
-    pub insertion_mode: EGroupEdgeInsertionMode,
-    pub b_continuous_insertion: bool,
-    pub vertex_tolerance: f64,
+    __padding_end: [u8; 200],
 }
+impl UGroupEdgeInsertionProperties {}
+#[repr(C, align(16))]
 pub struct UPolyEditInsertEdgeActivity {
-    pub settings: UPtr<UGroupEdgeInsertionProperties>,
-    pub activity_context: UPtr<UPolyEditActivityContext>,
+    __padding_end: [u8; 1200],
 }
+impl UPolyEditInsertEdgeActivity {}
+#[repr(C, align(8))]
 pub struct UEdgeLoopInsertionProperties {
-    pub position_mode: EEdgeLoopPositioningMode,
-    pub insertion_mode: EEdgeLoopInsertionMode,
-    pub num_loops: i32,
-    pub proportion_offset: f64,
-    pub distance_offset: f64,
-    pub b_interactive: bool,
-    pub b_flip_offset_direction: bool,
-    pub b_highlight_problem_groups: bool,
-    pub vertex_tolerance: f64,
+    __padding_end: [u8; 232],
 }
+impl UEdgeLoopInsertionProperties {}
+#[repr(C, align(16))]
 pub struct UPolyEditInsertEdgeLoopActivity {
-    pub settings: UPtr<UEdgeLoopInsertionProperties>,
-    pub activity_context: UPtr<UPolyEditActivityContext>,
+    __padding_end: [u8; 1088],
 }
+impl UPolyEditInsertEdgeLoopActivity {}
+#[repr(C, align(8))]
 pub struct UPolyEditInsetOutsetProperties {
-    pub softness: f32,
-    pub b_boundary_only: bool,
-    pub area_scale: f32,
-    pub b_reproject: bool,
-    pub b_outset: bool,
+    __padding_end: [u8; 200],
 }
+impl UPolyEditInsetOutsetProperties {}
+#[repr(C, align(8))]
 pub struct UPolyEditInsetOutsetActivity {
-    pub settings: UPtr<UPolyEditInsetOutsetProperties>,
-    pub edit_preview: UPtr<crate::bindings::modeling_components::UPolyEditPreviewMesh>,
-    pub curve_dist_mechanic: UPtr<
-        crate::bindings::modeling_components::USpatialCurveDistanceMechanic,
-    >,
-    pub activity_context: UPtr<UPolyEditActivityContext>,
+    __padding_end: [u8; 120],
 }
+impl UPolyEditInsetOutsetActivity {}
+#[repr(C, align(8))]
 pub struct UPolyEditSetUVProperties {
-    pub b_show_material: bool,
+    __padding_end: [u8; 192],
 }
+impl UPolyEditSetUVProperties {}
+#[repr(C, align(16))]
 pub struct UPolyEditPlanarProjectionUVActivity {
-    pub set_uv_properties: UPtr<UPolyEditSetUVProperties>,
-    pub edit_preview: UPtr<crate::bindings::modeling_components::UPolyEditPreviewMesh>,
-    pub surface_path_mechanic: UPtr<
-        crate::bindings::modeling_components::UCollectSurfacePathMechanic,
-    >,
-    pub activity_context: UPtr<UPolyEditActivityContext>,
+    __padding_end: [u8; 256],
 }
-pub struct UUVLayoutToolBuilder {}
+impl UPolyEditPlanarProjectionUVActivity {}
+#[repr(C, align(8))]
+pub struct UUVLayoutToolBuilder {
+    __padding_end: [u8; 48],
+}
+impl UUVLayoutToolBuilder {}
+#[repr(C, align(16))]
 pub struct UUVLayoutTool {
-    pub uv_channel_properties: UPtr<UMeshUVChannelProperties>,
-    pub basic_properties: UPtr<crate::bindings::modeling_operators::UUVLayoutProperties>,
-    pub material_settings: UPtr<UExistingMeshMaterialProperties>,
-    pub previews: TArray<
-        UPtr<crate::bindings::modeling_components::UMeshOpPreviewWithBackgroundCompute>,
-    >,
-    pub factories: TArray<
-        UPtr<crate::bindings::modeling_operators::UUVLayoutOperatorFactory>,
-    >,
-    pub uv_layout_view: UPtr<crate::bindings::modeling_components::UUVLayoutPreview>,
+    __padding_end: [u8; 432],
 }
-pub struct UUVProjectionToolBuilder {}
-pub struct UUVProjectionToolEditActions {}
+impl UUVLayoutTool {}
+#[repr(C, align(8))]
+pub struct UUVProjectionToolBuilder {
+    __padding_end: [u8; 48],
+}
+impl UUVProjectionToolBuilder {}
+#[repr(C, align(8))]
+pub struct UUVProjectionToolEditActions {
+    __padding_end: [u8; 192],
+}
+impl UUVProjectionToolEditActions {}
+#[repr(C, align(16))]
 pub struct UUVProjectionToolProperties {
-    pub projection_type: crate::bindings::modeling_operators::EUVProjectionMethod,
-    pub dimensions: crate::bindings::core_u_object::FVector,
-    pub b_proportional_dimensions: bool,
-    pub initialization: EUVProjectionToolInitializationMode,
-    pub cylinder_split_angle: f32,
-    pub exp_map_normal_blending: f32,
-    pub exp_map_smoothing_steps: i32,
-    pub exp_map_smoothing_alpha: f32,
-    pub rotation: f32,
-    pub scale: crate::bindings::core_u_object::FVector2D,
-    pub translation: crate::bindings::core_u_object::FVector2D,
-    pub saved_dimensions: crate::bindings::core_u_object::FVector,
-    pub b_saved_proportional_dimensions: bool,
-    pub saved_transform: crate::bindings::core_u_object::FTransform,
+    __padding_end: [u8; 416],
 }
+impl UUVProjectionToolProperties {}
+#[repr(C, align(8))]
 pub struct UUVProjectionOperatorFactory {
-    pub tool: UPtr<UUVProjectionTool>,
+    __padding_end: [u8; 64],
 }
+impl UUVProjectionOperatorFactory {}
+#[repr(C, align(16))]
 pub struct UUVProjectionTool {
-    pub uv_channel_properties: UPtr<UMeshUVChannelProperties>,
-    pub basic_properties: UPtr<UUVProjectionToolProperties>,
-    pub edit_actions: UPtr<UUVProjectionToolEditActions>,
-    pub material_settings: UPtr<UExistingMeshMaterialProperties>,
-    pub preview: UPtr<
-        crate::bindings::modeling_components::UMeshOpPreviewWithBackgroundCompute,
-    >,
-    pub checker_material: UPtr<crate::bindings::engine::UMaterialInstanceDynamic>,
-    pub transform_gizmo: UPtr<
-        crate::bindings::interactive_tools_framework::UCombinedTransformGizmo,
-    >,
-    pub transform_proxy: UPtr<
-        crate::bindings::interactive_tools_framework::UTransformProxy,
-    >,
-    pub operator_factory: UPtr<UUVProjectionOperatorFactory>,
-    pub edge_renderer: UPtr<crate::bindings::modeling_components::UPreviewGeometry>,
-    pub click_to_set_plane_behavior: UPtr<
-        crate::bindings::interactive_tools_framework::USingleClickInputBehavior,
-    >,
+    __padding_end: [u8; 1312],
 }
-pub struct UWeldMeshEdgesToolBuilder {}
+impl UUVProjectionTool {}
+#[repr(C, align(8))]
+pub struct UWeldMeshEdgesToolBuilder {
+    __padding_end: [u8; 48],
+}
+impl UWeldMeshEdgesToolBuilder {}
+#[repr(C, align(8))]
 pub struct UWeldMeshEdgesToolProperties {
-    pub tolerance: f32,
-    pub b_only_unique: bool,
-    pub b_resolve_t_junctions: bool,
-    pub b_split_bowties: bool,
-    pub initial_edges: i32,
-    pub remaining_edges: i32,
-    pub attr_welding_mode: EWeldMeshEdgesAttributeUIMode,
-    pub split_normal_threshold: f32,
-    pub split_tangents_threshold: f32,
-    pub split_uv_threshold: f32,
-    pub split_color_threshold: f32,
+    __padding_end: [u8; 224],
 }
+impl UWeldMeshEdgesToolProperties {}
+#[repr(C, align(8))]
 pub struct UWeldMeshEdgesOperatorFactory {
-    pub weld_mesh_edges_tool: UPtr<UWeldMeshEdgesTool>,
+    __padding_end: [u8; 64],
 }
+impl UWeldMeshEdgesOperatorFactory {}
+#[repr(C, align(8))]
 pub struct UWeldMeshEdgesTool {
-    pub settings: UPtr<UWeldMeshEdgesToolProperties>,
-    pub preview_compute: UPtr<
-        crate::bindings::modeling_components::UMeshOpPreviewWithBackgroundCompute,
-    >,
-    pub mesh_elements_display: UPtr<
-        crate::bindings::modeling_components::UMeshElementsVisualizer,
-    >,
-    pub operator_factory: UPtr<UWeldMeshEdgesOperatorFactory>,
+    __padding_end: [u8; 464],
 }
-#[allow(non_camel_case_types)]
+impl UWeldMeshEdgesTool {}
 #[repr(transparent)]
 pub struct EBrushToolSizeType(pub u8);
 impl EBrushToolSizeType {
     pub const ADAPTIVE: EBrushToolSizeType = EBrushToolSizeType(0);
     pub const WORLD: EBrushToolSizeType = EBrushToolSizeType(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMeshVertexPaintBrushAreaType(pub u8);
 impl EMeshVertexPaintBrushAreaType {
@@ -1413,7 +1135,6 @@ impl EMeshVertexPaintBrushAreaType {
         1,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EPlaneBrushSideMode(pub u8);
 impl EPlaneBrushSideMode {
@@ -1421,7 +1142,6 @@ impl EPlaneBrushSideMode {
     pub const PUSH_DOWN: EPlaneBrushSideMode = EPlaneBrushSideMode(1);
     pub const PULL_TOWARDS: EPlaneBrushSideMode = EPlaneBrushSideMode(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EVertexColorPaintBrushOpBlendMode(pub i32);
 impl EVertexColorPaintBrushOpBlendMode {
@@ -1435,7 +1155,6 @@ impl EVertexColorPaintBrushOpBlendMode {
         2,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMeshBoundaryConstraint(pub u8);
 impl EMeshBoundaryConstraint {
@@ -1443,7 +1162,6 @@ impl EMeshBoundaryConstraint {
     pub const REFINE: EMeshBoundaryConstraint = EMeshBoundaryConstraint(5);
     pub const FREE: EMeshBoundaryConstraint = EMeshBoundaryConstraint(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EGroupBoundaryConstraint(pub u8);
 impl EGroupBoundaryConstraint {
@@ -1452,7 +1170,6 @@ impl EGroupBoundaryConstraint {
     pub const FREE: EGroupBoundaryConstraint = EGroupBoundaryConstraint(1);
     pub const IGNORE: EGroupBoundaryConstraint = EGroupBoundaryConstraint(0);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMaterialBoundaryConstraint(pub u8);
 impl EMaterialBoundaryConstraint {
@@ -1461,7 +1178,6 @@ impl EMaterialBoundaryConstraint {
     pub const FREE: EMaterialBoundaryConstraint = EMaterialBoundaryConstraint(1);
     pub const IGNORE: EMaterialBoundaryConstraint = EMaterialBoundaryConstraint(0);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMakeMeshPolygroupMode(pub u8);
 impl EMakeMeshPolygroupMode {
@@ -1469,7 +1185,6 @@ impl EMakeMeshPolygroupMode {
     pub const PER_FACE: EMakeMeshPolygroupMode = EMakeMeshPolygroupMode(1);
     pub const PER_QUAD: EMakeMeshPolygroupMode = EMakeMeshPolygroupMode(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMakeMeshPlacementType(pub u8);
 impl EMakeMeshPlacementType {
@@ -1477,7 +1192,6 @@ impl EMakeMeshPlacementType {
     pub const ON_SCENE: EMakeMeshPlacementType = EMakeMeshPlacementType(1);
     pub const AT_ORIGIN: EMakeMeshPlacementType = EMakeMeshPlacementType(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMakeMeshPivotLocation(pub u8);
 impl EMakeMeshPivotLocation {
@@ -1485,28 +1199,24 @@ impl EMakeMeshPivotLocation {
     pub const CENTERED: EMakeMeshPivotLocation = EMakeMeshPivotLocation(1);
     pub const TOP: EMakeMeshPivotLocation = EMakeMeshPivotLocation(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EProceduralRectType(pub i32);
 impl EProceduralRectType {
     pub const RECTANGLE: EProceduralRectType = EProceduralRectType(0);
     pub const ROUNDED_RECTANGLE: EProceduralRectType = EProceduralRectType(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EProceduralDiscType(pub i32);
 impl EProceduralDiscType {
     pub const DISC: EProceduralDiscType = EProceduralDiscType(0);
     pub const PUNCTURED_DISC: EProceduralDiscType = EProceduralDiscType(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EProceduralSphereType(pub i32);
 impl EProceduralSphereType {
     pub const LAT_LONG: EProceduralSphereType = EProceduralSphereType(0);
     pub const BOX: EProceduralSphereType = EProceduralSphereType(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EProceduralStairsType(pub i32);
 impl EProceduralStairsType {
@@ -1515,7 +1225,6 @@ impl EProceduralStairsType {
     pub const CURVED: EProceduralStairsType = EProceduralStairsType(2);
     pub const SPIRAL: EProceduralStairsType = EProceduralStairsType(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EConvertToPolygonsMode(pub i32);
 impl EConvertToPolygonsMode {
@@ -1530,7 +1239,6 @@ impl EConvertToPolygonsMode {
     );
     pub const COPY_FROM_LAYER: EConvertToPolygonsMode = EConvertToPolygonsMode(6);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EGroupTopologyDeformationStrategy(pub u8);
 impl EGroupTopologyDeformationStrategy {
@@ -1541,14 +1249,12 @@ impl EGroupTopologyDeformationStrategy {
         1,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EQuickTransformerMode(pub u8);
 impl EQuickTransformerMode {
     pub const AXIS_TRANSLATION: EQuickTransformerMode = EQuickTransformerMode(0);
     pub const AXIS_ROTATION: EQuickTransformerMode = EQuickTransformerMode(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EWeightScheme(pub i32);
 impl EWeightScheme {
@@ -1560,7 +1266,6 @@ impl EWeightScheme {
     pub const CLAMPED_COTANGENT: EWeightScheme = EWeightScheme(5);
     pub const IDT_COTANGENT: EWeightScheme = EWeightScheme(6);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EDisplaceMeshToolDisplaceType(pub u8);
 impl EDisplaceMeshToolDisplaceType {
@@ -1578,7 +1283,6 @@ impl EDisplaceMeshToolDisplaceType {
         4,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EDisplaceMeshToolSubdivisionType(pub u8);
 impl EDisplaceMeshToolSubdivisionType {
@@ -1589,7 +1293,6 @@ impl EDisplaceMeshToolSubdivisionType {
         1,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EDisplaceMeshToolTriangleSelectionType(pub u8);
 impl EDisplaceMeshToolTriangleSelectionType {
@@ -1600,7 +1303,6 @@ impl EDisplaceMeshToolTriangleSelectionType {
         1,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EDisplaceMeshToolChannelType(pub u8);
 impl EDisplaceMeshToolChannelType {
@@ -1609,7 +1311,6 @@ impl EDisplaceMeshToolChannelType {
     pub const BLUE: EDisplaceMeshToolChannelType = EDisplaceMeshToolChannelType(2);
     pub const ALPHA: EDisplaceMeshToolChannelType = EDisplaceMeshToolChannelType(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ERevolvePropertiesPolygroupMode(pub u8);
 impl ERevolvePropertiesPolygroupMode {
@@ -1626,14 +1327,12 @@ impl ERevolvePropertiesPolygroupMode {
         3,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ERevolvePropertiesQuadSplit(pub u8);
 impl ERevolvePropertiesQuadSplit {
     pub const UNIFORM: ERevolvePropertiesQuadSplit = ERevolvePropertiesQuadSplit(0);
     pub const COMPACT: ERevolvePropertiesQuadSplit = ERevolvePropertiesQuadSplit(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ERevolvePropertiesCapFillMode(pub u8);
 impl ERevolvePropertiesCapFillMode {
@@ -1646,7 +1345,6 @@ impl ERevolvePropertiesCapFillMode {
         3,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EDrawPolygonDrawMode(pub u8);
 impl EDrawPolygonDrawMode {
@@ -1657,7 +1355,6 @@ impl EDrawPolygonDrawMode {
     pub const ROUNDED_RECTANGLE: EDrawPolygonDrawMode = EDrawPolygonDrawMode(4);
     pub const RING: EDrawPolygonDrawMode = EDrawPolygonDrawMode(5);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EDrawPolygonExtrudeMode(pub u8);
 impl EDrawPolygonExtrudeMode {
@@ -1665,7 +1362,6 @@ impl EDrawPolygonExtrudeMode {
     pub const FIXED: EDrawPolygonExtrudeMode = EDrawPolygonExtrudeMode(1);
     pub const INTERACTIVE: EDrawPolygonExtrudeMode = EDrawPolygonExtrudeMode(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EDynamicMeshSculptBrushType(pub u8);
 impl EDynamicMeshSculptBrushType {
@@ -1693,14 +1389,12 @@ impl EDynamicMeshSculptBrushType {
     pub const RESAMPLE: EDynamicMeshSculptBrushType = EDynamicMeshSculptBrushType(15);
     pub const LAST_VALUE: EDynamicMeshSculptBrushType = EDynamicMeshSculptBrushType(16);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ELocalFrameMode(pub i32);
 impl ELocalFrameMode {
     pub const FROM_OBJECT: ELocalFrameMode = ELocalFrameMode(0);
     pub const FROM_GEOMETRY: ELocalFrameMode = ELocalFrameMode(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EBrushActionMode(pub i32);
 impl EBrushActionMode {
@@ -1709,7 +1403,6 @@ impl EBrushActionMode {
     pub const ERASE: EBrushActionMode = EBrushActionMode(2);
     pub const SMOOTH: EBrushActionMode = EBrushActionMode(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMeshAttributePaintMaterialMode(pub i32);
 impl EMeshAttributePaintMaterialMode {
@@ -1720,7 +1413,6 @@ impl EMeshAttributePaintMaterialMode {
         1,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMeshGroupPaintBrushType(pub u8);
 impl EMeshGroupPaintBrushType {
@@ -1728,7 +1420,6 @@ impl EMeshGroupPaintBrushType {
     pub const ERASE: EMeshGroupPaintBrushType = EMeshGroupPaintBrushType(1);
     pub const LAST_VALUE: EMeshGroupPaintBrushType = EMeshGroupPaintBrushType(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMeshGroupPaintInteractionType(pub u8);
 impl EMeshGroupPaintInteractionType {
@@ -1744,14 +1435,12 @@ impl EMeshGroupPaintInteractionType {
         4,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMeshGroupPaintBrushAreaType(pub u8);
 impl EMeshGroupPaintBrushAreaType {
     pub const CONNECTED: EMeshGroupPaintBrushAreaType = EMeshGroupPaintBrushAreaType(0);
     pub const VOLUMETRIC: EMeshGroupPaintBrushAreaType = EMeshGroupPaintBrushAreaType(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMeshGroupPaintVisibilityType(pub u8);
 impl EMeshGroupPaintVisibilityType {
@@ -1763,7 +1452,6 @@ impl EMeshGroupPaintVisibilityType {
         2,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ENonlinearOperationType(pub i8);
 impl ENonlinearOperationType {
@@ -1771,7 +1459,6 @@ impl ENonlinearOperationType {
     pub const FLARE: ENonlinearOperationType = ENonlinearOperationType(1);
     pub const TWIST: ENonlinearOperationType = ENonlinearOperationType(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EFlareProfileType(pub i8);
 impl EFlareProfileType {
@@ -1779,7 +1466,6 @@ impl EFlareProfileType {
     pub const SIN_SQUARED_MODE: EFlareProfileType = EFlareProfileType(1);
     pub const TRIANGLE_MODE: EFlareProfileType = EFlareProfileType(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMeshVertexPaintBrushType(pub u8);
 impl EMeshVertexPaintBrushType {
@@ -1789,7 +1475,6 @@ impl EMeshVertexPaintBrushType {
     pub const SMOOTH: EMeshVertexPaintBrushType = EMeshVertexPaintBrushType(3);
     pub const LAST_VALUE: EMeshVertexPaintBrushType = EMeshVertexPaintBrushType(4);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMeshVertexPaintInteractionType(pub u8);
 impl EMeshVertexPaintInteractionType {
@@ -1810,7 +1495,6 @@ impl EMeshVertexPaintInteractionType {
         5,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMeshVertexPaintColorBlendMode(pub u8);
 impl EMeshVertexPaintColorBlendMode {
@@ -1820,7 +1504,6 @@ impl EMeshVertexPaintColorBlendMode {
         2,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMeshVertexPaintSecondaryActionType(pub u8);
 impl EMeshVertexPaintSecondaryActionType {
@@ -1834,7 +1517,6 @@ impl EMeshVertexPaintSecondaryActionType {
         2,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMeshVertexPaintVisibilityType(pub u8);
 impl EMeshVertexPaintVisibilityType {
@@ -1846,7 +1528,6 @@ impl EMeshVertexPaintVisibilityType {
         2,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMeshVertexPaintMaterialMode(pub u8);
 impl EMeshVertexPaintMaterialMode {
@@ -1860,7 +1541,6 @@ impl EMeshVertexPaintMaterialMode {
         2,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMeshVertexPaintToolUtilityOperations(pub i32);
 impl EMeshVertexPaintToolUtilityOperations {
@@ -1889,7 +1569,6 @@ impl EMeshVertexPaintToolUtilityOperations {
         7,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMeshVertexPaintColorChannel(pub u8);
 impl EMeshVertexPaintColorChannel {
@@ -1898,7 +1577,6 @@ impl EMeshVertexPaintColorChannel {
     pub const BLUE: EMeshVertexPaintColorChannel = EMeshVertexPaintColorChannel(2);
     pub const ALPHA: EMeshVertexPaintColorChannel = EMeshVertexPaintColorChannel(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMeshVertexSculptBrushType(pub u8);
 impl EMeshVertexSculptBrushType {
@@ -1929,7 +1607,6 @@ impl EMeshVertexSculptBrushType {
     );
     pub const LAST_VALUE: EMeshVertexSculptBrushType = EMeshVertexSculptBrushType(19);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMeshSculptFalloffType(pub u8);
 impl EMeshSculptFalloffType {
@@ -1943,7 +1620,6 @@ impl EMeshSculptFalloffType {
     pub const BOX_ROUND: EMeshSculptFalloffType = EMeshSculptFalloffType(7);
     pub const LAST_VALUE: EMeshSculptFalloffType = EMeshSculptFalloffType(8);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMeshVertexSculptBrushFilterType(pub u8);
 impl EMeshVertexSculptBrushFilterType {
@@ -1957,14 +1633,12 @@ impl EMeshVertexSculptBrushFilterType {
         2,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EOffsetMeshToolOffsetType(pub u8);
 impl EOffsetMeshToolOffsetType {
     pub const ITERATIVE: EOffsetMeshToolOffsetType = EOffsetMeshToolOffsetType(0);
     pub const IMPLICIT: EOffsetMeshToolOffsetType = EOffsetMeshToolOffsetType(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ESetMeshMaterialMode(pub u8);
 impl ESetMeshMaterialMode {
@@ -1972,7 +1646,6 @@ impl ESetMeshMaterialMode {
     pub const CHECKERBOARD: ESetMeshMaterialMode = ESetMeshMaterialMode(1);
     pub const OVERRIDE: ESetMeshMaterialMode = ESetMeshMaterialMode(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMeshEditingMaterialModes(pub i32);
 impl EMeshEditingMaterialModes {
@@ -1988,7 +1661,6 @@ impl EMeshEditingMaterialModes {
     pub const CUSTOM_IMAGE: EMeshEditingMaterialModes = EMeshEditingMaterialModes(7);
     pub const CUSTOM: EMeshEditingMaterialModes = EMeshEditingMaterialModes(8);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EOcclusionCalculationUIMode(pub u8);
 impl EOcclusionCalculationUIMode {
@@ -1999,7 +1671,6 @@ impl EOcclusionCalculationUIMode {
         1,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EOcclusionTriangleSamplingUIMode(pub u8);
 impl EOcclusionTriangleSamplingUIMode {
@@ -2010,14 +1681,12 @@ impl EOcclusionTriangleSamplingUIMode {
         1,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EOccludedAction(pub u8);
 impl EOccludedAction {
     pub const REMOVE: EOccludedAction = EOccludedAction(0);
     pub const SET_NEW_GROUP: EOccludedAction = EOccludedAction(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMeshSculptStrokeType(pub u8);
 impl EMeshSculptStrokeType {
@@ -2026,7 +1695,6 @@ impl EMeshSculptStrokeType {
     pub const DOTS: EMeshSculptStrokeType = EMeshSculptStrokeType(2);
     pub const LAST_VALUE: EMeshSculptStrokeType = EMeshSculptStrokeType(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ESmoothMeshToolSmoothType(pub u8);
 impl ESmoothMeshToolSmoothType {
@@ -2034,7 +1702,6 @@ impl ESmoothMeshToolSmoothType {
     pub const IMPLICIT: ESmoothMeshToolSmoothType = ESmoothMeshToolSmoothType(1);
     pub const DIFFUSION: ESmoothMeshToolSmoothType = ESmoothMeshToolSmoothType(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EPolyEditCutPlaneOrientation(pub i32);
 impl EPolyEditCutPlaneOrientation {
@@ -2045,7 +1712,6 @@ impl EPolyEditCutPlaneOrientation {
         1,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EPolyEditExtrudeDistanceMode(pub i32);
 impl EPolyEditExtrudeDistanceMode {
@@ -2054,7 +1720,6 @@ impl EPolyEditExtrudeDistanceMode {
     );
     pub const FIXED: EPolyEditExtrudeDistanceMode = EPolyEditExtrudeDistanceMode(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EPolyEditExtrudeModeOptions(pub i32);
 impl EPolyEditExtrudeModeOptions {
@@ -2068,7 +1733,6 @@ impl EPolyEditExtrudeModeOptions {
         1,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EPolyEditExtrudeDirection(pub i32);
 impl EPolyEditExtrudeDirection {
@@ -2080,7 +1744,6 @@ impl EPolyEditExtrudeDirection {
     pub const LOCAL_Y: EPolyEditExtrudeDirection = EPolyEditExtrudeDirection(5);
     pub const LOCAL_Z: EPolyEditExtrudeDirection = EPolyEditExtrudeDirection(6);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EPolyEditOffsetModeOptions(pub i32);
 impl EPolyEditOffsetModeOptions {
@@ -2092,7 +1755,6 @@ impl EPolyEditOffsetModeOptions {
         1,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EPolyEditPushPullModeOptions(pub i32);
 impl EPolyEditPushPullModeOptions {
@@ -2109,7 +1771,6 @@ impl EPolyEditPushPullModeOptions {
         2,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EPolyEditExtrudeEdgeDirectionMode(pub i32);
 impl EPolyEditExtrudeEdgeDirectionMode {
@@ -2120,7 +1781,6 @@ impl EPolyEditExtrudeEdgeDirectionMode {
         1,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EPolyEditExtrudeEdgeDistanceMode(pub i32);
 impl EPolyEditExtrudeEdgeDistanceMode {
@@ -2131,14 +1791,12 @@ impl EPolyEditExtrudeEdgeDistanceMode {
         1,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EGroupEdgeInsertionMode(pub i32);
 impl EGroupEdgeInsertionMode {
     pub const RETRIANGULATE: EGroupEdgeInsertionMode = EGroupEdgeInsertionMode(0);
     pub const PLANE_CUT: EGroupEdgeInsertionMode = EGroupEdgeInsertionMode(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EEdgeLoopPositioningMode(pub i32);
 impl EEdgeLoopPositioningMode {
@@ -2146,14 +1804,12 @@ impl EEdgeLoopPositioningMode {
     pub const PROPORTION_OFFSET: EEdgeLoopPositioningMode = EEdgeLoopPositioningMode(1);
     pub const DISTANCE_OFFSET: EEdgeLoopPositioningMode = EEdgeLoopPositioningMode(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EEdgeLoopInsertionMode(pub i32);
 impl EEdgeLoopInsertionMode {
     pub const RETRIANGULATE: EEdgeLoopInsertionMode = EEdgeLoopInsertionMode(0);
     pub const PLANE_CUT: EEdgeLoopInsertionMode = EEdgeLoopInsertionMode(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EUVProjectionToolInitializationMode(pub i32);
 impl EUVProjectionToolInitializationMode {
@@ -2170,7 +1826,6 @@ impl EUVProjectionToolInitializationMode {
         3,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EWeldMeshEdgesAttributeUIMode(pub u8);
 impl EWeldMeshEdgesAttributeUIMode {

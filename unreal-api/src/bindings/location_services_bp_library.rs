@@ -13,12 +13,21 @@ pub struct FLocationServicesData {
     pub vertical_accuracy: f32,
     pub altitude: f32,
 }
+impl FLocationServicesData {}
+#[repr(C, align(8))]
 pub struct ULocationServicesImpl {
-    pub on_location_changed: FLocationServicesImpl_OnLocationChanged,
+    __padding_end: [u8; 72],
 }
-pub struct ULocationServices {}
-pub struct FLocationServicesImpl_OnLocationChanged;
-#[allow(non_camel_case_types)]
+impl ULocationServicesImpl {}
+#[repr(C, align(8))]
+pub struct ULocationServices {
+    __padding_end: [u8; 48],
+}
+impl ULocationServices {}
+#[repr(transparent)]
+pub struct FLocationServicesImpl_OnLocationChanged {
+    _opague: u8,
+}
 #[repr(transparent)]
 pub struct ELocationAccuracy(pub u8);
 impl ELocationAccuracy {

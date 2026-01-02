@@ -9,6 +9,7 @@ pub struct FCaptureResolution {
     pub res_x: i32,
     pub res_y: i32,
 }
+impl FCaptureResolution {}
 #[repr(C, align(8))]
 pub struct FMovieSceneCaptureSettings {
     pub output_directory: crate::bindings::core_u_object::FDirectoryPath,
@@ -32,11 +33,14 @@ pub struct FMovieSceneCaptureSettings {
     pub b_show_hud: bool,
     pub b_use_path_tracer: bool,
     pub path_tracer_sample_per_pixel: i32,
+    __padding_end: [u8; 4],
 }
+impl FMovieSceneCaptureSettings {}
 #[repr(C, align(8))]
 pub struct FCompositionGraphCapturePasses {
     pub value: TArray<FString>,
 }
+impl FCompositionGraphCapturePasses {}
 #[repr(C, align(4))]
 pub struct FFrameMetrics {
     pub total_elapsed_time: f32,
@@ -44,73 +48,142 @@ pub struct FFrameMetrics {
     pub frame_number: i32,
     pub num_dropped_frames: i32,
 }
+impl FFrameMetrics {}
 #[repr(C, align(8))]
 pub struct FCapturedPixelsID {
     pub identifiers: TMap<FName, FName>,
 }
+impl FCapturedPixelsID {}
 #[repr(C, align(8))]
-pub struct FCapturedPixels {}
+pub struct FCapturedPixels {
+    __padding_end: [u8; 16],
+}
+impl FCapturedPixels {}
+#[repr(C, align(8))]
 pub struct UMovieSceneCaptureProtocolBase {
-    pub state: EMovieSceneCaptureProtocolState,
+    __padding_end: [u8; 96],
 }
-pub struct UMovieSceneAudioCaptureProtocolBase {}
-pub struct UNullAudioCaptureProtocol {}
+impl UMovieSceneCaptureProtocolBase {}
+#[repr(C, align(8))]
+pub struct UMovieSceneAudioCaptureProtocolBase {
+    __padding_end: [u8; 96],
+}
+impl UMovieSceneAudioCaptureProtocolBase {}
+#[repr(C, align(8))]
+pub struct UNullAudioCaptureProtocol {
+    __padding_end: [u8; 96],
+}
+impl UNullAudioCaptureProtocol {}
+#[repr(C, align(8))]
 pub struct UMasterAudioSubmixCaptureProtocol {
+    #[doc(hidden)]
+    __padding_96: [u8; 96],
     pub file_name: FString,
+    __padding_end: [u8; 40],
 }
+impl UMasterAudioSubmixCaptureProtocol {}
 pub struct UMovieSceneCaptureInterface {}
 pub struct IMovieSceneCaptureInterface {}
-pub struct UMovieSceneImageCaptureProtocolBase {}
+#[repr(C, align(8))]
+pub struct UMovieSceneImageCaptureProtocolBase {
+    __padding_end: [u8; 96],
+}
+impl UMovieSceneImageCaptureProtocolBase {}
+#[repr(C, align(8))]
 pub struct UCompositionGraphCaptureProtocol {
+    #[doc(hidden)]
+    __padding_96: [u8; 96],
     pub include_render_passes: FCompositionGraphCapturePasses,
     pub b_capture_frames_in_hdr: bool,
     pub hdr_compression_quality: i32,
     pub capture_gamut: EHDRCaptureGamut,
     pub post_processing_material: crate::bindings::core_u_object::FSoftObjectPath,
     pub b_disable_screen_percentage: bool,
-    pub post_processing_material_ptr: UPtr<crate::bindings::engine::UMaterialInterface>,
+    __padding_end: [u8; 47],
 }
-pub struct UFrameGrabberProtocol {}
-pub struct UImageSequenceProtocol {}
+impl UCompositionGraphCaptureProtocol {}
+#[repr(C, align(8))]
+pub struct UFrameGrabberProtocol {
+    __padding_end: [u8; 112],
+}
+impl UFrameGrabberProtocol {}
+#[repr(C, align(8))]
+pub struct UImageSequenceProtocol {
+    __padding_end: [u8; 224],
+}
+impl UImageSequenceProtocol {}
+#[repr(C, align(8))]
 pub struct UCompressedImageSequenceProtocol {
+    #[doc(hidden)]
+    __padding_224: [u8; 224],
     pub compression_quality: i32,
+    __padding_end: [u8; 4],
 }
-pub struct UImageSequenceProtocol_BMP {}
-pub struct UImageSequenceProtocol_PNG {}
-pub struct UImageSequenceProtocol_JPG {}
+impl UCompressedImageSequenceProtocol {}
+#[repr(C, align(8))]
+pub struct UImageSequenceProtocol_BMP {
+    __padding_end: [u8; 224],
+}
+impl UImageSequenceProtocol_BMP {}
+#[repr(C, align(8))]
+pub struct UImageSequenceProtocol_PNG {
+    __padding_end: [u8; 232],
+}
+impl UImageSequenceProtocol_PNG {}
+#[repr(C, align(8))]
+pub struct UImageSequenceProtocol_JPG {
+    __padding_end: [u8; 232],
+}
+impl UImageSequenceProtocol_JPG {}
+#[repr(C, align(8))]
 pub struct UImageSequenceProtocol_EXR {
-    pub b_compressed: bool,
-    pub capture_gamut: EHDRCaptureGamut,
+    __padding_end: [u8; 240],
 }
+impl UImageSequenceProtocol_EXR {}
+#[repr(C, align(8))]
 pub struct UMovieSceneCapture {
-    pub image_capture_protocol_type: crate::bindings::core_u_object::FSoftClassPath,
-    pub audio_capture_protocol_type: crate::bindings::core_u_object::FSoftClassPath,
-    pub image_capture_protocol: UPtr<UMovieSceneImageCaptureProtocolBase>,
-    pub audio_capture_protocol: UPtr<UMovieSceneAudioCaptureProtocolBase>,
+    #[doc(hidden)]
+    __padding_160: [u8; 160],
     pub settings: FMovieSceneCaptureSettings,
     pub b_use_separate_process: bool,
     pub b_close_editor_when_capture_starts: bool,
     pub additional_command_line_arguments: FString,
     pub inherited_command_line_arguments: FString,
+    __padding_end: [u8; 288],
 }
+impl UMovieSceneCapture {}
+#[repr(C, align(8))]
 pub struct ULevelCapture {
-    pub b_auto_start_capture: bool,
-    pub prerequisite_actor_id: crate::bindings::core_u_object::FGuid,
+    __padding_end: [u8; 632],
 }
-pub struct UMovieSceneCaptureEnvironment {}
+impl ULevelCapture {}
+#[repr(C, align(8))]
+pub struct UMovieSceneCaptureEnvironment {
+    __padding_end: [u8; 48],
+}
+impl UMovieSceneCaptureEnvironment {}
+#[repr(C, align(8))]
 pub struct UUserDefinedCaptureProtocol {
+    #[doc(hidden)]
+    __padding_96: [u8; 96],
     pub world: UPtr<crate::bindings::engine::UWorld>,
+    __padding_end: [u8; 120],
 }
+impl UUserDefinedCaptureProtocol {}
+#[repr(C, align(8))]
 pub struct UUserDefinedImageCaptureProtocol {
+    #[doc(hidden)]
+    __padding_224: [u8; 224],
     pub format: crate::bindings::image_write_queue::EDesiredImageFormat,
     pub b_enable_compression: bool,
     pub compression_quality: i32,
 }
+impl UUserDefinedImageCaptureProtocol {}
+#[repr(C, align(8))]
 pub struct UVideoCaptureProtocol {
-    pub b_use_compression: bool,
-    pub compression_quality: f32,
+    __padding_end: [u8; 136],
 }
-#[allow(non_camel_case_types)]
+impl UVideoCaptureProtocol {}
 #[repr(transparent)]
 pub struct EMovieSceneCaptureProtocolState(pub u8);
 impl EMovieSceneCaptureProtocolState {
@@ -125,7 +198,6 @@ impl EMovieSceneCaptureProtocolState {
         3,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EHDRCaptureGamut(pub u8);
 impl EHDRCaptureGamut {

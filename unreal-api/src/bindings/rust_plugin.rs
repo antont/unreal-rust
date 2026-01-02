@@ -6,50 +6,51 @@ pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[repr(C, align(8))]
 pub struct FEntity {
-    pub id: u64,
+    __padding_end: [u8; 8],
 }
+impl FEntity {}
 #[repr(C, align(8))]
-pub struct FRustEvent {
-    pub guid: FString,
-    pub event: FDynamicRustComponent,
-}
-#[repr(C, align(8))]
-pub struct FDynamicRustComponent {
-    pub fields: TMap<FString, FRustProperty>,
-    pub name: FString,
-}
-#[repr(C, align(8))]
-pub struct FRustProperty {
-    pub tag: i32,
-    pub float: f32,
-    pub bool: bool,
-    pub vector: crate::bindings::core_u_object::FVector,
-    pub rotation: crate::bindings::core_u_object::FRotator,
-    pub class: TSubclassOf<crate::bindings::engine::AActor>,
-    pub sound: UPtr<crate::bindings::engine::USoundBase>,
-}
-#[repr(C, align(8))]
-pub struct FUuidViewNode {
-    pub name: FString,
-    pub id: crate::bindings::core_u_object::FGuid,
-}
 pub struct UAnimNotify_RustEvent {
-    pub event: FRustEvent,
+    __padding_end: [u8; 176],
 }
-pub struct UUuid {}
+impl UAnimNotify_RustEvent {}
+#[repr(C, align(8))]
+pub struct UUuid {
+    __padding_end: [u8; 64],
+}
+impl UUuid {}
+#[repr(C, align(8))]
 pub struct UEntityComponent {
-    pub components: TMap<FString, FDynamicRustComponent>,
+    __padding_end: [u8; 328],
 }
+impl UEntityComponent {}
+#[repr(C, align(8))]
 pub struct UK2Node_GetComponentRust {
-    pub selected_node: FUuidViewNode,
-    pub index_pins: TArray<crate::bindings::core_u_object::FGuid>,
+    __padding_end: [u8; 240],
 }
+impl UK2Node_GetComponentRust {}
+#[repr(C, align(8))]
 pub struct ARustActor {
-    pub entity_component: UPtr<UEntityComponent>,
+    __padding_end: [u8; 1152],
 }
-pub struct ARustBindingsActor {}
+impl ARustActor {}
+#[repr(C, align(8))]
+pub struct ARustBindingsActor {
+    __padding_end: [u8; 1136],
+}
+impl ARustBindingsActor {}
+#[repr(C, align(8))]
 pub struct ARustGameModeBase {
-    pub registered_classes: TArray<TSubclassOf<crate::bindings::engine::AActor>>,
+    __padding_end: [u8; 1328],
 }
-pub struct UUEdGraphSchema_Rust {}
-pub struct URustReflectionLibrary {}
+impl ARustGameModeBase {}
+#[repr(C, align(8))]
+pub struct UUEdGraphSchema_Rust {
+    __padding_end: [u8; 48],
+}
+impl UUEdGraphSchema_Rust {}
+#[repr(C, align(8))]
+pub struct URustReflectionLibrary {
+    __padding_end: [u8; 48],
+}
+impl URustReflectionLibrary {}

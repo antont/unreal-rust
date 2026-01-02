@@ -4,284 +4,214 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
-#[repr(C, align(4))]
-pub struct FSkinWeightBrushConfig {
-    pub strength: f32,
-    pub radius: f32,
-    pub falloff: f32,
-    pub falloff_mode: EWeightBrushFalloffMode,
-}
+#[repr(C, align(8))]
 pub struct UToolMeshSelector {
-    pub parent_tool: UPtr<
-        crate::bindings::interactive_tools_framework::UInteractiveTool,
-    >,
-    pub world: UPtr<crate::bindings::engine::UWorld>,
-    pub preview_mesh: UPtr<crate::bindings::modeling_components::UPreviewMesh>,
-    pub polygon_selection_mechanic: UPtr<
-        crate::bindings::modeling_components::UPolygonSelectionMechanic,
-    >,
+    __padding_end: [u8; 112],
 }
-pub struct UAttributeEditorToolBuilder {}
+impl UToolMeshSelector {}
+#[repr(C, align(8))]
+pub struct UAttributeEditorToolBuilder {
+    __padding_end: [u8; 48],
+}
+impl UAttributeEditorToolBuilder {}
+#[repr(C, align(8))]
 pub struct UAttributeEditorAttribProperties {
-    pub vertex_attributes: TArray<FString>,
-    pub instance_attributes: TArray<FString>,
-    pub triangle_attributes: TArray<FString>,
-    pub polygon_attributes: TArray<FString>,
-    pub edge_attributes: TArray<FString>,
-    pub group_attributes: TArray<FString>,
+    __padding_end: [u8; 280],
 }
-pub struct UAttributeEditorActionPropertySet {}
-pub struct UAttributeEditorNormalsActions {}
+impl UAttributeEditorAttribProperties {}
+#[repr(C, align(8))]
+pub struct UAttributeEditorActionPropertySet {
+    __padding_end: [u8; 192],
+}
+impl UAttributeEditorActionPropertySet {}
+#[repr(C, align(8))]
+pub struct UAttributeEditorNormalsActions {
+    __padding_end: [u8; 192],
+}
+impl UAttributeEditorNormalsActions {}
+#[repr(C, align(8))]
 pub struct UAttributeEditorUVActions {
-    pub uv_layer: FString,
-    pub uv_layer_names_list: TArray<FString>,
+    __padding_end: [u8; 224],
 }
+impl UAttributeEditorUVActions {}
+#[repr(C, align(8))]
 pub struct UAttributeEditorLightmapUVActions {
-    pub b_generate_lightmap_u_vs: bool,
-    pub source_uv_index: i32,
-    pub destination_uv_index: i32,
+    __padding_end: [u8; 208],
 }
+impl UAttributeEditorLightmapUVActions {}
+#[repr(C, align(8))]
 pub struct UAttributeEditorNewAttributeActions {
-    pub new_name: FString,
-    pub element_type: EAttributeEditorElementType,
-    pub data_type: EAttributeEditorAttribType,
+    __padding_end: [u8; 216],
 }
+impl UAttributeEditorNewAttributeActions {}
+#[repr(C, align(8))]
 pub struct UAttributeEditorModifyAttributeActions {
-    pub attribute: FString,
-    pub attribute_names_list: TArray<FString>,
+    __padding_end: [u8; 224],
 }
+impl UAttributeEditorModifyAttributeActions {}
+#[repr(C, align(8))]
 pub struct UAttributeEditorCopyAttributeActions {
-    pub from_attribute: TArray<FString>,
-    pub to_attribute: TArray<FString>,
+    __padding_end: [u8; 224],
 }
+impl UAttributeEditorCopyAttributeActions {}
+#[repr(C, align(8))]
 pub struct UAttributeEditorTool {
-    pub normals_actions: UPtr<UAttributeEditorNormalsActions>,
-    pub uv_actions: UPtr<UAttributeEditorUVActions>,
-    pub lightmap_uv_actions: UPtr<UAttributeEditorLightmapUVActions>,
-    pub attribute_props: UPtr<UAttributeEditorAttribProperties>,
-    pub new_attribute_props: UPtr<UAttributeEditorNewAttributeActions>,
-    pub modify_attribute_props: UPtr<UAttributeEditorModifyAttributeActions>,
-    pub copy_attribute_props: UPtr<UAttributeEditorCopyAttributeActions>,
+    __padding_end: [u8; 304],
 }
-pub struct UParameterizeMeshToolBuilder {}
+impl UAttributeEditorTool {}
+#[repr(C, align(8))]
+pub struct UParameterizeMeshToolBuilder {
+    __padding_end: [u8; 48],
+}
+impl UParameterizeMeshToolBuilder {}
+#[repr(C, align(8))]
 pub struct UParameterizeMeshTool {
-    pub uv_channel_properties: UPtr<
-        crate::bindings::mesh_modeling_tools::UMeshUVChannelProperties,
-    >,
-    pub settings: UPtr<
-        crate::bindings::modeling_operators_editor_only::UParameterizeMeshToolProperties,
-    >,
-    pub uv_atlas_properties: UPtr<
-        crate::bindings::modeling_operators_editor_only::UParameterizeMeshToolUVAtlasProperties,
-    >,
-    pub x_atlas_properties: UPtr<
-        crate::bindings::modeling_operators_editor_only::UParameterizeMeshToolXAtlasProperties,
-    >,
-    pub patch_builder_properties: UPtr<
-        crate::bindings::modeling_operators_editor_only::UParameterizeMeshToolPatchBuilderProperties,
-    >,
-    pub polygroup_layer_properties: UPtr<
-        crate::bindings::modeling_components::UPolygroupLayersProperties,
-    >,
-    pub material_settings: UPtr<
-        crate::bindings::mesh_modeling_tools::UExistingMeshMaterialProperties,
-    >,
-    pub b_create_uv_layout_view_on_setup: bool,
-    pub uv_layout_view: UPtr<crate::bindings::modeling_components::UUVLayoutPreview>,
-    pub preview: UPtr<
-        crate::bindings::modeling_components::UMeshOpPreviewWithBackgroundCompute,
-    >,
-    pub factory: UPtr<
-        crate::bindings::modeling_operators_editor_only::UParameterizeMeshOperatorFactory,
-    >,
+    __padding_end: [u8; 336],
 }
-pub struct UPolygonOnMeshToolBuilder {}
+impl UParameterizeMeshTool {}
+#[repr(C, align(8))]
+pub struct UPolygonOnMeshToolBuilder {
+    __padding_end: [u8; 48],
+}
+impl UPolygonOnMeshToolBuilder {}
+#[repr(C, align(8))]
 pub struct UPolygonOnMeshToolProperties {
-    pub operation: crate::bindings::modeling_operators_editor_only::EEmbeddedPolygonOpMethod,
-    pub shape: EPolygonType,
-    pub b_cut_with_boolean: bool,
-    pub b_try_to_fix_holes: bool,
-    pub polygon_scale: f32,
-    pub width: f32,
-    pub height: f32,
-    pub corner_ratio: f32,
-    pub subdivisions: i32,
-    pub b_can_accept_failed_result: bool,
-    pub b_show_intermediate_result_on_failure: bool,
+    __padding_end: [u8; 224],
 }
-pub struct UPolygonOnMeshToolActionPropertySet {}
+impl UPolygonOnMeshToolProperties {}
+#[repr(C, align(8))]
+pub struct UPolygonOnMeshToolActionPropertySet {
+    __padding_end: [u8; 192],
+}
+impl UPolygonOnMeshToolActionPropertySet {}
+#[repr(C, align(16))]
 pub struct UPolygonOnMeshTool {
-    pub basic_properties: UPtr<UPolygonOnMeshToolProperties>,
-    pub action_properties: UPtr<UPolygonOnMeshToolActionPropertySet>,
-    pub preview: UPtr<
-        crate::bindings::modeling_components::UMeshOpPreviewWithBackgroundCompute,
-    >,
-    pub drawn_line_set: UPtr<crate::bindings::modeling_components::ULineSetComponent>,
-    pub plane_mechanic: UPtr<
-        crate::bindings::modeling_components::UConstructionPlaneMechanic,
-    >,
-    pub draw_polygon_mechanic: UPtr<
-        crate::bindings::modeling_components::UCollectSurfacePathMechanic,
-    >,
+    __padding_end: [u8; 656],
 }
-pub struct USimplifyMeshToolBuilder {}
+impl UPolygonOnMeshTool {}
+#[repr(C, align(8))]
+pub struct USimplifyMeshToolBuilder {
+    __padding_end: [u8; 48],
+}
+impl USimplifyMeshToolBuilder {}
+#[repr(C, align(8))]
 pub struct USimplifyMeshToolProperties {
-    pub simplifier_type: crate::bindings::modeling_operators_editor_only::ESimplifyType,
-    pub target_mode: crate::bindings::modeling_operators_editor_only::ESimplifyTargetType,
-    pub target_percentage: i32,
-    pub target_edge_length: f32,
-    pub target_triangle_count: i32,
-    pub target_vertex_count: i32,
-    pub minimal_angle_threshold: f32,
-    pub poly_edge_angle_tolerance: f32,
-    pub boundary_edge_angle_tolerance: f32,
-    pub b_discard_attributes: bool,
-    pub b_geometric_constraint: bool,
-    pub geometric_tolerance: f32,
-    pub b_show_group_colors: bool,
-    pub b_reproject: bool,
+    __padding_end: [u8; 240],
 }
+impl USimplifyMeshToolProperties {}
+#[repr(C, align(8))]
 pub struct USimplifyMeshTool {
-    pub simplify_properties: UPtr<USimplifyMeshToolProperties>,
-    pub mesh_statistics_properties: UPtr<
-        crate::bindings::mesh_modeling_tools::UMeshStatisticsProperties,
-    >,
-    pub preview: UPtr<
-        crate::bindings::modeling_components::UMeshOpPreviewWithBackgroundCompute,
-    >,
-    pub mesh_elements_display: UPtr<
-        crate::bindings::modeling_components::UMeshElementsVisualizer,
-    >,
+    __padding_end: [u8; 312],
 }
-pub struct URefSkeletonPoser {}
+impl USimplifyMeshTool {}
+#[repr(C, align(8))]
+pub struct URefSkeletonPoser {
+    __padding_end: [u8; 488],
+}
+impl URefSkeletonPoser {}
 pub struct USkeletalMeshEditingInterface {}
 pub struct ISkeletalMeshEditingInterface {}
-pub struct USkeletalMeshGizmoContextObjectBase {}
+#[repr(C, align(8))]
+pub struct USkeletalMeshGizmoContextObjectBase {
+    __padding_end: [u8; 48],
+}
+impl USkeletalMeshGizmoContextObjectBase {}
+#[repr(C, align(8))]
 pub struct USkeletalMeshGizmoWrapperBase {
-    pub component: TWeakObjectPtr<crate::bindings::engine::USceneComponent>,
+    __padding_end: [u8; 56],
 }
-pub struct USkeletalMeshEditorContextObjectBase {}
-pub struct USkeletonEditingToolBuilder {}
+impl USkeletalMeshGizmoWrapperBase {}
+#[repr(C, align(8))]
+pub struct USkeletalMeshEditorContextObjectBase {
+    __padding_end: [u8; 48],
+}
+impl USkeletalMeshEditorContextObjectBase {}
+#[repr(C, align(8))]
+pub struct USkeletonEditingToolBuilder {
+    __padding_end: [u8; 48],
+}
+impl USkeletonEditingToolBuilder {}
+#[repr(C, align(16))]
 pub struct USkeletonEditingTool {
-    pub properties: UPtr<USkeletonEditingProperties>,
-    pub projection_properties: UPtr<UProjectionProperties>,
-    pub mirroring_properties: UPtr<UMirroringProperties>,
-    pub orienting_properties: UPtr<UOrientingProperties>,
-    pub selection_mechanic: UPtr<
-        crate::bindings::modeling_components::UPolygonSelectionMechanic,
-    >,
-    pub modifier: UPtr<crate::bindings::skeletal_mesh_modifiers::USkeletonModifier>,
-    pub left_click_behavior: UPtr<
-        crate::bindings::interactive_tools_framework::USingleClickInputBehavior,
-    >,
-    pub preview_mesh: UPtr<crate::bindings::modeling_components::UPreviewMesh>,
-    pub target_world: TWeakObjectPtr<crate::bindings::engine::UWorld>,
-    pub view_context: TWeakObjectPtr<
-        crate::bindings::interactive_tools_framework::UGizmoViewContext,
-    >,
-    pub operation: EEditingOperation,
-    pub gizmo_context: TWeakObjectPtr<USkeletalMeshGizmoContextObjectBase>,
-    pub gizmo_wrapper: UPtr<USkeletalMeshGizmoWrapperBase>,
-    pub editor_context: TWeakObjectPtr<USkeletalMeshEditorContextObjectBase>,
+    __padding_end: [u8; 720],
 }
+impl USkeletonEditingTool {}
+#[repr(C, align(16))]
 pub struct USkeletonEditingProperties {
-    pub name: FName,
-    pub transform: crate::bindings::core_u_object::FTransform,
-    pub b_update_children: bool,
-    pub axis_length: f32,
-    pub axis_thickness: f32,
-    pub b_enable_component_selection: bool,
+    __padding_end: [u8; 336],
 }
+impl USkeletonEditingProperties {}
+#[repr(C, align(16))]
 pub struct UProjectionProperties {
-    pub projection_type: EProjectionType,
-    pub plane_origin: crate::bindings::core_u_object::FVector,
-    pub plane_normal: crate::bindings::core_u_object::FVector,
+    __padding_end: [u8; 352],
 }
+impl UProjectionProperties {}
+#[repr(C, align(8))]
 pub struct UMirroringProperties {
-    pub options: crate::bindings::skeletal_mesh_modifiers::FMirrorOptions,
+    __padding_end: [u8; 240],
 }
+impl UMirroringProperties {}
+#[repr(C, align(8))]
 pub struct UOrientingProperties {
-    pub b_auto_orient: bool,
-    pub options: crate::bindings::skeletal_mesh_modifiers::FOrientOptions,
+    __padding_end: [u8; 240],
 }
+impl UOrientingProperties {}
+#[repr(C, align(16))]
 pub struct USkeletonTransformProxy {
-    pub transform_mode: crate::bindings::interactive_tools_framework::EToolContextCoordinateSystem,
+    __padding_end: [u8; 512],
 }
-pub struct USkinWeightsBindingToolBuilder {}
+impl USkeletonTransformProxy {}
+#[repr(C, align(8))]
+pub struct USkinWeightsBindingToolBuilder {
+    __padding_end: [u8; 48],
+}
+impl USkinWeightsBindingToolBuilder {}
+#[repr(C, align(8))]
 pub struct USkinWeightsBindingToolProperties {
-    pub current_bone: FName,
-    pub binding_type: ESkinWeightsBindType,
-    pub stiffness: f32,
-    pub max_influences: i32,
-    pub voxel_resolution: i32,
+    __padding_end: [u8; 216],
 }
+impl USkinWeightsBindingToolProperties {}
+#[repr(C, align(16))]
 pub struct USkinWeightsBindingTool {
-    pub properties: UPtr<USkinWeightsBindingToolProperties>,
-    pub preview: UPtr<
-        crate::bindings::modeling_components::UMeshOpPreviewWithBackgroundCompute,
-    >,
-    pub editor_context: TWeakObjectPtr<USkeletalMeshEditorContextObjectBase>,
+    __padding_end: [u8; 656],
 }
-pub struct USkinWeightsPaintToolBuilder {}
+impl USkinWeightsBindingTool {}
+#[repr(C, align(8))]
+pub struct USkinWeightsPaintToolBuilder {
+    __padding_end: [u8; 56],
+}
+impl USkinWeightsPaintToolBuilder {}
+#[repr(C, align(16))]
 pub struct USkinWeightsPaintToolProperties {
-    pub editing_mode: EWeightEditMode,
-    pub brush_mode: EWeightEditOperation,
-    pub component_selection_mode: EComponentSelectionMode,
-    pub color_mode: EWeightColorMode,
-    pub color_ramp: TArray<crate::bindings::core_u_object::FLinearColor>,
-    pub mirror_axis: crate::bindings::core_u_object::EAxis,
-    pub mirror_direction: EMirrorDirection,
-    pub prune_value: f32,
-    pub clamp_value: i32,
-    pub clamp_select_value: i32,
-    pub add_strength: f32,
-    pub replace_value: f32,
-    pub relax_strength: f32,
-    pub average_strength: f32,
-    pub brush_config_add: FSkinWeightBrushConfig,
-    pub brush_config_replace: FSkinWeightBrushConfig,
-    pub brush_config_multiply: FSkinWeightBrushConfig,
-    pub brush_config_relax: FSkinWeightBrushConfig,
-    pub active_skin_weight_profile: FName,
-    pub b_show_new_profile_name: bool,
-    pub new_skin_weight_profile: FName,
-    pub source_skeletal_mesh: TWeakObjectPtr<crate::bindings::engine::USkeletalMesh>,
-    pub mesh_select_mode: EMeshTransferOption,
-    pub source_lod: FName,
-    pub source_skin_weight_profile: FName,
-    pub source_preview_offset: crate::bindings::core_u_object::FTransform,
+    __padding_end: [u8; 608],
 }
-pub struct UDEPRECATED_WeightToolMeshSelector {}
+impl USkinWeightsPaintToolProperties {}
+#[repr(C, align(8))]
+pub struct UDEPRECATED_WeightToolMeshSelector {
+    __padding_end: [u8; 112],
+}
+impl UDEPRECATED_WeightToolMeshSelector {}
+#[repr(C, align(8))]
 pub struct UWeightToolTransferManager {
-    pub source_preview_mesh: UPtr<crate::bindings::modeling_components::UPreviewMesh>,
-    pub source_skeletal_mesh: UPtr<crate::bindings::engine::USkeletalMesh>,
-    pub source_target: UPtr<crate::bindings::interactive_tools_framework::UToolTarget>,
-    pub mesh_selector: UPtr<UToolMeshSelector>,
+    __padding_end: [u8; 88],
 }
+impl UWeightToolTransferManager {}
+#[repr(C, align(8))]
 pub struct UWeightToolSelectionIsolator {
-    pub weight_tool: UPtr<USkinWeightsPaintTool>,
+    __padding_end: [u8; 1864],
 }
+impl UWeightToolSelectionIsolator {}
+#[repr(C, align(8))]
 pub struct USkinWeightsPaintTool {
-    pub weight_tool_properties: UPtr<USkinWeightsPaintToolProperties>,
-    pub mesh_selector: UPtr<UToolMeshSelector>,
-    pub editor_context: TWeakObjectPtr<USkeletalMeshEditorContextObjectBase>,
-    pub persona_mode_manager_context: TWeakObjectPtr<
-        crate::bindings::persona::UPersonaEditorModeManagerContext,
-    >,
-    pub target_manager: TWeakObjectPtr<
-        crate::bindings::interactive_tools_framework::UToolTargetManager,
-    >,
-    pub transfer_manager: UPtr<UWeightToolTransferManager>,
-    pub selection_isolator: UPtr<UWeightToolSelectionIsolator>,
+    __padding_end: [u8; 3416],
 }
-#[allow(non_camel_case_types)]
+impl USkinWeightsPaintTool {}
 #[repr(transparent)]
 pub struct EWeightBrushFalloffMode(pub u8);
 impl EWeightBrushFalloffMode {
     pub const SURFACE: EWeightBrushFalloffMode = EWeightBrushFalloffMode(0);
     pub const VOLUME: EWeightBrushFalloffMode = EWeightBrushFalloffMode(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EComponentSelectionMode(pub u8);
 impl EComponentSelectionMode {
@@ -289,7 +219,6 @@ impl EComponentSelectionMode {
     pub const EDGES: EComponentSelectionMode = EComponentSelectionMode(1);
     pub const FACES: EComponentSelectionMode = EComponentSelectionMode(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EAttributeEditorElementType(pub u8);
 impl EAttributeEditorElementType {
@@ -304,7 +233,6 @@ impl EAttributeEditorElementType {
         5,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EAttributeEditorAttribType(pub u8);
 impl EAttributeEditorAttribType {
@@ -317,7 +245,6 @@ impl EAttributeEditorAttribType {
     pub const STRING: EAttributeEditorAttribType = EAttributeEditorAttribType(6);
     pub const UNKNOWN: EAttributeEditorAttribType = EAttributeEditorAttribType(7);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EPolygonType(pub i32);
 impl EPolygonType {
@@ -327,7 +254,6 @@ impl EPolygonType {
     pub const ROUND_RECT: EPolygonType = EPolygonType(3);
     pub const CUSTOM: EPolygonType = EPolygonType(4);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EEditingOperation(pub u8);
 impl EEditingOperation {
@@ -339,7 +265,6 @@ impl EEditingOperation {
     pub const RENAME: EEditingOperation = EEditingOperation(5);
     pub const MIRROR: EEditingOperation = EEditingOperation(6);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EProjectionType(pub u8);
 impl EProjectionType {
@@ -347,14 +272,12 @@ impl EProjectionType {
     pub const ON_MESH: EProjectionType = EProjectionType(1);
     pub const WITHIN_MESH: EProjectionType = EProjectionType(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ESkinWeightsBindType(pub u8);
 impl ESkinWeightsBindType {
     pub const DIRECT_DISTANCE: ESkinWeightsBindType = ESkinWeightsBindType(0);
     pub const GEODESIC_VOXEL: ESkinWeightsBindType = ESkinWeightsBindType(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EWeightEditMode(pub u8);
 impl EWeightEditMode {
@@ -362,7 +285,6 @@ impl EWeightEditMode {
     pub const MESH: EWeightEditMode = EWeightEditMode(1);
     pub const BONES: EWeightEditMode = EWeightEditMode(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EWeightEditOperation(pub u8);
 impl EWeightEditOperation {
@@ -372,7 +294,6 @@ impl EWeightEditOperation {
     pub const RELAX: EWeightEditOperation = EWeightEditOperation(3);
     pub const RELATIVE_SCALE: EWeightEditOperation = EWeightEditOperation(4);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EWeightColorMode(pub u8);
 impl EWeightColorMode {
@@ -381,14 +302,12 @@ impl EWeightColorMode {
     pub const BONE_COLORS: EWeightColorMode = EWeightColorMode(2);
     pub const FULL_MATERIAL: EWeightColorMode = EWeightColorMode(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMirrorDirection(pub u8);
 impl EMirrorDirection {
     pub const POSITIVE_TO_NEGATIVE: EMirrorDirection = EMirrorDirection(0);
     pub const NEGATIVE_TO_POSITIVE: EMirrorDirection = EMirrorDirection(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMeshTransferOption(pub u8);
 impl EMeshTransferOption {

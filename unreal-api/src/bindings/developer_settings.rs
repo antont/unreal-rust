@@ -5,17 +5,22 @@
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[repr(C, align(8))]
-pub struct FPerPlatformSettings {
-    pub settings: TArray<UPtr<UPlatformSettings>>,
+pub struct UDeveloperSettings {
+    __padding_end: [u8; 104],
 }
+impl UDeveloperSettings {}
 #[repr(C, align(8))]
-pub struct FPlatformSettingsInstances {
-    pub platform_instance: UPtr<UPlatformSettings>,
-    pub other_platforms: TMap<FName, UPtr<UPlatformSettings>>,
+pub struct UDeveloperSettingsBackedByCVars {
+    __padding_end: [u8; 104],
 }
-pub struct UDeveloperSettings {}
-pub struct UDeveloperSettingsBackedByCVars {}
-pub struct UPlatformSettings {}
+impl UDeveloperSettingsBackedByCVars {}
+#[repr(C, align(8))]
+pub struct UPlatformSettings {
+    __padding_end: [u8; 80],
+}
+impl UPlatformSettings {}
+#[repr(C, align(8))]
 pub struct UPlatformSettingsManager {
-    pub settings_map: TMap<TSubclassOf<UPlatformSettings>, FPlatformSettingsInstances>,
+    __padding_end: [u8; 144],
 }
+impl UPlatformSettingsManager {}

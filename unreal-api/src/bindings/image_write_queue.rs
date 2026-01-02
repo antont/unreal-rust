@@ -11,11 +11,22 @@ pub struct FImageWriteOptions {
     pub compression_quality: i32,
     pub b_overwrite_file: bool,
     pub b_async: bool,
+    __padding_end: [u8; 50],
 }
-pub struct UImageWriteBlueprintLibrary {}
-pub struct FImageWriteOptions_OnComplete;
-pub struct FExportToDisk_OnComplete;
-#[allow(non_camel_case_types)]
+impl FImageWriteOptions {}
+#[repr(C, align(8))]
+pub struct UImageWriteBlueprintLibrary {
+    __padding_end: [u8; 48],
+}
+impl UImageWriteBlueprintLibrary {}
+#[repr(transparent)]
+pub struct FImageWriteOptions_OnComplete {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FExportToDisk_OnComplete {
+    _opague: u8,
+}
 #[repr(transparent)]
 pub struct EDesiredImageFormat(pub u8);
 impl EDesiredImageFormat {

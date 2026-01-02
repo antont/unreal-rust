@@ -4,5 +4,13 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
-pub struct UResonanceAudioReverbPluginPresetFactory {}
-pub struct UResonanceAudioSpatializationSourceSettingsFactory {}
+#[repr(C, align(8))]
+pub struct UResonanceAudioReverbPluginPresetFactory {
+    __padding_end: [u8; 136],
+}
+impl UResonanceAudioReverbPluginPresetFactory {}
+#[repr(C, align(8))]
+pub struct UResonanceAudioSpatializationSourceSettingsFactory {
+    __padding_end: [u8; 136],
+}
+impl UResonanceAudioSpatializationSourceSettingsFactory {}

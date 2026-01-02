@@ -5,32 +5,66 @@
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[repr(C, align(8))]
-pub struct FTakeRecorderPropertyTrackSettings {
-    pub component_path: FString,
-    pub property_path: FString,
+pub struct UMovieSceneTrackRecorder {
+    __padding_end: [u8; 136],
 }
+impl UMovieSceneTrackRecorder {}
 #[repr(C, align(8))]
-pub struct FTakeRecorderTrackSettings {
-    pub matching_actor_class: crate::bindings::core_u_object::FSoftClassPath,
-    pub default_property_tracks: TArray<FTakeRecorderPropertyTrackSettings>,
-    pub exclude_property_tracks: TArray<FTakeRecorderPropertyTrackSettings>,
+pub struct UMovieSceneTrackRecorderSettings {
+    __padding_end: [u8; 48],
 }
-pub struct UMovieSceneTrackRecorder {}
-pub struct UMovieSceneTrackRecorderSettings {}
-pub struct UMovieScene3DAttachTrackRecorder {}
-pub struct UMovieScene3DTransformTrackRecorder {}
-pub struct UMovieSceneAnimationTrackRecorder {}
+impl UMovieSceneTrackRecorderSettings {}
+#[repr(C, align(8))]
+pub struct UMovieScene3DAttachTrackRecorder {
+    __padding_end: [u8; 192],
+}
+impl UMovieScene3DAttachTrackRecorder {}
+#[repr(C, align(16))]
+pub struct UMovieScene3DTransformTrackRecorder {
+    __padding_end: [u8; 656],
+}
+impl UMovieScene3DTransformTrackRecorder {}
+#[repr(C, align(16))]
+pub struct UMovieSceneAnimationTrackRecorder {
+    __padding_end: [u8; 544],
+}
+impl UMovieSceneAnimationTrackRecorder {}
+#[repr(C, align(8))]
 pub struct UMovieSceneAnimationTrackRecorderEditorSettings {
+    #[doc(hidden)]
+    __padding_48: [u8; 48],
     pub animation_track_name: FText,
     pub animation_asset_name: FString,
     pub animation_sub_directory: FString,
-    pub interp_mode: crate::bindings::engine::ERichCurveInterpMode,
-    pub tangent_mode: crate::bindings::engine::ERichCurveTangentMode,
+    #[doc(hidden)]
+    __padding_98: [u8; 2],
     pub b_remove_root_animation: bool,
     pub timecode_bone_method: crate::bindings::sequence_recorder::FTimecodeBoneMethod,
+    __padding_end: [u8; 4],
 }
-pub struct UMovieSceneAnimationTrackRecorderSettings {}
-pub struct UMovieSceneParticleTrackRecorder {}
-pub struct UMovieScenePropertyTrackRecorder {}
-pub struct UMovieSceneSpawnTrackRecorder {}
-pub struct UMovieSceneVisibilityTrackRecorder {}
+impl UMovieSceneAnimationTrackRecorderEditorSettings {}
+#[repr(C, align(8))]
+pub struct UMovieSceneAnimationTrackRecorderSettings {
+    __padding_end: [u8; 120],
+}
+impl UMovieSceneAnimationTrackRecorderSettings {}
+#[repr(C, align(8))]
+pub struct UMovieSceneParticleTrackRecorder {
+    __padding_end: [u8; 176],
+}
+impl UMovieSceneParticleTrackRecorder {}
+#[repr(C, align(8))]
+pub struct UMovieScenePropertyTrackRecorder {
+    __padding_end: [u8; 184],
+}
+impl UMovieScenePropertyTrackRecorder {}
+#[repr(C, align(8))]
+pub struct UMovieSceneSpawnTrackRecorder {
+    __padding_end: [u8; 232],
+}
+impl UMovieSceneSpawnTrackRecorder {}
+#[repr(C, align(8))]
+pub struct UMovieSceneVisibilityTrackRecorder {
+    __padding_end: [u8; 152],
+}
+impl UMovieSceneVisibilityTrackRecorder {}

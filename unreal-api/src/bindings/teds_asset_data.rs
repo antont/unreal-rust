@@ -4,131 +4,93 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
-#[repr(C, align(4))]
-pub struct FAssetPathColumn_Experimental {
-    pub path: FName,
+#[repr(C, align(8))]
+pub struct UTedsAssetDataFactory {
+    __padding_end: [u8; 56],
 }
-#[repr(C, align(1))]
-pub struct FFolderTypeColumn_Experimental {}
+impl UTedsAssetDataFactory {}
 #[repr(C, align(8))]
-pub struct FAssetDataColumn_Experimental {
-    pub asset_data: crate::bindings::core_u_object::FAssetData,
+pub struct UDiskSizeWidgetFactory {
+    __padding_end: [u8; 48],
 }
-#[repr(C, align(1))]
-pub struct FAssetTag {}
-#[repr(C, align(1))]
-pub struct FPrivateAssetTag {}
-#[repr(C, align(1))]
-pub struct FEpicInternalAssetTag {}
-#[repr(C, align(1))]
-pub struct FPublicAssetTag {}
-#[repr(C, align(4))]
-pub struct FAssetNameColumn {
-    pub name: FName,
+impl UDiskSizeWidgetFactory {}
+#[repr(C, align(8))]
+pub struct UAssetDataItemTypeWidgetFactory {
+    __padding_end: [u8; 48],
 }
-#[repr(C, align(4))]
-pub struct FAssetClassColumn {
-    pub class_path: crate::bindings::core_u_object::FTopLevelAssetPath,
+impl UAssetDataItemTypeWidgetFactory {}
+#[repr(C, align(8))]
+pub struct UAssetDataLabelWidgetFactory {
+    __padding_end: [u8; 48],
 }
+impl UAssetDataLabelWidgetFactory {}
 #[repr(C, align(8))]
-pub struct FDiskSizeColumn {
-    pub disk_size: i64,
+pub struct UAssetThumbnailWidgetFactory {
+    __padding_end: [u8; 48],
 }
+impl UAssetThumbnailWidgetFactory {}
 #[repr(C, align(8))]
-pub struct FVersePathColumn {}
-#[repr(C, align(1))]
-pub struct FUpdatedPathTag {}
-#[repr(C, align(1))]
-pub struct FUpdatedAssetDataTag {}
-#[repr(C, align(4))]
-pub struct FVirtualPathColumn_Experimental {
-    pub virtual_path: FName,
+pub struct UAssetDataVirtualPathWidgetFactory {
+    __padding_end: [u8; 48],
 }
+impl UAssetDataVirtualPathWidgetFactory {}
 #[repr(C, align(8))]
-pub struct FItemAttributeBaseColumn_Experimental {}
-#[repr(C, align(8))]
-pub struct FItemTextAttributeColumn_Experimental {
-    pub value: FText,
+pub struct UAssetLabelWidgetFactory {
+    __padding_end: [u8; 48],
 }
+impl UAssetLabelWidgetFactory {}
 #[repr(C, align(8))]
-pub struct FItemStringAttributeColumn_Experimental {
-    pub value: FString,
+pub struct UAssetNameWidgetFactory {
+    __padding_end: [u8; 48],
 }
-#[repr(C, align(1))]
-pub struct FThumbnailSizeColumn_Experimental {}
-#[repr(C, align(4))]
-pub struct FSizeValueColumn_Experimental {
-    pub size_value: f32,
+impl UAssetNameWidgetFactory {}
+#[repr(C, align(8))]
+pub struct UAssetPreviewGeneralWidgetRegistrationFactory {
+    __padding_end: [u8; 48],
 }
-#[repr(C, align(4))]
-pub struct FWidgetPaddingColumn_Experimental {
-    pub padding: crate::bindings::slate_core::FMargin,
+impl UAssetPreviewGeneralWidgetRegistrationFactory {}
+#[repr(C, align(8))]
+pub struct UAssetPreviewAdvancedInfoWidgetFactory {
+    __padding_end: [u8; 48],
 }
-#[repr(C, align(1))]
-pub struct FThumbnailEditModeColumn_Experimental {
-    pub is_edit_mode_toggled: bool,
+impl UAssetPreviewAdvancedInfoWidgetFactory {}
+#[repr(C, align(8))]
+pub struct UAssetPreviewBaseInfoWidgetFactory {
+    __padding_end: [u8; 48],
 }
-#[repr(C, align(1))]
-pub struct FTextOverflowPolicyColumn_Experimental {}
-#[repr(C, align(1))]
-pub struct FWidgetVisibilityColumn_Experimental {}
+impl UAssetPreviewBaseInfoWidgetFactory {}
 #[repr(C, align(8))]
-pub struct FFontStyleColumn_Experimental {}
+pub struct UAssetPreviewHeaderWidgetFactory {
+    __padding_end: [u8; 48],
+}
+impl UAssetPreviewHeaderWidgetFactory {}
 #[repr(C, align(8))]
-pub struct FLocalWidgetTooltipColumn_Experimental {}
+pub struct UEditModeToggleHeaderWidgetFactory {
+    __padding_end: [u8; 48],
+}
+impl UEditModeToggleHeaderWidgetFactory {}
 #[repr(C, align(8))]
-pub struct FOnGetWidgetSlateBrushColumn_Experimental {}
+pub struct UItemContextMenuWidgetFactory {
+    __padding_end: [u8; 48],
+}
+impl UItemContextMenuWidgetFactory {}
 #[repr(C, align(8))]
-pub struct FOnGetWidgetColorAndOpacityColumn_Experimental {}
+pub struct UAssetPreviewThumbnailWidgetFactory {
+    __padding_end: [u8; 48],
+}
+impl UAssetPreviewThumbnailWidgetFactory {}
 #[repr(C, align(8))]
-pub struct FExternalWidgetOnClickedColumn_Experimental {}
+pub struct UContentBrowserListViewNameWidgetFactory {
+    __padding_end: [u8; 48],
+}
+impl UContentBrowserListViewNameWidgetFactory {}
 #[repr(C, align(8))]
-pub struct FDiskSizeWidgetConstructor {}
+pub struct UDynamicAssetDataColumnBaseWidgetFactory {
+    __padding_end: [u8; 48],
+}
+impl UDynamicAssetDataColumnBaseWidgetFactory {}
 #[repr(C, align(8))]
-pub struct FAssetDataItemTypeWidgetConstructor {}
-#[repr(C, align(8))]
-pub struct FAssetDataLabelWidgetConstructor {}
-#[repr(C, align(8))]
-pub struct FAssetThumbnailWidgetConstructor {}
-#[repr(C, align(8))]
-pub struct FAssetDataVirtualPathWidgetConstructor {}
-#[repr(C, align(8))]
-pub struct FAssetLabelWidgetConstructor {}
-#[repr(C, align(8))]
-pub struct FAssetNameWidgetConstructor {}
-#[repr(C, align(8))]
-pub struct FAssetPreviewAdvancedInfoWidgetConstructor {}
-#[repr(C, align(8))]
-pub struct FAssetPreviewBaseInfoWidgetConstructor {}
-#[repr(C, align(8))]
-pub struct FAssetPreviewHeaderWidgetConstructor {}
-#[repr(C, align(8))]
-pub struct FEditModeToggleHeaderWidgetConstructor {}
-#[repr(C, align(8))]
-pub struct FItemContextMenuWidgetConstructor {}
-#[repr(C, align(8))]
-pub struct FAssetPreviewThumbnailWidgetConstructor {}
-#[repr(C, align(8))]
-pub struct FContentBrowserListViewNameWidgetConstructor {}
-#[repr(C, align(8))]
-pub struct FDynamicAssetDataColumnBaseWidgetConstructor {}
-#[repr(C, align(8))]
-pub struct FStaticMeshTrianglesWidgetConstructor {}
-pub struct UTedsAssetDataFactory {}
-pub struct UDiskSizeWidgetFactory {}
-pub struct UAssetDataItemTypeWidgetFactory {}
-pub struct UAssetDataLabelWidgetFactory {}
-pub struct UAssetThumbnailWidgetFactory {}
-pub struct UAssetDataVirtualPathWidgetFactory {}
-pub struct UAssetLabelWidgetFactory {}
-pub struct UAssetNameWidgetFactory {}
-pub struct UAssetPreviewGeneralWidgetRegistrationFactory {}
-pub struct UAssetPreviewAdvancedInfoWidgetFactory {}
-pub struct UAssetPreviewBaseInfoWidgetFactory {}
-pub struct UAssetPreviewHeaderWidgetFactory {}
-pub struct UEditModeToggleHeaderWidgetFactory {}
-pub struct UItemContextMenuWidgetFactory {}
-pub struct UAssetPreviewThumbnailWidgetFactory {}
-pub struct UContentBrowserListViewNameWidgetFactory {}
-pub struct UDynamicAssetDataColumnBaseWidgetFactory {}
-pub struct UStaticMeshTrianglesWidgetFactory {}
+pub struct UStaticMeshTrianglesWidgetFactory {
+    __padding_end: [u8; 48],
+}
+impl UStaticMeshTrianglesWidgetFactory {}

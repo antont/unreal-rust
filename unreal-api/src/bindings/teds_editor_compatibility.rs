@@ -4,5 +4,13 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
-pub struct UTedsLevelFactory {}
-pub struct UTedsWorldFactory {}
+#[repr(C, align(8))]
+pub struct UTedsLevelFactory {
+    __padding_end: [u8; 56],
+}
+impl UTedsLevelFactory {}
+#[repr(C, align(8))]
+pub struct UTedsWorldFactory {
+    __padding_end: [u8; 56],
+}
+impl UTedsWorldFactory {}

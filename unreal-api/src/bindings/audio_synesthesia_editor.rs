@@ -4,18 +4,18 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
+#[repr(C, align(8))]
 pub struct UAudioSynesthesiaNRTFactory {
-    pub audio_synesthesia_nrt_class: TSubclassOf<
-        crate::bindings::audio_synesthesia::UAudioSynesthesiaNRT,
-    >,
+    __padding_end: [u8; 144],
 }
+impl UAudioSynesthesiaNRTFactory {}
+#[repr(C, align(8))]
 pub struct UAudioSynesthesiaNRTSettingsFactory {
-    pub audio_synesthesia_nrt_settings_class: TSubclassOf<
-        crate::bindings::audio_synesthesia::UAudioSynesthesiaNRTSettings,
-    >,
+    __padding_end: [u8; 144],
 }
+impl UAudioSynesthesiaNRTSettingsFactory {}
+#[repr(C, align(8))]
 pub struct UAudioSynesthesiaSettingsFactory {
-    pub audio_synesthesia_settings_class: TSubclassOf<
-        crate::bindings::audio_synesthesia::UAudioSynesthesiaSettings,
-    >,
+    __padding_end: [u8; 144],
 }
+impl UAudioSynesthesiaSettingsFactory {}

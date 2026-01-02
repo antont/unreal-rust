@@ -12,4 +12,9 @@ pub struct FUVMapSettings {
     pub rotation: crate::bindings::core_u_object::FRotator,
     pub scale: crate::bindings::core_u_object::FVector,
 }
-pub struct UStaticMeshDescription {}
+impl FUVMapSettings {}
+#[repr(C, align(8))]
+pub struct UStaticMeshDescription {
+    __padding_end: [u8; 760],
+}
+impl UStaticMeshDescription {}

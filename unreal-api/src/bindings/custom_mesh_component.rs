@@ -10,4 +10,9 @@ pub struct FCustomMeshTriangle {
     pub vertex1: crate::bindings::core_u_object::FVector,
     pub vertex2: crate::bindings::core_u_object::FVector,
 }
-pub struct UCustomMeshComponent {}
+impl FCustomMeshTriangle {}
+#[repr(C, align(16))]
+pub struct UCustomMeshComponent {
+    __padding_end: [u8; 1600],
+}
+impl UCustomMeshComponent {}

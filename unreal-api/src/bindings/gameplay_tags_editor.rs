@@ -4,22 +4,53 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
-pub struct UAssetDefinition_GameplayTagAssetBase {}
-pub struct UGameplayTagSearchFilter {}
-pub struct UGameplayTagsK2Node_LiteralGameplayTag {}
+#[repr(C, align(8))]
+pub struct UAssetDefinition_GameplayTagAssetBase {
+    __padding_end: [u8; 72],
+}
+impl UAssetDefinition_GameplayTagAssetBase {}
+#[repr(C, align(8))]
+pub struct UGameplayTagSearchFilter {
+    __padding_end: [u8; 48],
+}
+impl UGameplayTagSearchFilter {}
+#[repr(C, align(8))]
+pub struct UGameplayTagsK2Node_LiteralGameplayTag {
+    __padding_end: [u8; 192],
+}
+impl UGameplayTagsK2Node_LiteralGameplayTag {}
+#[repr(C, align(8))]
 pub struct UGameplayTagsK2Node_MultiCompareBase {
-    pub number_of_pins: i32,
-    pub pin_names: TArray<FName>,
+    __padding_end: [u8; 216],
 }
-pub struct UGameplayTagsK2Node_MultiCompareGameplayTagAssetInterface {}
-pub struct UGameplayTagsK2Node_MultiCompareGameplayTagAssetInterfaceSingleTags {}
-pub struct UGameplayTagsK2Node_MultiCompareGameplayTagContainer {}
-pub struct UGameplayTagsK2Node_MultiCompareGameplayTagContainerSingleTags {}
+impl UGameplayTagsK2Node_MultiCompareBase {}
+#[repr(C, align(8))]
+pub struct UGameplayTagsK2Node_MultiCompareGameplayTagAssetInterface {
+    __padding_end: [u8; 216],
+}
+impl UGameplayTagsK2Node_MultiCompareGameplayTagAssetInterface {}
+#[repr(C, align(8))]
+pub struct UGameplayTagsK2Node_MultiCompareGameplayTagAssetInterfaceSingleTags {
+    __padding_end: [u8; 216],
+}
+impl UGameplayTagsK2Node_MultiCompareGameplayTagAssetInterfaceSingleTags {}
+#[repr(C, align(8))]
+pub struct UGameplayTagsK2Node_MultiCompareGameplayTagContainer {
+    __padding_end: [u8; 216],
+}
+impl UGameplayTagsK2Node_MultiCompareGameplayTagContainer {}
+#[repr(C, align(8))]
+pub struct UGameplayTagsK2Node_MultiCompareGameplayTagContainerSingleTags {
+    __padding_end: [u8; 216],
+}
+impl UGameplayTagsK2Node_MultiCompareGameplayTagContainerSingleTags {}
+#[repr(C, align(8))]
 pub struct UGameplayTagsK2Node_SwitchGameplayTag {
-    pub pin_tags: TArray<crate::bindings::gameplay_tags::FGameplayTag>,
-    pub pin_names: TArray<FName>,
+    __padding_end: [u8; 256],
 }
+impl UGameplayTagsK2Node_SwitchGameplayTag {}
+#[repr(C, align(8))]
 pub struct UGameplayTagsK2Node_SwitchGameplayTagContainer {
-    pub pin_containers: TArray<crate::bindings::gameplay_tags::FGameplayTagContainer>,
-    pub pin_names: TArray<FName>,
+    __padding_end: [u8; 256],
 }
+impl UGameplayTagsK2Node_SwitchGameplayTagContainer {}

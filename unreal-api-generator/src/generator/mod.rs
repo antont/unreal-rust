@@ -6,8 +6,12 @@ use std::{
 
 use heck::{ToShoutySnakeCase, ToSnakeCase};
 use proc_macro2::{Literal, TokenStream};
-use quote::{ToTokens, format_ident, quote};
-use syn::Ident;
+use quote::{format_ident, quote};
+use serde_json::map::Iter;
+use syn::{
+    Ident,
+    token::{Else, Token},
+};
 
 pub fn module_name_from_package(package: &str) -> String {
     package
@@ -22,17 +26,29 @@ pub struct NameResolver {
 }
 
 impl NameResolver {
-    pub fn get_module_from_name(&self, name: &str) -> String {
-        self.name_to_module.get(name).cloned().unwrap_or_default()
+    fn get_type_ident(&self, current_module: Option<&str>, type_name: &str) -> TokenStream {
+        let ty_ident = format_ident!("{}", type_name);
+        if let Some(module) = self.name_to_module.get(type_name)
+            && current_module.map_or(true, |current_module| current_module != module)
+        {
+            let module_ident = format_ident!("{}", module);
+            quote! {
+                crate::bindings::#module_ident::#ty_ident
+            }
+        } else {
+            quote! {
+                #ty_ident
+            }
+        }
     }
 
     pub fn from(api: &Api) -> Self {
         let mut ty_to_module: HashMap<String, String> = HashMap::new();
-        for struct_def in &api.structs {
+        for struct_def in api.iter_structs() {
             let module_name = module_name_from_package(&struct_def.package);
             ty_to_module.insert(struct_def.struct_name.clone(), module_name);
         }
-        for class_name in &api.classes {
+        for class_name in api.iter_classes() {
             let module_name = module_name_from_package(&class_name.package);
             ty_to_module.insert(class_name.class_name.clone(), module_name);
         }
@@ -51,22 +67,21 @@ use crate::parse_api::{
     PropertyFlag, StructDefinition, Type, TypeUsageHint,
 };
 
-struct Context {
-    banned_pod_types: HashSet<String>,
-    structs: HashMap<String, StructDefinition>,
+pub struct Context {
+    name_resolver: NameResolver,
+}
+
+pub fn iter_properties(properties: &[Property]) -> impl Iterator<Item = &Property> {
+    properties.iter().filter(|p| {
+        p.flags.contains(&PropertyFlag::BlueprintReadOnly)
+            || p.flags.contains(&PropertyFlag::BlueprintReadWrite)
+    })
 }
 
 impl Context {
     pub fn new(api: &Api) -> Self {
-        let structs: HashMap<String, StructDefinition> = api
-            .structs
-            .iter()
-            .map(|struc_def| (struc_def.struct_name.clone(), struc_def.clone()))
-            .collect();
-
         Self {
-            banned_pod_types: HashSet::default(),
-            structs,
+            name_resolver: NameResolver::from(api),
         }
     }
 }
@@ -90,23 +105,114 @@ pub fn generate_opague(opague_def: &OpagueDefinition) -> Result<TokenStream, Box
         }
     })
 }
+pub fn generate_layout_tests(ctx: &Context, api: &Api) -> TokenStream {
+    let mut tokens: Vec<TokenStream> = Vec::new();
+
+    let class_tests = api
+        .iter_classes()
+        .map(|def| generate_layout_test(ctx, &def.class_name, &def.properties));
+    tokens.extend(class_tests);
+
+    let struct_tests = api
+        .iter_structs()
+        .map(|def| generate_layout_test(ctx, &def.struct_name, &def.properties));
+    tokens.extend(struct_tests);
+
+    quote! {
+        #[cfg(test)]
+        mod tests {
+            #(
+                #tokens
+            )*
+        }
+    }
+}
 
 pub fn generate_classes(
-    name_resolver: &NameResolver,
+    ctx: &Context,
     api: &Api,
 ) -> Result<HashMap<String, Vec<TokenStream>>, Box<dyn Error>> {
     let mut all_classes: HashMap<String, Vec<TokenStream>> = HashMap::new();
-    api.classes
-        .iter()
-        .filter_map(|class_def| generate_class(name_resolver, class_def).ok())
+    api.iter_classes()
+        .filter_map(|class_def| generate_class(ctx, class_def).ok())
         .for_each(|(module_name, tokens)| {
             all_classes.entry(module_name).or_default().push(tokens);
         });
 
     Ok(all_classes)
 }
+
+pub fn generate_layout_test(ctx: &Context, name: &str, properties: &[Property]) -> TokenStream {
+    let ty_ident = ctx.name_resolver.get_type_ident(None, name);
+    let property_tokens: Vec<TokenStream> = iter_properties(properties)
+        .filter_map(|property| {
+            // TODO: Verify bitfields
+            if let Type::Bitfield { .. } = &property.data_type {
+                return None;
+            }
+
+            let field_name = property_name(property);
+            let field_ident = format_ident!("{}", field_name);
+            let offset = property.offset as usize;
+            let q = quote! {
+                assert_eq!(std::mem::offset_of!(#ty_ident, #field_ident), #offset, #field_name);
+            };
+            Some(q)
+        })
+        .collect();
+
+    let fn_ident = format_ident!("verify_layout_{}", name);
+    quote! {
+        #[test]
+        #[allow(non_snake_case)]
+        fn #fn_ident()
+        {
+            #(
+                #property_tokens
+            )*
+        }
+    }
+}
+pub fn generate_layout_check(name: &str, properties: &[Property]) -> TokenStream {
+    let property_tokens: Vec<TokenStream> = iter_properties(properties)
+        .filter_map(|property| {
+            // TODO: Verify bitfields
+            if let Type::Bitfield { .. } = &property.data_type {
+                return None;
+            }
+
+            let ty_ident = format_ident!("{}", name);
+            let field_name = property_name(property);
+            let field_ident = format_ident!("{}", field_name);
+            let offset = property.offset as usize;
+            // let q = quote! {
+            //     assert_eq!(std::mem::offset_of!(#ty_ident, #field_ident), #offset, #field_name);
+            // };
+            let q = quote! {
+                log::warn!("{} = {} vs {}", #field_name, std::mem::offset_of!(#ty_ident, #field_ident), #offset);
+            };
+            Some(q)
+        })
+        .collect();
+
+    quote! {
+        pub fn verify_layout()
+        {
+            // const _: () = {
+            //     #(
+            //         #property_tokens
+            //     )*
+            // };
+            #(
+                #property_tokens
+            )*
+
+
+        }
+    }
+}
 pub fn generate_class(
-    name_resolver: &NameResolver,
+    ctx: &Context,
     class_def: &ClassDefinition,
 ) -> Result<(String, TokenStream), Box<dyn Error>> {
     let class_name = format_ident!("{}", class_def.class_name);
@@ -128,13 +234,53 @@ pub fn generate_class(
             }
         }
     } else {
-        let properties: Vec<TokenStream> =
-            generate_properties(&module_name, name_resolver, &class_def.properties);
-        quote! {
+        let alignment = Literal::u32_unsuffixed(class_def.min_alignment);
+
+        let PropertyInfo { tokens, offset } =
+            generate_properties(&module_name, ctx, &class_def.properties);
+
+        let end_padding = if offset < class_def.property_sizes as usize {
+            let padding_size =
+                Literal::usize_unsuffixed(class_def.property_sizes as usize - offset);
+            Some(quote! {
+                __padding_end: [u8; #padding_size]
+            })
+        } else {
+            None
+        };
+
+        let class_def_tokens = quote! {
+            #[repr(C, align(#alignment))]
             pub struct #class_name {
                 #(
-                    #properties,
+                    #tokens,
                 )*
+                #end_padding
+            }
+        };
+
+        let allow_list = [
+            "AActor",
+            "UCharacterMovementComponent",
+            "USceneComponent",
+            "UWorldPartition",
+            "UStaticMesh",
+            "UWidget",
+        ];
+        let layout_check_tokens = if allow_list.contains(&class_def.class_name.as_str()) {
+            Some(generate_layout_check(
+                &class_def.class_name,
+                &class_def.properties,
+            ))
+        } else {
+            None
+        };
+
+        quote! {
+            #class_def_tokens
+            impl #class_name
+            {
+                #layout_check_tokens
             }
         }
     };
@@ -143,13 +289,14 @@ pub fn generate_class(
 
 pub fn generate_type(
     current_module: &str,
-    name_resolver: &NameResolver,
+    ctx: &Context,
     ty: &Type,
 ) -> Result<TokenStream, Box<dyn Error>> {
-    match ty {
+    let inner_tokens = match ty {
         Type::Concrete {
             type_name,
             usage_hint,
+            ..
         } => {
             let rust_ty_str = match type_name.as_str() {
                 "float" => "f32",
@@ -165,68 +312,77 @@ pub fn generate_type(
                 rest => rest,
             };
 
-            let ty_name = format_ident!("{}", rust_ty_str);
-
-            let get_type_ident = |type_name: &str| -> TokenStream {
-                if let Some(module) = name_resolver.name_to_module.get(type_name)
-                    && module != current_module
-                {
-                    let module_ident = format_ident!("{}", module);
-                    quote! {
-                        crate::bindings::#module_ident::#ty_name
-                    }
-                } else {
-                    quote! {
-                        #ty_name
-                    }
-                }
-            };
-
             let ty_tokens = match *usage_hint {
                 Some(TypeUsageHint::UObject) => {
-                    let ty_ident = get_type_ident(type_name);
+                    let ty_ident = ctx
+                        .name_resolver
+                        .get_type_ident(Some(current_module), rust_ty_str);
                     quote! {UPtr<#ty_ident>}
                 }
                 Some(TypeUsageHint::ScriptInterface) => {
-                    let remapped_ty_name = if type_name.starts_with("I") {
-                        format!("U{}", type_name.split_at(1).1)
+                    let remapped_ty_name = if rust_ty_str.starts_with("I") {
+                        format!("U{}", rust_ty_str.split_at(1).1)
                     } else {
                         type_name.clone()
                     };
-                    let ty_ident = get_type_ident(&remapped_ty_name);
+                    let ty_ident = ctx
+                        .name_resolver
+                        .get_type_ident(Some(current_module), &remapped_ty_name);
                     quote! {TScriptInterface<#ty_ident>}
                 }
-                _ => get_type_ident(type_name),
+                _ => ctx
+                    .name_resolver
+                    .get_type_ident(Some(current_module), rust_ty_str),
             };
 
-            Ok(ty_tokens)
+            ty_tokens
         }
         Type::Container {
             container_type_name,
             inner_type,
+            ..
         } => {
             let container_ident = format_ident!("{}", container_type_name);
-            let inner_tokens = generate_type(current_module, name_resolver, inner_type)?;
+            let inner_tokens = generate_type(current_module, ctx, inner_type)?;
             let tokens = quote! {
                 #container_ident<#inner_tokens>
             };
-            Ok(tokens)
+            tokens
         }
         Type::Map {
             key_type,
             value_type,
+            ..
         } => {
-            let key_tokens = generate_type(current_module, name_resolver, key_type)?;
-            let value_tokens = generate_type(current_module, name_resolver, value_type)?;
+            let key_tokens = generate_type(current_module, ctx, key_type)?;
+            let value_tokens = generate_type(current_module, ctx, value_type)?;
             let tokens = quote! {
                 TMap<#key_tokens, #value_tokens>
             };
-            Ok(tokens)
+            tokens
         }
-        Type::Bitfield { .. } => Ok(quote! {
+        Type::Bitfield { .. } => quote! {
             u8
-        }),
-    }
+        },
+    };
+
+    let array_dim = match ty {
+        Type::Concrete { array_dim, .. } => *array_dim,
+        Type::Container { array_dim, .. } => *array_dim,
+        Type::Map { array_dim, .. } => *array_dim,
+        Type::Bitfield { .. } => 0,
+    };
+
+    let tokens = if array_dim > 1 {
+        let array_dim_lit = Literal::usize_unsuffixed(array_dim);
+        quote! {
+            [#inner_tokens; #array_dim_lit]
+        }
+    } else {
+        inner_tokens
+    };
+
+    return Ok(tokens);
 }
 pub fn sanitize_type_name(name: &str) -> &str {
     let trimmed_name = name.trim_start_matches("b_");
@@ -257,51 +413,51 @@ pub fn sanitize_parameter_name(name: &str) -> &str {
         name => name,
     }
 }
+fn align_up(offset: u32, align: u32) -> u32 {
+    (offset + (align - 1)) & !(align - 1)
+}
+
+pub struct PropertyInfo {
+    pub tokens: Vec<TokenStream>,
+    pub offset: usize,
+}
 
 pub fn generate_properties(
     current_module: &str,
-    name_resolver: &NameResolver,
-    properies: &[Property],
-) -> Vec<TokenStream> {
+    ctx: &Context,
+    properties: &[Property],
+) -> PropertyInfo {
     let mut bitfield_set: HashSet<u32> = HashSet::new();
 
     let mut current_offset: u32 = 0;
 
-    properies
-        .iter()
+    let tokens: Vec<_> = iter_properties(properties)
         .filter_map(|property| {
             if bitfield_set.contains(&property.offset) {
                 return None;
             }
-            let padding = property.offset - current_offset;
+
+            let padding = property.offset - align_up(current_offset, property.alignment);
             let padding_tokens = if padding > 0 {
                 let padding_lit = Literal::u32_unsuffixed(padding);
                 let padding_ident = format_ident!("__padding_{}", property.offset);
-                // quote! {
-                //     #[doc(hidden)]
-                //     #padding_ident: [u8; #padding_lit],
-                // }
-                quote! {}
+                quote! {
+                    #[doc(hidden)]
+                    #padding_ident: [u8; #padding_lit],
+                }
             } else {
                 quote! {}
             };
-            current_offset = property.offset;
+            current_offset = property.offset + property.size;
 
             let name_ident = if let Type::Bitfield { .. } = property.data_type {
                 bitfield_set.insert(property.offset);
                 format_ident!("flags_{}", property.offset)
             } else {
-                let snake_case_name = property.name.to_snake_case();
-
-                let postfix = if property.flags.contains(&PropertyFlag::Deprecated) {
-                    "_deprecated"
-                } else {
-                    ""
-                };
-                format_ident!("{}{}", sanitize_parameter_name(&snake_case_name), postfix)
+                format_ident!("{}", property_name(property))
             };
 
-            let ty = generate_type(current_module, name_resolver, &property.data_type).ok()?;
+            let ty = generate_type(current_module, ctx, &property.data_type).ok()?;
 
             let tokens = quote! {
                 #padding_tokens
@@ -310,16 +466,32 @@ pub fn generate_properties(
 
             Some(tokens)
         })
-        .collect()
+        .collect();
+
+    PropertyInfo {
+        tokens,
+        offset: current_offset as usize,
+    }
+}
+
+fn property_name(property: &Property) -> String {
+    let snake_case_name = property.name.to_snake_case();
+
+    let postfix = if property.flags.contains(&PropertyFlag::Deprecated) {
+        "_deprecated"
+    } else {
+        ""
+    };
+    format!("{}{}", sanitize_parameter_name(&snake_case_name), postfix)
 }
 
 pub fn generate_enum(
-    name_resolver: &NameResolver,
+    ctx: &Context,
     enum_def: &EnumDefinition,
 ) -> Result<(String, TokenStream), Box<dyn Error>> {
     let enum_name = format_ident!("{}", enum_def.enum_name);
     let module_name = module_name_from_package(&enum_def.package);
-    let ty = generate_type(&module_name, name_resolver, &enum_def.ty)?;
+    let ty = generate_type(&module_name, ctx, &enum_def.ty)?;
 
     let mut entry_name_idents = Vec::new();
     let mut entry_value_literals = Vec::new();
@@ -357,7 +529,6 @@ pub fn generate_enum(
     // TODO: Some of this could be enums but unreal has no information of which are bitflags, so
     // for now we just generate bitflags for every enum
     let tokens = quote! {
-        #[allow(non_camel_case_types)]
         #[repr(transparent)]
         pub struct #enum_name(pub #ty);
         impl #enum_name
@@ -372,13 +543,13 @@ pub fn generate_enum(
 }
 
 pub fn generate_enums(
-    name_resolver: &NameResolver,
+    ctx: &Context,
     api: &Api,
 ) -> Result<HashMap<String, Vec<TokenStream>>, Box<dyn Error>> {
     let mut all_enums: HashMap<String, Vec<TokenStream>> = HashMap::new();
     api.enums
         .iter()
-        .filter_map(|enum_def| generate_enum(name_resolver, enum_def).ok())
+        .filter_map(|enum_def| generate_enum(ctx, enum_def).ok())
         .for_each(|(module_name, tokens)| {
             all_enums.entry(module_name).or_default().push(tokens);
         });
@@ -405,15 +576,19 @@ pub fn generate_delegate(
     Ok((
         module_name,
         quote! {
-            pub struct #name;
+            #[repr(transparent)]
+            pub struct #name
+            {
+                _opague: u8
+            }
         },
     ))
 }
 pub fn generate_struct(
-    name_resolver: &NameResolver,
+    ctx: &Context,
     struct_def: &StructDefinition,
 ) -> Result<(String, TokenStream), Box<dyn Error>> {
-    let name = format_ident!("{}", struct_def.struct_name);
+    let struct_ident = format_ident!("{}", struct_def.struct_name);
     let alignment = Literal::u32_unsuffixed(struct_def.min_alignment);
     let module_name = struct_def
         .package
@@ -422,12 +597,43 @@ pub fn generate_struct(
         .unwrap()
         .to_snake_case();
 
-    let properties: Vec<TokenStream> =
-        generate_properties(&module_name, name_resolver, &struct_def.properties);
-    let tokens = quote! {
+    let PropertyInfo { tokens, offset } =
+        generate_properties(&module_name, ctx, &struct_def.properties);
+
+    let end_padding = if offset < struct_def.property_sizes as usize {
+        let padding_size = Literal::usize_unsuffixed(struct_def.property_sizes as usize - offset);
+        Some(quote! {
+            __padding_end: [u8; #padding_size]
+        })
+    } else {
+        None
+    };
+
+    let struct_def_tokens = quote! {
         #[repr(C, align(#alignment))]
-        pub struct #name {
-            #(#properties),*
+        pub struct #struct_ident {
+            #(
+                #tokens,
+            )*
+            #end_padding
+        }
+    };
+
+    let allow_list = ["FHitResult", "FBodyInstance"];
+    let layout_check_tokens = if allow_list.contains(&struct_def.struct_name.as_str()) {
+        Some(generate_layout_check(
+            &struct_def.struct_name,
+            &struct_def.properties,
+        ))
+    } else {
+        None
+    };
+
+    let tokens = quote! {
+        #struct_def_tokens
+        impl #struct_ident
+        {
+            #layout_check_tokens
         }
     };
 
@@ -435,19 +641,12 @@ pub fn generate_struct(
 }
 
 pub fn generate_structs(
-    name_resolver: &NameResolver,
+    ctx: &Context,
     api: &Api,
 ) -> Result<HashMap<String, Vec<TokenStream>>, Box<dyn Error>> {
     let mut all_pods: HashMap<String, Vec<TokenStream>> = HashMap::new();
-    api.structs
-        .iter()
-        .filter_map(|struct_def| {
-            // if !struct_def.is_plain_old_data {
-            //     return None;
-            // }
-
-            generate_struct(name_resolver, struct_def).ok()
-        })
+    api.iter_structs()
+        .filter_map(|struct_def| generate_struct(ctx, struct_def).ok())
         .for_each(|(module_name, tokens)| {
             all_pods.entry(module_name).or_default().push(tokens);
         });
@@ -456,26 +655,31 @@ pub fn generate_structs(
 }
 
 pub fn save_file(tokens: &TokenStream, path: &Path) {
-    let output = match syn::parse_file(&tokens.to_string()) {
+    let generated_output = match syn::parse_file(&tokens.to_string()) {
         Ok(syntax_tree) => prettyplease::unparse(&syntax_tree),
         Err(err) => {
             println!("{} {}", path.display(), err);
             tokens.to_string()
         }
     };
-    std::fs::write(path, output);
+    // TODO: Can probably be sped up with parsing hases but this works for now
+    // we don't want to resave the file if the output is exactly the same, this slows rust_analyzer
+    // down extemely as we would resave 500 modules
+    if let Ok(current_content) = std::fs::read_to_string(path)
+        && current_content == generated_output
+    {
+        return;
+    }
+    let _ = std::fs::write(path, generated_output);
 }
 
 pub fn generate_crate(api: &Api, out_path: &Path) -> Result<(), Box<dyn Error>> {
-    let name_resolver = NameResolver::from(api);
+    let ctx = Context::new(api);
 
-    let mut ctx = Context::new(api);
-    ctx.banned_pod_types.insert("FStateTreeAnyEnum".to_string());
-
-    let pods = generate_structs(&name_resolver, api)?;
-    let classes = generate_classes(&name_resolver, api)?;
+    let pods = generate_structs(&ctx, api)?;
+    let classes = generate_classes(&ctx, api)?;
     let delegates = generate_delegates(api)?;
-    let enum_defs = generate_enums(&name_resolver, api)?;
+    let enum_defs = generate_enums(&ctx, api)?;
     let mut modules: HashMap<String, Vec<TokenStream>> = HashMap::new();
 
     for (module_name, structs) in pods {
@@ -547,12 +751,14 @@ pub fn generate_crate(api: &Api, out_path: &Path) -> Result<(), Box<dyn Error>> 
         .map(|name| format_ident!("{}", name))
         .collect();
 
+    let mod_tests = generate_layout_tests(&ctx, api);
     let mod_tokens = quote! {
         #(
             pub mod #used_module_idents;
         )*
 
         pub mod opague_definitions;
+        #mod_tests
     };
 
     save_file(&mod_tokens, &out_path.join("mod.rs"));

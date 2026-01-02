@@ -4,7 +4,8 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
+#[repr(C, align(8))]
 pub struct UVisualStudioSourceCodeAccessSettings {
-    pub b_uproject: bool,
-    pub b_preview: bool,
+    __padding_end: [u8; 56],
 }
+impl UVisualStudioSourceCodeAccessSettings {}

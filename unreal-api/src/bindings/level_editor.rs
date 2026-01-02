@@ -4,44 +4,90 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
+#[repr(C, align(8))]
 pub struct ULevelEditorCameraEditorState {
-    pub camera_location: crate::bindings::core_u_object::FVector,
-    pub camera_rotation: crate::bindings::core_u_object::FRotator,
-    pub camera_fov_angle: f32,
+    __padding_end: [u8; 112],
 }
-pub struct ULevelEditorMenuContext {}
+impl ULevelEditorCameraEditorState {}
+#[repr(C, align(8))]
+pub struct ULevelEditorMenuContext {
+    __padding_end: [u8; 64],
+}
+impl ULevelEditorMenuContext {}
+#[repr(C, align(8))]
 pub struct ULevelEditorContextMenuContext {
+    #[doc(hidden)]
+    __padding_64: [u8; 64],
     pub context_type: ELevelEditorMenuContext,
     pub current_selection: UPtr<
         crate::bindings::typed_element_runtime::UTypedElementSelectionSet,
     >,
+    #[doc(hidden)]
+    __padding_96: [u8; 16],
     pub cursor_world_location: crate::bindings::core_u_object::FVector,
     pub selected_components: TArray<UPtr<crate::bindings::engine::UActorComponent>>,
     pub hit_proxy_actor: TWeakObjectPtr<crate::bindings::engine::AActor>,
 }
-pub struct ULevelViewportContext {}
-pub struct ULevelViewportToolBarContext {}
+impl ULevelEditorContextMenuContext {}
+#[repr(C, align(8))]
+pub struct ULevelViewportContext {
+    __padding_end: [u8; 64],
+}
+impl ULevelViewportContext {}
+#[repr(C, align(8))]
+pub struct ULevelViewportToolBarContext {
+    __padding_end: [u8; 64],
+}
+impl ULevelViewportToolBarContext {}
+#[repr(C, align(8))]
 pub struct UQuickActionMenuContext {
+    #[doc(hidden)]
+    __padding_48: [u8; 48],
     pub current_selection: UPtr<
         crate::bindings::typed_element_runtime::UTypedElementSelectionSet,
     >,
 }
+impl UQuickActionMenuContext {}
+#[repr(C, align(8))]
 pub struct ULevelEditorSubsystem {
-    pub on_pre_save_world: FLevelEditorSubsystem_OnPreSaveWorld,
-    pub on_post_save_world: FLevelEditorSubsystem_OnPostSaveWorld,
-    pub on_editor_camera_moved: FLevelEditorSubsystem_OnEditorCameraMoved,
-    pub on_map_changed: FLevelEditorSubsystem_OnMapChanged,
-    pub on_map_opened: FLevelEditorSubsystem_OnMapOpened,
+    __padding_end: [u8; 216],
 }
-pub struct ULightEditorSubsystem {}
-pub struct ULevelEditorUISubsystem {}
-pub struct ULegacyLevelViewportToolbarContext {}
-pub struct FLevelEditorSubsystem_OnPreSaveWorld;
-pub struct FLevelEditorSubsystem_OnPostSaveWorld;
-pub struct FLevelEditorSubsystem_OnEditorCameraMoved;
-pub struct FLevelEditorSubsystem_OnMapChanged;
-pub struct FLevelEditorSubsystem_OnMapOpened;
-#[allow(non_camel_case_types)]
+impl ULevelEditorSubsystem {}
+#[repr(C, align(8))]
+pub struct ULightEditorSubsystem {
+    __padding_end: [u8; 72],
+}
+impl ULightEditorSubsystem {}
+#[repr(C, align(8))]
+pub struct ULevelEditorUISubsystem {
+    __padding_end: [u8; 56],
+}
+impl ULevelEditorUISubsystem {}
+#[repr(C, align(8))]
+pub struct ULegacyLevelViewportToolbarContext {
+    __padding_end: [u8; 80],
+}
+impl ULegacyLevelViewportToolbarContext {}
+#[repr(transparent)]
+pub struct FLevelEditorSubsystem_OnPreSaveWorld {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FLevelEditorSubsystem_OnPostSaveWorld {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FLevelEditorSubsystem_OnEditorCameraMoved {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FLevelEditorSubsystem_OnMapChanged {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FLevelEditorSubsystem_OnMapOpened {
+    _opague: u8,
+}
 #[repr(transparent)]
 pub struct ELevelEditorMenuContext(pub u8);
 impl ELevelEditorMenuContext {

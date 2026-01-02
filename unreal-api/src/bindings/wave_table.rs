@@ -6,50 +6,24 @@ pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[repr(C, align(8))]
 pub struct FWaveTableData {
-    pub bit_depth: EWaveTableBitDepth,
-    pub data: TArray<u8>,
-    pub final_value: f32,
+    __padding_end: [u8; 32],
 }
-#[repr(C, align(8))]
-pub struct FWaveTableBankEntry {
-    pub transform: FWaveTableTransform,
-}
+impl FWaveTableData {}
 #[repr(C, align(8))]
 pub struct FWaveTableTransform {
     pub curve: EWaveTableCurve,
     pub scalar: f32,
-    pub curve_custom: crate::bindings::engine::FRichCurve,
+    #[doc(hidden)]
+    __padding_136: [u8; 128],
     pub curve_shared: UPtr<crate::bindings::engine::UCurveFloat>,
-    pub table_data: FWaveTableData,
-    pub duration: f32,
-    pub wave_table_settings: FWaveTableSettings,
-    pub wave_table: TArray<f32>,
-    pub final_value: f32,
+    __padding_end: [u8; 168],
 }
+impl FWaveTableTransform {}
 #[repr(C, align(8))]
-pub struct FWaveTableSettings {
-    pub file_path: crate::bindings::core_u_object::FFilePath,
-    pub channel_index: i32,
-    pub source_data: FWaveTableData,
-    pub source_sample_rate: i32,
-    pub phase: f32,
-    pub top: f32,
-    pub tail: f32,
-    pub fade_in: f32,
-    pub fade_out: f32,
-    pub b_normalize: bool,
-    pub b_remove_offset: bool,
-    pub source_pcm_data: TArray<f32>,
-}
 pub struct UWaveTableBank {
-    pub sample_mode: EWaveTableSamplingMode,
-    pub resolution: EWaveTableResolution,
-    pub sample_rate: i32,
-    pub b_bipolar: bool,
-    pub wave_table_size_mb: f32,
-    pub entries: TArray<FWaveTableBankEntry>,
+    __padding_end: [u8; 112],
 }
-#[allow(non_camel_case_types)]
+impl UWaveTableBank {}
 #[repr(transparent)]
 pub struct EWaveTableBitDepth(pub u8);
 impl EWaveTableBitDepth {
@@ -57,7 +31,6 @@ impl EWaveTableBitDepth {
     pub const IEEE_FLOAT: EWaveTableBitDepth = EWaveTableBitDepth(1);
     pub const COUNT: EWaveTableBitDepth = EWaveTableBitDepth(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EWaveTableCurve(pub u8);
 impl EWaveTableCurve {
@@ -74,7 +47,6 @@ impl EWaveTableCurve {
     pub const FILE: EWaveTableCurve = EWaveTableCurve(10);
     pub const COUNT: EWaveTableCurve = EWaveTableCurve(11);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EWaveTableSamplingMode(pub u8);
 impl EWaveTableSamplingMode {
@@ -82,7 +54,6 @@ impl EWaveTableSamplingMode {
     pub const FIXED_RESOLUTION: EWaveTableSamplingMode = EWaveTableSamplingMode(1);
     pub const COUNT: EWaveTableSamplingMode = EWaveTableSamplingMode(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EWaveTableResolution(pub u8);
 impl EWaveTableResolution {

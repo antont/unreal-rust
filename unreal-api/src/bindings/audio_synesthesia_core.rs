@@ -14,6 +14,7 @@ pub struct FLKFSResults {
     pub integrated_loudness: f32,
     pub gated_loudness: f32,
 }
+impl FLKFSResults {}
 #[repr(C, align(4))]
 pub struct FLKFSNRTResults {
     pub channel: i32,
@@ -22,20 +23,10 @@ pub struct FLKFSNRTResults {
     pub loudness: f32,
     pub short_term_loudness: f32,
 }
+impl FLKFSNRTResults {}
 #[repr(C, align(4))]
 pub struct FLKFSNRTAggregateStats {
     pub integrated_loudness: f32,
     pub gated_loudness: f32,
 }
-#[repr(C, align(8))]
-pub struct FLKFSNRTChannelData {
-    pub aggregate_stats: FLKFSNRTAggregateStats,
-    pub loudness_array: TArray<FLKFSNRTResults>,
-    pub loudness_interval: crate::bindings::core_u_object::FFloatInterval,
-}
-#[repr(C, align(8))]
-pub struct FLKFSNRTWaveData {
-    pub b_is_sorted_chronologically: bool,
-    pub duration_in_seconds: f32,
-    pub channel_data: TMap<i32, FLKFSNRTChannelData>,
-}
+impl FLKFSNRTAggregateStats {}

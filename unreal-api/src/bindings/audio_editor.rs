@@ -5,119 +5,235 @@
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[repr(C, align(8))]
-pub struct FAudioPlatform {
-    pub display_name: FString,
-    pub module_name: FString,
+pub struct UAssetDefinition_AudioBus {
+    __padding_end: [u8; 72],
 }
+impl UAssetDefinition_AudioBus {}
 #[repr(C, align(8))]
-pub struct FSoundClassGraphSchemaAction_NewNode {}
-#[repr(C, align(8))]
-pub struct FSoundCueGraphSchemaAction_NewNode {
-    pub sound_node_class: TSubclassOf<crate::bindings::engine::USoundNode>,
+pub struct UAssetDefinition_DialogueVoice {
+    __padding_end: [u8; 72],
 }
+impl UAssetDefinition_DialogueVoice {}
 #[repr(C, align(8))]
-pub struct FSoundCueGraphSchemaAction_NewFromSelected {}
+pub struct UAssetDefinition_ReverbEffect {
+    __padding_end: [u8; 72],
+}
+impl UAssetDefinition_ReverbEffect {}
 #[repr(C, align(8))]
-pub struct FSoundCueGraphSchemaAction_NewComment {}
+pub struct UAssetDefinition_SoundAttenuation {
+    __padding_end: [u8; 72],
+}
+impl UAssetDefinition_SoundAttenuation {}
 #[repr(C, align(8))]
-pub struct FSoundCueGraphSchemaAction_Paste {}
+pub struct UAssetDefinition_SoundConcurrency {
+    __padding_end: [u8; 72],
+}
+impl UAssetDefinition_SoundConcurrency {}
 #[repr(C, align(8))]
-pub struct FSoundSubmixGraphSchemaAction_NewNode {}
-pub struct UAssetDefinition_AudioBus {}
-pub struct UAssetDefinition_DialogueVoice {}
-pub struct UAssetDefinition_ReverbEffect {}
-pub struct UAssetDefinition_SoundAttenuation {}
-pub struct UAssetDefinition_SoundConcurrency {}
-pub struct UAssetDefinition_SoundMix {}
-pub struct UAssetDefinition_SoundAssetBase {}
-pub struct UAssetDefinition_SoundBase {}
-pub struct UAssetDefinition_SoundSourceBus {}
+pub struct UAssetDefinition_SoundMix {
+    __padding_end: [u8; 72],
+}
+impl UAssetDefinition_SoundMix {}
+#[repr(C, align(8))]
+pub struct UAssetDefinition_SoundAssetBase {
+    __padding_end: [u8; 72],
+}
+impl UAssetDefinition_SoundAssetBase {}
+#[repr(C, align(8))]
+pub struct UAssetDefinition_SoundBase {
+    __padding_end: [u8; 72],
+}
+impl UAssetDefinition_SoundBase {}
+#[repr(C, align(8))]
+pub struct UAssetDefinition_SoundSourceBus {
+    __padding_end: [u8; 72],
+}
+impl UAssetDefinition_SoundSourceBus {}
+#[repr(C, align(8))]
 pub struct UAudioEditorPerProjectUserSettings {
-    pub use_template_sound_wave_during_asset_import: EUseTemplateSoundWaveDuringAssetImport,
+    __padding_end: [u8; 112],
 }
-pub struct UAssetDefinition_SoundCue {}
-pub struct UAssetDefinition_SoundWave {}
+impl UAudioEditorPerProjectUserSettings {}
+#[repr(C, align(8))]
+pub struct UAssetDefinition_SoundCue {
+    __padding_end: [u8; 72],
+}
+impl UAssetDefinition_SoundCue {}
+#[repr(C, align(8))]
+pub struct UAssetDefinition_SoundWave {
+    __padding_end: [u8; 72],
+}
+impl UAssetDefinition_SoundWave {}
+#[repr(C, align(8))]
 pub struct UAudioEditorSettings {
-    pub b_use_audio_attenuation: bool,
-    pub b_pin_sound_cue_in_asset_menu: bool,
-    pub b_pin_sound_cue_template_in_asset_menu: bool,
-    pub b_pin_sound_attenuation_in_asset_menu: bool,
-    pub b_pin_sound_concurrency_in_asset_menu: bool,
-    pub audio_mixer_module_name: FString,
-    pub b_use_system_device: bool,
-    pub audio_output_device_id: FString,
-    pub audio_mixer_platforms: TArray<FAudioPlatform>,
-    pub b_use_submixes_for_preview_sound: bool,
-    pub menu_position: FName,
+    __padding_end: [u8; 184],
 }
-pub struct UAudioBusFactory {}
-pub struct UDialogueVoiceFactory {}
+impl UAudioEditorSettings {}
+#[repr(C, align(8))]
+pub struct UAudioBusFactory {
+    __padding_end: [u8; 136],
+}
+impl UAudioBusFactory {}
+#[repr(C, align(8))]
+pub struct UDialogueVoiceFactory {
+    __padding_end: [u8; 136],
+}
+impl UDialogueVoiceFactory {}
+#[repr(C, align(8))]
 pub struct UDialogueWaveFactory {
-    pub initial_sound_wave: UPtr<crate::bindings::engine::USoundWave>,
-    pub initial_speaker_voice: UPtr<crate::bindings::engine::UDialogueVoice>,
-    pub has_set_initial_target_voice: bool,
-    pub initial_target_voices: TArray<UPtr<crate::bindings::engine::UDialogueVoice>>,
+    __padding_end: [u8; 176],
 }
+impl UDialogueWaveFactory {}
+#[repr(C, align(8))]
 pub struct USoundFactory {
-    pub flags_136: u8,
-    pub cue_volume: f32,
-    pub cue_package_suffix: FString,
+    __padding_end: [u8; 176],
 }
-pub struct UReimportSoundFactory {}
-pub struct UReverbEffectFactory {}
-pub struct USoundAttenuationFactory {}
-pub struct USoundClassFactory {}
-pub struct USoundConcurrencyFactory {}
+impl USoundFactory {}
+#[repr(C, align(8))]
+pub struct UReimportSoundFactory {
+    __padding_end: [u8; 216],
+}
+impl UReimportSoundFactory {}
+#[repr(C, align(8))]
+pub struct UReverbEffectFactory {
+    __padding_end: [u8; 136],
+}
+impl UReverbEffectFactory {}
+#[repr(C, align(8))]
+pub struct USoundAttenuationFactory {
+    __padding_end: [u8; 136],
+}
+impl USoundAttenuationFactory {}
+#[repr(C, align(8))]
+pub struct USoundClassFactory {
+    __padding_end: [u8; 136],
+}
+impl USoundClassFactory {}
+#[repr(C, align(8))]
+pub struct USoundConcurrencyFactory {
+    __padding_end: [u8; 136],
+}
+impl USoundConcurrencyFactory {}
+#[repr(C, align(8))]
 pub struct USoundCueFactoryNew {
-    pub initial_sound_wave: UPtr<crate::bindings::engine::USoundWave>,
-    pub initial_sound_waves: TArray<TWeakObjectPtr<crate::bindings::engine::USoundWave>>,
-    pub initial_dialogue_wave: UPtr<crate::bindings::engine::UDialogueWave>,
-    pub initial_dialogue_waves: TArray<
-        TWeakObjectPtr<crate::bindings::engine::UDialogueWave>,
-    >,
+    __padding_end: [u8; 184],
 }
-pub struct USoundMixFactory {}
-pub struct USoundSourceBusFactory {}
+impl USoundCueFactoryNew {}
+#[repr(C, align(8))]
+pub struct USoundMixFactory {
+    __padding_end: [u8; 136],
+}
+impl USoundMixFactory {}
+#[repr(C, align(8))]
+pub struct USoundSourceBusFactory {
+    __padding_end: [u8; 136],
+}
+impl USoundSourceBusFactory {}
+#[repr(C, align(8))]
 pub struct USoundSourceEffectFactory {
-    pub sound_effect_sourcepreset_class: TSubclassOf<
-        crate::bindings::engine::USoundEffectSourcePreset,
-    >,
+    __padding_end: [u8; 144],
 }
-pub struct USoundSourceEffectChainFactory {}
+impl USoundSourceEffectFactory {}
+#[repr(C, align(8))]
+pub struct USoundSourceEffectChainFactory {
+    __padding_end: [u8; 136],
+}
+impl USoundSourceEffectChainFactory {}
+#[repr(C, align(8))]
 pub struct USoundSubmixEffectFactory {
-    pub sound_effect_submix_preset_class: TSubclassOf<
-        crate::bindings::engine::USoundEffectSubmixPreset,
-    >,
+    __padding_end: [u8; 144],
 }
-pub struct USoundSubmixFactory {}
-pub struct USoundfieldSubmixFactory {}
-pub struct UEndpointSubmixFactory {}
-pub struct USoundfieldEndpointSubmixFactory {}
-pub struct USoundClassGraph {}
+impl USoundSubmixEffectFactory {}
+#[repr(C, align(8))]
+pub struct USoundSubmixFactory {
+    __padding_end: [u8; 136],
+}
+impl USoundSubmixFactory {}
+#[repr(C, align(8))]
+pub struct USoundfieldSubmixFactory {
+    __padding_end: [u8; 136],
+}
+impl USoundfieldSubmixFactory {}
+#[repr(C, align(8))]
+pub struct UEndpointSubmixFactory {
+    __padding_end: [u8; 136],
+}
+impl UEndpointSubmixFactory {}
+#[repr(C, align(8))]
+pub struct USoundfieldEndpointSubmixFactory {
+    __padding_end: [u8; 136],
+}
+impl USoundfieldEndpointSubmixFactory {}
+#[repr(C, align(8))]
+pub struct USoundClassGraph {
+    __padding_end: [u8; 200],
+}
+impl USoundClassGraph {}
+#[repr(C, align(8))]
 pub struct USoundClassGraphNode {
-    pub sound_class: UPtr<crate::bindings::engine::USoundClass>,
+    __padding_end: [u8; 216],
 }
-pub struct USoundClassGraphSchema {}
-pub struct USoundEffectSourcePresetClassTemplate {}
-pub struct USoundEffectSubmixPresetClassTemplate {}
-pub struct USynthComponentClassTemplate {}
-pub struct USoundCueGraph {}
-pub struct USoundCueGraphNode_Base {}
+impl USoundClassGraphNode {}
+#[repr(C, align(8))]
+pub struct USoundClassGraphSchema {
+    __padding_end: [u8; 48],
+}
+impl USoundClassGraphSchema {}
+#[repr(C, align(8))]
+pub struct USoundEffectSourcePresetClassTemplate {
+    __padding_end: [u8; 56],
+}
+impl USoundEffectSourcePresetClassTemplate {}
+#[repr(C, align(8))]
+pub struct USoundEffectSubmixPresetClassTemplate {
+    __padding_end: [u8; 56],
+}
+impl USoundEffectSubmixPresetClassTemplate {}
+#[repr(C, align(8))]
+pub struct USynthComponentClassTemplate {
+    __padding_end: [u8; 56],
+}
+impl USynthComponentClassTemplate {}
+#[repr(C, align(8))]
+pub struct USoundCueGraph {
+    __padding_end: [u8; 192],
+}
+impl USoundCueGraph {}
+#[repr(C, align(8))]
+pub struct USoundCueGraphNode_Base {
+    __padding_end: [u8; 192],
+}
+impl USoundCueGraphNode_Base {}
+#[repr(C, align(8))]
 pub struct USoundCueGraphNode {
-    pub sound_node: UPtr<crate::bindings::engine::USoundNode>,
+    __padding_end: [u8; 200],
 }
-pub struct USoundCueGraphNode_Root {}
-pub struct USoundCueGraphSchema {}
+impl USoundCueGraphNode {}
+#[repr(C, align(8))]
+pub struct USoundCueGraphNode_Root {
+    __padding_end: [u8; 192],
+}
+impl USoundCueGraphNode_Root {}
+#[repr(C, align(8))]
+pub struct USoundCueGraphSchema {
+    __padding_end: [u8; 64],
+}
+impl USoundCueGraphSchema {}
+#[repr(C, align(8))]
 pub struct USoundSubmixGraph {
-    pub root_sound_submix: UPtr<crate::bindings::engine::USoundSubmixBase>,
-    pub stale_roots: TArray<UPtr<crate::bindings::engine::USoundSubmixBase>>,
+    __padding_end: [u8; 216],
 }
+impl USoundSubmixGraph {}
+#[repr(C, align(8))]
 pub struct USoundSubmixGraphNode {
-    pub sound_submix: UPtr<crate::bindings::engine::USoundSubmixBase>,
-    pub submix_node_user_widget: UPtr<crate::bindings::umg::UUserWidget>,
+    __padding_end: [u8; 224],
 }
-pub struct USoundSubmixGraphSchema {}
-#[allow(non_camel_case_types)]
+impl USoundSubmixGraphNode {}
+#[repr(C, align(8))]
+pub struct USoundSubmixGraphSchema {
+    __padding_end: [u8; 48],
+}
+impl USoundSubmixGraphSchema {}
 #[repr(transparent)]
 pub struct EUseTemplateSoundWaveDuringAssetImport(pub u8);
 impl EUseTemplateSoundWaveDuringAssetImport {

@@ -4,41 +4,6 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
-#[repr(C, align(8))]
-pub struct FManagedArrayCollection {}
-#[repr(C, align(8))]
-pub struct FFieldCollection {}
-#[repr(C, align(4))]
-pub struct FChaosSolverDestructionSettings {
-    pub per_advance_breaks_allowed: i32,
-    pub per_advance_breaks_reschedule_limit: i32,
-    pub clustering_particle_release_throttling_min_count: i32,
-    pub clustering_particle_release_throttling_max_count: i32,
-    pub b_optimize_for_runtime_memory: bool,
-}
-#[repr(C, align(4))]
-pub struct FChaosSolverConfiguration {
-    pub position_iterations: i32,
-    pub velocity_iterations: i32,
-    pub projection_iterations: i32,
-    pub collision_margin_fraction: f32,
-    pub collision_margin_max: f32,
-    pub collision_cull_distance: f32,
-    pub collision_max_push_out_velocity: f32,
-    pub collision_initial_overlap_depenetration_velocity: f32,
-    pub cluster_connection_factor: f32,
-    pub cluster_union_connection_type: EClusterUnionMethod,
-    pub destruction_settings: FChaosSolverDestructionSettings,
-    pub b_generate_collision_data: bool,
-    pub collision_filter_settings: FSolverCollisionFilterSettings,
-    pub b_generate_break_data: bool,
-    pub breaking_filter_settings: FSolverBreakingFilterSettings,
-    pub b_generate_trailing_data: bool,
-    pub trailing_filter_settings: FSolverTrailingFilterSettings,
-    pub iterations_deprecated: i32,
-    pub push_out_iterations_deprecated: i32,
-    pub b_generate_contact_graph_deprecated: bool,
-}
 #[repr(C, align(4))]
 pub struct FSolverTrailingFilterSettings {
     pub filter_enabled: bool,
@@ -46,6 +11,7 @@ pub struct FSolverTrailingFilterSettings {
     pub min_speed: f32,
     pub min_volume: f32,
 }
+impl FSolverTrailingFilterSettings {}
 #[repr(C, align(4))]
 pub struct FSolverBreakingFilterSettings {
     pub filter_enabled: bool,
@@ -53,6 +19,7 @@ pub struct FSolverBreakingFilterSettings {
     pub min_speed: f32,
     pub min_volume: f32,
 }
+impl FSolverBreakingFilterSettings {}
 #[repr(C, align(4))]
 pub struct FSolverCollisionFilterSettings {
     pub filter_enabled: bool,
@@ -60,79 +27,19 @@ pub struct FSolverCollisionFilterSettings {
     pub min_speed: f32,
     pub min_impulse: f32,
 }
+impl FSolverCollisionFilterSettings {}
 #[repr(C, align(8))]
-pub struct FClosestPhysicsObjectResult {}
-#[repr(C, align(8))]
-pub struct FSerializedSolverScene {
-    pub particle_data: TArray<
-        crate::bindings::chaos_vd_runtime::FChaosVDParticleDataWrapper,
-    >,
-    pub joint_constraint_data: TArray<
-        crate::bindings::chaos_vd_runtime::FChaosVDJointConstraint,
-    >,
-    pub character_ground_constraint_data: TArray<
-        crate::bindings::chaos_vd_runtime::FChaosVDCharacterGroundConstraint,
-    >,
-    pub collision_mid_phase_data: TArray<
-        crate::bindings::chaos_vd_runtime::FChaosVDParticlePairMidPhase,
-    >,
+pub struct FClosestPhysicsObjectResult {
+    __padding_end: [u8; 40],
 }
-#[repr(C, align(8))]
-pub struct FSolverCollisionData {
-    pub location: crate::bindings::core_u_object::FVector,
-    pub accumulated_impulse: crate::bindings::core_u_object::FVector,
-    pub normal: crate::bindings::core_u_object::FVector,
-    pub velocity1: crate::bindings::core_u_object::FVector,
-    pub velocity2: crate::bindings::core_u_object::FVector,
-    pub angular_velocity1: crate::bindings::core_u_object::FVector,
-    pub angular_velocity2: crate::bindings::core_u_object::FVector,
-    pub mass1: f32,
-    pub mass2: f32,
-    pub particle_index: i32,
-    pub levelset_index: i32,
-    pub particle_index_mesh: i32,
-    pub levelset_index_mesh: i32,
-}
-#[repr(C, align(8))]
-pub struct FSolverBreakingData {
-    pub location: crate::bindings::core_u_object::FVector,
-    pub velocity: crate::bindings::core_u_object::FVector,
-    pub angular_velocity: crate::bindings::core_u_object::FVector,
-    pub mass: f32,
-    pub particle_index: i32,
-    pub particle_index_mesh: i32,
-}
-#[repr(C, align(8))]
-pub struct FSolverTrailingData {
-    pub location: crate::bindings::core_u_object::FVector,
-    pub velocity: crate::bindings::core_u_object::FVector,
-    pub angular_velocity: crate::bindings::core_u_object::FVector,
-    pub mass: f32,
-    pub particle_index: i32,
-    pub particle_index_mesh: i32,
-}
-#[repr(C, align(8))]
-pub struct FRecordedFrame {
-    pub transforms: TArray<crate::bindings::core_u_object::FTransform>,
-    pub transform_indices: TArray<i32>,
-    pub previous_transform_indices: TArray<i32>,
-    pub disabled_flags: TArray<bool>,
-    pub collisions: TArray<FSolverCollisionData>,
-    pub breakings: TArray<FSolverBreakingData>,
-    pub trailings: TSet<FSolverTrailingData>,
-    pub timestamp: f32,
-}
-#[repr(C, align(8))]
-pub struct FRecordedTransformTrack {
-    pub records: TArray<FRecordedFrame>,
-}
+impl FClosestPhysicsObjectResult {}
 #[repr(C, align(4))]
 pub struct FSolverRemovalFilterSettings {
     pub filter_enabled: bool,
     pub min_mass: f32,
     pub min_volume: f32,
 }
-#[allow(non_camel_case_types)]
+impl FSolverRemovalFilterSettings {}
 #[repr(transparent)]
 pub struct EGeometryCollectionCacheType(pub u8);
 impl EGeometryCollectionCacheType {
@@ -143,7 +50,6 @@ impl EGeometryCollectionCacheType {
         3,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EClusterUnionMethod(pub u8);
 impl EClusterUnionMethod {
@@ -160,14 +66,12 @@ impl EClusterUnionMethod {
     );
     pub const NONE: EClusterUnionMethod = EClusterUnionMethod(5);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ECollisionTypeEnum(pub u8);
 impl ECollisionTypeEnum {
     pub const CHAOS_VOLUMETRIC: ECollisionTypeEnum = ECollisionTypeEnum(0);
     pub const CHAOS_SURFACE_VOLUMETRIC: ECollisionTypeEnum = ECollisionTypeEnum(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EImplicitTypeEnum(pub u8);
 impl EImplicitTypeEnum {
@@ -178,7 +82,6 @@ impl EImplicitTypeEnum {
     pub const CHAOS_IMPLICIT_NONE: EImplicitTypeEnum = EImplicitTypeEnum(4);
     pub const CHAOS_IMPLICIT_CONVEX: EImplicitTypeEnum = EImplicitTypeEnum(5);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EChaosThreadingMode(pub u8);
 impl EChaosThreadingMode {
@@ -188,7 +91,6 @@ impl EChaosThreadingMode {
     pub const NUM: EChaosThreadingMode = EChaosThreadingMode(3);
     pub const INVALID: EChaosThreadingMode = EChaosThreadingMode(4);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EChaosSolverTickMode(pub u8);
 impl EChaosSolverTickMode {
@@ -199,7 +101,6 @@ impl EChaosSolverTickMode {
         3,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EChaosBufferMode(pub u8);
 impl EChaosBufferMode {
@@ -208,7 +109,6 @@ impl EChaosBufferMode {
     pub const NUM: EChaosBufferMode = EChaosBufferMode(2);
     pub const INVALID: EChaosBufferMode = EChaosBufferMode(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EGenerateConvexMethod(pub u8);
 impl EGenerateConvexMethod {
@@ -218,21 +118,18 @@ impl EGenerateConvexMethod {
         2,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EAllowConvexMergeMethod(pub u8);
 impl EAllowConvexMergeMethod {
     pub const BY_PROXIMITY: EAllowConvexMergeMethod = EAllowConvexMergeMethod(0);
     pub const ANY: EAllowConvexMergeMethod = EAllowConvexMergeMethod(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EConvexHullProximityFilter(pub u8);
 impl EConvexHullProximityFilter {
     pub const NONE: EConvexHullProximityFilter = EConvexHullProximityFilter(0);
     pub const BOUNDING_BOX: EConvexHullProximityFilter = EConvexHullProximityFilter(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EGeometryCollectionPhysicsTypeEnum(pub u8);
 impl EGeometryCollectionPhysicsTypeEnum {
@@ -276,7 +173,6 @@ impl EGeometryCollectionPhysicsTypeEnum {
         12,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EDamageModelTypeEnum(pub u8);
 impl EDamageModelTypeEnum {
@@ -287,7 +183,6 @@ impl EDamageModelTypeEnum {
         1,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EFieldPhysicsType(pub u8);
 impl EFieldPhysicsType {
@@ -312,7 +207,6 @@ impl EFieldPhysicsType {
     pub const FIELD_INITIAL_ANGULAR_VELOCITY: EFieldPhysicsType = EFieldPhysicsType(18);
     pub const FIELD_LINEAR_IMPULSE: EFieldPhysicsType = EFieldPhysicsType(19);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EFieldResolutionType(pub u8);
 impl EFieldResolutionType {
@@ -321,7 +215,6 @@ impl EFieldResolutionType {
         1,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EFieldFilterType(pub u8);
 impl EFieldFilterType {
@@ -332,7 +225,6 @@ impl EFieldFilterType {
     pub const FIELD_FILTER_SLEEPING: EFieldFilterType = EFieldFilterType(4);
     pub const FIELD_FILTER_DISABLED: EFieldFilterType = EFieldFilterType(5);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EFieldObjectType(pub u8);
 impl EFieldObjectType {
@@ -342,14 +234,12 @@ impl EFieldObjectType {
     pub const FIELD_OBJECT_CHARACTER: EFieldObjectType = EFieldObjectType(3);
     pub const FIELD_OBJECT_ALL: EFieldObjectType = EFieldObjectType(4);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EFieldPositionType(pub u8);
 impl EFieldPositionType {
     pub const FIELD_POSITION_CENTER_OF_MASS: EFieldPositionType = EFieldPositionType(0);
     pub const FIELD_POSITION_PIVOT_POINT: EFieldPositionType = EFieldPositionType(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ESetMaskConditionType(pub u8);
 impl ESetMaskConditionType {
@@ -361,7 +251,6 @@ impl ESetMaskConditionType {
         2,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EWaveFunctionType(pub u8);
 impl EWaveFunctionType {
@@ -370,7 +259,6 @@ impl EWaveFunctionType {
     pub const FIELD_WAVE_FALLOFF: EWaveFunctionType = EWaveFunctionType(2);
     pub const FIELD_WAVE_DECAY: EWaveFunctionType = EWaveFunctionType(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EFieldFalloffType(pub u8);
 impl EFieldFalloffType {
@@ -380,7 +268,6 @@ impl EFieldFalloffType {
     pub const FIELD_FALLOFF_SQUARED: EFieldFalloffType = EFieldFalloffType(3);
     pub const FIELD_FALLOFF_LOGARITHMIC: EFieldFalloffType = EFieldFalloffType(4);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EFieldOperationType(pub u8);
 impl EFieldOperationType {
@@ -389,7 +276,6 @@ impl EFieldOperationType {
     pub const FIELD_ADD: EFieldOperationType = EFieldOperationType(2);
     pub const FIELD_SUBSTRACT: EFieldOperationType = EFieldOperationType(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EFieldCullingOperationType(pub u8);
 impl EFieldCullingOperationType {
@@ -400,7 +286,6 @@ impl EFieldCullingOperationType {
         1,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EFieldIntegerType(pub u8);
 impl EFieldIntegerType {
@@ -411,7 +296,6 @@ impl EFieldIntegerType {
     pub const INTEGER_POSITION_STATIC: EFieldIntegerType = EFieldIntegerType(4);
     pub const INTEGER_TARGET_MAX: EFieldIntegerType = EFieldIntegerType(5);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EFieldScalarType(pub u8);
 impl EFieldScalarType {
@@ -423,7 +307,6 @@ impl EFieldScalarType {
     pub const SCALAR_DYNAMIC_CONSTRAINT: EFieldScalarType = EFieldScalarType(5);
     pub const SCALAR_TARGET_MAX: EFieldScalarType = EFieldScalarType(6);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EFieldVectorType(pub u8);
 impl EFieldVectorType {
@@ -437,7 +320,6 @@ impl EFieldVectorType {
     pub const VECTOR_LINEAR_IMPULSE: EFieldVectorType = EFieldVectorType(7);
     pub const VECTOR_TARGET_MAX: EFieldVectorType = EFieldVectorType(8);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EObjectStateTypeEnum(pub u8);
 impl EObjectStateTypeEnum {
@@ -450,7 +332,6 @@ impl EObjectStateTypeEnum {
         100,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EInitialVelocityTypeEnum(pub u8);
 impl EInitialVelocityTypeEnum {
@@ -461,7 +342,6 @@ impl EInitialVelocityTypeEnum {
         1,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EChaosSoftsSimulationSpace(pub u8);
 impl EChaosSoftsSimulationSpace {
@@ -473,7 +353,6 @@ impl EChaosSoftsSimulationSpace {
         2,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EConvexOverlapRemoval(pub i32);
 impl EConvexOverlapRemoval {
@@ -484,14 +363,12 @@ impl EConvexOverlapRemoval {
         3,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EProximityMethod(pub i32);
 impl EProximityMethod {
     pub const PRECISE: EProximityMethod = EProximityMethod(0);
     pub const CONVEX_HULL: EProximityMethod = EProximityMethod(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EConnectionContactMethod(pub u8);
 impl EConnectionContactMethod {
@@ -500,7 +377,6 @@ impl EConnectionContactMethod {
         1,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EProximityContactMethod(pub u8);
 impl EProximityContactMethod {

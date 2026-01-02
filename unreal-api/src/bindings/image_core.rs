@@ -5,5 +5,12 @@
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[repr(C, align(8))]
-pub struct FSharedImageConstRefBlueprint {}
-pub struct USharedImageConstRefBlueprintFns {}
+pub struct FSharedImageConstRefBlueprint {
+    __padding_end: [u8; 8],
+}
+impl FSharedImageConstRefBlueprint {}
+#[repr(C, align(8))]
+pub struct USharedImageConstRefBlueprintFns {
+    __padding_end: [u8; 48],
+}
+impl USharedImageConstRefBlueprintFns {}

@@ -4,13 +4,6 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
-#[repr(C, align(8))]
-pub struct FTakeRecorderHitchProtectionParameters {
-    pub b_enable_hitch_protection: bool,
-    pub regression_buffer_size_in_seconds: f32,
-    pub custom_timestep: TSoftObjectPtr<crate::bindings::core_u_object::UClass>,
-    pub max_catchup_seconds: f64,
-}
 #[repr(C, align(4))]
 pub struct FTakeRecorderUserParameters {
     pub b_maximize_viewport: bool,
@@ -24,7 +17,9 @@ pub struct FTakeRecorderUserParameters {
     pub b_save_recorded_assets: bool,
     pub b_auto_lock: bool,
     pub b_auto_serialize: bool,
+    __padding_end: [u8; 1],
 }
+impl FTakeRecorderUserParameters {}
 #[repr(C, align(8))]
 pub struct FTakeRecorderProjectParameters {
     pub root_take_save_dir: crate::bindings::core_u_object::FDirectoryPath,
@@ -36,20 +31,24 @@ pub struct FTakeRecorderProjectParameters {
     pub b_record_timecode: bool,
     pub b_record_sources_into_sub_sequences: bool,
     pub b_record_to_possessable: bool,
-    pub default_tracks: TArray<
-        crate::bindings::take_track_recorders::FTakeRecorderTrackSettings,
-    >,
+    #[doc(hidden)]
+    __padding_88: [u8; 19],
     pub b_show_notifications: bool,
+    __padding_end: [u8; 7],
 }
+impl FTakeRecorderProjectParameters {}
 #[repr(C, align(8))]
 pub struct FTakeRecorderParameters {
     pub user: FTakeRecorderUserParameters,
     pub project: FTakeRecorderProjectParameters,
     pub take_recorder_mode: ETakeRecorderMode,
     pub start_frame: crate::bindings::core_u_object::FFrameNumber,
-    pub b_disable_recording_and_save: bool,
+    #[doc(hidden)]
+    __padding_129: [u8; 1],
     pub b_open_sequencer: bool,
+    __padding_end: [u8; 6],
 }
+impl FTakeRecorderParameters {}
 #[repr(C, align(8))]
 pub struct FTakeRecorderSequenceParameters {
     pub base_preset: UPtr<crate::bindings::takes_core::UTakePreset>,
@@ -57,103 +56,150 @@ pub struct FTakeRecorderSequenceParameters {
     pub record_into_sequence: UPtr<crate::bindings::level_sequence::ULevelSequence>,
     pub sequence_to_view: UPtr<crate::bindings::level_sequence::ULevelSequence>,
 }
-#[repr(C, align(8))]
-pub struct FTakeRecorderNamingTokensFieldMapping {
-    pub field_name: FString,
-    pub undefined_keys: TArray<FString>,
-}
+impl FTakeRecorderSequenceParameters {}
 pub struct UTakeRecorderSubsystemInterface {}
 pub struct ITakeRecorderSubsystemInterface {}
+#[repr(C, align(8))]
 pub struct UTakeRecorderHitchVisualizationSettings {
-    pub b_show_frame_drop_markers: bool,
-    pub b_show_frame_repeat_markers: bool,
-    pub b_show_catchup_ranges: bool,
+    __padding_end: [u8; 56],
 }
-pub struct UAssetDefinition_TakePreset {}
+impl UTakeRecorderHitchVisualizationSettings {}
+#[repr(C, align(8))]
+pub struct UAssetDefinition_TakePreset {
+    __padding_end: [u8; 72],
+}
+impl UAssetDefinition_TakePreset {}
+#[repr(C, align(8))]
 pub struct UTakeRecorder {
-    pub sequence_asset: UPtr<crate::bindings::level_sequence::ULevelSequence>,
-    pub overlay_widget: UPtr<UTakeRecorderOverlayWidget>,
-    pub weak_world: TWeakObjectPtr<crate::bindings::engine::UWorld>,
-    pub parameters: FTakeRecorderParameters,
+    __padding_end: [u8; 624],
 }
-pub struct UTakeRecorderBlueprintLibrary {}
-pub struct UTakeRecorderPanel {}
+impl UTakeRecorder {}
+#[repr(C, align(8))]
+pub struct UTakeRecorderBlueprintLibrary {
+    __padding_end: [u8; 48],
+}
+impl UTakeRecorderBlueprintLibrary {}
+#[repr(C, align(8))]
+pub struct UTakeRecorderPanel {
+    __padding_end: [u8; 64],
+}
+impl UTakeRecorderPanel {}
+#[repr(C, align(8))]
 pub struct UTakeRecorderSubsystem {
-    pub implementation: TScriptInterface<ITakeRecorderSubsystemInterface>,
-    pub take_recorder_pre_initialize: FTakeRecorderSubsystem_TakeRecorderPreInitialize,
-    pub take_recorder_initialized: FTakeRecorderSubsystem_TakeRecorderInitialized,
-    pub take_recorder_started: FTakeRecorderSubsystem_TakeRecorderStarted,
-    pub take_recorder_stopped: FTakeRecorderSubsystem_TakeRecorderStopped,
-    pub take_recorder_finished: FTakeRecorderSubsystem_TakeRecorderFinished,
-    pub take_recorder_cancelled: FTakeRecorderSubsystem_TakeRecorderCancelled,
-    pub take_recorder_marked_frame_added: FTakeRecorderSubsystem_TakeRecorderMarkedFrameAdded,
-    pub take_recorder_slate_changed: FTakeRecorderSubsystem_TakeRecorderSlateChanged,
-    pub take_recorder_take_number_changed: FTakeRecorderSubsystem_TakeRecorderTakeNumberChanged,
-    pub take_recorder_source_added: FTakeRecorderSubsystem_TakeRecorderSourceAdded,
-    pub take_recorder_source_removed: FTakeRecorderSubsystem_TakeRecorderSourceRemoved,
+    __padding_end: [u8; 600],
 }
+impl UTakeRecorderSubsystem {}
+#[repr(C, align(8))]
 pub struct UTakeRecorderSubsystemImplementation {
-    pub transient_preset: UPtr<crate::bindings::takes_core::UTakePreset>,
-    pub supplied_level_sequence: UPtr<crate::bindings::level_sequence::ULevelSequence>,
-    pub record_into_level_sequence: UPtr<
-        crate::bindings::level_sequence::ULevelSequence,
-    >,
-    pub recording_level_sequence: UPtr<crate::bindings::level_sequence::ULevelSequence>,
-    pub last_recorded_level_sequence: TWeakObjectPtr<
-        crate::bindings::level_sequence::ULevelSequence,
-    >,
-    pub take_meta_data: UPtr<crate::bindings::takes_core::UTakeMetaData>,
-    pub transient_take_meta_data: UPtr<crate::bindings::takes_core::UTakeMetaData>,
-    pub naming_tokens_data: UPtr<UTakeRecorderNamingTokensData>,
+    __padding_end: [u8; 224],
 }
+impl UTakeRecorderSubsystemImplementation {}
+#[repr(C, align(8))]
 pub struct UTakeRecorderOverlayWidget {
+    #[doc(hidden)]
+    __padding_1288: [u8; 1288],
     pub recorder: UPtr<UTakeRecorder>,
 }
+impl UTakeRecorderOverlayWidget {}
+#[repr(C, align(8))]
 pub struct UTakeRecorderUserSettings {
+    #[doc(hidden)]
+    __padding_48: [u8; 48],
     pub settings: FTakeRecorderUserParameters,
-    pub preset_save_dir: crate::bindings::core_u_object::FDirectoryPath,
-    pub last_opened_preset: TSoftObjectPtr<crate::bindings::takes_core::UTakePreset>,
-    pub b_is_sequence_open: bool,
-    pub b_show_user_settings_on_ui: bool,
+    __padding_end: [u8; 72],
 }
+impl UTakeRecorderUserSettings {}
+#[repr(C, align(8))]
 pub struct UTakeRecorderProjectSettings {
+    #[doc(hidden)]
+    __padding_48: [u8; 48],
     pub settings: FTakeRecorderProjectParameters,
-    pub hitch_protection_settings: FTakeRecorderHitchProtectionParameters,
+    __padding_end: [u8; 80],
 }
+impl UTakeRecorderProjectSettings {}
+#[repr(C, align(8))]
 pub struct UTakeRecorderNamingTokensData {
-    pub user_defined_tokens: TMap<
-        crate::bindings::naming_tokens::FNamingTokenData,
-        FText,
-    >,
-    pub field_to_undefined_keys: TArray<FTakeRecorderNamingTokensFieldMapping>,
-    pub evaluated_text_value: FText,
+    __padding_end: [u8; 264],
 }
-pub struct FSetOnTakeRecorderCancelled_OnTakeRecorderCancelled;
-pub struct FSetOnTakeRecorderFinished_OnTakeRecorderFinished;
-pub struct FSetOnTakeRecorderMarkedFrameAdded_OnTakeRecorderMarkedFrameAdded;
-pub struct FSetOnTakeRecorderPanelChanged_OnTakeRecorderPanelChanged;
-pub struct FSetOnTakeRecorderPreInitialize_OnTakeRecorderPreInitialize;
-pub struct FSetOnTakeRecorderStarted_OnTakeRecorderStarted;
-pub struct FSetOnTakeRecorderStopped_OnTakeRecorderStopped;
-pub struct FTakeRecorderSubsystem_TakeRecorderPreInitialize;
-pub struct FTakeRecorderSubsystem_TakeRecorderInitialized;
-pub struct FTakeRecorderSubsystem_TakeRecorderStarted;
-pub struct FTakeRecorderSubsystem_TakeRecorderStopped;
-pub struct FTakeRecorderSubsystem_TakeRecorderFinished;
-pub struct FTakeRecorderSubsystem_TakeRecorderCancelled;
-pub struct FTakeRecorderSubsystem_TakeRecorderMarkedFrameAdded;
-pub struct FTakeRecorderSubsystem_TakeRecorderSlateChanged;
-pub struct FTakeRecorderSubsystem_TakeRecorderTakeNumberChanged;
-pub struct FTakeRecorderSubsystem_TakeRecorderSourceAdded;
-pub struct FTakeRecorderSubsystem_TakeRecorderSourceRemoved;
-#[allow(non_camel_case_types)]
+impl UTakeRecorderNamingTokensData {}
+#[repr(transparent)]
+pub struct FSetOnTakeRecorderCancelled_OnTakeRecorderCancelled {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FSetOnTakeRecorderFinished_OnTakeRecorderFinished {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FSetOnTakeRecorderMarkedFrameAdded_OnTakeRecorderMarkedFrameAdded {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FSetOnTakeRecorderPanelChanged_OnTakeRecorderPanelChanged {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FSetOnTakeRecorderPreInitialize_OnTakeRecorderPreInitialize {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FSetOnTakeRecorderStarted_OnTakeRecorderStarted {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FSetOnTakeRecorderStopped_OnTakeRecorderStopped {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FTakeRecorderSubsystem_TakeRecorderPreInitialize {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FTakeRecorderSubsystem_TakeRecorderInitialized {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FTakeRecorderSubsystem_TakeRecorderStarted {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FTakeRecorderSubsystem_TakeRecorderStopped {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FTakeRecorderSubsystem_TakeRecorderFinished {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FTakeRecorderSubsystem_TakeRecorderCancelled {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FTakeRecorderSubsystem_TakeRecorderMarkedFrameAdded {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FTakeRecorderSubsystem_TakeRecorderSlateChanged {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FTakeRecorderSubsystem_TakeRecorderTakeNumberChanged {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FTakeRecorderSubsystem_TakeRecorderSourceAdded {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FTakeRecorderSubsystem_TakeRecorderSourceRemoved {
+    _opague: u8,
+}
 #[repr(transparent)]
 pub struct ETakeRecorderMode(pub u8);
 impl ETakeRecorderMode {
     pub const RECORD_NEW_SEQUENCE: ETakeRecorderMode = ETakeRecorderMode(0);
     pub const RECORD_INTO_SEQUENCE: ETakeRecorderMode = ETakeRecorderMode(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ETakeRecorderState(pub u8);
 impl ETakeRecorderState {
@@ -165,7 +211,6 @@ impl ETakeRecorderState {
     pub const STOPPED: ETakeRecorderState = ETakeRecorderState(5);
     pub const CANCELLED: ETakeRecorderState = ETakeRecorderState(6);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ETakeRecorderPanelMode(pub u8);
 impl ETakeRecorderPanelMode {

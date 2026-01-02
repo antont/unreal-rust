@@ -4,9 +4,13 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
+#[repr(C, align(8))]
 pub struct UCQTestSettings {
-    pub command_timeout: f32,
-    pub network_timeout: f32,
-    pub map_test_timeout: f32,
+    __padding_end: [u8; 120],
 }
-pub struct UTestGameInstance {}
+impl UCQTestSettings {}
+#[repr(C, align(8))]
+pub struct UTestGameInstance {
+    __padding_end: [u8; 528],
+}
+impl UTestGameInstance {}

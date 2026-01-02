@@ -13,41 +13,75 @@ pub struct FEditorDialogLibraryObjectDetailsViewOptions {
     pub min_height: i32,
     pub value_column_width_ratio: f32,
 }
+impl FEditorDialogLibraryObjectDetailsViewOptions {}
 #[repr(C, align(8))]
 pub struct FEditorScriptingJoinStaticMeshActorsOptions_Deprecated {
     pub b_destroy_source_actors: bool,
     pub new_actor_label: FString,
     pub b_rename_components_from_source: bool,
+    __padding_end: [u8; 7],
 }
+impl FEditorScriptingJoinStaticMeshActorsOptions_Deprecated {}
 #[repr(C, align(8))]
 pub struct FEditorScriptingMergeStaticMeshActorsOptions_Deprecated {
+    #[doc(hidden)]
+    __padding_32: [u8; 32],
     pub b_spawn_merged_actor: bool,
     pub base_package_name: FString,
     pub mesh_merging_settings: crate::bindings::engine::FMeshMergingSettings,
 }
+impl FEditorScriptingMergeStaticMeshActorsOptions_Deprecated {}
 #[repr(C, align(8))]
 pub struct FEditorScriptingCreateProxyMeshActorOptions_Deprecated {
+    #[doc(hidden)]
+    __padding_32: [u8; 32],
     pub b_spawn_merged_actor: bool,
     pub base_package_name: FString,
     pub mesh_proxy_settings: crate::bindings::engine::FMeshProxySettings,
 }
+impl FEditorScriptingCreateProxyMeshActorOptions_Deprecated {}
 #[repr(C, align(4))]
 pub struct FEditorScriptingMeshReductionSettings_Deprecated {
     pub percent_triangles: f32,
     pub screen_size: f32,
 }
+impl FEditorScriptingMeshReductionSettings_Deprecated {}
 #[repr(C, align(8))]
 pub struct FEditorScriptingMeshReductionOptions_Deprecated {
     pub b_auto_compute_lod_screen_size: bool,
     pub reduction_settings: TArray<FEditorScriptingMeshReductionSettings_Deprecated>,
 }
-pub struct UEditorAssetLibrary {}
-pub struct UEditorDialogLibrary {}
-pub struct UEditorFilterLibrary {}
-pub struct UEditorLevelLibrary {}
-pub struct UDEPRECATED_EditorSkeletalMeshLibrary {}
-pub struct UDEPRECATED_EditorStaticMeshLibrary {}
-#[allow(non_camel_case_types)]
+impl FEditorScriptingMeshReductionOptions_Deprecated {}
+#[repr(C, align(8))]
+pub struct UEditorAssetLibrary {
+    __padding_end: [u8; 48],
+}
+impl UEditorAssetLibrary {}
+#[repr(C, align(8))]
+pub struct UEditorDialogLibrary {
+    __padding_end: [u8; 48],
+}
+impl UEditorDialogLibrary {}
+#[repr(C, align(8))]
+pub struct UEditorFilterLibrary {
+    __padding_end: [u8; 48],
+}
+impl UEditorFilterLibrary {}
+#[repr(C, align(8))]
+pub struct UEditorLevelLibrary {
+    __padding_end: [u8; 48],
+}
+impl UEditorLevelLibrary {}
+#[repr(C, align(8))]
+pub struct UDEPRECATED_EditorSkeletalMeshLibrary {
+    __padding_end: [u8; 48],
+}
+impl UDEPRECATED_EditorSkeletalMeshLibrary {}
+#[repr(C, align(8))]
+pub struct UDEPRECATED_EditorStaticMeshLibrary {
+    __padding_end: [u8; 48],
+}
+impl UDEPRECATED_EditorStaticMeshLibrary {}
 #[repr(transparent)]
 pub struct EEditorScriptingStringMatchType(pub u8);
 impl EEditorScriptingStringMatchType {
@@ -61,7 +95,6 @@ impl EEditorScriptingStringMatchType {
         2,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EEditorScriptingFilterType(pub u8);
 impl EEditorScriptingFilterType {

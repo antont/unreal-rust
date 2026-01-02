@@ -14,6 +14,7 @@ pub struct FMediaPlayerTrackOptions {
     pub text: i32,
     pub video: i32,
 }
+impl FMediaPlayerTrackOptions {}
 #[repr(C, align(8))]
 pub struct FMediaPlayerInitialTrackLanguageSelection {
     pub video: FString,
@@ -21,6 +22,7 @@ pub struct FMediaPlayerInitialTrackLanguageSelection {
     pub subtitle: FString,
     pub caption: FString,
 }
+impl FMediaPlayerInitialTrackLanguageSelection {}
 #[repr(C, align(8))]
 pub struct FMediaPlayerOptions {
     pub tracks: FMediaPlayerTrackOptions,
@@ -30,8 +32,9 @@ pub struct FMediaPlayerOptions {
     pub seek_time_type: EMediaPlayerOptionSeekTimeType,
     pub play_on_open: EMediaPlayerOptionBooleanOverride,
     pub loop_: EMediaPlayerOptionBooleanOverride,
+    __padding_end: [u8; 85],
 }
-#[allow(non_camel_case_types)]
+impl FMediaPlayerOptions {}
 #[repr(transparent)]
 pub struct EMediaPlayerOptionTrackSelectMode(pub u8);
 impl EMediaPlayerOptionTrackSelectMode {
@@ -45,7 +48,6 @@ impl EMediaPlayerOptionTrackSelectMode {
         2,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMediaPlayerOptionSeekTimeType(pub u8);
 impl EMediaPlayerOptionSeekTimeType {
@@ -56,7 +58,6 @@ impl EMediaPlayerOptionSeekTimeType {
         1,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMediaPlayerOptionBooleanOverride(pub u8);
 impl EMediaPlayerOptionBooleanOverride {

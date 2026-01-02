@@ -21,6 +21,7 @@ pub struct FPBIKBoneSetting {
     pub b_use_preferred_angles: bool,
     pub preferred_angles: crate::bindings::core_u_object::FVector,
 }
+impl FPBIKBoneSetting {}
 #[repr(C, align(4))]
 pub struct FRootPrePullSettings {
     pub rotation_alpha: f32,
@@ -32,6 +33,7 @@ pub struct FRootPrePullSettings {
     pub position_alpha_y: f32,
     pub position_alpha_z: f32,
 }
+impl FRootPrePullSettings {}
 #[repr(C, align(4))]
 pub struct FPBIKSolverSettings {
     pub iterations: i32,
@@ -43,46 +45,37 @@ pub struct FPBIKSolverSettings {
     pub global_pull_chain_alpha: f32,
     pub max_angle: f32,
     pub over_relaxation: f32,
-    pub b_start_solve_from_input_pose_deprecated: bool,
+    __padding_end: [u8; 4],
 }
-#[repr(C, align(8))]
-pub struct FPBIKSolver {}
+impl FPBIKSolverSettings {}
 #[repr(C, align(4))]
 pub struct FPBIKDebug {
-    pub draw_scale: f32,
-    pub b_draw_debug: bool,
+    __padding_end: [u8; 8],
 }
+impl FPBIKDebug {}
 #[repr(C, align(16))]
 pub struct FPBIKEffector {
-    pub bone: FName,
-    pub transform: crate::bindings::core_u_object::FTransform,
-    pub position_alpha: f32,
-    pub rotation_alpha: f32,
-    pub strength_alpha: f32,
+    #[doc(hidden)]
+    __padding_124: [u8; 124],
     pub chain_depth: i32,
-    pub pull_chain_alpha: f32,
-    pub pin_rotation: f32,
+    __padding_end: [u8; 16],
 }
-#[repr(C, align(8))]
-pub struct FPBIKWorkData {
-    pub b_needs_init: bool,
-    pub hash_initialized_with: u32,
-    pub bone_setting_to_solver_bone_index: TArray<i32>,
-    pub solver_bone_to_element_index: TArray<i32>,
-    pub solver: FPBIKSolver,
-}
+impl FPBIKEffector {}
 #[repr(C, align(8))]
 pub struct FRigUnit_PBIK {
+    #[doc(hidden)]
+    __padding_16: [u8; 16],
     pub root: FName,
     pub effectors: TArray<FPBIKEffector>,
-    pub effector_solver_indices: TArray<i32>,
+    #[doc(hidden)]
+    __padding_64: [u8; 16],
     pub bone_settings: TArray<FPBIKBoneSetting>,
     pub excluded_bones: TArray<FName>,
     pub settings: FPBIKSolverSettings,
     pub debug: FPBIKDebug,
-    pub work_data: FPBIKWorkData,
+    __padding_end: [u8; 128],
 }
-#[allow(non_camel_case_types)]
+impl FRigUnit_PBIK {}
 #[repr(transparent)]
 pub struct EPBIKLimitType(pub u8);
 impl EPBIKLimitType {
@@ -90,7 +83,6 @@ impl EPBIKLimitType {
     pub const LIMITED: EPBIKLimitType = EPBIKLimitType(1);
     pub const LOCKED: EPBIKLimitType = EPBIKLimitType(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EPBIKRootBehavior(pub u8);
 impl EPBIKRootBehavior {

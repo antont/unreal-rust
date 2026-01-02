@@ -14,4 +14,8 @@ pub struct UNNERuntimeNPU {}
 pub struct INNERuntimeNPU {}
 pub struct UNNERuntimeRDG {}
 pub struct INNERuntimeRDG {}
-pub struct UNNEModelData {}
+#[repr(C, align(8))]
+pub struct UNNEModelData {
+    __padding_end: [u8; 280],
+}
+impl UNNEModelData {}

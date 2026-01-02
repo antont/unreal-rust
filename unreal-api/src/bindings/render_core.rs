@@ -4,7 +4,6 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EVTProducerPriority(pub u8);
 impl EVTProducerPriority {
@@ -18,7 +17,6 @@ impl EVTProducerPriority {
     pub const HIGHEST: EVTProducerPriority = EVTProducerPriority(7);
     pub const COUNT: EVTProducerPriority = EVTProducerPriority(8);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EVTInvalidatePriority(pub u8);
 impl EVTInvalidatePriority {

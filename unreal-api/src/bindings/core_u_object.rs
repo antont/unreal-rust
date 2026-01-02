@@ -4,107 +4,72 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
-#[repr(C, align(8))]
-pub struct FAutomationEvent {
-    pub ty: EAutomationEventType,
-    pub message: FString,
-    pub context: FString,
-    pub artifact: FGuid,
-}
 #[repr(C, align(4))]
 pub struct FGuid {
-    pub a: i32,
-    pub b: i32,
-    pub c: i32,
-    pub d: i32,
+    __padding_end: [u8; 16],
 }
-#[repr(C, align(8))]
-pub struct FAutomationExecutionEntry {
-    pub event: FAutomationEvent,
-    pub filename: FString,
-    pub line_number: i32,
-    pub timestamp: FDateTime,
-}
+impl FGuid {}
 #[repr(C, align(8))]
 pub struct FDateTime {
-    pub ticks: i64,
+    __padding_end: [u8; 8],
 }
+impl FDateTime {}
 #[repr(C, align(8))]
 pub struct FBox {
     pub min: FVector,
     pub max: FVector,
     pub is_valid: bool,
+    __padding_end: [u8; 7],
 }
+impl FBox {}
 #[repr(C, align(8))]
 pub struct FVector {
     pub x: f64,
     pub y: f64,
     pub z: f64,
 }
+impl FVector {}
 #[repr(C, align(8))]
 pub struct FBox2D {
     pub min: FVector2D,
     pub max: FVector2D,
     pub b_is_valid: bool,
+    __padding_end: [u8; 7],
 }
+impl FBox2D {}
 #[repr(C, align(8))]
 pub struct FVector2D {
     pub x: f64,
     pub y: f64,
 }
+impl FVector2D {}
 #[repr(C, align(4))]
 pub struct FBox2f {
-    pub min: FVector2f,
-    pub max: FVector2f,
-    pub b_is_valid: bool,
+    __padding_end: [u8; 20],
 }
+impl FBox2f {}
 #[repr(C, align(4))]
 pub struct FVector2f {
-    pub x: f32,
-    pub y: f32,
+    __padding_end: [u8; 8],
 }
-#[repr(C, align(8))]
-pub struct FBox3d {
-    pub min: FVector3d,
-    pub max: FVector3d,
-    pub is_valid: bool,
-}
-#[repr(C, align(8))]
-pub struct FVector3d {
-    pub x: f64,
-    pub y: f64,
-    pub z: f64,
-}
+impl FVector2f {}
 #[repr(C, align(4))]
 pub struct FBox3f {
-    pub min: FVector3f,
-    pub max: FVector3f,
-    pub is_valid: bool,
+    __padding_end: [u8; 28],
 }
+impl FBox3f {}
 #[repr(C, align(4))]
 pub struct FVector3f {
-    pub x: f32,
-    pub y: f32,
-    pub z: f32,
+    __padding_end: [u8; 12],
 }
+impl FVector3f {}
 #[repr(C, align(8))]
 pub struct FBoxSphereBounds {
     pub origin: FVector,
     pub box_extent: FVector,
     pub sphere_radius: f64,
 }
-#[repr(C, align(8))]
-pub struct FBoxSphereBounds3d {
-    pub origin: FVector3d,
-    pub box_extent: FVector3d,
-    pub sphere_radius: f64,
-}
-#[repr(C, align(4))]
-pub struct FBoxSphereBounds3f {
-    pub origin: FVector3f,
-    pub box_extent: FVector3f,
-    pub sphere_radius: f32,
-}
+impl FBoxSphereBounds {}
 #[repr(C, align(4))]
 pub struct FColor {
     pub b: u8,
@@ -112,138 +77,96 @@ pub struct FColor {
     pub r: u8,
     pub a: u8,
 }
+impl FColor {}
 #[repr(C, align(8))]
 pub struct FDoubleRange {
     pub lower_bound: FDoubleRangeBound,
     pub upper_bound: FDoubleRangeBound,
 }
+impl FDoubleRange {}
 #[repr(C, align(8))]
 pub struct FDoubleRangeBound {
     pub ty: ERangeBoundTypes,
     pub value: f64,
 }
-#[repr(C, align(1))]
-pub struct FFallbackStruct {}
+impl FDoubleRangeBound {}
 #[repr(C, align(4))]
 pub struct FFloatInterval {
     pub min: f32,
     pub max: f32,
 }
+impl FFloatInterval {}
 #[repr(C, align(4))]
 pub struct FFloatRange {
     pub lower_bound: FFloatRangeBound,
     pub upper_bound: FFloatRangeBound,
 }
+impl FFloatRange {}
 #[repr(C, align(4))]
 pub struct FFloatRangeBound {
     pub ty: ERangeBoundTypes,
     pub value: f32,
 }
+impl FFloatRangeBound {}
 #[repr(C, align(4))]
 pub struct FFrameNumber {
     pub value: i32,
 }
+impl FFrameNumber {}
 #[repr(C, align(4))]
 pub struct FFrameNumberRange {
     pub lower_bound: FFrameNumberRangeBound,
     pub upper_bound: FFrameNumberRangeBound,
 }
+impl FFrameNumberRange {}
 #[repr(C, align(4))]
 pub struct FFrameNumberRangeBound {
     pub ty: ERangeBoundTypes,
     pub value: FFrameNumber,
 }
+impl FFrameNumberRangeBound {}
 #[repr(C, align(4))]
 pub struct FFrameRate {
     pub numerator: i32,
     pub denominator: i32,
 }
+impl FFrameRate {}
 #[repr(C, align(4))]
 pub struct FFrameTime {
     pub frame_number: FFrameNumber,
     pub sub_frame: f32,
 }
+impl FFrameTime {}
 #[repr(C, align(4))]
 pub struct FInputDeviceId {
-    pub internal_id: i32,
+    __padding_end: [u8; 4],
 }
+impl FInputDeviceId {}
 #[repr(C, align(4))]
 pub struct FInt32Interval {
     pub min: i32,
     pub max: i32,
 }
-#[repr(C, align(4))]
-pub struct FInt32Point {
-    pub x: i32,
-    pub y: i32,
-}
+impl FInt32Interval {}
 #[repr(C, align(4))]
 pub struct FInt32Range {
     pub lower_bound: FInt32RangeBound,
     pub upper_bound: FInt32RangeBound,
 }
+impl FInt32Range {}
 #[repr(C, align(4))]
 pub struct FInt32RangeBound {
     pub ty: ERangeBoundTypes,
     pub value: i32,
 }
-#[repr(C, align(4))]
-pub struct FInt32Rect {
-    pub min: FInt32Point,
-    pub max: FInt32Point,
-}
-#[repr(C, align(4))]
-pub struct FInt32Vector {
-    pub x: i32,
-    pub y: i32,
-    pub z: i32,
-}
-#[repr(C, align(4))]
-pub struct FInt32Vector2 {
-    pub x: i32,
-    pub y: i32,
-}
-#[repr(C, align(4))]
-pub struct FInt32Vector4 {
-    pub x: i32,
-    pub y: i32,
-    pub z: i32,
-    pub w: i32,
-}
-#[repr(C, align(8))]
-pub struct FInt64Point {
-    pub x: i64,
-    pub y: i64,
-}
-#[repr(C, align(8))]
-pub struct FInt64Rect {
-    pub min: FInt64Point,
-    pub max: FInt64Point,
-}
-#[repr(C, align(8))]
-pub struct FInt64Vector {
-    pub x: i64,
-    pub y: i64,
-    pub z: i64,
-}
-#[repr(C, align(8))]
-pub struct FInt64Vector2 {
-    pub x: i64,
-    pub y: i64,
-}
-#[repr(C, align(8))]
-pub struct FInt64Vector4 {
-    pub x: i64,
-    pub y: i64,
-    pub z: i64,
-    pub w: i64,
-}
+impl FInt32RangeBound {}
 #[repr(C, align(8))]
 pub struct FInterpCurveFloat {
     pub points: TArray<FInterpCurvePointFloat>,
     pub b_is_looped: bool,
     pub loop_key_offset: f32,
 }
+impl FInterpCurveFloat {}
 #[repr(C, align(4))]
 pub struct FInterpCurvePointFloat {
     pub in_val: f32,
@@ -251,13 +174,16 @@ pub struct FInterpCurvePointFloat {
     pub arrive_tangent: f32,
     pub leave_tangent: f32,
     pub interp_mode: EInterpCurveMode,
+    __padding_end: [u8; 3],
 }
+impl FInterpCurvePointFloat {}
 #[repr(C, align(8))]
 pub struct FInterpCurveLinearColor {
     pub points: TArray<FInterpCurvePointLinearColor>,
     pub b_is_looped: bool,
     pub loop_key_offset: f32,
 }
+impl FInterpCurveLinearColor {}
 #[repr(C, align(4))]
 pub struct FInterpCurvePointLinearColor {
     pub in_val: f32,
@@ -265,7 +191,9 @@ pub struct FInterpCurvePointLinearColor {
     pub arrive_tangent: FLinearColor,
     pub leave_tangent: FLinearColor,
     pub interp_mode: EInterpCurveMode,
+    __padding_end: [u8; 3],
 }
+impl FInterpCurvePointLinearColor {}
 #[repr(C, align(4))]
 pub struct FLinearColor {
     pub r: f32,
@@ -273,6 +201,7 @@ pub struct FLinearColor {
     pub b: f32,
     pub a: f32,
 }
+impl FLinearColor {}
 #[repr(C, align(16))]
 pub struct FInterpCurvePointQuat {
     pub in_val: f32,
@@ -280,7 +209,9 @@ pub struct FInterpCurvePointQuat {
     pub arrive_tangent: FQuat,
     pub leave_tangent: FQuat,
     pub interp_mode: EInterpCurveMode,
+    __padding_end: [u8; 15],
 }
+impl FInterpCurvePointQuat {}
 #[repr(C, align(16))]
 pub struct FQuat {
     pub x: f64,
@@ -288,6 +219,7 @@ pub struct FQuat {
     pub z: f64,
     pub w: f64,
 }
+impl FQuat {}
 #[repr(C, align(8))]
 pub struct FInterpCurvePointTwoVectors {
     pub in_val: f32,
@@ -295,12 +227,15 @@ pub struct FInterpCurvePointTwoVectors {
     pub arrive_tangent: FTwoVectors,
     pub leave_tangent: FTwoVectors,
     pub interp_mode: EInterpCurveMode,
+    __padding_end: [u8; 7],
 }
+impl FInterpCurvePointTwoVectors {}
 #[repr(C, align(8))]
 pub struct FTwoVectors {
     pub v1: FVector,
     pub v2: FVector,
 }
+impl FTwoVectors {}
 #[repr(C, align(8))]
 pub struct FInterpCurvePointVector {
     pub in_val: f32,
@@ -308,7 +243,9 @@ pub struct FInterpCurvePointVector {
     pub arrive_tangent: FVector,
     pub leave_tangent: FVector,
     pub interp_mode: EInterpCurveMode,
+    __padding_end: [u8; 7],
 }
+impl FInterpCurvePointVector {}
 #[repr(C, align(8))]
 pub struct FInterpCurvePointVector2D {
     pub in_val: f32,
@@ -316,52 +253,62 @@ pub struct FInterpCurvePointVector2D {
     pub arrive_tangent: FVector2D,
     pub leave_tangent: FVector2D,
     pub interp_mode: EInterpCurveMode,
+    __padding_end: [u8; 7],
 }
+impl FInterpCurvePointVector2D {}
 #[repr(C, align(8))]
 pub struct FInterpCurveQuat {
     pub points: TArray<FInterpCurvePointQuat>,
     pub b_is_looped: bool,
     pub loop_key_offset: f32,
 }
+impl FInterpCurveQuat {}
 #[repr(C, align(8))]
 pub struct FInterpCurveTwoVectors {
     pub points: TArray<FInterpCurvePointTwoVectors>,
     pub b_is_looped: bool,
     pub loop_key_offset: f32,
 }
+impl FInterpCurveTwoVectors {}
 #[repr(C, align(8))]
 pub struct FInterpCurveVector {
     pub points: TArray<FInterpCurvePointVector>,
     pub b_is_looped: bool,
     pub loop_key_offset: f32,
 }
+impl FInterpCurveVector {}
 #[repr(C, align(8))]
 pub struct FInterpCurveVector2D {
     pub points: TArray<FInterpCurvePointVector2D>,
     pub b_is_looped: bool,
     pub loop_key_offset: f32,
 }
+impl FInterpCurveVector2D {}
 #[repr(C, align(4))]
 pub struct FIntPoint {
     pub x: i32,
     pub y: i32,
 }
+impl FIntPoint {}
 #[repr(C, align(4))]
 pub struct FIntRect {
     pub min: FIntPoint,
     pub max: FIntPoint,
 }
+impl FIntRect {}
 #[repr(C, align(4))]
 pub struct FIntVector {
     pub x: i32,
     pub y: i32,
     pub z: i32,
 }
+impl FIntVector {}
 #[repr(C, align(4))]
 pub struct FIntVector2 {
     pub x: i32,
     pub y: i32,
 }
+impl FIntVector2 {}
 #[repr(C, align(4))]
 pub struct FIntVector4 {
     pub x: i32,
@@ -369,6 +316,7 @@ pub struct FIntVector4 {
     pub z: i32,
     pub w: i32,
 }
+impl FIntVector4 {}
 #[repr(C, align(16))]
 pub struct FMatrix {
     pub x_plane: FPlane,
@@ -376,39 +324,29 @@ pub struct FMatrix {
     pub z_plane: FPlane,
     pub w_plane: FPlane,
 }
+impl FMatrix {}
 #[repr(C, align(16))]
 pub struct FPlane {
+    #[doc(hidden)]
+    __padding_24: [u8; 24],
     pub w: f64,
 }
-#[repr(C, align(16))]
-pub struct FMatrix44d {
-    pub x_plane: FPlane4d,
-    pub y_plane: FPlane4d,
-    pub z_plane: FPlane4d,
-    pub w_plane: FPlane4d,
-}
-#[repr(C, align(16))]
-pub struct FPlane4d {
-    pub w: f64,
-}
+impl FPlane {}
 #[repr(C, align(16))]
 pub struct FMatrix44f {
-    pub x_plane: FPlane4f,
-    pub y_plane: FPlane4f,
-    pub z_plane: FPlane4f,
-    pub w_plane: FPlane4f,
+    __padding_end: [u8; 64],
 }
+impl FMatrix44f {}
 #[repr(C, align(16))]
 pub struct FPlane4f {
-    pub w: f32,
+    __padding_end: [u8; 16],
 }
+impl FPlane4f {}
 #[repr(C, align(4))]
 pub struct FMusicalTime {
-    pub bar: i32,
-    pub tick_in_bar: i32,
-    pub ticks_per_bar: i32,
-    pub ticks_per_beat: i32,
+    __padding_end: [u8; 16],
 }
+impl FMusicalTime {}
 #[repr(C, align(8))]
 pub struct FOrientedBox {
     pub center: FVector,
@@ -419,36 +357,24 @@ pub struct FOrientedBox {
     pub extent_y: f64,
     pub extent_z: f64,
 }
-#[repr(C, align(1))]
-pub struct FPackedNormal {
-    pub x: u8,
-    pub y: u8,
-    pub z: u8,
-    pub w: u8,
-}
+impl FOrientedBox {}
 #[repr(C, align(8))]
 pub struct FPackedRemoteObjectPathName {
-    pub remote_ids: TArray<u16>,
-    pub names: TArray<u16>,
+    __padding_end: [u8; 32],
 }
-#[repr(C, align(4))]
-pub struct FPackedRGB10A2N {
-    pub packed: i32,
-}
-#[repr(C, align(4))]
-pub struct FPackedRGBA16N {
-    pub xy: i32,
-    pub zw: i32,
-}
+impl FPackedRemoteObjectPathName {}
 #[repr(C, align(4))]
 pub struct FPlatformInputDeviceState {
     pub owning_platform_user: FPlatformUserId,
     pub connection_state: EInputDeviceConnectionState,
+    __padding_end: [u8; 3],
 }
+impl FPlatformInputDeviceState {}
 #[repr(C, align(4))]
 pub struct FPlatformUserId {
-    pub internal_id: i32,
+    __padding_end: [u8; 4],
 }
+impl FPlatformUserId {}
 #[repr(C, align(8))]
 pub struct FPolyglotTextData {
     pub category: ELocalizedTextSourceCategory,
@@ -458,118 +384,95 @@ pub struct FPolyglotTextData {
     pub native_string: FString,
     pub localized_strings: TMap<FString, FString>,
     pub b_is_minimal_patch: bool,
-    pub cached_text: FText,
+    __padding_end: [u8; 23],
 }
+impl FPolyglotTextData {}
 #[repr(C, align(4))]
 pub struct FQualifiedFrameTime {
     pub time: FFrameTime,
     pub rate: FFrameRate,
 }
-#[repr(C, align(16))]
-pub struct FQuat4d {
-    pub x: f64,
-    pub y: f64,
-    pub z: f64,
-    pub w: f64,
-}
+impl FQualifiedFrameTime {}
 #[repr(C, align(16))]
 pub struct FQuat4f {
-    pub x: f32,
-    pub y: f32,
-    pub z: f32,
-    pub w: f32,
+    __padding_end: [u8; 16],
 }
+impl FQuat4f {}
 #[repr(C, align(4))]
 pub struct FRandomStream {
     pub initial_seed: i32,
-    pub seed: i32,
+    __padding_end: [u8; 4],
 }
+impl FRandomStream {}
 #[repr(C, align(8))]
 pub struct FRay {
     pub origin: FVector,
     pub direction: FVector,
 }
-#[repr(C, align(8))]
-pub struct FRay3d {
-    pub origin: FVector3d,
-    pub direction: FVector3d,
-}
-#[repr(C, align(4))]
-pub struct FRay3f {
-    pub origin: FVector3f,
-    pub direction: FVector3f,
-}
+impl FRay {}
 #[repr(C, align(8))]
 pub struct FRemoteObjectBytes {
-    pub bytes: TArray<u8>,
+    __padding_end: [u8; 16],
 }
+impl FRemoteObjectBytes {}
 #[repr(C, align(8))]
 pub struct FRemoteObjectData {
-    pub tables: FRemoteObjectTables,
-    pub path_names: TArray<FPackedRemoteObjectPathName>,
-    pub bytes: TArray<FRemoteObjectBytes>,
+    __padding_end: [u8; 64],
 }
+impl FRemoteObjectData {}
 #[repr(C, align(8))]
 pub struct FRemoteObjectTables {
-    pub names: TArray<FName>,
-    pub remote_ids: TArray<FRemoteObjectId>,
+    __padding_end: [u8; 32],
 }
+impl FRemoteObjectTables {}
 #[repr(C, align(8))]
 pub struct FRemoteObjectId {
-    pub id: u64,
+    __padding_end: [u8; 8],
 }
+impl FRemoteObjectId {}
 #[repr(C, align(8))]
-pub struct FRemoteObjectPathName {}
+pub struct FRemoteObjectPathName {
+    __padding_end: [u8; 32],
+}
+impl FRemoteObjectPathName {}
 #[repr(C, align(8))]
 pub struct FRemoteObjectReference {
-    pub object_id: FRemoteObjectId,
-    pub server_id: FRemoteServerId,
+    __padding_end: [u8; 16],
 }
+impl FRemoteObjectReference {}
 #[repr(C, align(4))]
 pub struct FRemoteServerId {
-    pub id: u32,
+    __padding_end: [u8; 4],
 }
+impl FRemoteServerId {}
 #[repr(C, align(4))]
 pub struct FRemoteTransactionId {
-    pub id: u32,
+    __padding_end: [u8; 4],
 }
+impl FRemoteTransactionId {}
 #[repr(C, align(8))]
 pub struct FRemoteWorkPriority {
-    pub packed_data: u64,
+    __padding_end: [u8; 8],
 }
+impl FRemoteWorkPriority {}
 #[repr(C, align(8))]
 pub struct FRotator {
     pub pitch: f64,
     pub yaw: f64,
     pub roll: f64,
 }
-#[repr(C, align(8))]
-pub struct FRotator3d {
-    pub pitch: f64,
-    pub yaw: f64,
-    pub roll: f64,
-}
+impl FRotator {}
 #[repr(C, align(4))]
 pub struct FRotator3f {
-    pub pitch: f32,
-    pub yaw: f32,
-    pub roll: f32,
+    __padding_end: [u8; 12],
 }
+impl FRotator3f {}
 #[repr(C, align(8))]
 pub struct FSphere {
     pub center: FVector,
     pub w: f64,
 }
-#[repr(C, align(8))]
-pub struct FSphere3d {
-    pub center: FVector3d,
-    pub w: f64,
-}
-#[repr(C, align(4))]
-pub struct FSphere3f {
-    pub center: FVector3f,
-    pub w: f32,
-}
+impl FSphere {}
 #[repr(C, align(4))]
 pub struct FTimecode {
     pub hours: i32,
@@ -578,113 +481,29 @@ pub struct FTimecode {
     pub frames: i32,
     pub subframe: f32,
     pub b_drop_frame_format: bool,
+    __padding_end: [u8; 3],
 }
+impl FTimecode {}
 #[repr(C, align(8))]
 pub struct FTimespan {
-    pub ticks: i64,
+    __padding_end: [u8; 8],
 }
+impl FTimespan {}
 #[repr(C, align(16))]
 pub struct FTransform {
     pub rotation: FQuat,
     pub translation: FVector,
+    #[doc(hidden)]
+    __padding_64: [u8; 8],
     pub scale3_d: FVector,
+    __padding_end: [u8; 8],
 }
-#[repr(C, align(16))]
-pub struct FTransform3d {
-    pub rotation: FQuat4d,
-    pub translation: FVector3d,
-    pub scale3_d: FVector3d,
-}
+impl FTransform {}
 #[repr(C, align(16))]
 pub struct FTransform3f {
-    pub rotation: FQuat4f,
-    pub translation: FVector3f,
-    pub scale3_d: FVector3f,
+    __padding_end: [u8; 48],
 }
-#[repr(C, align(4))]
-pub struct FUint32Point {
-    pub x: i32,
-    pub y: i32,
-}
-#[repr(C, align(4))]
-pub struct FUint32Rect {
-    pub min: FUint32Point,
-    pub max: FUint32Point,
-}
-#[repr(C, align(4))]
-pub struct FUint32Vector {
-    pub x: u32,
-    pub y: u32,
-    pub z: u32,
-}
-#[repr(C, align(4))]
-pub struct FUint32Vector2 {
-    pub x: u32,
-    pub y: u32,
-}
-#[repr(C, align(4))]
-pub struct FUint32Vector4 {
-    pub x: u32,
-    pub y: u32,
-    pub z: u32,
-    pub w: u32,
-}
-#[repr(C, align(8))]
-pub struct FUint64Point {
-    pub x: i64,
-    pub y: i64,
-}
-#[repr(C, align(8))]
-pub struct FUint64Rect {
-    pub min: FUint64Point,
-    pub max: FUint64Point,
-}
-#[repr(C, align(8))]
-pub struct FUint64Vector {
-    pub x: u64,
-    pub y: u64,
-    pub z: u64,
-}
-#[repr(C, align(8))]
-pub struct FUint64Vector2 {
-    pub x: u64,
-    pub y: u64,
-}
-#[repr(C, align(8))]
-pub struct FUint64Vector4 {
-    pub x: u64,
-    pub y: u64,
-    pub z: u64,
-    pub w: u64,
-}
-#[repr(C, align(4))]
-pub struct FUintPoint {
-    pub x: i32,
-    pub y: i32,
-}
-#[repr(C, align(4))]
-pub struct FUintRect {
-    pub min: FUintPoint,
-    pub max: FUintPoint,
-}
-#[repr(C, align(4))]
-pub struct FUintVector {
-    pub x: u32,
-    pub y: u32,
-    pub z: u32,
-}
-#[repr(C, align(4))]
-pub struct FUintVector2 {
-    pub x: u32,
-    pub y: u32,
-}
-#[repr(C, align(4))]
-pub struct FUintVector4 {
-    pub x: u32,
-    pub y: u32,
-    pub z: u32,
-    pub w: u32,
-}
+impl FTransform3f {}
 #[repr(C, align(16))]
 pub struct FVector4 {
     pub x: f64,
@@ -692,594 +511,580 @@ pub struct FVector4 {
     pub z: f64,
     pub w: f64,
 }
-#[repr(C, align(16))]
-pub struct FVector4d {
-    pub x: f64,
-    pub y: f64,
-    pub z: f64,
-    pub w: f64,
-}
+impl FVector4 {}
 #[repr(C, align(16))]
 pub struct FVector4f {
-    pub x: f32,
-    pub y: f32,
-    pub z: f32,
-    pub w: f32,
+    __padding_end: [u8; 16],
 }
+impl FVector4f {}
 #[repr(C, align(4))]
 pub struct FTopLevelAssetPath {
     pub package_name: FName,
     pub asset_name: FName,
 }
+impl FTopLevelAssetPath {}
 #[repr(C, align(8))]
 pub struct FSoftObjectPath {
-    pub asset_path: FTopLevelAssetPath,
-    pub sub_path_string: FUtf8String,
+    __padding_end: [u8; 40],
 }
+impl FSoftObjectPath {}
 #[repr(C, align(8))]
 pub struct FARFilter {
     pub package_names: TArray<FName>,
     pub package_paths: TArray<FName>,
-    pub object_paths: TArray<FName>,
+    #[doc(hidden)]
+    __padding_48: [u8; 16],
     pub soft_object_paths: TArray<FSoftObjectPath>,
     pub class_names: TArray<FName>,
     pub class_paths: TArray<FTopLevelAssetPath>,
+    #[doc(hidden)]
+    __padding_176: [u8; 80],
     pub recursive_classes_exclusion_set: TSet<FName>,
     pub recursive_class_paths_exclusion_set: TSet<FTopLevelAssetPath>,
     pub b_recursive_paths: bool,
     pub b_recursive_classes: bool,
     pub b_include_only_on_disk_assets: bool,
+    __padding_end: [u8; 13],
 }
+impl FARFilter {}
 #[repr(C, align(8))]
-pub struct FSoftClassPath {}
+pub struct FSoftClassPath {
+    __padding_end: [u8; 40],
+}
+impl FSoftClassPath {}
 #[repr(C, align(4))]
 pub struct FPrimaryAssetId {
     pub primary_asset_type: FPrimaryAssetType,
     pub primary_asset_name: FName,
 }
+impl FPrimaryAssetId {}
 #[repr(C, align(4))]
 pub struct FPrimaryAssetType {
     pub name: FName,
 }
+impl FPrimaryAssetType {}
 #[repr(C, align(8))]
 pub struct FAssetData {
-    pub object_path: FName,
+    #[doc(hidden)]
+    __padding_12: [u8; 12],
     pub package_name: FName,
     pub package_path: FName,
     pub asset_name: FName,
     pub asset_class: FName,
     pub asset_class_path: FTopLevelAssetPath,
+    __padding_end: [u8; 68],
 }
+impl FAssetData {}
 #[repr(C, align(8))]
-pub struct FInstancedStructBaseStructQueryParams {}
-#[repr(C, align(8))]
-pub struct FPropertyTextFName {}
-#[repr(C, align(8))]
-pub struct FPropertyTextString {}
-#[repr(C, align(8))]
-pub struct FTestUndeclaredScriptStructObjectReferencesTest {
-    pub strong_object_pointer: UPtr<UObject>,
-    pub soft_object_pointer: TSoftObjectPtr<UObject>,
-    pub soft_object_path: FSoftObjectPath,
-    pub weak_object_pointer: TWeakObjectPtr<UObject>,
+pub struct FInstancedStructBaseStructQueryParams {
+    __padding_end: [u8; 16],
 }
+impl FInstancedStructBaseStructQueryParams {}
 #[repr(C, align(8))]
-pub struct FTestUninitializedScriptStructMembersTest {
-    pub uninitialized_object_reference: UPtr<UObject>,
-    pub initialized_object_reference: UPtr<UObject>,
-    pub unused_value: f32,
+pub struct FInstancedStruct {
+    __padding_end: [u8; 16],
 }
-#[repr(C, align(8))]
-pub struct FVerseRational {
-    pub numerator: i64,
-    pub denominator: i64,
-}
-#[repr(C, align(8))]
-pub struct FVerseIntConstraints {
-    pub clamp_min: TOptional<i64>,
-    pub clamp_max: TOptional<i64>,
-}
-#[repr(C, align(8))]
-pub struct FVerseDoubleConstraints {
-    pub clamp_min: f64,
-    pub clamp_max: f64,
-}
-#[repr(C, align(8))]
-pub struct FAssetBundleEntry {
-    pub bundle_name: FName,
-    pub bundle_assets: TArray<FSoftObjectPath>,
-    pub asset_paths: TArray<FTopLevelAssetPath>,
-}
-#[repr(C, align(8))]
-pub struct FAssetBundleData {
-    pub bundles: TArray<FAssetBundleEntry>,
-}
-#[repr(C, align(8))]
-pub struct FInstancedStruct {}
-#[repr(C, align(8))]
-pub struct FInstancedStructContainer {}
-#[repr(C, align(1))]
-pub struct FPropertyBagContainerTypes {}
-#[repr(C, align(8))]
-pub struct FPropertyBagPropertyDescMetaData {
-    pub key: FName,
-    pub value: FString,
-}
-#[repr(C, align(8))]
-pub struct FPropertyBagPropertyDesc {
-    pub value_type_object: UPtr<UObject>,
-    pub id: FGuid,
-    pub name: FName,
-    pub value_type: EPropertyBagPropertyType,
-    pub container_types: FPropertyBagContainerTypes,
-    pub property_flags: u64,
-    pub meta_data: TArray<FPropertyBagPropertyDescMetaData>,
-    pub meta_class: TSubclassOf<UObject>,
-}
-#[repr(C, align(8))]
-pub struct FInstancedPropertyBag {
-    pub value: FInstancedStruct,
-}
-#[repr(C, align(1))]
-pub struct FPropertyBagMissingStruct {}
-#[repr(C, align(8))]
-pub struct FSharedStruct {}
-#[repr(C, align(8))]
-pub struct FConstSharedStruct {}
-#[repr(C, align(8))]
-pub struct FObjectCookedMetaDataStore {
-    pub object_meta_data: TMap<FName, FString>,
-}
-#[repr(C, align(8))]
-pub struct FFieldCookedMetaDataKey {
-    pub field_path: TArray<FName>,
-}
-#[repr(C, align(8))]
-pub struct FFieldCookedMetaDataValue {
-    pub meta_data: TMap<FName, FString>,
-}
-#[repr(C, align(8))]
-pub struct FFieldCookedMetaDataStore {
-    pub field_meta_data: TMap<FName, FString>,
-    pub sub_field_meta_data: TMap<FFieldCookedMetaDataKey, FFieldCookedMetaDataValue>,
-}
-#[repr(C, align(8))]
-pub struct FStructCookedMetaDataStore {
-    pub object_meta_data: FObjectCookedMetaDataStore,
-    pub properties_meta_data: TMap<FName, FFieldCookedMetaDataStore>,
-}
-#[repr(C, align(8))]
-pub struct FOverriddenPropertyPath {
-    pub path: TArray<FName>,
-    pub cached_hash: u32,
-}
-#[repr(C, align(8))]
-pub struct FOverriddenPropertyNodeID {
-    pub path: FOverriddenPropertyPath,
-    pub object: TWeakObjectPtr<UObject>,
-}
-#[repr(C, align(8))]
-pub struct FOverriddenPropertyNode {
-    pub node_id: FOverriddenPropertyNodeID,
-    pub operation: EOverriddenPropertyOperation,
-}
-#[repr(C, align(8))]
-pub struct FOverriddenPropertySet {
-    pub owner: UPtr<UObject>,
-    pub b_was_added: bool,
-    pub root_node: FOverriddenPropertyNode,
-}
+impl FInstancedStruct {}
 #[repr(C, align(8))]
 pub struct FPerPlatformInt {
     pub default: i32,
-    pub per_platform: TMap<FName, i32>,
+    __padding_end: [u8; 84],
 }
-#[repr(C, align(8))]
-pub struct FFreezablePerPlatformInt {}
+impl FPerPlatformInt {}
 #[repr(C, align(8))]
 pub struct FPerPlatformFloat {
     pub default: f32,
-    pub per_platform: TMap<FName, f32>,
+    __padding_end: [u8; 84],
 }
-#[repr(C, align(8))]
-pub struct FPerPlatformBool {
-    pub default: bool,
-    pub per_platform: TMap<FName, bool>,
-}
+impl FPerPlatformFloat {}
 #[repr(C, align(8))]
 pub struct FPerPlatformFrameRate {
-    pub default: FFrameRate,
-    pub per_platform: TMap<FName, FFrameRate>,
+    __padding_end: [u8; 88],
 }
+impl FPerPlatformFrameRate {}
 #[repr(C, align(8))]
 pub struct FFilePath {
     pub file_path: FString,
 }
+impl FFilePath {}
 #[repr(C, align(8))]
 pub struct FDirectoryPath {
     pub path: FString,
 }
+impl FDirectoryPath {}
 #[repr(C, align(8))]
 pub struct FTemplateString {
     pub template: FString,
     pub resolved: FText,
 }
+impl FTemplateString {}
 #[repr(C, align(8))]
-pub struct FProfileLocus {}
+pub struct UObject {
+    __padding_end: [u8; 48],
+}
+impl UObject {}
 #[repr(C, align(8))]
-pub struct FSolarisProfilingData {}
+pub struct UGCBarrier {
+    __padding_end: [u8; 48],
+}
+impl UGCBarrier {}
 #[repr(C, align(8))]
-pub struct FVersePersistentVar {
-    pub path: FString,
-    pub property: TFieldPath<FMapProperty>,
+pub struct UGCObjectReferencer {
+    __padding_end: [u8; 128],
 }
+impl UGCObjectReferencer {}
 #[repr(C, align(8))]
-pub struct FVerseSessionVar {
-    pub property: TFieldPath<FMapProperty>,
+pub struct UObjectPtrTestClass {
+    __padding_end: [u8; 48],
 }
+impl UObjectPtrTestClass {}
 #[repr(C, align(8))]
-pub struct FVerseClassVarAccessor {
-    pub func: UPtr<UFunction>,
-    pub b_is_instance_member: bool,
-    pub b_is_fallible: bool,
+pub struct UObjectPtrAbstractTestClass {
+    __padding_end: [u8; 48],
 }
+impl UObjectPtrAbstractTestClass {}
 #[repr(C, align(8))]
-pub struct FVerseClassVarAccessors {
-    pub getters: TMap<i32, FVerseClassVarAccessor>,
-    pub setters: TMap<i32, FVerseClassVarAccessor>,
+pub struct UObjectPtrAbstractDerivedTestClass {
+    __padding_end: [u8; 48],
 }
-#[repr(C, align(4))]
-pub struct FTestPropertyPathFunctionsStructKey {
-    pub unused: i32,
-    pub key: i32,
-}
+impl UObjectPtrAbstractDerivedTestClass {}
 #[repr(C, align(8))]
-pub struct FTestPropertyPathFunctionsStruct {
-    pub unused: i32,
-    pub int32: i32,
-    pub int32_static_array: i32,
-    pub int32_array: TArray<i32>,
-    pub int32_set: TSet<i32>,
-    pub int32_map: TMap<i32, i32>,
-    pub int32_optional: TOptional<i32>,
-}
-#[repr(C, align(4))]
-pub struct FTestInstanceDataObjectPoint {
-    pub x: i32,
-    pub y: i32,
-    pub z: i32,
-    pub w: i32,
-}
-#[repr(C, align(4))]
-pub struct FTestInstanceDataObjectPointAlternate {
-    pub u: i32,
-    pub v: i32,
-    pub w: i32,
-}
-#[repr(C, align(4))]
-pub struct FTestInstanceDataObjectStruct {
-    pub a: i32,
-    pub b: i32,
-    pub c: i32,
-    pub d: i32,
-    pub bird: ETestInstanceDataObjectBird,
-    pub grain: ETestInstanceDataObjectGrain,
-    pub fruit: ETestInstanceDataObjectFruit,
-    pub direction: ETestInstanceDataObjectDirection,
-    pub full_flags: ETestInstanceDataObjectFullFlags,
-    pub grain_from_enum_class: ETestInstanceDataObjectGrain,
-    pub fruit_from_namespace: ETestInstanceDataObjectFruit,
-    pub grain_type_change: ETestInstanceDataObjectGrain,
-    pub fruit_type_change: ETestInstanceDataObjectFruit,
-    pub grain_type_and_property_change: ETestInstanceDataObjectGrain,
-    pub fruit_type_and_property_change: ETestInstanceDataObjectFruit,
-    pub point: FTestInstanceDataObjectPoint,
-}
-#[repr(C, align(8))]
-pub struct FTestInstanceDataObjectStructAlternate {
-    pub b: f32,
-    pub c: i64,
-    pub d: i32,
-    pub e: i32,
-    pub bird: ETestInstanceDataObjectBird,
-    pub grain: ETestInstanceDataObjectGrainAlternate,
-    pub fruit: ETestInstanceDataObjectFruitAlternate,
-    pub direction: ETestInstanceDataObjectDirectionAlternate,
-    pub grain_from_enum_class: ETestInstanceDataObjectGrainAlternateEnumClass,
-    pub fruit_from_namespace: ETestInstanceDataObjectFruitAlternateNamespace,
-    pub grain_type_change: ETestInstanceDataObjectGrainAlternate,
-    pub fruit_type_change: ETestInstanceDataObjectFruitAlternate,
-    pub grain_type_and_property_change: ETestInstanceDataObjectGrainAlternateEnumClass,
-    pub fruit_type_and_property_change: ETestInstanceDataObjectFruitAlternateNamespace,
-    pub deleted_grain: ETestInstanceDataObjectGrainAlternate,
-    pub deleted_fruit: ETestInstanceDataObjectFruitAlternate,
-    pub deleted_direction: ETestInstanceDataObjectDirectionAlternate,
-    pub point: FTestInstanceDataObjectPointAlternate,
-}
-#[repr(C, align(8))]
-pub struct FSubobjectInstancingTestStructType {
-    pub inner_object: UPtr<USubobjectInstancingTestObject>,
-    pub inner_object_from_type: UPtr<USubobjectInstancingDefaultToInstancedTestObject>,
-    pub inner_object_array: TArray<UPtr<USubobjectInstancingTestObject>>,
-}
-pub struct UObject {}
-pub struct UGCBarrier {}
-pub struct UGCObjectReferencer {}
-pub struct UObjectPtrTestClass {}
-pub struct UObjectPtrAbstractTestClass {}
-pub struct UObjectPtrAbstractDerivedTestClass {}
 pub struct UObjectPtrTestClassWithRef {
-    pub object_ptr: UPtr<UObjectPtrTestClass>,
-    pub object_ptr_non_nullable: UPtr<UObjectPtrTestClass>,
-    pub object_ptr_abstract_non_nullable: UPtr<UObjectPtrAbstractTestClass>,
-    pub array_obj_ptr: TArray<UPtr<UObjectPtrTestClass>>,
+    __padding_end: [u8; 88],
 }
+impl UObjectPtrTestClassWithRef {}
+#[repr(C, align(8))]
 pub struct UObjectWithClassProperty {
-    pub class_ptr: TSubclassOf<UObject>,
-    pub sub_class: TSubclassOf<UObjectPtrTestClass>,
-    pub class_raw: TSubclassOf<UObject>,
+    __padding_end: [u8; 72],
 }
+impl UObjectWithClassProperty {}
+#[repr(C, align(8))]
 pub struct UObjectWithRawProperty {
-    pub object_ptr: UPtr<UObjectPtrTestClass>,
-    pub object_ptr_non_nullable: UPtr<UObjectPtrTestClass>,
+    __padding_end: [u8; 64],
 }
-pub struct UObjectPtrDerrivedTestClass {}
-pub struct UObjectPtrNotLazyTestClass {}
-pub struct UObjectPtrStressTestClass {}
-pub struct UMiddleClass {}
-pub struct UDerrivedClass {}
+impl UObjectWithRawProperty {}
+#[repr(C, align(8))]
+pub struct UObjectPtrDerrivedTestClass {
+    __padding_end: [u8; 48],
+}
+impl UObjectPtrDerrivedTestClass {}
+#[repr(C, align(8))]
+pub struct UObjectPtrNotLazyTestClass {
+    __padding_end: [u8; 48],
+}
+impl UObjectPtrNotLazyTestClass {}
+#[repr(C, align(8))]
+pub struct UObjectPtrStressTestClass {
+    __padding_end: [u8; 112],
+}
+impl UObjectPtrStressTestClass {}
+#[repr(C, align(8))]
+pub struct UMiddleClass {
+    __padding_end: [u8; 56],
+}
+impl UMiddleClass {}
+#[repr(C, align(8))]
+pub struct UDerrivedClass {
+    __padding_end: [u8; 64],
+}
+impl UDerrivedClass {}
+#[repr(C, align(8))]
 pub struct UOptionalPropertyTestObject {
-    pub optional_string: TOptional<FString>,
-    pub optional_text: TOptional<FText>,
-    pub optional_name: TOptional<FName>,
-    pub optional_int: TOptional<i32>,
+    __padding_end: [u8; 104],
 }
-pub struct UPropertyWrapper {}
-pub struct UMulticastDelegatePropertyWrapper {}
-pub struct UMulticastInlineDelegatePropertyWrapper {}
+impl UOptionalPropertyTestObject {}
+#[repr(C, align(8))]
+pub struct UPropertyWrapper {
+    __padding_end: [u8; 56],
+}
+impl UPropertyWrapper {}
+#[repr(C, align(8))]
+pub struct UMulticastDelegatePropertyWrapper {
+    __padding_end: [u8; 56],
+}
+impl UMulticastDelegatePropertyWrapper {}
+#[repr(C, align(8))]
+pub struct UMulticastInlineDelegatePropertyWrapper {
+    __padding_end: [u8; 56],
+}
+impl UMulticastInlineDelegatePropertyWrapper {}
+#[repr(C, align(8))]
 pub struct UField {
-    pub next: UPtr<UField>,
+    __padding_end: [u8; 56],
 }
-pub struct UProperty {}
-pub struct UNumericProperty {}
+impl UField {}
+#[repr(C, align(8))]
+pub struct UProperty {
+    __padding_end: [u8; 136],
+}
+impl UProperty {}
+#[repr(C, align(8))]
+pub struct UNumericProperty {
+    __padding_end: [u8; 136],
+}
+impl UNumericProperty {}
+#[repr(C, align(8))]
 pub struct UByteProperty {
-    pub enum_: UPtr<UEnum>,
+    __padding_end: [u8; 144],
 }
-pub struct UInt8Property {}
-pub struct UInt16Property {}
-pub struct UIntProperty {}
-pub struct UInt64Property {}
-pub struct UUInt16Property {}
-pub struct UUInt32Property {}
-pub struct UUInt64Property {}
-pub struct UFloatProperty {}
-pub struct UDoubleProperty {}
-pub struct UBoolProperty {}
+impl UByteProperty {}
+#[repr(C, align(8))]
+pub struct UInt8Property {
+    __padding_end: [u8; 136],
+}
+impl UInt8Property {}
+#[repr(C, align(8))]
+pub struct UInt16Property {
+    __padding_end: [u8; 136],
+}
+impl UInt16Property {}
+#[repr(C, align(8))]
+pub struct UIntProperty {
+    __padding_end: [u8; 136],
+}
+impl UIntProperty {}
+#[repr(C, align(8))]
+pub struct UInt64Property {
+    __padding_end: [u8; 136],
+}
+impl UInt64Property {}
+#[repr(C, align(8))]
+pub struct UUInt16Property {
+    __padding_end: [u8; 136],
+}
+impl UUInt16Property {}
+#[repr(C, align(8))]
+pub struct UUInt32Property {
+    __padding_end: [u8; 136],
+}
+impl UUInt32Property {}
+#[repr(C, align(8))]
+pub struct UUInt64Property {
+    __padding_end: [u8; 136],
+}
+impl UUInt64Property {}
+#[repr(C, align(8))]
+pub struct UFloatProperty {
+    __padding_end: [u8; 136],
+}
+impl UFloatProperty {}
+#[repr(C, align(8))]
+pub struct UDoubleProperty {
+    __padding_end: [u8; 136],
+}
+impl UDoubleProperty {}
+#[repr(C, align(8))]
+pub struct UBoolProperty {
+    __padding_end: [u8; 144],
+}
+impl UBoolProperty {}
+#[repr(C, align(8))]
 pub struct UObjectPropertyBase {
-    pub property_class: TSubclassOf<UObject>,
+    __padding_end: [u8; 144],
 }
-pub struct UObjectProperty {}
-pub struct UWeakObjectProperty {}
-pub struct ULazyObjectProperty {}
-pub struct USoftObjectProperty {}
+impl UObjectPropertyBase {}
+#[repr(C, align(8))]
+pub struct UObjectProperty {
+    __padding_end: [u8; 144],
+}
+impl UObjectProperty {}
+#[repr(C, align(8))]
+pub struct UWeakObjectProperty {
+    __padding_end: [u8; 144],
+}
+impl UWeakObjectProperty {}
+#[repr(C, align(8))]
+pub struct ULazyObjectProperty {
+    __padding_end: [u8; 144],
+}
+impl ULazyObjectProperty {}
+#[repr(C, align(8))]
+pub struct USoftObjectProperty {
+    __padding_end: [u8; 144],
+}
+impl USoftObjectProperty {}
+#[repr(C, align(8))]
 pub struct UClassProperty {
-    pub meta_class: TSubclassOf<UObject>,
+    __padding_end: [u8; 152],
 }
+impl UClassProperty {}
+#[repr(C, align(8))]
 pub struct USoftClassProperty {
-    pub meta_class: TSubclassOf<UObject>,
+    __padding_end: [u8; 152],
 }
+impl USoftClassProperty {}
+#[repr(C, align(8))]
 pub struct UInterfaceProperty {
-    pub interface_class: TSubclassOf<UObject>,
+    __padding_end: [u8; 144],
 }
-pub struct UNameProperty {}
-pub struct UStrProperty {}
+impl UInterfaceProperty {}
+#[repr(C, align(8))]
+pub struct UNameProperty {
+    __padding_end: [u8; 136],
+}
+impl UNameProperty {}
+#[repr(C, align(8))]
+pub struct UStrProperty {
+    __padding_end: [u8; 136],
+}
+impl UStrProperty {}
+#[repr(C, align(8))]
 pub struct UArrayProperty {
-    pub inner: UPtr<UProperty>,
+    __padding_end: [u8; 144],
 }
+impl UArrayProperty {}
+#[repr(C, align(8))]
 pub struct UMapProperty {
-    pub key_prop: UPtr<UProperty>,
-    pub value_prop: UPtr<UProperty>,
+    __padding_end: [u8; 176],
 }
+impl UMapProperty {}
+#[repr(C, align(8))]
 pub struct USetProperty {
-    pub element_prop: UPtr<UProperty>,
+    __padding_end: [u8; 168],
 }
+impl USetProperty {}
+#[repr(C, align(8))]
 pub struct UStructProperty {
-    pub _struct: UPtr<UScriptStruct>,
+    __padding_end: [u8; 144],
 }
+impl UStructProperty {}
+#[repr(C, align(8))]
 pub struct UDelegateProperty {
-    pub signature_function: UPtr<UFunction>,
+    __padding_end: [u8; 144],
 }
+impl UDelegateProperty {}
+#[repr(C, align(8))]
 pub struct UMulticastDelegateProperty {
-    pub signature_function: UPtr<UFunction>,
+    __padding_end: [u8; 144],
 }
-pub struct UMulticastInlineDelegateProperty {}
-pub struct UMulticastSparseDelegateProperty {}
+impl UMulticastDelegateProperty {}
+#[repr(C, align(8))]
+pub struct UMulticastInlineDelegateProperty {
+    __padding_end: [u8; 144],
+}
+impl UMulticastInlineDelegateProperty {}
+#[repr(C, align(8))]
+pub struct UMulticastSparseDelegateProperty {
+    __padding_end: [u8; 144],
+}
+impl UMulticastSparseDelegateProperty {}
+#[repr(C, align(8))]
 pub struct UEnumProperty {
-    pub underlying_prop: UPtr<UNumericProperty>,
-    pub enum_: UPtr<UEnum>,
+    __padding_end: [u8; 152],
 }
-pub struct UTextProperty {}
-pub struct UInterface {}
+impl UEnumProperty {}
+#[repr(C, align(8))]
+pub struct UTextProperty {
+    __padding_end: [u8; 136],
+}
+impl UTextProperty {}
+#[repr(C, align(8))]
+pub struct UInterface {
+    __padding_end: [u8; 48],
+}
+impl UInterface {}
 pub struct UEditorPathObjectInterface {}
 pub struct IEditorPathObjectInterface {}
-pub struct UTextBuffer {}
-pub struct UPropertyBagMissingObject {}
+#[repr(C, align(8))]
+pub struct UTextBuffer {
+    __padding_end: [u8; 88],
+}
+impl UTextBuffer {}
+#[repr(C, align(8))]
+pub struct UPropertyBagMissingObject {
+    __padding_end: [u8; 48],
+}
+impl UPropertyBagMissingObject {}
+#[repr(C, align(8))]
 pub struct UStruct {
-    pub super_struct: UPtr<UStruct>,
-    pub children: UPtr<UField>,
-    pub script_and_property_object_references: TArray<UPtr<UObject>>,
-    pub property_wrappers: TArray<UPtr<UPropertyWrapper>>,
+    __padding_end: [u8; 208],
 }
-pub struct UScriptStruct {}
+impl UStruct {}
+#[repr(C, align(8))]
+pub struct UScriptStruct {
+    __padding_end: [u8; 224],
+}
+impl UScriptStruct {}
+#[repr(C, align(8))]
 pub struct UPropertyBag {
-    pub property_descs: TArray<FPropertyBagPropertyDesc>,
+    __padding_end: [u8; 248],
 }
+impl UPropertyBag {}
+#[repr(C, align(8))]
 pub struct UUserDefinedStruct {
-    pub primary_struct: TWeakObjectPtr<UUserDefinedStruct>,
-    pub error_message: FString,
-    pub editor_data: UPtr<UObject>,
-    pub status: EUserDefinedStructureStatus,
-    pub guid: FGuid,
-    pub cached_cooked_meta_data_ptr: UPtr<UStructCookedMetaData>,
+    __padding_end: [u8; 368],
 }
-pub struct UUserDefinedStructEditorDataBase {}
-pub struct UFunction {}
-pub struct UDelegateFunction {}
-pub struct USparseDelegateFunction {}
-pub struct UEnum {}
-pub struct UPackage {}
+impl UUserDefinedStruct {}
+#[repr(C, align(8))]
+pub struct UUserDefinedStructEditorDataBase {
+    __padding_end: [u8; 48],
+}
+impl UUserDefinedStructEditorDataBase {}
+#[repr(C, align(8))]
+pub struct UFunction {
+    __padding_end: [u8; 264],
+}
+impl UFunction {}
+#[repr(C, align(8))]
+pub struct UDelegateFunction {
+    __padding_end: [u8; 264],
+}
+impl UDelegateFunction {}
+#[repr(C, align(8))]
+pub struct USparseDelegateFunction {
+    __padding_end: [u8; 288],
+}
+impl USparseDelegateFunction {}
+#[repr(C, align(8))]
+pub struct UEnum {
+    __padding_end: [u8; 120],
+}
+impl UEnum {}
+#[repr(C, align(8))]
+pub struct UPackage {
+    __padding_end: [u8; 360],
+}
+impl UPackage {}
+#[repr(C, align(8))]
 pub struct UClass {
-    pub class_within: TSubclassOf<UObject>,
-    pub class_generated_by: UPtr<UObject>,
-    pub net_fields: TArray<UPtr<UField>>,
-    pub class_default_object: UPtr<UObject>,
+    __padding_end: [u8; 624],
 }
+impl UClass {}
+#[repr(C, align(8))]
 pub struct UEnumCookedMetaData {
-    pub enum_meta_data: FObjectCookedMetaDataStore,
+    __padding_end: [u8; 128],
 }
+impl UEnumCookedMetaData {}
+#[repr(C, align(8))]
 pub struct UStructCookedMetaData {
-    pub struct_meta_data: FStructCookedMetaDataStore,
+    __padding_end: [u8; 208],
 }
+impl UStructCookedMetaData {}
+#[repr(C, align(8))]
 pub struct UClassCookedMetaData {
-    pub class_meta_data: FStructCookedMetaDataStore,
-    pub functions_meta_data: TMap<FName, FStructCookedMetaDataStore>,
+    __padding_end: [u8; 288],
 }
-pub struct UPackageMap {}
+impl UClassCookedMetaData {}
+#[repr(C, align(8))]
+pub struct UPackageMap {
+    __padding_end: [u8; 232],
+}
+impl UPackageMap {}
+#[repr(C, align(8))]
 pub struct UObjectReachabilityStressData {
-    pub children: TArray<UPtr<UObjectReachabilityStressData>>,
+    __padding_end: [u8; 64],
 }
-pub struct UInstanceDataObjectClass {}
-pub struct UInstanceDataObjectStruct {}
-pub struct ULinkerPlaceholderClass {}
-pub struct ULinkerPlaceholderExportObject {}
-pub struct ULinkerPlaceholderFunction {}
-pub struct UDEPRECATED_MetaData {}
-pub struct UObjectRedirector {}
+impl UObjectReachabilityStressData {}
+#[repr(C, align(8))]
+pub struct UInstanceDataObjectClass {
+    __padding_end: [u8; 640],
+}
+impl UInstanceDataObjectClass {}
+#[repr(C, align(8))]
+pub struct UInstanceDataObjectStruct {
+    __padding_end: [u8; 256],
+}
+impl UInstanceDataObjectStruct {}
+#[repr(C, align(8))]
+pub struct ULinkerPlaceholderClass {
+    __padding_end: [u8; 1072],
+}
+impl ULinkerPlaceholderClass {}
+#[repr(C, align(8))]
+pub struct ULinkerPlaceholderExportObject {
+    __padding_end: [u8; 256],
+}
+impl ULinkerPlaceholderExportObject {}
+#[repr(C, align(8))]
+pub struct ULinkerPlaceholderFunction {
+    __padding_end: [u8; 712],
+}
+impl ULinkerPlaceholderFunction {}
+#[repr(C, align(8))]
+pub struct UDEPRECATED_MetaData {
+    __padding_end: [u8; 208],
+}
+impl UDEPRECATED_MetaData {}
+#[repr(C, align(8))]
+pub struct UObjectRedirector {
+    __padding_end: [u8; 64],
+}
+impl UObjectRedirector {}
+#[repr(C, align(8))]
 pub struct UVerseClass {
-    pub sol_class_flags: u32,
-    pub task_classes: TArray<TSubclassOf<UObject>>,
-    pub init_instance_function: UPtr<UFunction>,
-    pub persistent_vars: TArray<FVersePersistentVar>,
-    pub session_vars: TArray<FVerseSessionVar>,
-    pub var_accessors: TMap<FName, FVerseClassVarAccessors>,
-    pub constructor_effects: EVerseEffectSet,
-    pub mangled_package_verse_path: FName,
-    pub package_relative_verse_path: FString,
-    pub display_name_to_ue_name_function_map: TMap<FName, FName>,
-    pub direct_interfaces: TArray<TSubclassOf<UObject>>,
-    pub properties_written_by_init_cdo: TArray<TFieldPath<FProperty>>,
-    pub function_mangled_names: TMap<FName, FName>,
-    pub predicts_function_names: TArray<FName>,
-    pub predicts_var_names: TMap<FAnsiString, FName>,
-    pub predicts_coerced_functions: TMap<FName, FName>,
-    pub int_property_constraints: TMap<TFieldPath<FInt64Property>, FVerseIntConstraints>,
-    pub double_property_constraints: TMap<
-        TFieldPath<FDoubleProperty>,
-        FVerseDoubleConstraints,
-    >,
-    pub cached_cooked_meta_data_ptr: UPtr<UClassCookedMetaData>,
+    __padding_end: [u8; 1368],
 }
+impl UVerseClass {}
+#[repr(C, align(8))]
 pub struct UVerseEnum {
-    pub verse_enum_flags: EVerseEnumFlags,
-    pub qualified_name: FUtf8String,
-    pub cached_cooked_meta_data_ptr: UPtr<UEnumCookedMetaData>,
+    __padding_end: [u8; 160],
 }
-pub struct UVerseFunction {}
+impl UVerseEnum {}
+#[repr(C, align(8))]
+pub struct UVerseFunction {
+    __padding_end: [u8; 280],
+}
+impl UVerseFunction {}
+#[repr(C, align(8))]
 pub struct UVerseStruct {
-    pub verse_class_flags: u32,
-    pub qualified_name: FUtf8String,
-    pub init_function: UPtr<UFunction>,
-    pub module_class: TSubclassOf<UObject>,
-    pub guid: FGuid,
-    pub factory_function: UPtr<UFunction>,
-    pub override_factory_function: UPtr<UFunction>,
-    pub constructor_effects: EVerseEffectSet,
-    pub int_property_constraints: TMap<TFieldPath<FInt64Property>, FVerseIntConstraints>,
-    pub double_property_constraints: TMap<
-        TFieldPath<FDoubleProperty>,
-        FVerseDoubleConstraints,
-    >,
-    pub cached_cooked_meta_data_ptr: UPtr<UStructCookedMetaData>,
+    __padding_end: [u8; 480],
 }
+impl UVerseStruct {}
+#[repr(C, align(8))]
 pub struct UTestPropertyPathFunctionsClass {
-    pub struct_static_array: FTestPropertyPathFunctionsStruct,
-    pub struct_array: TArray<FTestPropertyPathFunctionsStruct>,
-    pub struct_set: TSet<FTestPropertyPathFunctionsStructKey>,
-    pub struct_map: TMap<
-        FTestPropertyPathFunctionsStructKey,
-        FTestPropertyPathFunctionsStruct,
-    >,
-    pub struct_optional: TOptional<FTestPropertyPathFunctionsStruct>,
+    __padding_end: [u8; 2248],
 }
+impl UTestPropertyPathFunctionsClass {}
+#[repr(C, align(8))]
 pub struct UTestInstanceDataObjectClass {
-    pub a: i32,
-    pub b: f32,
-    pub c: i64,
-    pub d: i32,
-    pub e: i32,
-    pub _struct: FTestInstanceDataObjectStruct,
+    __padding_end: [u8; 136],
 }
+impl UTestInstanceDataObjectClass {}
+#[repr(C, align(8))]
 pub struct USubobjectInstancingTestObject {
-    pub test_value: i32,
+    __padding_end: [u8; 56],
 }
-pub struct USubobjectInstancingTestDerivedObject {}
+impl USubobjectInstancingTestObject {}
+#[repr(C, align(8))]
+pub struct USubobjectInstancingTestDerivedObject {
+    __padding_end: [u8; 56],
+}
+impl USubobjectInstancingTestDerivedObject {}
+#[repr(C, align(8))]
 pub struct USubobjectInstancingTestDirectlyNestedObject {
-    pub self_ref: UPtr<UObject>,
-    pub owner_object: UPtr<UObject>,
-    pub inner_object: UPtr<USubobjectInstancingTestObject>,
+    __padding_end: [u8; 80],
 }
+impl USubobjectInstancingTestDirectlyNestedObject {}
+#[repr(C, align(8))]
 pub struct USubobjectInstancingTestIndirectlyNestedObject {
-    pub inner_object: UPtr<USubobjectInstancingTestDirectlyNestedObject>,
+    __padding_end: [u8; 64],
 }
-pub struct USubobjectInstancingDefaultToInstancedTestObject {}
+impl USubobjectInstancingTestIndirectlyNestedObject {}
+#[repr(C, align(8))]
+pub struct USubobjectInstancingDefaultToInstancedTestObject {
+    __padding_end: [u8; 56],
+}
+impl USubobjectInstancingDefaultToInstancedTestObject {}
+#[repr(C, align(8))]
 pub struct USubobjectInstancingTestOuterObject {
-    pub self_ref: UPtr<UObject>,
-    pub null_object: UPtr<USubobjectInstancingTestObject>,
-    pub inner_object: UPtr<USubobjectInstancingTestObject>,
-    pub shared_object: UPtr<USubobjectInstancingTestObject>,
-    pub external_object: UPtr<USubobjectInstancingTestObject>,
-    pub internal_object: UPtr<USubobjectInstancingTestObject>,
-    pub transient_inner_object: UPtr<USubobjectInstancingTestObject>,
-    pub edit_time_inner_object: UPtr<USubobjectInstancingTestObject>,
-    pub local_only_inner_object: UPtr<USubobjectInstancingTestObject>,
-    pub inner_object_from_type: UPtr<USubobjectInstancingDefaultToInstancedTestObject>,
-    pub inner_object_using_new: UPtr<USubobjectInstancingTestObject>,
-    pub inner_object_post_init: UPtr<USubobjectInstancingTestObject>,
-    pub inner_object_array: TArray<UPtr<USubobjectInstancingTestObject>>,
-    pub inner_object_from_type_array: TArray<
-        UPtr<USubobjectInstancingDefaultToInstancedTestObject>,
-    >,
-    pub inner_object_set: TSet<UPtr<USubobjectInstancingTestObject>>,
-    pub inner_object_from_type_set: TSet<
-        UPtr<USubobjectInstancingDefaultToInstancedTestObject>,
-    >,
-    pub inner_object_map: TMap<
-        UPtr<USubobjectInstancingTestObject>,
-        UPtr<USubobjectInstancingTestObject>,
-    >,
-    pub inner_object_from_type_map: TMap<
-        UPtr<USubobjectInstancingDefaultToInstancedTestObject>,
-        UPtr<USubobjectInstancingDefaultToInstancedTestObject>,
-    >,
-    pub struct_with_inner_objects: FSubobjectInstancingTestStructType,
-    pub optional_inner_object: TOptional<UPtr<USubobjectInstancingTestObject>>,
-    pub optional_inner_object_from_type: TOptional<
-        UPtr<USubobjectInstancingDefaultToInstancedTestObject>,
-    >,
-    pub optional_inner_object_array: TOptional<
-        TArray<UPtr<USubobjectInstancingTestObject>>,
-    >,
-    pub inner_object_with_directly_nested_object: UPtr<
-        USubobjectInstancingTestDirectlyNestedObject,
-    >,
-    pub inner_object_with_indirectly_nested_object: UPtr<
-        USubobjectInstancingTestIndirectlyNestedObject,
-    >,
+    __padding_end: [u8; 592],
 }
-pub struct USubobjectInstancingTestDerivedOuterObjectWithTypeOverride {}
-pub struct USubobjectInstancingTestDerivedOuterObjectWithDoNotCreateOverride {}
-pub struct UDynamicSubobjectInstancingTestClass {}
-#[allow(non_camel_case_types)]
+impl USubobjectInstancingTestOuterObject {}
+#[repr(C, align(8))]
+pub struct USubobjectInstancingTestDerivedOuterObjectWithTypeOverride {
+    __padding_end: [u8; 592],
+}
+impl USubobjectInstancingTestDerivedOuterObjectWithTypeOverride {}
+#[repr(C, align(8))]
+pub struct USubobjectInstancingTestDerivedOuterObjectWithDoNotCreateOverride {
+    __padding_end: [u8; 592],
+}
+impl USubobjectInstancingTestDerivedOuterObjectWithDoNotCreateOverride {}
+#[repr(C, align(8))]
+pub struct UDynamicSubobjectInstancingTestClass {
+    __padding_end: [u8; 624],
+}
+impl UDynamicSubobjectInstancingTestClass {}
 #[repr(transparent)]
 pub struct EAutomationEventType(pub u8);
 impl EAutomationEventType {
@@ -1287,7 +1092,6 @@ impl EAutomationEventType {
     pub const WARNING: EAutomationEventType = EAutomationEventType(1);
     pub const ERROR: EAutomationEventType = EAutomationEventType(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ERangeBoundTypes(pub u8);
 impl ERangeBoundTypes {
@@ -1295,7 +1099,6 @@ impl ERangeBoundTypes {
     pub const INCLUSIVE: ERangeBoundTypes = ERangeBoundTypes(1);
     pub const OPEN: ERangeBoundTypes = ERangeBoundTypes(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EInterpCurveMode(pub u8);
 impl EInterpCurveMode {
@@ -1306,7 +1109,6 @@ impl EInterpCurveMode {
     pub const CIM_CURVE_BREAK: EInterpCurveMode = EInterpCurveMode(4);
     pub const CIM_CURVE_AUTO_CLAMPED: EInterpCurveMode = EInterpCurveMode(5);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EInputDeviceConnectionState(pub u8);
 impl EInputDeviceConnectionState {
@@ -1315,7 +1117,6 @@ impl EInputDeviceConnectionState {
     pub const DISCONNECTED: EInputDeviceConnectionState = EInputDeviceConnectionState(2);
     pub const CONNECTED: EInputDeviceConnectionState = EInputDeviceConnectionState(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ELocalizedTextSourceCategory(pub u8);
 impl ELocalizedTextSourceCategory {
@@ -1323,7 +1124,6 @@ impl ELocalizedTextSourceCategory {
     pub const ENGINE: ELocalizedTextSourceCategory = ELocalizedTextSourceCategory(1);
     pub const EDITOR: ELocalizedTextSourceCategory = ELocalizedTextSourceCategory(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EPropertyBagPropertyType(pub u8);
 impl EPropertyBagPropertyType {
@@ -1347,7 +1147,6 @@ impl EPropertyBagPropertyType {
     pub const U_INT64: EPropertyBagPropertyType = EPropertyBagPropertyType(17);
     pub const COUNT: EPropertyBagPropertyType = EPropertyBagPropertyType(18);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EOverriddenPropertyOperation(pub u8);
 impl EOverriddenPropertyOperation {
@@ -1360,7 +1159,6 @@ impl EOverriddenPropertyOperation {
         5,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ETestInstanceDataObjectBird(pub u8);
 impl ETestInstanceDataObjectBird {
@@ -1374,7 +1172,6 @@ impl ETestInstanceDataObjectBird {
     pub const TIDOB_OWL: ETestInstanceDataObjectBird = ETestInstanceDataObjectBird(5);
     pub const TIDOB_RAVEN: ETestInstanceDataObjectBird = ETestInstanceDataObjectBird(6);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ETestInstanceDataObjectGrain(pub u8);
 impl ETestInstanceDataObjectGrain {
@@ -1385,7 +1182,6 @@ impl ETestInstanceDataObjectGrain {
     pub const RICE: ETestInstanceDataObjectGrain = ETestInstanceDataObjectGrain(4);
     pub const WHEAT: ETestInstanceDataObjectGrain = ETestInstanceDataObjectGrain(5);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ETestInstanceDataObjectFruit(pub u8);
 impl ETestInstanceDataObjectFruit {
@@ -1395,7 +1191,6 @@ impl ETestInstanceDataObjectFruit {
     pub const LEMON: ETestInstanceDataObjectFruit = ETestInstanceDataObjectFruit(3);
     pub const ORANGE: ETestInstanceDataObjectFruit = ETestInstanceDataObjectFruit(4);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ETestInstanceDataObjectDirection(pub u16);
 impl ETestInstanceDataObjectDirection {
@@ -1415,7 +1210,6 @@ impl ETestInstanceDataObjectDirection {
         8,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ETestInstanceDataObjectFullFlags(pub u8);
 impl ETestInstanceDataObjectFullFlags {
@@ -1444,7 +1238,6 @@ impl ETestInstanceDataObjectFullFlags {
         128,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ETestInstanceDataObjectGrainAlternate(pub u8);
 impl ETestInstanceDataObjectGrainAlternate {
@@ -1464,7 +1257,6 @@ impl ETestInstanceDataObjectGrainAlternate {
         4,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ETestInstanceDataObjectFruitAlternate(pub u8);
 impl ETestInstanceDataObjectFruitAlternate {
@@ -1484,7 +1276,6 @@ impl ETestInstanceDataObjectFruitAlternate {
         4,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ETestInstanceDataObjectDirectionAlternate(pub u16);
 impl ETestInstanceDataObjectDirectionAlternate {
@@ -1510,7 +1301,6 @@ impl ETestInstanceDataObjectDirectionAlternate {
         32,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ETestInstanceDataObjectGrainAlternateEnumClass(pub u8);
 impl ETestInstanceDataObjectGrainAlternateEnumClass {
@@ -1530,7 +1320,6 @@ impl ETestInstanceDataObjectGrainAlternateEnumClass {
         4,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ETestInstanceDataObjectFruitAlternateNamespace(pub u8);
 impl ETestInstanceDataObjectFruitAlternateNamespace {
@@ -1550,7 +1339,6 @@ impl ETestInstanceDataObjectFruitAlternateNamespace {
         4,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EAxis(pub u8);
 impl EAxis {
@@ -1559,7 +1347,6 @@ impl EAxis {
     pub const Y: EAxis = EAxis(2);
     pub const Z: EAxis = EAxis(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EPixelFormat(pub u8);
 impl EPixelFormat {
@@ -1657,7 +1444,6 @@ impl EPixelFormat {
     pub const PF_ASTC_12X12_NORM_RG: EPixelFormat = EPixelFormat(91);
     pub const PF_R16G16_SINT: EPixelFormat = EPixelFormat(92);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ELifetimeCondition(pub u8);
 impl ELifetimeCondition {
@@ -1681,7 +1467,6 @@ impl ELifetimeCondition {
     pub const COND_NEVER: ELifetimeCondition = ELifetimeCondition(15);
     pub const COND_NET_GROUP: ELifetimeCondition = ELifetimeCondition(16);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EInputDeviceTriggerMask(pub u8);
 impl EInputDeviceTriggerMask {
@@ -1690,7 +1475,6 @@ impl EInputDeviceTriggerMask {
     pub const RIGHT: EInputDeviceTriggerMask = EInputDeviceTriggerMask(2);
     pub const ALL: EInputDeviceTriggerMask = EInputDeviceTriggerMask(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EUnit(pub u8);
 impl EUnit {
@@ -1771,7 +1555,6 @@ impl EUnit {
     pub const GIGA_PASCALS: EUnit = EUnit(75);
     pub const UNSPECIFIED: EUnit = EUnit(76);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EDataValidationUsecase(pub u8);
 impl EDataValidationUsecase {
@@ -1782,7 +1565,6 @@ impl EDataValidationUsecase {
     pub const PRE_SUBMIT: EDataValidationUsecase = EDataValidationUsecase(4);
     pub const SCRIPT: EDataValidationUsecase = EDataValidationUsecase(5);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EPropertyAccessChangeNotifyMode(pub u8);
 impl EPropertyAccessChangeNotifyMode {
@@ -1796,7 +1578,6 @@ impl EPropertyAccessChangeNotifyMode {
         2,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMouseCursor(pub u8);
 impl EMouseCursor {
@@ -1816,21 +1597,18 @@ impl EMouseCursor {
     pub const EYE_DROPPER: EMouseCursor = EMouseCursor(13);
     pub const CUSTOM: EMouseCursor = EMouseCursor(14);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ESearchCase(pub u8);
 impl ESearchCase {
     pub const CASE_SENSITIVE: ESearchCase = ESearchCase(0);
     pub const IGNORE_CASE: ESearchCase = ESearchCase(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ESearchDir(pub u8);
 impl ESearchDir {
     pub const FROM_START: ESearchDir = ESearchDir(0);
     pub const FROM_END: ESearchDir = ESearchDir(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EDataValidationResult(pub u8);
 impl EDataValidationResult {
@@ -1838,7 +1616,6 @@ impl EDataValidationResult {
     pub const VALID: EDataValidationResult = EDataValidationResult(1);
     pub const NOT_VALIDATED: EDataValidationResult = EDataValidationResult(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EAppMsgType(pub u8);
 impl EAppMsgType {
@@ -1851,7 +1628,6 @@ impl EAppMsgType {
     pub const YES_NO_YES_ALL_NO_ALL_CANCEL: EAppMsgType = EAppMsgType(6);
     pub const YES_NO_YES_ALL: EAppMsgType = EAppMsgType(7);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EAppReturnType(pub u8);
 impl EAppReturnType {
@@ -1864,7 +1640,6 @@ impl EAppReturnType {
     pub const RETRY: EAppReturnType = EAppReturnType(6);
     pub const CONTINUE: EAppReturnType = EAppReturnType(7);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EAppMsgCategory(pub u8);
 impl EAppMsgCategory {
@@ -1873,7 +1648,6 @@ impl EAppMsgCategory {
     pub const SUCCESS: EAppMsgCategory = EAppMsgCategory(2);
     pub const INFO: EAppMsgCategory = EAppMsgCategory(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EUserDefinedStructureStatus(pub u8);
 impl EUserDefinedStructureStatus {
@@ -1886,7 +1660,6 @@ impl EUserDefinedStructureStatus {
         3,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EVerseEffectSet(pub u8);
 impl EVerseEffectSet {
@@ -1899,7 +1672,6 @@ impl EVerseEffectSet {
     pub const ALLOCATES: EVerseEffectSet = EVerseEffectSet(32);
     pub const NO_ROLLBACK: EVerseEffectSet = EVerseEffectSet(64);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EVerseEnumFlags(pub u32);
 impl EVerseEnumFlags {
@@ -1907,7 +1679,6 @@ impl EVerseEnumFlags {
     pub const NATIVE_BOUND: EVerseEnumFlags = EVerseEnumFlags(1);
     pub const UHT_NATIVE: EVerseEnumFlags = EVerseEnumFlags(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EAxisList(pub u8);
 impl EAxisList {
@@ -1931,7 +1702,6 @@ impl EAxisList {
     pub const UF: EAxisList = EAxisList(96);
     pub const LEFT_UP_FORWARD: EAxisList = EAxisList(112);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EInputDeviceMappingPolicy(pub i32);
 impl EInputDeviceMappingPolicy {
@@ -1949,7 +1719,6 @@ impl EInputDeviceMappingPolicy {
         3,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ELogTimes(pub u8);
 impl ELogTimes {

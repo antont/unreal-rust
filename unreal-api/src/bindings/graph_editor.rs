@@ -5,87 +5,10 @@
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[repr(C, align(8))]
-pub struct FPinStructEditWrapper {}
 pub struct UGraphEditorSettings {
-    pub data_pin_style: crate::bindings::engine::EBlueprintPinStyleType,
-    pub panning_mouse_button: EGraphPanningMouseButton,
-    pub b_use_high_precision_mouse_movement: bool,
-    pub b_use_interpolation_with_manual_panning: bool,
-    pub padding_above_pin: f32,
-    pub padding_below_pin: f32,
-    pub padding_right_of_input: f32,
-    pub padding_left_of_output: f32,
-    pub padding_towards_node_edge: f32,
-    pub b_treat_splines_like_pins: bool,
-    pub spline_hover_tolerance: f32,
-    pub spline_close_tolerance: f32,
-    pub forward_spline_horizontal_delta_range: f32,
-    pub forward_spline_vertical_delta_range: f32,
-    pub forward_spline_tangent_from_horizontal_delta: crate::bindings::slate_core::FDeprecateSlateVector2D,
-    pub forward_spline_tangent_from_vertical_delta: crate::bindings::slate_core::FDeprecateSlateVector2D,
-    pub backward_spline_horizontal_delta_range: f32,
-    pub backward_spline_vertical_delta_range: f32,
-    pub backward_spline_tangent_from_horizontal_delta: crate::bindings::slate_core::FDeprecateSlateVector2D,
-    pub backward_spline_tangent_from_vertical_delta: crate::bindings::slate_core::FDeprecateSlateVector2D,
-    pub default_pin_type_color: crate::bindings::core_u_object::FLinearColor,
-    pub execution_pin_type_color: crate::bindings::core_u_object::FLinearColor,
-    pub boolean_pin_type_color: crate::bindings::core_u_object::FLinearColor,
-    pub byte_pin_type_color: crate::bindings::core_u_object::FLinearColor,
-    pub class_pin_type_color: crate::bindings::core_u_object::FLinearColor,
-    pub int_pin_type_color: crate::bindings::core_u_object::FLinearColor,
-    pub int64_pin_type_color: crate::bindings::core_u_object::FLinearColor,
-    pub float_pin_type_color: crate::bindings::core_u_object::FLinearColor,
-    pub double_pin_type_color: crate::bindings::core_u_object::FLinearColor,
-    pub real_pin_type_color: crate::bindings::core_u_object::FLinearColor,
-    pub name_pin_type_color: crate::bindings::core_u_object::FLinearColor,
-    pub soft_object_pin_type_color: crate::bindings::core_u_object::FLinearColor,
-    pub soft_class_pin_type_color: crate::bindings::core_u_object::FLinearColor,
-    pub delegate_pin_type_color: crate::bindings::core_u_object::FLinearColor,
-    pub object_pin_type_color: crate::bindings::core_u_object::FLinearColor,
-    pub interface_pin_type_color: crate::bindings::core_u_object::FLinearColor,
-    pub string_pin_type_color: crate::bindings::core_u_object::FLinearColor,
-    pub text_pin_type_color: crate::bindings::core_u_object::FLinearColor,
-    pub struct_pin_type_color: crate::bindings::core_u_object::FLinearColor,
-    pub wildcard_pin_type_color: crate::bindings::core_u_object::FLinearColor,
-    pub vector_pin_type_color: crate::bindings::core_u_object::FLinearColor,
-    pub rotator_pin_type_color: crate::bindings::core_u_object::FLinearColor,
-    pub transform_pin_type_color: crate::bindings::core_u_object::FLinearColor,
-    pub index_pin_type_color: crate::bindings::core_u_object::FLinearColor,
-    pub event_node_title_color: crate::bindings::core_u_object::FLinearColor,
-    pub function_call_node_title_color: crate::bindings::core_u_object::FLinearColor,
-    pub pure_function_call_node_title_color: crate::bindings::core_u_object::FLinearColor,
-    pub parent_function_call_node_title_color: crate::bindings::core_u_object::FLinearColor,
-    pub function_terminator_node_title_color: crate::bindings::core_u_object::FLinearColor,
-    pub exec_branch_node_title_color: crate::bindings::core_u_object::FLinearColor,
-    pub exec_sequence_node_title_color: crate::bindings::core_u_object::FLinearColor,
-    pub result_node_title_color: crate::bindings::core_u_object::FLinearColor,
-    pub default_comment_node_title_color: crate::bindings::core_u_object::FLinearColor,
-    pub preview_node_title_color: crate::bindings::core_u_object::FLinearColor,
-    pub slice_line_color: crate::bindings::core_u_object::FLinearColor,
-    pub slice_line_dash_length: f32,
-    pub slice_line_thickness: f32,
-    pub default_data_wire_thickness: f32,
-    pub default_execution_wire_thickness: f32,
-    pub trace_attack_color: crate::bindings::core_u_object::FLinearColor,
-    pub trace_attack_wire_thickness: f32,
-    pub trace_attack_hold_period: f32,
-    pub trace_decay_period: f32,
-    pub trace_decay_exponent: f32,
-    pub trace_sustain_color: crate::bindings::core_u_object::FLinearColor,
-    pub trace_sustain_wire_thickness: f32,
-    pub trace_sustain_hold_period: f32,
-    pub trace_release_color: crate::bindings::core_u_object::FLinearColor,
-    pub trace_release_wire_thickness: f32,
-    pub trace_release_period: f32,
-    pub trace_release_exponent: f32,
-    pub trace_position_bonus_period: f32,
-    pub trace_position_exponent: f32,
-    pub padding_auto_collate_increment: f32,
-    pub b_open_create_menu_on_blank_graph_areas: bool,
-    pub default_comment_node_move_mode: crate::bindings::unreal_ed::ECommentBoxMode,
-    pub b_show_comment_bubble_when_zoomed_out: bool,
+    __padding_end: [u8; 808],
 }
-#[allow(non_camel_case_types)]
+impl UGraphEditorSettings {}
 #[repr(transparent)]
 pub struct EGraphPanningMouseButton(pub u8);
 impl EGraphPanningMouseButton {
@@ -93,7 +16,6 @@ impl EGraphPanningMouseButton {
     pub const MIDDLE: EGraphPanningMouseButton = EGraphPanningMouseButton(1);
     pub const BOTH: EGraphPanningMouseButton = EGraphPanningMouseButton(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EGraphZoomLimitHandling(pub u8);
 impl EGraphZoomLimitHandling {

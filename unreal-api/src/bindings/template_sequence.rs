@@ -4,75 +4,102 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
-#[repr(C, align(8))]
-pub struct FTemplateSectionPropertyScale {
-    pub object_binding: crate::bindings::core_u_object::FGuid,
-    pub property_binding: crate::bindings::movie_scene::FMovieScenePropertyBinding,
-    pub property_scale_type: ETemplateSectionPropertyScaleType,
-    pub float_channel: crate::bindings::movie_scene::FMovieSceneFloatChannel,
-}
 #[repr(C, align(4))]
 pub struct FTemplateSequenceBindingOverrideData {
-    pub object: TWeakObjectPtr<crate::bindings::core_u_object::UObject>,
-    pub b_overrides_default: bool,
+    __padding_end: [u8; 12],
 }
+impl FTemplateSequenceBindingOverrideData {}
+#[repr(C, align(8))]
 pub struct UTemplateSequence {
-    pub movie_scene: UPtr<crate::bindings::movie_scene::UMovieScene>,
-    pub bound_actor_class: TSoftObjectPtr<crate::bindings::core_u_object::UClass>,
-    pub bound_actor_components: TMap<crate::bindings::core_u_object::FGuid, FName>,
+    __padding_end: [u8; 264],
 }
-pub struct UCameraAnimationSequence {}
+impl UTemplateSequence {}
+#[repr(C, align(8))]
+pub struct UCameraAnimationSequence {
+    __padding_end: [u8; 264],
+}
+impl UCameraAnimationSequence {}
+#[repr(C, align(16))]
 pub struct UCameraAnimationSequenceCameraStandIn {
-    pub field_of_view: f32,
-    pub flags_52: u8,
-    pub aspect_ratio: f32,
-    pub post_process_settings: crate::bindings::engine::FPostProcessSettings,
-    pub post_process_blend_weight: f32,
-    pub filmback: crate::bindings::cinematic_camera::FCameraFilmbackSettings,
-    pub lens_settings: crate::bindings::cinematic_camera::FCameraLensSettings,
-    pub focus_settings: crate::bindings::cinematic_camera::FCameraFocusSettings,
-    pub current_focal_length: f32,
-    pub current_aperture: f32,
-    pub current_focus_distance: f32,
+    __padding_end: [u8; 2320],
 }
+impl UCameraAnimationSequenceCameraStandIn {}
+#[repr(C, align(8))]
 pub struct UCameraAnimationSequencePlayer {
-    pub bound_object_override: UPtr<crate::bindings::core_u_object::UObject>,
-    pub sequence: UPtr<crate::bindings::movie_scene::UMovieSceneSequence>,
-    pub root_template_instance: crate::bindings::movie_scene::FMovieSceneRootEvaluationTemplateInstance,
+    __padding_end: [u8; 824],
 }
-pub struct UCameraAnimationSpawnableSystem {}
-pub struct UCameraAnimationBoundObjectInstantiator {}
-pub struct UCameraAnimationEntitySystemLinker {}
+impl UCameraAnimationSequencePlayer {}
+#[repr(C, align(8))]
+pub struct UCameraAnimationSpawnableSystem {
+    __padding_end: [u8; 80],
+}
+impl UCameraAnimationSpawnableSystem {}
+#[repr(C, align(8))]
+pub struct UCameraAnimationBoundObjectInstantiator {
+    __padding_end: [u8; 80],
+}
+impl UCameraAnimationBoundObjectInstantiator {}
+#[repr(C, align(8))]
+pub struct UCameraAnimationEntitySystemLinker {
+    __padding_end: [u8; 1952],
+}
+impl UCameraAnimationEntitySystemLinker {}
+#[repr(C, align(8))]
 pub struct UCameraAnimationSequenceSubsystem {
-    pub linker: UPtr<crate::bindings::movie_scene::UMovieSceneEntitySystemLinker>,
+    __padding_end: [u8; 88],
 }
+impl UCameraAnimationSequenceSubsystem {}
+#[repr(C, align(8))]
 pub struct UTemplateSequenceSection {
-    pub property_scales: TArray<FTemplateSectionPropertyScale>,
+    __padding_end: [u8; 2440],
 }
+impl UTemplateSequenceSection {}
+#[repr(C, align(8))]
 pub struct USequenceCameraShakePattern {
-    pub sequence: UPtr<UCameraAnimationSequence>,
-    pub play_rate: f32,
-    pub scale: f32,
-    pub blend_in_time: f32,
-    pub blend_out_time: f32,
-    pub random_segment_duration: f32,
-    pub b_random_segment: bool,
-    pub player: UPtr<UCameraAnimationSequencePlayer>,
-    pub camera_stand_in: UPtr<UCameraAnimationSequenceCameraStandIn>,
+    __padding_end: [u8; 128],
 }
-pub struct UTemplateSequenceSystem {}
-pub struct UTemplateSequencePropertyScalingInstantiatorSystem {}
-pub struct UTemplateSequencePropertyScalingEvaluatorSystem {}
+impl USequenceCameraShakePattern {}
+#[repr(C, align(8))]
+pub struct UTemplateSequenceSystem {
+    __padding_end: [u8; 224],
+}
+impl UTemplateSequenceSystem {}
+#[repr(C, align(8))]
+pub struct UTemplateSequencePropertyScalingInstantiatorSystem {
+    __padding_end: [u8; 168],
+}
+impl UTemplateSequencePropertyScalingInstantiatorSystem {}
+#[repr(C, align(8))]
+pub struct UTemplateSequencePropertyScalingEvaluatorSystem {
+    __padding_end: [u8; 160],
+}
+impl UTemplateSequencePropertyScalingEvaluatorSystem {}
+#[repr(C, align(8))]
 pub struct ATemplateSequenceActor {
+    #[doc(hidden)]
+    __padding_1144: [u8; 1144],
     pub playback_settings: crate::bindings::movie_scene::FMovieSceneSequencePlaybackSettings,
     pub sequence_player: UPtr<UTemplateSequencePlayer>,
     pub template_sequence: crate::bindings::core_u_object::FSoftObjectPath,
     pub binding_override: FTemplateSequenceBindingOverrideData,
+    __padding_end: [u8; 4],
 }
-pub struct UTemplateSequencePlayer {}
-pub struct USequenceCameraShakeTestUtil {}
-pub struct UTemplateSequenceTrack {}
-#[allow(non_camel_case_types)]
+impl ATemplateSequenceActor {}
+#[repr(C, align(8))]
+pub struct UTemplateSequencePlayer {
+    __padding_end: [u8; 1224],
+}
+impl UTemplateSequencePlayer {}
+#[repr(C, align(8))]
+pub struct USequenceCameraShakeTestUtil {
+    __padding_end: [u8; 48],
+}
+impl USequenceCameraShakeTestUtil {}
+#[repr(C, align(8))]
+pub struct UTemplateSequenceTrack {
+    __padding_end: [u8; 416],
+}
+impl UTemplateSequenceTrack {}
 #[repr(transparent)]
 pub struct ETemplateSectionPropertyScaleType(pub i32);
 impl ETemplateSectionPropertyScaleType {

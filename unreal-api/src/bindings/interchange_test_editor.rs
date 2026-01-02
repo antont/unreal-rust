@@ -4,5 +4,13 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
-pub struct UAssetDefinition_InterchangeImportTestPlan {}
-pub struct UInterchangeImportTestPlanFactory {}
+#[repr(C, align(8))]
+pub struct UAssetDefinition_InterchangeImportTestPlan {
+    __padding_end: [u8; 72],
+}
+impl UAssetDefinition_InterchangeImportTestPlan {}
+#[repr(C, align(8))]
+pub struct UInterchangeImportTestPlanFactory {
+    __padding_end: [u8; 136],
+}
+impl UInterchangeImportTestPlanFactory {}

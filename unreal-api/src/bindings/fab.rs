@@ -5,133 +5,74 @@
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[repr(C, align(8))]
-pub struct FFabAssetMetadata {
-    pub asset_id: FString,
-    pub asset_name: FString,
-    pub asset_type: FString,
-    pub listing_type: FString,
-    pub asset_namespace: FString,
-    pub distribution_point_base_urls: TArray<FString>,
-    pub is_quixel: bool,
-}
-#[repr(C, align(8))]
-pub struct FEosConstantsGameDev {
-    pub product_id: FString,
-    pub sandbox_id: FString,
-    pub deployment_id: FString,
-    pub client_credentials_id: FString,
-    pub client_credentials_secret: FString,
-    pub game_name: FString,
-    pub encryption_key: FString,
-    pub product_version: FString,
-}
-#[repr(C, align(8))]
-pub struct FEosConstantsProd {
-    pub product_id: FString,
-    pub sandbox_id: FString,
-    pub deployment_id: FString,
-    pub client_credentials_id: FString,
-    pub client_credentials_secret: FString,
-    pub game_name: FString,
-    pub encryption_key: FString,
-    pub product_version: FString,
-}
-#[repr(C, align(8))]
-pub struct FFabAnalyticsEventValue {
-    pub platform: FString,
-    pub api_version: FFabApiVersion,
-}
-#[repr(C, align(8))]
-pub struct FFabApiVersion {
-    pub ue: FString,
-    pub api: FString,
-    pub pluginversion: FString,
-    pub platform: FString,
-}
-#[repr(C, align(8))]
-pub struct FFabAnalyticsPayload {
-    pub interaction_type: FString,
-    pub event_category: FString,
-    pub event_action: FString,
-    pub event_label: FString,
-    pub event_type: FString,
-    pub event_value: FFabAnalyticsEventValue,
-}
-#[repr(C, align(8))]
-pub struct FFabFrontendSettings {
-    pub preferredformat: FString,
-    pub preferredquality: FString,
-}
-#[repr(C, align(8))]
-pub struct FMegascanMaterialPair {
-    pub standard_material: TSoftObjectPtr<crate::bindings::engine::UMaterialInterface>,
-    pub vt_material: TSoftObjectPtr<crate::bindings::engine::UMaterialInterface>,
-}
-#[repr(C, align(1))]
-pub struct FFabDistributionMethodTag {}
-#[repr(C, align(4))]
-pub struct FFabObjectNameColumn {
-    pub name: FName,
-}
-#[repr(C, align(8))]
-pub struct FFabObjectColumn {
-    pub description: FString,
-    pub asset_id: crate::bindings::core_u_object::FGuid,
-    pub asset_namespace: crate::bindings::core_u_object::FGuid,
-    pub listing_type: FName,
-    pub seller: FString,
-    pub source: FName,
-    pub url_string: FString,
-}
-#[repr(C, align(8))]
-pub struct FSemanticTags {
-    pub asset_type: FString,
-}
-#[repr(C, align(8))]
-pub struct FAssetMetaDataJson {
-    pub id: FString,
-    pub categories: TArray<FString>,
-    pub semantic_tags: FSemanticTags,
-    pub displacement_bias_tier1: f32,
-    pub displacement_scale_tier1: f32,
-}
 pub struct UFabLocalAssets {
-    pub paths_listing_id: TMap<FString, FString>,
+    __padding_end: [u8; 208],
 }
+impl UFabLocalAssets {}
+#[repr(C, align(8))]
 pub struct UEosConstants {
-    pub game_dev: FEosConstantsGameDev,
-    pub prod: FEosConstantsProd,
+    __padding_end: [u8; 312],
 }
-pub struct UFabBrowserApi {}
+impl UEosConstants {}
+#[repr(C, align(8))]
+pub struct UFabBrowserApi {
+    __padding_end: [u8; 96],
+}
+impl UFabBrowserApi {}
+#[repr(C, align(8))]
 pub struct UFabSettings {
-    pub environment: EFabEnvironment,
-    pub custom_url: FString,
-    pub custom_auth_token: FString,
-    pub b_enable_debug_options: bool,
-    pub cache_directory_path: crate::bindings::core_u_object::FDirectoryPath,
-    pub cache_directory_size: FString,
-    pub product_formats_section_sub_text: FString,
-    pub preferred_default_format: EFabPreferredFormats,
-    pub preferred_quality_tier: EFabPreferredQualityTier,
+    __padding_end: [u8; 152],
 }
-pub struct UFabPlaceholderSpawner {}
-pub struct UFabStaticMeshPlaceholderSpawner {}
-pub struct UFabSkeletalMeshPlaceholderSpawner {}
-pub struct UFabDecalPlaceholderSpawner {}
-pub struct UInterchangeInstancedFoliageTypeFactory {}
+impl UFabSettings {}
+#[repr(C, align(8))]
+pub struct UFabPlaceholderSpawner {
+    __padding_end: [u8; 168],
+}
+impl UFabPlaceholderSpawner {}
+#[repr(C, align(8))]
+pub struct UFabStaticMeshPlaceholderSpawner {
+    __padding_end: [u8; 168],
+}
+impl UFabStaticMeshPlaceholderSpawner {}
+#[repr(C, align(8))]
+pub struct UFabSkeletalMeshPlaceholderSpawner {
+    __padding_end: [u8; 168],
+}
+impl UFabSkeletalMeshPlaceholderSpawner {}
+#[repr(C, align(8))]
+pub struct UFabDecalPlaceholderSpawner {
+    __padding_end: [u8; 168],
+}
+impl UFabDecalPlaceholderSpawner {}
+#[repr(C, align(8))]
+pub struct UInterchangeInstancedFoliageTypeFactory {
+    __padding_end: [u8; 56],
+}
+impl UInterchangeInstancedFoliageTypeFactory {}
+#[repr(C, align(8))]
 pub struct UMegascansMaterialParentSettings {
-    pub material_parents: TMap<EMegascanMaterialType, FMegascanMaterialPair>,
+    __padding_end: [u8; 184],
 }
+impl UMegascansMaterialParentSettings {}
+#[repr(C, align(8))]
 pub struct UInterchangeMegascansPipeline {
+    #[doc(hidden)]
+    __padding_344: [u8; 344],
     pub megascan_import_type: EMegascanImportType,
     pub megascans_material_parent_settings: UPtr<UMegascansMaterialParentSettings>,
-    pub base_node_container: UPtr<
-        crate::bindings::interchange_core::UInterchangeBaseNodeContainer,
-    >,
+    __padding_end: [u8; 80],
 }
-pub struct UInterchangeInstancedFoliageTypeFactoryNode {}
-pub struct UFabFactory {}
-#[allow(non_camel_case_types)]
+impl UInterchangeMegascansPipeline {}
+#[repr(C, align(8))]
+pub struct UInterchangeInstancedFoliageTypeFactoryNode {
+    __padding_end: [u8; 624],
+}
+impl UInterchangeInstancedFoliageTypeFactoryNode {}
+#[repr(C, align(8))]
+pub struct UFabFactory {
+    __padding_end: [u8; 56],
+}
+impl UFabFactory {}
 #[repr(transparent)]
 pub struct EFabEnvironment(pub u8);
 impl EFabEnvironment {
@@ -140,14 +81,12 @@ impl EFabEnvironment {
     pub const TEST: EFabEnvironment = EFabEnvironment(2);
     pub const CUSTOM_URL: EFabEnvironment = EFabEnvironment(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EFabPreferredFormats(pub u8);
 impl EFabPreferredFormats {
     pub const GLTF: EFabPreferredFormats = EFabPreferredFormats(0);
     pub const FBX: EFabPreferredFormats = EFabPreferredFormats(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EFabPreferredQualityTier(pub u8);
 impl EFabPreferredQualityTier {
@@ -156,7 +95,6 @@ impl EFabPreferredQualityTier {
     pub const HIGH: EFabPreferredQualityTier = EFabPreferredQualityTier(2);
     pub const RAW: EFabPreferredQualityTier = EFabPreferredQualityTier(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMegascanMaterialType(pub i32);
 impl EMegascanMaterialType {
@@ -176,7 +114,6 @@ impl EMegascanMaterialType {
     pub const PLANT: EMegascanMaterialType = EMegascanMaterialType(13);
     pub const PLANT_BILLBOARD: EMegascanMaterialType = EMegascanMaterialType(14);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMegascanImportType(pub i32);
 impl EMegascanImportType {

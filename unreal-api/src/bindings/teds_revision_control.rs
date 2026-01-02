@@ -4,5 +4,13 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
-pub struct URevisionControlDataStorageFactory {}
-pub struct UTypedElementUObjectPackagePathFactory {}
+#[repr(C, align(8))]
+pub struct URevisionControlDataStorageFactory {
+    __padding_end: [u8; 120],
+}
+impl URevisionControlDataStorageFactory {}
+#[repr(C, align(8))]
+pub struct UTypedElementUObjectPackagePathFactory {
+    __padding_end: [u8; 56],
+}
+impl UTypedElementUObjectPackagePathFactory {}

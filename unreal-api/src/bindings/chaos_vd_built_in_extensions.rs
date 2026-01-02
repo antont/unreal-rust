@@ -5,17 +5,22 @@
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[repr(C, align(8))]
-pub struct FChaosVDAABBTreeSelectionContext {}
-pub struct UChaosVDGTAccelerationStructuresDataComponent {}
+pub struct UChaosVDGTAccelerationStructuresDataComponent {
+    __padding_end: [u8; 280],
+}
+impl UChaosVDGTAccelerationStructuresDataComponent {}
+#[repr(C, align(8))]
 pub struct UChaosVDAccelerationStructureVisualizationSettings {
-    pub depth_priority: crate::bindings::engine::ESceneDepthPriorityGroup,
-    pub base_thickness: f32,
-    pub acceleration_structure_data_visualization_flags: u32,
+    __padding_end: [u8; 112],
 }
-pub struct UChaosVDGenericDebugDrawDataComponent {}
+impl UChaosVDAccelerationStructureVisualizationSettings {}
+#[repr(C, align(8))]
+pub struct UChaosVDGenericDebugDrawDataComponent {
+    __padding_end: [u8; 312],
+}
+impl UChaosVDGenericDebugDrawDataComponent {}
+#[repr(C, align(8))]
 pub struct UChaosVDGenericDebugDrawSettings {
-    pub b_show_debug_text: bool,
-    pub depth_priority: crate::bindings::engine::ESceneDepthPriorityGroup,
-    pub base_thickness: f32,
-    pub debug_draw_flags: u32,
+    __padding_end: [u8; 112],
 }
+impl UChaosVDGenericDebugDrawSettings {}

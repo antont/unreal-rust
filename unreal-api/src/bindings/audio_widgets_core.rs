@@ -10,8 +10,11 @@ pub struct FAudioMeterChannelInfo {
     pub peak_value: f32,
     pub clipping_value: f32,
 }
+impl FAudioMeterChannelInfo {}
 #[repr(C, align(16))]
 pub struct FAudioMeterWidgetStyle {
+    #[doc(hidden)]
+    __padding_16: [u8; 16],
     pub meter_value_image: crate::bindings::slate_core::FSlateBrush,
     pub background_image: crate::bindings::slate_core::FSlateBrush,
     pub meter_background_image: crate::bindings::slate_core::FSlateBrush,
@@ -30,8 +33,11 @@ pub struct FAudioMeterWidgetStyle {
     pub decibels_per_hash: i32,
     pub font: crate::bindings::slate_core::FSlateFontInfo,
 }
+impl FAudioMeterWidgetStyle {}
 #[repr(C, align(8))]
 pub struct FAudioMeterDefaultColorWidgetStyle {
+    #[doc(hidden)]
+    __padding_8: [u8; 8],
     pub meter_background_color: crate::bindings::core_u_object::FLinearColor,
     pub meter_value_color: crate::bindings::core_u_object::FLinearColor,
     pub meter_peak_color: crate::bindings::core_u_object::FLinearColor,
@@ -39,3 +45,4 @@ pub struct FAudioMeterDefaultColorWidgetStyle {
     pub meter_scale_color: crate::bindings::core_u_object::FLinearColor,
     pub meter_scale_label_color: crate::bindings::core_u_object::FLinearColor,
 }
+impl FAudioMeterDefaultColorWidgetStyle {}

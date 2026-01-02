@@ -4,40 +4,36 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
-#[repr(C, align(4))]
-pub struct FWorldBookmarkCategory {
-    pub name: FName,
-    pub color: crate::bindings::core_u_object::FColor,
-    pub guid: crate::bindings::core_u_object::FGuid,
+#[repr(C, align(8))]
+pub struct UAssetDefinition_WorldBookmark {
+    __padding_end: [u8; 80],
 }
-pub struct UAssetDefinition_WorldBookmark {}
+impl UAssetDefinition_WorldBookmark {}
+#[repr(C, align(8))]
 pub struct UWorldBookmarkBrowserSettings {
-    pub b_show_only_bookmarks_for_current_world: bool,
-    pub b_show_only_uncontrolled_bookmarks: bool,
-    pub b_show_only_favorite_bookmarks: bool,
-    pub b_show_only_last_recently_used_bookmarks: bool,
-    pub max_last_recently_used_items: i32,
-    pub hidden_columns: TArray<FName>,
-    pub view_mode: EWorldBookmarkBrowserViewMode,
+    __padding_end: [u8; 112],
 }
+impl UWorldBookmarkBrowserSettings {}
+#[repr(C, align(8))]
 pub struct UWorldBookmark {
-    pub editor_state: crate::bindings::unreal_ed::FEditorStateCollection,
-    pub category_guid: crate::bindings::core_u_object::FGuid,
-    pub bookmark_guid: crate::bindings::core_u_object::FGuid,
-    pub last_loaded_time_stamp_utc: crate::bindings::core_u_object::FDateTime,
-    pub b_favorite: bool,
-    pub bookmark_asset_path: FString,
+    __padding_end: [u8; 208],
 }
+impl UWorldBookmark {}
+#[repr(C, align(8))]
 pub struct UWorldBookmarkEditorSettings {
-    pub categories: TArray<FWorldBookmarkCategory>,
+    __padding_end: [u8; 120],
 }
+impl UWorldBookmarkEditorSettings {}
+#[repr(C, align(8))]
 pub struct UWorldBookmarkEditorPerProjectUserSettings {
-    pub b_enable_default_bookmarks: bool,
-    pub b_enable_home_bookmark: bool,
-    pub home_bookmark: TSoftObjectPtr<UWorldBookmark>,
+    __padding_end: [u8; 160],
 }
-pub struct UWorldBookmarkFactory {}
-#[allow(non_camel_case_types)]
+impl UWorldBookmarkEditorPerProjectUserSettings {}
+#[repr(C, align(8))]
+pub struct UWorldBookmarkFactory {
+    __padding_end: [u8; 136],
+}
+impl UWorldBookmarkFactory {}
 #[repr(transparent)]
 pub struct EWorldBookmarkBrowserViewMode(pub u8);
 impl EWorldBookmarkBrowserViewMode {

@@ -5,35 +5,25 @@
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[repr(C, align(8))]
-pub struct FAutomationTestExcludeOptions {
-    pub test: FName,
-    pub reason: FName,
-    pub rh_is: TSet<FName>,
-    pub platforms: TSet<FName>,
-    pub warn: bool,
+pub struct UAutomationTestPlatformSettings {
+    __padding_end: [u8; 64],
 }
+impl UAutomationTestPlatformSettings {}
 #[repr(C, align(8))]
-pub struct FAutomationTestExcludelistEntry {
-    pub map: FName,
-    pub test: FName,
-    pub reason: FName,
-    pub rh_is: TSet<FName>,
-    pub warn: bool,
-}
-pub struct UAutomationTestPlatformSettings {}
 pub struct UAutomationTestExcludelistSettings {
-    pub supported_rh_is: TArray<FName>,
+    __padding_end: [u8; 80],
 }
+impl UAutomationTestExcludelistSettings {}
+#[repr(C, align(8))]
 pub struct UAutomationTestExcludelistConfig {
-    pub task_tracker_url_hashtag: FString,
-    pub task_tracker_url_base: FString,
-    pub exclude_test: TArray<FAutomationTestExcludelistEntry>,
+    __padding_end: [u8; 168],
 }
+impl UAutomationTestExcludelistConfig {}
+#[repr(C, align(8))]
 pub struct UAutomationTestExcludelist {
-    pub default_config: UPtr<UAutomationTestExcludelistConfig>,
-    pub platform_configs: TMap<FName, UPtr<UAutomationTestExcludelistConfig>>,
+    __padding_end: [u8; 216],
 }
-#[allow(non_camel_case_types)]
+impl UAutomationTestExcludelist {}
 #[repr(transparent)]
 pub struct EAutomationState(pub u8);
 impl EAutomationState {

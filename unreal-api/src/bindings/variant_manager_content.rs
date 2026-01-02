@@ -4,82 +4,87 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
-#[repr(C, align(4))]
-pub struct FFunctionCaller {
-    pub function_name: FName,
-    pub function_entry: TWeakObjectPtr<crate::bindings::core_u_object::UObject>,
-    pub display_order: u32,
-}
-#[repr(C, align(8))]
-pub struct FCapturedPropSegment {
-    pub property_name: FString,
-    pub property_index: i32,
-    pub component_name: FString,
-}
 #[repr(C, align(8))]
 pub struct FVariantDependency {
     pub variant_set: TSoftObjectPtr<UVariantSet>,
     pub variant: TSoftObjectPtr<UVariant>,
     pub b_enabled: bool,
+    __padding_end: [u8; 7],
 }
+impl FVariantDependency {}
+#[repr(C, align(8))]
 pub struct ULevelVariantSets {
-    pub director_blueprint: UPtr<crate::bindings::core_u_object::UObject>,
-    pub director_class: TSubclassOf<crate::bindings::core_u_object::UObject>,
-    pub variant_sets: TArray<UPtr<UVariantSet>>,
+    __padding_end: [u8; 192],
 }
+impl ULevelVariantSets {}
+#[repr(C, align(8))]
 pub struct ALevelVariantSetsActor {
+    #[doc(hidden)]
+    __padding_1136: [u8; 1136],
     pub level_variant_sets: crate::bindings::core_u_object::FSoftObjectPath,
-    pub director_instances: TMap<
-        TSubclassOf<crate::bindings::core_u_object::UObject>,
-        UPtr<ULevelVariantSetsFunctionDirector>,
-    >,
+    __padding_end: [u8; 80],
 }
-pub struct ULevelVariantSetsFunctionDirector {}
+impl ALevelVariantSetsActor {}
+#[repr(C, align(8))]
+pub struct ULevelVariantSetsFunctionDirector {
+    __padding_end: [u8; 80],
+}
+impl ULevelVariantSetsFunctionDirector {}
+#[repr(C, align(8))]
 pub struct UPropertyValue {
-    pub properties_deprecated: TArray<TFieldPath<FProperty>>,
-    pub property_indices_deprecated: TArray<i32>,
-    pub captured_prop_segments: TArray<FCapturedPropSegment>,
-    pub full_display_string: FString,
-    pub property_setter_name: FName,
-    pub property_setter_parameter_defaults: TMap<FString, FString>,
-    pub b_has_recorded_data: bool,
-    pub leaf_property_class_deprecated: TSubclassOf<
-        crate::bindings::core_u_object::UObject,
-    >,
-    pub value_bytes: TArray<u8>,
-    pub prop_category: EPropertyValueCategory,
-    pub display_order: u32,
+    __padding_end: [u8; 488],
 }
-pub struct UPropertyValueTransform {}
-pub struct UPropertyValueVisibility {}
-pub struct UPropertyValueColor {}
-pub struct UPropertyValueMaterial {}
-pub struct UPropertyValueOption {}
-pub struct UPropertyValueSoftObject {}
+impl UPropertyValue {}
+#[repr(C, align(8))]
+pub struct UPropertyValueTransform {
+    __padding_end: [u8; 488],
+}
+impl UPropertyValueTransform {}
+#[repr(C, align(8))]
+pub struct UPropertyValueVisibility {
+    __padding_end: [u8; 488],
+}
+impl UPropertyValueVisibility {}
+#[repr(C, align(8))]
+pub struct UPropertyValueColor {
+    __padding_end: [u8; 488],
+}
+impl UPropertyValueColor {}
+#[repr(C, align(8))]
+pub struct UPropertyValueMaterial {
+    __padding_end: [u8; 488],
+}
+impl UPropertyValueMaterial {}
+#[repr(C, align(8))]
+pub struct UPropertyValueOption {
+    __padding_end: [u8; 488],
+}
+impl UPropertyValueOption {}
+#[repr(C, align(8))]
+pub struct UPropertyValueSoftObject {
+    __padding_end: [u8; 488],
+}
+impl UPropertyValueSoftObject {}
+#[repr(C, align(8))]
 pub struct ASwitchActor {
-    pub scene_component: UPtr<crate::bindings::engine::USceneComponent>,
-    pub last_selected_option: i32,
+    __padding_end: [u8; 1184],
 }
+impl ASwitchActor {}
+#[repr(C, align(8))]
 pub struct UVariant {
-    pub dependencies: TArray<FVariantDependency>,
-    pub display_text_deprecated: FText,
-    pub object_bindings: TArray<UPtr<UVariantObjectBinding>>,
-    pub thumbnail: UPtr<crate::bindings::engine::UTexture2D>,
+    __padding_end: [u8; 128],
 }
+impl UVariant {}
+#[repr(C, align(8))]
 pub struct UVariantObjectBinding {
-    pub cached_actor_label: FString,
-    pub object_ptr: crate::bindings::core_u_object::FSoftObjectPath,
-    pub lazy_object_ptr: TLazyObjectPtr<crate::bindings::core_u_object::UObject>,
-    pub captured_properties: TArray<UPtr<UPropertyValue>>,
-    pub function_callers: TArray<FFunctionCaller>,
+    __padding_end: [u8; 160],
 }
+impl UVariantObjectBinding {}
+#[repr(C, align(8))]
 pub struct UVariantSet {
-    pub display_text_deprecated: FText,
-    pub b_expanded: bool,
-    pub variants: TArray<UPtr<UVariant>>,
-    pub thumbnail: UPtr<crate::bindings::engine::UTexture2D>,
+    __padding_end: [u8; 112],
 }
-#[allow(non_camel_case_types)]
+impl UVariantSet {}
 #[repr(transparent)]
 pub struct EPropertyValueCategory(pub u8);
 impl EPropertyValueCategory {

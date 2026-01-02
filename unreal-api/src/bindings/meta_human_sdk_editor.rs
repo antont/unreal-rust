@@ -10,11 +10,13 @@ pub struct FMetaHumanAssetReportItem {
     pub project_item: UPtr<crate::bindings::core_u_object::UObject>,
     pub source_item: FString,
 }
+impl FMetaHumanAssetReportItem {}
 #[repr(C, align(1))]
 pub struct FMetaHumanImportOptions {
     pub b_verbose: bool,
     pub b_force_update: bool,
 }
+impl FMetaHumanImportOptions {}
 #[repr(C, align(8))]
 pub struct FMetaHumanAggregateDetails {
     pub b_resizes_with_blendable_bodies: bool,
@@ -45,6 +47,7 @@ pub struct FMetaHumanAggregateDetails {
     pub num_materials: i32,
     pub engine_version: FString,
 }
+impl FMetaHumanAggregateDetails {}
 #[repr(C, align(8))]
 pub struct FMetaHumanAssetDescription {
     pub name: FName,
@@ -55,75 +58,100 @@ pub struct FMetaHumanAssetDescription {
     pub total_size: i32,
     pub verification_report: UPtr<UMetaHumanAssetReport>,
 }
+impl FMetaHumanAssetDescription {}
 #[repr(C, align(8))]
 pub struct FMetaHumanMultiArchiveDescription {
     pub contained_archives: TArray<FString>,
 }
+impl FMetaHumanMultiArchiveDescription {}
 #[repr(C, align(8))]
 pub struct FMetaHumanArchiveEntry {
     pub path: FString,
     pub version: FString,
 }
+impl FMetaHumanArchiveEntry {}
 #[repr(C, align(8))]
 pub struct FMetaHumanArchiveContents {
     pub files: TArray<FMetaHumanArchiveEntry>,
 }
+impl FMetaHumanArchiveContents {}
 #[repr(C, align(1))]
 pub struct FMetaHumanVerificationOptions {
     pub b_verbose: bool,
     pub b_treat_warnings_as_errors: bool,
     pub b_verify_packaging_rules: bool,
 }
+impl FMetaHumanVerificationOptions {}
 #[repr(C, align(8))]
-pub struct FEosConstantsPlatform {
-    pub product_id: FString,
-    pub sandbox_id: FString,
-    pub deployment_id: FString,
-    pub client_credentials_id: FString,
-    pub client_credentials_secret: FString,
+pub struct UMetaHumanPackageFactory {
+    __padding_end: [u8; 136],
 }
-pub struct UMetaHumanPackageFactory {}
+impl UMetaHumanPackageFactory {}
+#[repr(C, align(8))]
 pub struct UMetaHumanAssetReport {
-    pub subject: FString,
-    pub infos: TArray<FMetaHumanAssetReportItem>,
-    pub warnings: TArray<FMetaHumanAssetReportItem>,
-    pub errors: TArray<FMetaHumanAssetReportItem>,
+    __padding_end: [u8; 120],
 }
-pub struct UMetaHumanAssetManager {}
-pub struct UMetaHumanVerificationRuleBase {}
+impl UMetaHumanAssetReport {}
+#[repr(C, align(8))]
+pub struct UMetaHumanAssetManager {
+    __padding_end: [u8; 48],
+}
+impl UMetaHumanAssetManager {}
+#[repr(C, align(8))]
+pub struct UMetaHumanVerificationRuleBase {
+    __padding_end: [u8; 48],
+}
+impl UMetaHumanVerificationRuleBase {}
+#[repr(C, align(8))]
 pub struct UMetaHumanVerificationRuleCollection {
-    pub rules: TArray<UPtr<UMetaHumanVerificationRuleBase>>,
+    __padding_end: [u8; 64],
 }
-pub struct UVerifyMetaHumanCharacter {}
-pub struct UVerifyMetaHumanGroom {}
-pub struct UVerifyMetaHumanOutfitClothing {}
-pub struct UVerifyMetaHumanPackageSource {}
-pub struct UVerifyMetaHumanSkeletalClothing {}
-pub struct UVerifyObjectValid {}
-pub struct UMetaHumanCharacterTypesVerificationExtensionBase {}
+impl UMetaHumanVerificationRuleCollection {}
+#[repr(C, align(8))]
+pub struct UVerifyMetaHumanCharacter {
+    __padding_end: [u8; 48],
+}
+impl UVerifyMetaHumanCharacter {}
+#[repr(C, align(8))]
+pub struct UVerifyMetaHumanGroom {
+    __padding_end: [u8; 48],
+}
+impl UVerifyMetaHumanGroom {}
+#[repr(C, align(8))]
+pub struct UVerifyMetaHumanOutfitClothing {
+    __padding_end: [u8; 48],
+}
+impl UVerifyMetaHumanOutfitClothing {}
+#[repr(C, align(8))]
+pub struct UVerifyMetaHumanPackageSource {
+    __padding_end: [u8; 48],
+}
+impl UVerifyMetaHumanPackageSource {}
+#[repr(C, align(8))]
+pub struct UVerifyMetaHumanSkeletalClothing {
+    __padding_end: [u8; 48],
+}
+impl UVerifyMetaHumanSkeletalClothing {}
+#[repr(C, align(8))]
+pub struct UVerifyObjectValid {
+    __padding_end: [u8; 48],
+}
+impl UVerifyObjectValid {}
+#[repr(C, align(8))]
+pub struct UMetaHumanCharacterTypesVerificationExtensionBase {
+    __padding_end: [u8; 48],
+}
+impl UMetaHumanCharacterTypesVerificationExtensionBase {}
+#[repr(C, align(8))]
 pub struct UMetaHumanCloudServicesSettings {
-    pub texture_synthesis_service_url: FString,
-    pub autorig_service_url: FString,
-    pub timeout: f32,
-    pub long_poll_timeout: f32,
-    pub auth_timeout: f32,
-    pub auth_poll_interval: f32,
-    pub retry_count: i32,
-    pub service_environment: EMetaHumanCloudServiceEnvironment,
-    pub prod_eos_constants: FEosConstantsPlatform,
-    pub game_dev_eos_constants: FEosConstantsPlatform,
+    __padding_end: [u8; 264],
 }
+impl UMetaHumanCloudServicesSettings {}
+#[repr(C, align(8))]
 pub struct UMetaHumanSDKSettings {
-    pub version_service_base_url: FString,
-    pub cinematic_import_path: crate::bindings::core_u_object::FDirectoryPath,
-    pub optimized_import_path: crate::bindings::core_u_object::FDirectoryPath,
-    pub character_asset_packaging_path: crate::bindings::core_u_object::FDirectoryPath,
-    pub character_assembly_packaging_path: crate::bindings::core_u_object::FDirectoryPath,
-    pub skeletal_clothing_packaging_path: crate::bindings::core_u_object::FDirectoryPath,
-    pub outfit_packaging_path: crate::bindings::core_u_object::FDirectoryPath,
-    pub groom_packaging_path: crate::bindings::core_u_object::FDirectoryPath,
+    __padding_end: [u8; 176],
 }
-#[allow(non_camel_case_types)]
+impl UMetaHumanSDKSettings {}
 #[repr(transparent)]
 pub struct EMetaHumanAssetType(pub u8);
 impl EMetaHumanAssetType {
@@ -133,14 +161,12 @@ impl EMetaHumanAssetType {
     pub const OUTFIT_CLOTHING: EMetaHumanAssetType = EMetaHumanAssetType(3);
     pub const GROOM: EMetaHumanAssetType = EMetaHumanAssetType(4);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMetaHumanOperationResult(pub u8);
 impl EMetaHumanOperationResult {
     pub const SUCCESS: EMetaHumanOperationResult = EMetaHumanOperationResult(0);
     pub const FAILURE: EMetaHumanOperationResult = EMetaHumanOperationResult(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMetaHumanCloudServiceEnvironment(pub i32);
 impl EMetaHumanCloudServiceEnvironment {

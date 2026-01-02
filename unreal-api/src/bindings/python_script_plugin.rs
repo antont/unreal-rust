@@ -18,35 +18,53 @@ pub struct FPyTestStruct {
     pub string_array: TArray<FString>,
     pub string_set: TSet<FString>,
     pub string_int_map: TMap<FString, i32>,
-    pub legacy_int_deprecated: i32,
-    pub bool_instance_only: bool,
-    pub bool_defaults_only: bool,
+    #[doc(hidden)]
+    __padding_342: [u8; 6],
     pub bool_mutable: bool,
+    __padding_end: [u8; 1],
 }
+impl FPyTestStruct {}
 #[repr(C, align(8))]
 pub struct FPythonLogOutputEntry {
     pub ty: EPythonLogOutputType,
     pub output: FString,
 }
+impl FPythonLogOutputEntry {}
 #[repr(C, align(8))]
-pub struct FPyTestChildStruct {}
+pub struct FPyTestChildStruct {
+    __padding_end: [u8; 344],
+}
+impl FPyTestChildStruct {}
 #[repr(C, align(4))]
 pub struct FPyTestClassSparseData {
     pub int_from_sparse_data: i32,
 }
+impl FPyTestClassSparseData {}
 pub struct UPyTestInterface {}
 pub struct IPyTestInterface {}
 pub struct UPyTestChildInterface {}
 pub struct IPyTestChildInterface {}
 pub struct UPyTestOtherInterface {}
 pub struct IPyTestOtherInterface {}
-pub struct UEditorPythonScriptingLibrary {}
-pub struct UK2Node_ExecutePythonScript {
-    pub inputs: TArray<FName>,
-    pub outputs: TArray<FName>,
+#[repr(C, align(8))]
+pub struct UEditorPythonScriptingLibrary {
+    __padding_end: [u8; 48],
 }
-pub struct UPyTestStructLibrary {}
+impl UEditorPythonScriptingLibrary {}
+#[repr(C, align(8))]
+pub struct UK2Node_ExecutePythonScript {
+    __padding_end: [u8; 368],
+}
+impl UK2Node_ExecutePythonScript {}
+#[repr(C, align(8))]
+pub struct UPyTestStructLibrary {
+    __padding_end: [u8; 48],
+}
+impl UPyTestStructLibrary {}
+#[repr(C, align(8))]
 pub struct UPyTestObject {
+    #[doc(hidden)]
+    __padding_64: [u8; 64],
     pub bool: bool,
     pub int: i32,
     pub float: f32,
@@ -60,23 +78,43 @@ pub struct UPyTestObject {
     pub string_set: TSet<FString>,
     pub string_int_map: TMap<FString, i32>,
     pub delegate: FPyTestObject_Delegate,
-    pub multicast_delegate: FPyTestObject_MulticastDelegate,
+    #[doc(hidden)]
+    __padding_456: [u8; 24],
     pub _struct: FPyTestStruct,
     pub struct_array: TArray<FPyTestStruct>,
     pub child_struct: FPyTestChildStruct,
-    pub bool_instance_only: bool,
-    pub bool_defaults_only: bool,
+    __padding_end: [u8; 8],
 }
-pub struct UPyTestChildObject {}
-pub struct UDEPRECATED_LegacyPyTestObject {}
-pub struct UPyTestObjectLibrary {}
+impl UPyTestObject {}
+#[repr(C, align(8))]
+pub struct UPyTestChildObject {
+    __padding_end: [u8; 1168],
+}
+impl UPyTestChildObject {}
+#[repr(C, align(8))]
+pub struct UDEPRECATED_LegacyPyTestObject {
+    __padding_end: [u8; 1168],
+}
+impl UDEPRECATED_LegacyPyTestObject {}
+#[repr(C, align(8))]
+pub struct UPyTestObjectLibrary {
+    __padding_end: [u8; 48],
+}
+impl UPyTestObjectLibrary {}
+#[repr(C, align(8))]
 pub struct UPyTestStructDelegate {
-    pub on_name_collision_test_delegate: FPyTestStructDelegate_OnNameCollisionTestDelegate,
+    __padding_end: [u8; 72],
 }
+impl UPyTestStructDelegate {}
+#[repr(C, align(8))]
 pub struct UPyTestVectorDelegate {
-    pub on_name_collision_test_delegate: FPyTestVectorDelegate_OnNameCollisionTestDelegate,
+    __padding_end: [u8; 72],
 }
+impl UPyTestVectorDelegate {}
+#[repr(C, align(8))]
 pub struct UPyTestTypeHint {
+    #[doc(hidden)]
+    __padding_48: [u8; 48],
     pub bool_prop: bool,
     pub int_prop: i32,
     pub float_prop: f32,
@@ -94,60 +132,109 @@ pub struct UPyTestTypeHint {
     pub set_prop: TSet<FString>,
     pub map_prop: TMap<i32, FString>,
     pub delegate_prop: FPyTestTypeHint_DelegateProp,
-    pub multicast_delegate_prop: FPyTestTypeHint_MulticastDelegateProp,
+    #[doc(hidden)]
+    __padding_792: [u8; 24],
     pub slate_tick_delegate: FPyTestTypeHint_SlateTickDelegate,
 }
-pub struct UPythonOnlineDocsCommandlet {}
-pub struct UPythonScriptCommandlet {}
-pub struct UPythonScriptLibrary {}
+impl UPyTestTypeHint {}
+#[repr(C, align(8))]
+pub struct UPythonOnlineDocsCommandlet {
+    __padding_end: [u8; 136],
+}
+impl UPythonOnlineDocsCommandlet {}
+#[repr(C, align(8))]
+pub struct UPythonScriptCommandlet {
+    __padding_end: [u8; 136],
+}
+impl UPythonScriptCommandlet {}
+#[repr(C, align(8))]
+pub struct UPythonScriptLibrary {
+    __padding_end: [u8; 48],
+}
+impl UPythonScriptLibrary {}
+#[repr(C, align(8))]
 pub struct UPythonScriptPluginSettings {
-    pub startup_scripts: TArray<FString>,
-    pub additional_paths: TArray<crate::bindings::core_u_object::FDirectoryPath>,
-    pub b_isolate_interpreter_environment: bool,
-    pub b_developer_mode: bool,
-    pub b_run_pip_install_on_startup: bool,
-    pub b_pip_strict_hash_check: bool,
-    pub b_offline_only: bool,
-    pub override_index_url: FString,
-    pub extra_install_args: FString,
-    pub b_remote_execution: bool,
-    pub remote_execution_multicast_group_endpoint: FString,
-    pub remote_execution_multicast_bind_address: FString,
-    pub remote_execution_send_buffer_size_bytes: i32,
-    pub remote_execution_receive_buffer_size_bytes: i32,
-    pub remote_execution_multicast_ttl: u8,
+    __padding_end: [u8; 232],
 }
+impl UPythonScriptPluginSettings {}
+#[repr(C, align(8))]
 pub struct UPythonScriptPluginUserSettings {
-    pub enable_python_override: EPythonEnabledOverrideState,
-    pub b_developer_mode: bool,
-    pub type_hinting_mode: ETypeHintingMode,
-    pub b_enable_content_browser_integration: bool,
+    __padding_end: [u8; 112],
 }
+impl UPythonScriptPluginUserSettings {}
 pub struct UPythonResourceOwner {}
 pub struct IPythonResourceOwner {}
-pub struct UPythonObjectHandle {}
-pub struct UPythonCallableForDelegate {}
-pub struct UPythonGeneratedEnum {}
-pub struct UPythonGeneratedClass {}
-pub struct UPythonGeneratedStruct {}
-pub struct FFuncTakingPyTestDelegate_InDelegate;
-pub struct FCheckDelegateTypeHints_Param1;
-pub struct FCheckDelegateTypeHints_ReturnValue;
-pub struct FPyTestObject_Delegate;
-pub struct FPyTestObject_MulticastDelegate;
-pub struct FPyTestStructDelegate_OnNameCollisionTestDelegate;
-pub struct FPyTestVectorDelegate_OnNameCollisionTestDelegate;
-pub struct FPyTestTypeHint_DelegateProp;
-pub struct FPyTestTypeHint_MulticastDelegateProp;
-pub struct FPyTestTypeHint_SlateTickDelegate;
-#[allow(non_camel_case_types)]
+#[repr(C, align(8))]
+pub struct UPythonObjectHandle {
+    __padding_end: [u8; 64],
+}
+impl UPythonObjectHandle {}
+#[repr(C, align(8))]
+pub struct UPythonCallableForDelegate {
+    __padding_end: [u8; 64],
+}
+impl UPythonCallableForDelegate {}
+#[repr(C, align(8))]
+pub struct UPythonGeneratedEnum {
+    __padding_end: [u8; 216],
+}
+impl UPythonGeneratedEnum {}
+#[repr(C, align(8))]
+pub struct UPythonGeneratedClass {
+    __padding_end: [u8; 1048],
+}
+impl UPythonGeneratedClass {}
+#[repr(C, align(8))]
+pub struct UPythonGeneratedStruct {
+    __padding_end: [u8; 1040],
+}
+impl UPythonGeneratedStruct {}
+#[repr(transparent)]
+pub struct FFuncTakingPyTestDelegate_InDelegate {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FCheckDelegateTypeHints_Param1 {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FCheckDelegateTypeHints_ReturnValue {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FPyTestObject_Delegate {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FPyTestObject_MulticastDelegate {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FPyTestStructDelegate_OnNameCollisionTestDelegate {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FPyTestVectorDelegate_OnNameCollisionTestDelegate {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FPyTestTypeHint_DelegateProp {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FPyTestTypeHint_MulticastDelegateProp {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FPyTestTypeHint_SlateTickDelegate {
+    _opague: u8,
+}
 #[repr(transparent)]
 pub struct EPyTestEnum(pub u8);
 impl EPyTestEnum {
     pub const ONE: EPyTestEnum = EPyTestEnum(0);
     pub const TWO: EPyTestEnum = EPyTestEnum(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EPythonLogOutputType(pub u8);
 impl EPythonLogOutputType {
@@ -155,7 +242,6 @@ impl EPythonLogOutputType {
     pub const WARNING: EPythonLogOutputType = EPythonLogOutputType(1);
     pub const ERROR: EPythonLogOutputType = EPythonLogOutputType(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EPythonCommandExecutionMode(pub u8);
 impl EPythonCommandExecutionMode {
@@ -167,14 +253,12 @@ impl EPythonCommandExecutionMode {
         2,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EPythonFileExecutionScope(pub u8);
 impl EPythonFileExecutionScope {
     pub const PRIVATE: EPythonFileExecutionScope = EPythonFileExecutionScope(0);
     pub const PUBLIC: EPythonFileExecutionScope = EPythonFileExecutionScope(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EPythonEnabledOverrideState(pub u8);
 impl EPythonEnabledOverrideState {
@@ -182,7 +266,6 @@ impl EPythonEnabledOverrideState {
     pub const ENABLE: EPythonEnabledOverrideState = EPythonEnabledOverrideState(1);
     pub const DISABLE: EPythonEnabledOverrideState = EPythonEnabledOverrideState(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ETypeHintingMode(pub u8);
 impl ETypeHintingMode {

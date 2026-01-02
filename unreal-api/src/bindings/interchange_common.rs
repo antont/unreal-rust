@@ -4,7 +4,6 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EInterchangeSparseVolumeTextureFormat(pub u8);
 impl EInterchangeSparseVolumeTextureFormat {
@@ -18,7 +17,6 @@ impl EInterchangeSparseVolumeTextureFormat {
         2,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EInterchangeMaterialXShaders(pub u8);
 impl EInterchangeMaterialXShaders {
@@ -49,7 +47,6 @@ impl EInterchangeMaterialXShaders {
         9,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EInterchangeMaterialXBSDF(pub u8);
 impl EInterchangeMaterialXBSDF {
@@ -69,7 +66,6 @@ impl EInterchangeMaterialXBSDF {
     pub const THIN_FILM: EInterchangeMaterialXBSDF = EInterchangeMaterialXBSDF(9);
     pub const MAX_BSDF_COUNT: EInterchangeMaterialXBSDF = EInterchangeMaterialXBSDF(10);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EInterchangeMaterialXEDF(pub u8);
 impl EInterchangeMaterialXEDF {
@@ -78,7 +74,6 @@ impl EInterchangeMaterialXEDF {
     pub const MEASURED: EInterchangeMaterialXEDF = EInterchangeMaterialXEDF(2);
     pub const MAX_EDF_COUNT: EInterchangeMaterialXEDF = EInterchangeMaterialXEDF(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EInterchangeMaterialXVDF(pub u8);
 impl EInterchangeMaterialXVDF {

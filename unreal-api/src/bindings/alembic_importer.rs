@@ -4,7 +4,8 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
+#[repr(C, align(8))]
 pub struct UAlembicImportFactory {
-    pub import_settings: UPtr<crate::bindings::alembic_library::UAbcImportSettings>,
-    pub b_show_option: bool,
+    __padding_end: [u8; 184],
 }
+impl UAlembicImportFactory {}

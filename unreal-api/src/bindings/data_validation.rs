@@ -5,12 +5,16 @@
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[repr(C, align(8))]
-pub struct FValidateAssetsDetails {}
+pub struct FValidateAssetsDetails {
+    __padding_end: [u8; 96],
+}
+impl FValidateAssetsDetails {}
 #[repr(C, align(4))]
 pub struct FValidatorStatistics {
     pub assets_validated: i32,
     pub assets_added_for_validation: i32,
 }
+impl FValidatorStatistics {}
 #[repr(C, align(8))]
 pub struct FValidateAssetsResults {
     pub num_requested: i32,
@@ -28,6 +32,7 @@ pub struct FValidateAssetsResults {
     >,
     pub assets_details: TMap<FString, FValidateAssetsDetails>,
 }
+impl FValidateAssetsResults {}
 #[repr(C, align(8))]
 pub struct FValidateAssetsSettings {
     pub b_skip_excluded_directories: bool,
@@ -42,54 +47,72 @@ pub struct FValidateAssetsSettings {
     pub b_capture_warnings_during_validation_as_errors: bool,
     pub max_assets_to_validate: i32,
     pub b_validate_referencers_of_deleted_assets: bool,
+    __padding_end: [u8; 47],
 }
-#[repr(C, align(4))]
-pub struct FMaterialEditorValidationShaderPlatform {
-    pub name: FName,
-}
-#[repr(C, align(4))]
-pub struct FMaterialEditorValidationPlatform {
-    pub shader_platform: FMaterialEditorValidationShaderPlatform,
-    pub feature_level: EMaterialEditorValidationFeatureLevel,
-    pub material_quality_level: EMaterialEditorValidationQualityLevel,
-}
+impl FValidateAssetsSettings {}
+#[repr(C, align(8))]
 pub struct UDataValidationSettings {
-    pub flags_104: u8,
-    pub b_enable_material_validation: bool,
-    pub b_material_validation_allow_compiling_shaders: bool,
-    pub b_material_validation_show_warnings_when_not_compiling_shaders: bool,
-    pub material_validation_platforms: TArray<FMaterialEditorValidationPlatform>,
+    __padding_end: [u8; 128],
 }
-pub struct UDataValidationChangelist {}
-pub struct UDataValidationCommandlet {}
+impl UDataValidationSettings {}
+#[repr(C, align(8))]
+pub struct UDataValidationChangelist {
+    __padding_end: [u8; 144],
+}
+impl UDataValidationChangelist {}
+#[repr(C, align(8))]
+pub struct UDataValidationCommandlet {
+    __padding_end: [u8; 136],
+}
+impl UDataValidationCommandlet {}
+#[repr(C, align(8))]
 pub struct ADataValidationTestActor {
+    #[doc(hidden)]
+    __padding_1136: [u8; 1136],
     pub b_pass_validation: bool,
-    pub sprite_component: UPtr<crate::bindings::engine::UBillboardComponent>,
+    __padding_end: [u8; 15],
 }
+impl ADataValidationTestActor {}
+#[repr(C, align(8))]
 pub struct UEditorValidatorBase {
-    pub b_is_enabled: bool,
-    pub b_is_config_disabled: bool,
-    pub b_only_print_custom_message: bool,
-    pub current_object_being_validated: UPtr<crate::bindings::core_u_object::UObject>,
+    __padding_end: [u8; 120],
 }
-pub struct UDirtyFilesChangelistValidator {}
+impl UEditorValidatorBase {}
+#[repr(C, align(8))]
+pub struct UDirtyFilesChangelistValidator {
+    __padding_end: [u8; 120],
+}
+impl UDirtyFilesChangelistValidator {}
+#[repr(C, align(8))]
 pub struct UEditorValidatorSubsystem {
-    pub excluded_directories: TArray<crate::bindings::core_u_object::FDirectoryPath>,
-    pub b_validate_on_save: bool,
-    pub validators: TMap<
-        crate::bindings::core_u_object::FTopLevelAssetPath,
-        UPtr<UEditorValidatorBase>,
-    >,
-    pub b_allow_blueprint_validators: bool,
+    __padding_end: [u8; 424],
 }
-pub struct UEditorValidator_Localization {}
-pub struct UEditorValidator_Material {}
-pub struct UValidationMaterial {}
+impl UEditorValidatorSubsystem {}
+#[repr(C, align(8))]
+pub struct UEditorValidator_Localization {
+    __padding_end: [u8; 200],
+}
+impl UEditorValidator_Localization {}
+#[repr(C, align(8))]
+pub struct UEditorValidator_Material {
+    __padding_end: [u8; 136],
+}
+impl UEditorValidator_Material {}
+#[repr(C, align(8))]
+pub struct UValidationMaterial {
+    __padding_end: [u8; 3400],
+}
+impl UValidationMaterial {}
+#[repr(C, align(8))]
 pub struct UPackageFileValidator {
-    pub b_validate_payload_hashes: bool,
+    __padding_end: [u8; 128],
 }
-pub struct UWorldPartitionChangelistValidator {}
-#[allow(non_camel_case_types)]
+impl UPackageFileValidator {}
+#[repr(C, align(8))]
+pub struct UWorldPartitionChangelistValidator {
+    __padding_end: [u8; 408],
+}
+impl UWorldPartitionChangelistValidator {}
 #[repr(transparent)]
 pub struct EMaterialEditorValidationFeatureLevel(pub i32);
 impl EMaterialEditorValidationFeatureLevel {
@@ -106,7 +129,6 @@ impl EMaterialEditorValidationFeatureLevel {
         4,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMaterialEditorValidationQualityLevel(pub u8);
 impl EMaterialEditorValidationQualityLevel {

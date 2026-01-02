@@ -5,9 +5,12 @@
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[repr(C, align(8))]
-pub struct FBifrostNodeInfo {
-    pub name: FString,
-    pub value: FString,
+pub struct UNodePort {
+    __padding_end: [u8; 72],
 }
-pub struct UNodePort {}
-pub struct UBrowserBinding {}
+impl UNodePort {}
+#[repr(C, align(8))]
+pub struct UBrowserBinding {
+    __padding_end: [u8; 440],
+}
+impl UBrowserBinding {}

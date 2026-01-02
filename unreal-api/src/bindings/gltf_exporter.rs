@@ -10,12 +10,15 @@ pub struct FGLTFExportMessages {
     pub warnings: TArray<FString>,
     pub errors: TArray<FString>,
 }
+impl FGLTFExportMessages {}
 #[repr(C, align(4))]
 pub struct FGLTFMaterialBakeSize {
     pub x: i32,
     pub y: i32,
     pub b_auto_detect: bool,
+    __padding_end: [u8; 3],
 }
+impl FGLTFMaterialBakeSize {}
 #[repr(C, align(4))]
 pub struct FGLTFOverrideMaterialBakeSettings {
     pub b_override_size: bool,
@@ -25,15 +28,51 @@ pub struct FGLTFOverrideMaterialBakeSettings {
     pub b_override_tiling: bool,
     pub tiling: crate::bindings::engine::TextureAddress,
 }
-pub struct UGLTFExporter {}
-pub struct UGLTFAnimSequenceExporter {}
-pub struct UGLTFLevelExporter {}
-pub struct UGLTFLevelSequenceExporter {}
-pub struct UGLTFLevelVariantSetsExporter {}
-pub struct UGLTFMaterialExporter {}
-pub struct UGLTFSkeletalMeshExporter {}
-pub struct UGLTFStaticMeshExporter {}
+impl FGLTFOverrideMaterialBakeSettings {}
+#[repr(C, align(8))]
+pub struct UGLTFExporter {
+    __padding_end: [u8; 128],
+}
+impl UGLTFExporter {}
+#[repr(C, align(8))]
+pub struct UGLTFAnimSequenceExporter {
+    __padding_end: [u8; 128],
+}
+impl UGLTFAnimSequenceExporter {}
+#[repr(C, align(8))]
+pub struct UGLTFLevelExporter {
+    __padding_end: [u8; 128],
+}
+impl UGLTFLevelExporter {}
+#[repr(C, align(8))]
+pub struct UGLTFLevelSequenceExporter {
+    __padding_end: [u8; 128],
+}
+impl UGLTFLevelSequenceExporter {}
+#[repr(C, align(8))]
+pub struct UGLTFLevelVariantSetsExporter {
+    __padding_end: [u8; 128],
+}
+impl UGLTFLevelVariantSetsExporter {}
+#[repr(C, align(8))]
+pub struct UGLTFMaterialExporter {
+    __padding_end: [u8; 128],
+}
+impl UGLTFMaterialExporter {}
+#[repr(C, align(8))]
+pub struct UGLTFSkeletalMeshExporter {
+    __padding_end: [u8; 128],
+}
+impl UGLTFSkeletalMeshExporter {}
+#[repr(C, align(8))]
+pub struct UGLTFStaticMeshExporter {
+    __padding_end: [u8; 128],
+}
+impl UGLTFStaticMeshExporter {}
+#[repr(C, align(8))]
 pub struct UGLTFExportOptions {
+    #[doc(hidden)]
+    __padding_48: [u8; 48],
     pub export_uniform_scale: f32,
     pub b_export_preview_mesh: bool,
     pub b_skip_near_default_values: bool,
@@ -72,8 +111,13 @@ pub struct UGLTFExportOptions {
     pub b_export_lights: bool,
     pub b_export_cameras: bool,
     pub export_material_variants: EGLTFMaterialVariantMode,
+    __padding_end: [u8; 5],
 }
+impl UGLTFExportOptions {}
+#[repr(C, align(8))]
 pub struct UGLTFProxyOptions {
+    #[doc(hidden)]
+    __padding_48: [u8; 48],
     pub b_bake_material_inputs: bool,
     pub b_use_thin_translucent_shading_model: bool,
     pub default_material_bake_size: FGLTFMaterialBakeSize,
@@ -84,12 +128,16 @@ pub struct UGLTFProxyOptions {
         FGLTFOverrideMaterialBakeSettings,
     >,
 }
+impl UGLTFProxyOptions {}
+#[repr(C, align(8))]
 pub struct UGLTFMaterialExportOptions {
+    #[doc(hidden)]
+    __padding_48: [u8; 48],
     pub proxy: UPtr<crate::bindings::engine::UMaterialInterface>,
     pub default: FGLTFOverrideMaterialBakeSettings,
     pub inputs: TMap<EGLTFMaterialPropertyGroup, FGLTFOverrideMaterialBakeSettings>,
 }
-#[allow(non_camel_case_types)]
+impl UGLTFMaterialExportOptions {}
 #[repr(transparent)]
 pub struct EGLTFMaterialBakeMode(pub u8);
 impl EGLTFMaterialBakeMode {
@@ -97,7 +145,6 @@ impl EGLTFMaterialBakeMode {
     pub const SIMPLE: EGLTFMaterialBakeMode = EGLTFMaterialBakeMode(1);
     pub const USE_MESH_DATA: EGLTFMaterialBakeMode = EGLTFMaterialBakeMode(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EGLTFMaterialPropertyGroup(pub u8);
 impl EGLTFMaterialPropertyGroup {
@@ -120,7 +167,6 @@ impl EGLTFMaterialPropertyGroup {
         7,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EGLTFTextureImageFormat(pub u8);
 impl EGLTFTextureImageFormat {
@@ -128,7 +174,6 @@ impl EGLTFTextureImageFormat {
     pub const PNG: EGLTFTextureImageFormat = EGLTFTextureImageFormat(1);
     pub const JPEG: EGLTFTextureImageFormat = EGLTFTextureImageFormat(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EGLTFMaterialVariantMode(pub u8);
 impl EGLTFMaterialVariantMode {

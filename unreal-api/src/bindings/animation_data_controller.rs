@@ -4,7 +4,8 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
+#[repr(C, align(8))]
 pub struct UAnimDataController {
-    pub model: TWeakObjectPtr<crate::bindings::engine::UAnimDataModel>,
-    pub model_interface: TScriptInterface<crate::bindings::engine::IAnimationDataModel>,
+    __padding_end: [u8; 120],
 }
+impl UAnimDataController {}

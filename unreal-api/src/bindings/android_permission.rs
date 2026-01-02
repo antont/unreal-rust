@@ -4,8 +4,17 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
+#[repr(C, align(8))]
 pub struct UAndroidPermissionCallbackProxy {
-    pub on_permissions_granted_dynamic_delegate: FAndroidPermissionCallbackProxy_OnPermissionsGrantedDynamicDelegate,
+    __padding_end: [u8; 104],
 }
-pub struct UAndroidPermissionFunctionLibrary {}
-pub struct FAndroidPermissionCallbackProxy_OnPermissionsGrantedDynamicDelegate;
+impl UAndroidPermissionCallbackProxy {}
+#[repr(C, align(8))]
+pub struct UAndroidPermissionFunctionLibrary {
+    __padding_end: [u8; 48],
+}
+impl UAndroidPermissionFunctionLibrary {}
+#[repr(transparent)]
+pub struct FAndroidPermissionCallbackProxy_OnPermissionsGrantedDynamicDelegate {
+    _opague: u8,
+}

@@ -4,8 +4,11 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
-pub struct UAndroidFileServerBPLibrary {}
-#[allow(non_camel_case_types)]
+#[repr(C, align(8))]
+pub struct UAndroidFileServerBPLibrary {
+    __padding_end: [u8; 48],
+}
+impl UAndroidFileServerBPLibrary {}
 #[repr(transparent)]
 pub struct EAFSActiveType(pub u8);
 impl EAFSActiveType {

@@ -4,9 +4,8 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
+#[repr(C, align(8))]
 pub struct UWmfMediaSettings {
-    pub allow_non_standard_codecs: bool,
-    pub low_latency: bool,
-    pub native_audio_out: bool,
-    pub hardware_accelerated_video_decoding: bool,
+    __padding_end: [u8; 56],
 }
+impl UWmfMediaSettings {}

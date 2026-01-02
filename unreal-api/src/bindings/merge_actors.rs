@@ -4,15 +4,23 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
+#[repr(C, align(8))]
 pub struct UMeshApproximationSettingsObject {
-    pub settings: crate::bindings::engine::FMeshApproximationSettings,
+    __padding_end: [u8; 352],
 }
+impl UMeshApproximationSettingsObject {}
+#[repr(C, align(8))]
 pub struct UMeshInstancingSettingsObject {
-    pub settings: crate::bindings::engine::FMeshInstancingSettings,
+    __padding_end: [u8; 72],
 }
+impl UMeshInstancingSettingsObject {}
+#[repr(C, align(8))]
 pub struct UMeshMergingSettingsObject {
-    pub settings: crate::bindings::engine::FMeshMergingSettings,
+    __padding_end: [u8; 376],
 }
+impl UMeshMergingSettingsObject {}
+#[repr(C, align(8))]
 pub struct UMeshProxySettingsObject {
-    pub settings: crate::bindings::engine::FMeshProxySettings,
+    __padding_end: [u8; 368],
 }
+impl UMeshProxySettingsObject {}

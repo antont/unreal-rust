@@ -4,8 +4,11 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
-pub struct UBlueprintEditorLibrary {}
-#[allow(non_camel_case_types)]
+#[repr(C, align(8))]
+pub struct UBlueprintEditorLibrary {
+    __padding_end: [u8; 48],
+}
+impl UBlueprintEditorLibrary {}
 #[repr(transparent)]
 pub struct EAssetSaveVersionComparisonResults(pub u8);
 impl EAssetSaveVersionComparisonResults {

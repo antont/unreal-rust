@@ -4,9 +4,13 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
+#[repr(C, align(16))]
 pub struct UNamingTokensEditableText {
+    #[doc(hidden)]
+    __padding_1736: [u8; 1736],
     pub filter_args: crate::bindings::naming_tokens::FNamingTokenFilterArgs,
-    pub b_enable_suggestion_dropdown: bool,
+    #[doc(hidden)]
+    __padding_1761: [u8; 1],
     pub b_is_multiline: bool,
     pub b_display_token_icon: bool,
     pub b_display_error_message: bool,
@@ -14,8 +18,12 @@ pub struct UNamingTokensEditableText {
     pub argument_style: crate::bindings::slate_core::FTextBlockStyle,
     pub background_color: crate::bindings::slate_core::FSlateColor,
     pub b_can_display_resolved_text: bool,
-    pub b_display_resolved_text_in_designer: bool,
-    pub on_pre_evaluate_naming_tokens: FNamingTokensEditableText_OnPreEvaluateNamingTokens,
+    #[doc(hidden)]
+    __padding_2704: [u8; 56],
     pub contexts: TArray<UPtr<crate::bindings::core_u_object::UObject>>,
 }
-pub struct FNamingTokensEditableText_OnPreEvaluateNamingTokens;
+impl UNamingTokensEditableText {}
+#[repr(transparent)]
+pub struct FNamingTokensEditableText_OnPreEvaluateNamingTokens {
+    _opague: u8,
+}

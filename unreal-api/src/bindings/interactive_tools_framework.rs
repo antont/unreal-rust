@@ -5,78 +5,17 @@
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[repr(C, align(8))]
-pub struct FGizmoVec2ParameterChange {
-    pub initial_value: crate::bindings::core_u_object::FVector2D,
-    pub current_value: crate::bindings::core_u_object::FVector2D,
-}
-#[repr(C, align(4))]
-pub struct FGizmoElementColorAttribute {
-    pub value: crate::bindings::core_u_object::FLinearColor,
-    pub b_has_value: bool,
-    pub b_overrides_child_state: bool,
-}
-#[repr(C, align(4))]
-pub struct FGizmoElementMaterialAttribute {
-    pub value: TWeakObjectPtr<crate::bindings::engine::UMaterialInterface>,
-    pub b_overrides_child_state: bool,
-}
-#[repr(C, align(4))]
-pub struct FGizmoElementMeshRenderStateAttributes {
-    pub material: FGizmoElementMaterialAttribute,
-    pub hover_material: FGizmoElementMaterialAttribute,
-    pub interact_material: FGizmoElementMaterialAttribute,
-    pub select_material: FGizmoElementMaterialAttribute,
-    pub subdue_material: FGizmoElementMaterialAttribute,
-    pub vertex_color: FGizmoElementColorAttribute,
-    pub hover_vertex_color: FGizmoElementColorAttribute,
-    pub interact_vertex_color: FGizmoElementColorAttribute,
-    pub select_vertex_color: FGizmoElementColorAttribute,
-    pub subdue_vertex_color: FGizmoElementColorAttribute,
-}
-#[repr(C, align(4))]
-pub struct FGizmoElementLineRenderStateAttributes {
-    pub line_color: FGizmoElementColorAttribute,
-    pub hover_line_color: FGizmoElementColorAttribute,
-    pub interact_line_color: FGizmoElementColorAttribute,
-    pub select_line_color: FGizmoElementColorAttribute,
-    pub subdue_line_color: FGizmoElementColorAttribute,
-}
-#[repr(C, align(8))]
-pub struct FGizmoPerStateValueDouble {
-    pub default: TOptional<f64>,
-    pub hover: TOptional<f64>,
-    pub interact: TOptional<f64>,
-    pub select: TOptional<f64>,
-    pub subdue: TOptional<f64>,
-}
-#[repr(C, align(4))]
-pub struct FGizmoPerStateValueLinearColor {
-    pub default: TOptional<crate::bindings::core_u_object::FLinearColor>,
-    pub hover: TOptional<crate::bindings::core_u_object::FLinearColor>,
-    pub interact: TOptional<crate::bindings::core_u_object::FLinearColor>,
-    pub select: TOptional<crate::bindings::core_u_object::FLinearColor>,
-    pub subdue: TOptional<crate::bindings::core_u_object::FLinearColor>,
-}
-#[repr(C, align(4))]
-pub struct FGizmoFloatParameterChange {
-    pub initial_value: f32,
-    pub current_value: f32,
-}
-#[repr(C, align(8))]
-pub struct FBrushStampData {}
-#[repr(C, align(8))]
-pub struct FBehaviorInfo {
-    pub behavior: UPtr<UInputBehavior>,
-}
-#[repr(C, align(8))]
 pub struct FInputRayHit {
     pub b_hit: bool,
     pub hit_depth: f64,
     pub hit_normal: crate::bindings::core_u_object::FVector,
     pub b_has_hit_normal: bool,
     pub hit_identifier: i32,
+    #[doc(hidden)]
+    __padding_56: [u8; 8],
     pub hit_object: TWeakObjectPtr<crate::bindings::core_u_object::UObject>,
 }
+impl FInputRayHit {}
 #[repr(C, align(8))]
 pub struct FDeviceButtonState {
     pub button: crate::bindings::input_core::FKey,
@@ -84,11 +23,14 @@ pub struct FDeviceButtonState {
     pub b_down: bool,
     pub b_released: bool,
     pub b_double_clicked: bool,
+    __padding_end: [u8; 4],
 }
+impl FDeviceButtonState {}
 #[repr(C, align(8))]
 pub struct FKeyboardInputDeviceState {
     pub active_key: FDeviceButtonState,
 }
+impl FKeyboardInputDeviceState {}
 #[repr(C, align(8))]
 pub struct FMouseInputDeviceState {
     pub left: FDeviceButtonState,
@@ -99,6 +41,7 @@ pub struct FMouseInputDeviceState {
     pub delta2_d: crate::bindings::core_u_object::FVector2D,
     pub world_ray: crate::bindings::core_u_object::FRay,
 }
+impl FMouseInputDeviceState {}
 #[repr(C, align(8))]
 pub struct FInputDeviceState {
     pub input_device: EInputDevices,
@@ -109,35 +52,50 @@ pub struct FInputDeviceState {
     pub keyboard: FKeyboardInputDeviceState,
     pub mouse: FMouseInputDeviceState,
 }
+impl FInputDeviceState {}
 #[repr(C, align(8))]
 pub struct FInputDeviceRay {
     pub world_ray: crate::bindings::core_u_object::FRay,
     pub b_has2_d: bool,
     pub screen_position: crate::bindings::core_u_object::FVector2D,
 }
-#[repr(C, align(8))]
-pub struct FActiveGizmo {
-    pub gizmo: UPtr<UInteractiveGizmo>,
-}
+impl FInputDeviceRay {}
 pub struct UAssetBackedTarget {}
 pub struct IAssetBackedTarget {}
 pub struct UGizmoBaseComponentInterface {}
 pub struct IGizmoBaseComponentInterface {}
+#[repr(C, align(16))]
 pub struct UGizmoBaseComponent {
-    pub color: crate::bindings::core_u_object::FLinearColor,
-    pub hover_size_multiplier: f32,
-    pub pixel_hit_distance_threshold: f32,
-    pub gizmo_view_context: UPtr<UGizmoViewContext>,
+    __padding_end: [u8; 1568],
 }
-pub struct UInteractiveCommandArguments {}
-pub struct UInteractiveCommandResult {}
-pub struct UInteractiveCommand {}
-pub struct UInteractiveGizmoBuilder {}
+impl UGizmoBaseComponent {}
+#[repr(C, align(8))]
+pub struct UInteractiveCommandArguments {
+    __padding_end: [u8; 56],
+}
+impl UInteractiveCommandArguments {}
+#[repr(C, align(8))]
+pub struct UInteractiveCommandResult {
+    __padding_end: [u8; 48],
+}
+impl UInteractiveCommandResult {}
+#[repr(C, align(8))]
+pub struct UInteractiveCommand {
+    __padding_end: [u8; 48],
+}
+impl UInteractiveCommand {}
+#[repr(C, align(8))]
+pub struct UInteractiveGizmoBuilder {
+    __padding_end: [u8; 48],
+}
+impl UInteractiveGizmoBuilder {}
 pub struct UToolContextTransactionProvider {}
 pub struct IToolContextTransactionProvider {}
+#[repr(C, align(8))]
 pub struct AInternalToolFrameworkActor {
-    pub b_is_selectable_in_editor: bool,
+    __padding_end: [u8; 1144],
 }
+impl AInternalToolFrameworkActor {}
 pub struct UToolFrameworkComponent {}
 pub struct IToolFrameworkComponent {}
 pub struct UInteractiveToolCameraFocusAPI {}
@@ -158,11 +116,16 @@ pub struct UMeshDescriptionCommitter {}
 pub struct IMeshDescriptionCommitter {}
 pub struct UMeshDescriptionProvider {}
 pub struct IMeshDescriptionProvider {}
-pub struct UGizmoBaseVec2ParameterSource {}
-pub struct UGizmoLocalVec2ParameterSource {
-    pub value: crate::bindings::core_u_object::FVector2D,
-    pub last_change: FGizmoVec2ParameterChange,
+#[repr(C, align(8))]
+pub struct UGizmoBaseVec2ParameterSource {
+    __padding_end: [u8; 88],
 }
+impl UGizmoBaseVec2ParameterSource {}
+#[repr(C, align(8))]
+pub struct UGizmoLocalVec2ParameterSource {
+    __padding_end: [u8; 136],
+}
+impl UGizmoLocalVec2ParameterSource {}
 pub struct UPhysicsDataSource {}
 pub struct IPhysicsDataSource {}
 pub struct USceneComponentBackedTarget {}
@@ -173,385 +136,318 @@ pub struct USkeletalMeshBackedTarget {}
 pub struct ISkeletalMeshBackedTarget {}
 pub struct UStaticMeshBackedTarget {}
 pub struct IStaticMeshBackedTarget {}
-pub struct UInputBehavior {}
-pub struct UAnyButtonInputBehavior {}
+#[repr(C, align(8))]
+pub struct UInputBehavior {
+    __padding_end: [u8; 88],
+}
+impl UInputBehavior {}
+#[repr(C, align(16))]
+pub struct UAnyButtonInputBehavior {
+    __padding_end: [u8; 144],
+}
+impl UAnyButtonInputBehavior {}
+#[repr(C, align(16))]
 pub struct UClickDragInputBehavior {
-    pub b_update_modifiers_during_drag: bool,
+    __padding_end: [u8; 320],
 }
-pub struct ULocalClickDragInputBehavior {}
+impl UClickDragInputBehavior {}
+#[repr(C, align(16))]
+pub struct ULocalClickDragInputBehavior {
+    __padding_end: [u8; 560],
+}
+impl ULocalClickDragInputBehavior {}
+#[repr(C, align(16))]
 pub struct USingleClickInputBehavior {
-    pub hit_test_on_release: bool,
+    __padding_end: [u8; 304],
 }
-pub struct UDoubleClickInputBehavior {}
-pub struct ULocalDoubleClickInputBehavior {}
-pub struct UKeyAsModifierInputBehavior {}
-pub struct UMouseButtonAsModifierInputBehavior {}
-pub struct UKeyInputBehavior {}
-pub struct UMouseHoverBehavior {}
-pub struct ULocalMouseHoverBehavior {}
-pub struct UMouseWheelInputBehavior {}
-pub struct UMouseWheelModifierInputBehavior {}
-pub struct UMultiClickSequenceInputBehavior {}
-pub struct ULocalSingleClickInputBehavior {}
+impl USingleClickInputBehavior {}
+#[repr(C, align(16))]
+pub struct UDoubleClickInputBehavior {
+    __padding_end: [u8; 304],
+}
+impl UDoubleClickInputBehavior {}
+#[repr(C, align(16))]
+pub struct ULocalDoubleClickInputBehavior {
+    __padding_end: [u8; 464],
+}
+impl ULocalDoubleClickInputBehavior {}
+#[repr(C, align(8))]
+pub struct UKeyAsModifierInputBehavior {
+    __padding_end: [u8; 192],
+}
+impl UKeyAsModifierInputBehavior {}
+#[repr(C, align(8))]
+pub struct UMouseButtonAsModifierInputBehavior {
+    __padding_end: [u8; 192],
+}
+impl UMouseButtonAsModifierInputBehavior {}
+#[repr(C, align(16))]
+pub struct UKeyInputBehavior {
+    __padding_end: [u8; 304],
+}
+impl UKeyInputBehavior {}
+#[repr(C, align(16))]
+pub struct UMouseHoverBehavior {
+    __padding_end: [u8; 256],
+}
+impl UMouseHoverBehavior {}
+#[repr(C, align(16))]
+pub struct ULocalMouseHoverBehavior {
+    __padding_end: [u8; 496],
+}
+impl ULocalMouseHoverBehavior {}
+#[repr(C, align(16))]
+pub struct UMouseWheelInputBehavior {
+    __padding_end: [u8; 304],
+}
+impl UMouseWheelInputBehavior {}
+#[repr(C, align(16))]
+pub struct UMouseWheelModifierInputBehavior {
+    __padding_end: [u8; 304],
+}
+impl UMouseWheelModifierInputBehavior {}
+#[repr(C, align(16))]
+pub struct UMultiClickSequenceInputBehavior {
+    __padding_end: [u8; 352],
+}
+impl UMultiClickSequenceInputBehavior {}
+#[repr(C, align(16))]
+pub struct ULocalSingleClickInputBehavior {
+    __padding_end: [u8; 464],
+}
+impl ULocalSingleClickInputBehavior {}
+#[repr(C, align(16))]
 pub struct USingleClickOrDragInputBehavior {
-    pub b_begin_drag_if_click_target_not_hit: bool,
-    pub click_distance_threshold: f32,
+    __padding_end: [u8; 384],
 }
-pub struct USingleKeyCaptureBehavior {}
-pub struct UTwoAxisPropertyEditInputBehavior {}
-pub struct ULocalTwoAxisPropertyEditInputBehavior {}
+impl USingleClickOrDragInputBehavior {}
+#[repr(C, align(16))]
+pub struct USingleKeyCaptureBehavior {
+    __padding_end: [u8; 320],
+}
+impl USingleKeyCaptureBehavior {}
+#[repr(C, align(8))]
+pub struct UTwoAxisPropertyEditInputBehavior {
+    __padding_end: [u8; 152],
+}
+impl UTwoAxisPropertyEditInputBehavior {}
+#[repr(C, align(16))]
+pub struct ULocalTwoAxisPropertyEditInputBehavior {
+    __padding_end: [u8; 624],
+}
+impl ULocalTwoAxisPropertyEditInputBehavior {}
 pub struct UWidgetBaseBehavior {}
 pub struct IWidgetBaseBehavior {}
-pub struct UAxisAngleGizmoBuilder {}
+#[repr(C, align(8))]
+pub struct UAxisAngleGizmoBuilder {
+    __padding_end: [u8; 48],
+}
+impl UAxisAngleGizmoBuilder {}
+#[repr(C, align(8))]
 pub struct UInteractiveGizmo {
-    pub input_behaviors: UPtr<UInputBehaviorSet>,
+    __padding_end: [u8; 64],
 }
+impl UInteractiveGizmo {}
+#[repr(C, align(16))]
 pub struct UAxisAngleGizmo {
-    pub axis_source: TScriptInterface<IGizmoAxisSource>,
-    pub angle_source: TScriptInterface<IGizmoFloatParameterSource>,
-    pub hit_target: TScriptInterface<IGizmoClickTarget>,
-    pub state_target: TScriptInterface<IGizmoStateTarget>,
-    pub mouse_behavior: UPtr<UClickDragInputBehavior>,
-    pub b_in_interaction: bool,
-    pub rotation_origin: crate::bindings::core_u_object::FVector,
-    pub rotation_axis: crate::bindings::core_u_object::FVector,
-    pub rotation_plane_x: crate::bindings::core_u_object::FVector,
-    pub rotation_plane_y: crate::bindings::core_u_object::FVector,
-    pub interaction_start_point: crate::bindings::core_u_object::FVector,
-    pub interaction_cur_point: crate::bindings::core_u_object::FVector,
-    pub interaction_start_angle: f32,
-    pub interaction_cur_angle: f32,
+    __padding_end: [u8; 448],
 }
-pub struct UAxisPositionGizmoBuilder {}
+impl UAxisAngleGizmo {}
+#[repr(C, align(8))]
+pub struct UAxisPositionGizmoBuilder {
+    __padding_end: [u8; 48],
+}
+impl UAxisPositionGizmoBuilder {}
+#[repr(C, align(16))]
 pub struct UAxisPositionGizmo {
-    pub axis_source: TScriptInterface<IGizmoAxisSource>,
-    pub parameter_source: TScriptInterface<IGizmoFloatParameterSource>,
-    pub gizmo_view_context: UPtr<UGizmoViewContext>,
-    pub hit_target: TScriptInterface<IGizmoClickTarget>,
-    pub state_target: TScriptInterface<IGizmoStateTarget>,
-    pub mouse_behavior: UPtr<UClickDragInputBehavior>,
-    pub b_enable_signed_axis: bool,
-    pub b_in_interaction: bool,
-    pub interaction_origin: crate::bindings::core_u_object::FVector,
-    pub interaction_axis: crate::bindings::core_u_object::FVector,
-    pub interaction_start_point: crate::bindings::core_u_object::FVector,
-    pub interaction_cur_point: crate::bindings::core_u_object::FVector,
-    pub interaction_start_parameter: f32,
-    pub interaction_cur_parameter: f32,
-    pub parameter_sign: f32,
+    __padding_end: [u8; 432],
 }
+impl UAxisPositionGizmo {}
+#[repr(C, align(8))]
 pub struct UGizmoConstantAxisSource {
-    pub origin: crate::bindings::core_u_object::FVector,
-    pub direction: crate::bindings::core_u_object::FVector,
+    __padding_end: [u8; 104],
 }
+impl UGizmoConstantAxisSource {}
+#[repr(C, align(8))]
 pub struct UGizmoConstantFrameAxisSource {
-    pub origin: crate::bindings::core_u_object::FVector,
-    pub direction: crate::bindings::core_u_object::FVector,
-    pub tangent_x: crate::bindings::core_u_object::FVector,
-    pub tangent_y: crate::bindings::core_u_object::FVector,
+    __padding_end: [u8; 152],
 }
+impl UGizmoConstantFrameAxisSource {}
+#[repr(C, align(8))]
 pub struct UGizmoWorldAxisSource {
-    pub origin: crate::bindings::core_u_object::FVector,
-    pub axis_index: i32,
+    __padding_end: [u8; 88],
 }
+impl UGizmoWorldAxisSource {}
+#[repr(C, align(8))]
 pub struct UGizmoComponentAxisSource {
-    pub component: UPtr<crate::bindings::engine::USceneComponent>,
-    pub axis_index: i32,
-    pub b_local_axes: bool,
+    __padding_end: [u8; 72],
 }
-pub struct UBrushStampIndicatorBuilder {}
+impl UGizmoComponentAxisSource {}
+#[repr(C, align(8))]
+pub struct UBrushStampIndicatorBuilder {
+    __padding_end: [u8; 48],
+}
+impl UBrushStampIndicatorBuilder {}
+#[repr(C, align(8))]
 pub struct UBrushStampIndicator {
-    pub b_visible: bool,
-    pub brush_radius: f32,
-    pub brush_falloff: f32,
-    pub brush_strength: f32,
-    pub brush_position: crate::bindings::core_u_object::FVector,
-    pub brush_normal: crate::bindings::core_u_object::FVector,
-    pub b_draw_indicator_lines: bool,
-    pub b_draw_radius_circle: bool,
-    pub b_scale_normal_by_strength: bool,
-    pub sample_step_count: i32,
-    pub line_color: crate::bindings::core_u_object::FLinearColor,
-    pub line_thickness: f32,
-    pub b_depth_tested: bool,
-    pub b_draw_secondary_lines: bool,
-    pub secondary_line_thickness: f32,
-    pub secondary_line_color: crate::bindings::core_u_object::FLinearColor,
-    pub attached_component: UPtr<crate::bindings::engine::UPrimitiveComponent>,
+    __padding_end: [u8; 224],
 }
-pub struct AGizmoActor {}
+impl UBrushStampIndicator {}
+#[repr(C, align(8))]
+pub struct AGizmoActor {
+    __padding_end: [u8; 1144],
+}
+impl AGizmoActor {}
+#[repr(C, align(8))]
 pub struct ACombinedTransformGizmoActor {
-    pub translate_x: UPtr<crate::bindings::engine::UPrimitiveComponent>,
-    pub translate_y: UPtr<crate::bindings::engine::UPrimitiveComponent>,
-    pub translate_z: UPtr<crate::bindings::engine::UPrimitiveComponent>,
-    pub translate_yz: UPtr<crate::bindings::engine::UPrimitiveComponent>,
-    pub translate_xz: UPtr<crate::bindings::engine::UPrimitiveComponent>,
-    pub translate_xy: UPtr<crate::bindings::engine::UPrimitiveComponent>,
-    pub rotate_x: UPtr<crate::bindings::engine::UPrimitiveComponent>,
-    pub rotate_y: UPtr<crate::bindings::engine::UPrimitiveComponent>,
-    pub rotate_z: UPtr<crate::bindings::engine::UPrimitiveComponent>,
-    pub rotation_sphere: UPtr<crate::bindings::engine::UPrimitiveComponent>,
-    pub free_rotate_handle: UPtr<crate::bindings::engine::UPrimitiveComponent>,
-    pub free_translate_handle: UPtr<crate::bindings::engine::UPrimitiveComponent>,
-    pub uniform_scale: UPtr<crate::bindings::engine::UPrimitiveComponent>,
-    pub axis_scale_x: UPtr<crate::bindings::engine::UPrimitiveComponent>,
-    pub axis_scale_y: UPtr<crate::bindings::engine::UPrimitiveComponent>,
-    pub axis_scale_z: UPtr<crate::bindings::engine::UPrimitiveComponent>,
-    pub plane_scale_yz: UPtr<crate::bindings::engine::UPrimitiveComponent>,
-    pub plane_scale_xz: UPtr<crate::bindings::engine::UPrimitiveComponent>,
-    pub plane_scale_xy: UPtr<crate::bindings::engine::UPrimitiveComponent>,
-    pub full_axis_scale_x: UPtr<crate::bindings::engine::UPrimitiveComponent>,
-    pub full_axis_scale_y: UPtr<crate::bindings::engine::UPrimitiveComponent>,
-    pub full_axis_scale_z: UPtr<crate::bindings::engine::UPrimitiveComponent>,
+    __padding_end: [u8; 1336],
 }
-pub struct UCombinedTransformGizmoBuilder {}
+impl ACombinedTransformGizmoActor {}
+#[repr(C, align(16))]
+pub struct UCombinedTransformGizmoBuilder {
+    __padding_end: [u8; 208],
+}
+impl UCombinedTransformGizmoBuilder {}
+#[repr(C, align(16))]
 pub struct UCombinedTransformGizmo {
-    pub active_target: UPtr<UTransformProxy>,
-    pub b_snap_to_world_grid: bool,
-    pub b_grid_size_is_explicit: bool,
-    pub explicit_grid_size: crate::bindings::core_u_object::FVector,
-    pub b_rotation_grid_size_is_explicit: bool,
-    pub explicit_rotation_grid_size: crate::bindings::core_u_object::FRotator,
-    pub b_snap_to_world_rot_grid: bool,
-    pub b_snap_to_scale_grid: bool,
-    pub b_use_context_coordinate_system: bool,
-    pub current_coordinate_system: EToolContextCoordinateSystem,
-    pub b_use_context_gizmo_mode: bool,
-    pub active_gizmo_mode: EToolContextTransformGizmoMode,
-    pub active_components: TArray<UPtr<crate::bindings::engine::UPrimitiveComponent>>,
-    pub active_gizmos: TArray<UPtr<UInteractiveGizmo>>,
-    pub gizmo_actor: UPtr<ACombinedTransformGizmoActor>,
-    pub camera_axis_source: UPtr<UGizmoConstantFrameAxisSource>,
-    pub axis_x_source: UPtr<UGizmoComponentAxisSource>,
-    pub axis_y_source: UPtr<UGizmoComponentAxisSource>,
-    pub axis_z_source: UPtr<UGizmoComponentAxisSource>,
-    pub unit_axis_x_source: UPtr<UGizmoComponentAxisSource>,
-    pub unit_axis_y_source: UPtr<UGizmoComponentAxisSource>,
-    pub unit_axis_z_source: UPtr<UGizmoComponentAxisSource>,
-    pub state_target: UPtr<UGizmoTransformChangeStateTarget>,
+    __padding_end: [u8; 1376],
 }
+impl UCombinedTransformGizmo {}
+#[repr(C, align(16))]
 pub struct UTransformProxy {
-    pub b_rotate_per_object: bool,
-    pub b_set_pivot_mode: bool,
-    pub shared_transform: crate::bindings::core_u_object::FTransform,
-    pub initial_shared_transform: crate::bindings::core_u_object::FTransform,
+    __padding_end: [u8; 496],
 }
-pub struct UComponentBoundTransformProxy {}
+impl UTransformProxy {}
+#[repr(C, align(16))]
+pub struct UComponentBoundTransformProxy {
+    __padding_end: [u8; 512],
+}
+impl UComponentBoundTransformProxy {}
+#[repr(C, align(16))]
 pub struct UPlanePositionGizmo {
-    pub axis_source: TScriptInterface<IGizmoAxisSource>,
-    pub parameter_source: TScriptInterface<IGizmoVec2ParameterSource>,
-    pub hit_target: TScriptInterface<IGizmoClickTarget>,
-    pub state_target: TScriptInterface<IGizmoStateTarget>,
-    pub mouse_behavior: UPtr<UClickDragInputBehavior>,
-    pub b_enable_signed_axis: bool,
-    pub b_flip_x: bool,
-    pub b_flip_y: bool,
-    pub b_in_interaction: bool,
-    pub interaction_origin: crate::bindings::core_u_object::FVector,
-    pub interaction_normal: crate::bindings::core_u_object::FVector,
-    pub interaction_axis_x: crate::bindings::core_u_object::FVector,
-    pub interaction_axis_y: crate::bindings::core_u_object::FVector,
-    pub interaction_start_point: crate::bindings::core_u_object::FVector,
-    pub interaction_cur_point: crate::bindings::core_u_object::FVector,
-    pub interaction_start_parameter: crate::bindings::core_u_object::FVector2D,
-    pub interaction_cur_parameter: crate::bindings::core_u_object::FVector2D,
-    pub parameter_signs: crate::bindings::core_u_object::FVector2D,
+    __padding_end: [u8; 640],
 }
+impl UPlanePositionGizmo {}
+#[repr(C, align(16))]
 pub struct UFreePositionSubGizmo {
-    pub transform_source: TScriptInterface<IGizmoTransformSource>,
+    __padding_end: [u8; 656],
 }
+impl UFreePositionSubGizmo {}
+#[repr(C, align(16))]
 pub struct UFreeRotationSubGizmo {
-    pub axis_source: TScriptInterface<IGizmoAxisSource>,
-    pub hit_target: TScriptInterface<IGizmoClickTarget>,
-    pub state_target: TScriptInterface<IGizmoStateTarget>,
-    pub transform_source: TScriptInterface<IGizmoTransformSource>,
-    pub gizmo_view_context: UPtr<UGizmoViewContext>,
-    pub mouse_behavior: UPtr<UClickDragInputBehavior>,
+    __padding_end: [u8; 256],
 }
+impl UFreeRotationSubGizmo {}
+#[repr(C, align(16))]
 pub struct UGizmoArrowComponent {
-    pub direction: crate::bindings::core_u_object::FVector,
-    pub gap: f32,
-    pub length: f32,
-    pub thickness: f32,
+    __padding_end: [u8; 1600],
 }
+impl UGizmoArrowComponent {}
+#[repr(C, align(16))]
 pub struct UGizmoBoxComponent {
-    pub origin: crate::bindings::core_u_object::FVector,
-    pub rotation: crate::bindings::core_u_object::FQuat,
-    pub dimensions: crate::bindings::core_u_object::FVector,
-    pub line_thickness: f32,
-    pub b_remove_hidden_lines: bool,
-    pub b_enable_axis_flip: bool,
+    __padding_end: [u8; 1648],
 }
+impl UGizmoBoxComponent {}
+#[repr(C, align(16))]
 pub struct UGizmoCircleComponent {
-    pub normal: crate::bindings::core_u_object::FVector,
-    pub radius: f32,
-    pub thickness: f32,
-    pub num_sides: i32,
-    pub b_view_aligned: bool,
-    pub b_draw_full_circle: bool,
-    pub b_only_allow_front_facing_hits: bool,
+    __padding_end: [u8; 1600],
 }
+impl UGizmoCircleComponent {}
+#[repr(C, align(8))]
 pub struct UGizmoElementBase {
-    pub b_enabled: bool,
-    pub b_enabled_for_perspective_projection: bool,
-    pub b_enabled_for_orthographic_projection: bool,
-    pub b_enabled_for_default_state: bool,
-    pub b_enabled_for_hovering_state: bool,
-    pub b_enabled_for_interacting_state: bool,
-    pub b_enabled_for_selected_state: bool,
-    pub b_enabled_for_subdued_state: bool,
-    pub part_identifier: u32,
-    pub mesh_render_attributes: FGizmoElementMeshRenderStateAttributes,
-    pub element_state: EGizmoElementState,
-    pub element_interaction_state: EGizmoElementInteractionState,
-    pub view_dependent_type: EGizmoElementViewDependentType,
-    pub view_dependent_axis: crate::bindings::core_u_object::FVector,
-    pub view_dependent_angle_tol: f32,
-    pub view_dependent_axial_max_cos_angle_tol: f32,
-    pub view_dependent_planar_min_cos_angle_tol: f32,
-    pub view_align_type: EGizmoElementViewAlignType,
-    pub view_align_axis: crate::bindings::core_u_object::FVector,
-    pub view_align_normal: crate::bindings::core_u_object::FVector,
-    pub view_align_axial_angle_tol: f32,
-    pub view_align_axial_max_cos_angle_tol: f32,
-    pub pixel_hit_distance_threshold: f32,
-    pub minimum_pixel_hit_distance_threshold: f32,
-    pub hit_priority: i32,
-    pub view_depth_offset: f32,
+    __padding_end: [u8; 344],
 }
+impl UGizmoElementBase {}
+#[repr(C, align(8))]
 pub struct UGizmoElementLineBase {
-    pub line_render_attributes: FGizmoElementLineRenderStateAttributes,
-    pub line_thickness: f32,
-    pub b_screen_space_line: bool,
-    pub hover_line_thickness_multiplier: f32,
-    pub interact_line_thickness_multiplier: f32,
-    pub select_line_thickness_multiplier: f32,
-    pub subdue_line_thickness_multiplier: f32,
+    __padding_end: [u8; 472],
 }
+impl UGizmoElementLineBase {}
+#[repr(C, align(8))]
 pub struct UGizmoElementCircleBase {
-    pub center: crate::bindings::core_u_object::FVector,
-    pub axis0: crate::bindings::core_u_object::FVector,
-    pub axis1: crate::bindings::core_u_object::FVector,
-    pub radius: f64,
-    pub radius_multiplier: FGizmoPerStateValueDouble,
-    pub num_segments: i32,
-    pub partial_type: EGizmoElementPartialType,
-    pub partial_start_angle: f64,
-    pub partial_end_angle: f64,
-    pub partial_view_dependent_max_cos_tol: f64,
+    __padding_end: [u8; 664],
 }
+impl UGizmoElementCircleBase {}
+#[repr(C, align(8))]
 pub struct UGizmoElementArc {
-    pub inner_radius: f64,
+    __padding_end: [u8; 672],
 }
+impl UGizmoElementArc {}
+#[repr(C, align(8))]
 pub struct UGizmoElementGroupBase {
-    pub b_constant_scale: bool,
-    pub b_hit_owner: bool,
-    pub elements: TArray<UPtr<UGizmoElementBase>>,
+    __padding_end: [u8; 496],
 }
+impl UGizmoElementGroupBase {}
+#[repr(C, align(8))]
 pub struct UGizmoElementArrow {
-    pub cylinder_element: UPtr<UGizmoElementCylinder>,
-    pub head_element: UPtr<UGizmoElementArrowHead>,
-    pub base: crate::bindings::core_u_object::FVector,
-    pub direction: crate::bindings::core_u_object::FVector,
-    pub side_direction: crate::bindings::core_u_object::FVector,
-    pub body_length: f32,
-    pub body_radius: f32,
-    pub head_length: f32,
-    pub head_radius: f32,
-    pub num_sides: i32,
-    pub b_end_caps: bool,
-    pub head_type: EGizmoElementArrowHeadType,
-    pub hit_mask: TWeakObjectPtr<UGizmoElementBase>,
+    __padding_end: [u8; 632],
 }
+impl UGizmoElementArrow {}
+#[repr(C, align(8))]
 pub struct UGizmoElementArrowHead {
-    pub cone_element: UPtr<UGizmoElementCone>,
-    pub box_element: UPtr<UGizmoElementBox>,
-    pub sphere_element: UPtr<UGizmoElementSphere>,
-    pub center: crate::bindings::core_u_object::FVector,
-    pub direction: crate::bindings::core_u_object::FVector,
-    pub side_direction: crate::bindings::core_u_object::FVector,
-    pub length: f32,
-    pub radius: f32,
-    pub num_sides: i32,
-    pub ty: EGizmoElementArrowHeadType,
-    pub hit_mask: TWeakObjectPtr<UGizmoElementBase>,
+    __padding_end: [u8; 624],
 }
+impl UGizmoElementArrowHead {}
+#[repr(C, align(8))]
 pub struct UGizmoElementBox {
-    pub center: crate::bindings::core_u_object::FVector,
-    pub dimensions: crate::bindings::core_u_object::FVector,
-    pub up_direction: crate::bindings::core_u_object::FVector,
-    pub side_direction: crate::bindings::core_u_object::FVector,
+    __padding_end: [u8; 440],
 }
+impl UGizmoElementBox {}
+#[repr(C, align(8))]
 pub struct UGizmoElementCircle {
-    pub b_draw_mesh: bool,
-    pub b_draw_line: bool,
-    pub b_hit_mesh: bool,
-    pub b_hit_line: bool,
+    __padding_end: [u8; 672],
 }
+impl UGizmoElementCircle {}
+#[repr(C, align(8))]
 pub struct UGizmoElementCone {
-    pub origin: crate::bindings::core_u_object::FVector,
-    pub direction: crate::bindings::core_u_object::FVector,
-    pub height: f32,
-    pub radius: f32,
-    pub num_sides: i32,
-    pub b_end_caps: bool,
+    __padding_end: [u8; 408],
 }
+impl UGizmoElementCone {}
+#[repr(C, align(8))]
 pub struct UGizmoElementCylinder {
-    pub base: crate::bindings::core_u_object::FVector,
-    pub direction: crate::bindings::core_u_object::FVector,
-    pub height: f32,
-    pub radius: f32,
-    pub num_sides: i32,
-    pub b_is_dashed: bool,
-    pub dash_length: f32,
-    pub dash_gap_length: f32,
+    __padding_end: [u8; 416],
 }
-pub struct UGizmoElementGroup {}
+impl UGizmoElementCylinder {}
+#[repr(C, align(8))]
+pub struct UGizmoElementGroup {
+    __padding_end: [u8; 496],
+}
+impl UGizmoElementGroup {}
+#[repr(C, align(16))]
 pub struct UGizmoElementHitTarget {
-    pub gizmo_element: UPtr<UGizmoElementBase>,
-    pub gizmo_view_context: UPtr<UGizmoViewContext>,
-    pub gizmo_transform_proxy: UPtr<UTransformProxy>,
+    __padding_end: [u8; 128],
 }
+impl UGizmoElementHitTarget {}
+#[repr(C, align(16))]
 pub struct UGizmoElementHitMultiTarget {
-    pub gizmo_element: UPtr<UGizmoElementBase>,
-    pub gizmo_view_context: UPtr<UGizmoViewContext>,
-    pub gizmo_transform_proxy: UPtr<UTransformProxy>,
+    __padding_end: [u8; 128],
 }
+impl UGizmoElementHitMultiTarget {}
+#[repr(C, align(8))]
 pub struct UGizmoElementLineStrip {
-    pub vertices: TArray<crate::bindings::core_u_object::FVector>,
-    pub base: crate::bindings::core_u_object::FVector,
-    pub up_direction: crate::bindings::core_u_object::FVector,
-    pub side_direction: crate::bindings::core_u_object::FVector,
-    pub b_draw_line_strip: bool,
+    __padding_end: [u8; 584],
 }
+impl UGizmoElementLineStrip {}
+#[repr(C, align(8))]
 pub struct UGizmoElementRectangle {
-    pub center: crate::bindings::core_u_object::FVector,
-    pub width: f32,
-    pub height: f32,
-    pub up_direction: crate::bindings::core_u_object::FVector,
-    pub side_direction: crate::bindings::core_u_object::FVector,
-    pub b_draw_mesh: bool,
-    pub b_draw_line: bool,
-    pub b_hit_mesh: bool,
-    pub b_hit_line: bool,
+    __padding_end: [u8; 560],
 }
+impl UGizmoElementRectangle {}
+#[repr(C, align(8))]
 pub struct UGizmoElementSphere {
-    pub center: crate::bindings::core_u_object::FVector,
-    pub radius: f32,
-    pub num_sides: i32,
+    __padding_end: [u8; 376],
 }
+impl UGizmoElementSphere {}
+#[repr(C, align(8))]
 pub struct UGizmoElementTorus {
-    pub inner_radius: f64,
-    pub inner_radius_multiplier: FGizmoPerStateValueDouble,
-    pub num_inner_slices: i32,
-    pub b_end_caps: bool,
+    __padding_end: [u8; 760],
 }
+impl UGizmoElementTorus {}
+#[repr(C, align(8))]
 pub struct UGizmoElementTriangleList {
-    pub vertices: TArray<crate::bindings::core_u_object::FVector>,
-    pub base: crate::bindings::core_u_object::FVector,
-    pub up_direction: crate::bindings::core_u_object::FVector,
-    pub side_direction: crate::bindings::core_u_object::FVector,
+    __padding_end: [u8; 448],
 }
+impl UGizmoElementTriangleList {}
 pub struct UGizmoTransformSource {}
 pub struct IGizmoTransformSource {}
 pub struct UGizmoAxisSource {}
@@ -570,284 +466,358 @@ pub struct UGizmoFloatParameterSource {}
 pub struct IGizmoFloatParameterSource {}
 pub struct UGizmoVec2ParameterSource {}
 pub struct IGizmoVec2ParameterSource {}
+#[repr(C, align(16))]
 pub struct UGizmoLineHandleComponent {
-    pub normal: crate::bindings::core_u_object::FVector,
-    pub handle_size: f32,
-    pub thickness: f32,
-    pub direction: crate::bindings::core_u_object::FVector,
-    pub length: f32,
-    pub b_image_scale: bool,
+    __padding_end: [u8; 1632],
 }
+impl UGizmoLineHandleComponent {}
+#[repr(C, align(16))]
 pub struct UGizmoRectangleComponent {
-    pub direction_x: crate::bindings::core_u_object::FVector,
-    pub direction_y: crate::bindings::core_u_object::FVector,
-    pub b_orient_y_according_to_camera: bool,
-    pub offset_x: f32,
-    pub offset_y: f32,
-    pub length_x: f32,
-    pub length_y: f32,
-    pub thickness: f32,
-    pub segment_flags: u8,
+    __padding_end: [u8; 1648],
 }
-pub struct USimpleLambdaInteractiveGizmoBuilder {}
-pub struct UGizmoViewContext {}
-pub struct UGizmoLambdaHitTarget {}
+impl UGizmoRectangleComponent {}
+#[repr(C, align(16))]
+pub struct USimpleLambdaInteractiveGizmoBuilder {
+    __padding_end: [u8; 96],
+}
+impl USimpleLambdaInteractiveGizmoBuilder {}
+#[repr(C, align(16))]
+pub struct UGizmoViewContext {
+    __padding_end: [u8; 768],
+}
+impl UGizmoViewContext {}
+#[repr(C, align(16))]
+pub struct UGizmoLambdaHitTarget {
+    __padding_end: [u8; 304],
+}
+impl UGizmoLambdaHitTarget {}
+#[repr(C, align(16))]
 pub struct UGizmoComponentHitTarget {
-    pub component: UPtr<crate::bindings::engine::UPrimitiveComponent>,
+    __padding_end: [u8; 304],
 }
+impl UGizmoComponentHitTarget {}
+#[repr(C, align(8))]
 pub struct AIntervalGizmoActor {
-    pub up_interval_component: UPtr<UGizmoLineHandleComponent>,
-    pub down_interval_component: UPtr<UGizmoLineHandleComponent>,
-    pub forward_interval_component: UPtr<UGizmoLineHandleComponent>,
-    pub backward_interval_component: UPtr<UGizmoLineHandleComponent>,
-    pub right_interval_component: UPtr<UGizmoLineHandleComponent>,
-    pub left_interval_component: UPtr<UGizmoLineHandleComponent>,
+    __padding_end: [u8; 1192],
 }
-pub struct UIntervalGizmoBuilder {}
+impl AIntervalGizmoActor {}
+#[repr(C, align(16))]
+pub struct UIntervalGizmoBuilder {
+    __padding_end: [u8; 160],
+}
+impl UIntervalGizmoBuilder {}
+#[repr(C, align(16))]
 pub struct UIntervalGizmo {
-    pub state_target: UPtr<UGizmoTransformChangeStateTarget>,
-    pub world: UPtr<crate::bindings::engine::UWorld>,
-    pub gizmo_actor: UPtr<AIntervalGizmoActor>,
-    pub transform_proxy: UPtr<UTransformProxy>,
-    pub active_components: TArray<UPtr<crate::bindings::engine::UPrimitiveComponent>>,
-    pub active_gizmos: TArray<UPtr<UInteractiveGizmo>>,
-    pub up_interval_source: UPtr<UGizmoLocalFloatParameterSource>,
-    pub down_interval_source: UPtr<UGizmoLocalFloatParameterSource>,
-    pub forward_interval_source: UPtr<UGizmoLocalFloatParameterSource>,
-    pub backward_interval_source: UPtr<UGizmoLocalFloatParameterSource>,
-    pub right_interval_source: UPtr<UGizmoLocalFloatParameterSource>,
-    pub left_interval_source: UPtr<UGizmoLocalFloatParameterSource>,
-    pub axis_x_source: UPtr<UGizmoComponentAxisSource>,
-    pub axis_y_source: UPtr<UGizmoComponentAxisSource>,
-    pub axis_z_source: UPtr<UGizmoComponentAxisSource>,
+    __padding_end: [u8; 560],
 }
-pub struct UGizmoBaseFloatParameterSource {}
+impl UIntervalGizmo {}
+#[repr(C, align(8))]
+pub struct UGizmoBaseFloatParameterSource {
+    __padding_end: [u8; 88],
+}
+impl UGizmoBaseFloatParameterSource {}
+#[repr(C, align(8))]
 pub struct UGizmoAxisIntervalParameterSource {
-    pub float_parameter_source: TScriptInterface<IGizmoFloatParameterSource>,
-    pub min_parameter: f32,
-    pub max_parameter: f32,
+    __padding_end: [u8; 112],
 }
+impl UGizmoAxisIntervalParameterSource {}
+#[repr(C, align(8))]
 pub struct UGizmoLocalFloatParameterSource {
-    pub value: f32,
-    pub last_change: FGizmoFloatParameterChange,
+    __padding_end: [u8; 104],
 }
+impl UGizmoLocalFloatParameterSource {}
+#[repr(C, align(16))]
 pub struct UGizmoAxisTranslationParameterSource {
-    pub axis_source: TScriptInterface<IGizmoAxisSource>,
-    pub transform_source: TScriptInterface<IGizmoTransformSource>,
-    pub parameter: f32,
-    pub last_change: FGizmoFloatParameterChange,
-    pub cur_translation_axis: crate::bindings::core_u_object::FVector,
-    pub cur_translation_origin: crate::bindings::core_u_object::FVector,
-    pub initial_transform: crate::bindings::core_u_object::FTransform,
+    __padding_end: [u8; 384],
 }
+impl UGizmoAxisTranslationParameterSource {}
+#[repr(C, align(16))]
 pub struct UGizmoPlaneTranslationParameterSource {
-    pub axis_source: TScriptInterface<IGizmoAxisSource>,
-    pub transform_source: TScriptInterface<IGizmoTransformSource>,
-    pub parameter: crate::bindings::core_u_object::FVector2D,
-    pub last_change: FGizmoVec2ParameterChange,
-    pub cur_translation_origin: crate::bindings::core_u_object::FVector,
-    pub cur_translation_normal: crate::bindings::core_u_object::FVector,
-    pub cur_translation_axis_x: crate::bindings::core_u_object::FVector,
-    pub cur_translation_axis_y: crate::bindings::core_u_object::FVector,
-    pub initial_transform: crate::bindings::core_u_object::FTransform,
+    __padding_end: [u8; 528],
 }
+impl UGizmoPlaneTranslationParameterSource {}
+#[repr(C, align(16))]
 pub struct UGizmoAxisRotationParameterSource {
-    pub axis_source: TScriptInterface<IGizmoAxisSource>,
-    pub transform_source: TScriptInterface<IGizmoTransformSource>,
-    pub angle: f32,
-    pub last_change: FGizmoFloatParameterChange,
-    pub cur_rotation_axis: crate::bindings::core_u_object::FVector,
-    pub cur_rotation_origin: crate::bindings::core_u_object::FVector,
-    pub initial_transform: crate::bindings::core_u_object::FTransform,
+    __padding_end: [u8; 384],
 }
+impl UGizmoAxisRotationParameterSource {}
+#[repr(C, align(16))]
 pub struct UGizmoUniformScaleParameterSource {
-    pub axis_source: TScriptInterface<IGizmoAxisSource>,
-    pub transform_source: TScriptInterface<IGizmoTransformSource>,
-    pub scale_multiplier: f32,
-    pub parameter: crate::bindings::core_u_object::FVector2D,
-    pub last_change: FGizmoVec2ParameterChange,
-    pub cur_scale_origin: crate::bindings::core_u_object::FVector,
-    pub cur_scale_normal: crate::bindings::core_u_object::FVector,
-    pub cur_scale_axis_x: crate::bindings::core_u_object::FVector,
-    pub cur_scale_axis_y: crate::bindings::core_u_object::FVector,
-    pub initial_transform: crate::bindings::core_u_object::FTransform,
+    __padding_end: [u8; 480],
 }
+impl UGizmoUniformScaleParameterSource {}
+#[repr(C, align(16))]
 pub struct UGizmoAxisScaleParameterSource {
-    pub axis_source: TScriptInterface<IGizmoAxisSource>,
-    pub transform_source: TScriptInterface<IGizmoTransformSource>,
-    pub scale_multiplier: f32,
-    pub b_clamp_to_zero: bool,
-    pub parameter: f32,
-    pub last_change: FGizmoFloatParameterChange,
-    pub cur_scale_axis: crate::bindings::core_u_object::FVector,
-    pub cur_scale_origin: crate::bindings::core_u_object::FVector,
-    pub initial_transform: crate::bindings::core_u_object::FTransform,
+    __padding_end: [u8; 400],
 }
+impl UGizmoAxisScaleParameterSource {}
+#[repr(C, align(16))]
 pub struct UGizmoPlaneScaleParameterSource {
-    pub axis_source: TScriptInterface<IGizmoAxisSource>,
-    pub transform_source: TScriptInterface<IGizmoTransformSource>,
-    pub scale_multiplier: f32,
-    pub b_use_equal_scaling: bool,
-    pub b_clamp_to_zero: bool,
-    pub parameter: crate::bindings::core_u_object::FVector2D,
-    pub last_change: FGizmoVec2ParameterChange,
-    pub cur_scale_origin: crate::bindings::core_u_object::FVector,
-    pub cur_scale_normal: crate::bindings::core_u_object::FVector,
-    pub cur_scale_axis_x: crate::bindings::core_u_object::FVector,
-    pub cur_scale_axis_y: crate::bindings::core_u_object::FVector,
-    pub initial_transform: crate::bindings::core_u_object::FTransform,
+    __padding_end: [u8; 576],
 }
-pub struct UPlanePositionGizmoBuilder {}
-pub struct URepositionableTransformGizmoBuilder {}
+impl UGizmoPlaneScaleParameterSource {}
+#[repr(C, align(8))]
+pub struct UPlanePositionGizmoBuilder {
+    __padding_end: [u8; 48],
+}
+impl UPlanePositionGizmoBuilder {}
+#[repr(C, align(16))]
+pub struct URepositionableTransformGizmoBuilder {
+    __padding_end: [u8; 208],
+}
+impl URepositionableTransformGizmoBuilder {}
+#[repr(C, align(16))]
 pub struct URepositionableTransformGizmo {
-    pub reposition_state_target: UPtr<UGizmoTransformChangeStateTarget>,
+    __padding_end: [u8; 1504],
 }
-pub struct UScalableSphereGizmoBuilder {}
+impl URepositionableTransformGizmo {}
+#[repr(C, align(8))]
+pub struct UScalableSphereGizmoBuilder {
+    __padding_end: [u8; 48],
+}
+impl UScalableSphereGizmoBuilder {}
+#[repr(C, align(16))]
 pub struct UScalableSphereGizmo {
-    pub hit_error_threshold: f32,
-    pub transaction_description: FText,
-    pub radius: f32,
-    pub b_is_hovering: bool,
-    pub b_is_dragging: bool,
-    pub active_target: UPtr<UTransformProxy>,
-    pub active_axis: crate::bindings::core_u_object::FVector,
-    pub drag_start_world_position: crate::bindings::core_u_object::FVector,
-    pub drag_current_position_projected: crate::bindings::core_u_object::FVector,
-    pub interaction_start_parameter: f32,
+    __padding_end: [u8; 256],
 }
-pub struct UScalableSphereGizmoInputBehavior {}
+impl UScalableSphereGizmo {}
+#[repr(C, align(16))]
+pub struct UScalableSphereGizmoInputBehavior {
+    __padding_end: [u8; 224],
+}
+impl UScalableSphereGizmoInputBehavior {}
+#[repr(C, align(8))]
 pub struct USimpleSingleClickGizmo {
-    pub hit_target: TScriptInterface<IGizmoClickTarget>,
-    pub click_behavior: UPtr<USingleClickInputBehavior>,
+    __padding_end: [u8; 136],
 }
-pub struct UGizmoNilStateTarget {}
-pub struct UGizmoLambdaStateTarget {}
+impl USimpleSingleClickGizmo {}
+#[repr(C, align(8))]
+pub struct UGizmoNilStateTarget {
+    __padding_end: [u8; 56],
+}
+impl UGizmoNilStateTarget {}
+#[repr(C, align(16))]
+pub struct UGizmoLambdaStateTarget {
+    __padding_end: [u8; 160],
+}
+impl UGizmoLambdaStateTarget {}
+#[repr(C, align(8))]
 pub struct UGizmoObjectModifyStateTarget {
-    pub transaction_manager: TScriptInterface<IToolContextTransactionProvider>,
+    __padding_end: [u8; 96],
 }
+impl UGizmoObjectModifyStateTarget {}
+#[repr(C, align(16))]
 pub struct UGizmoTransformChangeStateTarget {
-    pub transaction_manager: TScriptInterface<IToolContextTransactionProvider>,
+    __padding_end: [u8; 320],
 }
-pub struct UCombinedTransformGizmoContextObject {}
-pub struct UGizmoBaseTransformSource {}
+impl UGizmoTransformChangeStateTarget {}
+#[repr(C, align(8))]
+pub struct UCombinedTransformGizmoContextObject {
+    __padding_end: [u8; 104],
+}
+impl UCombinedTransformGizmoContextObject {}
+#[repr(C, align(8))]
+pub struct UGizmoBaseTransformSource {
+    __padding_end: [u8; 88],
+}
+impl UGizmoBaseTransformSource {}
+#[repr(C, align(8))]
 pub struct UGizmoComponentWorldTransformSource {
-    pub component: UPtr<crate::bindings::engine::USceneComponent>,
-    pub b_modify_component_on_transform: bool,
+    __padding_end: [u8; 104],
 }
+impl UGizmoComponentWorldTransformSource {}
+#[repr(C, align(16))]
 pub struct UGizmoScaledTransformSource {
-    pub child_transform_source: TScriptInterface<IGizmoTransformSource>,
+    __padding_end: [u8; 208],
 }
+impl UGizmoScaledTransformSource {}
+#[repr(C, align(8))]
 pub struct UGizmoTransformProxyTransformSource {
-    pub proxy: UPtr<UTransformProxy>,
+    __padding_end: [u8; 136],
 }
+impl UGizmoTransformProxyTransformSource {}
+#[repr(C, align(8))]
 pub struct UGizmoScaledAndUnscaledTransformSources {
-    pub scaled_transform_source: TScriptInterface<IGizmoTransformSource>,
-    pub unscaled_transform_source: TScriptInterface<IGizmoTransformSource>,
+    __padding_end: [u8; 120],
 }
+impl UGizmoScaledAndUnscaledTransformSources {}
+#[repr(C, align(16))]
 pub struct UViewAdjustedStaticMeshGizmoComponent {
-    pub gizmo_view_context: UPtr<UGizmoViewContext>,
-    pub substitute_interaction_component: UPtr<
-        crate::bindings::engine::UPrimitiveComponent,
-    >,
-    pub hover_override_material: UPtr<crate::bindings::engine::UMaterialInterface>,
+    __padding_end: [u8; 2000],
 }
+impl UViewAdjustedStaticMeshGizmoComponent {}
+#[repr(C, align(8))]
 pub struct UInteractiveToolPropertySet {
-    pub cached_properties_map: TMap<FString, UPtr<UInteractiveToolPropertySet>>,
-    pub b_is_property_set_enabled: bool,
+    __padding_end: [u8; 184],
 }
+impl UInteractiveToolPropertySet {}
+#[repr(C, align(8))]
 pub struct UBrushBaseProperties {
-    pub brush_size: f32,
-    pub b_specify_radius: bool,
-    pub brush_radius: f32,
-    pub b_tool_supports_pressure_sensitivity: bool,
-    pub b_enable_pressure_sensitivity: bool,
-    pub brush_strength: f32,
-    pub brush_falloff_amount: f32,
-    pub b_hit_back_faces: bool,
-    pub b_show_strength: bool,
-    pub b_show_falloff: bool,
-    pub b_show_hit_back_faces: bool,
+    __padding_end: [u8; 216],
 }
-pub struct UBrushAdjusterInputBehavior {}
+impl UBrushBaseProperties {}
+#[repr(C, align(16))]
+pub struct UBrushAdjusterInputBehavior {
+    __padding_end: [u8; 224],
+}
+impl UBrushAdjusterInputBehavior {}
+#[repr(C, align(8))]
 pub struct UInteractiveTool {
-    pub input_behaviors: UPtr<UInputBehaviorSet>,
-    pub tool_property_objects: TArray<UPtr<crate::bindings::core_u_object::UObject>>,
+    __padding_end: [u8; 200],
 }
+impl UInteractiveTool {}
+#[repr(C, align(8))]
 pub struct USingleSelectionTool {
-    pub target: UPtr<UToolTarget>,
+    __padding_end: [u8; 216],
 }
+impl USingleSelectionTool {}
+#[repr(C, align(8))]
 pub struct UMeshSurfacePointTool {
-    pub target_world: TWeakObjectPtr<crate::bindings::engine::UWorld>,
+    __padding_end: [u8; 304],
 }
+impl UMeshSurfacePointTool {}
+#[repr(C, align(8))]
 pub struct UBaseBrushTool {
-    pub brush_properties: UPtr<UBrushBaseProperties>,
-    pub b_in_brush_stroke: bool,
-    pub world_to_local_scale: f32,
-    pub last_brush_stamp: FBrushStampData,
-    pub property_class: TSoftObjectPtr<crate::bindings::core_u_object::UClass>,
-    pub brush_stamp_indicator: UPtr<UBrushStampIndicator>,
+    __padding_end: [u8; 752],
 }
-pub struct UInteractiveToolBuilder {}
-pub struct UClickDragToolBuilder {}
-pub struct UClickDragTool {}
-pub struct UInteractiveToolWithToolTargetsBuilder {}
-pub struct UMeshSurfacePointToolBuilder {}
-pub struct USingleClickToolBuilder {}
-pub struct USingleClickTool {}
+impl UBaseBrushTool {}
+#[repr(C, align(8))]
+pub struct UInteractiveToolBuilder {
+    __padding_end: [u8; 48],
+}
+impl UInteractiveToolBuilder {}
+#[repr(C, align(8))]
+pub struct UClickDragToolBuilder {
+    __padding_end: [u8; 48],
+}
+impl UClickDragToolBuilder {}
+#[repr(C, align(8))]
+pub struct UClickDragTool {
+    __padding_end: [u8; 208],
+}
+impl UClickDragTool {}
+#[repr(C, align(8))]
+pub struct UInteractiveToolWithToolTargetsBuilder {
+    __padding_end: [u8; 48],
+}
+impl UInteractiveToolWithToolTargetsBuilder {}
+#[repr(C, align(8))]
+pub struct UMeshSurfacePointToolBuilder {
+    __padding_end: [u8; 56],
+}
+impl UMeshSurfacePointToolBuilder {}
+#[repr(C, align(8))]
+pub struct USingleClickToolBuilder {
+    __padding_end: [u8; 48],
+}
+impl USingleClickToolBuilder {}
+#[repr(C, align(8))]
+pub struct USingleClickTool {
+    __padding_end: [u8; 208],
+}
+impl USingleClickTool {}
+#[repr(C, align(8))]
 pub struct UContextObjectStore {
-    pub context_objects: TArray<UPtr<crate::bindings::core_u_object::UObject>>,
+    __padding_end: [u8; 64],
 }
+impl UContextObjectStore {}
+#[repr(C, align(8))]
 pub struct UInputBehaviorSet {
-    pub behaviors: TArray<FBehaviorInfo>,
+    __padding_end: [u8; 64],
 }
+impl UInputBehaviorSet {}
 pub struct UInputBehaviorSource {}
 pub struct IInputBehaviorSource {}
-pub struct ULocalInputBehaviorSource {}
+#[repr(C, align(16))]
+pub struct ULocalInputBehaviorSource {
+    __padding_end: [u8; 112],
+}
+impl ULocalInputBehaviorSource {}
+#[repr(C, align(8))]
 pub struct UInputRouter {
-    pub b_auto_invalidate_on_hover: bool,
-    pub b_auto_invalidate_on_capture: bool,
-    pub active_input_behaviors: UPtr<UInputBehaviorSet>,
+    __padding_end: [u8; 440],
 }
-pub struct UInteractionMechanic {}
+impl UInputRouter {}
+#[repr(C, align(8))]
+pub struct UInteractionMechanic {
+    __padding_end: [u8; 56],
+}
+impl UInteractionMechanic {}
+#[repr(C, align(8))]
 pub struct UInteractiveGizmoManager {
-    pub active_gizmos: TArray<FActiveGizmo>,
-    pub gizmo_builders: TMap<FString, UPtr<UInteractiveGizmoBuilder>>,
+    __padding_end: [u8; 200],
 }
+impl UInteractiveGizmoManager {}
+#[repr(C, align(8))]
 pub struct UInteractiveToolManager {
-    pub active_left_tool: UPtr<UInteractiveTool>,
-    pub active_right_tool: UPtr<UInteractiveTool>,
-    pub tool_builders: TMap<FString, UPtr<UInteractiveToolBuilder>>,
+    __padding_end: [u8; 496],
 }
+impl UInteractiveToolManager {}
+#[repr(C, align(16))]
 pub struct UInteractiveToolsContext {
-    pub input_router: UPtr<UInputRouter>,
-    pub target_manager: UPtr<UToolTargetManager>,
-    pub tool_manager: UPtr<UInteractiveToolManager>,
-    pub gizmo_manager: UPtr<UInteractiveGizmoManager>,
-    pub context_object_store: UPtr<UContextObjectStore>,
-    pub tool_manager_class: TSoftObjectPtr<crate::bindings::core_u_object::UClass>,
+    __padding_end: [u8; 688],
 }
+impl UInteractiveToolsContext {}
+#[repr(C, align(8))]
 pub struct UMultiSelectionTool {
-    pub targets: TArray<UPtr<UToolTarget>>,
+    __padding_end: [u8; 224],
 }
-pub struct USceneSnappingManager {}
-pub struct USelectionSet {}
+impl UMultiSelectionTool {}
+#[repr(C, align(8))]
+pub struct USceneSnappingManager {
+    __padding_end: [u8; 48],
+}
+impl USceneSnappingManager {}
+#[repr(C, align(8))]
+pub struct USelectionSet {
+    __padding_end: [u8; 80],
+}
+impl USelectionSet {}
+#[repr(C, align(8))]
 pub struct UMeshSelectionSet {
-    pub vertices: TArray<i32>,
-    pub edges: TArray<i32>,
-    pub faces: TArray<i32>,
-    pub groups: TArray<i32>,
+    __padding_end: [u8; 144],
 }
-pub struct UToolsContextCursorAPI {}
+impl UMeshSelectionSet {}
+#[repr(C, align(8))]
+pub struct UToolsContextCursorAPI {
+    __padding_end: [u8; 80],
+}
+impl UToolsContextCursorAPI {}
+#[repr(C, align(16))]
 pub struct UToolTargetManager {
-    pub factories: TArray<UPtr<UToolTargetFactory>>,
+    __padding_end: [u8; 128],
 }
-pub struct UToolTarget {}
-pub struct UPrimitiveComponentToolTarget {}
-pub struct UToolTargetFactory {}
-pub struct UPrimitiveComponentToolTargetFactory {}
-pub struct USceneComponentToolTarget {}
-pub struct USceneComponentToolTargetFactory {}
-#[allow(non_camel_case_types)]
+impl UToolTargetManager {}
+#[repr(C, align(8))]
+pub struct UToolTarget {
+    __padding_end: [u8; 48],
+}
+impl UToolTarget {}
+#[repr(C, align(8))]
+pub struct UPrimitiveComponentToolTarget {
+    __padding_end: [u8; 64],
+}
+impl UPrimitiveComponentToolTarget {}
+#[repr(C, align(8))]
+pub struct UToolTargetFactory {
+    __padding_end: [u8; 48],
+}
+impl UToolTargetFactory {}
+#[repr(C, align(8))]
+pub struct UPrimitiveComponentToolTargetFactory {
+    __padding_end: [u8; 48],
+}
+impl UPrimitiveComponentToolTargetFactory {}
+#[repr(C, align(8))]
+pub struct USceneComponentToolTarget {
+    __padding_end: [u8; 64],
+}
+impl USceneComponentToolTarget {}
+#[repr(C, align(8))]
+pub struct USceneComponentToolTargetFactory {
+    __padding_end: [u8; 48],
+}
+impl USceneComponentToolTargetFactory {}
 #[repr(transparent)]
 pub struct EInputDevices(pub i32);
 impl EInputDevices {
@@ -860,7 +830,6 @@ impl EInputDevices {
     pub const ANY_SPATIAL_DEVICE: EInputDevices = EInputDevices(24);
     pub const TABLET_FINGERS: EInputDevices = EInputDevices(1024);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EToolContextCoordinateSystem(pub u8);
 impl EToolContextCoordinateSystem {
@@ -868,7 +837,6 @@ impl EToolContextCoordinateSystem {
     pub const LOCAL: EToolContextCoordinateSystem = EToolContextCoordinateSystem(1);
     pub const SCREEN: EToolContextCoordinateSystem = EToolContextCoordinateSystem(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EToolContextTransformGizmoMode(pub u8);
 impl EToolContextTransformGizmoMode {
@@ -886,7 +854,6 @@ impl EToolContextTransformGizmoMode {
         8,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EGizmoElementState(pub u8);
 impl EGizmoElementState {
@@ -895,7 +862,6 @@ impl EGizmoElementState {
     pub const HITTABLE: EGizmoElementState = EGizmoElementState(4);
     pub const VISIBLE_AND_HITTABLE: EGizmoElementState = EGizmoElementState(6);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EGizmoElementInteractionState(pub i32);
 impl EGizmoElementInteractionState {
@@ -908,7 +874,6 @@ impl EGizmoElementInteractionState {
     pub const SUBDUED: EGizmoElementInteractionState = EGizmoElementInteractionState(4);
     pub const MAX: EGizmoElementInteractionState = EGizmoElementInteractionState(5);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EGizmoElementViewDependentType(pub i32);
 impl EGizmoElementViewDependentType {
@@ -916,7 +881,6 @@ impl EGizmoElementViewDependentType {
     pub const AXIS: EGizmoElementViewDependentType = EGizmoElementViewDependentType(1);
     pub const PLANE: EGizmoElementViewDependentType = EGizmoElementViewDependentType(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EGizmoElementViewAlignType(pub i32);
 impl EGizmoElementViewAlignType {
@@ -926,7 +890,6 @@ impl EGizmoElementViewAlignType {
     pub const POINT_SCREEN: EGizmoElementViewAlignType = EGizmoElementViewAlignType(3);
     pub const AXIAL: EGizmoElementViewAlignType = EGizmoElementViewAlignType(4);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EGizmoElementPartialType(pub i32);
 impl EGizmoElementPartialType {
@@ -936,7 +899,6 @@ impl EGizmoElementPartialType {
         2,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EGizmoElementArrowHeadType(pub i32);
 impl EGizmoElementArrowHeadType {

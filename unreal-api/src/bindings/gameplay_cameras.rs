@@ -6,468 +6,154 @@ pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[repr(C, align(4))]
 pub struct FCameraContextDataID {
-    pub value: u32,
+    __padding_end: [u8; 4],
 }
-#[repr(C, align(2))]
-pub struct FCameraNodeEvaluatorAllocationInfo {
-    pub total_sizeof: i16,
-    pub max_alignof: i16,
-}
-#[repr(C, align(8))]
-pub struct FCameraObjectInterfaceParameterDefinition {
-    pub parameter_name: FName,
-    pub parameter_guid: crate::bindings::core_u_object::FGuid,
-    pub parameter_type: ECameraObjectInterfaceParameterType,
-    pub variable_id: FCameraVariableID,
-    pub variable_type: ECameraVariableType,
-    pub blendable_struct_type: UPtr<crate::bindings::core_u_object::UScriptStruct>,
-    pub data_id: FCameraContextDataID,
-    pub data_type: ECameraContextDataType,
-    pub data_container_type: ECameraContextDataContainerType,
-    pub data_type_object: UPtr<crate::bindings::core_u_object::UObject>,
-}
-#[repr(C, align(4))]
-pub struct FCameraVariableID {
-    pub value: u32,
-}
+impl FCameraContextDataID {}
 #[repr(C, align(4))]
 pub struct FCameraRigInstanceID {
-    pub value: u32,
-    pub layer: ECameraRigLayer,
+    __padding_end: [u8; 8],
 }
+impl FCameraRigInstanceID {}
 #[repr(C, align(4))]
 pub struct FCameraShakeInstanceID {
-    pub value: u32,
+    __padding_end: [u8; 4],
 }
-#[repr(C, align(8))]
-pub struct FCameraObjectAllocationInfo {
-    pub evaluator_info: FCameraNodeEvaluatorAllocationInfo,
-    pub variable_table_info: FCameraVariableTableAllocationInfo,
-    pub context_data_table_info: FCameraContextDataTableAllocationInfo,
-}
-#[repr(C, align(8))]
-pub struct FCameraContextDataTableAllocationInfo {
-    pub data_definitions: TArray<FCameraContextDataDefinition>,
-}
-#[repr(C, align(8))]
-pub struct FCameraContextDataDefinition {
-    pub data_id: FCameraContextDataID,
-    pub data_type: ECameraContextDataType,
-    pub data_container_type: ECameraContextDataContainerType,
-    pub data_type_object: UPtr<crate::bindings::core_u_object::UObject>,
-    pub b_auto_reset: bool,
-    pub data_name: FString,
-}
-#[repr(C, align(8))]
-pub struct FCameraVariableTableAllocationInfo {
-    pub variable_definitions: TArray<FCameraVariableDefinition>,
-}
-#[repr(C, align(8))]
-pub struct FCameraVariableDefinition {
-    pub variable_id: FCameraVariableID,
-    pub variable_type: ECameraVariableType,
-    pub blendable_struct_type: UPtr<crate::bindings::core_u_object::UScriptStruct>,
-    pub b_is_private: bool,
-    pub b_is_input: bool,
-    pub b_auto_reset: bool,
-    pub variable_name: FString,
-}
-#[repr(C, align(4))]
-pub struct FCameraObjectInterfaceParameterMetaData {
-    pub parameter_guid: crate::bindings::core_u_object::FGuid,
-    pub override_variable_id: FCameraVariableID,
-    pub override_data_id: FCameraContextDataID,
-    pub b_is_overridden_deprecated: bool,
-}
+impl FCameraShakeInstanceID {}
 #[repr(C, align(8))]
 pub struct FBaseCameraObjectReference {
-    pub parameters: FInstancedOverridablePropertyBag,
-    pub parameter_meta_data: TArray<FCameraObjectInterfaceParameterMetaData>,
+    __padding_end: [u8; 56],
 }
-#[repr(C, align(8))]
-pub struct FInstancedOverridablePropertyBag {
-    pub overriden_property_i_ds: TArray<crate::bindings::core_u_object::FGuid>,
-}
-#[repr(C, align(8))]
-pub struct FCameraAssetAllocationInfo {
-    pub variable_table_info: FCameraVariableTableAllocationInfo,
-    pub context_data_table_info: FCameraContextDataTableAllocationInfo,
-}
+impl FBaseCameraObjectReference {}
 #[repr(C, align(8))]
 pub struct FCameraAssetReference {
-    pub camera_asset: UPtr<UCameraAsset>,
-    pub parameters: FInstancedOverridablePropertyBag,
-    pub parameter_override_guids_deprecated: TArray<
-        crate::bindings::core_u_object::FGuid,
-    >,
+    __padding_end: [u8; 56],
 }
-#[repr(C, align(8))]
-pub struct FCameraObjectInterface {
-    pub blendable_parameters: TArray<UPtr<UCameraObjectInterfaceBlendableParameter>>,
-    pub data_parameters: TArray<UPtr<UCameraObjectInterfaceDataParameter>>,
-    pub display_name_deprecated: FString,
-}
+impl FCameraAssetReference {}
 #[repr(C, align(8))]
 pub struct FBooleanCameraParameter {
     pub value: bool,
-    pub variable_id: FCameraVariableID,
-    pub variable: UPtr<UBooleanCameraVariable>,
+    __padding_end: [u8; 15],
 }
+impl FBooleanCameraParameter {}
 #[repr(C, align(8))]
 pub struct FInteger32CameraParameter {
     pub value: i32,
-    pub variable_id: FCameraVariableID,
-    pub variable: UPtr<UInteger32CameraVariable>,
+    __padding_end: [u8; 12],
 }
+impl FInteger32CameraParameter {}
 #[repr(C, align(8))]
 pub struct FFloatCameraParameter {
     pub value: f32,
-    pub variable_id: FCameraVariableID,
-    pub variable: UPtr<UFloatCameraVariable>,
+    __padding_end: [u8; 12],
 }
+impl FFloatCameraParameter {}
 #[repr(C, align(8))]
 pub struct FDoubleCameraParameter {
     pub value: f64,
-    pub variable_id: FCameraVariableID,
-    pub variable: UPtr<UDoubleCameraVariable>,
+    __padding_end: [u8; 16],
 }
+impl FDoubleCameraParameter {}
 #[repr(C, align(8))]
 pub struct FVector2fCameraParameter {
     pub value: crate::bindings::core_u_object::FVector2f,
-    pub variable_id: FCameraVariableID,
-    pub variable: UPtr<UVector2fCameraVariable>,
+    __padding_end: [u8; 16],
 }
+impl FVector2fCameraParameter {}
 #[repr(C, align(8))]
 pub struct FVector2dCameraParameter {
     pub value: crate::bindings::core_u_object::FVector2D,
-    pub variable_id: FCameraVariableID,
-    pub variable: UPtr<UVector2dCameraVariable>,
+    __padding_end: [u8; 16],
 }
+impl FVector2dCameraParameter {}
 #[repr(C, align(8))]
 pub struct FVector3fCameraParameter {
     pub value: crate::bindings::core_u_object::FVector3f,
-    pub variable_id: FCameraVariableID,
-    pub variable: UPtr<UVector3fCameraVariable>,
+    __padding_end: [u8; 12],
 }
+impl FVector3fCameraParameter {}
 #[repr(C, align(8))]
 pub struct FVector3dCameraParameter {
     pub value: crate::bindings::core_u_object::FVector,
-    pub variable_id: FCameraVariableID,
-    pub variable: UPtr<UVector3dCameraVariable>,
+    __padding_end: [u8; 16],
 }
+impl FVector3dCameraParameter {}
 #[repr(C, align(16))]
 pub struct FVector4fCameraParameter {
     pub value: crate::bindings::core_u_object::FVector4f,
-    pub variable_id: FCameraVariableID,
-    pub variable: UPtr<UVector4fCameraVariable>,
+    __padding_end: [u8; 16],
 }
+impl FVector4fCameraParameter {}
 #[repr(C, align(16))]
 pub struct FVector4dCameraParameter {
     pub value: crate::bindings::core_u_object::FVector4,
-    pub variable_id: FCameraVariableID,
-    pub variable: UPtr<UVector4dCameraVariable>,
+    __padding_end: [u8; 16],
 }
+impl FVector4dCameraParameter {}
 #[repr(C, align(8))]
 pub struct FRotator3fCameraParameter {
     pub value: crate::bindings::core_u_object::FRotator3f,
-    pub variable_id: FCameraVariableID,
-    pub variable: UPtr<URotator3fCameraVariable>,
+    __padding_end: [u8; 12],
 }
+impl FRotator3fCameraParameter {}
 #[repr(C, align(8))]
 pub struct FRotator3dCameraParameter {
     pub value: crate::bindings::core_u_object::FRotator,
-    pub variable_id: FCameraVariableID,
-    pub variable: UPtr<URotator3dCameraVariable>,
+    __padding_end: [u8; 16],
 }
+impl FRotator3dCameraParameter {}
 #[repr(C, align(16))]
 pub struct FTransform3fCameraParameter {
     pub value: crate::bindings::core_u_object::FTransform3f,
-    pub variable_id: FCameraVariableID,
-    pub variable: UPtr<UTransform3fCameraVariable>,
+    __padding_end: [u8; 16],
 }
+impl FTransform3fCameraParameter {}
 #[repr(C, align(16))]
 pub struct FTransform3dCameraParameter {
     pub value: crate::bindings::core_u_object::FTransform,
-    pub variable_id: FCameraVariableID,
-    pub variable: UPtr<UTransform3dCameraVariable>,
+    __padding_end: [u8; 16],
 }
-#[repr(C, align(8))]
-pub struct FCameraPose {
-    pub location: crate::bindings::core_u_object::FVector3d,
-    pub rotation: crate::bindings::core_u_object::FRotator3d,
-    pub target_distance: f64,
-    pub field_of_view: f32,
-    pub focal_length: f32,
-    pub orthographic_width: f32,
-    pub aperture: f32,
-    pub shutter_speed: f32,
-    pub focus_distance: f32,
-    pub sensor_width: f32,
-    pub sensor_height: f32,
-    pub sensor_horizontal_offset: f32,
-    pub sensor_vertical_offset: f32,
-    pub iso: f32,
-    pub squeeze_factor: f32,
-    pub overscan: f32,
-    pub diaphragm_blade_count: i32,
-    pub near_clipping_plane: f32,
-    pub far_clipping_plane: f32,
-    pub physical_camera_blend_weight: f32,
-    pub enable_physical_camera: bool,
-    pub constrain_aspect_ratio: bool,
-    pub override_aspect_ratio_axis_constraint: bool,
-    pub aspect_ratio_axis_constraint: crate::bindings::engine::EAspectRatioAxisConstraint,
-    pub projection_mode: crate::bindings::engine::ECameraProjectionMode,
-}
-#[repr(C, align(8))]
-pub struct FCameraRigParameterOverrideBase {
-    pub interface_parameter_guid: crate::bindings::core_u_object::FGuid,
-    pub private_variable_guid: crate::bindings::core_u_object::FGuid,
-    pub interface_parameter_name: FString,
-    pub b_invalid: bool,
-}
-#[repr(C, align(8))]
-pub struct FBooleanCameraRigParameterOverride {
-    pub value: FBooleanCameraParameter,
-}
-#[repr(C, align(8))]
-pub struct FInteger32CameraRigParameterOverride {
-    pub value: FInteger32CameraParameter,
-}
-#[repr(C, align(8))]
-pub struct FFloatCameraRigParameterOverride {
-    pub value: FFloatCameraParameter,
-}
-#[repr(C, align(8))]
-pub struct FDoubleCameraRigParameterOverride {
-    pub value: FDoubleCameraParameter,
-}
-#[repr(C, align(8))]
-pub struct FVector2fCameraRigParameterOverride {
-    pub value: FVector2fCameraParameter,
-}
-#[repr(C, align(8))]
-pub struct FVector2dCameraRigParameterOverride {
-    pub value: FVector2dCameraParameter,
-}
-#[repr(C, align(8))]
-pub struct FVector3fCameraRigParameterOverride {
-    pub value: FVector3fCameraParameter,
-}
-#[repr(C, align(8))]
-pub struct FVector3dCameraRigParameterOverride {
-    pub value: FVector3dCameraParameter,
-}
-#[repr(C, align(16))]
-pub struct FVector4fCameraRigParameterOverride {
-    pub value: FVector4fCameraParameter,
-}
-#[repr(C, align(16))]
-pub struct FVector4dCameraRigParameterOverride {
-    pub value: FVector4dCameraParameter,
-}
-#[repr(C, align(8))]
-pub struct FRotator3fCameraRigParameterOverride {
-    pub value: FRotator3fCameraParameter,
-}
-#[repr(C, align(8))]
-pub struct FRotator3dCameraRigParameterOverride {
-    pub value: FRotator3dCameraParameter,
-}
-#[repr(C, align(16))]
-pub struct FTransform3fCameraRigParameterOverride {
-    pub value: FTransform3fCameraParameter,
-}
-#[repr(C, align(16))]
-pub struct FTransform3dCameraRigParameterOverride {
-    pub value: FTransform3dCameraParameter,
-}
-#[repr(C, align(8))]
-pub struct FCameraRigParameterOverrides {
-    pub boolean_overrides: TArray<FBooleanCameraRigParameterOverride>,
-    pub integer32_overrides: TArray<FInteger32CameraRigParameterOverride>,
-    pub float_overrides: TArray<FFloatCameraRigParameterOverride>,
-    pub double_overrides: TArray<FDoubleCameraRigParameterOverride>,
-    pub vector2f_overrides: TArray<FVector2fCameraRigParameterOverride>,
-    pub vector2d_overrides: TArray<FVector2dCameraRigParameterOverride>,
-    pub vector3f_overrides: TArray<FVector3fCameraRigParameterOverride>,
-    pub vector3d_overrides: TArray<FVector3dCameraRigParameterOverride>,
-    pub vector4f_overrides: TArray<FVector4fCameraRigParameterOverride>,
-    pub vector4d_overrides: TArray<FVector4dCameraRigParameterOverride>,
-    pub rotator3f_overrides: TArray<FRotator3fCameraRigParameterOverride>,
-    pub rotator3d_overrides: TArray<FRotator3dCameraRigParameterOverride>,
-    pub transform3f_overrides: TArray<FTransform3fCameraRigParameterOverride>,
-    pub transform3d_overrides: TArray<FTransform3dCameraRigParameterOverride>,
-}
+impl FTransform3dCameraParameter {}
 #[repr(C, align(8))]
 pub struct FCameraRigAssetReference {
-    pub camera_rig: UPtr<UCameraRigAsset>,
-    pub parameter_override_guids_deprecated: TArray<
-        crate::bindings::core_u_object::FGuid,
-    >,
-    pub parameter_overrides_deprecated: FCameraRigParameterOverrides,
+    __padding_end: [u8; 304],
 }
-#[repr(C, align(8))]
-pub struct FCameraRigProxyRedirectTableEntry {
-    pub camera_rig_proxy: UPtr<UCameraRigProxyAsset>,
-    pub camera_rig: UPtr<UCameraRigAsset>,
-}
-#[repr(C, align(8))]
-pub struct FCameraRigProxyRedirectTable {
-    pub entries: TArray<FCameraRigProxyRedirectTableEntry>,
-}
+impl FCameraRigAssetReference {}
 #[repr(C, align(8))]
 pub struct FCameraShakeAssetReference {
-    pub camera_shake: UPtr<UCameraShakeAsset>,
+    __padding_end: [u8; 64],
 }
-#[repr(C, align(8))]
-pub struct FBooleanCameraVariableReference {
-    pub variable_id: FCameraVariableID,
-    pub variable: UPtr<UBooleanCameraVariable>,
-}
-#[repr(C, align(8))]
-pub struct FInteger32CameraVariableReference {
-    pub variable_id: FCameraVariableID,
-    pub variable: UPtr<UInteger32CameraVariable>,
-}
-#[repr(C, align(8))]
-pub struct FFloatCameraVariableReference {
-    pub variable_id: FCameraVariableID,
-    pub variable: UPtr<UFloatCameraVariable>,
-}
-#[repr(C, align(8))]
-pub struct FDoubleCameraVariableReference {
-    pub variable_id: FCameraVariableID,
-    pub variable: UPtr<UDoubleCameraVariable>,
-}
-#[repr(C, align(8))]
-pub struct FVector2fCameraVariableReference {
-    pub variable_id: FCameraVariableID,
-    pub variable: UPtr<UVector2fCameraVariable>,
-}
-#[repr(C, align(8))]
-pub struct FVector2dCameraVariableReference {
-    pub variable_id: FCameraVariableID,
-    pub variable: UPtr<UVector2dCameraVariable>,
-}
-#[repr(C, align(8))]
-pub struct FVector3fCameraVariableReference {
-    pub variable_id: FCameraVariableID,
-    pub variable: UPtr<UVector3fCameraVariable>,
-}
-#[repr(C, align(8))]
-pub struct FVector3dCameraVariableReference {
-    pub variable_id: FCameraVariableID,
-    pub variable: UPtr<UVector3dCameraVariable>,
-}
-#[repr(C, align(8))]
-pub struct FVector4fCameraVariableReference {
-    pub variable_id: FCameraVariableID,
-    pub variable: UPtr<UVector4fCameraVariable>,
-}
-#[repr(C, align(8))]
-pub struct FVector4dCameraVariableReference {
-    pub variable_id: FCameraVariableID,
-    pub variable: UPtr<UVector4dCameraVariable>,
-}
-#[repr(C, align(8))]
-pub struct FRotator3fCameraVariableReference {
-    pub variable_id: FCameraVariableID,
-    pub variable: UPtr<URotator3fCameraVariable>,
-}
-#[repr(C, align(8))]
-pub struct FRotator3dCameraVariableReference {
-    pub variable_id: FCameraVariableID,
-    pub variable: UPtr<URotator3dCameraVariable>,
-}
-#[repr(C, align(8))]
-pub struct FTransform3fCameraVariableReference {
-    pub variable_id: FCameraVariableID,
-    pub variable: UPtr<UTransform3fCameraVariable>,
-}
-#[repr(C, align(8))]
-pub struct FTransform3dCameraVariableReference {
-    pub variable_id: FCameraVariableID,
-    pub variable: UPtr<UTransform3dCameraVariable>,
-}
+impl FCameraShakeAssetReference {}
 #[repr(C, align(4))]
 pub struct FCameraVariableSetterHandle {
-    pub value: u32,
-    pub serial_number: u32,
+    __padding_end: [u8; 8],
 }
-#[repr(C, align(8))]
-pub struct FCustomCameraNodeBlendableParameter {
-    pub parameter_name: FName,
-    pub parameter_type: ECameraVariableType,
-    pub blendable_struct_type: UPtr<crate::bindings::core_u_object::UScriptStruct>,
-    pub override_variable_id: FCameraVariableID,
-    pub override_variable: UPtr<UCameraVariableAsset>,
-}
-#[repr(C, align(8))]
-pub struct FCustomCameraNodeDataParameter {
-    pub parameter_name: FName,
-    pub parameter_type: ECameraContextDataType,
-    pub parameter_container_type: ECameraContextDataContainerType,
-    pub parameter_type_object: UPtr<crate::bindings::core_u_object::UObject>,
-    pub override_data_id: FCameraContextDataID,
-}
-#[repr(C, align(8))]
-pub struct FCustomCameraNodeParameters {
-    pub blendable_parameters: TArray<FCustomCameraNodeBlendableParameter>,
-    pub data_parameters: TArray<FCustomCameraNodeDataParameter>,
-}
-#[repr(C, align(8))]
-pub struct FCameraRotatorCurve {
-    pub curves: crate::bindings::engine::FRichCurve,
-}
-#[repr(C, align(8))]
-pub struct FCameraSingleCurve {
-    pub curve: crate::bindings::engine::FRichCurve,
-}
-#[repr(C, align(8))]
-pub struct FCameraVectorCurve {
-    pub curves: crate::bindings::engine::FRichCurve,
-}
+impl FCameraVariableSetterHandle {}
 #[repr(C, align(8))]
 pub struct FBlueprintCameraDirectorEvaluationParams {
     pub delta_time: f32,
     pub evaluation_context_owner: UPtr<crate::bindings::core_u_object::UObject>,
 }
+impl FBlueprintCameraDirectorEvaluationParams {}
 #[repr(C, align(8))]
 pub struct FBlueprintCameraDirectorActivateParams {
     pub evaluation_context_owner: UPtr<crate::bindings::core_u_object::UObject>,
 }
+impl FBlueprintCameraDirectorActivateParams {}
 #[repr(C, align(8))]
 pub struct FBlueprintCameraDirectorDeactivateParams {
     pub evaluation_context_owner: UPtr<crate::bindings::core_u_object::UObject>,
 }
+impl FBlueprintCameraDirectorDeactivateParams {}
 #[repr(C, align(8))]
 pub struct FCameraDirectorStateTreeEvaluationData {
-    pub active_camera_rigs: TArray<UPtr<UCameraRigAsset>>,
-    pub active_camera_rig_proxies: TArray<UPtr<UCameraRigProxyAsset>>,
+    __padding_end: [u8; 32],
 }
+impl FCameraDirectorStateTreeEvaluationData {}
 #[repr(C, align(8))]
-pub struct FGameplayCamerasStateTreeTask {}
-#[repr(C, align(8))]
-pub struct FGameplayCamerasStateTreeCondition {}
-#[repr(C, align(8))]
-pub struct FGameplayCamerasActivateCameraRigTaskInstanceData {
-    pub camera_rig: UPtr<UCameraRigAsset>,
+pub struct FBlueprintCameraEvaluationDataRef {
+    __padding_end: [u8; 24],
 }
-#[repr(C, align(8))]
-pub struct FGameplayCamerasActivateCameraRigTask {
-    pub b_run_once: bool,
-}
-#[repr(C, align(8))]
-pub struct FGameplayCamerasActivateCameraRigViaProxyTaskInstanceData {
-    pub camera_rig_proxy: UPtr<UCameraRigProxyAsset>,
-}
-#[repr(C, align(8))]
-pub struct FGameplayCamerasActivateCameraRigViaProxyTask {
-    pub b_run_once: bool,
-}
-#[repr(C, align(8))]
-pub struct FBlueprintCameraEvaluationDataRef {}
+impl FBlueprintCameraEvaluationDataRef {}
 #[repr(C, align(8))]
 pub struct FBlueprintCameraPose {
     pub location: crate::bindings::core_u_object::FVector,
@@ -489,32 +175,26 @@ pub struct FBlueprintCameraPose {
     pub diaphragm_blade_count: i32,
     pub near_clipping_plane: f32,
     pub far_clipping_plane: f32,
-    pub physical_camera_blend_weight: f32,
+    #[doc(hidden)]
+    __padding_124: [u8; 4],
     pub enable_physical_camera: bool,
     pub constrain_aspect_ratio: bool,
-    pub override_aspect_ratio_axis_constraint: bool,
+    #[doc(hidden)]
+    __padding_127: [u8; 1],
     pub aspect_ratio_axis_constraint: crate::bindings::engine::EAspectRatioAxisConstraint,
     pub projection_mode: crate::bindings::engine::ECameraProjectionMode,
+    __padding_end: [u8; 7],
 }
-#[repr(C, align(4))]
-pub struct FPerlinNoiseData {
-    pub amplitude: f32,
-    pub frequency: f32,
-}
+impl FBlueprintCameraPose {}
 #[repr(C, align(8))]
 pub struct FCameraActorAttachmentInfo {
     pub actor: UPtr<crate::bindings::engine::AActor>,
     pub socket_name: FName,
     pub bone_name: FName,
     pub weight: f32,
+    __padding_end: [u8; 4],
 }
-#[repr(C, align(8))]
-pub struct FSplineOrbitControlPoint {
-    pub location_offset: crate::bindings::core_u_object::FVector3d,
-    pub target_offset: crate::bindings::core_u_object::FVector3d,
-    pub rotation_offset: crate::bindings::core_u_object::FRotator3d,
-    pub pitch_angle: f32,
-}
+impl FCameraActorAttachmentInfo {}
 #[repr(C, align(8))]
 pub struct FCameraActorTargetInfo {
     pub actor: UPtr<crate::bindings::engine::AActor>,
@@ -523,7 +203,9 @@ pub struct FCameraActorTargetInfo {
     pub target_shape: ECameraTargetShape,
     pub target_size: f32,
     pub weight: f32,
+    __padding_end: [u8; 4],
 }
+impl FCameraActorTargetInfo {}
 #[repr(C, align(8))]
 pub struct FCameraFramingZone {
     pub left: f64,
@@ -531,638 +213,719 @@ pub struct FCameraFramingZone {
     pub right: f64,
     pub bottom: f64,
 }
-#[repr(C, align(8))]
-pub struct FCameraFramingZoneParameter {
-    pub value: FCameraFramingZone,
-    pub variable_id: FCameraVariableID,
-}
-#[repr(C, align(1))]
-pub struct FCameraRigInputSlotParameters {
-    pub b_is_accumulated: bool,
-    pub b_is_pre_blended: bool,
-}
-#[repr(C, align(8))]
-pub struct FCameraParameterClamping {
-    pub min_value: f64,
-    pub max_value: f64,
-    pub b_clamp_min: bool,
-    pub b_clamp_max: bool,
-}
-#[repr(C, align(8))]
-pub struct FCameraParameterNormalization {
-    pub max_value: f64,
-    pub b_normalize: bool,
-}
+impl FCameraFramingZone {}
 pub struct UHasCameraBuildStatus {}
 pub struct IHasCameraBuildStatus {}
-pub struct UCameraRigInstanceFunctions {}
+#[repr(C, align(8))]
+pub struct UCameraRigInstanceFunctions {
+    __padding_end: [u8; 48],
+}
+impl UCameraRigInstanceFunctions {}
 pub struct UAssetReferenceCameraNode {}
 pub struct IAssetReferenceCameraNode {}
 pub struct UObjectTreeGraphObject {}
 pub struct IObjectTreeGraphObject {}
 pub struct UObjectTreeGraphRootObject {}
 pub struct IObjectTreeGraphRootObject {}
+#[repr(C, align(8))]
 pub struct UBaseCameraObject {
-    pub interface: FCameraObjectInterface,
-    pub allocation_info: FCameraObjectAllocationInfo,
-    pub default_parameters: crate::bindings::core_u_object::FInstancedPropertyBag,
-    pub parameter_definitions: TArray<FCameraObjectInterfaceParameterDefinition>,
+    __padding_end: [u8; 176],
 }
+impl UBaseCameraObject {}
+#[repr(C, align(8))]
 pub struct UCameraNode {
-    pub b_is_enabled: bool,
-    pub graph_node_pos: crate::bindings::core_u_object::FIntVector2,
-    pub graph_node_comment: FString,
-    pub graph_node_pos_x_deprecated: i32,
-    pub graph_node_pos_y_deprecated: i32,
+    __padding_end: [u8; 104],
 }
-pub struct UBlendCameraNode {}
+impl UCameraNode {}
+#[repr(C, align(8))]
+pub struct UBlendCameraNode {
+    __padding_end: [u8; 104],
+}
+impl UBlendCameraNode {}
+#[repr(C, align(8))]
 pub struct UBlendStackCameraNode {
-    pub blend_stack_type: ECameraBlendStackType,
-    pub layer: ECameraRigLayer,
+    __padding_end: [u8; 112],
 }
+impl UBlendStackCameraNode {}
+#[repr(C, align(8))]
 pub struct UBlendStackRootCameraNode {
-    pub blend: UPtr<UBlendCameraNode>,
-    pub root_node: UPtr<UCameraNode>,
+    __padding_end: [u8; 120],
 }
+impl UBlendStackRootCameraNode {}
+#[repr(C, align(8))]
 pub struct UCameraAsset {
-    pub camera_director: UPtr<UCameraDirector>,
-    pub enter_transitions: TArray<UPtr<UCameraRigTransition>>,
-    pub exit_transitions: TArray<UPtr<UCameraRigTransition>>,
-    pub build_status: ECameraBuildStatus,
-    pub default_parameters: crate::bindings::core_u_object::FInstancedPropertyBag,
-    pub parameter_definitions: TArray<FCameraObjectInterfaceParameterDefinition>,
-    pub allocation_info: FCameraAssetAllocationInfo,
-    pub camera_rigs_deprecated: TArray<UPtr<UCameraRigAsset>>,
-    pub transition_graph_node_pos: crate::bindings::core_u_object::FIntVector2,
-    pub transition_graph_node_comment: FString,
-    pub all_shared_transitions_objects: TArray<
-        UPtr<crate::bindings::core_u_object::UObject>,
-    >,
+    __padding_end: [u8; 248],
 }
+impl UCameraAsset {}
+#[repr(C, align(8))]
 pub struct UCameraDirector {
-    pub camera_rig_proxy_redirect_table: FCameraRigProxyRedirectTable,
-    pub camera_rig_proxy_table_deprecated: UPtr<UCameraRigProxyTable>,
+    __padding_end: [u8; 72],
 }
+impl UCameraDirector {}
+#[repr(C, align(8))]
 pub struct UCameraObjectInterfaceParameterBase {
-    pub interface_parameter_name: FString,
-    pub target: UPtr<UCameraNode>,
-    pub target_property_name: FName,
-    pub b_has_graph_node: bool,
-    pub guid: crate::bindings::core_u_object::FGuid,
-    pub graph_node_pos: crate::bindings::core_u_object::FIntVector2,
+    __padding_end: [u8; 120],
 }
+impl UCameraObjectInterfaceParameterBase {}
+#[repr(C, align(8))]
 pub struct UCameraObjectInterfaceBlendableParameter {
-    pub parameter_type: ECameraVariableType,
-    pub blendable_struct_type: UPtr<crate::bindings::core_u_object::UScriptStruct>,
-    pub b_is_pre_blended: bool,
-    pub private_variable_id: FCameraVariableID,
-    pub private_variable_deprecated: UPtr<UCameraVariableAsset>,
+    __padding_end: [u8; 152],
 }
+impl UCameraObjectInterfaceBlendableParameter {}
+#[repr(C, align(8))]
 pub struct UCameraObjectInterfaceDataParameter {
-    pub data_type: ECameraContextDataType,
-    pub data_container_type: ECameraContextDataContainerType,
-    pub data_type_object: UPtr<crate::bindings::core_u_object::UObject>,
-    pub private_data_id: FCameraContextDataID,
+    __padding_end: [u8; 144],
 }
+impl UCameraObjectInterfaceDataParameter {}
+#[repr(C, align(8))]
 pub struct UCameraRigAsset {
-    pub root_node: UPtr<UCameraNode>,
-    pub gameplay_tags: crate::bindings::gameplay_tags::FGameplayTagContainer,
-    pub enter_transitions: TArray<UPtr<UCameraRigTransition>>,
-    pub exit_transitions: TArray<UPtr<UCameraRigTransition>>,
-    pub initial_orientation: ECameraRigInitialOrientation,
-    pub build_status: ECameraBuildStatus,
-    pub guid: crate::bindings::core_u_object::FGuid,
-    pub node_graph_node_pos: crate::bindings::core_u_object::FIntVector2,
-    pub transition_graph_node_pos: crate::bindings::core_u_object::FIntVector2,
-    pub node_graph_node_comment: FString,
-    pub transition_graph_node_comment: FString,
-    pub all_node_tree_objects: TArray<UPtr<crate::bindings::core_u_object::UObject>>,
-    pub all_transitions_objects: TArray<UPtr<crate::bindings::core_u_object::UObject>>,
-    pub graph_node_pos_x_deprecated: i32,
-    pub graph_node_pos_y_deprecated: i32,
+    __padding_end: [u8; 400],
 }
+impl UCameraRigAsset {}
+#[repr(C, align(8))]
 pub struct UCombinedCameraRigsCameraNode {
-    pub camera_rig_references: TArray<FCameraRigAssetReference>,
+    __padding_end: [u8; 120],
 }
+impl UCombinedCameraRigsCameraNode {}
+#[repr(C, align(8))]
 pub struct UCameraRigProxyAsset {
-    pub guid: crate::bindings::core_u_object::FGuid,
+    __padding_end: [u8; 64],
 }
+impl UCameraRigProxyAsset {}
+#[repr(C, align(8))]
 pub struct UCameraRigProxyTable {
-    pub entries: TArray<FCameraRigProxyRedirectTableEntry>,
+    __padding_end: [u8; 64],
 }
+impl UCameraRigProxyTable {}
+#[repr(C, align(8))]
 pub struct UCameraRigTransitionCondition {
-    pub graph_node_pos: crate::bindings::core_u_object::FIntVector2,
-    pub graph_node_comment: FString,
-    pub graph_node_pos_x_deprecated: i32,
-    pub graph_node_pos_y_deprecated: i32,
+    __padding_end: [u8; 88],
 }
+impl UCameraRigTransitionCondition {}
+#[repr(C, align(8))]
 pub struct UCameraRigTransition {
-    pub conditions: TArray<UPtr<UCameraRigTransitionCondition>>,
-    pub blend: UPtr<UBlendCameraNode>,
-    pub initial_orientation: ECameraRigInitialOrientation,
-    pub b_override_initial_orientation: bool,
-    pub b_allow_camera_rig_merging: bool,
-    pub graph_node_pos: crate::bindings::core_u_object::FIntVector2,
-    pub graph_node_comment: FString,
-    pub graph_node_pos_x_deprecated: i32,
-    pub graph_node_pos_y_deprecated: i32,
+    __padding_end: [u8; 120],
 }
+impl UCameraRigTransition {}
+#[repr(C, align(8))]
 pub struct UCameraShakeAsset {
-    pub root_node: UPtr<UShakeCameraNode>,
-    pub blend_in: UPtr<USimpleFixedTimeBlendCameraNode>,
-    pub blend_out: UPtr<USimpleFixedTimeBlendCameraNode>,
-    pub b_is_single_instance: bool,
-    pub build_status: ECameraBuildStatus,
-    pub guid: crate::bindings::core_u_object::FGuid,
-    pub graph_node_pos: crate::bindings::core_u_object::FIntVector2,
-    pub graph_node_comment: FString,
-    pub all_node_objects: TArray<UPtr<crate::bindings::core_u_object::UObject>>,
+    __padding_end: [u8; 288],
 }
-pub struct UCameraValueInterpolator {}
-pub struct UPopValueInterpolator {}
+impl UCameraShakeAsset {}
+#[repr(C, align(8))]
+pub struct UCameraValueInterpolator {
+    __padding_end: [u8; 48],
+}
+impl UCameraValueInterpolator {}
+#[repr(C, align(8))]
+pub struct UPopValueInterpolator {
+    __padding_end: [u8; 48],
+}
+impl UPopValueInterpolator {}
+#[repr(C, align(8))]
 pub struct UCameraVariableAsset {
-    pub display_name: FString,
-    pub b_auto_reset: bool,
-    pub b_is_pre_blended: bool,
-    pub b_is_private: bool,
-    pub guid: crate::bindings::core_u_object::FGuid,
+    __padding_end: [u8; 88],
 }
+impl UCameraVariableAsset {}
+#[repr(C, align(8))]
 pub struct UBooleanCameraVariable {
-    pub b_default_value: bool,
+    __padding_end: [u8; 96],
 }
+impl UBooleanCameraVariable {}
+#[repr(C, align(8))]
 pub struct UInteger32CameraVariable {
-    pub default_value: i32,
+    __padding_end: [u8; 96],
 }
+impl UInteger32CameraVariable {}
+#[repr(C, align(8))]
 pub struct UFloatCameraVariable {
-    pub default_value: f32,
+    __padding_end: [u8; 96],
 }
+impl UFloatCameraVariable {}
+#[repr(C, align(8))]
 pub struct UDoubleCameraVariable {
-    pub default_value: f64,
+    __padding_end: [u8; 96],
 }
+impl UDoubleCameraVariable {}
+#[repr(C, align(8))]
 pub struct UVector2fCameraVariable {
-    pub default_value: crate::bindings::core_u_object::FVector2f,
+    __padding_end: [u8; 96],
 }
+impl UVector2fCameraVariable {}
+#[repr(C, align(8))]
 pub struct UVector2dCameraVariable {
-    pub default_value: crate::bindings::core_u_object::FVector2D,
+    __padding_end: [u8; 104],
 }
+impl UVector2dCameraVariable {}
+#[repr(C, align(8))]
 pub struct UVector3fCameraVariable {
-    pub default_value: crate::bindings::core_u_object::FVector3f,
+    __padding_end: [u8; 104],
 }
+impl UVector3fCameraVariable {}
+#[repr(C, align(8))]
 pub struct UVector3dCameraVariable {
-    pub default_value: crate::bindings::core_u_object::FVector3d,
+    __padding_end: [u8; 112],
 }
+impl UVector3dCameraVariable {}
+#[repr(C, align(16))]
 pub struct UVector4fCameraVariable {
-    pub default_value: crate::bindings::core_u_object::FVector4f,
+    __padding_end: [u8; 112],
 }
+impl UVector4fCameraVariable {}
+#[repr(C, align(16))]
 pub struct UVector4dCameraVariable {
-    pub default_value: crate::bindings::core_u_object::FVector4d,
+    __padding_end: [u8; 128],
 }
+impl UVector4dCameraVariable {}
+#[repr(C, align(8))]
 pub struct URotator3fCameraVariable {
-    pub default_value: crate::bindings::core_u_object::FRotator3f,
+    __padding_end: [u8; 104],
 }
+impl URotator3fCameraVariable {}
+#[repr(C, align(8))]
 pub struct URotator3dCameraVariable {
-    pub default_value: crate::bindings::core_u_object::FRotator3d,
+    __padding_end: [u8; 112],
 }
+impl URotator3dCameraVariable {}
+#[repr(C, align(16))]
 pub struct UTransform3fCameraVariable {
-    pub default_value: crate::bindings::core_u_object::FTransform3f,
+    __padding_end: [u8; 144],
 }
+impl UTransform3fCameraVariable {}
+#[repr(C, align(16))]
 pub struct UTransform3dCameraVariable {
-    pub default_value: crate::bindings::core_u_object::FTransform3d,
+    __padding_end: [u8; 192],
 }
+impl UTransform3dCameraVariable {}
+#[repr(C, align(8))]
 pub struct UCameraVariableCollection {
-    pub variables: TArray<UPtr<UCameraVariableAsset>>,
+    __padding_end: [u8; 64],
 }
-pub struct URootCameraNode {}
+impl UCameraVariableCollection {}
+#[repr(C, align(8))]
+pub struct URootCameraNode {
+    __padding_end: [u8; 104],
+}
+impl URootCameraNode {}
+#[repr(C, align(8))]
 pub struct UDefaultRootCameraNode {
-    pub base_layer: UPtr<UBlendStackCameraNode>,
-    pub main_layer: UPtr<UBlendStackCameraNode>,
-    pub global_layer: UPtr<UBlendStackCameraNode>,
-    pub visual_layer: UPtr<UBlendStackCameraNode>,
+    __padding_end: [u8; 136],
 }
+impl UDefaultRootCameraNode {}
 pub struct UCustomCameraNodeParameterProvider {}
 pub struct ICustomCameraNodeParameterProvider {}
+#[repr(C, align(8))]
 pub struct UObjectTreeGraphComment {
-    pub comment_text: FString,
-    pub comment_color: crate::bindings::core_u_object::FLinearColor,
-    pub graph_node_pos: crate::bindings::core_u_object::FIntVector2,
-    pub graph_node_size: crate::bindings::core_u_object::FIntVector2,
+    __padding_end: [u8; 104],
 }
-pub struct UShakeCameraNode {}
-pub struct UBlueprintCameraDirectorEvaluator {}
+impl UObjectTreeGraphComment {}
+#[repr(C, align(8))]
+pub struct UShakeCameraNode {
+    __padding_end: [u8; 104],
+}
+impl UShakeCameraNode {}
+#[repr(C, align(8))]
+pub struct UBlueprintCameraDirectorEvaluator {
+    __padding_end: [u8; 336],
+}
+impl UBlueprintCameraDirectorEvaluator {}
+#[repr(C, align(8))]
 pub struct UBlueprintCameraDirector {
-    pub camera_director_evaluator_class: TSubclassOf<UBlueprintCameraDirectorEvaluator>,
+    __padding_end: [u8; 80],
 }
+impl UBlueprintCameraDirector {}
+#[repr(C, align(8))]
 pub struct UCameraDirectorStateTreeSchema {
-    pub context_data_descs: TArray<
-        crate::bindings::state_tree_module::FStateTreeExternalDataDesc,
-    >,
+    __padding_end: [u8; 64],
 }
-pub struct UPriorityQueueCameraDirector {}
+impl UCameraDirectorStateTreeSchema {}
+#[repr(C, align(8))]
+pub struct UPriorityQueueCameraDirector {
+    __padding_end: [u8; 72],
+}
+impl UPriorityQueueCameraDirector {}
+#[repr(C, align(8))]
 pub struct USingleCameraDirector {
-    pub camera_rig: UPtr<UCameraRigAsset>,
+    __padding_end: [u8; 80],
 }
+impl USingleCameraDirector {}
+#[repr(C, align(8))]
 pub struct UStateTreeCameraDirector {
-    pub state_tree_reference: crate::bindings::state_tree_module::FStateTreeReference,
+    __padding_end: [u8; 112],
 }
-pub struct UActivateCameraRigFunctions {}
-pub struct UCameraComponentCameraNode {}
-pub struct UCalcCameraActorCameraNode {}
-pub struct UBlueprintCameraEvaluationDataFunctionLibrary {}
-pub struct UBlueprintCameraVariableTableFunctionLibrary {}
-pub struct UBlueprintCameraContextDataTableFunctionLibrary {}
-pub struct UBlueprintCameraPoseFunctionLibrary {}
-pub struct UCameraRigParameterInterop {}
-pub struct UCameraRigParameterInteropLibrary {}
+impl UStateTreeCameraDirector {}
+#[repr(C, align(8))]
+pub struct UActivateCameraRigFunctions {
+    __padding_end: [u8; 48],
+}
+impl UActivateCameraRigFunctions {}
+#[repr(C, align(8))]
+pub struct UCameraComponentCameraNode {
+    __padding_end: [u8; 104],
+}
+impl UCameraComponentCameraNode {}
+#[repr(C, align(8))]
+pub struct UCalcCameraActorCameraNode {
+    __padding_end: [u8; 104],
+}
+impl UCalcCameraActorCameraNode {}
+#[repr(C, align(8))]
+pub struct UBlueprintCameraEvaluationDataFunctionLibrary {
+    __padding_end: [u8; 48],
+}
+impl UBlueprintCameraEvaluationDataFunctionLibrary {}
+#[repr(C, align(8))]
+pub struct UBlueprintCameraVariableTableFunctionLibrary {
+    __padding_end: [u8; 48],
+}
+impl UBlueprintCameraVariableTableFunctionLibrary {}
+#[repr(C, align(8))]
+pub struct UBlueprintCameraContextDataTableFunctionLibrary {
+    __padding_end: [u8; 48],
+}
+impl UBlueprintCameraContextDataTableFunctionLibrary {}
+#[repr(C, align(8))]
+pub struct UBlueprintCameraPoseFunctionLibrary {
+    __padding_end: [u8; 48],
+}
+impl UBlueprintCameraPoseFunctionLibrary {}
+#[repr(C, align(8))]
+pub struct UCameraRigParameterInterop {
+    __padding_end: [u8; 48],
+}
+impl UCameraRigParameterInterop {}
+#[repr(C, align(8))]
+pub struct UCameraRigParameterInteropLibrary {
+    __padding_end: [u8; 48],
+}
+impl UCameraRigParameterInteropLibrary {}
+#[repr(C, align(8))]
 pub struct UControllerGameplayCameraEvaluationComponent {
-    pub camera_system_host: TScriptInterface<IGameplayCameraSystemHost>,
+    __padding_end: [u8; 288],
 }
-pub struct AGameplayCameraActorBase {}
+impl UControllerGameplayCameraEvaluationComponent {}
+#[repr(C, align(8))]
+pub struct AGameplayCameraActorBase {
+    __padding_end: [u8; 1136],
+}
+impl AGameplayCameraActorBase {}
+#[repr(C, align(8))]
 pub struct AGameplayCameraActor {
+    #[doc(hidden)]
+    __padding_1136: [u8; 1136],
     pub camera_component: UPtr<UGameplayCameraComponent>,
 }
+impl AGameplayCameraActor {}
+#[repr(C, align(16))]
 pub struct UGameplayCameraComponentBase {
+    #[doc(hidden)]
+    __padding_688: [u8; 688],
     pub auto_activate_for_player: crate::bindings::engine::EAutoReceiveInput,
     pub b_set_control_rotation_when_view_target: bool,
-    pub b_run_in_editor: bool,
-    pub editor_preview_camera_rig_index: i32,
-    pub output_camera_component: UPtr<
-        crate::bindings::cinematic_camera::UCineCameraComponent,
-    >,
+    __padding_end: [u8; 62],
 }
+impl UGameplayCameraComponentBase {}
+#[repr(C, align(16))]
 pub struct UGameplayCameraComponent {
+    #[doc(hidden)]
+    __padding_744: [u8; 744],
     pub camera_reference: FCameraAssetReference,
-    pub cached_parameter_overrides: crate::bindings::core_u_object::FInstancedPropertyBag,
-    pub camera_deprecated: UPtr<UCameraAsset>,
+    __padding_end: [u8; 32],
 }
+impl UGameplayCameraComponent {}
+#[repr(C, align(8))]
 pub struct UGameplayCameraParameterSetterComponent {
+    #[doc(hidden)]
+    __padding_240: [u8; 240],
     pub camera_rig_reference: FCameraRigAssetReference,
     pub blend_in_time: f32,
     pub blend_out_time: f32,
     pub blend_type: ECameraVariableSetterBlendType,
+    __padding_end: [u8; 23],
 }
+impl UGameplayCameraParameterSetterComponent {}
+#[repr(C, align(8))]
 pub struct AGameplayCameraRigActor {
+    #[doc(hidden)]
+    __padding_1136: [u8; 1136],
     pub camera_rig_component: UPtr<UGameplayCameraRigComponent>,
 }
+impl AGameplayCameraRigActor {}
+#[repr(C, align(16))]
 pub struct UGameplayCameraRigComponent {
+    #[doc(hidden)]
+    __padding_744: [u8; 744],
     pub camera_rig_reference: FCameraRigAssetReference,
-    pub generated_camera_asset: UPtr<UCameraAsset>,
-    pub cached_parameter_overrides: crate::bindings::core_u_object::FInstancedPropertyBag,
+    __padding_end: [u8; 40],
 }
+impl UGameplayCameraRigComponent {}
+#[repr(C, align(16))]
 pub struct AGameplayCamerasPlayerCameraManager {
-    pub view_rotation_mode: EGameplayCamerasViewRotationMode,
-    pub b_override_view_rotation_mode: bool,
-    pub original_camera_manager: UPtr<crate::bindings::engine::APlayerCameraManager>,
+    __padding_end: [u8; 11040],
 }
+impl AGameplayCamerasPlayerCameraManager {}
+#[repr(C, align(8))]
 pub struct AGameplayCameraSystemActor {
+    #[doc(hidden)]
+    __padding_1136: [u8; 1136],
     pub camera_system_component: UPtr<UGameplayCameraSystemComponent>,
 }
+impl AGameplayCameraSystemActor {}
+#[repr(C, align(16))]
 pub struct UGameplayCameraSystemComponent {
+    #[doc(hidden)]
+    __padding_688: [u8; 688],
     pub auto_activate_for_player: crate::bindings::engine::EAutoReceiveInput,
     pub b_set_player_controller_rotation: bool,
-    pub weak_player_controller: TWeakObjectPtr<
-        crate::bindings::engine::APlayerController,
-    >,
-    pub editor_sprite_texture_scale: f32,
+    __padding_end: [u8; 14],
 }
+impl UGameplayCameraSystemComponent {}
+#[repr(C, align(8))]
 pub struct UGameplayControlRotationComponent {
-    pub axis_actions: TArray<UPtr<crate::bindings::enhanced_input::UInputAction>>,
-    pub axis_action_angular_speed_threshold: f32,
-    pub axis_action_magnitude_threshold: f32,
+    #[doc(hidden)]
+    __padding_264: [u8; 264],
     pub auto_activate_for_player: crate::bindings::engine::EAutoReceiveInput,
-    pub player_controller: UPtr<crate::bindings::engine::APlayerController>,
-    pub camera_system_host: TScriptInterface<IGameplayCameraSystemHost>,
+    __padding_end: [u8; 47],
 }
+impl UGameplayControlRotationComponent {}
 pub struct UGameplayCameraSystemHost {}
 pub struct IGameplayCameraSystemHost {}
-pub struct USimpleBlendCameraNode {}
+#[repr(C, align(8))]
+pub struct USimpleBlendCameraNode {
+    __padding_end: [u8; 104],
+}
+impl USimpleBlendCameraNode {}
+#[repr(C, align(8))]
 pub struct UViewTargetTransitionParamsBlendCameraNode {
-    pub transition_params: crate::bindings::engine::FViewTargetTransitionParams,
+    __padding_end: [u8; 120],
 }
+impl UViewTargetTransitionParamsBlendCameraNode {}
+#[repr(C, align(8))]
 pub struct UGameplayCamerasSettings {
-    pub b_auto_build_in_pie: bool,
-    pub default_view_rotation_mode: EGameplayCamerasViewRotationMode,
-    pub combined_camera_rig_num_threshold: i32,
-    pub default_ik_aiming_angle_tolerance: f64,
-    pub default_ik_aiming_distance_tolerance: f64,
-    pub default_ik_aiming_max_iterations: u8,
-    pub default_ik_aiming_min_distance: f64,
+    __padding_end: [u8; 152],
 }
-pub struct UMovieSceneCameraFramingZonePropertySystem {}
+impl UGameplayCamerasSettings {}
+#[repr(C, align(8))]
+pub struct UMovieSceneCameraFramingZonePropertySystem {
+    __padding_end: [u8; 104],
+}
+impl UMovieSceneCameraFramingZonePropertySystem {}
+#[repr(C, align(8))]
 pub struct UMovieSceneCameraFramingZoneSection {
-    pub left_margin_curve: crate::bindings::movie_scene::FMovieSceneDoubleChannel,
-    pub top_margin_curve: crate::bindings::movie_scene::FMovieSceneDoubleChannel,
-    pub right_margin_curve: crate::bindings::movie_scene::FMovieSceneDoubleChannel,
-    pub bottom_margin_curve: crate::bindings::movie_scene::FMovieSceneDoubleChannel,
+    __padding_end: [u8; 1616],
 }
-pub struct UMovieSceneCameraFramingZoneTrack {}
+impl UMovieSceneCameraFramingZoneSection {}
+#[repr(C, align(8))]
+pub struct UMovieSceneCameraFramingZoneTrack {
+    __padding_end: [u8; 480],
+}
+impl UMovieSceneCameraFramingZoneTrack {}
+#[repr(C, align(8))]
 pub struct UAttachToActorCameraNode {
-    pub attachment: FCameraActorAttachmentInfo,
-    pub attachment_data_id: FCameraContextDataID,
-    pub attach_to_location: FBooleanCameraParameter,
-    pub attach_to_rotation: FBooleanCameraParameter,
+    __padding_end: [u8; 184],
 }
+impl UAttachToActorCameraNode {}
+#[repr(C, align(8))]
 pub struct UAttachToActorGroupCameraNode {
-    pub attachments: TArray<FCameraActorAttachmentInfo>,
-    pub attachments_data_id: FCameraContextDataID,
+    __padding_end: [u8; 128],
 }
+impl UAttachToActorGroupCameraNode {}
+#[repr(C, align(8))]
 pub struct UAttachToPlayerPawnCameraNode {
-    pub attach_to_location: FBooleanCameraParameter,
-    pub attach_to_rotation: FBooleanCameraParameter,
+    #[doc(hidden)]
+    __padding_136: [u8; 136],
     pub socket_name: FName,
     pub bone_name: FName,
 }
+impl UAttachToPlayerPawnCameraNode {}
+#[repr(C, align(8))]
 pub struct USimpleFixedTimeBlendCameraNode {
-    pub blend_time: FFloatCameraParameter,
+    __padding_end: [u8; 120],
 }
-pub struct ULinearBlendCameraNode {}
+impl USimpleFixedTimeBlendCameraNode {}
+#[repr(C, align(8))]
+pub struct ULinearBlendCameraNode {
+    __padding_end: [u8; 120],
+}
+impl ULinearBlendCameraNode {}
+#[repr(C, align(8))]
 pub struct ULocationRotationBlendCameraNode {
-    pub location_blend: UPtr<USimpleBlendCameraNode>,
-    pub rotation_blend: UPtr<USimpleBlendCameraNode>,
-    pub other_blend: UPtr<USimpleBlendCameraNode>,
+    __padding_end: [u8; 128],
 }
+impl ULocationRotationBlendCameraNode {}
+#[repr(C, align(8))]
 pub struct UOrbitBlendCameraNode {
-    pub driving_blend: UPtr<USimpleBlendCameraNode>,
+    __padding_end: [u8; 112],
 }
-pub struct UPopBlendCameraNode {}
+impl UOrbitBlendCameraNode {}
+#[repr(C, align(8))]
+pub struct UPopBlendCameraNode {
+    __padding_end: [u8; 104],
+}
+impl UPopBlendCameraNode {}
+#[repr(C, align(8))]
 pub struct USmoothBlendCameraNode {
-    pub blend_type: ESmoothCameraBlendType,
+    __padding_end: [u8; 128],
 }
+impl USmoothBlendCameraNode {}
+#[repr(C, align(8))]
 pub struct UCollisionPushCameraNode {
-    pub safe_position: ECollisionSafePosition,
-    pub custom_safe_position: FVector3dCameraVariableReference,
-    pub safe_position_offset: FVector3dCameraParameter,
-    pub safe_position_offset_space: ECollisionSafePositionOffsetSpace,
-    pub enable_collision: FBooleanCameraVariableReference,
-    pub collision_sphere_radius: FFloatCameraParameter,
-    pub collision_channel: crate::bindings::engine::ECollisionChannel,
-    pub push_interpolator: UPtr<UCameraValueInterpolator>,
-    pub pull_interpolator: UPtr<UCameraValueInterpolator>,
-    pub b_run_async_collision: bool,
+    __padding_end: [u8; 240],
 }
+impl UCollisionPushCameraNode {}
+#[repr(C, align(8))]
 pub struct UOcclusionMaterialCameraNode {
-    pub occlusion_transparency_material: UPtr<
-        crate::bindings::engine::UMaterialInterface,
-    >,
-    pub occlusion_sphere_radius: FFloatCameraParameter,
-    pub occlusion_channel: crate::bindings::engine::ECollisionChannel,
-    pub occlusion_target_position: ECameraNodeOriginPosition,
-    pub occlusion_target_offset_space: ECameraNodeSpace,
-    pub occlusion_target_offset: FVector3dCameraParameter,
+    __padding_end: [u8; 176],
 }
+impl UOcclusionMaterialCameraNode {}
+#[repr(C, align(8))]
 pub struct UArrayCameraNode {
-    pub children: TArray<UPtr<UCameraNode>>,
+    __padding_end: [u8; 120],
 }
+impl UArrayCameraNode {}
+#[repr(C, align(8))]
 pub struct UAutoFocusCameraNode {
-    pub enable_auto_focus: FBooleanCameraVariableReference,
-    pub auto_focus_damping_factor: FFloatCameraParameter,
+    __padding_end: [u8; 136],
 }
+impl UAutoFocusCameraNode {}
+#[repr(C, align(8))]
 pub struct UBodyParametersCameraNode {
-    pub shutter_speed: FFloatCameraParameter,
-    pub iso: FFloatCameraParameter,
+    __padding_end: [u8; 136],
 }
+impl UBodyParametersCameraNode {}
+#[repr(C, align(8))]
 pub struct UBoomArmCameraNode {
-    pub boom_offset: FVector3dCameraParameter,
-    pub boom_length_interpolator: UPtr<UCameraValueInterpolator>,
-    pub max_forward_interpolation_factor: FDoubleCameraParameter,
-    pub max_backward_interpolation_factor: FDoubleCameraParameter,
-    pub input_slot: UPtr<UInput2DCameraNode>,
+    __padding_end: [u8; 208],
 }
+impl UBoomArmCameraNode {}
+#[repr(C, align(8))]
 pub struct UCameraRigCameraNode {
-    pub camera_rig_reference: FCameraRigAssetReference,
+    __padding_end: [u8; 424],
 }
+impl UCameraRigCameraNode {}
+#[repr(C, align(8))]
 pub struct UClippingPlanesCameraNode {
-    pub near_plane: FDoubleCameraParameter,
-    pub far_plane: FDoubleCameraParameter,
+    __padding_end: [u8; 152],
 }
+impl UClippingPlanesCameraNode {}
+#[repr(C, align(8))]
 pub struct UDampenPositionCameraNode {
-    pub forward_damping_factor: FFloatCameraParameter,
-    pub lateral_damping_factor: FFloatCameraParameter,
-    pub vertical_damping_factor: FFloatCameraParameter,
-    pub dampen_space: ECameraNodeSpace,
+    __padding_end: [u8; 160],
 }
+impl UDampenPositionCameraNode {}
+#[repr(C, align(8))]
 pub struct UDampenRotationCameraNode {
-    pub yaw_damping_factor: FFloatCameraParameter,
-    pub pitch_damping_factor: FFloatCameraParameter,
-    pub roll_damping_factor: FFloatCameraParameter,
+    __padding_end: [u8; 152],
 }
+impl UDampenRotationCameraNode {}
+#[repr(C, align(8))]
 pub struct UFieldOfViewCameraNode {
-    pub field_of_view: FFloatCameraParameter,
+    __padding_end: [u8; 120],
 }
+impl UFieldOfViewCameraNode {}
+#[repr(C, align(8))]
 pub struct UFilmbackCameraNode {
-    pub sensor_width: FFloatCameraParameter,
-    pub sensor_height: FFloatCameraParameter,
-    pub sensor_horizontal_offset: FFloatCameraParameter,
-    pub sensor_vertical_offset: FFloatCameraParameter,
-    pub overscan: FFloatCameraParameter,
-    pub constrain_aspect_ratio: FBooleanCameraParameter,
-    pub override_aspect_ratio_axis_constraint: FBooleanCameraParameter,
-    pub aspect_ratio_axis_constraint: crate::bindings::engine::EAspectRatioAxisConstraint,
+    __padding_end: [u8; 224],
 }
+impl UFilmbackCameraNode {}
+#[repr(C, align(8))]
 pub struct ULensParametersCameraNode {
-    pub focal_length: FFloatCameraParameter,
-    pub focus_distance: FFloatCameraParameter,
-    pub aperture: FFloatCameraParameter,
-    pub enable_physical_camera: FBooleanCameraParameter,
+    __padding_end: [u8; 168],
 }
+impl ULensParametersCameraNode {}
+#[repr(C, align(8))]
 pub struct UOffsetCameraNode {
-    pub translation_offset: FVector3dCameraParameter,
-    pub rotation_offset: FRotator3dCameraParameter,
-    pub offset_space: ECameraNodeSpace,
+    __padding_end: [u8; 192],
 }
+impl UOffsetCameraNode {}
+#[repr(C, align(8))]
 pub struct UOrthographicCameraNode {
-    pub enable_orthographic_mode: FBooleanCameraParameter,
-    pub orthographic_width: FFloatCameraParameter,
+    __padding_end: [u8; 136],
 }
+impl UOrthographicCameraNode {}
+#[repr(C, align(16))]
 pub struct UPostProcessCameraNode {
-    pub post_process_settings: crate::bindings::engine::FPostProcessSettings,
+    __padding_end: [u8; 2064],
 }
+impl UPostProcessCameraNode {}
+#[repr(C, align(8))]
 pub struct USetLocationCameraNode {
-    pub location: FVector3dCameraParameter,
-    pub offset_space: ECameraNodeSpace,
+    __padding_end: [u8; 152],
 }
+impl USetLocationCameraNode {}
+#[repr(C, align(8))]
 pub struct USetRotationCameraNode {
-    pub rotation: FRotator3dCameraParameter,
-    pub offset_space: ECameraNodeSpace,
+    __padding_end: [u8; 152],
 }
+impl USetRotationCameraNode {}
+#[repr(C, align(8))]
 pub struct USplineFieldOfViewCameraNode {
-    pub spline_input: FFloatCameraParameter,
-    pub field_of_view_spline: FCameraSingleCurve,
+    __padding_end: [u8; 248],
 }
+impl USplineFieldOfViewCameraNode {}
+#[repr(C, align(8))]
 pub struct USplineOffsetCameraNode {
-    pub spline_input: FFloatCameraParameter,
-    pub translation_offset_spline: FCameraVectorCurve,
-    pub rotation_offset_spline: FCameraRotatorCurve,
-    pub offset_space: ECameraNodeSpace,
+    __padding_end: [u8; 896],
 }
+impl USplineOffsetCameraNode {}
+#[repr(C, align(8))]
 pub struct USplineOrbitCameraNode {
-    pub location_offset_spline: FCameraVectorCurve,
-    pub target_offset_spline: FCameraVectorCurve,
-    pub rotation_offset_spline: FCameraRotatorCurve,
-    pub location_offset_multiplier: FFloatCameraParameter,
-    pub target_offset_space: ECameraNodeSpace,
-    pub input_slot: UPtr<UInput2DCameraNode>,
+    __padding_end: [u8; 1288],
 }
+impl USplineOrbitCameraNode {}
+#[repr(C, align(8))]
 pub struct UTargetRayCastCameraNode {
-    pub trace_channel: crate::bindings::engine::ECollisionChannel,
-    pub auto_focus: FBooleanCameraParameter,
+    __padding_end: [u8; 128],
 }
+impl UTargetRayCastCameraNode {}
+#[repr(C, align(8))]
 pub struct UBaseFramingCameraNode {
-    pub target_location: FVector3dCameraVariableReference,
-    pub target_infos: TArray<FCameraActorTargetInfo>,
-    pub target_infos_data_id: FCameraContextDataID,
-    pub set_target_distance: FBooleanCameraParameter,
-    pub initialize_with_ideal_framing: FBooleanCameraParameter,
-    pub ideal_framing_location: FVector2dCameraParameter,
-    pub reframe_damping_factor: FFloatCameraParameter,
-    pub low_reframe_damping_factor: FFloatCameraParameter,
-    pub reengage_time: FFloatCameraParameter,
-    pub disengage_time: FFloatCameraParameter,
-    pub target_movement_anticipation_time: FFloatCameraParameter,
-    pub dead_zone: FCameraFramingZoneParameter,
-    pub soft_zone: FCameraFramingZoneParameter,
-    pub target_info_deprecated: FCameraActorTargetInfo,
+    __padding_end: [u8; 424],
 }
+impl UBaseFramingCameraNode {}
+#[repr(C, align(8))]
 pub struct UDollyFramingCameraNode {
-    pub can_move_laterally: FBooleanCameraParameter,
-    pub can_move_vertically: FBooleanCameraParameter,
+    __padding_end: [u8; 456],
 }
+impl UDollyFramingCameraNode {}
+#[repr(C, align(8))]
 pub struct UPanningFramingCameraNode {
-    pub can_pan_laterally: FBooleanCameraParameter,
-    pub can_pan_vertically: FBooleanCameraParameter,
+    __padding_end: [u8; 456],
 }
-pub struct UInput2DCameraNode {}
+impl UPanningFramingCameraNode {}
+#[repr(C, align(8))]
+pub struct UInput2DCameraNode {
+    __padding_end: [u8; 104],
+}
+impl UInput2DCameraNode {}
+#[repr(C, align(8))]
 pub struct UAutoRotateInput2DCameraNode {
-    pub direction: ECameraAutoRotateDirection,
-    pub direction_vector: FVector3dCameraVariableReference,
-    pub wait_time: FFloatCameraParameter,
-    pub deactivation_threshold: FFloatCameraParameter,
-    pub interpolator: UPtr<UCameraValueInterpolator>,
-    pub freeze_control_rotation: FBooleanCameraParameter,
-    pub enable_auto_rotate: FBooleanCameraParameter,
-    pub auto_rotate_yaw: FBooleanCameraParameter,
-    pub auto_rotate_pitch: FBooleanCameraParameter,
-    pub input_node: UPtr<UInput2DCameraNode>,
+    __padding_end: [u8; 240],
 }
-pub struct UInput1DCameraNode {}
+impl UAutoRotateInput2DCameraNode {}
+#[repr(C, align(8))]
+pub struct UInput1DCameraNode {
+    __padding_end: [u8; 104],
+}
+impl UInput1DCameraNode {}
+#[repr(C, align(8))]
 pub struct UCameraRigInput1DSlot {
-    pub clamp: FCameraParameterClamping,
-    pub normalize: FCameraParameterNormalization,
-    pub revert_axis: FBooleanCameraParameter,
-    pub speed: FDoubleCameraParameter,
-    pub built_in_variable: EBuiltInDoubleCameraVariable,
-    pub custom_variable: FDoubleCameraVariableReference,
-    pub b_is_pre_blended: bool,
-    pub input_slot_parameters_deprecated: FCameraRigInputSlotParameters,
-    pub speed_variable_id: FCameraVariableID,
-    pub variable_id: FCameraVariableID,
+    __padding_end: [u8; 224],
 }
+impl UCameraRigInput1DSlot {}
+#[repr(C, align(8))]
 pub struct UCameraRigInput2DSlot {
-    pub clamp_x: FCameraParameterClamping,
-    pub clamp_y: FCameraParameterClamping,
-    pub normalize_x: FCameraParameterNormalization,
-    pub normalize_y: FCameraParameterNormalization,
-    pub revert_axis_x: FBooleanCameraParameter,
-    pub revert_axis_y: FBooleanCameraParameter,
-    pub speed: FVector2dCameraParameter,
-    pub built_in_variable: EBuiltInVector2dCameraVariable,
-    pub custom_variable: FVector2dCameraVariableReference,
-    pub b_is_pre_blended: bool,
-    pub input_slot_parameters_deprecated: FCameraRigInputSlotParameters,
-    pub speed_variable_id: FCameraVariableID,
-    pub variable_id: FCameraVariableID,
+    __padding_end: [u8; 288],
 }
-pub struct UDrivenControlRotationCameraNode {}
+impl UCameraRigInput2DSlot {}
+#[repr(C, align(8))]
+pub struct UDrivenControlRotationCameraNode {
+    __padding_end: [u8; 104],
+}
+impl UDrivenControlRotationCameraNode {}
+#[repr(C, align(8))]
 pub struct UInputAccumulator2DCameraNode {
-    pub input_slot: UPtr<UInput2DCameraNode>,
+    __padding_end: [u8; 296],
 }
+impl UInputAccumulator2DCameraNode {}
+#[repr(C, align(8))]
 pub struct UInputAxisBinding2DCameraNode {
-    pub axis_actions: TArray<UPtr<crate::bindings::enhanced_input::UInputAction>>,
-    pub multiplier: FVector2dCameraParameter,
-    pub b_is_accumulated: bool,
+    __padding_end: [u8; 344],
 }
+impl UInputAxisBinding2DCameraNode {}
+#[repr(C, align(8))]
 pub struct URawInputAxisBinding2DCameraNode {
-    pub axis_actions: TArray<UPtr<crate::bindings::enhanced_input::UInputAction>>,
-    pub multiplier: FVector2dCameraParameter,
+    __padding_end: [u8; 152],
 }
+impl URawInputAxisBinding2DCameraNode {}
+#[repr(C, align(8))]
 pub struct UCameraShakeCameraNode {
-    pub camera_shake_reference: FCameraShakeAssetReference,
-    pub evaluation_mode: ECameraShakeEvaluationMode,
+    __padding_end: [u8; 184],
 }
+impl UCameraShakeCameraNode {}
+#[repr(C, align(8))]
 pub struct UCompositeShakeCameraNode {
-    pub shakes: TArray<UPtr<UShakeCameraNode>>,
+    __padding_end: [u8; 120],
 }
+impl UCompositeShakeCameraNode {}
+#[repr(C, align(8))]
 pub struct UEnvelopeShakeCameraNode {
-    pub ease_in_time: FFloatCameraParameter,
-    pub ease_out_time: FFloatCameraParameter,
-    pub total_time: FFloatCameraParameter,
-    pub shake: UPtr<UShakeCameraNode>,
+    __padding_end: [u8; 160],
 }
+impl UEnvelopeShakeCameraNode {}
+#[repr(C, align(8))]
 pub struct UPerlinNoiseLocationShakeCameraNode {
-    pub amplitude_multiplier: FFloatCameraParameter,
-    pub frequency_multiplier: FFloatCameraParameter,
-    pub octaves: FInteger32CameraParameter,
-    pub x: FPerlinNoiseData,
-    pub y: FPerlinNoiseData,
-    pub z: FPerlinNoiseData,
+    __padding_end: [u8; 176],
 }
+impl UPerlinNoiseLocationShakeCameraNode {}
+#[repr(C, align(8))]
 pub struct UPerlinNoiseRotationShakeCameraNode {
-    pub amplitude_multiplier: FFloatCameraParameter,
-    pub frequency_multiplier: FFloatCameraParameter,
-    pub octaves: FInteger32CameraParameter,
-    pub yaw: FPerlinNoiseData,
-    pub pitch: FPerlinNoiseData,
-    pub roll: FPerlinNoiseData,
+    __padding_end: [u8; 176],
 }
+impl UPerlinNoiseRotationShakeCameraNode {}
+#[repr(C, align(8))]
 pub struct UBlueprintCameraNodeEvaluator {
+    #[doc(hidden)]
+    __padding_48: [u8; 48],
     pub b_is_first_frame: bool,
     pub b_is_active_camera_rig: bool,
     pub evaluation_context_owner: UPtr<crate::bindings::core_u_object::UObject>,
     pub camera_data: FBlueprintCameraEvaluationDataRef,
     pub camera_pose: FBlueprintCameraPose,
     pub variable_table: FBlueprintCameraEvaluationDataRef,
+    __padding_end: [u8; 32],
 }
+impl UBlueprintCameraNodeEvaluator {}
+#[repr(C, align(8))]
 pub struct UBlueprintCameraNode {
-    pub camera_node_evaluator_template: UPtr<UBlueprintCameraNodeEvaluator>,
-    pub camera_node_evaluator_overrides: FCustomCameraNodeParameters,
-    pub camera_node_evaluator_class_deprecated: TSubclassOf<
-        UBlueprintCameraNodeEvaluator,
-    >,
+    __padding_end: [u8; 160],
 }
-pub struct UCameraShakeServiceCameraNode {}
+impl UBlueprintCameraNode {}
+#[repr(C, align(8))]
+pub struct UCameraShakeServiceCameraNode {
+    __padding_end: [u8; 104],
+}
+impl UCameraShakeServiceCameraNode {}
+#[repr(C, align(8))]
 pub struct UUpdateTrackerCameraNode {
-    pub double_parameter: FDoubleCameraParameter,
-    pub vector_parameter: FVector3dCameraParameter,
+    __padding_end: [u8; 168],
 }
+impl UUpdateTrackerCameraNode {}
+#[repr(C, align(8))]
 pub struct UFixedTestCameraDirector {
-    pub camera_rigs: TArray<UPtr<UCameraRigAsset>>,
-    pub camera_rig_names: TArray<FName>,
+    __padding_end: [u8; 104],
 }
+impl UFixedTestCameraDirector {}
+#[repr(C, align(8))]
 pub struct UIsCameraRigTransitionCondition {
-    pub previous_camera_rig: UPtr<UCameraRigAsset>,
-    pub next_camera_rig: UPtr<UCameraRigAsset>,
+    __padding_end: [u8; 104],
 }
+impl UIsCameraRigTransitionCondition {}
+#[repr(C, align(8))]
 pub struct UGameplayTagTransitionCondition {
-    pub previous_gameplay_tag_query: crate::bindings::gameplay_tags::FGameplayTagQuery,
-    pub next_gameplay_tag_query: crate::bindings::gameplay_tags::FGameplayTagQuery,
+    __padding_end: [u8; 232],
 }
+impl UGameplayTagTransitionCondition {}
+#[repr(C, align(8))]
 pub struct UAccelerationDecelerationValueInterpolator {
-    pub acceleration: f32,
-    pub max_speed: f32,
-    pub deceleration: f32,
+    __padding_end: [u8; 64],
 }
+impl UAccelerationDecelerationValueInterpolator {}
+#[repr(C, align(8))]
 pub struct UCriticalDamperValueInterpolator {
-    pub damping_factor: f32,
+    __padding_end: [u8; 56],
 }
+impl UCriticalDamperValueInterpolator {}
+#[repr(C, align(8))]
 pub struct UDoubleIIRValueInterpolator {
-    pub primary_speed: f32,
-    pub intermediate_speed: f32,
-    pub b_use_fixed_step: bool,
+    __padding_end: [u8; 64],
 }
+impl UDoubleIIRValueInterpolator {}
+#[repr(C, align(8))]
 pub struct UIIRValueInterpolator {
-    pub speed: f32,
-    pub b_use_fixed_step: bool,
+    __padding_end: [u8; 56],
 }
-#[allow(non_camel_case_types)]
+impl UIIRValueInterpolator {}
 #[repr(transparent)]
 pub struct ECameraObjectInterfaceParameterType(pub u8);
 impl ECameraObjectInterfaceParameterType {
@@ -1173,7 +936,6 @@ impl ECameraObjectInterfaceParameterType {
         1,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ECameraVariableType(pub i32);
 impl ECameraVariableType {
@@ -1193,7 +955,6 @@ impl ECameraVariableType {
     pub const TRANSFORM3D: ECameraVariableType = ECameraVariableType(13);
     pub const BLENDABLE_STRUCT: ECameraVariableType = ECameraVariableType(14);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ECameraContextDataType(pub i32);
 impl ECameraContextDataType {
@@ -1205,7 +966,6 @@ impl ECameraContextDataType {
     pub const CLASS: ECameraContextDataType = ECameraContextDataType(5);
     pub const COUNT: ECameraContextDataType = ECameraContextDataType(6);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ECameraContextDataContainerType(pub i32);
 impl ECameraContextDataContainerType {
@@ -1214,7 +974,6 @@ impl ECameraContextDataContainerType {
         1,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ECameraRigLayer(pub u8);
 impl ECameraRigLayer {
@@ -1224,7 +983,6 @@ impl ECameraRigLayer {
     pub const GLOBAL: ECameraRigLayer = ECameraRigLayer(3);
     pub const VISUAL: ECameraRigLayer = ECameraRigLayer(4);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ECameraTargetShape(pub u8);
 impl ECameraTargetShape {
@@ -1232,7 +990,6 @@ impl ECameraTargetShape {
     pub const AUTOMATIC_BOUNDS: ECameraTargetShape = ECameraTargetShape(1);
     pub const MANUAL_BOUNDS: ECameraTargetShape = ECameraTargetShape(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ECameraEvaluationDataCondition(pub u8);
 impl ECameraEvaluationDataCondition {
@@ -1240,7 +997,6 @@ impl ECameraEvaluationDataCondition {
         0,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EGameplayCameraComponentActivationMode(pub u8);
 impl EGameplayCameraComponentActivationMode {
@@ -1254,14 +1010,12 @@ impl EGameplayCameraComponentActivationMode {
         2,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ECameraBlendStackType(pub i32);
 impl ECameraBlendStackType {
     pub const ISOLATED_TRANSIENT: ECameraBlendStackType = ECameraBlendStackType(0);
     pub const ADDITIVE_PERSISTENT: ECameraBlendStackType = ECameraBlendStackType(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ECameraBuildStatus(pub u8);
 impl ECameraBuildStatus {
@@ -1270,7 +1024,6 @@ impl ECameraBuildStatus {
     pub const WITH_ERRORS: ECameraBuildStatus = ECameraBuildStatus(2);
     pub const DIRTY: ECameraBuildStatus = ECameraBuildStatus(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ECameraRigInitialOrientation(pub i32);
 impl ECameraRigInitialOrientation {
@@ -1288,7 +1041,6 @@ impl ECameraRigInitialOrientation {
         4,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ECameraVariableSetterBlendType(pub u8);
 impl ECameraVariableSetterBlendType {
@@ -1301,7 +1053,6 @@ impl ECameraVariableSetterBlendType {
         3,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EGameplayCamerasViewRotationMode(pub i32);
 impl EGameplayCamerasViewRotationMode {
@@ -1312,14 +1063,12 @@ impl EGameplayCamerasViewRotationMode {
         1,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ESmoothCameraBlendType(pub i32);
 impl ESmoothCameraBlendType {
     pub const SMOOTH_STEP: ESmoothCameraBlendType = ESmoothCameraBlendType(0);
     pub const SMOOTHER_STEP: ESmoothCameraBlendType = ESmoothCameraBlendType(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ECollisionSafePosition(pub u8);
 impl ECollisionSafePosition {
@@ -1328,7 +1077,6 @@ impl ECollisionSafePosition {
     pub const PIVOT: ECollisionSafePosition = ECollisionSafePosition(2);
     pub const PAWN: ECollisionSafePosition = ECollisionSafePosition(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ECollisionSafePositionOffsetSpace(pub u8);
 impl ECollisionSafePositionOffsetSpace {
@@ -1348,7 +1096,6 @@ impl ECollisionSafePositionOffsetSpace {
         4,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ECameraNodeOriginPosition(pub u8);
 impl ECameraNodeOriginPosition {
@@ -1358,7 +1105,6 @@ impl ECameraNodeOriginPosition {
     pub const PIVOT: ECameraNodeOriginPosition = ECameraNodeOriginPosition(3);
     pub const PAWN: ECameraNodeOriginPosition = ECameraNodeOriginPosition(4);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ECameraNodeSpace(pub u8);
 impl ECameraNodeSpace {
@@ -1369,7 +1115,6 @@ impl ECameraNodeSpace {
     pub const PAWN: ECameraNodeSpace = ECameraNodeSpace(4);
     pub const WORLD: ECameraNodeSpace = ECameraNodeSpace(5);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ECameraAutoRotateDirection(pub i32);
 impl ECameraAutoRotateDirection {
@@ -1379,7 +1124,6 @@ impl ECameraAutoRotateDirection {
         2,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EBuiltInDoubleCameraVariable(pub i32);
 impl EBuiltInDoubleCameraVariable {
@@ -1389,7 +1133,6 @@ impl EBuiltInDoubleCameraVariable {
     pub const ROLL: EBuiltInDoubleCameraVariable = EBuiltInDoubleCameraVariable(3);
     pub const ZOOM: EBuiltInDoubleCameraVariable = EBuiltInDoubleCameraVariable(4);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EBuiltInVector2dCameraVariable(pub i32);
 impl EBuiltInVector2dCameraVariable {
@@ -1398,7 +1141,6 @@ impl EBuiltInVector2dCameraVariable {
         1,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ECameraShakeEvaluationMode(pub u8);
 impl ECameraShakeEvaluationMode {

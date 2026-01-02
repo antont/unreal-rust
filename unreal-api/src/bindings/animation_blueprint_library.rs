@@ -13,33 +13,62 @@ pub struct FAnimPoseEvaluationOptions {
     pub optional_skeletal_mesh: UPtr<crate::bindings::engine::USkeletalMesh>,
     pub b_retrieve_additive_as_full_pose: bool,
     pub b_evaluate_curves: bool,
+    __padding_end: [u8; 6],
 }
+impl FAnimPoseEvaluationOptions {}
 #[repr(C, align(8))]
 pub struct FAnimPose {
-    pub bone_names: TArray<FName>,
-    pub bone_indices: TArray<i32>,
-    pub parent_bone_indices: TArray<i32>,
-    pub local_space_poses: TArray<crate::bindings::core_u_object::FTransform>,
-    pub world_space_poses: TArray<crate::bindings::core_u_object::FTransform>,
-    pub ref_local_space_poses: TArray<crate::bindings::core_u_object::FTransform>,
-    pub ref_world_space_poses: TArray<crate::bindings::core_u_object::FTransform>,
-    pub curve_names: TArray<FName>,
-    pub curve_values: TArray<f32>,
-    pub socket_names: TArray<FName>,
-    pub socket_parent_bone_names: TArray<FName>,
-    pub socket_transforms: TArray<crate::bindings::core_u_object::FTransform>,
+    __padding_end: [u8; 192],
 }
-pub struct UAnimationAttributeBlueprintLibrary {}
-pub struct UAnimationBlueprintLibrary {}
-pub struct UAnimPoseExtensions {}
-pub struct UK2Node_BaseAttributeActionNode {}
-pub struct UK2Node_SetAttributeKeyGeneric {}
-pub struct UK2Node_SetAttributeKeysGeneric {}
-pub struct UK2Node_GetAttributeKeyGeneric {}
-pub struct UK2Node_GetAttributeKeysGeneric {}
-pub struct FReplaceAnimNotifies_OnNotifyReplaced;
-pub struct FReplaceAnimNotifyStates_OnNotifyStateReplaced;
-#[allow(non_camel_case_types)]
+impl FAnimPose {}
+#[repr(C, align(8))]
+pub struct UAnimationAttributeBlueprintLibrary {
+    __padding_end: [u8; 48],
+}
+impl UAnimationAttributeBlueprintLibrary {}
+#[repr(C, align(8))]
+pub struct UAnimationBlueprintLibrary {
+    __padding_end: [u8; 48],
+}
+impl UAnimationBlueprintLibrary {}
+#[repr(C, align(8))]
+pub struct UAnimPoseExtensions {
+    __padding_end: [u8; 48],
+}
+impl UAnimPoseExtensions {}
+#[repr(C, align(8))]
+pub struct UK2Node_BaseAttributeActionNode {
+    __padding_end: [u8; 368],
+}
+impl UK2Node_BaseAttributeActionNode {}
+#[repr(C, align(8))]
+pub struct UK2Node_SetAttributeKeyGeneric {
+    __padding_end: [u8; 368],
+}
+impl UK2Node_SetAttributeKeyGeneric {}
+#[repr(C, align(8))]
+pub struct UK2Node_SetAttributeKeysGeneric {
+    __padding_end: [u8; 368],
+}
+impl UK2Node_SetAttributeKeysGeneric {}
+#[repr(C, align(8))]
+pub struct UK2Node_GetAttributeKeyGeneric {
+    __padding_end: [u8; 368],
+}
+impl UK2Node_GetAttributeKeyGeneric {}
+#[repr(C, align(8))]
+pub struct UK2Node_GetAttributeKeysGeneric {
+    __padding_end: [u8; 368],
+}
+impl UK2Node_GetAttributeKeysGeneric {}
+#[repr(transparent)]
+pub struct FReplaceAnimNotifies_OnNotifyReplaced {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FReplaceAnimNotifyStates_OnNotifyStateReplaced {
+    _opague: u8,
+}
 #[repr(transparent)]
 pub struct EAnimDataEvalType(pub u8);
 impl EAnimDataEvalType {
@@ -47,7 +76,6 @@ impl EAnimDataEvalType {
     pub const RAW: EAnimDataEvalType = EAnimDataEvalType(1);
     pub const COMPRESSED: EAnimDataEvalType = EAnimDataEvalType(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EAnimPoseSpaces(pub u8);
 impl EAnimPoseSpaces {

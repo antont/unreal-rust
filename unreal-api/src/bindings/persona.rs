@@ -5,152 +5,195 @@
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[repr(C, align(8))]
-pub struct FPhysicsAssetRenderSettings {
-    pub center_of_mass_view_mode: crate::bindings::unreal_ed::EPhysicsAssetEditorCenterOfMassViewMode,
-    pub collision_view_mode: crate::bindings::unreal_ed::EPhysicsAssetEditorCollisionViewMode,
-    pub constraint_view_mode: crate::bindings::unreal_ed::EPhysicsAssetEditorConstraintViewMode,
-    pub constraint_viewport_manipulation_flags: crate::bindings::engine::EConstraintTransformComponentFlags,
-    pub constraint_transform_component_display_relative_to_default_flags: crate::bindings::engine::EConstraintTransformComponentFlags,
-    pub constraint_draw_size: f32,
-    pub physics_blend: f32,
-    pub b_hide_kinematic_bodies: bool,
-    pub b_hide_simulated_bodies: bool,
-    pub b_hide_body_mass: bool,
-    pub b_render_only_selected_constraints: bool,
-    pub b_show_com_deprecated: bool,
-    pub b_show_constraints_as_points: bool,
-    pub b_highlight_overlaping_bodies: bool,
-    pub b_draw_violated_limits: bool,
-    pub b_hide_center_of_mass_for_kinematic_bodies: bool,
-    pub bone_unselected_color: crate::bindings::core_u_object::FColor,
-    pub no_collision_color: crate::bindings::core_u_object::FColor,
-    pub com_render_color: crate::bindings::core_u_object::FColor,
-    pub com_render_size: f32,
-    pub com_render_line_thickness: f32,
-    pub com_render_mass_text_offset_screenspace: f32,
-    pub influence_line_length: f32,
-    pub bone_unselected_material: UPtr<crate::bindings::engine::UMaterialInterface>,
-    pub bone_no_collision_material: UPtr<crate::bindings::engine::UMaterialInterface>,
-    pub hidden_bodies: TArray<i32>,
-    pub hidden_constraints: TArray<i32>,
+pub struct UAnimationEditorsAssetFamilyExtension {
+    __padding_end: [u8; 48],
 }
+impl UAnimationEditorsAssetFamilyExtension {}
 #[repr(C, align(8))]
-pub struct FAnimCurveMetadataEditorClipboardEntry {
-    pub curve_name: FName,
-    pub meta_data: crate::bindings::engine::FCurveMetaData,
-}
-#[repr(C, align(8))]
-pub struct FAnimCurveMetadataEditorClipboard {
-    pub entries: TArray<FAnimCurveMetadataEditorClipboardEntry>,
-}
-pub struct UAnimationEditorsAssetFamilyExtension {}
 pub struct UAnimationSequenceBrowserContextMenuContext {
-    pub selected_objects: TArray<
-        TWeakObjectPtr<crate::bindings::core_u_object::UObject>,
-    >,
+    __padding_end: [u8; 80],
 }
-pub struct UAnimNotifyPanelContextMenuContext {}
-pub struct UAnimViewportContext {}
-pub struct UAnimViewportToolBarToolMenuContext {}
-pub struct UCachedAnalysisProperties {}
+impl UAnimationSequenceBrowserContextMenuContext {}
+#[repr(C, align(8))]
+pub struct UAnimNotifyPanelContextMenuContext {
+    __padding_end: [u8; 224],
+}
+impl UAnimNotifyPanelContextMenuContext {}
+#[repr(C, align(8))]
+pub struct UAnimViewportContext {
+    __padding_end: [u8; 80],
+}
+impl UAnimViewportContext {}
+#[repr(C, align(8))]
+pub struct UAnimViewportToolBarToolMenuContext {
+    __padding_end: [u8; 64],
+}
+impl UAnimViewportToolBarToolMenuContext {}
+#[repr(C, align(16))]
+pub struct UCachedAnalysisProperties {
+    __padding_end: [u8; 576],
+}
+impl UCachedAnalysisProperties {}
+#[repr(C, align(16))]
 pub struct ULinearAnalysisPropertiesBase {
-    pub bone_socket: crate::bindings::engine::FBoneSocketTarget,
-    pub space: EAnalysisSpace,
-    pub space_bone_socket: crate::bindings::engine::FBoneSocketTarget,
-    pub start_time_fraction: f32,
-    pub end_time_fraction: f32,
+    __padding_end: [u8; 416],
 }
+impl ULinearAnalysisPropertiesBase {}
+#[repr(C, align(16))]
 pub struct ULinearAnalysisProperties {
-    pub function_axis: EAnalysisLinearAxis,
+    __padding_end: [u8; 416],
 }
+impl ULinearAnalysisProperties {}
+#[repr(C, align(16))]
 pub struct UEulerAnalysisProperties {
-    pub function_axis: EAnalysisEulerAxis,
-    pub bone_socket: crate::bindings::engine::FBoneSocketTarget,
-    pub bone_facing_axis: EAnalysisLinearAxis,
-    pub bone_right_axis: EAnalysisLinearAxis,
-    pub euler_calculation_method: EEulerCalculationMethod,
-    pub space: EAnalysisSpace,
-    pub space_bone_socket: crate::bindings::engine::FBoneSocketTarget,
-    pub character_facing_axis: EAnalysisLinearAxis,
-    pub character_up_axis: EAnalysisLinearAxis,
-    pub start_time_fraction: f32,
-    pub end_time_fraction: f32,
+    __padding_end: [u8; 432],
 }
+impl UEulerAnalysisProperties {}
+#[repr(C, align(8))]
 pub struct UPersonaPreviewSceneDescription {
+    #[doc(hidden)]
+    __padding_48: [u8; 48],
     pub preview_controller: TSubclassOf<UPersonaPreviewSceneController>,
-    pub preview_controller_instance: UPtr<UPersonaPreviewSceneController>,
-    pub preview_controller_instances: TArray<UPtr<UPersonaPreviewSceneController>>,
-    pub preview_mesh: TSoftObjectPtr<crate::bindings::engine::USkeletalMesh>,
-    pub preview_animation_blueprint: TSoftObjectPtr<
-        crate::bindings::engine::UAnimBlueprint,
-    >,
-    pub application_method: crate::bindings::engine::EPreviewAnimationBlueprintApplicationMethod,
-    pub linked_anim_graph_tag: FName,
-    pub additional_meshes: TSoftObjectPtr<crate::bindings::engine::UDataAsset>,
-    pub default_additional_meshes: UPtr<crate::bindings::engine::UPreviewMeshCollection>,
+    __padding_end: [u8; 192],
 }
-pub struct UAnimAssetFindReplaceContext {}
-pub struct UAnimAssetFindReplaceProcessor {}
-pub struct UAnimAssetFindReplaceProcessor_StringBase {}
-pub struct UAnimAssetFindReplaceCurves {}
-pub struct UAnimAssetFindReplaceNotifies {}
-pub struct UAnimAssetFindReplaceSyncMarkers {}
-pub struct AAnimationEditorPreviewActor {}
+impl UPersonaPreviewSceneDescription {}
+#[repr(C, align(8))]
+pub struct UAnimAssetFindReplaceContext {
+    __padding_end: [u8; 64],
+}
+impl UAnimAssetFindReplaceContext {}
+#[repr(C, align(8))]
+pub struct UAnimAssetFindReplaceProcessor {
+    __padding_end: [u8; 64],
+}
+impl UAnimAssetFindReplaceProcessor {}
+#[repr(C, align(8))]
+pub struct UAnimAssetFindReplaceProcessor_StringBase {
+    __padding_end: [u8; 320],
+}
+impl UAnimAssetFindReplaceProcessor_StringBase {}
+#[repr(C, align(8))]
+pub struct UAnimAssetFindReplaceCurves {
+    __padding_end: [u8; 328],
+}
+impl UAnimAssetFindReplaceCurves {}
+#[repr(C, align(8))]
+pub struct UAnimAssetFindReplaceNotifies {
+    __padding_end: [u8; 320],
+}
+impl UAnimAssetFindReplaceNotifies {}
+#[repr(C, align(8))]
+pub struct UAnimAssetFindReplaceSyncMarkers {
+    __padding_end: [u8; 320],
+}
+impl UAnimAssetFindReplaceSyncMarkers {}
+#[repr(C, align(8))]
+pub struct AAnimationEditorPreviewActor {
+    __padding_end: [u8; 1136],
+}
+impl AAnimationEditorPreviewActor {}
+#[repr(C, align(8))]
 pub struct UAnimCurveBaseCopyObject {
-    pub curve_name: FName,
-    pub curve_type: crate::bindings::engine::ERawCurveTrackTypes,
-    pub channel: crate::bindings::engine::ETransformCurveChannel,
-    pub axis: crate::bindings::engine::EVectorCurveChannel,
-    pub origin_name: FName,
+    __padding_end: [u8; 80],
 }
+impl UAnimCurveBaseCopyObject {}
+#[repr(C, align(8))]
 pub struct UFloatCurveCopyObject {
-    pub curve: crate::bindings::engine::FFloatCurve,
+    __padding_end: [u8; 288],
 }
+impl UFloatCurveCopyObject {}
+#[repr(C, align(8))]
 pub struct UTransformCurveCopyObject {
-    pub curve: crate::bindings::engine::FTransformCurve,
+    __padding_end: [u8; 1552],
 }
+impl UTransformCurveCopyObject {}
+#[repr(C, align(8))]
 pub struct UVectorCurveCopyObject {
-    pub curve: crate::bindings::engine::FVectorCurve,
+    __padding_end: [u8; 544],
 }
+impl UVectorCurveCopyObject {}
+#[repr(C, align(8))]
 pub struct UAnimTimelineClipboardContent {
-    pub curves: TArray<UPtr<UAnimCurveBaseCopyObject>>,
+    __padding_end: [u8; 64],
 }
+impl UAnimTimelineClipboardContent {}
 pub struct UPersonaManagerContext {}
 pub struct IPersonaManagerContext {}
-pub struct UPersonaEditorModeManagerContext {}
+#[repr(C, align(8))]
+pub struct UPersonaEditorModeManagerContext {
+    __padding_end: [u8; 64],
+}
+impl UPersonaEditorModeManagerContext {}
+#[repr(C, align(8))]
 pub struct ULODInfoUILayout {
-    pub lod_info: crate::bindings::engine::FSkeletalMeshLODInfo,
+    __padding_end: [u8; 576],
 }
-pub struct UAnimationEditorsAssetFamilyExtension_SkeletonAsset {}
-pub struct UAnimationEditorsAssetFamilyExtension_SkeletalMeshAsset {}
-pub struct UAnimationEditorsAssetFamilyExtension_AnimationAsset {}
-pub struct UAnimationEditorsAssetFamilyExtension_AnimBlueprintAsset {}
-pub struct UAnimationEditorsAssetFamilyExtension_PhysicsAsset {}
-pub struct UPersonaPreviewSceneController {}
+impl ULODInfoUILayout {}
+#[repr(C, align(8))]
+pub struct UAnimationEditorsAssetFamilyExtension_SkeletonAsset {
+    __padding_end: [u8; 48],
+}
+impl UAnimationEditorsAssetFamilyExtension_SkeletonAsset {}
+#[repr(C, align(8))]
+pub struct UAnimationEditorsAssetFamilyExtension_SkeletalMeshAsset {
+    __padding_end: [u8; 48],
+}
+impl UAnimationEditorsAssetFamilyExtension_SkeletalMeshAsset {}
+#[repr(C, align(8))]
+pub struct UAnimationEditorsAssetFamilyExtension_AnimationAsset {
+    __padding_end: [u8; 48],
+}
+impl UAnimationEditorsAssetFamilyExtension_AnimationAsset {}
+#[repr(C, align(8))]
+pub struct UAnimationEditorsAssetFamilyExtension_AnimBlueprintAsset {
+    __padding_end: [u8; 48],
+}
+impl UAnimationEditorsAssetFamilyExtension_AnimBlueprintAsset {}
+#[repr(C, align(8))]
+pub struct UAnimationEditorsAssetFamilyExtension_PhysicsAsset {
+    __padding_end: [u8; 48],
+}
+impl UAnimationEditorsAssetFamilyExtension_PhysicsAsset {}
+#[repr(C, align(8))]
+pub struct UPersonaPreviewSceneController {
+    __padding_end: [u8; 48],
+}
+impl UPersonaPreviewSceneController {}
+#[repr(C, align(8))]
 pub struct UPersonaPreviewSceneAnimationController {
-    pub animation: TSoftObjectPtr<crate::bindings::engine::UAnimationAsset>,
+    __padding_end: [u8; 96],
 }
-pub struct UPersonaPreviewSceneDefaultController {}
+impl UPersonaPreviewSceneAnimationController {}
+#[repr(C, align(8))]
+pub struct UPersonaPreviewSceneDefaultController {
+    __padding_end: [u8; 48],
+}
+impl UPersonaPreviewSceneDefaultController {}
+#[repr(C, align(8))]
 pub struct UPersonaPreviewSceneRefPoseController {
-    pub b_reset_bone_transforms: bool,
+    __padding_end: [u8; 56],
 }
+impl UPersonaPreviewSceneRefPoseController {}
+#[repr(C, align(8))]
 pub struct UPersonaPreviewSceneSkelMeshInstanceController {
-    pub active_preview_instance: TWeakObjectPtr<
-        crate::bindings::engine::USkeletalMeshComponent,
-    >,
+    __padding_end: [u8; 56],
 }
-pub struct UPersonaToolMenuContext {}
+impl UPersonaPreviewSceneSkelMeshInstanceController {}
+#[repr(C, align(8))]
+pub struct UPersonaToolMenuContext {
+    __padding_end: [u8; 64],
+}
+impl UPersonaToolMenuContext {}
+#[repr(C, align(8))]
 pub struct UPhysicsAssetRenderUtilities {
-    pub id_to_settings_map: TMap<u32, FPhysicsAssetRenderSettings>,
-    pub bone_unselected_material: UPtr<crate::bindings::engine::UMaterialInterface>,
-    pub bone_no_collision_material: UPtr<crate::bindings::engine::UMaterialInterface>,
+    __padding_end: [u8; 152],
 }
+impl UPhysicsAssetRenderUtilities {}
+#[repr(C, align(8))]
 pub struct USkinWeightImportOptions {
-    pub profile_name: FString,
-    pub file_path: FString,
-    pub lod_index: i32,
+    __padding_end: [u8; 88],
 }
-#[allow(non_camel_case_types)]
+impl USkinWeightImportOptions {}
 #[repr(transparent)]
 pub struct EAnalysisSpace(pub u8);
 impl EAnalysisSpace {
@@ -159,7 +202,6 @@ impl EAnalysisSpace {
     pub const CHANGING: EAnalysisSpace = EAnalysisSpace(2);
     pub const MOVING: EAnalysisSpace = EAnalysisSpace(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EAnalysisLinearAxis(pub u8);
 impl EAnalysisLinearAxis {
@@ -170,7 +212,6 @@ impl EAnalysisLinearAxis {
     pub const MINUS_Y: EAnalysisLinearAxis = EAnalysisLinearAxis(4);
     pub const MINUS_Z: EAnalysisLinearAxis = EAnalysisLinearAxis(5);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EAnalysisEulerAxis(pub u8);
 impl EAnalysisEulerAxis {
@@ -178,7 +219,6 @@ impl EAnalysisEulerAxis {
     pub const PITCH: EAnalysisEulerAxis = EAnalysisEulerAxis(1);
     pub const YAW: EAnalysisEulerAxis = EAnalysisEulerAxis(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EEulerCalculationMethod(pub u8);
 impl EEulerCalculationMethod {

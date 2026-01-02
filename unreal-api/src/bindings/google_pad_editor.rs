@@ -4,8 +4,8 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
+#[repr(C, align(8))]
 pub struct UGooglePADRuntimeSettings {
-    pub b_enable_plugin: bool,
-    pub b_only_distribution: bool,
-    pub b_only_shipping: bool,
+    __padding_end: [u8; 56],
 }
+impl UGooglePADRuntimeSettings {}

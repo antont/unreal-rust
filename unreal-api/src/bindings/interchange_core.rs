@@ -4,17 +4,11 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
-#[repr(C, align(8))]
-pub struct FInterchangePipelineContextParams {
-    pub context_type: EInterchangePipelineContext,
-    pub import_object_type: TSubclassOf<crate::bindings::core_u_object::UObject>,
-    pub reimport_asset: UPtr<crate::bindings::core_u_object::UObject>,
-    pub base_node_container: UPtr<UInterchangeBaseNodeContainer>,
-}
 #[repr(C, align(1))]
 pub struct FInterchangePipelinePropertyStatePerContext {
     pub b_visible: bool,
 }
+impl FInterchangePipelinePropertyStatePerContext {}
 #[repr(C, align(1))]
 pub struct FInterchangePipelinePropertyStates {
     pub b_locked: bool,
@@ -23,74 +17,113 @@ pub struct FInterchangePipelinePropertyStates {
     pub import_states: FInterchangePipelinePropertyStatePerContext,
     pub reimport_states: FInterchangePipelinePropertyStatePerContext,
 }
+impl FInterchangePipelinePropertyStates {}
 #[repr(C, align(8))]
 pub struct FInterchangeUserDefinedAttributeInfo {
     pub name: FString,
+    __padding_end: [u8; 32],
 }
+impl FInterchangeUserDefinedAttributeInfo {}
+#[repr(C, align(8))]
 pub struct UInterchangeFactoryBase {
-    pub results: UPtr<UInterchangeResultsContainer>,
+    __padding_end: [u8; 56],
 }
-pub struct UInterchangeWriterBase {}
+impl UInterchangeFactoryBase {}
+#[repr(C, align(8))]
+pub struct UInterchangeWriterBase {
+    __padding_end: [u8; 48],
+}
+impl UInterchangeWriterBase {}
+#[repr(C, align(8))]
 pub struct UInterchangePipelineBase {
-    pub destination_name: FString,
-    pub content_import_path: FString,
-    pub original_pipeline_path: crate::bindings::core_u_object::FSoftObjectPath,
-    pub b_allow_property_states_edition: bool,
-    pub b_is_reimport_context: bool,
-    pub b_is_show_essentials: bool,
-    pub b_from_reimport_or_override: bool,
-    pub results: UPtr<UInterchangeResultsContainer>,
-    pub properties_states: TMap<FName, FInterchangePipelinePropertyStates>,
-    pub cache_properties_states: TMap<FName, FInterchangePipelinePropertyStates>,
-    pub cache_context_param: FInterchangePipelineContextParams,
+    __padding_end: [u8; 344],
 }
+impl UInterchangePipelineBase {}
+#[repr(C, align(8))]
 pub struct UInterchangeResult {
-    pub source_asset_name: FString,
-    pub destination_asset_name: FString,
-    pub asset_friendly_name: FString,
-    pub asset_type: TSubclassOf<crate::bindings::core_u_object::UObject>,
-    pub interchange_key: FString,
+    __padding_end: [u8; 120],
 }
-pub struct UInterchangeResultSuccess {}
-pub struct UInterchangeResultWarning {}
-pub struct UInterchangeResultError {}
+impl UInterchangeResult {}
+#[repr(C, align(8))]
+pub struct UInterchangeResultSuccess {
+    __padding_end: [u8; 120],
+}
+impl UInterchangeResultSuccess {}
+#[repr(C, align(8))]
+pub struct UInterchangeResultWarning {
+    __padding_end: [u8; 120],
+}
+impl UInterchangeResultWarning {}
+#[repr(C, align(8))]
+pub struct UInterchangeResultError {
+    __padding_end: [u8; 120],
+}
+impl UInterchangeResultError {}
+#[repr(C, align(8))]
 pub struct UInterchangeResultWarning_Generic {
-    pub text: FText,
+    __padding_end: [u8; 136],
 }
+impl UInterchangeResultWarning_Generic {}
+#[repr(C, align(8))]
 pub struct UInterchangeResultError_Generic {
-    pub text: FText,
+    __padding_end: [u8; 136],
 }
-pub struct UInterchangeResultError_ReimportFail {}
+impl UInterchangeResultError_Generic {}
+#[repr(C, align(8))]
+pub struct UInterchangeResultError_ReimportFail {
+    __padding_end: [u8; 120],
+}
+impl UInterchangeResultError_ReimportFail {}
+#[repr(C, align(8))]
 pub struct UInterchangeResultDisplay_Generic {
-    pub text: FText,
+    __padding_end: [u8; 136],
 }
+impl UInterchangeResultDisplay_Generic {}
+#[repr(C, align(8))]
 pub struct UInterchangeResultsContainer {
-    pub results: TArray<UPtr<UInterchangeResult>>,
+    __padding_end: [u8; 104],
 }
+impl UInterchangeResultsContainer {}
+#[repr(C, align(8))]
 pub struct UInterchangeSourceData {
-    pub filename: FString,
-    pub context_objects_by_tag: TMap<
-        FString,
-        UPtr<crate::bindings::core_u_object::UObject>,
-    >,
+    __padding_end: [u8; 168],
 }
-pub struct UInterchangeTranslatorSettings {}
+impl UInterchangeSourceData {}
+#[repr(C, align(8))]
+pub struct UInterchangeTranslatorSettings {
+    __padding_end: [u8; 48],
+}
+impl UInterchangeTranslatorSettings {}
+#[repr(C, align(8))]
 pub struct UInterchangeTranslatorBase {
-    pub results: UPtr<UInterchangeResultsContainer>,
-    pub source_data: UPtr<UInterchangeSourceData>,
+    __padding_end: [u8; 80],
 }
+impl UInterchangeTranslatorBase {}
+#[repr(C, align(8))]
 pub struct UInterchangeBaseNode {
-    pub user_interface_context: EInterchangeNodeUserInterfaceContext,
+    __padding_end: [u8; 112],
 }
+impl UInterchangeBaseNode {}
+#[repr(C, align(8))]
 pub struct UInterchangeBaseNodeContainer {
-    pub nodes: TMap<FString, UPtr<UInterchangeBaseNode>>,
+    __padding_end: [u8; 208],
 }
+impl UInterchangeBaseNodeContainer {}
+#[repr(C, align(8))]
 pub struct UInterchangeFactoryBaseNode {
-    pub attributes_applied_through_delegates_key_set: TSet<FString>,
+    __padding_end: [u8; 464],
 }
-pub struct UInterchangeSourceNode {}
-pub struct UInterchangeUserDefinedAttributesAPI {}
-#[allow(non_camel_case_types)]
+impl UInterchangeFactoryBaseNode {}
+#[repr(C, align(8))]
+pub struct UInterchangeSourceNode {
+    __padding_end: [u8; 472],
+}
+impl UInterchangeSourceNode {}
+#[repr(C, align(8))]
+pub struct UInterchangeUserDefinedAttributesAPI {
+    __padding_end: [u8; 48],
+}
+impl UInterchangeUserDefinedAttributesAPI {}
 #[repr(transparent)]
 pub struct EInterchangePipelineContext(pub u8);
 impl EInterchangePipelineContext {
@@ -122,7 +155,6 @@ impl EInterchangePipelineContext {
         10,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EInterchangeTranslatorAssetType(pub u8);
 impl EInterchangeTranslatorAssetType {
@@ -146,7 +178,6 @@ impl EInterchangeTranslatorAssetType {
         32,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EInterchangeFactoryAssetType(pub u8);
 impl EInterchangeFactoryAssetType {
@@ -159,7 +190,6 @@ impl EInterchangeFactoryAssetType {
     pub const GROOMS: EInterchangeFactoryAssetType = EInterchangeFactoryAssetType(6);
     pub const SOUNDS: EInterchangeFactoryAssetType = EInterchangeFactoryAssetType(7);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EInterchangeTranslatorType(pub u8);
 impl EInterchangeTranslatorType {
@@ -168,7 +198,6 @@ impl EInterchangeTranslatorType {
     pub const ACTORS: EInterchangeTranslatorType = EInterchangeTranslatorType(4);
     pub const SCENES: EInterchangeTranslatorType = EInterchangeTranslatorType(6);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EInterchangeNodeContainerType(pub u8);
 impl EInterchangeNodeContainerType {
@@ -183,7 +212,6 @@ impl EInterchangeNodeContainerType {
         3,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EReimportStrategyFlags(pub u8);
 impl EReimportStrategyFlags {
@@ -195,7 +223,6 @@ impl EReimportStrategyFlags {
         2,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EInterchangeNodeUserInterfaceContext(pub u8);
 impl EInterchangeNodeUserInterfaceContext {

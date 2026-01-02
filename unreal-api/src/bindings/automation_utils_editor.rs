@@ -4,4 +4,8 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
-pub struct UScreenshotComparisonCommandlet {}
+#[repr(C, align(8))]
+pub struct UScreenshotComparisonCommandlet {
+    __padding_end: [u8; 136],
+}
+impl UScreenshotComparisonCommandlet {}

@@ -4,62 +4,11 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
-#[repr(C, align(8))]
-pub struct FMaterialInput {
-    pub expression: UPtr<UMaterialExpression>,
-    pub output_index: i32,
-    pub input_name: FName,
-    pub mask: i32,
-    pub mask_r: i32,
-    pub mask_g: i32,
-    pub mask_b: i32,
-    pub mask_a: i32,
-}
-#[repr(C, align(8))]
-pub struct FColorMaterialInput {
-    pub flags_48: u8,
-    pub constant: crate::bindings::core_u_object::FLinearColor,
-}
-#[repr(C, align(8))]
-pub struct FDistributionLookupTable {
-    pub time_scale: f32,
-    pub time_bias: f32,
-    pub values: TArray<f32>,
-    pub op: u8,
-    pub entry_count: u8,
-    pub entry_stride: u8,
-    pub sub_entry_stride: u8,
-    pub lock_flag: u8,
-}
-#[repr(C, align(8))]
-pub struct FExpressionInput {
-    pub expression: UPtr<UMaterialExpression>,
-    pub output_index: i32,
-    pub input_name: FName,
-    pub mask: i32,
-    pub mask_r: i32,
-    pub mask_g: i32,
-    pub mask_b: i32,
-    pub mask_a: i32,
-}
-#[repr(C, align(4))]
-pub struct FExpressionOutput {
-    pub output_name: FName,
-    pub mask: i32,
-    pub mask_r: i32,
-    pub mask_g: i32,
-    pub mask_b: i32,
-    pub mask_a: i32,
-}
-#[repr(C, align(8))]
-pub struct FFloatDistribution {
-    pub table: FDistributionLookupTable,
-}
 #[repr(C, align(4))]
 pub struct FFloatRK4SpringInterpolator {
-    pub stiffness_constant: f32,
-    pub dampening_ratio: f32,
+    __padding_end: [u8; 8],
 }
+impl FFloatRK4SpringInterpolator {}
 #[repr(C, align(8))]
 pub struct FFormatArgumentData {
     pub argument_name: FString,
@@ -69,50 +18,19 @@ pub struct FFormatArgumentData {
     pub argument_value_float: f32,
     pub argument_value_double: f64,
     pub argument_value_gender: ETextGender,
+    __padding_end: [u8; 7],
 }
-#[repr(C, align(8))]
-pub struct FMaterialAttributesInput {
-    pub property_connected_mask: i64,
-}
-#[repr(C, align(8))]
-pub struct FRawDistribution {
-    pub table: FDistributionLookupTable,
-}
-#[repr(C, align(8))]
-pub struct FScalarMaterialInput {
-    pub flags_48: u8,
-    pub constant: f32,
-}
-#[repr(C, align(8))]
-pub struct FShadingModelMaterialInput {}
-#[repr(C, align(8))]
-pub struct FSubstrateMaterialInput {}
-#[repr(C, align(8))]
-pub struct FVector2MaterialInput {
-    pub flags_48: u8,
-    pub constant_x: f32,
-    pub constant_y: f32,
-}
-#[repr(C, align(8))]
-pub struct FVector4Distribution {
-    pub table: FDistributionLookupTable,
-}
-#[repr(C, align(8))]
-pub struct FVectorDistribution {
-    pub table: FDistributionLookupTable,
-}
-#[repr(C, align(8))]
-pub struct FVectorMaterialInput {
-    pub flags_48: u8,
-    pub constant: crate::bindings::core_u_object::FVector3f,
-}
+impl FFormatArgumentData {}
 #[repr(C, align(4))]
 pub struct FVectorRK4SpringInterpolator {
-    pub stiffness_constant: f32,
-    pub dampening_ratio: f32,
+    __padding_end: [u8; 8],
 }
+impl FVectorRK4SpringInterpolator {}
 #[repr(C, align(8))]
-pub struct FAnimDataModelNotifPayload {}
+pub struct FAnimDataModelNotifPayload {
+    __padding_end: [u8; 16],
+}
+impl FAnimDataModelNotifPayload {}
 #[repr(C, align(16))]
 pub struct FChaosBreakEvent {
     pub component: UPtr<UPrimitiveComponent>,
@@ -124,7 +42,9 @@ pub struct FChaosBreakEvent {
     pub mass: f32,
     pub index: i32,
     pub b_from_crumble: bool,
+    __padding_end: [u8; 15],
 }
+impl FChaosBreakEvent {}
 #[repr(C, align(8))]
 pub struct FCollisionChaosEvent {
     pub location: crate::bindings::core_u_object::FVector,
@@ -134,6 +54,7 @@ pub struct FCollisionChaosEvent {
     pub body1: FCollisionChaosEventBodyInfo,
     pub body2: FCollisionChaosEventBodyInfo,
 }
+impl FCollisionChaosEvent {}
 #[repr(C, align(8))]
 pub struct FCollisionChaosEventBodyInfo {
     pub velocity: crate::bindings::core_u_object::FVector,
@@ -145,6 +66,7 @@ pub struct FCollisionChaosEventBodyInfo {
     pub body_index: i32,
     pub bone_name: FName,
 }
+impl FCollisionChaosEventBodyInfo {}
 #[repr(C, align(16))]
 pub struct FChaosCrumblingEvent {
     pub component: UPtr<UPrimitiveComponent>,
@@ -156,200 +78,269 @@ pub struct FChaosCrumblingEvent {
     pub local_bounds: crate::bindings::core_u_object::FBox,
     pub children: TArray<i32>,
 }
+impl FChaosCrumblingEvent {}
 #[repr(C, align(8))]
 pub struct FHitResult {
-    pub face_index: i32,
-    pub time: f32,
-    pub distance: f32,
-    pub location: FVector_NetQuantize,
-    pub impact_point: FVector_NetQuantize,
-    pub normal: FVector_NetQuantizeNormal,
-    pub impact_normal: FVector_NetQuantizeNormal,
-    pub trace_start: FVector_NetQuantize,
-    pub trace_end: FVector_NetQuantize,
-    pub penetration_depth: f32,
-    pub my_item: i32,
-    pub item: i32,
-    pub element_index: u8,
-    pub flags_173: u8,
-    pub phys_material: TWeakObjectPtr<crate::bindings::physics_core::UPhysicalMaterial>,
-    pub hit_object_handle: FActorInstanceHandle,
-    pub component: TWeakObjectPtr<UPrimitiveComponent>,
-    pub bone_name: FName,
-    pub my_bone_name: FName,
+    __padding_end: [u8; 264],
+}
+impl FHitResult {
+    pub fn verify_layout() {}
 }
 #[repr(C, align(8))]
 pub struct FActorInstanceHandle {
-    pub reference_object: TWeakObjectPtr<crate::bindings::core_u_object::UObject>,
+    __padding_end: [u8; 32],
 }
+impl FActorInstanceHandle {}
 #[repr(C, align(8))]
-pub struct FVector_NetQuantize {}
+pub struct FVector_NetQuantize {
+    __padding_end: [u8; 24],
+}
+impl FVector_NetQuantize {}
 #[repr(C, align(8))]
-pub struct FVector_NetQuantizeNormal {}
+pub struct FVector_NetQuantizeNormal {
+    __padding_end: [u8; 24],
+}
+impl FVector_NetQuantizeNormal {}
 #[repr(C, align(8))]
 pub struct FSubtitleCue {
     pub text: FText,
     pub time: f32,
+    __padding_end: [u8; 4],
 }
-#[repr(C, align(8))]
-pub struct FPlatformInterfaceDelegateResult {
-    pub b_successful: bool,
-    pub data: FPlatformInterfaceData,
-}
-#[repr(C, align(8))]
-pub struct FPlatformInterfaceData {
-    pub data_name: FName,
-    pub ty: EPlatformInterfaceDataType,
-    pub int_value: i32,
-    pub float_value: f32,
-    pub string_value: FString,
-    pub object_value: UPtr<crate::bindings::core_u_object::UObject>,
-}
-#[repr(C, align(8))]
-pub struct FBranchingPointNotifyPayload {}
+impl FSubtitleCue {}
 #[repr(C, align(8))]
 pub struct FChaosRemovalEvent {
     pub component: UPtr<UPrimitiveComponent>,
     pub location: crate::bindings::core_u_object::FVector,
     pub mass: f32,
+    __padding_end: [u8; 4],
 }
-#[repr(C, align(8))]
-pub struct FSimpleMemberReference {
-    pub member_parent: UPtr<crate::bindings::core_u_object::UObject>,
-    pub member_name: FName,
-    pub member_guid: crate::bindings::core_u_object::FGuid,
-}
-#[repr(C, align(8))]
-pub struct FTickFunction {
-    pub tick_group: ETickingGroup,
-    pub end_tick_group: ETickingGroup,
-    pub flags_10: u8,
-    pub tick_interval: f32,
-}
-#[repr(C, align(8))]
-pub struct FActorComponentTickFunction {}
+impl FChaosRemovalEvent {}
 #[repr(C, align(8))]
 pub struct FInterpControlPoint {
     pub position_control_point: crate::bindings::core_u_object::FVector,
     pub b_position_is_relative: bool,
+    __padding_end: [u8; 15],
 }
+impl FInterpControlPoint {}
 #[repr(C, align(8))]
 pub struct FDebugFloatHistory {
-    pub samples: TArray<f32>,
+    #[doc(hidden)]
+    __padding_16: [u8; 16],
     pub max_samples: i32,
     pub min_value: f32,
     pub max_value: f32,
     pub b_auto_adjust_min_max: bool,
+    __padding_end: [u8; 3],
 }
+impl FDebugFloatHistory {}
 #[repr(C, align(8))]
 pub struct FBaseComponentReference {
     pub component_property: FName,
-    pub path_to_component: FString,
+    __padding_end: [u8; 28],
 }
+impl FBaseComponentReference {}
 #[repr(C, align(8))]
 pub struct FSoftComponentReference {
+    #[doc(hidden)]
+    __padding_40: [u8; 40],
     pub other_actor: TSoftObjectPtr<AActor>,
 }
+impl FSoftComponentReference {}
 #[repr(C, align(8))]
 pub struct FComponentReference {
+    #[doc(hidden)]
+    __padding_40: [u8; 40],
     pub other_actor: TWeakObjectPtr<AActor>,
 }
+impl FComponentReference {}
 #[repr(C, align(8))]
 pub struct FLatentActionInfo {
-    pub linkage: i32,
-    pub uuid: i32,
-    pub execution_function: FName,
-    pub callback_target: UPtr<crate::bindings::core_u_object::UObject>,
+    __padding_end: [u8; 32],
 }
+impl FLatentActionInfo {}
 #[repr(C, align(8))]
 pub struct FTimerHandle {
-    pub handle: u64,
+    __padding_end: [u8; 8],
 }
+impl FTimerHandle {}
 #[repr(C, align(4))]
 pub struct FCollisionProfileName {
     pub name: FName,
 }
+impl FCollisionProfileName {}
 #[repr(C, align(4))]
 pub struct FGenericStruct {
-    pub data: i32,
+    __padding_end: [u8; 4],
 }
+impl FGenericStruct {}
 #[repr(C, align(8))]
 pub struct FUserActivity {
     pub action_name: FString,
+    __padding_end: [u8; 8],
 }
+impl FUserActivity {}
 #[repr(C, align(4))]
 pub struct FFloatAnimationAttribute {
     pub value: f32,
 }
+impl FFloatAnimationAttribute {}
 #[repr(C, align(4))]
 pub struct FIntegerAnimationAttribute {
     pub value: i32,
 }
+impl FIntegerAnimationAttribute {}
 #[repr(C, align(8))]
 pub struct FStringAnimationAttribute {
     pub value: FString,
 }
+impl FStringAnimationAttribute {}
 #[repr(C, align(16))]
 pub struct FTransformAnimationAttribute {
     pub value: crate::bindings::core_u_object::FTransform,
 }
+impl FTransformAnimationAttribute {}
 #[repr(C, align(8))]
 pub struct FVectorAnimationAttribute {
     pub value: crate::bindings::core_u_object::FVector,
 }
+impl FVectorAnimationAttribute {}
 #[repr(C, align(16))]
 pub struct FQuaternionAnimationAttribute {
     pub value: crate::bindings::core_u_object::FQuat,
 }
+impl FQuaternionAnimationAttribute {}
 #[repr(C, align(8))]
-pub struct FBodyInstanceAsyncPhysicsTickHandle {}
+pub struct FBodyInstanceAsyncPhysicsTickHandle {
+    __padding_end: [u8; 8],
+}
+impl FBodyInstanceAsyncPhysicsTickHandle {}
 #[repr(C, align(4))]
 pub struct FWalkableSlopeOverride {
     pub walkable_slope_behavior: EWalkableSlopeBehavior,
     pub walkable_slope_angle: f32,
+    __padding_end: [u8; 8],
 }
+impl FWalkableSlopeOverride {}
 #[repr(C, align(8))]
 pub struct FBodyInstance {
+    #[doc(hidden)]
+    __padding_18: [u8; 18],
     pub position_solver_iteration_count: u8,
     pub velocity_solver_iteration_count: u8,
     pub projection_solver_iteration_count: u8,
-    pub object_type: ECollisionChannel,
-    pub collision_enabled: ECollisionEnabled,
+    #[doc(hidden)]
+    __padding_57: [u8; 36],
     pub sleep_family: crate::bindings::physics_core::ESleepFamily,
-    pub dof_mode: EDOFMode,
+    #[doc(hidden)]
+    __padding_59: [u8; 1],
     pub flags_59: u8,
     pub flags_60: u8,
-    pub flags_61: u8,
+    #[doc(hidden)]
+    __padding_62: [u8; 1],
     pub flags_62: u8,
     pub solver_async_delta_time: f32,
-    pub collision_profile_name: FName,
-    pub response_to_channels_deprecated: FCollisionResponseContainer,
-    pub collision_responses: FCollisionResponse,
+    #[doc(hidden)]
+    __padding_184: [u8; 116],
     pub max_depenetration_velocity: f32,
     pub mass_in_kg_override: f32,
+    #[doc(hidden)]
+    __padding_200: [u8; 8],
     pub linear_damping: f32,
     pub angular_damping: f32,
-    pub custom_dof_plane_normal: crate::bindings::core_u_object::FVector,
+    #[doc(hidden)]
+    __padding_232: [u8; 24],
     pub com_nudge: crate::bindings::core_u_object::FVector,
     pub mass_scale: f32,
     pub gravity_group_index: u8,
     pub inertia_tensor_scale: crate::bindings::core_u_object::FVector,
+    #[doc(hidden)]
+    __padding_304: [u8; 16],
     pub walkable_slope_override: FWalkableSlopeOverride,
     pub phys_material_override: UPtr<crate::bindings::physics_core::UPhysicalMaterial>,
     pub max_angular_velocity: f32,
     pub custom_sleep_threshold_multiplier: f32,
     pub stabilization_threshold_multiplier: f32,
-    pub physics_blend_weight: f32,
+    __padding_end: [u8; 92],
 }
-#[repr(C, align(8))]
-pub struct FCollisionResponse {
-    pub response_to_channels: FCollisionResponseContainer,
-    pub response_array: TArray<FResponseChannel>,
-}
-#[repr(C, align(4))]
-pub struct FResponseChannel {
-    pub channel: FName,
-    pub response: ECollisionResponse,
+impl FBodyInstance {
+    pub fn verify_layout() {
+        log::warn!(
+            "{} = {} vs {}", "position_solver_iteration_count",
+            std::mem::offset_of!(FBodyInstance, position_solver_iteration_count), 18usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "velocity_solver_iteration_count",
+            std::mem::offset_of!(FBodyInstance, velocity_solver_iteration_count), 19usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "projection_solver_iteration_count",
+            std::mem::offset_of!(FBodyInstance, projection_solver_iteration_count),
+            20usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "sleep_family", std::mem::offset_of!(FBodyInstance,
+            sleep_family), 57usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "solver_async_delta_time",
+            std::mem::offset_of!(FBodyInstance, solver_async_delta_time), 64usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "max_depenetration_velocity",
+            std::mem::offset_of!(FBodyInstance, max_depenetration_velocity), 184usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "mass_in_kg_override", std::mem::offset_of!(FBodyInstance,
+            mass_in_kg_override), 188usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "linear_damping", std::mem::offset_of!(FBodyInstance,
+            linear_damping), 200usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "angular_damping", std::mem::offset_of!(FBodyInstance,
+            angular_damping), 204usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "com_nudge", std::mem::offset_of!(FBodyInstance, com_nudge),
+            232usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "mass_scale", std::mem::offset_of!(FBodyInstance,
+            mass_scale), 256usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "gravity_group_index", std::mem::offset_of!(FBodyInstance,
+            gravity_group_index), 260usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "inertia_tensor_scale", std::mem::offset_of!(FBodyInstance,
+            inertia_tensor_scale), 264usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "walkable_slope_override",
+            std::mem::offset_of!(FBodyInstance, walkable_slope_override), 304usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "phys_material_override",
+            std::mem::offset_of!(FBodyInstance, phys_material_override), 320usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "max_angular_velocity", std::mem::offset_of!(FBodyInstance,
+            max_angular_velocity), 328usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "custom_sleep_threshold_multiplier",
+            std::mem::offset_of!(FBodyInstance, custom_sleep_threshold_multiplier),
+            332usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "stabilization_threshold_multiplier",
+            std::mem::offset_of!(FBodyInstance, stabilization_threshold_multiplier),
+            336usize
+        );
+    }
 }
 #[repr(C, align(1))]
 pub struct FCollisionResponseContainer {
@@ -386,33 +377,12 @@ pub struct FCollisionResponseContainer {
     pub game_trace_channel17: ECollisionResponse,
     pub game_trace_channel18: ECollisionResponse,
 }
-#[repr(C, align(8))]
-pub struct FCustomPrimitiveData {
-    pub data: TArray<f32>,
-}
+impl FCollisionResponseContainer {}
 #[repr(C, align(1))]
 pub struct FLightingChannels {
     pub flags_0: u8,
 }
-#[repr(C, align(8))]
-pub struct FEdGraphSchemaAction {
-    pub menu_description: FText,
-    pub tooltip_description: FText,
-    pub category: FText,
-    pub keywords: FText,
-    pub category_chain: TArray<FString>,
-    pub grouping: i32,
-    pub section_id: i32,
-    pub menu_description_array: TArray<FString>,
-    pub full_search_titles_array: TArray<FString>,
-    pub full_search_keywords_array: TArray<FString>,
-    pub full_search_category_array: TArray<FString>,
-    pub localized_menu_description_array: TArray<FString>,
-    pub localized_full_search_titles_array: TArray<FString>,
-    pub localized_full_search_keywords_array: TArray<FString>,
-    pub localized_full_search_category_array: TArray<FString>,
-    pub search_text: FString,
-}
+impl FLightingChannels {}
 #[repr(C, align(16))]
 pub struct FPostProcessSettings {
     pub flags_0: u8,
@@ -432,8 +402,11 @@ pub struct FPostProcessSettings {
     pub flags_14: u8,
     pub flags_15: u8,
     pub flags_16: u8,
+    #[doc(hidden)]
+    __padding_20: [u8; 3],
     pub flags_20: u8,
-    pub flags_24: u8,
+    #[doc(hidden)]
+    __padding_25: [u8; 4],
     pub flags_25: u8,
     pub flags_26: u8,
     pub flags_27: u8,
@@ -446,15 +419,24 @@ pub struct FPostProcessSettings {
     pub flags_34: u8,
     pub flags_35: u8,
     pub flags_36: u8,
+    #[doc(hidden)]
+    __padding_40: [u8; 3],
     pub flags_40: u8,
+    #[doc(hidden)]
+    __padding_44: [u8; 3],
     pub flags_44: u8,
+    #[doc(hidden)]
+    __padding_48: [u8; 3],
     pub flags_48: u8,
     pub flags_49: u8,
     pub flags_50: u8,
+    #[doc(hidden)]
+    __padding_52: [u8; 1],
     pub flags_52: u8,
     pub bloom_method: EBloomMethod,
     pub auto_exposure_method: EAutoExposureMethod,
-    pub depth_of_field_method_deprecated: EDepthOfFieldMethod,
+    #[doc(hidden)]
+    __padding_56: [u8; 1],
     pub temperature_type: ETemperatureMethod,
     pub white_temp: f32,
     pub white_tint: f32,
@@ -513,7 +495,8 @@ pub struct FPostProcessSettings {
     pub bloom_convolution_size: f32,
     pub bloom_convolution_texture: UPtr<UTexture2D>,
     pub bloom_convolution_center_uv: crate::bindings::core_u_object::FVector2D,
-    pub bloom_convolution_pre_filter_deprecated: crate::bindings::core_u_object::FVector3f,
+    #[doc(hidden)]
+    __padding_972: [u8; 12],
     pub bloom_convolution_pre_filter_min: f32,
     pub bloom_convolution_pre_filter_max: f32,
     pub bloom_convolution_pre_filter_mult: f32,
@@ -539,7 +522,6 @@ pub struct FPostProcessSettings {
     pub lumen_full_skylight_leaking_distance: f32,
     pub lumen_surface_cache_resolution: f32,
     pub reflection_method: EReflectionMethod,
-    pub reflections_type_deprecated: EReflectionsType,
     pub lumen_reflection_quality: f32,
     pub flags_1120: u8,
     pub lumen_max_roughness_to_trace_reflections: f32,
@@ -558,8 +540,8 @@ pub struct FPostProcessSettings {
     pub depth_of_field_min_fstop: f32,
     pub depth_of_field_blade_count: i32,
     pub auto_exposure_bias: f32,
-    pub auto_exposure_bias_backup: f32,
-    pub flags_1212: u8,
+    #[doc(hidden)]
+    __padding_1216: [u8; 8],
     pub flags_1216: u8,
     pub auto_exposure_bias_curve: UPtr<UCurveFloat>,
     pub auto_exposure_meter_mask: UPtr<UTexture>,
@@ -571,9 +553,11 @@ pub struct FPostProcessSettings {
     pub auto_exposure_speed_down: f32,
     pub histogram_log_min: f32,
     pub histogram_log_max: f32,
-    pub auto_exposure_calibration_constant_deprecated: f32,
+    #[doc(hidden)]
+    __padding_1276: [u8; 4],
     pub local_exposure_method: ELocalExposureMethod,
-    pub local_exposure_contrast_scale_deprecated: f32,
+    #[doc(hidden)]
+    __padding_1284: [u8; 4],
     pub local_exposure_highlight_contrast_scale: f32,
     pub local_exposure_shadow_contrast_scale: f32,
     pub local_exposure_highlight_contrast_curve: UPtr<UCurveFloat>,
@@ -591,11 +575,12 @@ pub struct FPostProcessSettings {
     pub lens_flare_bokeh_size: f32,
     pub lens_flare_threshold: f32,
     pub lens_flare_bokeh_shape: UPtr<UTexture>,
-    pub lens_flare_tints: crate::bindings::core_u_object::FLinearColor,
+    #[doc(hidden)]
+    __padding_1512: [u8; 128],
     pub vignette_intensity: f32,
     pub sharpen: f32,
-    pub grain_jitter_deprecated: f32,
-    pub grain_intensity_deprecated: f32,
+    #[doc(hidden)]
+    __padding_1528: [u8; 8],
     pub film_grain_intensity: f32,
     pub film_grain_intensity_shadows: f32,
     pub film_grain_intensity_midtones: f32,
@@ -611,7 +596,8 @@ pub struct FPostProcessSettings {
     pub flags_1580: u8,
     pub ambient_occlusion_fade_distance: f32,
     pub ambient_occlusion_fade_radius: f32,
-    pub ambient_occlusion_distance_deprecated: f32,
+    #[doc(hidden)]
+    __padding_1596: [u8; 4],
     pub ambient_occlusion_power: f32,
     pub ambient_occlusion_bias: f32,
     pub ambient_occlusion_quality: f32,
@@ -638,7 +624,8 @@ pub struct FPostProcessSettings {
     pub depth_of_field_aspect_ratio_scalar: f32,
     pub depth_of_field_barrel_radius: f32,
     pub depth_of_field_barrel_length: f32,
-    pub depth_of_field_matte_box_flags: FMatteBoxFlag,
+    #[doc(hidden)]
+    __padding_1748: [u8; 36],
     pub depth_of_field_focal_region: f32,
     pub depth_of_field_near_transition_region: f32,
     pub depth_of_field_far_transition_region: f32,
@@ -652,19 +639,8 @@ pub struct FPostProcessSettings {
     pub motion_blur_max: f32,
     pub motion_blur_target_fps: i32,
     pub motion_blur_per_object_size: f32,
-    pub lpv_intensity_deprecated: f32,
-    pub lpv_vpl_injection_bias_deprecated: f32,
-    pub lpv_size_deprecated: f32,
-    pub lpv_secondary_occlusion_intensity_deprecated: f32,
-    pub lpv_secondary_bounce_intensity_deprecated: f32,
-    pub lpv_geometry_volume_bias_deprecated: f32,
-    pub lpv_emissive_injection_intensity_deprecated: f32,
-    pub lpv_directional_occlusion_intensity_deprecated: f32,
-    pub lpv_directional_occlusion_radius_deprecated: f32,
-    pub lpv_diffuse_occlusion_exponent_deprecated: f32,
-    pub lpv_specular_occlusion_exponent_deprecated: f32,
-    pub lpv_diffuse_occlusion_intensity_deprecated: f32,
-    pub lpv_specular_occlusion_intensity_deprecated: f32,
+    #[doc(hidden)]
+    __padding_1852: [u8; 52],
     pub translucency_type: ETranslucencyType,
     pub ray_tracing_translucency_max_roughness: f32,
     pub ray_tracing_translucency_refraction_rays: i32,
@@ -678,78 +654,41 @@ pub struct FPostProcessSettings {
     pub path_tracing_max_path_intensity: f32,
     pub flags_1892: u8,
     pub flags_1893: u8,
-    pub lpv_fade_range_deprecated: f32,
-    pub lpv_directional_occlusion_fade_range_deprecated: f32,
-    pub screen_percentage_deprecated: f32,
+    #[doc(hidden)]
+    __padding_1908: [u8; 12],
     pub user_flags: i32,
     pub weighted_blendables: FWeightedBlendables,
-    pub preview_blendable: UPtr<crate::bindings::core_u_object::UObject>,
-    pub blendables_deprecated: TArray<UPtr<crate::bindings::core_u_object::UObject>>,
+    __padding_end: [u8; 24],
 }
+impl FPostProcessSettings {}
 #[repr(C, align(8))]
 pub struct FWeightedBlendables {
     pub array: TArray<FWeightedBlendable>,
 }
+impl FWeightedBlendables {}
 #[repr(C, align(8))]
 pub struct FWeightedBlendable {
     pub weight: f32,
     pub object: UPtr<crate::bindings::core_u_object::UObject>,
 }
+impl FWeightedBlendable {}
 #[repr(C, align(4))]
 pub struct FMatteBoxFlag {
     pub pitch: f32,
     pub roll: f32,
     pub length: f32,
 }
+impl FMatteBoxFlag {}
 #[repr(C, align(8))]
-pub struct FTableRowBase {}
-#[repr(C, align(8))]
-pub struct FInstanceCacheDataBase {
-    pub saved_properties: TArray<u8>,
-    pub unique_transient_package: FDataCacheDuplicatedObjectData,
-    pub duplicated_objects: TArray<FDataCacheDuplicatedObjectData>,
-    pub referenced_objects: TArray<UPtr<crate::bindings::core_u_object::UObject>>,
-    pub referenced_names: TArray<FName>,
+pub struct FTableRowBase {
+    __padding_end: [u8; 8],
 }
-#[repr(C, align(8))]
-pub struct FDataCacheDuplicatedObjectData {}
-#[repr(C, align(8))]
-pub struct FActorComponentInstanceData {
-    pub source_component_template: UPtr<crate::bindings::core_u_object::UObject>,
-    pub source_component_creation_method: EComponentCreationMethod,
-    pub source_component_type_serialized_index: i32,
-}
-#[repr(C, align(8))]
-pub struct FNavLinkAuxiliaryId {
-    pub id: u64,
-}
-#[repr(C, align(8))]
-pub struct FNavLinkId {
-    pub id: u64,
-}
-#[repr(C, align(8))]
-pub struct FKeyHandleLookupTable {}
+impl FTableRowBase {}
 #[repr(C, align(8))]
 pub struct FRuntimeFloatCurve {
-    pub editor_curve_data: FRichCurve,
-    pub external_curve: UPtr<UCurveFloat>,
+    __padding_end: [u8; 136],
 }
-#[repr(C, align(8))]
-pub struct FIndexedCurve {
-    pub key_handles_to_indices: FKeyHandleMap,
-}
-#[repr(C, align(8))]
-pub struct FKeyHandleMap {}
-#[repr(C, align(8))]
-pub struct FRealCurve {
-    pub default_value: f32,
-    pub pre_infinity_extrap: ERichCurveExtrapolation,
-    pub post_infinity_extrap: ERichCurveExtrapolation,
-}
-#[repr(C, align(8))]
-pub struct FRichCurve {
-    pub keys: TArray<FRichCurveKey>,
-}
+impl FRuntimeFloatCurve {}
 #[repr(C, align(4))]
 pub struct FRichCurveKey {
     pub interp_mode: ERichCurveInterpMode,
@@ -757,88 +696,32 @@ pub struct FRichCurveKey {
     pub tangent_weight_mode: ERichCurveTangentWeightMode,
     pub time: f32,
     pub value: f32,
-    pub arrive_tangent: f32,
-    pub arrive_tangent_weight: f32,
-    pub leave_tangent: f32,
-    pub leave_tangent_weight: f32,
+    __padding_end: [u8; 16],
 }
-#[repr(C, align(8))]
-pub struct FSceneComponentInstanceData {
-    pub attached_instance_components: TMap<
-        UPtr<USceneComponent>,
-        crate::bindings::core_u_object::FTransform,
-    >,
-}
+impl FRichCurveKey {}
 #[repr(C, align(8))]
 pub struct FEdGraphPinType {
-    pub pin_category: FName,
-    pub pin_sub_category: FName,
-    pub pin_sub_category_object: TWeakObjectPtr<crate::bindings::core_u_object::UObject>,
-    pub pin_sub_category_member_reference: FSimpleMemberReference,
-    pub pin_value_type: FEdGraphTerminalType,
-    pub container_type: EPinContainerType,
-    pub flags_109: u8,
+    __padding_end: [u8; 112],
 }
-#[repr(C, align(4))]
-pub struct FEdGraphTerminalType {
-    pub terminal_category: FName,
-    pub terminal_sub_category: FName,
-    pub terminal_sub_category_object: TWeakObjectPtr<
-        crate::bindings::core_u_object::UObject,
-    >,
-    pub b_terminal_is_const: bool,
-    pub b_terminal_is_weak_pointer: bool,
-    pub b_terminal_is_u_object_wrapper: bool,
-}
-#[repr(C, align(16))]
-pub struct FAnimInstanceProxy {
-    pub slot_group_inertialization_request_data_map: TMap<
-        FName,
-        FInertializationRequest,
-    >,
-}
-#[repr(C, align(8))]
-pub struct FInertializationRequest {
-    pub duration: f32,
-    pub blend_profile: UPtr<UBlendProfile>,
-    pub b_use_blend_mode: bool,
-    pub blend_mode: EAlphaBlendOption,
-    pub custom_blend_curve: UPtr<UCurveFloat>,
-    pub tag: FName,
-    pub description_deprecated: FText,
-    pub description_string: FString,
-    pub node_id: i32,
-    pub anim_instance: UPtr<crate::bindings::core_u_object::UObject>,
-}
-#[repr(C, align(16))]
-pub struct FAnimSingleNodeInstanceProxy {}
-#[repr(C, align(8))]
-pub struct FAnimNode_Base {
-    pub initial_update_function: FAnimNodeFunctionRef,
-    pub become_relevant_function: FAnimNodeFunctionRef,
-    pub update_function: FAnimNodeFunctionRef,
-}
-#[repr(C, align(8))]
-pub struct FAnimNodeFunctionRef {
-    pub class_name: FName,
-    pub function_name: FName,
-    pub class: TSubclassOf<crate::bindings::core_u_object::UObject>,
-    pub function: UPtr<crate::bindings::core_u_object::UFunction>,
-}
+impl FEdGraphPinType {}
 #[repr(C, align(8))]
 pub struct FPoseLinkBase {
-    pub link_id: i32,
-    pub source_link_id: i32,
+    __padding_end: [u8; 24],
 }
+impl FPoseLinkBase {}
 #[repr(C, align(8))]
-pub struct FPoseLink {}
+pub struct FPoseLink {
+    __padding_end: [u8; 24],
+}
+impl FPoseLink {}
 #[repr(C, align(8))]
 pub struct FAnimNode_Root {
+    #[doc(hidden)]
+    __padding_136: [u8; 136],
     pub result: FPoseLink,
-    pub name: FName,
-    pub layer_group: FName,
-    pub group_deprecated: FName,
+    __padding_end: [u8; 40],
 }
+impl FAnimNode_Root {}
 #[repr(C, align(4))]
 pub struct FInputScaleBiasClamp {
     pub b_map_range: bool,
@@ -852,63 +735,64 @@ pub struct FInputScaleBiasClamp {
     pub clamp_max: f32,
     pub interp_speed_increasing: f32,
     pub interp_speed_decreasing: f32,
+    __padding_end: [u8; 4],
 }
+impl FInputScaleBiasClamp {}
 #[repr(C, align(4))]
 pub struct FInputRange {
     pub min: f32,
     pub max: f32,
 }
+impl FInputRange {}
 #[repr(C, align(8))]
 pub struct FInputAlphaBoolBlend {
     pub blend_in_time: f32,
     pub blend_out_time: f32,
     pub blend_option: EAlphaBlendOption,
-    pub b_initialized: bool,
     pub custom_curve: UPtr<UCurveFloat>,
-    pub alpha_blend: FAlphaBlend,
+    __padding_end: [u8; 48],
 }
+impl FInputAlphaBoolBlend {}
 #[repr(C, align(8))]
 pub struct FAlphaBlend {
-    pub custom_curve: UPtr<UCurveFloat>,
-    pub blend_time: f32,
-    pub blend_option: EAlphaBlendOption,
+    __padding_end: [u8; 48],
 }
+impl FAlphaBlend {}
 #[repr(C, align(4))]
 pub struct FInputScaleBias {
     pub scale: f32,
     pub bias: f32,
 }
+impl FInputScaleBias {}
 #[repr(C, align(8))]
-pub struct FComponentSpacePoseLink {}
-#[repr(C, align(4))]
-pub struct FBoneReference {
-    pub bone_name: FName,
+pub struct FComponentSpacePoseLink {
+    __padding_end: [u8; 24],
 }
+impl FComponentSpacePoseLink {}
 #[repr(C, align(8))]
-pub struct FAnimNodeReference {}
+pub struct FAnimNodeReference {
+    __padding_end: [u8; 16],
+}
+impl FAnimNodeReference {}
 #[repr(C, align(8))]
-pub struct FAnimNode_AssetPlayerRelevancyBase {}
+pub struct FAnimNode_AssetPlayerRelevancyBase {
+    __padding_end: [u8; 136],
+}
+impl FAnimNode_AssetPlayerRelevancyBase {}
 #[repr(C, align(8))]
 pub struct FAnimNode_AssetPlayerBase {
-    pub group_index_deprecated: i32,
-    pub group_scope_deprecated: EAnimSyncGroupScope,
+    #[doc(hidden)]
+    __padding_160: [u8; 160],
     pub blend_weight: f32,
     pub internal_time_accumulator: f32,
+    __padding_end: [u8; 16],
 }
+impl FAnimNode_AssetPlayerBase {}
 #[repr(C, align(4))]
 pub struct FPerBoneBlendWeight {
-    pub source_index: i32,
-    pub blend_weight: f32,
+    __padding_end: [u8; 8],
 }
-#[repr(C, align(8))]
-pub struct FInputBlendPose {
-    pub branch_filters: TArray<FBranchFilter>,
-}
-#[repr(C, align(4))]
-pub struct FBranchFilter {
-    pub bone_name: FName,
-    pub blend_depth: i32,
-}
+impl FPerBoneBlendWeight {}
 #[repr(C, align(8))]
 pub struct FPoseSnapshot {
     pub local_transforms: TArray<crate::bindings::core_u_object::FTransform>,
@@ -916,225 +800,107 @@ pub struct FPoseSnapshot {
     pub skeletal_mesh_name: FName,
     pub snapshot_name: FName,
     pub b_is_valid: bool,
+    __padding_end: [u8; 7],
 }
-#[repr(C, align(16))]
-pub struct FBoneSocketTarget {
-    pub b_use_socket: bool,
-    pub bone_reference: FBoneReference,
-    pub socket_reference: FSocketReference,
-}
-#[repr(C, align(16))]
-pub struct FSocketReference {
-    pub socket_name: FName,
-}
-#[repr(C, align(4))]
-pub struct FAnimCurveParam {
-    pub name: FName,
-}
+impl FPoseSnapshot {}
 #[repr(C, align(4))]
 pub struct FMaterialParameterInfo {
     pub name: FName,
     pub association: EMaterialParameterAssociation,
     pub index: i32,
 }
+impl FMaterialParameterInfo {}
 #[repr(C, align(8))]
 pub struct FParameterChannelNames {
-    pub r: FText,
-    pub g: FText,
-    pub b: FText,
-    pub a: FText,
+    __padding_end: [u8; 64],
 }
+impl FParameterChannelNames {}
 #[repr(C, align(4))]
 pub struct FActorDataLayer {
     pub name: FName,
 }
+impl FActorDataLayer {}
 #[repr(C, align(8))]
-pub struct FRepMovement {
-    pub linear_velocity: crate::bindings::core_u_object::FVector,
-    pub angular_velocity: crate::bindings::core_u_object::FVector,
-    pub location: crate::bindings::core_u_object::FVector,
-    pub rotation: crate::bindings::core_u_object::FRotator,
-    pub acceleration: crate::bindings::core_u_object::FVector,
-    pub flags_120: u8,
-    pub server_frame: i32,
-    pub server_physics_handle: i32,
-    pub location_quantization_level: EVectorQuantization,
-    pub velocity_quantization_level: EVectorQuantization,
-    pub rotation_quantization_level: ERotatorQuantization,
+pub struct FVector_NetQuantize100 {
+    __padding_end: [u8; 24],
 }
-#[repr(C, align(8))]
-pub struct FRepAttachment {
-    pub attach_parent: UPtr<AActor>,
-    pub location_offset: FVector_NetQuantize100,
-    pub relative_scale3_d: FVector_NetQuantize100,
-    pub rotation_offset: crate::bindings::core_u_object::FRotator,
-    pub attach_socket: FName,
-    pub attach_component: UPtr<USceneComponent>,
-}
-#[repr(C, align(8))]
-pub struct FVector_NetQuantize100 {}
-#[repr(C, align(8))]
-pub struct FActorTickFunction {}
-#[repr(C, align(4))]
-pub struct FWorldPartitionResolveData {
-    pub container_id: FActorContainerID,
-    pub source_world_asset_path: crate::bindings::core_u_object::FTopLevelAssetPath,
-}
-#[repr(C, align(4))]
-pub struct FActorContainerID {
-    pub guid: crate::bindings::core_u_object::FGuid,
-}
-#[repr(C, align(4))]
-pub struct FExposureSettings {
-    pub fixed_ev100: f32,
-    pub b_fixed: bool,
-}
-#[repr(C, align(8))]
-pub struct FLevelViewportInfo {
-    pub cam_position: crate::bindings::core_u_object::FVector,
-    pub cam_rotation: crate::bindings::core_u_object::FRotator,
-    pub cam_ortho_zoom: f32,
-    pub cam_updated: bool,
-}
+impl FVector_NetQuantize100 {}
 #[repr(C, align(8))]
 pub struct FPerQualityLevelInt {
+    #[doc(hidden)]
+    __padding_40: [u8; 40],
     pub default: i32,
-    pub per_quality: TMap<i32, i32>,
+    __padding_end: [u8; 84],
 }
+impl FPerQualityLevelInt {}
 #[repr(C, align(8))]
 pub struct FPerQualityLevelFloat {
+    #[doc(hidden)]
+    __padding_40: [u8; 40],
     pub default: f32,
-    pub per_quality: TMap<i32, f32>,
+    __padding_end: [u8; 84],
 }
-#[repr(C, align(8))]
-pub struct FKAggregateGeom {
-    pub sphere_elems: TArray<FKSphereElem>,
-    pub box_elems: TArray<FKBoxElem>,
-    pub sphyl_elems: TArray<FKSphylElem>,
-    pub convex_elems: TArray<FKConvexElem>,
-    pub tapered_capsule_elems: TArray<FKTaperedCapsuleElem>,
-    pub level_set_elems: TArray<FKLevelSetElem>,
-    pub skinned_level_set_elems: TArray<FKSkinnedLevelSetElem>,
-    pub ml_level_set_elems: TArray<FKMLLevelSetElem>,
-    pub skinned_triangle_mesh_elems: TArray<FKSkinnedTriangleMeshElem>,
-}
-#[repr(C, align(8))]
-pub struct FKShapeElem {
-    pub rest_offset: f32,
-    pub flags_12: u8,
-    pub name: FName,
-    pub flags_32: u8,
-    pub collision_enabled: ECollisionEnabled,
-}
-#[repr(C, align(8))]
-pub struct FKSkinnedTriangleMeshElem {}
-#[repr(C, align(8))]
-pub struct FKMLLevelSetElem {
-    pub nne_signed_distance_model_data: UPtr<crate::bindings::nne::UNNEModelData>,
-    pub nne_incorrect_zone_model_data: UPtr<crate::bindings::nne::UNNEModelData>,
-}
-#[repr(C, align(8))]
-pub struct FKSkinnedLevelSetElem {}
-#[repr(C, align(16))]
-pub struct FKLevelSetElem {
-    pub transform: crate::bindings::core_u_object::FTransform,
-}
-#[repr(C, align(8))]
-pub struct FKTaperedCapsuleElem {
-    pub center: crate::bindings::core_u_object::FVector,
-    pub rotation: crate::bindings::core_u_object::FRotator,
-    pub radius0: f32,
-    pub radius1: f32,
-    pub length: f32,
-    pub b_one_sided_collision: bool,
-}
-#[repr(C, align(16))]
-pub struct FKConvexElem {
-    pub vertex_data: TArray<crate::bindings::core_u_object::FVector>,
-    pub index_data: TArray<i32>,
-    pub elem_box: crate::bindings::core_u_object::FBox,
-    pub transform: crate::bindings::core_u_object::FTransform,
-}
-#[repr(C, align(16))]
-pub struct FKSphylElem {
-    pub tm_deprecated: crate::bindings::core_u_object::FMatrix,
-    pub orientation_deprecated: crate::bindings::core_u_object::FQuat,
-    pub center: crate::bindings::core_u_object::FVector,
-    pub rotation: crate::bindings::core_u_object::FRotator,
-    pub radius: f32,
-    pub length: f32,
-}
-#[repr(C, align(16))]
-pub struct FKBoxElem {
-    pub tm_deprecated: crate::bindings::core_u_object::FMatrix,
-    pub orientation_deprecated: crate::bindings::core_u_object::FQuat,
-    pub center: crate::bindings::core_u_object::FVector,
-    pub rotation: crate::bindings::core_u_object::FRotator,
-    pub x: f32,
-    pub y: f32,
-    pub z: f32,
-}
-#[repr(C, align(16))]
-pub struct FKSphereElem {
-    pub tm_deprecated: crate::bindings::core_u_object::FMatrix,
-    pub center: crate::bindings::core_u_object::FVector,
-    pub radius: f32,
-}
+impl FPerQualityLevelFloat {}
 #[repr(C, align(4))]
 pub struct FNamedFloat {
     pub value: f32,
     pub name: FName,
 }
+impl FNamedFloat {}
 #[repr(C, align(8))]
 pub struct FNamedVector {
     pub value: crate::bindings::core_u_object::FVector,
     pub name: FName,
+    __padding_end: [u8; 4],
 }
+impl FNamedVector {}
 #[repr(C, align(4))]
 pub struct FNamedColor {
     pub value: crate::bindings::core_u_object::FColor,
     pub name: FName,
 }
+impl FNamedColor {}
 #[repr(C, align(16))]
 pub struct FNamedTransform {
     pub value: crate::bindings::core_u_object::FTransform,
     pub name: FName,
+    __padding_end: [u8; 4],
 }
+impl FNamedTransform {}
 #[repr(C, align(8))]
 pub struct FLocalSpacePose {
     pub transforms: TArray<crate::bindings::core_u_object::FTransform>,
     pub names: TArray<FName>,
 }
+impl FLocalSpacePose {}
 #[repr(C, align(8))]
 pub struct FComponentSpacePose {
     pub transforms: TArray<crate::bindings::core_u_object::FTransform>,
     pub names: TArray<FName>,
 }
+impl FComponentSpacePose {}
 #[repr(C, align(1))]
-pub struct FAnimCurveType {
-    pub b_material: bool,
-    pub b_morphtarget: bool,
+pub struct FEmptyPayload {
+    __padding_end: [u8; 1],
 }
-#[repr(C, align(8))]
-pub struct FCurveMetaData {
-    pub linked_bones: TArray<FBoneReference>,
-    pub max_lod: u8,
-    pub ty: FAnimCurveType,
-}
-#[repr(C, align(1))]
-pub struct FEmptyPayload {}
+impl FEmptyPayload {}
 #[repr(C, align(8))]
 pub struct FBracketPayload {
     pub description: FString,
 }
+impl FBracketPayload {}
 #[repr(C, align(4))]
 pub struct FAnimationTrackPayload {
     pub name: FName,
 }
+impl FAnimationTrackPayload {}
 #[repr(C, align(4))]
 pub struct FAnimationTrackAddedPayload {
+    #[doc(hidden)]
+    __padding_12: [u8; 12],
     pub track_index: i32,
 }
+impl FAnimationTrackAddedPayload {}
 #[repr(C, align(4))]
 pub struct FSequenceLengthChangedPayload {
     pub previous_length: f32,
@@ -1144,43 +910,49 @@ pub struct FSequenceLengthChangedPayload {
     pub frame0: crate::bindings::core_u_object::FFrameNumber,
     pub frame1: crate::bindings::core_u_object::FFrameNumber,
 }
+impl FSequenceLengthChangedPayload {}
 #[repr(C, align(4))]
 pub struct FFrameRateChangedPayload {
     pub previous_frame_rate: crate::bindings::core_u_object::FFrameRate,
 }
+impl FFrameRateChangedPayload {}
 #[repr(C, align(4))]
 pub struct FCurvePayload {
     pub identifier: FAnimationCurveIdentifier,
 }
+impl FCurvePayload {}
 #[repr(C, align(4))]
 pub struct FAnimationCurveIdentifier {
-    pub internal_name_deprecated: FSmartName,
-    pub curve_name: FName,
-    pub curve_type: ERawCurveTrackTypes,
-    pub channel: ETransformCurveChannel,
-    pub axis: EVectorCurveChannel,
+    __padding_end: [u8; 32],
 }
-#[repr(C, align(4))]
-pub struct FSmartName {
-    pub display_name: FName,
-}
+impl FAnimationCurveIdentifier {}
 #[repr(C, align(4))]
 pub struct FCurveScaledPayload {
+    #[doc(hidden)]
+    __padding_32: [u8; 32],
     pub factor: f32,
     pub origin: f32,
 }
+impl FCurveScaledPayload {}
 #[repr(C, align(4))]
 pub struct FCurveRenamedPayload {
+    #[doc(hidden)]
+    __padding_32: [u8; 32],
     pub new_identifier: FAnimationCurveIdentifier,
 }
+impl FCurveRenamedPayload {}
 #[repr(C, align(4))]
 pub struct FCurveFlagsChangedPayload {
+    #[doc(hidden)]
+    __padding_32: [u8; 32],
     pub old_flags: i32,
 }
+impl FCurveFlagsChangedPayload {}
 #[repr(C, align(8))]
 pub struct FAttributePayload {
     pub identifier: FAnimationAttributeIdentifier,
 }
+impl FAttributePayload {}
 #[repr(C, align(8))]
 pub struct FAnimationAttributeIdentifier {
     pub name: FName,
@@ -1189,68 +961,44 @@ pub struct FAnimationAttributeIdentifier {
     pub script_struct: UPtr<crate::bindings::core_u_object::UScriptStruct>,
     pub script_struct_path: crate::bindings::core_u_object::FSoftObjectPath,
 }
+impl FAnimationAttributeIdentifier {}
 #[repr(C, align(8))]
 pub struct FAnimNodeConstantData {
-    pub anim_class_interface: TScriptInterface<IAnimClassInterface>,
-    pub node_index: i32,
+    __padding_end: [u8; 24],
 }
-#[repr(C, align(8))]
-pub struct FSlotEvaluationPose {
-    pub additive_type: EAdditiveAnimationType,
-    pub weight: f32,
-}
-#[repr(C, align(8))]
-pub struct FAnimSubsystem {}
-#[repr(C, align(8))]
-pub struct FAnimSubsystemInstance {}
-#[repr(C, align(8))]
-pub struct FAnimSubsystem_BlendSpaceGraph {
-    pub blend_spaces: TArray<UPtr<UBlendSpace>>,
-}
-#[repr(C, align(8))]
-pub struct FAssetManagerRedirect {
-    pub old: FString,
-    pub new: FString,
-}
-#[repr(C, align(4))]
-pub struct FPrimaryAssetRulesOverride {
-    pub primary_asset_id: crate::bindings::core_u_object::FPrimaryAssetId,
-    pub rules: FPrimaryAssetRules,
-}
-#[repr(C, align(4))]
-pub struct FPrimaryAssetRules {
-    pub priority: i32,
-    pub chunk_id: i32,
-    pub b_apply_recursively: bool,
-    pub cook_rule: EPrimaryAssetCookRule,
-}
-#[repr(C, align(8))]
-pub struct FPrimaryAssetRulesCustomOverride {
-    pub primary_asset_type: crate::bindings::core_u_object::FPrimaryAssetType,
-    pub filter_directory: crate::bindings::core_u_object::FDirectoryPath,
-    pub filter_string: FString,
-    pub rules: FPrimaryAssetRules,
-}
-#[repr(C, align(1))]
-pub struct FBookmark2DJumpToSettings {}
-#[repr(C, align(1))]
-pub struct FBookmarkBaseJumpToSettings {}
+impl FAnimNodeConstantData {}
 #[repr(C, align(16))]
-pub struct FNonBlendableQuaternionAnimationAttribute {}
+pub struct FNonBlendableQuaternionAnimationAttribute {
+    __padding_end: [u8; 32],
+}
+impl FNonBlendableQuaternionAnimationAttribute {}
 #[repr(C, align(8))]
-pub struct FNonBlendableVectorAnimationAttribute {}
+pub struct FNonBlendableVectorAnimationAttribute {
+    __padding_end: [u8; 24],
+}
+impl FNonBlendableVectorAnimationAttribute {}
 #[repr(C, align(16))]
-pub struct FNonBlendableTransformAnimationAttribute {}
+pub struct FNonBlendableTransformAnimationAttribute {
+    __padding_end: [u8; 96],
+}
+impl FNonBlendableTransformAnimationAttribute {}
 #[repr(C, align(4))]
-pub struct FNonBlendableFloatAnimationAttribute {}
+pub struct FNonBlendableFloatAnimationAttribute {
+    __padding_end: [u8; 4],
+}
+impl FNonBlendableFloatAnimationAttribute {}
 #[repr(C, align(4))]
-pub struct FNonBlendableIntegerAnimationAttribute {}
+pub struct FNonBlendableIntegerAnimationAttribute {
+    __padding_end: [u8; 4],
+}
+impl FNonBlendableIntegerAnimationAttribute {}
 #[repr(C, align(16))]
 pub struct FMinimalViewInfo {
     pub location: crate::bindings::core_u_object::FVector,
     pub rotation: crate::bindings::core_u_object::FRotator,
     pub fov: f32,
-    pub desired_fov: f32,
+    #[doc(hidden)]
+    __padding_56: [u8; 4],
     pub first_person_fov: f32,
     pub first_person_scale: f32,
     pub ortho_width: f32,
@@ -1262,333 +1010,34 @@ pub struct FMinimalViewInfo {
     pub ortho_far_clip_plane: f32,
     pub perspective_near_clip_plane: f32,
     pub aspect_ratio: f32,
+    #[doc(hidden)]
+    __padding_104: [u8; 8],
     pub flags_104: u8,
+    #[doc(hidden)]
+    __padding_108: [u8; 3],
     pub projection_mode: ECameraProjectionMode,
     pub post_process_blend_weight: f32,
     pub post_process_settings: FPostProcessSettings,
     pub off_center_projection_offset: crate::bindings::core_u_object::FVector2D,
+    #[doc(hidden)]
+    __padding_2208: [u8; 112],
     pub overscan_resolution_fraction: f32,
     pub crop_fraction: f32,
     pub asymmetric_crop_fraction: crate::bindings::core_u_object::FVector4f,
+    __padding_end: [u8; 64],
 }
-#[repr(C, align(8))]
-pub struct FTextSizingParameters {
-    pub draw_x: f32,
-    pub draw_y: f32,
-    pub draw_xl: f32,
-    pub draw_yl: f32,
-    pub scaling: crate::bindings::core_u_object::FVector2D,
-    pub draw_font: UPtr<UFont>,
-    pub spacing_adjust: crate::bindings::core_u_object::FVector2D,
-}
-#[repr(C, align(8))]
-pub struct FWrappedStringElement {
-    pub value: FString,
-    pub line_extent: crate::bindings::core_u_object::FVector2D,
-}
-#[repr(C, align(8))]
-pub struct FCharacterNetworkSerializationPackedBits {}
-#[repr(C, align(8))]
-pub struct FCharacterServerMovePackedBits {}
-#[repr(C, align(8))]
-pub struct FCharacterMoveResponsePackedBits {}
-#[repr(C, align(8))]
-pub struct FCustomAttributeSetting {
-    pub name: FString,
-    pub meaning: FString,
-}
-#[repr(C, align(4))]
-pub struct FTimecodeCustomAttributeNameSettings {
-    pub hour_attribute_name: FName,
-    pub minute_attribute_name: FName,
-    pub second_attribute_name: FName,
-    pub frame_attribute_name: FName,
-    pub subframe_attribute_name: FName,
-    pub rate_attribute_name: FName,
-    pub takename_attribute_name: FName,
-}
-#[repr(C, align(8))]
-pub struct FCustomAttribute {
-    pub name: FName,
-    pub variant_type: i32,
-    pub times: TArray<f32>,
-}
-#[repr(C, align(8))]
-pub struct FCustomAttributePerBoneData {
-    pub bone_tree_index: i32,
-    pub attributes: TArray<FCustomAttribute>,
-}
-#[repr(C, align(8))]
-pub struct FBakedStringCustomAttribute {
-    pub attribute_name: FName,
-    pub string_curve: FStringCurve,
-}
-#[repr(C, align(8))]
-pub struct FStringCurve {
-    pub default_value: FString,
-    pub keys: TArray<FStringCurveKey>,
-}
-#[repr(C, align(8))]
-pub struct FStringCurveKey {
-    pub time: f32,
-    pub value: FString,
-}
-#[repr(C, align(8))]
-pub struct FBakedIntegerCustomAttribute {
-    pub attribute_name: FName,
-    pub int_curve: FIntegralCurve,
-}
-#[repr(C, align(8))]
-pub struct FIntegralCurve {
-    pub keys: TArray<FIntegralKey>,
-    pub default_value: i32,
-    pub b_use_default_value_before_first_key: bool,
-}
-#[repr(C, align(4))]
-pub struct FIntegralKey {
-    pub time: f32,
-    pub value: i32,
-}
-#[repr(C, align(8))]
-pub struct FBakedFloatCustomAttribute {
-    pub attribute_name: FName,
-    pub float_curve: FSimpleCurve,
-}
-#[repr(C, align(8))]
-pub struct FSimpleCurve {
-    pub interp_mode: ERichCurveInterpMode,
-    pub keys: TArray<FSimpleCurveKey>,
-}
-#[repr(C, align(4))]
-pub struct FSimpleCurveKey {
-    pub time: f32,
-    pub value: f32,
-}
-#[repr(C, align(8))]
-pub struct FBakedCustomAttributePerBoneData {
-    pub bone_tree_index: i32,
-    pub string_attributes: TArray<FBakedStringCustomAttribute>,
-    pub int_attributes: TArray<FBakedIntegerCustomAttribute>,
-    pub float_attributes: TArray<FBakedFloatCustomAttribute>,
-}
-#[repr(C, align(8))]
-pub struct FDataLayerInstanceNames {
-    pub b_is_first_data_layer_external: bool,
-    pub data_layers: TArray<FName>,
-}
-#[repr(C, align(8))]
-pub struct FDebugDisplayProperty {
-    pub obj: UPtr<crate::bindings::core_u_object::UObject>,
-    pub within_class: TSubclassOf<crate::bindings::core_u_object::UObject>,
-}
-#[repr(C, align(8))]
-pub struct FDebugTextInfo {
-    pub src_actor: UPtr<AActor>,
-    pub src_actor_offset: crate::bindings::core_u_object::FVector,
-    pub src_actor_desired_offset: crate::bindings::core_u_object::FVector,
-    pub debug_text: FString,
-    pub time_remaining: f32,
-    pub duration: f32,
-    pub text_color: crate::bindings::core_u_object::FColor,
-    pub flags_84: u8,
-    pub orig_actor_location: crate::bindings::core_u_object::FVector,
-    pub font: UPtr<UFont>,
-    pub font_scale: f32,
-}
-#[repr(C, align(8))]
-pub struct FRawDistributionFloat {
-    pub min_value: f32,
-    pub max_value: f32,
-    pub distribution: UPtr<UDistributionFloat>,
-}
-#[repr(C, align(8))]
-pub struct FRawDistributionVector {
-    pub min_value: f32,
-    pub max_value: f32,
-    pub min_value_vec: crate::bindings::core_u_object::FVector,
-    pub max_value_vec: crate::bindings::core_u_object::FVector,
-    pub distribution: UPtr<UDistributionVector>,
-}
-#[repr(C, align(8))]
-pub struct FFullyLoadedPackagesInfo {
-    pub fully_load_type: EFullyLoadPackageType,
-    pub tag: FString,
-    pub packages_to_load: TArray<FName>,
-    pub loaded_objects: TArray<UPtr<crate::bindings::core_u_object::UObject>>,
-}
-#[repr(C, align(4))]
-pub struct FLevelStreamingStatus {
-    pub package_name: FName,
-    pub flags_12: u8,
-    pub lod_index: u32,
-}
-#[repr(C, align(4))]
-pub struct FNetDriverDefinition {
-    pub def_name: FName,
-    pub driver_class_name: FName,
-    pub driver_class_name_fallback: FName,
-    pub max_channels_override: i32,
-}
-#[repr(C, align(8))]
-pub struct FIrisNetDriverConfig {
-    pub net_driver_definition: FName,
-    pub net_driver_name: FName,
-    pub net_driver_wildcard_name: FString,
-    pub b_can_use_iris: bool,
-}
-#[repr(C, align(8))]
-pub struct FNamedNetDriver {
-    pub net_driver: UPtr<UNetDriver>,
-}
-#[repr(C, align(8))]
-pub struct FWorldContext {
-    pub last_url: FURL,
-    pub last_remote_url: FURL,
-    pub pending_net_game: UPtr<UPendingNetGame>,
-    pub packages_to_fully_load: TArray<FFullyLoadedPackagesInfo>,
-    pub loaded_levels_for_pending_map_change: TArray<UPtr<ULevel>>,
-    pub object_referencers: TArray<UPtr<UObjectReferencer>>,
-    pub pending_level_streaming_status_updates: TArray<FLevelStreamingStatus>,
-    pub game_viewport: UPtr<UGameViewportClient>,
-    pub owning_game_instance: UPtr<UGameInstance>,
-    pub active_net_drivers: TArray<FNamedNetDriver>,
-}
-#[repr(C, align(8))]
-pub struct FURL {
-    pub protocol: FString,
-    pub host: FString,
-    pub port: i32,
-    pub valid: i32,
-    pub map: FString,
-    pub redirect_url: FString,
-    pub op: TArray<FString>,
-    pub portal: FString,
-}
-#[repr(C, align(4))]
-pub struct FStatColorMapEntry {
-    pub in_: f32,
-    pub out: crate::bindings::core_u_object::FColor,
-}
-#[repr(C, align(8))]
-pub struct FStatColorMapping {
-    pub stat_name: FString,
-    pub color_map: TArray<FStatColorMapEntry>,
-    pub flags_32: u8,
-}
-#[repr(C, align(8))]
-pub struct FDropNoteInfo {
-    pub location: crate::bindings::core_u_object::FVector,
-    pub rotation: crate::bindings::core_u_object::FRotator,
-    pub comment: FString,
-}
-#[repr(C, align(8))]
-pub struct FScreenMessageString {
-    pub key: u64,
-    pub screen_message: FString,
-    pub display_color: crate::bindings::core_u_object::FColor,
-    pub time_to_display: f32,
-    pub current_time_displayed: f32,
-    pub text_scale: crate::bindings::core_u_object::FVector2D,
-}
-#[repr(C, align(4))]
-pub struct FGameNameRedirect {
-    pub old_game_name: FName,
-    pub new_game_name: FName,
-}
-#[repr(C, align(4))]
-pub struct FClassRedirect {
-    pub object_name: FName,
-    pub old_class_name: FName,
-    pub new_class_name: FName,
-    pub old_subobj_name: FName,
-    pub new_subobj_name: FName,
-    pub new_class_class: FName,
-    pub new_class_package: FName,
-    pub instance_only: bool,
-}
-#[repr(C, align(4))]
-pub struct FStructRedirect {
-    pub old_struct_name: FName,
-    pub new_struct_name: FName,
-}
-#[repr(C, align(8))]
-pub struct FPluginRedirect {
-    pub old_plugin_name: FString,
-    pub new_plugin_name: FString,
-}
-#[repr(C, align(8))]
-pub struct FTickPrerequisite {}
+impl FMinimalViewInfo {}
 #[repr(C, align(4))]
 pub struct FExponentialHeightFogData {
     pub fog_density: f32,
     pub fog_height_falloff: f32,
     pub fog_height_offset: f32,
 }
-#[repr(C, align(4))]
-pub struct FExponentialHeightFogStaticState {}
-#[repr(C, align(8))]
-pub struct FExponentialHeightFogDynamicState {
-    pub fog_density: f32,
-    pub fog_height_falloff: f32,
-    pub second_fog_data: FExponentialHeightFogData,
-    pub fog_inscattering_luminance: crate::bindings::core_u_object::FLinearColor,
-    pub sky_atmosphere_ambient_contribution_color_scale: crate::bindings::core_u_object::FLinearColor,
-    pub inscattering_color_cubemap: UPtr<UTextureCube>,
-    pub inscattering_color_cubemap_angle: f32,
-    pub inscattering_texture_tint: crate::bindings::core_u_object::FLinearColor,
-    pub fully_directional_inscattering_color_distance: f32,
-    pub non_directional_inscattering_color_distance: f32,
-    pub directional_inscattering_exponent: f32,
-    pub directional_inscattering_start_distance: f32,
-    pub directional_inscattering_luminance: crate::bindings::core_u_object::FLinearColor,
-    pub fog_max_opacity: f32,
-    pub start_distance: f32,
-    pub end_distance: f32,
-    pub fog_cutoff_distance: f32,
-    pub b_enable_volumetric_fog: bool,
-    pub volumetric_fog_scattering_distribution: f32,
-    pub volumetric_fog_albedo: crate::bindings::core_u_object::FColor,
-    pub volumetric_fog_emissive: crate::bindings::core_u_object::FLinearColor,
-    pub volumetric_fog_extinction_scale: f32,
-    pub volumetric_fog_distance: f32,
-    pub volumetric_fog_start_distance: f32,
-    pub volumetric_fog_near_fade_in_distance: f32,
-    pub volumetric_fog_static_lighting_scattering_intensity: f32,
-    pub b_override_light_colors_with_fog_inscattering_colors: bool,
-    pub flags_181: u8,
-    pub height: f32,
-}
-#[repr(C, align(8))]
-pub struct FExponentialHeightFogHandle {}
-#[repr(C, align(8))]
-pub struct FFontImportOptionsData {
-    pub font_name: FString,
-    pub height: f32,
-    pub flags_20: u8,
-    pub character_set: EFontImportCharacterSet,
-    pub chars: FString,
-    pub unicode_range: FString,
-    pub chars_file_path: FString,
-    pub chars_file_wildcard: FString,
-    pub flags_96: u8,
-    pub foreground_color: crate::bindings::core_u_object::FLinearColor,
-    pub flags_116: u8,
-    pub texture_page_width: i32,
-    pub texture_page_max_height: i32,
-    pub x_padding: i32,
-    pub y_padding: i32,
-    pub extend_box_top: i32,
-    pub extend_box_bottom: i32,
-    pub extend_box_right: i32,
-    pub extend_box_left: i32,
-    pub flags_152: u8,
-    pub kerning: i32,
-    pub flags_160: u8,
-    pub distance_field_scale_factor: i32,
-    pub distance_field_scan_radius_scale: f32,
-}
+impl FExponentialHeightFogData {}
 #[repr(C, align(8))]
 pub struct FBaseAttenuationSettings {
+    #[doc(hidden)]
+    __padding_8: [u8; 8],
     pub distance_algorithm: EAttenuationDistanceModel,
     pub attenuation_shape: EAttenuationShape,
     pub falloff_mode: ENaturalSoundFalloffMode,
@@ -1600,15 +1049,12 @@ pub struct FBaseAttenuationSettings {
     pub cone_sphere_falloff_distance: f32,
     pub custom_attenuation_curve: FRuntimeFloatCurve,
 }
+impl FBaseAttenuationSettings {}
 #[repr(C, align(8))]
-pub struct FForceFeedbackAttenuationSettings {}
-#[repr(C, align(4))]
-pub struct FForceFeedbackParameters {
-    pub tag: FName,
-    pub b_looping: bool,
-    pub b_ignore_time_dilation: bool,
-    pub b_play_while_paused: bool,
+pub struct FForceFeedbackAttenuationSettings {
+    __padding_end: [u8; 192],
 }
+impl FForceFeedbackAttenuationSettings {}
 #[repr(C, align(8))]
 pub struct FPredictProjectilePathParams {
     pub start_location: crate::bindings::core_u_object::FVector,
@@ -1625,290 +1071,50 @@ pub struct FPredictProjectilePathParams {
     pub draw_debug_type: EDrawDebugTrace,
     pub draw_debug_time: f32,
     pub b_trace_complex: bool,
+    __padding_end: [u8; 7],
 }
+impl FPredictProjectilePathParams {}
 #[repr(C, align(8))]
 pub struct FPredictProjectilePathPointData {
     pub location: crate::bindings::core_u_object::FVector,
     pub velocity: crate::bindings::core_u_object::FVector,
     pub time: f32,
+    __padding_end: [u8; 4],
 }
+impl FPredictProjectilePathPointData {}
 #[repr(C, align(8))]
 pub struct FPredictProjectilePathResult {
     pub path_data: TArray<FPredictProjectilePathPointData>,
     pub last_trace_destination: FPredictProjectilePathPointData,
     pub hit_result: FHitResult,
 }
-#[repr(C, align(8))]
-pub struct FActiveHapticFeedbackEffect {
-    pub haptic_effect: UPtr<UHapticFeedbackEffect_Base>,
-}
-#[repr(C, align(8))]
-pub struct FHapticFeedbackDetails_Curve {
-    pub frequency: FRuntimeFloatCurve,
-    pub amplitude: FRuntimeFloatCurve,
-}
+impl FPredictProjectilePathResult {}
 #[repr(C, align(4))]
-pub struct FClusterNode_DEPRECATED {
-    pub bound_min: crate::bindings::core_u_object::FVector3f,
-    pub first_child: i32,
-    pub bound_max: crate::bindings::core_u_object::FVector3f,
-    pub last_child: i32,
-    pub first_instance: i32,
-    pub last_instance: i32,
+pub struct FPrimitiveInstanceId {
+    __padding_end: [u8; 4],
 }
-#[repr(C, align(4))]
-pub struct FClusterNode {
-    pub bound_min: crate::bindings::core_u_object::FVector3f,
-    pub first_child: i32,
-    pub bound_max: crate::bindings::core_u_object::FVector3f,
-    pub last_child: i32,
-    pub first_instance: i32,
-    pub last_instance: i32,
-    pub min_instance_scale: crate::bindings::core_u_object::FVector3f,
-    pub max_instance_scale: crate::bindings::core_u_object::FVector3f,
-}
-#[repr(C, align(4))]
-pub struct FPrimitiveInstanceId {}
-#[repr(C, align(16))]
-pub struct FInstancedStaticMeshInstanceData {
-    pub transform: crate::bindings::core_u_object::FMatrix,
-}
-#[repr(C, align(8))]
-pub struct FInstancedStaticMeshMappingInfo {}
-#[repr(C, align(4))]
-pub struct FInstancedStaticMeshRandomSeed {
-    pub start_instance_index: i32,
-    pub random_seed: i32,
-}
-#[repr(C, align(8))]
-pub struct FBoundsCacheElement {
-    pub b_is_valid: bool,
-    pub hash: u32,
-    pub value: crate::bindings::core_u_object::FBoxSphereBounds,
-}
-#[repr(C, align(16))]
-pub struct FInstancedStaticMeshLightMapInstanceData {
-    pub transform: crate::bindings::core_u_object::FTransform,
-    pub map_build_data_ids: TArray<crate::bindings::core_u_object::FGuid>,
-}
-#[repr(C, align(16))]
-pub struct FInstancedStaticMeshComponentInstanceData {
-    pub static_mesh: UPtr<UStaticMesh>,
-    pub cached_static_lighting: FInstancedStaticMeshLightMapInstanceData,
-    pub per_instance_sm_data: TArray<FInstancedStaticMeshInstanceData>,
-    pub instancing_random_seed: i32,
-    pub additional_random_seeds: TArray<FInstancedStaticMeshRandomSeed>,
-    pub b_has_per_instance_hit_proxies: bool,
-}
-#[repr(C, align(8))]
-pub struct FUniqueNetIdReplNetSerializerStringStruct {
-    pub string: FString,
-}
-#[repr(C, align(4))]
-pub struct FUniqueNetIdReplNetSerializerNameStruct {
-    pub name: FName,
-}
-#[repr(C, align(4))]
-pub struct FISMClientHandle {
-    pub index: i32,
-    pub guid: crate::bindings::core_u_object::FGuid,
-}
-#[repr(C, align(8))]
-pub struct FISMClientInstanceManagerData {}
-#[repr(C, align(8))]
-pub struct FNewLevelInstanceParams {
-    pub ty: ELevelInstanceCreationType,
-    pub pivot_type: ELevelInstancePivotType,
-    pub pivot_actor: UPtr<AActor>,
-    pub b_always_show_dialog: bool,
-    pub template_world: UPtr<UWorld>,
-    pub level_package_name: FString,
-    pub b_prompt_for_save: bool,
-    pub level_instance_class: TSubclassOf<AActor>,
-    pub b_enable_streaming: bool,
-    pub b_external_actors: bool,
-    pub b_force_external_actors: bool,
-    pub b_hide_creation_type: bool,
-}
-#[repr(C, align(8))]
-pub struct FMaterialCacheLayer {
-    pub render_format: crate::bindings::core_u_object::EPixelFormat,
-    pub compressed_format: crate::bindings::core_u_object::EPixelFormat,
-    pub component_count: u8,
-    pub b_is_srgb: bool,
-    pub identity: EMaterialCacheAttributeIdentity,
-    pub attributes: TArray<EMaterialCacheAttribute>,
-}
-#[repr(C, align(8))]
-pub struct FMaterialExpressionCollection {
-    pub expressions: TArray<UPtr<UMaterialExpression>>,
-    pub editor_comments: TArray<UPtr<UMaterialExpressionComment>>,
-    pub expression_exec_begin: UPtr<UMaterialExpression>,
-    pub expression_exec_end: UPtr<UMaterialExpression>,
-}
-#[repr(C, align(8))]
-pub struct FMaterialExpressionAggregateEntry {
-    pub attribute_index: i32,
-    pub input: FExpressionInput,
-}
-#[repr(C, align(8))]
-pub struct FMaterialExpressionConvertInput {
-    pub expression_input: FExpressionInput,
-    pub ty: EMaterialExpressionConvertType,
-    pub default_value: crate::bindings::core_u_object::FLinearColor,
-}
-#[repr(C, align(4))]
-pub struct FMaterialExpressionConvertOutput {
-    pub ty: EMaterialExpressionConvertType,
-    pub default_value: crate::bindings::core_u_object::FLinearColor,
-}
-#[repr(C, align(4))]
-pub struct FMaterialExpressionConvertMapping {
-    pub input_index: i32,
-    pub input_component_index: i32,
-    pub output_index: i32,
-    pub output_component_index: i32,
-}
-#[repr(C, align(8))]
-pub struct FCustomInput {
-    pub input_name: FName,
-    pub input: FExpressionInput,
-}
-#[repr(C, align(4))]
-pub struct FCustomOutput {
-    pub output_name: FName,
-    pub output_type: ECustomMaterialOutputType,
-}
-#[repr(C, align(8))]
-pub struct FCustomDefine {
-    pub define_name: FString,
-    pub define_value: FString,
-}
-#[repr(C, align(4))]
-pub struct FDataDrivenShaderPlatformInfoInput {
-    pub input_name: FName,
-    pub property_condition: EDataDrivenShaderPlatformInfoCondition,
-}
-#[repr(C, align(8))]
-pub struct FMaterialExpressionMaterialCacheAttribute {
-    pub decoration: FString,
-    pub value_type: u64,
-    pub input: FExpressionInput,
-}
-#[repr(C, align(8))]
-pub struct FFunctionExpressionInput {
-    pub expression_input: UPtr<UMaterialExpressionFunctionInput>,
-    pub expression_input_id: crate::bindings::core_u_object::FGuid,
-    pub input: FExpressionInput,
-}
-#[repr(C, align(8))]
-pub struct FFunctionExpressionOutput {
-    pub expression_output: UPtr<UMaterialExpressionFunctionOutput>,
-    pub expression_output_id: crate::bindings::core_u_object::FGuid,
-    pub output: FExpressionOutput,
-}
-#[repr(C, align(8))]
-pub struct FMaterialExpressionOperatorInput {
-    pub expression_input: FExpressionInput,
-    pub const_value: f32,
-}
-#[repr(C, align(8))]
-pub struct FCompositeReroute {
-    pub name: FName,
-    pub expression: UPtr<UMaterialExpressionReroute>,
-}
-#[repr(C, align(8))]
-pub struct FSwitchCustomInput {
-    pub input_name: FName,
-    pub input: FExpressionInput,
-}
-#[repr(C, align(4))]
-pub struct FMaterialInstanceBasePropertyOverrides {
-    pub flags_0: u8,
-    pub flags_1: u8,
-    pub flags_2: u8,
-    pub blend_mode: EBlendMode,
-    pub shading_model: EMaterialShadingModel,
-    pub opacity_mask_clip_value: f32,
-    pub displacement_scaling: FDisplacementScaling,
-    pub displacement_fade_range: FDisplacementFadeRange,
-    pub max_world_position_offset_displacement: f32,
-}
+impl FPrimitiveInstanceId {}
 #[repr(C, align(4))]
 pub struct FDisplacementFadeRange {
     pub start_size_pixels: f32,
     pub end_size_pixels: f32,
 }
+impl FDisplacementFadeRange {}
 #[repr(C, align(4))]
 pub struct FDisplacementScaling {
     pub magnitude: f32,
     pub center: f32,
 }
-#[repr(C, align(8))]
-pub struct FMaterialLayersFunctionsEditorOnlyData {
-    pub layer_states: TArray<bool>,
-    pub layer_names: TArray<FText>,
-    pub restrict_to_layer_relatives: TArray<bool>,
-    pub restrict_to_blend_relatives: TArray<bool>,
-    pub layer_guids: TArray<crate::bindings::core_u_object::FGuid>,
-    pub layer_link_states: TArray<EMaterialLayerLinkState>,
-    pub deleted_parent_layer_guids: TArray<crate::bindings::core_u_object::FGuid>,
-}
-#[repr(C, align(8))]
-pub struct FMaterialLayersFunctionsRuntimeData {
-    pub layers: TArray<UPtr<UMaterialFunctionInterface>>,
-    pub blends: TArray<UPtr<UMaterialFunctionInterface>>,
-}
-#[repr(C, align(8))]
-pub struct FMaterialLayersFunctions {
-    pub editor_only: FMaterialLayersFunctionsEditorOnlyData,
-    pub layer_states_deprecated: TArray<bool>,
-    pub layer_names_deprecated: TArray<FText>,
-    pub restrict_to_layer_relatives_deprecated: TArray<bool>,
-    pub restrict_to_blend_relatives_deprecated: TArray<bool>,
-    pub layer_guids_deprecated: TArray<crate::bindings::core_u_object::FGuid>,
-    pub layer_link_states_deprecated: TArray<EMaterialLayerLinkState>,
-    pub deleted_parent_layer_guids_deprecated: TArray<
-        crate::bindings::core_u_object::FGuid,
-    >,
-}
-#[repr(C, align(1))]
-pub struct FStaticComponentMaskValue {
-    pub r: bool,
-    pub g: bool,
-    pub b: bool,
-    pub a: bool,
-}
-#[repr(C, align(8))]
-pub struct FMeshDrawCommandStatsBudget {
-    pub category_name: FName,
-    pub linked_stat_names: TArray<FName>,
-    pub primitive_budget: i32,
-    pub vertex_budget: i32,
-    pub collection: i32,
-    pub passes: TArray<FName>,
-}
-#[repr(C, align(4))]
-pub struct FMeshDrawCommandStatsBudgetTotals {
-    pub primitive_budget: i32,
-    pub vertex_budget: i32,
-    pub collection: i32,
-}
+impl FDisplacementScaling {}
 #[repr(C, align(4))]
 pub struct FMeshUVChannelInfo {
-    pub b_initialized: bool,
-    pub b_override_densities: bool,
-    pub local_uv_densities: f32,
+    __padding_end: [u8; 20],
 }
-#[repr(C, align(8))]
-pub struct FPurchaseInfo {
-    pub identifier: FString,
-    pub display_name: FString,
-    pub display_description: FString,
-    pub display_price: FString,
-}
+impl FMeshUVChannelInfo {}
 #[repr(C, align(8))]
 pub struct FMLLevelSetModelAndBonesBinningInfo {
+    #[doc(hidden)]
+    __padding_8: [u8; 8],
     pub parent_bone_name: FString,
     pub active_bone_names: FString,
     pub ml_model_inference_info_data_table_path: FString,
@@ -1925,39 +1131,22 @@ pub struct FMLLevelSetModelAndBonesBinningInfo {
     pub training_grid_axis_y: TArray<f32>,
     pub training_grid_axis_z: TArray<f32>,
 }
+impl FMLLevelSetModelAndBonesBinningInfo {}
 #[repr(C, align(8))]
 pub struct FMLLevelSetModelInferenceInfo {
+    #[doc(hidden)]
+    __padding_8: [u8; 8],
     pub nne_model_path: FString,
     pub model_architecture_activation_node_sizes: TArray<i32>,
     pub ml_model_weights: FString,
 }
+impl FMLLevelSetModelInferenceInfo {}
 #[repr(C, align(4))]
 pub struct FNaniteAssemblyBoneInfluence {
     pub bone_index: i32,
     pub bone_weight: f32,
 }
-#[repr(C, align(16))]
-pub struct FNaniteAssemblyNode {
-    pub part_index: i32,
-    pub transform_space: ENaniteAssemblyNodeTransformSpace,
-    pub transform: crate::bindings::core_u_object::FTransform3f,
-    pub bone_influences: TArray<FNaniteAssemblyBoneInfluence>,
-}
-#[repr(C, align(8))]
-pub struct FNaniteAssemblyPart {
-    pub mesh_object_path: crate::bindings::core_u_object::FSoftObjectPath,
-    pub material_remap: TArray<i32>,
-}
-#[repr(C, align(8))]
-pub struct FNaniteAssemblyData {
-    pub parts: TArray<FNaniteAssemblyPart>,
-    pub nodes: TArray<FNaniteAssemblyNode>,
-}
-#[repr(C, align(4))]
-pub struct FNavAgentSelector {
-    pub flags_0: u8,
-    pub flags_1: u8,
-}
+impl FNaniteAssemblyBoneInfluence {}
 #[repr(C, align(4))]
 pub struct FNavAvoidanceMask {
     pub flags_0: u8,
@@ -1965,469 +1154,80 @@ pub struct FNavAvoidanceMask {
     pub flags_2: u8,
     pub flags_3: u8,
 }
+impl FNavAvoidanceMask {}
 #[repr(C, align(8))]
 pub struct FNavigationLinkBase {
-    pub left_project_height: f32,
-    pub max_fall_down_length: f32,
-    pub snap_radius: f32,
-    pub snap_height: f32,
-    pub supported_agents: FNavAgentSelector,
-    pub flags_36: u8,
-    pub flags_37: u8,
-    pub description: FString,
+    #[doc(hidden)]
+    __padding_56: [u8; 56],
     pub direction: ENavLinkDirection,
-    pub flags_57: u8,
-    pub flags_58: u8,
-    pub area_class: TSubclassOf<UNavAreaBase>,
+    __padding_end: [u8; 23],
 }
+impl FNavigationLinkBase {}
 #[repr(C, align(8))]
 pub struct FNavigationLink {
+    #[doc(hidden)]
+    __padding_80: [u8; 80],
     pub left: crate::bindings::core_u_object::FVector,
     pub right: crate::bindings::core_u_object::FVector,
 }
+impl FNavigationLink {}
 #[repr(C, align(8))]
 pub struct FNavigationSegmentLink {
-    pub left_start: crate::bindings::core_u_object::FVector,
-    pub left_end: crate::bindings::core_u_object::FVector,
-    pub right_start: crate::bindings::core_u_object::FVector,
-    pub right_end: crate::bindings::core_u_object::FVector,
+    __padding_end: [u8; 176],
 }
+impl FNavigationSegmentLink {}
 #[repr(C, align(8))]
-pub struct FVector_NetQuantize10 {}
-#[repr(C, align(8))]
-pub struct FOverlapInfo {
-    pub b_from_sweep: bool,
-    pub overlap_info: FHitResult,
+pub struct FVector_NetQuantize10 {
+    __padding_end: [u8; 24],
 }
-#[repr(C, align(8))]
-pub struct FParticleCurvePair {
-    pub curve_name: FString,
-    pub curve_object: UPtr<crate::bindings::core_u_object::UObject>,
-}
-#[repr(C, align(8))]
-pub struct FParticleRandomSeedInfo {
-    pub parameter_name: FName,
-    pub flags_12: u8,
-    pub random_seeds: TArray<i32>,
-}
-#[repr(C, align(4))]
-pub struct FBeamModifierOptions {
-    pub flags_0: u8,
-}
-#[repr(C, align(8))]
-pub struct FParticleEvent_GenerateInfo {
-    pub ty: EParticleEventType,
-    pub frequency: i32,
-    pub particle_frequency: i32,
-    pub flags_12: u8,
-    pub custom_name: FName,
-    pub particle_module_events_to_send_to_game: TArray<
-        UPtr<UParticleModuleEventSendToGame>,
-    >,
-}
-#[repr(C, align(8))]
-pub struct FLocationBoneSocketInfo {
-    pub bone_socket_name: FName,
-    pub offset: crate::bindings::core_u_object::FVector,
-}
-#[repr(C, align(4))]
-pub struct FOrbitOptions {
-    pub flags_0: u8,
-}
-#[repr(C, align(8))]
-pub struct FEmitterDynamicParameter {
-    pub param_name: FName,
-    pub flags_12: u8,
-    pub value_method: EEmitterDynamicParameterValue,
-    pub flags_20: u8,
-    pub param_value: FRawDistributionFloat,
-}
-#[repr(C, align(4))]
-pub struct FBeamTargetData {
-    pub target_name: FName,
-    pub target_percentage: f32,
-}
+impl FVector_NetQuantize10 {}
 #[repr(C, align(16))]
-pub struct FGPUSpriteLocalVectorFieldInfo {
-    pub field: UPtr<UVectorField>,
-    pub transform: crate::bindings::core_u_object::FTransform,
-    pub min_initial_rotation: crate::bindings::core_u_object::FRotator,
-    pub max_initial_rotation: crate::bindings::core_u_object::FRotator,
-    pub rotation_rate: crate::bindings::core_u_object::FRotator,
-    pub intensity: f32,
-    pub tightness: f32,
-    pub flags_192: u8,
+pub struct FSceneViewExtensionIsActiveFunctor {
+    __padding_end: [u8; 64],
 }
-#[repr(C, align(16))]
-pub struct FGPUSpriteEmitterInfo {
-    pub required_module: UPtr<UParticleModuleRequired>,
-    pub spawn_module: UPtr<UParticleModuleSpawn>,
-    pub spawn_per_unit_module: UPtr<UParticleModuleSpawnPerUnit>,
-    pub spawn_modules: TArray<UPtr<UParticleModule>>,
-    pub local_vector_field: FGPUSpriteLocalVectorFieldInfo,
-    pub vector_field_scale: FFloatDistribution,
-    pub drag_coefficient: FFloatDistribution,
-    pub point_attractor_strength: FFloatDistribution,
-    pub resilience: FFloatDistribution,
-    pub constant_acceleration: crate::bindings::core_u_object::FVector,
-    pub point_attractor_position: crate::bindings::core_u_object::FVector,
-    pub point_attractor_radius_sq: f32,
-    pub orbit_offset_base: crate::bindings::core_u_object::FVector,
-    pub orbit_offset_range: crate::bindings::core_u_object::FVector,
-    pub inv_max_size: crate::bindings::core_u_object::FVector2D,
-    pub inv_rotation_rate_scale: f32,
-    pub max_lifetime: f32,
-    pub max_particle_count: i32,
-    pub screen_alignment: EParticleScreenAlignment,
-    pub lock_axis_flag: EParticleAxisLock,
-    pub flags_520: u8,
-    pub collision_mode: EParticleCollisionMode,
-    pub flags_528: u8,
-    pub min_facing_camera_blend_distance: f32,
-    pub max_facing_camera_blend_distance: f32,
-    pub dynamic_color: FRawDistributionVector,
-    pub dynamic_alpha: FRawDistributionFloat,
-    pub dynamic_color_scale: FRawDistributionVector,
-    pub dynamic_alpha_scale: FRawDistributionFloat,
-}
-#[repr(C, align(16))]
-pub struct FGPUSpriteResourceData {
-    pub quantized_color_samples: TArray<crate::bindings::core_u_object::FColor>,
-    pub quantized_misc_samples: TArray<crate::bindings::core_u_object::FColor>,
-    pub quantized_simulation_attr_samples: TArray<
-        crate::bindings::core_u_object::FColor,
-    >,
-    pub color_scale: crate::bindings::core_u_object::FVector4,
-    pub color_bias: crate::bindings::core_u_object::FVector4,
-    pub misc_scale: crate::bindings::core_u_object::FVector4,
-    pub misc_bias: crate::bindings::core_u_object::FVector4,
-    pub simulation_attr_curve_scale: crate::bindings::core_u_object::FVector4,
-    pub simulation_attr_curve_bias: crate::bindings::core_u_object::FVector4,
-    pub sub_image_size: crate::bindings::core_u_object::FVector4,
-    pub size_by_speed: crate::bindings::core_u_object::FVector4,
-    pub constant_acceleration: crate::bindings::core_u_object::FVector,
-    pub orbit_offset_base: crate::bindings::core_u_object::FVector,
-    pub orbit_offset_range: crate::bindings::core_u_object::FVector,
-    pub orbit_frequency_base: crate::bindings::core_u_object::FVector,
-    pub orbit_frequency_range: crate::bindings::core_u_object::FVector,
-    pub orbit_phase_base: crate::bindings::core_u_object::FVector,
-    pub orbit_phase_range: crate::bindings::core_u_object::FVector,
-    pub global_vector_field_scale: f32,
-    pub global_vector_field_tightness: f32,
-    pub per_particle_vector_field_scale: f32,
-    pub per_particle_vector_field_bias: f32,
-    pub drag_coefficient_scale: f32,
-    pub drag_coefficient_bias: f32,
-    pub resilience_scale: f32,
-    pub resilience_bias: f32,
-    pub collision_radius_scale: f32,
-    pub collision_radius_bias: f32,
-    pub collision_time_bias: f32,
-    pub collision_random_spread: f32,
-    pub collision_random_distribution: f32,
-    pub one_minus_friction: f32,
-    pub rotation_rate_scale: f32,
-    pub camera_motion_blur_amount: f32,
-    pub screen_alignment: EParticleScreenAlignment,
-    pub lock_axis_flag: EParticleAxisLock,
-    pub pivot_offset: crate::bindings::core_u_object::FVector2D,
-    pub flags_560: u8,
-    pub min_facing_camera_blend_distance: f32,
-    pub max_facing_camera_blend_distance: f32,
-}
-#[repr(C, align(8))]
-pub struct FParticleEmitterReplayFrame {}
-#[repr(C, align(8))]
-pub struct FParticleSystemReplayFrame {}
-#[repr(C, align(4))]
-pub struct FParticleSystemStaticState {}
-#[repr(C, align(8))]
-pub struct FParticleSystemDynamicState {
-    pub transform: crate::bindings::state_stream::FTransformHandle,
-    pub system_asset: UPtr<UFXSystemAsset>,
-}
-#[repr(C, align(8))]
-pub struct FParticleSystemHandle {}
-#[repr(C, align(8))]
-pub struct FPieFixupStructWithSoftObjectPath {
-    pub path: crate::bindings::core_u_object::FSoftObjectPath,
-    pub typed_ptr: TSoftObjectPtr<AActor>,
-}
-#[repr(C, align(8))]
-pub struct FDelegateArray {
-    pub delegates: TArray<FDelegateArray_Delegates>,
-}
-#[repr(C, align(16))]
-pub struct FSceneViewExtensionIsActiveFunctor {}
-#[repr(C, align(8))]
-pub struct FSkeletalMeshOptimizationSettings {
-    pub termination_criterion: SkeletalMeshTerminationCriterion,
-    pub num_of_triangles_percentage: f32,
-    pub num_of_vert_percentage: f32,
-    pub max_num_of_triangles: u32,
-    pub max_num_of_verts: u32,
-    pub max_num_of_triangles_percentage: u32,
-    pub max_num_of_verts_percentage: u32,
-    pub max_deviation_percentage: f32,
-    pub reduction_method: SkeletalMeshOptimizationType,
-    pub silhouette_importance: SkeletalMeshOptimizationImportance,
-    pub texture_importance: SkeletalMeshOptimizationImportance,
-    pub shading_importance: SkeletalMeshOptimizationImportance,
-    pub skinning_importance: SkeletalMeshOptimizationImportance,
-    pub flags_37: u8,
-    pub welding_threshold: f32,
-    pub normals_threshold: f32,
-    pub max_bones_per_vertex: i32,
-    pub flags_52: u8,
-    pub volume_importance: f32,
-    pub flags_60: u8,
-    pub base_lod: i32,
-    pub bones_to_remove_deprecated: TArray<FBoneReference>,
-    pub bake_pose_deprecated: UPtr<UAnimSequence>,
-}
-#[repr(C, align(8))]
-pub struct FSkinnedMeshStaticState {
-    pub material_relevance: u64,
-}
-#[repr(C, align(8))]
-pub struct FSkinnedMeshDynamicState {
-    pub transform: crate::bindings::state_stream::FTransformHandle,
-    pub skinned_asset: UPtr<USkinnedAsset>,
-    pub override_materials: TArray<UPtr<UMaterialInterface>>,
-}
-#[repr(C, align(8))]
-pub struct FSkinnedMeshHandle {}
-#[repr(C, align(4))]
-pub struct FSkyAtmosphereStaticState {}
-#[repr(C, align(8))]
-pub struct FOverrideAtmosphericLight {
-    pub enabled_mask: u8,
-    pub direction: crate::bindings::core_u_object::FVector,
-}
-#[repr(C, align(16))]
-pub struct FSkyAtmosphereDynamicState {
-    pub transform_mode: ESkyAtmosphereTransformMode,
-    pub bottom_radius: f32,
-    pub ground_albedo: crate::bindings::core_u_object::FColor,
-    pub atmosphere_height: f32,
-    pub multi_scattering_factor: f32,
-    pub trace_sample_count_scale: f32,
-    pub rayleigh_scattering_scale: f32,
-    pub rayleigh_scattering: crate::bindings::core_u_object::FLinearColor,
-    pub rayleigh_exponential_distribution: f32,
-    pub mie_scattering_scale: f32,
-    pub mie_scattering: crate::bindings::core_u_object::FLinearColor,
-    pub mie_absorption_scale: f32,
-    pub mie_absorption: crate::bindings::core_u_object::FLinearColor,
-    pub mie_anisotropy: f32,
-    pub mie_exponential_distribution: f32,
-    pub other_absorption_scale: f32,
-    pub other_absorption: crate::bindings::core_u_object::FLinearColor,
-    pub other_tent_distribution_tip_altitude: f32,
-    pub other_tent_distribution_tip_value: f32,
-    pub other_tent_distribution_width: f32,
-    pub sky_luminance_factor: crate::bindings::core_u_object::FLinearColor,
-    pub sky_and_aerial_perspective_luminance_factor: crate::bindings::core_u_object::FLinearColor,
-    pub aerial_pespective_view_distance_scale: f32,
-    pub height_fog_contribution: f32,
-    pub transmittance_min_light_elevation_angle: f32,
-    pub aerial_perspective_start_depth: f32,
-    pub flags_180: u8,
-    pub component_transform: crate::bindings::core_u_object::FTransform,
-    pub override_atmospheric_light: FOverrideAtmosphericLight,
-}
-#[repr(C, align(8))]
-pub struct FSkyAtmosphereHandle {}
+impl FSceneViewExtensionIsActiveFunctor {}
 #[repr(C, align(8))]
 pub struct FSoftWorldReference {
     pub world_asset: TSoftObjectPtr<UWorld>,
 }
+impl FSoftWorldReference {}
 #[repr(C, align(8))]
 pub struct FSourceEffectChainEntry {
     pub preset: UPtr<USoundEffectSourcePreset>,
     pub flags_8: u8,
+    __padding_end: [u8; 7],
 }
+impl FSourceEffectChainEntry {}
 #[repr(C, align(8))]
 pub struct FSoundSourceBusSendInfo {
-    pub source_bus_send_level_control_method: ESourceBusSendLevelControlMethod,
-    pub sound_source_bus: UPtr<USoundSourceBus>,
-    pub audio_bus: UPtr<UAudioBus>,
-    pub send_level: f32,
+    #[doc(hidden)]
+    __padding_28: [u8; 28],
     pub min_send_level: f32,
     pub max_send_level: f32,
     pub min_send_distance: f32,
     pub max_send_distance: f32,
     pub custom_send_level_curve: FRuntimeFloatCurve,
 }
-#[repr(C, align(8))]
-pub struct FSoundTimecodeOffset {
-    pub num_of_seconds_since_midnight: f64,
-}
-#[repr(C, align(8))]
-pub struct FSoundWaveTimecodeInfo {
-    pub num_samples_since_midnight: u64,
-    pub num_samples_per_second: u32,
-    pub description: FString,
-    pub originator_time: FString,
-    pub originator_date: FString,
-    pub originator_description: FString,
-    pub originator_reference: FString,
-    pub timecode_rate: crate::bindings::core_u_object::FFrameRate,
-    pub b_timecode_is_drop_frame: bool,
-}
-#[repr(C, align(8))]
-pub struct FStaticMeshComponentLODInfo {}
-#[repr(C, align(4))]
-pub struct FStaticMeshStaticState {}
-#[repr(C, align(8))]
-pub struct FStaticMeshDynamicState {
-    pub transform: crate::bindings::state_stream::FTransformHandle,
-    pub mesh: UPtr<UStaticMesh>,
-    pub override_materials: TArray<UPtr<UMaterialInterface>>,
-    pub owners: TArray<u32>,
-    pub flags_64: u8,
-}
-#[repr(C, align(8))]
-pub struct FStaticMeshHandle {}
-#[repr(C, align(4))]
-pub struct FStaticParameterBase {
-    pub parameter_info: FMaterialParameterInfo,
-    pub b_override: bool,
-    pub expression_guid: crate::bindings::core_u_object::FGuid,
-}
-#[repr(C, align(4))]
-pub struct FStaticSwitchParameter {
-    pub value: bool,
-}
-#[repr(C, align(4))]
-pub struct FStaticComponentMaskParameter {
-    pub r: bool,
-    pub g: bool,
-    pub b: bool,
-    pub a: bool,
-}
-#[repr(C, align(4))]
-pub struct FStaticTerrainLayerWeightParameter {
-    pub parameter_info_deprecated: FMaterialParameterInfo,
-    pub expression_guid_deprecated: crate::bindings::core_u_object::FGuid,
-    pub b_override_deprecated: bool,
-    pub layer_name: FName,
-    pub weightmap_index: i32,
-    pub b_is_repeated_layer: bool,
-    pub b_weight_based_blend: bool,
-}
-#[repr(C, align(8))]
-pub struct FStaticMaterialLayersParameter {
-    pub value: FMaterialLayersFunctions,
-}
-#[repr(C, align(8))]
-pub struct FStaticParameterSetRuntimeData {
-    pub static_switch_parameters: TArray<FStaticSwitchParameter>,
-    pub material_layers: FMaterialLayersFunctionsRuntimeData,
-    pub flags_72: u8,
-}
-#[repr(C, align(8))]
-pub struct FStaticParameterSetEditorOnlyData {
-    pub static_switch_parameters_deprecated: TArray<FStaticSwitchParameter>,
-    pub static_component_mask_parameters: TArray<FStaticComponentMaskParameter>,
-    pub terrain_layer_weight_parameters: TArray<FStaticTerrainLayerWeightParameter>,
-    pub material_layers: FMaterialLayersFunctionsEditorOnlyData,
-}
-#[repr(C, align(8))]
-pub struct FStaticParameterSet {
-    pub editor_only: FStaticParameterSetEditorOnlyData,
-    pub material_layers_parameters_deprecated: TArray<FStaticMaterialLayersParameter>,
-    pub static_switch_parameters_deprecated: TArray<FStaticSwitchParameter>,
-    pub static_component_mask_parameters_deprecated: TArray<
-        FStaticComponentMaskParameter,
-    >,
-    pub terrain_layer_weight_parameters_deprecated: TArray<
-        FStaticTerrainLayerWeightParameter,
-    >,
-}
-#[repr(C, align(8))]
-pub struct FStreamingRenderAssetPrimitiveInfo {
-    pub render_asset: UPtr<UStreamableRenderAsset>,
-    pub bounds: crate::bindings::core_u_object::FBoxSphereBounds,
-    pub texel_factor: f32,
-    pub packed_relative_box: u32,
-    pub flags_72: u8,
-}
-#[repr(C, align(4))]
-pub struct FStreamingTextureBuildInfo {
-    pub packed_relative_box: u32,
-    pub texture_level_index: i32,
-    pub texel_factor: f32,
-}
-#[repr(C, align(8))]
-pub struct FTimelineEventEntry {
-    pub time: f32,
-    pub event_func: FTimelineEventEntry_EventFunc,
-}
-#[repr(C, align(8))]
-pub struct FTimelineVectorTrack {
-    pub vector_curve: UPtr<UCurveVector>,
-    pub interp_func: FTimelineVectorTrack_InterpFunc,
-    pub track_name: FName,
-    pub vector_property_name: FName,
-}
-#[repr(C, align(8))]
-pub struct FTimelineFloatTrack {
-    pub float_curve: UPtr<UCurveFloat>,
-    pub interp_func: FTimelineFloatTrack_InterpFunc,
-    pub track_name: FName,
-    pub float_property_name: FName,
-}
-#[repr(C, align(8))]
-pub struct FTimelineLinearColorTrack {
-    pub linear_color_curve: UPtr<UCurveLinearColor>,
-    pub interp_func: FTimelineLinearColorTrack_InterpFunc,
-    pub track_name: FName,
-    pub linear_color_property_name: FName,
-}
-#[repr(C, align(8))]
-pub struct FTimeline {
-    pub length_mode: ETimelineLengthMode,
-    pub flags_1: u8,
-    pub playing_state_tracker: u8,
-    pub length: f32,
-    pub play_rate: f32,
-    pub position: f32,
-    pub events: TArray<FTimelineEventEntry>,
-    pub interp_vectors: TArray<FTimelineVectorTrack>,
-    pub interp_floats: TArray<FTimelineFloatTrack>,
-    pub interp_linear_colors: TArray<FTimelineLinearColorTrack>,
-    pub timeline_post_update_func: FTimeline_TimelinePostUpdateFunc,
-    pub timeline_finished_func: FTimeline_TimelineFinishedFunc,
-    pub property_set_object: TWeakObjectPtr<crate::bindings::core_u_object::UObject>,
-    pub direction_property_name: FName,
-}
-#[repr(C, align(8))]
-pub struct FActorContainerPath {
-    pub container_guids: TArray<crate::bindings::core_u_object::FGuid>,
-}
-#[repr(C, align(8))]
-pub struct FAttributeKey {
-    pub time: f32,
-}
+impl FSoundSourceBusSendInfo {}
 #[repr(C, align(8))]
 pub struct FAttributeCurve {
-    pub keys: TArray<FAttributeKey>,
-    pub script_struct_path: crate::bindings::core_u_object::FSoftObjectPath,
-    pub script_struct: UPtr<crate::bindings::core_u_object::UScriptStruct>,
-    pub b_should_interpolate: bool,
+    __padding_end: [u8; 184],
 }
+impl FAttributeCurve {}
 #[repr(C, align(4))]
 pub struct FQuartzPulseOverrideStep {
     pub number_of_pulses: i32,
     pub pulse_duration: EQuartzCommandQuantization,
+    __padding_end: [u8; 3],
 }
+impl FQuartzPulseOverrideStep {}
 #[repr(C, align(8))]
 pub struct FQuartzTimeSignature {
     pub num_beats: i32,
     pub beat_type: EQuartzTimeSignatureQuantization,
     pub optional_pulse_override: TArray<FQuartzPulseOverrideStep>,
 }
+impl FQuartzTimeSignature {}
 #[repr(C, align(4))]
 pub struct FQuartzTransportTimeStamp {
     pub bars: i32,
@@ -2435,11 +1235,14 @@ pub struct FQuartzTransportTimeStamp {
     pub beat_fraction: f32,
     pub seconds: f32,
 }
+impl FQuartzTransportTimeStamp {}
 #[repr(C, align(8))]
 pub struct FQuartzClockSettings {
     pub time_signature: FQuartzTimeSignature,
     pub b_ignore_level_change: bool,
+    __padding_end: [u8; 7],
 }
+impl FQuartzClockSettings {}
 #[repr(C, align(8))]
 pub struct FQuartzQuantizationBoundary {
     pub quantization: EQuartzCommandQuantization,
@@ -2449,98 +1252,60 @@ pub struct FQuartzQuantizationBoundary {
     pub b_cancel_command_if_clock_is_not_running: bool,
     pub b_reset_clock_on_queued: bool,
     pub b_resume_clock_on_queued: bool,
+    __padding_end: [u8; 19],
 }
-#[repr(C, align(8))]
-pub struct FNavAvoidanceData {}
+impl FQuartzQuantizationBoundary {}
 #[repr(C, align(1))]
 pub struct FMovementProperties {
     pub flags_0: u8,
 }
+impl FMovementProperties {}
 #[repr(C, align(4))]
 pub struct FNavMovementProperties {
-    pub fixed_path_braking_distance: f32,
-    pub b_update_nav_agent_with_owners_collision: bool,
-    pub b_use_acceleration_for_paths: bool,
-    pub b_use_fixed_braking_distance_for_paths: bool,
-    pub b_stop_movement_abort_paths: bool,
+    __padding_end: [u8; 8],
 }
+impl FNavMovementProperties {}
 #[repr(C, align(8))]
 pub struct FNavAgentProperties {
+    #[doc(hidden)]
+    __padding_4: [u8; 4],
     pub agent_radius: f32,
     pub agent_height: f32,
     pub agent_step_height: f32,
     pub nav_walking_search_height_scale: f32,
     pub preferred_nav_data: crate::bindings::core_u_object::FSoftClassPath,
 }
+impl FNavAgentProperties {}
 #[repr(C, align(8))]
 pub struct FNavDataConfig {
+    #[doc(hidden)]
+    __padding_64: [u8; 64],
     pub name: FName,
     pub color: crate::bindings::core_u_object::FColor,
     pub default_query_extent: crate::bindings::core_u_object::FVector,
     pub nav_data_class: TSoftObjectPtr<crate::bindings::core_u_object::UClass>,
 }
+impl FNavDataConfig {}
 #[repr(C, align(8))]
 pub struct FAlphaBlendArgs {
     pub custom_curve: UPtr<UCurveFloat>,
     pub blend_time: f32,
     pub blend_option: EAlphaBlendOption,
+    __padding_end: [u8; 3],
 }
+impl FAlphaBlendArgs {}
 #[repr(C, align(8))]
 pub struct FBlendSampleData {
-    pub sample_data_index: i32,
-    pub animation: UPtr<UAnimSequence>,
-    pub total_weight: f32,
-    pub weight_rate: f32,
-    pub time: f32,
-    pub previous_time: f32,
-    pub sample_play_rate: f32,
+    __padding_end: [u8; 96],
 }
-#[repr(C, align(8))]
-pub struct FBlendFilter {}
+impl FBlendSampleData {}
 #[repr(C, align(4))]
 pub struct FMarkerSyncAnimPosition {
     pub previous_marker_name: FName,
     pub next_marker_name: FName,
     pub position_between_markers: f32,
 }
-#[repr(C, align(8))]
-pub struct FAnimTickRecord {
-    pub source_asset: UPtr<UAnimationAsset>,
-}
-#[repr(C, align(8))]
-pub struct FAnimGroupInstance {}
-#[repr(C, align(16))]
-pub struct FRootMotionMovementParams {
-    pub b_has_root_motion: bool,
-    pub blend_weight: f32,
-    pub root_motion_transform: crate::bindings::core_u_object::FTransform,
-}
-#[repr(C, align(4))]
-pub struct FAnimationGroupReference {
-    pub method: EAnimSyncMethod,
-    pub group_name: FName,
-    pub group_role: EAnimGroupRole,
-}
-#[repr(C, align(8))]
-pub struct FEncounteredStateMachineStack {}
-#[repr(C, align(8))]
-pub struct FAnimationRecordingSettings {
-    pub b_record_in_world_space: bool,
-    pub b_remove_root_animation: bool,
-    pub b_auto_save_asset: bool,
-    pub sample_frame_rate: crate::bindings::core_u_object::FFrameRate,
-    pub length: f32,
-    pub interpolation: EAnimInterpolationType,
-    pub interp_mode: ERichCurveInterpMode,
-    pub tangent_mode: ERichCurveTangentMode,
-    pub b_record_transforms: bool,
-    pub b_record_morph_targets: bool,
-    pub b_record_attribute_curves: bool,
-    pub b_record_material_curves: bool,
-    pub b_transact_recording: bool,
-    pub include_animation_names: TArray<FString>,
-    pub exclude_animation_names: TArray<FString>,
-}
+impl FMarkerSyncAnimPosition {}
 #[repr(C, align(8))]
 pub struct FAnimBankSequence {
     pub sequence: UPtr<UAnimSequence>,
@@ -2549,248 +1314,113 @@ pub struct FAnimBankSequence {
     pub play_rate: f32,
     pub bounds_scale: f32,
 }
+impl FAnimBankSequence {}
 #[repr(C, align(8))]
 pub struct FAnimBankItem {
     pub bank_asset: UPtr<UAnimBank>,
     pub sequence_index: i32,
+    __padding_end: [u8; 4],
 }
+impl FAnimBankItem {}
 #[repr(C, align(8))]
 pub struct FSoftAnimBankItem {
     pub bank_asset: TSoftObjectPtr<UAnimBank>,
     pub sequence_index: i32,
+    __padding_end: [u8; 4],
 }
-#[repr(C, align(8))]
-pub struct FSkinnedMeshComponentDescriptorBase {
-    pub hash: u32,
-    pub mobility: EComponentMobility,
-    pub component_class: TSubclassOf<UInstancedSkinnedMeshComponent>,
-    pub instance_min_draw_distance: i32,
-    pub instance_start_cull_distance: i32,
-    pub instance_end_cull_distance: i32,
-    pub flags_36: u8,
-    pub flags_37: u8,
-    pub b_visible_in_ray_tracing: bool,
-    pub b_affect_dynamic_indirect_lighting: bool,
-    pub b_affect_distance_field_lighting: bool,
-    pub primitive_bounds_override: crate::bindings::core_u_object::FBox,
-    pub b_is_instance_data_gpu_only: bool,
-    pub num_instances_gpu_only: i32,
-    pub num_custom_data_floats_gpu_only: i32,
-    pub flags_116: u8,
-    pub hlod_batching_policy: EHLODBatchingPolicy,
-}
-#[repr(C, align(8))]
-pub struct FSkinnedMeshComponentDescriptor {
-    pub skinned_asset: UPtr<USkinnedAsset>,
-    pub transform_provider: UPtr<UTransformProviderData>,
-}
-#[repr(C, align(8))]
-pub struct FSoftSkinnedMeshComponentDescriptor {
-    pub skinned_asset: TSoftObjectPtr<USkinnedAsset>,
-    pub transform_provider: TSoftObjectPtr<UTransformProviderData>,
-}
-#[repr(C, align(4))]
-pub struct FStateMachineStateDebugData {}
-#[repr(C, align(8))]
-pub struct FStateMachineDebugData {}
-#[repr(C, align(8))]
-pub struct FAnimationFrameSnapshot {}
-#[repr(C, align(8))]
-pub struct FAnimBlueprintDebugData {}
-#[repr(C, align(1))]
-pub struct FAnimBlueprintMutableData {}
-#[repr(C, align(1))]
-pub struct FAnimBlueprintConstantData {}
-#[repr(C, align(8))]
-pub struct FAnimBlueprintFunction {
-    pub name: FName,
-    pub group: FName,
-    pub output_pose_node_index: i32,
-    pub input_pose_names: TArray<FName>,
-    pub input_pose_node_indices: TArray<i32>,
-    pub b_implemented: bool,
-}
-#[repr(C, align(8))]
-pub struct FCachedPoseIndices {
-    pub ordered_saved_pose_node_indices: TArray<i32>,
-}
-#[repr(C, align(8))]
-pub struct FGraphAssetPlayerInformation {
-    pub player_node_indices: TArray<i32>,
-}
-#[repr(C, align(8))]
-pub struct FAnimGraphBlendOptions {
-    pub blend_in_time: f32,
-    pub blend_in_profile: UPtr<UBlendProfile>,
-    pub blend_out_time: f32,
-    pub blend_out_profile: UPtr<UBlendProfile>,
-}
-#[repr(C, align(8))]
-pub struct FRootMotionExtractionStep {
-    pub anim_sequence: UPtr<UAnimSequence>,
-    pub start_position: f32,
-    pub end_position: f32,
-}
-#[repr(C, align(8))]
-pub struct FAnimSegment {
-    pub cached_play_length: f32,
-    pub anim_reference: UPtr<UAnimSequenceBase>,
-    pub start_pos: f32,
-    pub anim_start_time: f32,
-    pub anim_end_time: f32,
-    pub anim_play_rate: f32,
-    pub looping_count: i32,
-}
-#[repr(C, align(8))]
-pub struct FAnimTrack {
-    pub anim_segments: TArray<FAnimSegment>,
-}
-#[repr(C, align(4))]
-pub struct FAnimationErrorStats {}
-#[repr(C, align(4))]
-pub struct FAnimCompressedCurveIndexedName {
-    pub curve_name: FName,
-}
+impl FSoftAnimBankItem {}
 #[repr(C, align(8))]
 pub struct FAnimCurveBase {
-    pub last_observed_name_deprecated: FName,
-    pub name_deprecated: FSmartName,
-    pub color: crate::bindings::core_u_object::FLinearColor,
-    pub comment: FString,
-    pub curve_name: FName,
-    pub curve_type_flags: i32,
+    __padding_end: [u8; 80],
 }
+impl FAnimCurveBase {}
 #[repr(C, align(8))]
 pub struct FFloatCurve {
-    pub float_curve: FRichCurve,
+    __padding_end: [u8; 208],
 }
+impl FFloatCurve {}
 #[repr(C, align(8))]
 pub struct FVectorCurve {
-    pub float_curves: FRichCurve,
+    __padding_end: [u8; 464],
 }
+impl FVectorCurve {}
 #[repr(C, align(8))]
 pub struct FTransformCurve {
-    pub translation_curve: FVectorCurve,
-    pub rotation_curve: FVectorCurve,
-    pub scale_curve: FVectorCurve,
+    __padding_end: [u8; 1472],
 }
+impl FTransformCurve {}
 #[repr(C, align(4))]
 pub struct FCachedFloatCurve {
     pub curve_name: FName,
 }
-#[repr(C, align(8))]
-pub struct FRawCurveTracks {
-    pub float_curves: TArray<FFloatCurve>,
-    pub vector_curves: TArray<FVectorCurve>,
-    pub transform_curves: TArray<FTransformCurve>,
-}
+impl FCachedFloatCurve {}
 #[repr(C, align(8))]
 pub struct FBoneAnimationTrack {
     pub internal_track_data: FRawAnimSequenceTrack,
     pub bone_tree_index: i32,
     pub name: FName,
 }
+impl FBoneAnimationTrack {}
 #[repr(C, align(8))]
 pub struct FRawAnimSequenceTrack {
-    pub pos_keys: TArray<crate::bindings::core_u_object::FVector3f>,
-    pub rot_keys: TArray<crate::bindings::core_u_object::FQuat4f>,
-    pub scale_keys: TArray<crate::bindings::core_u_object::FVector3f>,
+    __padding_end: [u8; 48],
 }
+impl FRawAnimSequenceTrack {}
 #[repr(C, align(8))]
 pub struct FAnimationCurveData {
     pub float_curves: TArray<FFloatCurve>,
     pub transform_curves: TArray<FTransformCurve>,
 }
+impl FAnimationCurveData {}
 #[repr(C, align(8))]
 pub struct FAnimatedBoneAttribute {
     pub identifier: FAnimationAttributeIdentifier,
     pub curve: FAttributeCurve,
 }
+impl FAnimatedBoneAttribute {}
 #[repr(C, align(8))]
-pub struct FAnimExecutionContext {}
-#[repr(C, align(8))]
-pub struct FAnimInitializationContext {}
-#[repr(C, align(8))]
-pub struct FAnimUpdateContext {}
-#[repr(C, align(8))]
-pub struct FAnimPoseContext {}
-#[repr(C, align(8))]
-pub struct FAnimComponentSpacePoseContext {}
-#[repr(C, align(8))]
-pub struct FA2Pose {
-    pub bones: TArray<crate::bindings::core_u_object::FTransform>,
+pub struct FAnimExecutionContext {
+    __padding_end: [u8; 16],
 }
+impl FAnimExecutionContext {}
 #[repr(C, align(8))]
-pub struct FA2CSPose {
-    pub component_space_flags: TArray<u8>,
+pub struct FAnimInitializationContext {
+    __padding_end: [u8; 16],
 }
+impl FAnimInitializationContext {}
 #[repr(C, align(8))]
-pub struct FAnimLinkableElement {
-    pub linked_montage: UPtr<UAnimMontage>,
-    pub slot_index: i32,
-    pub segment_index: i32,
-    pub link_method: EAnimLinkMethod,
-    pub cached_link_method: EAnimLinkMethod,
-    pub segment_begin_time: f32,
-    pub segment_length: f32,
-    pub link_value: f32,
-    pub linked_sequence: UPtr<UAnimSequenceBase>,
+pub struct FAnimUpdateContext {
+    __padding_end: [u8; 16],
 }
+impl FAnimUpdateContext {}
 #[repr(C, align(8))]
-pub struct FCompositeSection {
-    pub section_name: FName,
-    pub start_time_deprecated: f32,
-    pub next_section_name: FName,
-    pub meta_data: TArray<UPtr<UAnimMetaData>>,
+pub struct FAnimPoseContext {
+    __padding_end: [u8; 16],
 }
+impl FAnimPoseContext {}
 #[repr(C, align(8))]
-pub struct FSlotAnimationTrack {
-    pub slot_name: FName,
-    pub anim_track: FAnimTrack,
+pub struct FAnimComponentSpacePoseContext {
+    __padding_end: [u8; 16],
 }
-#[repr(C, align(8))]
-pub struct FBranchingPoint {
-    pub event_name: FName,
-    pub display_time_deprecated: f32,
-    pub trigger_time_offset: f32,
-}
-#[repr(C, align(4))]
-pub struct FBranchingPointMarker {
-    pub notify_index: i32,
-    pub trigger_time: f32,
-    pub notify_event_type: EAnimNotifyEventType,
-}
+impl FAnimComponentSpacePoseContext {}
 #[repr(C, align(8))]
 pub struct FMontageBlendSettings {
     pub blend_profile: UPtr<UBlendProfile>,
     pub blend: FAlphaBlendArgs,
     pub blend_mode: EMontageBlendMode,
+    __padding_end: [u8; 7],
 }
-#[repr(C, align(8))]
-pub struct FAnimMontageInstance {
-    pub montage: UPtr<UAnimMontage>,
-    pub b_playing: bool,
-    pub default_blend_time_multiplier: f32,
-    pub next_sections: TArray<i32>,
-    pub prev_sections: TArray<i32>,
-    pub active_state_branching_points: TArray<FAnimNotifyEvent>,
-    pub position: f32,
-    pub play_rate: f32,
-    pub blend: FAlphaBlend,
-    pub disable_root_motion_count: i32,
-}
+impl FMontageBlendSettings {}
 #[repr(C, align(8))]
 pub struct FAnimNotifyEvent {
-    pub display_time_deprecated: f32,
-    pub trigger_time_offset: f32,
-    pub end_trigger_time_offset: f32,
+    #[doc(hidden)]
+    __padding_60: [u8; 60],
     pub trigger_weight_threshold: f32,
     pub notify_name: FName,
     pub notify: UPtr<UAnimNotify>,
     pub notify_state_class: UPtr<UAnimNotifyState>,
-    pub duration: f32,
-    pub end_link: FAnimLinkableElement,
-    pub b_converted_from_branching_point: bool,
+    #[doc(hidden)]
+    __padding_153: [u8; 57],
     pub montage_tick_type: EMontageNotifyTickType,
     pub notify_trigger_chance: f32,
     pub notify_filter_type: ENotifyFilterType,
@@ -2798,32 +1428,32 @@ pub struct FAnimNotifyEvent {
     pub b_can_be_filtered_via_request: bool,
     pub b_trigger_on_dedicated_server: bool,
     pub b_trigger_on_follower: bool,
-    pub notify_color: crate::bindings::core_u_object::FColor,
-    pub guid: crate::bindings::core_u_object::FGuid,
-    pub track_index: i32,
+    __padding_end: [u8; 53],
 }
+impl FAnimNotifyEvent {}
 #[repr(C, align(8))]
 pub struct FAnimNodeData {
-    pub anim_class_interface: TScriptInterface<IAnimClassInterface>,
-    pub entries: TArray<u32>,
-    pub node_index: i32,
-    pub flags: u32,
+    __padding_end: [u8; 40],
 }
-#[repr(C, align(8))]
-pub struct FAnimNodeStructData {
-    pub name_to_index_map: TMap<FName, i32>,
-    pub num_properties: i32,
-}
+impl FAnimNodeData {}
 #[repr(C, align(8))]
 pub struct FAnimNode_ConvertComponentToLocalSpace {
+    #[doc(hidden)]
+    __padding_136: [u8; 136],
     pub component_pose: FComponentSpacePoseLink,
 }
+impl FAnimNode_ConvertComponentToLocalSpace {}
 #[repr(C, align(8))]
 pub struct FAnimNode_ConvertLocalToComponentSpace {
+    #[doc(hidden)]
+    __padding_136: [u8; 136],
     pub local_pose: FPoseLink,
 }
+impl FAnimNode_ConvertLocalToComponentSpace {}
 #[repr(C, align(8))]
 pub struct FAnimNode_ApplyMeshSpaceAdditive {
+    #[doc(hidden)]
+    __padding_136: [u8; 136],
     pub base: FPoseLink,
     pub additive: FPoseLink,
     pub flags_184: u8,
@@ -2835,114 +1465,52 @@ pub struct FAnimNode_ApplyMeshSpaceAdditive {
     pub alpha_scale_bias: FInputScaleBias,
     pub alpha_scale_bias_clamp: FInputScaleBiasClamp,
     pub lod_threshold: i32,
+    __padding_end: [u8; 8],
 }
-#[repr(C, align(8))]
-pub struct FAnimNode_CustomProperty {
-    pub source_property_names: TArray<FName>,
-    pub dest_property_names: TArray<FName>,
-    pub target_instance: UPtr<crate::bindings::core_u_object::UObject>,
-    pub source_instance: UPtr<crate::bindings::core_u_object::UObject>,
-}
+impl FAnimNode_ApplyMeshSpaceAdditive {}
 #[repr(C, align(16))]
 pub struct FAnimNode_DeadBlending {
-    pub source: FPoseLink,
-    pub b_always_use_default_blend_settings: bool,
-    pub default_blend_duration: f32,
-    pub default_blend_profile: UPtr<UBlendProfile>,
-    pub default_blend_mode: EAlphaBlendOption,
-    pub default_custom_blend_curve: UPtr<UCurveFloat>,
-    pub blend_time_multiplier: f32,
-    pub b_linearly_interpolate_scales: bool,
-    pub filtered_curves: TArray<FName>,
-    pub extrapolation_filtered_curves: TArray<FName>,
-    pub filtered_bones: TArray<FBoneReference>,
-    pub extrapolation_half_life: f32,
-    pub extrapolation_half_life_min: f32,
-    pub extrapolation_half_life_max: f32,
-    pub maximum_translation_velocity: f32,
-    pub maximum_rotation_velocity: f32,
-    pub maximum_scale_velocity: f32,
-    pub maximum_curve_velocity: f32,
-    pub b_reset_on_becoming_relevant: bool,
-    pub b_forward_requests_through_skipped_cached_pose_nodes: bool,
-    pub tag: FName,
-    pub b_show_extrapolations: bool,
-    pub request_queue: TArray<FInertializationRequest>,
-    pub inertialization_custom_blend_curve: UPtr<UCurveFloat>,
-    pub inertialization_request_anim_instance: UPtr<
-        crate::bindings::core_u_object::UObject,
-    >,
+    __padding_end: [u8; 1872],
 }
-#[repr(C, align(16))]
-pub struct FInertializationPose {}
-#[repr(C, align(8))]
-pub struct FInertializationBoneDiff {}
-#[repr(C, align(8))]
-pub struct FInertializationPoseDiff {}
+impl FAnimNode_DeadBlending {}
 #[repr(C, align(16))]
 pub struct FAnimNode_Inertialization {
-    pub source: FPoseLink,
-    pub default_blend_profile: UPtr<UBlendProfile>,
-    pub filtered_curves: TArray<FName>,
-    pub filtered_bones: TArray<FBoneReference>,
-    pub b_preallocate_memory_deprecated: bool,
-    pub b_reset_on_becoming_relevant: bool,
-    pub b_forward_requests_through_skipped_cached_pose_nodes: bool,
-    pub tag: FName,
-    pub request_queue: TArray<FInertializationRequest>,
-    pub inertialization_request_anim_instance: UPtr<
-        crate::bindings::core_u_object::UObject,
-    >,
+    __padding_end: [u8; 1520],
 }
+impl FAnimNode_Inertialization {}
 #[repr(C, align(8))]
 pub struct FAnimNode_LinkedAnimGraph {
-    pub input_poses: TArray<FPoseLink>,
-    pub input_pose_names: TArray<FName>,
-    pub instance_class: TSubclassOf<UAnimInstance>,
-    pub tag_deprecated: FName,
-    pub pending_blend_out_profile: UPtr<UBlendProfile>,
-    pub pending_blend_in_profile: UPtr<UBlendProfile>,
-    pub flags_320: u8,
+    __padding_end: [u8; 328],
 }
+impl FAnimNode_LinkedAnimGraph {}
 #[repr(C, align(8))]
 pub struct FAnimNode_LinkedAnimLayer {
-    pub interface: TSubclassOf<UAnimLayerInterface>,
-    pub layer: FName,
+    __padding_end: [u8; 384],
 }
-#[repr(C, align(8))]
-pub struct FAnimNode_LinkedInputPose {
-    pub name: FName,
-    pub graph: FName,
-    pub input_pose: FPoseLink,
-    pub flags_304: u8,
-}
+impl FAnimNode_LinkedAnimLayer {}
 #[repr(C, align(8))]
 pub struct FAnimNode_SaveCachedPose {
+    #[doc(hidden)]
+    __padding_136: [u8; 136],
     pub pose: FPoseLink,
-    pub cache_pose_name: FName,
+    __padding_end: [u8; 96],
 }
+impl FAnimNode_SaveCachedPose {}
 #[repr(C, align(8))]
 pub struct FAnimNode_SequencePlayerBase {
-    pub play_rate_scale_bias_clamp_state: FInputScaleBiasClampState,
+    __padding_end: [u8; 192],
 }
+impl FAnimNode_SequencePlayerBase {}
 #[repr(C, align(4))]
-pub struct FInputScaleBiasClampState {}
+pub struct FInputScaleBiasClampState {
+    __padding_end: [u8; 8],
+}
+impl FInputScaleBiasClampState {}
 #[repr(C, align(8))]
 pub struct FAnimNode_SequencePlayer {
-    pub group_name: FName,
-    pub group_role: EAnimGroupRole,
-    pub b_override_position_when_joining_sync_group_as_leader: bool,
-    pub method: EAnimSyncMethod,
-    pub b_ignore_for_relevancy_test: bool,
-    pub sequence: UPtr<UAnimSequenceBase>,
-    pub play_rate_basis: f32,
-    pub play_rate: f32,
-    pub play_rate_scale_bias_clamp_constants: FInputScaleBiasClampConstants,
-    pub play_rate_scale_bias_clamp_deprecated: FInputScaleBiasClamp,
-    pub start_position: f32,
-    pub b_loop_animation: bool,
-    pub b_start_from_matching_pose: bool,
+    __padding_end: [u8; 328],
 }
+impl FAnimNode_SequencePlayer {}
 #[repr(C, align(4))]
 pub struct FInputScaleBiasClampConstants {
     pub b_map_range: bool,
@@ -2957,407 +1525,103 @@ pub struct FInputScaleBiasClampConstants {
     pub interp_speed_increasing: f32,
     pub interp_speed_decreasing: f32,
 }
+impl FInputScaleBiasClampConstants {}
 #[repr(C, align(8))]
 pub struct FAnimNode_SequencePlayer_Standalone {
-    pub group_name: FName,
-    pub group_role: EAnimGroupRole,
-    pub b_override_position_when_joining_sync_group_as_leader: bool,
-    pub method: EAnimSyncMethod,
-    pub b_ignore_for_relevancy_test: bool,
-    pub sequence: UPtr<UAnimSequenceBase>,
-    pub play_rate_basis: f32,
-    pub play_rate: f32,
-    pub play_rate_scale_bias_clamp_constants: FInputScaleBiasClampConstants,
-    pub start_position: f32,
-    pub b_loop_animation: bool,
-    pub b_start_from_matching_pose: bool,
+    __padding_end: [u8; 280],
 }
-#[repr(C, align(8))]
-pub struct FAnimationActiveTransitionEntry {
-    pub blend_profile: UPtr<UBlendProfile>,
-}
-#[repr(C, align(8))]
-pub struct FAnimationPotentialTransition {}
-#[repr(C, align(8))]
-pub struct FAnimNode_StateMachine {
-    pub state_machine_index_in_class: i32,
-    pub max_transitions_per_frame: i32,
-    pub max_transitions_requests: i32,
-    pub b_skip_first_update_transition: bool,
-    pub b_reinitialize_on_becoming_relevant: bool,
-    pub b_create_notify_meta_data: bool,
-    pub b_allow_conduit_entry_states: bool,
-}
+impl FAnimNode_SequencePlayer_Standalone {}
 #[repr(C, align(8))]
 pub struct FAnimNode_StateResult {
-    pub state_index: i32,
-    pub state_entry_function: FAnimNodeFunctionRef,
-    pub state_fully_blended_in_function: FAnimNodeFunctionRef,
-    pub state_exit_function: FAnimNodeFunctionRef,
-    pub state_fully_blended_out_function: FAnimNodeFunctionRef,
+    __padding_end: [u8; 368],
 }
+impl FAnimNode_StateResult {}
 #[repr(C, align(8))]
 pub struct FAnimNode_TransitionPoseEvaluator {
+    #[doc(hidden)]
+    __padding_256: [u8; 256],
     pub frames_to_cache_pose: i32,
+    #[doc(hidden)]
+    __padding_264: [u8; 4],
     pub data_source: EEvaluatorDataSource,
     pub evaluator_mode: EEvaluatorMode,
+    __padding_end: [u8; 22],
 }
+impl FAnimNode_TransitionPoseEvaluator {}
 #[repr(C, align(8))]
 pub struct FAnimNode_TransitionResult {
+    #[doc(hidden)]
+    __padding_136: [u8; 136],
     pub b_can_enter_transition: bool,
+    __padding_end: [u8; 31],
 }
-#[repr(C, align(8))]
-pub struct FAnimNode_UseCachedPose {
-    pub link_to_caching_node: FPoseLink,
-    pub cache_pose_name: FName,
-}
+impl FAnimNode_TransitionResult {}
 #[repr(C, align(8))]
 pub struct FAnimNotifyEventReference {
-    pub mirror_table: UPtr<UMirrorDataTable>,
-    pub notify_source: UPtr<crate::bindings::core_u_object::UObject>,
+    __padding_end: [u8; 48],
 }
-#[repr(C, align(8))]
-pub struct FAnimNotifyArray {
-    pub notifies: TArray<FAnimNotifyEventReference>,
-}
-#[repr(C, align(8))]
-pub struct FAnimNotifyContext {}
-#[repr(C, align(8))]
-pub struct FAnimNotifyQueue {
-    pub anim_notifies: TArray<FAnimNotifyEventReference>,
-    pub unfiltered_montage_anim_notifies: TMap<FName, FAnimNotifyArray>,
-    pub world: TWeakObjectPtr<UWorld>,
-}
-#[repr(C, align(8))]
-pub struct FAnimSequenceTrackContainer {
-    pub animation_tracks: TArray<FRawAnimSequenceTrack>,
-    pub track_names: TArray<FName>,
-}
-#[repr(C, align(8))]
-pub struct FTranslationTrack {
-    pub pos_keys: TArray<crate::bindings::core_u_object::FVector3f>,
-    pub times: TArray<f32>,
-}
-#[repr(C, align(8))]
-pub struct FRotationTrack {
-    pub rot_keys: TArray<crate::bindings::core_u_object::FQuat4f>,
-    pub times: TArray<f32>,
-}
-#[repr(C, align(8))]
-pub struct FScaleTrack {
-    pub scale_keys: TArray<crate::bindings::core_u_object::FVector3f>,
-    pub times: TArray<f32>,
-}
-#[repr(C, align(8))]
-pub struct FCurveTrack {
-    pub curve_name: FName,
-    pub curve_weights: TArray<f32>,
-}
-#[repr(C, align(8))]
-pub struct FCompressedTrack {
-    pub byte_stream: TArray<u8>,
-    pub times: TArray<f32>,
-    pub mins: f32,
-    pub ranges: f32,
-}
-#[repr(C, align(8))]
-pub struct FAnimSetMeshLinkup {
-    pub bone_to_track_table: TArray<i32>,
-}
+impl FAnimNotifyEventReference {}
 #[repr(C, align(8))]
 pub struct FAnimNode_SingleNode {
+    #[doc(hidden)]
+    __padding_136: [u8; 136],
     pub source_pose: FPoseLink,
+    __padding_end: [u8; 24],
 }
-#[repr(C, align(4))]
-pub struct FAnimationTransitionRule {
-    pub rule_to_execute: FName,
-    pub transition_return_val: bool,
-    pub transition_index: i32,
-}
-#[repr(C, align(4))]
-pub struct FAnimationStateBase {
-    pub state_name: FName,
-}
-#[repr(C, align(8))]
-pub struct FAnimationState {
-    pub transitions: TArray<FAnimationTransitionRule>,
-    pub state_root_node_index: i32,
-    pub start_notify: i32,
-    pub end_notify: i32,
-    pub fully_blended_notify: i32,
-}
-#[repr(C, align(8))]
-pub struct FAnimationTransitionBetweenStates {
-    pub custom_curve: UPtr<UCurveFloat>,
-    pub blend_profile: UPtr<UBlendProfile>,
-    pub previous_state: i32,
-    pub next_state: i32,
-    pub crossfade_duration: f32,
-    pub min_time_before_reentry: f32,
-    pub start_notify: i32,
-    pub end_notify: i32,
-    pub interrupt_notify: i32,
-    pub blend_mode: EAlphaBlendOption,
-    pub logic_type: ETransitionLogicType,
-    pub flags_62: u8,
-}
-#[repr(C, align(8))]
-pub struct FBakedStateExitTransition {
-    pub can_take_delegate_index: i32,
-    pub custom_result_node_index: i32,
-    pub transition_index: i32,
-    pub b_desired_transition_return_value: bool,
-    pub b_automatic_remaining_time_rule: bool,
-    pub automatic_rule_trigger_time: f32,
-    pub sync_group_name_to_require_valid_markers_rule: FName,
-    pub pose_evaluator_links: TArray<i32>,
-}
-#[repr(C, align(8))]
-pub struct FBakedAnimationState {
-    pub player_node_indices: TArray<i32>,
-    pub layer_node_indices: TArray<i32>,
-    pub transitions: TArray<FBakedStateExitTransition>,
-    pub state_name: FName,
-    pub state_root_node_index: i32,
-    pub start_notify: i32,
-    pub end_notify: i32,
-    pub fully_blended_notify: i32,
-    pub entry_rule_node_index: i32,
-    pub b_always_reset_on_entry: bool,
-    pub b_is_a_conduit: bool,
-}
-#[repr(C, align(8))]
-pub struct FBakedAnimationStateMachine {
-    pub machine_name: FName,
-    pub initial_state: i32,
-    pub states: TArray<FBakedAnimationState>,
-    pub transitions: TArray<FAnimationTransitionBetweenStates>,
-}
-#[repr(C, align(8))]
-pub struct FAnimSubsystem_Base {}
-#[repr(C, align(8))]
-pub struct FAnimSubsystemInstance_NodeRelevancy {}
-#[repr(C, align(8))]
-pub struct FAnimSubsystem_PropertyAccess {
-    pub library: FPropertyAccessLibrary,
-}
-#[repr(C, align(8))]
-pub struct FPropertyAccessLibrary {
-    pub path_segments: TArray<FPropertyAccessSegment>,
-    pub src_paths: TArray<FPropertyAccessPath>,
-    pub dest_paths: TArray<FPropertyAccessPath>,
-    pub copy_batches_deprecated: FPropertyAccessCopyBatch,
-    pub copy_batch_array: TArray<FPropertyAccessCopyBatch>,
-}
-#[repr(C, align(8))]
-pub struct FPropertyAccessCopyBatch {
-    pub copies: TArray<FPropertyAccessCopy>,
-}
-#[repr(C, align(4))]
-pub struct FPropertyAccessCopy {
-    pub access_index: i32,
-    pub dest_access_start_index: i32,
-    pub dest_access_end_index: i32,
-    pub ty: EPropertyAccessCopyType,
-}
-#[repr(C, align(4))]
-pub struct FPropertyAccessPath {
-    pub path_segment_start_index: i32,
-    pub path_segment_count: i32,
-}
-#[repr(C, align(8))]
-pub struct FPropertyAccessSegment {
-    pub name: FName,
-    pub _struct: UPtr<crate::bindings::core_u_object::UStruct>,
-    pub property: TFieldPath<FProperty>,
-    pub function: UPtr<crate::bindings::core_u_object::UFunction>,
-    pub array_index: i32,
-    pub flags: u16,
-}
-#[repr(C, align(8))]
-pub struct FLinkedAnimLayerInstanceData {
-    pub instance: UPtr<UAnimInstance>,
-    pub linked_functions: TMap<FName, TWeakObjectPtr<UAnimInstance>>,
-}
-#[repr(C, align(8))]
-pub struct FLinkedAnimLayerClassData {
-    pub instances_data: TArray<FLinkedAnimLayerInstanceData>,
-}
-#[repr(C, align(8))]
-pub struct FAnimSubsystem_SharedLinkedAnimLayers {
-    pub classes_data: TArray<FLinkedAnimLayerClassData>,
-    pub persistent_classes: TArray<TSubclassOf<UAnimInstance>>,
-}
-#[repr(C, align(8))]
-pub struct FAnimSubsystem_Tag {
-    pub node_indices: TMap<FName, i32>,
-}
+impl FAnimNode_SingleNode {}
 #[repr(C, align(8))]
 pub struct FPerBoneBlendWeights {
-    pub bone_blend_weights: TArray<FPerBoneBlendWeight>,
+    __padding_end: [u8; 16],
 }
+impl FPerBoneBlendWeights {}
 #[repr(C, align(4))]
 pub struct FAnimSyncMarker {
     pub marker_name: FName,
     pub time: f32,
-    pub track_index: i32,
-    pub guid: crate::bindings::core_u_object::FGuid,
+    __padding_end: [u8; 20],
 }
-#[repr(C, align(8))]
-pub struct FAnimNotifyTrack {
-    pub track_name: FName,
-    pub track_color: crate::bindings::core_u_object::FLinearColor,
-}
-#[repr(C, align(8))]
-pub struct FMarkerSyncData {
-    pub authored_sync_markers: TArray<FAnimSyncMarker>,
-}
-#[repr(C, align(4))]
-pub struct FTrackToSkeletonMap {
-    pub bone_tree_index: i32,
-}
-#[repr(C, align(8))]
-pub struct FAssetMapping {
-    pub source_asset: UPtr<UAnimationAsset>,
-    pub target_asset: UPtr<UAnimationAsset>,
-}
-#[repr(C, align(8))]
-pub struct FAnimationAttributeIdentifierArray {
-    pub attribute_identifiers: TArray<FAnimationAttributeIdentifier>,
-}
-#[repr(C, align(4))]
-pub struct FBlendProfileBoneEntry {
-    pub bone_reference: FBoneReference,
-    pub blend_scale: f32,
-}
-#[repr(C, align(8))]
-pub struct FBlendProfileInterfaceWrapper {
-    pub b_is_skeleton_blend_profile: bool,
-    pub blend_profile_provider: TScriptInterface<IBlendProfileProviderInterface>,
-    pub blend_profile: UPtr<UBlendProfile>,
-}
-#[repr(C, align(8))]
-pub struct FBlendSpaceBlendProfile {
-    pub blend_profile: UPtr<UBlendProfile>,
-    pub target_weight_interpolation_speed_per_sec: f32,
-}
-#[repr(C, align(4))]
-pub struct FInterpolationParameter {
-    pub interpolation_time: f32,
-    pub damping_ratio: f32,
-    pub max_speed: f32,
-    pub interpolation_type: EFilterInterpolationType,
-}
-#[repr(C, align(8))]
-pub struct FBlendParameter {
-    pub display_name: FString,
-    pub min: f32,
-    pub max: f32,
-    pub grid_num: i32,
-    pub b_snap_to_grid: bool,
-    pub b_wrap_input: bool,
-}
-#[repr(C, align(8))]
-pub struct FBlendSample {
-    pub animation: UPtr<UAnimSequence>,
-    pub sample_value: crate::bindings::core_u_object::FVector,
-    pub rate_scale: f32,
-    pub b_use_single_frame_for_blending: bool,
-    pub frame_index_to_sample: u32,
-    pub flags_44: u8,
-}
-#[repr(C, align(4))]
-pub struct FBlendSpaceSegment {
-    pub sample_indices: i32,
-    pub vertices: f32,
-}
-#[repr(C, align(8))]
-pub struct FBlendSpaceTriangleEdgeInfo {
-    pub normal: crate::bindings::core_u_object::FVector2D,
-    pub neighbour_triangle_index: i32,
-    pub adjacent_perimeter_triangle_indices: i32,
-    pub adjacent_perimeter_vertex_indices: i32,
-}
-#[repr(C, align(8))]
-pub struct FBlendSpaceTriangle {
-    pub sample_indices: i32,
-    pub vertices: crate::bindings::core_u_object::FVector2D,
-    pub edge_info: FBlendSpaceTriangleEdgeInfo,
-}
-#[repr(C, align(4))]
-pub struct FWeightedBlendSample {
-    pub sample_index: i32,
-    pub sample_weight: f32,
-}
-#[repr(C, align(8))]
-pub struct FBlendSpaceData {
-    pub segments: TArray<FBlendSpaceSegment>,
-    pub triangles: TArray<FBlendSpaceTriangle>,
-}
-#[repr(C, align(4))]
-pub struct FEditorElement {
-    pub indices: i32,
-    pub weights: f32,
-}
-#[repr(C, align(4))]
-pub struct FGridBlendSample {
-    pub grid_element: FEditorElement,
-    pub blend_weight: f32,
-}
-#[repr(C, align(4))]
-pub struct FPerBoneInterpolation {
-    pub bone_reference: FBoneReference,
-    pub interpolation_speed_per_sec: f32,
-}
+impl FAnimSyncMarker {}
 #[repr(C, align(4))]
 pub struct FCachedAnimStateData {
     pub state_machine_name: FName,
     pub state_name: FName,
+    __padding_end: [u8; 12],
 }
+impl FCachedAnimStateData {}
 #[repr(C, align(8))]
 pub struct FCachedAnimStateArray {
     pub states: TArray<FCachedAnimStateData>,
+    __padding_end: [u8; 8],
 }
+impl FCachedAnimStateArray {}
 #[repr(C, align(4))]
 pub struct FCachedAnimAssetPlayerData {
     pub state_machine_name: FName,
     pub state_name: FName,
+    __padding_end: [u8; 8],
 }
+impl FCachedAnimAssetPlayerData {}
 #[repr(C, align(4))]
 pub struct FCachedAnimRelevancyData {
     pub state_machine_name: FName,
     pub state_name: FName,
+    __padding_end: [u8; 12],
 }
+impl FCachedAnimRelevancyData {}
 #[repr(C, align(4))]
 pub struct FCachedAnimTransitionData {
     pub state_machine_name: FName,
     pub from_state_name: FName,
     pub to_state_name: FName,
+    __padding_end: [u8; 12],
 }
+impl FCachedAnimTransitionData {}
 #[repr(C, align(4))]
 pub struct FNamedCurveValue {
     pub name: FName,
     pub value: f32,
 }
-#[repr(C, align(4))]
-pub struct FExposedValueCopyRecord {
-    pub copy_index: i32,
-    pub post_copy_operation: EPostCopyOperation,
-    pub b_only_update_when_active: bool,
-}
-#[repr(C, align(8))]
-pub struct FExposedValueHandler {}
-#[repr(C, align(8))]
-pub struct FAnimNodeExposedValueHandler {}
-#[repr(C, align(8))]
-pub struct FAnimNodeExposedValueHandler_Base {
-    pub function: UPtr<crate::bindings::core_u_object::UFunction>,
-    pub bound_function: FName,
-}
-#[repr(C, align(8))]
-pub struct FAnimNodeExposedValueHandler_PropertyAccess {
-    pub copy_records: TArray<FExposedValueCopyRecord>,
-}
+impl FNamedCurveValue {}
 #[repr(C, align(4))]
 pub struct FInputClampConstants {
     pub b_clamp_result: bool,
@@ -3367,182 +1631,48 @@ pub struct FInputClampConstants {
     pub interp_speed_increasing: f32,
     pub interp_speed_decreasing: f32,
 }
+impl FInputClampConstants {}
 #[repr(C, align(4))]
-pub struct FInputClampState {}
+pub struct FInputClampState {
+    __padding_end: [u8; 8],
+}
+impl FInputClampState {}
 #[repr(C, align(8))]
 pub struct FMirrorTableRow {
+    #[doc(hidden)]
+    __padding_8: [u8; 8],
     pub name: FName,
     pub mirrored_name: FName,
     pub mirror_entry_type: EMirrorRowType,
+    __padding_end: [u8; 7],
 }
-#[repr(C, align(4))]
-pub struct FMirrorFindReplaceExpression {
-    pub find_expression: FName,
-    pub replace_expression: FName,
-    pub find_replace_method: EMirrorFindReplaceMethod,
-}
+impl FMirrorTableRow {}
 #[repr(C, align(16))]
 pub struct FTrajectorySample {
     pub accumulated_seconds: f32,
     pub transform: crate::bindings::core_u_object::FTransform,
     pub linear_velocity: crate::bindings::core_u_object::FVector,
+    __padding_end: [u8; 8],
 }
-#[repr(C, align(16))]
-pub struct FNodeItem {
-    pub parent_name: FName,
-    pub transform: crate::bindings::core_u_object::FTransform,
-}
-#[repr(C, align(8))]
-pub struct FPoseData {
-    pub source_local_space_pose: TArray<crate::bindings::core_u_object::FTransform>,
-    pub source_curve_data: TArray<f32>,
-    pub local_space_pose: TArray<crate::bindings::core_u_object::FTransform>,
-    pub curve_data: TArray<f32>,
-}
-#[repr(C, align(4))]
-pub struct FPoseAssetInfluence {
-    pub pose_index: i32,
-    pub bone_transform_index: i32,
-}
-#[repr(C, align(8))]
-pub struct FPoseAssetInfluences {
-    pub influences: TArray<FPoseAssetInfluence>,
-}
-#[repr(C, align(8))]
-pub struct FPoseDataContainer {
-    pub pose_names_deprecated: TArray<FSmartName>,
-    pub pose_f_names: TArray<FName>,
-    pub tracks: TArray<FName>,
-    pub track_bone_indices: TArray<i32>,
-    pub track_pose_influence_indices: TArray<FPoseAssetInfluences>,
-    pub poses: TArray<FPoseData>,
-    pub curves: TArray<FAnimCurveBase>,
-}
-#[repr(C, align(8))]
-pub struct FPreviewAttachedObjectPair {
-    pub attached_object: TSoftObjectPtr<crate::bindings::core_u_object::UObject>,
-    pub object_deprecated: UPtr<crate::bindings::core_u_object::UObject>,
-    pub attached_to: FName,
-}
-#[repr(C, align(8))]
-pub struct FPreviewAssetAttachContainer {
-    pub attached_objects: TArray<FPreviewAttachedObjectPair>,
-}
-#[repr(C, align(8))]
-pub struct FPreviewMeshCollectionEntry {
-    pub skeletal_mesh: TSoftObjectPtr<USkeletalMesh>,
-    pub anim_blueprint: TSoftObjectPtr<UAnimBlueprint>,
-}
-#[repr(C, align(8))]
-pub struct FSkeletalMeshVertexAttributeInfo {
-    pub enabled_for_render: crate::bindings::core_u_object::FPerPlatformBool,
-    pub name: FName,
-    pub data_type: ESkeletalMeshVertexAttributeDataType,
-}
-#[repr(C, align(8))]
-pub struct FSkeletonToMeshLinkup {
-    pub skeleton_to_mesh_table: TArray<i32>,
-    pub mesh_to_skeleton_table: TArray<i32>,
-}
-#[repr(C, align(4))]
-pub struct FBoneNode {
-    pub name_deprecated: FName,
-    pub parent_index_deprecated: i32,
-    pub translation_retargeting_mode: EBoneTranslationRetargetingMode,
-}
-#[repr(C, align(8))]
-pub struct FReferencePose {
-    pub pose_name: FName,
-    pub reference_pose: TArray<crate::bindings::core_u_object::FTransform>,
-    pub source_reference_mesh: TSoftObjectPtr<USkeletalMesh>,
-}
-#[repr(C, align(8))]
-pub struct FBoneReductionSetting {
-    pub bones_to_remove: TArray<FName>,
-}
-#[repr(C, align(4))]
-pub struct FNameMapping {
-    pub node_name: FName,
-    pub bone_name: FName,
-}
-#[repr(C, align(8))]
-pub struct FAnimSlotGroup {
-    pub group_name: FName,
-    pub slot_names: TArray<FName>,
-}
-#[repr(C, align(4))]
-pub struct FVirtualBone {
-    pub source_bone_name: FName,
-    pub target_bone_name: FName,
-    pub virtual_bone_name: FName,
-}
-#[repr(C, align(8))]
-pub struct FSkinWeightProfileInfo {
-    pub name: FName,
-    pub default_profile: crate::bindings::core_u_object::FPerPlatformBool,
-    pub default_profile_from_lod_index: crate::bindings::core_u_object::FPerPlatformInt,
-    pub per_lod_source_files: TMap<i32, FString>,
-}
-#[repr(C, align(8))]
-pub struct FSkinWeightProfileManagerTickFunction {}
-#[repr(C, align(8))]
-pub struct FSmartNameMapping {}
-#[repr(C, align(8))]
-pub struct FSmartNameContainer {}
-#[repr(C, align(4))]
-pub struct FTimeStretchCurveMarker {
-    pub time: f32,
-    pub alpha: f32,
-}
-#[repr(C, align(8))]
-pub struct FTimeStretchCurve {
-    pub sampling_rate: f32,
-    pub curve_value_min_precision: f32,
-    pub markers: TArray<FTimeStretchCurveMarker>,
-    pub sum_d_t_i_by_c_i: f32,
-}
-#[repr(C, align(8))]
-pub struct FTimeStretchCurveInstance {
-    pub b_has_valid_data: bool,
-}
+impl FTrajectorySample {}
 #[repr(C, align(16))]
 pub struct FTransformTrajectorySample {
     pub facing: crate::bindings::core_u_object::FQuat,
     pub position: crate::bindings::core_u_object::FVector,
     pub time_in_seconds: f32,
+    __padding_end: [u8; 4],
 }
+impl FTransformTrajectorySample {}
 #[repr(C, align(8))]
 pub struct FTransformTrajectory {
     pub samples: TArray<FTransformTrajectorySample>,
 }
-#[repr(C, align(4))]
-pub struct FAnimGroupInfo {
-    pub name: FName,
-    pub color: crate::bindings::core_u_object::FLinearColor,
-}
-#[repr(C, align(8))]
-pub struct FAnimParentNodeAssetOverride {
-    pub new_asset: UPtr<UAnimationAsset>,
-    pub parent_node_guid: crate::bindings::core_u_object::FGuid,
-}
+impl FTransformTrajectory {}
 #[repr(C, align(4))]
 pub struct FAssetCompileData {
     pub asset: TWeakObjectPtr<crate::bindings::core_u_object::UObject>,
 }
-#[repr(C, align(8))]
-pub struct FPrimaryAssetTypeInfo {
-    pub primary_asset_type: FName,
-    pub asset_base_class: TSoftObjectPtr<crate::bindings::core_u_object::UClass>,
-    pub asset_base_class_loaded: TSubclassOf<crate::bindings::core_u_object::UObject>,
-    pub b_has_blueprint_classes: bool,
-    pub b_is_editor_only: bool,
-    pub directories: TArray<crate::bindings::core_u_object::FDirectoryPath>,
-    pub specific_assets: TArray<crate::bindings::core_u_object::FSoftObjectPath>,
-    pub rules: FPrimaryAssetRules,
-    pub asset_scan_paths: TArray<FString>,
-    pub b_is_dynamic_asset: bool,
-    pub number_of_assets: i32,
-}
+impl FAssetCompileData {}
 #[repr(C, align(8))]
 pub struct FAssetManagerSearchRules {
     pub asset_scan_paths: TArray<FString>,
@@ -3553,40 +1683,15 @@ pub struct FAssetManagerSearchRules {
     pub b_force_synchronous_scan: bool,
     pub b_skip_virtual_path_expansion: bool,
     pub b_skip_manager_include_check: bool,
+    __padding_end: [u8; 28],
 }
-#[repr(C, align(8))]
-pub struct FAudioCookOutputs {
-    pub id: u32,
-    pub version: i32,
-    pub num_channels: i32,
-    pub sample_rate: i32,
-    pub num_frames: u32,
-    pub encoded_data: TArray<u8>,
-}
-#[repr(C, align(8))]
-pub struct FAudioEffectParameters {}
-#[repr(C, align(8))]
-pub struct FAudioReverbEffect {}
-#[repr(C, align(8))]
-pub struct FAudioQualitySettings {
-    pub display_name: FText,
-    pub max_channels: i32,
-}
-#[repr(C, align(8))]
-pub struct FSoundDebugEntry {
-    pub debug_name: FName,
-    pub sound: crate::bindings::core_u_object::FSoftObjectPath,
-}
-#[repr(C, align(8))]
-pub struct FDefaultAudioBusSettings {
-    pub audio_bus: crate::bindings::core_u_object::FSoftObjectPath,
-}
+impl FAssetManagerSearchRules {}
 #[repr(C, align(8))]
 pub struct FAudioVolumeSubmixSendSettings {
     pub listener_location_state: EAudioVolumeLocationState,
-    pub source_location_state_deprecated: EAudioVolumeLocationState,
     pub submix_sends: TArray<FSoundSubmixSendInfo>,
 }
+impl FAudioVolumeSubmixSendSettings {}
 #[repr(C, align(8))]
 pub struct FSoundSubmixSendInfoBase {
     pub send_level_control_method: ESendLevelControlMethod,
@@ -3599,19 +1704,27 @@ pub struct FSoundSubmixSendInfoBase {
     pub max_send_distance: f32,
     pub custom_send_level_curve: FRuntimeFloatCurve,
 }
+impl FSoundSubmixSendInfoBase {}
 #[repr(C, align(8))]
 pub struct FSoundSubmixSendInfo {
+    #[doc(hidden)]
+    __padding_176: [u8; 176],
     pub send_stage: ESubmixSendStage,
+    __padding_end: [u8; 7],
 }
+impl FSoundSubmixSendInfo {}
 #[repr(C, align(8))]
 pub struct FAudioVolumeSubmixOverrideSettings {
     pub submix: UPtr<USoundSubmix>,
     pub submix_effect_chain: TArray<UPtr<USoundEffectSubmixPreset>>,
     pub crossfade_time: f32,
+    __padding_end: [u8; 4],
 }
+impl FAudioVolumeSubmixOverrideSettings {}
 #[repr(C, align(4))]
 pub struct FInteriorSettings {
-    pub b_is_world_settings: bool,
+    #[doc(hidden)]
+    __padding_4: [u8; 4],
     pub exterior_volume: f32,
     pub exterior_time: f32,
     pub exterior_lpf: f32,
@@ -3621,108 +1734,19 @@ pub struct FInteriorSettings {
     pub interior_lpf: f32,
     pub interior_lpf_time: f32,
 }
-#[repr(C, align(1))]
-pub struct FBlueprintMacroCosmeticInfo {}
-#[repr(C, align(8))]
-pub struct FBPVariableMetaDataEntry {
-    pub data_key: FName,
-    pub data_value: FString,
-}
-#[repr(C, align(8))]
-pub struct FBPVariableDescription {
-    pub var_name: FName,
-    pub var_guid: crate::bindings::core_u_object::FGuid,
-    pub var_type: FEdGraphPinType,
-    pub friendly_name: FString,
-    pub category: FText,
-    pub property_flags: u64,
-    pub rep_notify_func: FName,
-    pub replication_condition: crate::bindings::core_u_object::ELifetimeCondition,
-    pub meta_data_array: TArray<FBPVariableMetaDataEntry>,
-    pub default_value: FString,
-}
-#[repr(C, align(8))]
-pub struct FBPInterfaceDescription {
-    pub interface: TSubclassOf<crate::bindings::core_u_object::UInterface>,
-    pub graphs: TArray<UPtr<UEdGraph>>,
-}
-#[repr(C, align(8))]
-pub struct FEditedDocumentInfo {
-    pub edited_object_path: crate::bindings::core_u_object::FSoftObjectPath,
-    pub saved_view_offset: crate::bindings::slate_core::FDeprecateSlateVector2D,
-    pub saved_zoom_amount: f32,
-    pub edited_object_deprecated: UPtr<crate::bindings::core_u_object::UObject>,
-}
-#[repr(C, align(8))]
-pub struct FBPEditorBookmarkNode {
-    pub node_guid: crate::bindings::core_u_object::FGuid,
-    pub parent_guid: crate::bindings::core_u_object::FGuid,
-    pub display_name: FText,
-}
-#[repr(C, align(4))]
-pub struct FNodeToCodeAssociation {}
-#[repr(C, align(8))]
-pub struct FDebuggingInfoForSingleFunction {}
-#[repr(C, align(8))]
-pub struct FPointerToUberGraphFrame {}
-#[repr(C, align(8))]
-pub struct FBlueprintDebugData {}
-#[repr(C, align(8))]
-pub struct FEventGraphFastCallPair {
-    pub function_to_patch: UPtr<crate::bindings::core_u_object::UFunction>,
-    pub event_graph_call_offset: i32,
-}
-#[repr(C, align(8))]
-pub struct FBlueprintComponentChangedPropertyInfo {
-    pub property_name: FName,
-    pub array_index: i32,
-    pub property_scope: UPtr<crate::bindings::core_u_object::UStruct>,
-}
-#[repr(C, align(8))]
-pub struct FBlueprintCookedComponentInstancingData {
-    pub changed_property_list: TArray<FBlueprintComponentChangedPropertyInfo>,
-    pub b_has_valid_cooked_data: bool,
-}
-#[repr(C, align(8))]
-pub struct FBPComponentClassOverride {
-    pub component_name: FName,
-    pub component_class: TSubclassOf<crate::bindings::core_u_object::UObject>,
-}
-#[repr(C, align(1))]
-pub struct FBookmarkJumpToSettings {}
-#[repr(C, align(4))]
-pub struct FGeomSelection {
-    pub ty: i32,
-    pub index: i32,
-    pub selection_index: i32,
-}
-#[repr(C, align(8))]
-pub struct FBuilderPoly {
-    pub vertex_indices: TArray<i32>,
-    pub direction: i32,
-    pub item_name: FName,
-    pub poly_flags: i32,
-}
+impl FInteriorSettings {}
 #[repr(C, align(8))]
 pub struct FCameraLensInterfaceClassSupport {
-    pub class: TSubclassOf<AActor>,
+    __padding_end: [u8; 8],
 }
-#[repr(C, align(8))]
-pub struct FPooledCameraShakes {
-    pub pooled_shakes: TArray<UPtr<UCameraShakeBase>>,
-}
-#[repr(C, align(8))]
-pub struct FActiveCameraShakeInfo {
-    pub shake_instance: UPtr<UCameraShakeBase>,
-    pub shake_source: TWeakObjectPtr<UCameraShakeSourceComponent>,
-    pub b_is_custom_initialized: bool,
-}
+impl FCameraLensInterfaceClassSupport {}
 #[repr(C, align(4))]
 pub struct FCameraShakePatternStartParams {
     pub b_is_restarting: bool,
     pub b_override_duration: bool,
     pub duration_override: f32,
 }
+impl FCameraShakePatternStartParams {}
 #[repr(C, align(16))]
 pub struct FCameraShakePatternUpdateParams {
     pub delta_time: f32,
@@ -3730,6 +1754,7 @@ pub struct FCameraShakePatternUpdateParams {
     pub dynamic_scale: f32,
     pub pov: FMinimalViewInfo,
 }
+impl FCameraShakePatternUpdateParams {}
 #[repr(C, align(16))]
 pub struct FCameraShakePatternScrubParams {
     pub absolute_time: f32,
@@ -3737,64 +1762,27 @@ pub struct FCameraShakePatternScrubParams {
     pub dynamic_scale: f32,
     pub pov: FMinimalViewInfo,
 }
+impl FCameraShakePatternScrubParams {}
 #[repr(C, align(16))]
-pub struct FCameraShakePatternUpdateResult {}
+pub struct FCameraShakePatternUpdateResult {
+    __padding_end: [u8; 2032],
+}
+impl FCameraShakePatternUpdateResult {}
 #[repr(C, align(1))]
 pub struct FCameraShakePatternStopParams {
     pub b_immediately: bool,
 }
+impl FCameraShakePatternStopParams {}
 #[repr(C, align(4))]
 pub struct FCameraShakeDuration {
-    pub duration: f32,
-    pub ty: ECameraShakeDurationType,
+    __padding_end: [u8; 8],
 }
+impl FCameraShakeDuration {}
 #[repr(C, align(4))]
 pub struct FCameraShakeInfo {
-    pub duration: FCameraShakeDuration,
-    pub blend_in: f32,
-    pub blend_out: f32,
+    __padding_end: [u8; 16],
 }
-#[repr(C, align(1))]
-pub struct FDummySpacerCameraTypes {}
-#[repr(C, align(8))]
-pub struct FRepRootMotionMontage {
-    pub animation: UPtr<UAnimSequenceBase>,
-    pub b_is_active: bool,
-    pub b_relative_position: bool,
-    pub b_relative_rotation: bool,
-    pub position: f32,
-    pub location: FVector_NetQuantize100,
-    pub rotation: crate::bindings::core_u_object::FRotator,
-    pub movement_base: UPtr<UPrimitiveComponent>,
-    pub movement_base_bone_name: FName,
-    pub authoritative_root_motion: FRootMotionSourceGroup,
-    pub acceleration: FVector_NetQuantize10,
-    pub linear_velocity: FVector_NetQuantize10,
-}
-#[repr(C, align(8))]
-pub struct FRootMotionSourceGroup {
-    pub flags_40: u8,
-    pub last_accumulated_settings: FRootMotionSourceSettings,
-    pub last_pre_additive_velocity: FVector_NetQuantize10,
-}
-#[repr(C, align(1))]
-pub struct FRootMotionSourceSettings {
-    pub flags: u8,
-}
-#[repr(C, align(8))]
-pub struct FSimulatedRootMotionReplicatedMove {
-    pub time: f32,
-    pub root_motion: FRepRootMotionMontage,
-}
-#[repr(C, align(8))]
-pub struct FBasedMovementInfo {
-    pub base_id: u16,
-    pub flags_2: u8,
-    pub bone_name: FName,
-    pub movement_base: UPtr<UPrimitiveComponent>,
-    pub location: FVector_NetQuantize100,
-    pub rotation: crate::bindings::core_u_object::FRotator,
-}
+impl FCameraShakeInfo {}
 #[repr(C, align(8))]
 pub struct FFindFloorResult {
     pub flags_0: u8,
@@ -3802,118 +1790,27 @@ pub struct FFindFloorResult {
     pub line_dist: f32,
     pub hit_result: FHitResult,
 }
-#[repr(C, align(8))]
-pub struct FCollisionResponseTemplate {
-    pub name: FName,
-    pub collision_enabled: ECollisionEnabled,
-    pub b_can_modify: bool,
-    pub object_type_name: FName,
-    pub custom_responses: TArray<FResponseChannel>,
-    pub help_message: FString,
-}
-#[repr(C, align(4))]
-pub struct FCustomChannelSetup {
-    pub channel: ECollisionChannel,
-    pub default_response: ECollisionResponse,
-    pub b_trace_type: bool,
-    pub b_static_object: bool,
-    pub name: FName,
-}
-#[repr(C, align(8))]
-pub struct FCustomProfile {
-    pub name: FName,
-    pub custom_responses: TArray<FResponseChannel>,
-}
-#[repr(C, align(4))]
-pub struct FBlueprintComponentDelegateBinding {
-    pub component_property_name: FName,
-    pub delegate_property_name: FName,
-    pub function_name_to_bind: FName,
-}
-#[repr(C, align(8))]
-pub struct FActorComponentInstanceSourceInfo {
-    pub source_component_template: UPtr<crate::bindings::core_u_object::UObject>,
-    pub source_component_creation_method: EComponentCreationMethod,
-    pub source_component_type_serialized_index: i32,
-}
-#[repr(C, align(8))]
-pub struct FActorInstanceData {
-    pub actor_class: TSubclassOf<AActor>,
-}
+impl FFindFloorResult {}
 #[repr(C, align(8))]
 pub struct FAudioComponentParam {
+    #[doc(hidden)]
+    __padding_160: [u8; 160],
     pub sound_wave_param: UPtr<USoundWave>,
 }
-#[repr(C, align(8))]
-pub struct FCharacterMovementComponentPostPhysicsTickFunction {}
-#[repr(C, align(8))]
-pub struct FCharacterMovementComponentPrePhysicsTickFunction {}
-#[repr(C, align(16))]
-pub struct FChildActorAttachedActorInfo {
-    pub actor: TWeakObjectPtr<AActor>,
-    pub socket_name: FName,
-    pub relative_transform: crate::bindings::core_u_object::FTransform,
-}
-#[repr(C, align(8))]
-pub struct FChildActorComponentInstanceData {
-    pub child_actor_class: TSubclassOf<AActor>,
-    pub child_actor_name: FName,
-    pub attached_actors: TArray<FChildActorAttachedActorInfo>,
-}
-#[repr(C, align(8))]
-pub struct FCachedKeyToActionInfo {
-    pub player_input: TWeakObjectPtr<UPlayerInput>,
-}
-#[repr(C, align(16))]
-pub struct FSkinnedMeshInstanceData {
-    pub transform: crate::bindings::core_u_object::FTransform3f,
-    pub animation_index: u32,
-}
-#[repr(C, align(8))]
-pub struct FInstancedSkinnedMeshComponentInstanceData {
-    pub skinned_asset: UPtr<USkinnedAsset>,
-    pub instance_data: TArray<FSkinnedMeshInstanceData>,
-    pub b_has_per_instance_hit_proxies: bool,
-    pub primitive_bounds_override: crate::bindings::core_u_object::FBox,
-    pub b_is_instance_data_gpu_only: bool,
-    pub num_instances_gpu_only: i32,
-}
-#[repr(C, align(16))]
-pub struct FPrecomputedLightInstanceData {
-    pub transform: crate::bindings::core_u_object::FTransform,
-    pub original_light_guid: crate::bindings::core_u_object::FGuid,
-    pub light_guid: crate::bindings::core_u_object::FGuid,
-    pub preview_shadow_map_channel: i32,
-}
-#[repr(C, align(8))]
-pub struct FBatchedLine {
-    pub start: crate::bindings::core_u_object::FVector,
-    pub end: crate::bindings::core_u_object::FVector,
-    pub color: crate::bindings::core_u_object::FLinearColor,
-    pub thickness: f32,
-    pub remaining_life_time: f32,
-    pub depth_priority: u8,
-    pub batch_id: u32,
-}
-#[repr(C, align(8))]
-pub struct FBatchedPoint {
-    pub position: crate::bindings::core_u_object::FVector,
-    pub color: crate::bindings::core_u_object::FLinearColor,
-    pub point_size: f32,
-    pub remaining_life_time: f32,
-    pub depth_priority: u8,
-    pub batch_id: u32,
-}
+impl FAudioComponentParam {}
 #[repr(C, align(8))]
 pub struct FLODMappingData {
     pub mapping: TArray<i32>,
-    pub inverse_mapping: TArray<i32>,
+    __padding_end: [u8; 16],
 }
+impl FLODMappingData {}
 #[repr(C, align(4))]
 pub struct FComponentSync {
     pub name: FName,
     pub sync_option: ESyncOption,
+    __padding_end: [u8; 3],
 }
+impl FComponentSync {}
 #[repr(C, align(8))]
 pub struct FMaterialSpriteElement {
     pub material: UPtr<UMaterialInterface>,
@@ -3923,67 +1820,31 @@ pub struct FMaterialSpriteElement {
     pub base_size_y: f32,
     pub distance_to_size_curve: UPtr<UCurveFloat>,
 }
-#[repr(C, align(8))]
-pub struct FSpriteCategoryInfo {
-    pub category: FName,
-    pub display_name: FText,
-    pub description: FText,
-}
-#[repr(C, align(16))]
-pub struct FPrimitiveComponentInstanceData {
-    pub component_transform: crate::bindings::core_u_object::FTransform,
-    pub visibility_id: i32,
-    pub lod_parent: UPtr<UPrimitiveComponent>,
-}
+impl FMaterialSpriteElement {}
 #[repr(C, align(8))]
 pub struct FEngineShowFlagsSetting {
     pub show_flag_name: FString,
     pub enabled: bool,
+    __padding_end: [u8; 7],
 }
-#[repr(C, align(8))]
-pub struct FSkeletalMeshComponentEndPhysicsTickFunction {}
-#[repr(C, align(8))]
-pub struct FSkeletalMeshComponentClothTickFunction {}
-#[repr(C, align(8))]
-pub struct FSkeletalMeshComponentInstanceData {}
+impl FEngineShowFlagsSetting {}
 #[repr(C, align(4))]
 pub struct FSkelMeshSkinWeightInfo {
-    pub bones: i32,
-    pub weights: u8,
+    __padding_end: [u8; 60],
 }
-#[repr(C, align(8))]
-pub struct FSkelMeshComponentLODInfo {
-    pub hidden_materials: TArray<bool>,
-}
+impl FSkelMeshSkinWeightInfo {}
 #[repr(C, align(4))]
 pub struct FVertexOffsetUsage {
-    pub usage: i32,
+    __padding_end: [u8; 4],
 }
-#[repr(C, align(8))]
-pub struct FMeshDeformerInstanceSet {
-    pub deformer_instances: TArray<UPtr<UMeshDeformerInstance>>,
-}
+impl FVertexOffsetUsage {}
 #[repr(C, align(4))]
 pub struct FTentDistribution {
     pub tip_altitude: f32,
     pub tip_value: f32,
     pub width: f32,
 }
-#[repr(C, align(16))]
-pub struct FPrecomputedSkyLightInstanceData {
-    pub original_light_guid: crate::bindings::core_u_object::FGuid,
-    pub light_guid: crate::bindings::core_u_object::FGuid,
-    pub average_brightness: f32,
-}
-#[repr(C, align(8))]
-pub struct FSplineCurves {
-    pub position: crate::bindings::core_u_object::FInterpCurveVector,
-    pub rotation: crate::bindings::core_u_object::FInterpCurveQuat,
-    pub scale: crate::bindings::core_u_object::FInterpCurveVector,
-    pub reparam_table: crate::bindings::core_u_object::FInterpCurveFloat,
-    pub metadata_deprecated: UPtr<USplineMetadata>,
-    pub version: u32,
-}
+impl FTentDistribution {}
 #[repr(C, align(8))]
 pub struct FSplinePoint {
     pub input_key: f32,
@@ -3993,64 +1854,9 @@ pub struct FSplinePoint {
     pub rotation: crate::bindings::core_u_object::FRotator,
     pub scale: crate::bindings::core_u_object::FVector,
     pub ty: ESplinePointType,
+    __padding_end: [u8; 7],
 }
-#[repr(C, align(8))]
-pub struct FSplineInstanceData {
-    pub b_spline_has_been_edited: bool,
-    pub spline_curves: FSplineCurves,
-    pub b_closed_loop: bool,
-    pub spline_curves_pre_ucs: FSplineCurves,
-}
-#[repr(C, align(8))]
-pub struct FSplineComponentInstanceData {
-    pub b_spline_has_been_edited: bool,
-    pub spline: FSpline,
-    pub b_closed_loop: bool,
-    pub spline_pre_ucs: FSpline,
-}
-#[repr(C, align(8))]
-pub struct FSpline {}
-#[repr(C, align(8))]
-pub struct FSplineMeshParams {
-    pub start_pos: crate::bindings::core_u_object::FVector,
-    pub start_tangent: crate::bindings::core_u_object::FVector,
-    pub start_scale: crate::bindings::core_u_object::FVector2D,
-    pub start_roll: f32,
-    pub end_roll: f32,
-    pub start_offset: crate::bindings::core_u_object::FVector2D,
-    pub end_pos: crate::bindings::core_u_object::FVector,
-    pub end_scale: crate::bindings::core_u_object::FVector2D,
-    pub end_tangent: crate::bindings::core_u_object::FVector,
-    pub end_offset: crate::bindings::core_u_object::FVector2D,
-    pub nanite_cluster_bounds_scale: f32,
-}
-#[repr(C, align(16))]
-pub struct FStaticMeshComponentInstanceData {
-    pub static_mesh: UPtr<UStaticMesh>,
-    pub vertex_color_lo_ds: TArray<FStaticMeshVertexColorLODData>,
-    pub cached_static_lighting: TArray<crate::bindings::core_u_object::FGuid>,
-    pub streaming_texture_data: TArray<FStreamingTextureBuildInfo>,
-    pub material_streaming_relative_boxes: TArray<u32>,
-}
-#[repr(C, align(8))]
-pub struct FStaticMeshVertexColorLODData {
-    pub painted_vertices: TArray<FPaintedVertex>,
-    pub vertex_buffer_colors: TArray<crate::bindings::core_u_object::FColor>,
-    pub lod_index: u32,
-}
-#[repr(C, align(16))]
-pub struct FPaintedVertex {
-    pub position: crate::bindings::core_u_object::FVector,
-    pub color: crate::bindings::core_u_object::FColor,
-    pub normal: crate::bindings::core_u_object::FVector4,
-}
-#[repr(C, align(16))]
-pub struct FSplineMeshInstanceData {
-    pub start_pos: crate::bindings::core_u_object::FVector,
-    pub end_pos: crate::bindings::core_u_object::FVector,
-    pub start_tangent: crate::bindings::core_u_object::FVector,
-    pub end_tangent: crate::bindings::core_u_object::FVector,
-}
+impl FSplinePoint {}
 #[repr(C, align(8))]
 pub struct FEquirectProps {
     pub left_uv_rect: crate::bindings::core_u_object::FBox2D,
@@ -4060,168 +1866,57 @@ pub struct FEquirectProps {
     pub left_bias: crate::bindings::core_u_object::FVector2D,
     pub right_bias: crate::bindings::core_u_object::FVector2D,
     pub radius: f32,
+    __padding_end: [u8; 4],
 }
+impl FEquirectProps {}
 #[repr(C, align(4))]
 pub struct FCullDistanceSizePair {
     pub size: f32,
     pub cull_distance: f32,
 }
+impl FCullDistanceSizePair {}
 #[repr(C, align(8))]
 pub struct FRuntimeCurveLinearColor {
-    pub color_curves: FRichCurve,
-    pub external_curve: UPtr<UCurveLinearColor>,
+    __padding_end: [u8; 520],
 }
-#[repr(C, align(4))]
-pub struct FCurveAtlasColorAdjustments {
-    pub flags_0: u8,
-    pub adjust_brightness: f32,
-    pub adjust_brightness_curve: f32,
-    pub adjust_vibrance: f32,
-    pub adjust_saturation: f32,
-    pub adjust_rgb_curve: f32,
-    pub adjust_hue: f32,
-    pub adjust_min_alpha: f32,
-    pub adjust_max_alpha: f32,
-}
+impl FRuntimeCurveLinearColor {}
 #[repr(C, align(8))]
 pub struct FRuntimeVectorCurve {
-    pub vector_curves: FRichCurve,
-    pub external_curve: UPtr<UCurveVector>,
+    __padding_end: [u8; 392],
 }
-#[repr(C, align(4))]
-pub struct FNameCurveKey {
-    pub time: f32,
-    pub value: FName,
-}
-#[repr(C, align(8))]
-pub struct FNameCurve {
-    pub keys: TArray<FNameCurveKey>,
-}
-#[repr(C, align(8))]
-pub struct FCompressedRichCurve {}
+impl FRuntimeVectorCurve {}
 #[repr(C, align(8))]
 pub struct FCurveTableRowHandle {
     pub curve_table: UPtr<UCurveTable>,
     pub row_name: FName,
+    __padding_end: [u8; 4],
 }
+impl FCurveTableRowHandle {}
 #[repr(C, align(8))]
 pub struct FDataDrivenConsoleVariable {
-    pub ty: FDataDrivenCVarType,
-    pub name: FString,
-    pub tool_tip: FString,
-    pub default_value_float: f32,
-    pub default_value_int: i32,
-    pub default_value_bool: bool,
+    __padding_end: [u8; 96],
 }
+impl FDataDrivenConsoleVariable {}
 #[repr(C, align(8))]
 pub struct FDataTableRowHandle {
     pub data_table: UPtr<UDataTable>,
     pub row_name: FName,
+    __padding_end: [u8; 4],
 }
+impl FDataTableRowHandle {}
 #[repr(C, align(8))]
 pub struct FDataTableCategoryHandle {
     pub data_table: UPtr<UDataTable>,
     pub column_name: FName,
     pub row_contents: FName,
 }
-#[repr(C, align(8))]
-pub struct FDebugCameraControllerSettingsViewModeIndex {
-    pub view_mode_index: EViewModeIndex,
-}
-#[repr(C, align(8))]
-pub struct FRollbackNetStartupActorInfo {
-    pub archetype: UPtr<crate::bindings::core_u_object::UObject>,
-    pub obj_references: TArray<UPtr<crate::bindings::core_u_object::UObject>>,
-}
-#[repr(C, align(8))]
-pub struct FMulticastRecordOptions {
-    pub func_path_name: FString,
-    pub b_server_skip: bool,
-    pub b_client_skip: bool,
-}
-#[repr(C, align(8))]
-pub struct FSelectedFragmentProperties {
-    pub tag: FName,
-    pub fragment: FString,
-    pub b_enabled: bool,
-}
-#[repr(C, align(8))]
-pub struct FDPMatchingIfCondition {
-    pub operator: FName,
-    pub arg1: FString,
-    pub arg2: FString,
-}
-#[repr(C, align(8))]
-pub struct FDPMatchingRulestructBase {
-    pub rule_name: FString,
-    pub if_conditions: TArray<FDPMatchingIfCondition>,
-    pub append_fragments: FString,
-    pub set_user_var: FString,
-}
-#[repr(C, align(8))]
-pub struct FDPMatchingRulestructA {
-    pub on_true: TArray<FDPMatchingRulestructBase>,
-    pub on_false: TArray<FDPMatchingRulestructBase>,
-}
-#[repr(C, align(8))]
-pub struct FDPMatchingRulestructB {
-    pub on_true: TArray<FDPMatchingRulestructA>,
-    pub on_false: TArray<FDPMatchingRulestructA>,
-}
-#[repr(C, align(8))]
-pub struct FDPMatchingRulestructC {
-    pub on_true: TArray<FDPMatchingRulestructB>,
-    pub on_false: TArray<FDPMatchingRulestructB>,
-}
-#[repr(C, align(8))]
-pub struct FDPMatchingRulestructD {
-    pub on_true: TArray<FDPMatchingRulestructC>,
-    pub on_false: TArray<FDPMatchingRulestructC>,
-}
-#[repr(C, align(8))]
-pub struct FDPMatchingRulestructE {
-    pub on_true: TArray<FDPMatchingRulestructD>,
-    pub on_false: TArray<FDPMatchingRulestructD>,
-}
-#[repr(C, align(8))]
-pub struct FDPMatchingRulestruct {
-    pub on_true: TArray<FDPMatchingRulestructE>,
-    pub on_false: TArray<FDPMatchingRulestructE>,
-}
+impl FDataTableCategoryHandle {}
 #[repr(C, align(8))]
 pub struct FDialogueContext {
     pub speaker: UPtr<UDialogueVoice>,
     pub targets: TArray<UPtr<UDialogueVoice>>,
 }
-#[repr(C, align(8))]
-pub struct FDialogueWaveParameter {
-    pub dialogue_wave: UPtr<UDialogueWave>,
-    pub context: FDialogueContext,
-}
-#[repr(C, align(8))]
-pub struct FDialogueContextMapping {
-    pub context: FDialogueContext,
-    pub sound_wave: UPtr<USoundWave>,
-    pub localization_key_format: FString,
-    pub proxy: UPtr<UDialogueSoundWaveProxy>,
-}
-#[repr(C, align(8))]
-pub struct FGraphReference {
-    pub macro_graph: UPtr<UEdGraph>,
-    pub graph_blueprint: UPtr<UBlueprint>,
-    pub graph_guid: crate::bindings::core_u_object::FGuid,
-}
-#[repr(C, align(4))]
-pub struct FEdGraphPinReference {
-    pub owning_node: TWeakObjectPtr<UEdGraphNode>,
-    pub pin_id: crate::bindings::core_u_object::FGuid,
-}
-#[repr(C, align(8))]
-pub struct FEdGraphSchemaAction_NewNode {
-    pub node_template: UPtr<UEdGraphNode>,
-}
-#[repr(C, align(8))]
-pub struct FAssetImportInfo {}
+impl FDialogueContext {}
 #[repr(C, align(8))]
 pub struct FTypedElementPasteOptions {
     pub selection_set_to_modify: UPtr<
@@ -4229,129 +1924,42 @@ pub struct FTypedElementPasteOptions {
     >,
     pub b_paste_at_location: bool,
     pub paste_location: crate::bindings::core_u_object::FVector,
+    __padding_end: [u8; 80],
 }
+impl FTypedElementPasteOptions {}
 #[repr(C, align(1))]
 pub struct FTypedElementDeletionOptions {
     pub b_verify_deletion_can_happen: bool,
     pub b_warn_about_references: bool,
     pub b_warn_about_soft_references: bool,
 }
+impl FTypedElementDeletionOptions {}
 #[repr(C, align(1))]
 pub struct FViewLightingChannels {
     pub flags_0: u8,
 }
-#[repr(C, align(2))]
-pub struct FMaterialShadingModelField {
-    pub shading_model_field: u16,
-}
-#[repr(C, align(4))]
-pub struct FRigidBodyErrorCorrection {
-    pub ping_extrapolation: f32,
-    pub ping_limit: f32,
-    pub error_per_linear_difference: f32,
-    pub error_per_angular_difference: f32,
-    pub max_restored_state_error: f32,
-    pub max_linear_hard_snap_distance: f32,
-    pub position_lerp: f32,
-    pub angle_lerp: f32,
-    pub linear_velocity_coefficient: f32,
-    pub angular_velocity_coefficient: f32,
-    pub error_accumulation_seconds: f32,
-    pub error_accumulation_distance_sq: f32,
-    pub error_accumulation_similarity: f32,
-}
-#[repr(C, align(8))]
-pub struct FRigidBodyContactInfo {
-    pub contact_position: crate::bindings::core_u_object::FVector,
-    pub contact_normal: crate::bindings::core_u_object::FVector,
-    pub contact_penetration: f32,
-    pub b_contact_probe: bool,
-    pub phys_material: UPtr<crate::bindings::physics_core::UPhysicalMaterial>,
-}
-#[repr(C, align(8))]
-pub struct FCollisionImpactData {
-    pub contact_infos: TArray<FRigidBodyContactInfo>,
-    pub total_normal_impulse: crate::bindings::core_u_object::FVector,
-    pub total_friction_impulse: crate::bindings::core_u_object::FVector,
-    pub b_is_velocity_delta_under_threshold: bool,
-}
+impl FViewLightingChannels {}
 #[repr(C, align(8))]
 pub struct FFractureEffect {
     pub particle_system: UPtr<UParticleSystem>,
     pub sound: UPtr<USoundBase>,
 }
+impl FFractureEffect {}
 #[repr(C, align(8))]
 pub struct FBasedPosition {
     pub base: UPtr<AActor>,
     pub position: crate::bindings::core_u_object::FVector,
-    pub cached_base_location: crate::bindings::core_u_object::FVector,
-    pub cached_base_rotation: crate::bindings::core_u_object::FRotator,
-    pub cached_trans_position: crate::bindings::core_u_object::FVector,
+    __padding_end: [u8; 72],
 }
-#[repr(C, align(4))]
-pub struct FLightmassLightSettings {
-    pub indirect_lighting_saturation: f32,
-    pub shadow_exponent: f32,
-    pub b_use_area_shadows_for_stationary_light: bool,
-}
-#[repr(C, align(4))]
-pub struct FLightmassPointLightSettings {}
-#[repr(C, align(4))]
-pub struct FLightmassDirectionalLightSettings {
-    pub light_source_angle: f32,
-}
-#[repr(C, align(4))]
-pub struct FLightmassPrimitiveSettings {
-    pub flags_0: u8,
-    pub emissive_light_falloff_exponent: f32,
-    pub emissive_light_explicit_influence_radius: f32,
-    pub emissive_boost: f32,
-    pub diffuse_boost: f32,
-    pub fully_occluded_samples_fraction: f32,
-}
-#[repr(C, align(4))]
-pub struct FLightmassDebugOptions {
-    pub flags_0: u8,
-    pub coplanar_tolerance: f32,
-    pub flags_8: u8,
-    pub flags_9: u8,
-    pub execution_time_divisor: f32,
-}
-#[repr(C, align(4))]
-pub struct FSwarmDebugOptions {
-    pub flags_0: u8,
-}
-#[repr(C, align(8))]
-pub struct FMTDResult {
-    pub direction: crate::bindings::core_u_object::FVector,
-    pub distance: f32,
-}
-#[repr(C, align(4))]
-pub struct FAnimSlotDesc {
-    pub slot_name: FName,
-    pub num_channels: i32,
-}
-#[repr(C, align(8))]
-pub struct FAnimUpdateRateParameters {
-    pub shift_bucket: EUpdateRateShiftBucket,
-    pub flags_2: u8,
-    pub update_rate: i32,
-    pub evaluation_rate: i32,
-    pub ticked_pose_offest_time: f32,
-    pub additional_time: f32,
-    pub base_non_rendered_update_rate: i32,
-    pub max_eval_rate_for_interpolation: i32,
-    pub base_visible_distance_factor_thesholds: TArray<f32>,
-    pub lod_to_frame_skip_map: TMap<i32, i32>,
-    pub skipped_update_frames: i32,
-    pub skipped_eval_frames: i32,
-}
+impl FBasedPosition {}
 #[repr(C, align(8))]
 pub struct FPOV {
     pub location: crate::bindings::core_u_object::FVector,
     pub rotation: crate::bindings::core_u_object::FRotator,
     pub fov: f32,
+    __padding_end: [u8; 4],
 }
+impl FPOV {}
 #[repr(C, align(8))]
 pub struct FMeshBuildSettings {
     pub flags_0: u8,
@@ -4359,13 +1967,15 @@ pub struct FMeshBuildSettings {
     pub min_lightmap_resolution: i32,
     pub src_lightmap_index: i32,
     pub dst_lightmap_index: i32,
-    pub build_scale_deprecated: f32,
+    #[doc(hidden)]
+    __padding_24: [u8; 8],
     pub build_scale3_d: crate::bindings::core_u_object::FVector,
     pub distance_field_resolution_scale: f32,
-    pub distance_field_bias_deprecated: f32,
     pub distance_field_replacement_mesh: UPtr<UStaticMesh>,
     pub max_lumen_mesh_cards: i32,
+    __padding_end: [u8; 4],
 }
+impl FMeshBuildSettings {}
 #[repr(C, align(4))]
 pub struct FSkeletalMeshBuildSettings {
     pub flags_0: u8,
@@ -4376,12 +1986,12 @@ pub struct FSkeletalMeshBuildSettings {
     pub morph_threshold_position: f32,
     pub bone_influence_limit: i32,
 }
+impl FSkeletalMeshBuildSettings {}
 #[repr(C, align(8))]
 pub struct FMeshDisplacementMap {
-    pub texture: UPtr<UTexture2D>,
-    pub magnitude: f32,
-    pub center: f32,
+    __padding_end: [u8; 16],
 }
+impl FMeshDisplacementMap {}
 #[repr(C, align(8))]
 pub struct FMeshNaniteSettings {
     pub flags_0: u8,
@@ -4390,7 +2000,8 @@ pub struct FMeshNaniteSettings {
     pub normal_precision: i32,
     pub tangent_precision: i32,
     pub bone_weight_precision: i32,
-    pub target_minimum_residency_in_kb: u32,
+    #[doc(hidden)]
+    __padding_24: [u8; 4],
     pub keep_percent_triangles: f32,
     pub trim_relative_error: f32,
     pub generate_fallback: ENaniteGenerateFallback,
@@ -4402,9 +2013,9 @@ pub struct FMeshNaniteSettings {
     pub voxel_level: i32,
     pub ray_back_up: f32,
     pub displacement_uv_channel: i32,
-    pub displacement_maps: TArray<FMeshDisplacementMap>,
-    pub nanite_assembly_data: FNaniteAssemblyData,
+    __padding_end: [u8; 48],
 }
+impl FMeshNaniteSettings {}
 #[repr(C, align(4))]
 pub struct FMeshRayTracingProxySettings {
     pub flags_0: u8,
@@ -4414,19 +2025,12 @@ pub struct FMeshRayTracingProxySettings {
     pub lod1_percent_triangles: f32,
     pub foliage_over_occlusion_bias: f32,
 }
-#[repr(C, align(4))]
-pub struct FConstrainComponentPropName {
-    pub component_name: FName,
-}
+impl FMeshRayTracingProxySettings {}
 #[repr(C, align(4))]
 pub struct FCollectionReference {
     pub collection_name: FName,
 }
-#[repr(C, align(4))]
-pub struct FRedirector {
-    pub old_name: FName,
-    pub new_name: FName,
-}
+impl FCollectionReference {}
 #[repr(C, align(8))]
 pub struct FDepthFieldGlowInfo {
     pub flags_0: u8,
@@ -4434,11 +2038,13 @@ pub struct FDepthFieldGlowInfo {
     pub glow_outer_radius: crate::bindings::core_u_object::FVector2D,
     pub glow_inner_radius: crate::bindings::core_u_object::FVector2D,
 }
+impl FDepthFieldGlowInfo {}
 #[repr(C, align(8))]
 pub struct FFontRenderInfo {
     pub flags_0: u8,
     pub glow_info: FDepthFieldGlowInfo,
 }
+impl FFontRenderInfo {}
 #[repr(C, align(8))]
 pub struct FCanvasUVTri {
     pub v0_pos: crate::bindings::core_u_object::FVector2D,
@@ -4451,16 +2057,17 @@ pub struct FCanvasUVTri {
     pub v2_uv: crate::bindings::core_u_object::FVector2D,
     pub v2_color: crate::bindings::core_u_object::FLinearColor,
 }
+impl FCanvasUVTri {}
 #[repr(C, align(8))]
 pub struct FDamageEvent {
-    pub damage_type_class: TSubclassOf<UDamageType>,
+    __padding_end: [u8; 16],
 }
+impl FDamageEvent {}
 #[repr(C, align(8))]
 pub struct FPointDamageEvent {
-    pub damage: f32,
-    pub shot_direction: FVector_NetQuantizeNormal,
-    pub hit_info: FHitResult,
+    __padding_end: [u8; 312],
 }
+impl FPointDamageEvent {}
 #[repr(C, align(4))]
 pub struct FRadialDamageParams {
     pub base_damage: f32,
@@ -4469,87 +2076,48 @@ pub struct FRadialDamageParams {
     pub outer_radius: f32,
     pub damage_falloff: f32,
 }
+impl FRadialDamageParams {}
 #[repr(C, align(8))]
 pub struct FRadialDamageEvent {
-    pub params: FRadialDamageParams,
-    pub origin: crate::bindings::core_u_object::FVector,
-    pub component_hits: TArray<FHitResult>,
+    __padding_end: [u8; 80],
 }
-#[repr(C, align(8))]
-pub struct FHitResultNetSerializerConfig {}
-#[repr(C, align(8))]
-pub struct FOverlapResult {
-    pub overlap_object_handle: FActorInstanceHandle,
-    pub component: TWeakObjectPtr<UPrimitiveComponent>,
-    pub flags_64: u8,
-}
-#[repr(C, align(16))]
-pub struct FRigidBodyState {
-    pub position: FVector_NetQuantize100,
-    pub quaternion: crate::bindings::core_u_object::FQuat,
-    pub lin_vel: FVector_NetQuantize100,
-    pub ang_vel: FVector_NetQuantize100,
-    pub flags: u8,
-}
-#[repr(C, align(4))]
-pub struct FFontCharacter {
-    pub start_u: i32,
-    pub start_v: i32,
-    pub u_size: i32,
-    pub v_size: i32,
-    pub texture_index: u8,
-    pub vertical_offset: i32,
-}
+impl FRadialDamageEvent {}
 #[repr(C, align(1))]
 pub struct FFontFacePlatformRasterizationOverrides {
-    pub msdf_override: crate::bindings::slate_core::EFontRasterizationMode,
-    pub sdf_override: crate::bindings::slate_core::EFontRasterizationMode,
-    pub sdf_approximation_override: crate::bindings::slate_core::EFontRasterizationMode,
+    __padding_end: [u8; 3],
 }
-#[repr(C, align(8))]
-pub struct FCharacterNetworkSerializationPackedBitsNetSerializerConfig {
-    pub max_allowed_data_bits: u32,
-}
-#[repr(C, align(8))]
-pub struct FForceFeedbackChannelDetails {
-    pub flags_0: u8,
-    pub curve: FRuntimeFloatCurve,
-}
-#[repr(C, align(8))]
-pub struct FActiveForceFeedbackEffect {
-    pub force_feedback_effect: UPtr<UForceFeedbackEffect>,
-    pub active_device_properties: TSet<FInputDevicePropertyHandle>,
-}
+impl FFontFacePlatformRasterizationOverrides {}
 #[repr(C, align(4))]
 pub struct FInputDevicePropertyHandle {
-    pub internal_id: u32,
+    __padding_end: [u8; 4],
 }
-#[repr(C, align(8))]
-pub struct FForceFeedbackEffectOverridenChannelDetails {
-    pub channel_details: TArray<FForceFeedbackChannelDetails>,
-}
+impl FInputDevicePropertyHandle {}
 #[repr(C, align(4))]
 pub struct FDeviceColorData {
     pub b_enable: bool,
     pub b_reset_after_completion: bool,
     pub light_color: crate::bindings::core_u_object::FColor,
 }
+impl FDeviceColorData {}
 #[repr(C, align(8))]
 pub struct FDeviceColorCurveData {
     pub b_enable: bool,
     pub b_reset_after_completion: bool,
     pub device_color_curve: UPtr<UCurveLinearColor>,
 }
+impl FDeviceColorCurveData {}
 #[repr(C, align(1))]
 pub struct FDeviceTriggerBaseData {
     pub affected_triggers: crate::bindings::core_u_object::EInputDeviceTriggerMask,
     pub b_reset_upon_completion: bool,
 }
+impl FDeviceTriggerBaseData {}
 #[repr(C, align(8))]
 pub struct FDeviceTriggerFeedbackData {
     pub feedback_position_curve: UPtr<UCurveFloat>,
     pub feedback_strengh_curve: UPtr<UCurveFloat>,
 }
+impl FDeviceTriggerFeedbackData {}
 #[repr(C, align(4))]
 pub struct FDeviceTriggerTriggerResistanceData {
     pub start_position: i32,
@@ -4557,155 +2125,27 @@ pub struct FDeviceTriggerTriggerResistanceData {
     pub end_position: i32,
     pub end_strengh: i32,
 }
+impl FDeviceTriggerTriggerResistanceData {}
 #[repr(C, align(8))]
 pub struct FDeviceTriggerTriggerVibrationData {
     pub trigger_position_curve: UPtr<UCurveFloat>,
     pub vibration_frequency_curve: UPtr<UCurveFloat>,
     pub vibration_amplitude_curve: UPtr<UCurveFloat>,
 }
+impl FDeviceTriggerTriggerVibrationData {}
 #[repr(C, align(8))]
 pub struct FAudioBasedVibrationData {
     pub sound: UPtr<USoundBase>,
 }
+impl FAudioBasedVibrationData {}
 #[repr(C, align(4))]
 pub struct FActivateDevicePropertyParams {
     pub user_id: crate::bindings::core_u_object::FPlatformUserId,
     pub device_id: crate::bindings::core_u_object::FInputDeviceId,
     pub flags_8: u8,
+    __padding_end: [u8; 3],
 }
-#[repr(C, align(8))]
-pub struct FActiveDeviceProperty {
-    pub property: TWeakObjectPtr<UInputDeviceProperty>,
-}
-#[repr(C, align(1))]
-pub struct FRootMotionSourceStatus {
-    pub flags: u8,
-}
-#[repr(C, align(8))]
-pub struct FRootMotionFinishVelocitySettings {
-    pub mode: ERootMotionFinishVelocityMode,
-    pub clamp_velocity: f32,
-    pub set_velocity: crate::bindings::core_u_object::FVector,
-}
-#[repr(C, align(16))]
-pub struct FRootMotionSource {
-    pub priority: u16,
-    pub local_id: u16,
-    pub instance_name: FName,
-    pub start_time: f32,
-    pub current_time: f32,
-    pub previous_time: f32,
-    pub duration: f32,
-    pub status: FRootMotionSourceStatus,
-    pub settings: FRootMotionSourceSettings,
-    pub accumulate_mode: ERootMotionAccumulateMode,
-    pub b_in_local_space: bool,
-    pub root_motion_params: FRootMotionMovementParams,
-    pub finish_velocity_params: FRootMotionFinishVelocitySettings,
-}
-#[repr(C, align(16))]
-pub struct FRootMotionSource_ConstantForce {
-    pub force: crate::bindings::core_u_object::FVector,
-    pub strength_over_time: UPtr<UCurveFloat>,
-}
-#[repr(C, align(16))]
-pub struct FRootMotionSource_RadialForce {
-    pub location: crate::bindings::core_u_object::FVector,
-    pub location_actor: UPtr<AActor>,
-    pub radius: f32,
-    pub strength: f32,
-    pub b_is_push: bool,
-    pub b_no_z_force: bool,
-    pub strength_distance_falloff: UPtr<UCurveFloat>,
-    pub strength_over_time: UPtr<UCurveFloat>,
-    pub b_use_fixed_world_direction: bool,
-    pub fixed_world_direction: crate::bindings::core_u_object::FRotator,
-}
-#[repr(C, align(16))]
-pub struct FRootMotionSource_MoveToForce {
-    pub start_location: crate::bindings::core_u_object::FVector,
-    pub target_location: crate::bindings::core_u_object::FVector,
-    pub b_restrict_speed_to_expected: bool,
-    pub path_offset_curve: UPtr<UCurveVector>,
-}
-#[repr(C, align(16))]
-pub struct FRootMotionSource_MoveToDynamicForce {
-    pub start_location: crate::bindings::core_u_object::FVector,
-    pub initial_target_location: crate::bindings::core_u_object::FVector,
-    pub target_location: crate::bindings::core_u_object::FVector,
-    pub b_restrict_speed_to_expected: bool,
-    pub path_offset_curve: UPtr<UCurveVector>,
-    pub time_mapping_curve: UPtr<UCurveFloat>,
-}
-#[repr(C, align(16))]
-pub struct FRootMotionSource_JumpForce {
-    pub rotation: crate::bindings::core_u_object::FRotator,
-    pub distance: f32,
-    pub height: f32,
-    pub b_disable_timeout: bool,
-    pub path_offset_curve: UPtr<UCurveVector>,
-    pub time_mapping_curve: UPtr<UCurveFloat>,
-}
-#[repr(C, align(8))]
-pub struct FRootMotionSourceGroupNetSerializerConfig {}
-#[repr(C, align(8))]
-pub struct FTouchInputControl {
-    pub b_treat_as_button: bool,
-    pub image1: UPtr<UTexture2D>,
-    pub image2: UPtr<UTexture2D>,
-    pub center: crate::bindings::core_u_object::FVector2D,
-    pub visual_size: crate::bindings::core_u_object::FVector2D,
-    pub thumb_size: crate::bindings::core_u_object::FVector2D,
-    pub interaction_size: crate::bindings::core_u_object::FVector2D,
-    pub input_scale: crate::bindings::core_u_object::FVector2D,
-    pub main_input_key: crate::bindings::input_core::FKey,
-    pub alt_input_key: crate::bindings::input_core::FKey,
-}
-#[repr(C, align(8))]
-pub struct FUniqueNetIdReplNetSerializerConfig {}
-#[repr(C, align(4))]
-pub struct FNetLevelVisibilityTransactionId {
-    pub data: u32,
-}
-#[repr(C, align(4))]
-pub struct FUpdateLevelVisibilityLevelInfo {
-    pub package_name: FName,
-    pub file_name: FName,
-    pub visibility_request_id: FNetLevelVisibilityTransactionId,
-    pub flags_28: u8,
-}
-#[repr(C, align(4))]
-pub struct FGeneratedBlueprintDelegateBinding {
-    pub delegate_property_name: FName,
-    pub function_name_to_bind: FName,
-}
-#[repr(C, align(8))]
-pub struct FHLODISMComponentDesc {
-    pub static_mesh: UPtr<UStaticMesh>,
-    pub material: UPtr<UMaterialInterface>,
-    pub instances: TArray<crate::bindings::core_u_object::FTransform>,
-    pub instances_custom_primitive_data: TArray<FCustomPrimitiveData>,
-}
-#[repr(C, align(8))]
-pub struct FHLODProxyMesh {
-    pub lod_actor: TLazyObjectPtr<ALODActor>,
-    pub static_mesh: UPtr<UStaticMesh>,
-    pub key: FName,
-}
-#[repr(C, align(8))]
-pub struct FHierarchicalSimplification {
-    pub transition_screen_size: f32,
-    pub override_draw_distance: f32,
-    pub flags_8: u8,
-    pub simplification_method: EHierarchicalSimplificationMethod,
-    pub proxy_setting: FMeshProxySettings,
-    pub merge_setting: FMeshMergingSettings,
-    pub approximate_settings: FMeshApproximationSettings,
-    pub desired_bound_radius: f32,
-    pub desired_filling_percentage: f32,
-    pub min_number_of_actors_to_build: i32,
-    pub flags_980: u8,
-}
+impl FActivateDevicePropertyParams {}
 #[repr(C, align(8))]
 pub struct FMeshApproximationSettings {
     pub output_type: EMeshApproximationType,
@@ -4750,12 +2190,14 @@ pub struct FMeshApproximationSettings {
     pub b_enable_parallel_baking: bool,
     pub b_print_debug_messages: bool,
     pub b_emit_full_debug_mesh: bool,
-    pub nanite_proxy_triangle_percent_deprecated: f32,
+    __padding_end: [u8; 11],
 }
+impl FMeshApproximationSettings {}
 #[repr(C, align(8))]
 pub struct FMaterialProxySettings {
     pub texture_sizing_type: ETextureSizingType,
-    pub texture_size: crate::bindings::core_u_object::FIntPoint,
+    #[doc(hidden)]
+    __padding_12: [u8; 8],
     pub target_texel_density_per_meter: f32,
     pub mesh_max_screen_size_percent: f32,
     pub mesh_min_draw_distance: f64,
@@ -4767,7 +2209,8 @@ pub struct FMaterialProxySettings {
     pub opacity_constant: f32,
     pub opacity_mask_constant: f32,
     pub ambient_occlusion_constant: f32,
-    pub material_merge_type: EMaterialMergeType,
+    #[doc(hidden)]
+    __padding_65: [u8; 1],
     pub blend_mode: EBlendMode,
     pub flags_66: u8,
     pub flags_67: u8,
@@ -4782,33 +2225,32 @@ pub struct FMaterialProxySettings {
     pub opacity_texture_size: crate::bindings::core_u_object::FIntPoint,
     pub opacity_mask_texture_size: crate::bindings::core_u_object::FIntPoint,
     pub ambient_occlusion_texture_size: crate::bindings::core_u_object::FIntPoint,
+    __padding_end: [u8; 4],
 }
+impl FMaterialProxySettings {}
 #[repr(C, align(8))]
 pub struct FMeshMergingSettings {
     pub target_light_map_resolution: i32,
-    pub output_u_vs: EUVOutput,
+    #[doc(hidden)]
+    __padding_16: [u8; 8],
     pub material_settings: FMaterialProxySettings,
-    pub gutter_size: i32,
+    #[doc(hidden)]
+    __padding_180: [u8; 4],
     pub lod_selection_type: EMeshLODSelectionType,
     pub specific_lod: i32,
     pub flags_188: u8,
     pub flags_189: u8,
     pub nanite_settings: FMeshNaniteSettings,
-    pub flags_304: u8,
-    pub merged_material_atlas_resolution_deprecated: i32,
-    pub export_specific_lod_deprecated: i32,
-    pub flags_316: u8,
-    pub nanite_fallback_triangle_percent_deprecated: f32,
+    __padding_end: [u8; 24],
 }
+impl FMeshMergingSettings {}
 #[repr(C, align(8))]
 pub struct FMeshProxySettings {
     pub screen_size: i32,
     pub voxel_size: f32,
     pub material_settings: FMaterialProxySettings,
-    pub texture_width_deprecated: i32,
-    pub texture_height_deprecated: i32,
-    pub flags_176: u8,
-    pub nanite_proxy_triangle_percent_deprecated: f32,
+    #[doc(hidden)]
+    __padding_184: [u8; 16],
     pub merge_distance: f32,
     pub unresolved_geometry_color: crate::bindings::core_u_object::FColor,
     pub max_ray_cast_dist: f32,
@@ -4820,496 +2262,114 @@ pub struct FMeshProxySettings {
     pub flags_207: u8,
     pub nanite_settings: FMeshNaniteSettings,
 }
-#[repr(C, align(8))]
-pub struct FComponentKey {
-    pub owner_class: TSubclassOf<crate::bindings::core_u_object::UObject>,
-    pub scs_variable_name: FName,
-    pub associated_guid: crate::bindings::core_u_object::FGuid,
-}
-#[repr(C, align(8))]
-pub struct FComponentOverrideRecord {
-    pub component_class: TSubclassOf<crate::bindings::core_u_object::UObject>,
-    pub component_template: UPtr<UActorComponent>,
-    pub component_key: FComponentKey,
-    pub cooked_component_instancing_data: FBlueprintCookedComponentInstancingData,
-}
-#[repr(C, align(4))]
-pub struct FBlueprintInputDelegateBinding {
-    pub flags_0: u8,
-}
-#[repr(C, align(4))]
-pub struct FBlueprintInputActionDelegateBinding {
-    pub input_action_name: FName,
-    pub input_key_event: EInputEvent,
-    pub function_name_to_bind: FName,
-}
-#[repr(C, align(4))]
-pub struct FBlueprintInputAxisDelegateBinding {
-    pub input_axis_name: FName,
-    pub function_name_to_bind: FName,
-}
-#[repr(C, align(8))]
-pub struct FBlueprintInputAxisKeyDelegateBinding {
-    pub axis_key: crate::bindings::input_core::FKey,
-    pub function_name_to_bind: FName,
-}
-#[repr(C, align(8))]
-pub struct FBlueprintInputKeyDelegateBinding {
-    pub input_chord: crate::bindings::slate::FInputChord,
-    pub input_key_event: EInputEvent,
-    pub function_name_to_bind: FName,
-}
-#[repr(C, align(4))]
-pub struct FBlueprintInputTouchDelegateBinding {
-    pub input_key_event: EInputEvent,
-    pub function_name_to_bind: FName,
-}
-#[repr(C, align(8))]
-pub struct FCurveEdEntry {
-    pub curve_object: UPtr<crate::bindings::core_u_object::UObject>,
-    pub curve_color: crate::bindings::core_u_object::FColor,
-    pub curve_name: FString,
-    pub b_hide_curve: i32,
-    pub b_color_curve: i32,
-    pub b_floating_point_color_curve: i32,
-    pub b_clamp: i32,
-    pub clamp_low: f32,
-    pub clamp_high: f32,
-}
-#[repr(C, align(8))]
-pub struct FCurveEdTab {
-    pub tab_name: FString,
-    pub curves: TArray<FCurveEdEntry>,
-    pub view_start_input: f32,
-    pub view_end_input: f32,
-    pub view_start_output: f32,
-    pub view_end_output: f32,
-}
-#[repr(C, align(4))]
-pub struct FISMComponentInstance {
-    pub client_index: i32,
-    pub instance_index: i32,
-    pub instance_sub_index: i32,
-}
-#[repr(C, align(8))]
-pub struct FISMClientInstance {
-    pub component_indices: TArray<i32>,
-}
-#[repr(C, align(8))]
-pub struct FISMClientData {
-    pub instances: TArray<FISMClientInstance>,
-}
-#[repr(C, align(8))]
-pub struct FISMComponentData {
-    pub instances: TArray<FISMComponentInstance>,
-    pub client_instances: TArray<FISMClientData>,
-    pub component: UPtr<UInstancedStaticMeshComponent>,
-}
-#[repr(C, align(8))]
-pub struct FISMComponentDescriptorBase {
-    pub hash: u32,
-    pub component_class: TSubclassOf<UInstancedStaticMeshComponent>,
-    pub mobility: EComponentMobility,
-    pub virtual_texture_render_pass_type: ERuntimeVirtualTextureMainPassType,
-    pub lightmap_type: ELightmapType,
-    pub lighting_channels: FLightingChannels,
-    pub ray_tracing_group_id: i32,
-    pub ray_tracing_group_culling_priority: ERayTracingGroupCullingPriority,
-    pub b_has_custom_navigable_geometry: EHasCustomNavigableGeometry,
-    pub custom_depth_stencil_write_mask: ERendererStencilMask,
-    pub body_instance: FBodyInstance,
-    pub instance_min_draw_distance: i32,
-    pub instance_start_cull_distance: i32,
-    pub instance_end_cull_distance: i32,
-    pub instance_lod_distance_scale: f32,
-    pub virtual_texture_cull_mips: i32,
-    pub translucency_sort_priority: i32,
-    pub overridden_light_map_res: i32,
-    pub custom_depth_stencil_value: i32,
-    pub hlod_batching_policy: EHLODBatchingPolicy,
-    pub flags_505: u8,
-    pub flags_506: u8,
-    pub flags_507: u8,
-    pub flags_508: u8,
-    pub flags_509: u8,
-    pub flags_510: u8,
-    pub world_position_offset_disable_distance: i32,
-    pub nanite_pixel_programmable_distance: i32,
-    pub shadow_cache_invalidation_behavior: EShadowCacheInvalidationBehavior,
-    pub detail_mode: EDetailMode,
-}
-#[repr(C, align(16))]
-pub struct FISMComponentDescriptor {
-    pub static_mesh: UPtr<UStaticMesh>,
-    pub override_materials: TArray<UPtr<UMaterialInterface>>,
-    pub overlay_material: UPtr<UMaterialInterface>,
-    pub runtime_virtual_textures: TArray<UPtr<URuntimeVirtualTexture>>,
-    pub local_transform: crate::bindings::core_u_object::FTransform,
-    pub static_mesh_component: TWeakObjectPtr<UStaticMeshComponent>,
-}
-#[repr(C, align(8))]
-pub struct FSoftISMComponentDescriptor {
-    pub static_mesh: TSoftObjectPtr<UStaticMesh>,
-    pub override_materials: TArray<TSoftObjectPtr<UMaterialInterface>>,
-    pub overlay_material: TSoftObjectPtr<UMaterialInterface>,
-    pub runtime_virtual_textures: TArray<TSoftObjectPtr<URuntimeVirtualTexture>>,
-}
-#[repr(C, align(8))]
-pub struct FProceduralISMComponentDescriptor {
-    pub hash: u32,
-    pub static_mesh: TSoftObjectPtr<UStaticMesh>,
-    pub override_materials: TArray<UPtr<UMaterialInterface>>,
-    pub overlay_material: UPtr<UMaterialInterface>,
-    pub runtime_virtual_textures: TArray<UPtr<URuntimeVirtualTexture>>,
-    pub num_instances: i32,
-    pub num_custom_floats: i32,
-    pub world_bounds: crate::bindings::core_u_object::FBox,
-    pub instance_min_draw_distance: i32,
-    pub instance_start_cull_distance: i32,
-    pub instance_end_cull_distance: i32,
-    pub mobility: EComponentMobility,
-    pub virtual_texture_render_pass_type: ERuntimeVirtualTextureMainPassType,
-    pub lighting_channels: FLightingChannels,
-    pub custom_depth_stencil_write_mask: ERendererStencilMask,
-    pub virtual_texture_cull_mips: i32,
-    pub translucency_sort_priority: i32,
-    pub custom_depth_stencil_value: i32,
-    pub ray_tracing_group_id: i32,
-    pub ray_tracing_group_culling_priority: ERayTracingGroupCullingPriority,
-    pub flags_201: u8,
-    pub flags_202: u8,
-    pub world_position_offset_disable_distance: i32,
-    pub shadow_cache_invalidation_behavior: EShadowCacheInvalidationBehavior,
-    pub detail_mode: EDetailMode,
-}
+impl FMeshProxySettings {}
 #[repr(C, align(1))]
 pub struct FSlateModifierKeysState {
-    pub modifier_keys_state_mask: u8,
+    __padding_end: [u8; 1],
 }
+impl FSlateModifierKeysState {}
 #[repr(C, align(4))]
-pub struct FFloatSpringState {}
+pub struct FFloatSpringState {
+    __padding_end: [u8; 12],
+}
+impl FFloatSpringState {}
 #[repr(C, align(8))]
-pub struct FVectorSpringState {}
+pub struct FVectorSpringState {
+    __padding_end: [u8; 56],
+}
+impl FVectorSpringState {}
 #[repr(C, align(16))]
-pub struct FQuaternionSpringState {}
+pub struct FQuaternionSpringState {
+    __padding_end: [u8; 64],
+}
+impl FQuaternionSpringState {}
 #[repr(C, align(8))]
 pub struct FDrawToRenderTargetContext {
-    pub render_target: UPtr<UTextureRenderTarget2D>,
+    __padding_end: [u8; 16],
 }
+impl FDrawToRenderTargetContext {}
 #[repr(C, align(8))]
 pub struct FImportanceTexture {
-    pub size: crate::bindings::core_u_object::FIntPoint,
-    pub num_mips: i32,
-    pub marginal_cdf: TArray<f32>,
-    pub conditional_cdf: TArray<f32>,
-    pub texture_data_deprecated: TArray<crate::bindings::core_u_object::FColor>,
-    pub linear_texture_data: TArray<crate::bindings::core_u_object::FLinearColor>,
-    pub texture: TWeakObjectPtr<UTexture2D>,
-    pub weighting: EImportanceWeight,
+    __padding_end: [u8; 96],
 }
-#[repr(C, align(8))]
-pub struct FLatentActionManager {}
-#[repr(C, align(8))]
-pub struct FLayerActorStats {
-    pub ty: TSubclassOf<crate::bindings::core_u_object::UObject>,
-    pub total: i32,
-}
-#[repr(C, align(8))]
-pub struct FActorFolderSet {
-    pub actor_folders: TSet<UPtr<UActorFolder>>,
-}
-#[repr(C, align(8))]
-pub struct FStreamableTextureInstance {}
-#[repr(C, align(8))]
-pub struct FDynamicTextureInstance {
-    pub texture: UPtr<UTexture2D>,
-    pub b_attached: bool,
-    pub original_radius: f32,
-}
-#[repr(C, align(8))]
-pub struct FLevelSimplificationDetails {
-    pub b_create_package_per_asset: bool,
-    pub details_percentage: f32,
-    pub static_mesh_material_settings: FMaterialProxySettings,
-    pub b_override_landscape_export_lod: bool,
-    pub landscape_export_lod: i32,
-    pub landscape_material_settings: FMaterialProxySettings,
-    pub b_bake_foliage_to_landscape: bool,
-    pub b_bake_grass_to_landscape: bool,
-}
-#[repr(C, align(8))]
-pub struct FReplicatedStaticActorDestructionInfo {
-    pub obj_class: TSubclassOf<crate::bindings::core_u_object::UObject>,
-}
-#[repr(C, align(8))]
-pub struct FClientReceiveData {
-    pub local_pc: UPtr<APlayerController>,
-    pub message_type: FName,
-    pub message_index: i32,
-    pub message_string: FString,
-    pub related_player_state_1: UPtr<APlayerState>,
-    pub related_player_state_2: UPtr<APlayerState>,
-    pub optional_object: UPtr<crate::bindings::core_u_object::UObject>,
-}
-#[repr(C, align(8))]
-pub struct FHLODInstancingKey {
-    pub static_mesh: UPtr<UStaticMesh>,
-    pub material: UPtr<UMaterialInterface>,
-}
-#[repr(C, align(8))]
-pub struct FParameterGroupData {
-    pub group_name: FString,
-    pub group_sort_priority: i32,
-}
-#[repr(C, align(16))]
-pub struct FMaterialAggregateAttribute {
-    pub name: FName,
-    pub ty: EMaterialAggregateAttributeType,
-    pub aggregate: UPtr<UMaterialAggregate>,
-    pub default_value: crate::bindings::core_u_object::FVector4f,
-}
-#[repr(C, align(8))]
-pub struct FMaterialFunctionInfo {
-    pub state_id: crate::bindings::core_u_object::FGuid,
-    pub function: UPtr<UMaterialFunctionInterface>,
-}
-#[repr(C, align(8))]
-pub struct FMaterialParameterCollectionInfo {
-    pub state_id: crate::bindings::core_u_object::FGuid,
-    pub parameter_collection: UPtr<UMaterialParameterCollection>,
-}
-#[repr(C, align(8))]
-pub struct FMaterialCachedParameterEditorInfo {
-    pub description: FString,
-    pub group: FName,
-    pub sort_priority: i32,
-    pub asset_index: i32,
-    pub expression_guid: crate::bindings::core_u_object::FGuid,
-}
-#[repr(C, align(8))]
-pub struct FMaterialCachedParameterEntry {
-    pub parameter_info_set: TSet<FMaterialParameterInfo>,
-}
-#[repr(C, align(8))]
-pub struct FMaterialCachedParameterEditorEntry {
-    pub editor_info: TArray<FMaterialCachedParameterEditorInfo>,
-}
-#[repr(C, align(8))]
-pub struct FMaterialCachedExpressionEditorOnlyData {
-    pub editor_only_entries: FMaterialCachedParameterEntry,
-    pub editor_entries: FMaterialCachedParameterEditorEntry,
-    pub static_switch_values_deprecated: TArray<bool>,
-    pub static_component_mask_values: TArray<FStaticComponentMaskValue>,
-    pub scalar_min_max_values: TArray<crate::bindings::core_u_object::FVector2D>,
-    pub scalar_enumeration_values: TArray<
-        TSoftObjectPtr<crate::bindings::core_u_object::UObject>,
-    >,
-    pub scalar_enumeration_index_values: TArray<i32>,
-    pub scalar_curve_values: TArray<TSoftObjectPtr<UCurveLinearColor>>,
-    pub scalar_curve_atlas_values: TArray<TSoftObjectPtr<UCurveLinearColorAtlas>>,
-    pub vector_channel_name_values: TArray<FParameterChannelNames>,
-    pub vector_used_as_channel_mask_values: TArray<bool>,
-    pub texture_channel_name_values: TArray<FParameterChannelNames>,
-    pub material_layers: FMaterialLayersFunctionsEditorOnlyData,
-    pub asset_paths: TArray<FString>,
-    pub landscape_layer_names: TArray<FName>,
-    pub expression_include_file_paths: TSet<FString>,
-    pub user_scene_texture_inputs: TSet<FName>,
-    pub shader_tags: TArray<FName>,
-}
-#[repr(C, align(8))]
-pub struct FMaterialCachedExpressionData {
-    pub runtime_entries: FMaterialCachedParameterEntry,
-    pub scalar_primitive_data_index_values: TArray<i32>,
-    pub vector_primitive_data_index_values: TArray<i32>,
-    pub scalar_values: TArray<f32>,
-    pub static_switch_values: TArray<bool>,
-    pub dynamic_switch_values: TArray<bool>,
-    pub vector_values: TArray<crate::bindings::core_u_object::FLinearColor>,
-    pub double_vector_values: TArray<crate::bindings::core_u_object::FVector4d>,
-    pub texture_values: TArray<TSoftObjectPtr<UTexture>>,
-    pub texture_collection_values: TArray<TSoftObjectPtr<UTextureCollection>>,
-    pub parameter_collection_values: TArray<
-        TSoftObjectPtr<UMaterialParameterCollection>,
-    >,
-    pub font_values: TArray<TSoftObjectPtr<UFont>>,
-    pub font_page_values: TArray<i32>,
-    pub runtime_virtual_texture_values: TArray<TSoftObjectPtr<URuntimeVirtualTexture>>,
-    pub sparse_volume_texture_values: TArray<TSoftObjectPtr<USparseVolumeTexture>>,
-    pub referenced_textures: TArray<UPtr<crate::bindings::core_u_object::UObject>>,
-    pub referenced_texture_collections: TArray<UPtr<UTextureCollection>>,
-    pub referenced_external_code_expression_classes: TArray<
-        TSubclassOf<crate::bindings::core_u_object::UObject>,
-    >,
-    pub function_infos: TArray<FMaterialFunctionInfo>,
-    pub function_infos_state_crc: u32,
-    pub parameter_collection_infos: TArray<FMaterialParameterCollectionInfo>,
-    pub grass_types: TArray<UPtr<crate::bindings::landscape::ULandscapeGrassType>>,
-    pub material_cache_tags: TArray<UPtr<UMaterialCacheVirtualTextureTag>>,
-    pub material_layers: FMaterialLayersFunctionsRuntimeData,
-    pub dynamic_parameter_names: TArray<FName>,
-    pub quality_levels_used: TArray<bool>,
-    pub material_cache_uv_coordinates_used_mask: u64,
-    pub flags_1256: u8,
-    pub flags_1257: u8,
-    pub property_connected_bitmask_deprecated: u32,
-    pub property_connected_mask: u64,
-}
-#[repr(C, align(8))]
-pub struct FMaterialLayerInput {
-    pub input_type: EFunctionInputType,
-}
-#[repr(C, align(4))]
-pub struct FMaterialExternalCodeEnvironmentDefine {
-    pub name: FName,
-    pub shader_frequency: EMaterialShaderFrequency,
-}
-#[repr(C, align(8))]
-pub struct FMaterialExternalCodeDeclaration {
-    pub flags_0: u8,
-    pub return_type: EMaterialValueTypeBridge,
-    pub name: FName,
-    pub definition: FString,
-    pub definition_ddx: FString,
-    pub definition_ddy: FString,
-    pub derivative: EDerivativeStatus,
-    pub shader_frequency: EMaterialShaderFrequency,
-    pub domains: TArray<EMaterialDomain>,
-    pub environment_defines: TArray<FMaterialExternalCodeEnvironmentDefine>,
-    pub minimum_feature_level: EMaterialFeatureLevel,
-}
-#[repr(C, align(8))]
-pub struct FScalarParameterAtlasInstanceData {
-    pub b_is_used_as_atlas_position: bool,
-    pub curve: TSoftObjectPtr<UCurveLinearColor>,
-    pub atlas: TSoftObjectPtr<UCurveLinearColorAtlas>,
-}
+impl FImportanceTexture {}
 #[repr(C, align(8))]
 pub struct FScalarParameterValue {
-    pub parameter_name_deprecated: FName,
-    pub atlas_data: FScalarParameterAtlasInstanceData,
+    #[doc(hidden)]
+    __padding_120: [u8; 120],
     pub parameter_info: FMaterialParameterInfo,
     pub parameter_value: f32,
-    pub expression_guid: crate::bindings::core_u_object::FGuid,
+    __padding_end: [u8; 16],
 }
+impl FScalarParameterValue {}
 #[repr(C, align(4))]
 pub struct FVectorParameterValue {
-    pub parameter_name_deprecated: FName,
+    #[doc(hidden)]
+    __padding_12: [u8; 12],
     pub parameter_info: FMaterialParameterInfo,
     pub parameter_value: crate::bindings::core_u_object::FLinearColor,
-    pub expression_guid: crate::bindings::core_u_object::FGuid,
+    __padding_end: [u8; 16],
 }
+impl FVectorParameterValue {}
 #[repr(C, align(16))]
 pub struct FDoubleVectorParameterValue {
     pub parameter_info: FMaterialParameterInfo,
-    pub parameter_value: crate::bindings::core_u_object::FVector4d,
-    pub expression_guid: crate::bindings::core_u_object::FGuid,
+    __padding_end: [u8; 60],
 }
+impl FDoubleVectorParameterValue {}
 #[repr(C, align(8))]
 pub struct FTextureParameterValue {
-    pub parameter_name_deprecated: FName,
+    #[doc(hidden)]
+    __padding_12: [u8; 12],
     pub parameter_info: FMaterialParameterInfo,
     pub parameter_value: UPtr<UTexture>,
-    pub expression_guid: crate::bindings::core_u_object::FGuid,
+    __padding_end: [u8; 16],
 }
+impl FTextureParameterValue {}
 #[repr(C, align(8))]
 pub struct FTextureCollectionParameterValue {
     pub parameter_info: FMaterialParameterInfo,
     pub parameter_value: UPtr<UTextureCollection>,
-    pub expression_guid: crate::bindings::core_u_object::FGuid,
+    __padding_end: [u8; 16],
 }
+impl FTextureCollectionParameterValue {}
 #[repr(C, align(8))]
 pub struct FParameterCollectionParameterValue {
     pub parameter_info: FMaterialParameterInfo,
     pub parameter_value: UPtr<UMaterialParameterCollection>,
-    pub expression_guid: crate::bindings::core_u_object::FGuid,
+    __padding_end: [u8; 16],
 }
+impl FParameterCollectionParameterValue {}
 #[repr(C, align(8))]
 pub struct FRuntimeVirtualTextureParameterValue {
     pub parameter_info: FMaterialParameterInfo,
     pub parameter_value: UPtr<URuntimeVirtualTexture>,
-    pub expression_guid: crate::bindings::core_u_object::FGuid,
+    __padding_end: [u8; 16],
 }
+impl FRuntimeVirtualTextureParameterValue {}
 #[repr(C, align(8))]
 pub struct FSparseVolumeTextureParameterValue {
     pub parameter_info: FMaterialParameterInfo,
     pub parameter_value: UPtr<USparseVolumeTexture>,
-    pub expression_guid: crate::bindings::core_u_object::FGuid,
+    __padding_end: [u8; 16],
 }
+impl FSparseVolumeTextureParameterValue {}
 #[repr(C, align(8))]
 pub struct FFontParameterValue {
-    pub parameter_name_deprecated: FName,
+    #[doc(hidden)]
+    __padding_12: [u8; 12],
     pub parameter_info: FMaterialParameterInfo,
     pub font_value: UPtr<UFont>,
     pub font_page: i32,
-    pub expression_guid: crate::bindings::core_u_object::FGuid,
+    __padding_end: [u8; 20],
 }
+impl FFontParameterValue {}
 #[repr(C, align(4))]
 pub struct FUserSceneTextureOverride {
     pub key: FName,
     pub value: FName,
 }
-#[repr(C, align(8))]
-pub struct FMaterialInstanceCachedData {
-    pub parent_layer_index_remap: TArray<i32>,
-}
-#[repr(C, align(4))]
-pub struct FLightmassMaterialInterfaceSettings {
-    pub emissive_boost: f32,
-    pub diffuse_boost: f32,
-    pub export_resolution_scale: f32,
-    pub flags_12: u8,
-}
-#[repr(C, align(8))]
-pub struct FMaterialTextureInfo {
-    pub sampling_scale: f32,
-    pub uv_channel_index: i32,
-    pub texture_name: FName,
-    pub texture_reference: crate::bindings::core_u_object::FSoftObjectPath,
-    pub texture_index: i32,
-}
-#[repr(C, align(8))]
-pub struct FTextureSamplingInfo {
-    pub texture: UPtr<UTexture>,
-}
-#[repr(C, align(8))]
-pub struct FMaterialCachedTexturesSamplingInfo {
-    pub texture_sampling_infos: TArray<FTextureSamplingInfo>,
-}
-#[repr(C, align(8))]
-pub struct FMaterialOverrideNanite {
-    pub b_enable_override: bool,
-    pub override_material_editor: UPtr<UMaterialInterface>,
-    pub override_material: UPtr<UMaterialInterface>,
-    pub override_material_ref: TSoftObjectPtr<UMaterialInterface>,
-}
-#[repr(C, align(4))]
-pub struct FCollectionParameterBase {
-    pub parameter_name: FName,
-    pub id: crate::bindings::core_u_object::FGuid,
-}
-#[repr(C, align(4))]
-pub struct FCollectionScalarParameter {
-    pub default_value: f32,
-}
-#[repr(C, align(4))]
-pub struct FCollectionVectorParameter {
-    pub default_value: crate::bindings::core_u_object::FLinearColor,
-}
-#[repr(C, align(8))]
-pub struct FMemberReference {
-    pub member_parent: UPtr<crate::bindings::core_u_object::UObject>,
-    pub member_scope: FString,
-    pub member_name: FName,
-    pub member_guid: crate::bindings::core_u_object::FGuid,
-    pub b_self_context: bool,
-    pub b_was_deprecated: bool,
-}
-#[repr(C, align(8))]
-pub struct FStaticMeshBudgetInfo {
-    pub lod_group_name: FName,
-    pub minimum_extent: f64,
-}
+impl FUserSceneTextureOverride {}
 #[repr(C, align(8))]
 pub struct FMeshInstancingSettings {
     pub actor_class_to_use: TSubclassOf<AActor>,
@@ -5318,12 +2378,15 @@ pub struct FMeshInstancingSettings {
     pub b_use_hlod_volumes: bool,
     pub ism_component_to_use: TSubclassOf<UInstancedStaticMeshComponent>,
 }
+impl FMeshInstancingSettings {}
 #[repr(C, align(4))]
 pub struct FMeshReductionSettings {
     pub percent_triangles: f32,
-    pub max_num_of_triangles: u32,
+    #[doc(hidden)]
+    __padding_8: [u8; 4],
     pub percent_vertices: f32,
-    pub max_num_of_verts: u32,
+    #[doc(hidden)]
+    __padding_16: [u8; 4],
     pub max_deviation: f32,
     pub pixel_error: f32,
     pub welding_threshold: f32,
@@ -5336,144 +2399,14 @@ pub struct FMeshReductionSettings {
     pub termination_criterion: EStaticMeshReductionTerimationCriterion,
     pub visibility_aggressiveness: EMeshFeatureImportance,
     pub vertex_color_importance: EMeshFeatureImportance,
+    __padding_end: [u8; 1],
 }
-#[repr(C, align(16))]
-pub struct FBspSurf {
-    pub material: UPtr<UMaterialInterface>,
-    pub actor: UPtr<ABrush>,
-}
-#[repr(C, align(4))]
-pub struct FPacketSimulationSettings {
-    pub pkt_loss: i32,
-    pub pkt_loss_max_size: i32,
-    pub pkt_loss_min_size: i32,
-    pub pkt_order: i32,
-    pub pkt_dup: i32,
-    pub pkt_lag: i32,
-    pub pkt_lag_variance: i32,
-    pub pkt_lag_min: i32,
-    pub pkt_lag_max: i32,
-    pub pkt_incoming_lag_min: i32,
-    pub pkt_incoming_lag_max: i32,
-    pub pkt_incoming_loss: i32,
-    pub pkt_jitter: i32,
-    pub pkt_frame_delay: i32,
-    pub pkt_incoming_frame_delay: i32,
-    pub pkt_buffer_bloat_in_ms: i32,
-    pub pkt_incoming_buffer_bloat_in_ms: i32,
-}
-#[repr(C, align(4))]
-pub struct FNetDriverReplicationSystemConfig {
-    pub max_replicated_object_count: u32,
-    pub initial_net_object_list_count: u32,
-    pub net_object_list_grow_count: u32,
-    pub pre_allocated_memory_buffers_object_count: u32,
-    pub max_replication_writer_object_count: u32,
-    pub max_delta_compressed_object_count: u32,
-    pub max_net_object_group_count: u32,
-    pub b_allow_parallel_tasks: bool,
-}
-#[repr(C, align(8))]
-pub struct FChannelDefinition {
-    pub channel_name: FName,
-    pub class_name: FName,
-    pub channel_class: TSubclassOf<crate::bindings::core_u_object::UObject>,
-    pub static_channel_index: i32,
-    pub flags_36: u8,
-}
-#[repr(C, align(8))]
-pub struct FNetworkEmulationProfileDescription {
-    pub profile_name: FString,
-    pub tool_tip: FString,
-}
-#[repr(C, align(8))]
-pub struct FBandwidthTestItem {
-    pub kilobyte: TArray<u8>,
-}
-#[repr(C, align(8))]
-pub struct FBandwidthTestGenerator {
-    pub replicated_buffers: TArray<FBandwidthTestItem>,
-}
-#[repr(C, align(8))]
-pub struct FNetworkMetricConfig {
-    pub metric_name: FName,
-    pub mutator: crate::bindings::core_u_object::FInstancedStruct,
-    pub class: TSoftObjectPtr<crate::bindings::core_u_object::UClass>,
-    pub enable_mode: ENetworkMetricEnableMode,
-}
-#[repr(C, align(8))]
-pub struct FNetworkMetricsMutator {
-    pub name_override: FName,
-}
-#[repr(C, align(8))]
-pub struct FNetworkMetricsMutatorAvg {
-    pub metric_name: FName,
-}
-#[repr(C, align(8))]
-pub struct FNetworkMetricsMutatorMin {
-    pub metric_name: FName,
-}
-#[repr(C, align(8))]
-pub struct FNetworkMetricsMutatorMax {
-    pub metric_name: FName,
-}
-#[repr(C, align(8))]
-pub struct FNetworkMetricsMutatorPercent {
-    pub numerator_name: FName,
-    pub denominator_name: FName,
-}
-#[repr(C, align(8))]
-pub struct FNetworkMetricsMutatorOutPacketLoss {}
-#[repr(C, align(8))]
-pub struct FNetworkMetricsMutatorInPacketLoss {}
-#[repr(C, align(8))]
-pub struct FRPCDoSState {
-    pub b_log_escalate: bool,
-    pub b_send_escalate_analytics: bool,
-    pub b_kick_player: bool,
-    pub b_track_recent_rp_cs: bool,
-    pub escalate_quota_rp_cs_per_frame: i16,
-    pub escalate_time_quota_ms_per_frame: i16,
-    pub escalate_quota_rp_cs_per_period: i16,
-    pub escalate_time_quota_ms_per_period: i16,
-    pub escalate_quota_time_period: i8,
-    pub escalation_count_tolerance: i8,
-    pub escalation_time_tolerance_ms: i16,
-    pub rpc_repeat_limit_per_period: i16,
-    pub rpc_repeat_limit_ms_per_period: i16,
-    pub rpc_repeat_limit_time_period: i8,
-    pub cooloff_time: i16,
-    pub auto_escalate_time: i16,
-}
-#[repr(C, align(8))]
-pub struct FRPCDoSStateConfig {}
-#[repr(C, align(8))]
-pub struct FRPCAnalyticsThreshold {
-    pub rpc: FName,
-    pub count_per_sec: i32,
-    pub time_per_sec: f64,
-}
+impl FMeshReductionSettings {}
 #[repr(C, align(8))]
 pub struct FUniqueNetIdRepl {
-    pub replication_bytes: TArray<u8>,
+    __padding_end: [u8; 48],
 }
-#[repr(C, align(4))]
-pub struct FParticleBurst {
-    pub count: i32,
-    pub count_low: i32,
-    pub time: f32,
-}
-#[repr(C, align(1))]
-pub struct FParticleSystemLOD {}
-#[repr(C, align(8))]
-pub struct FLODSoloTrack {
-    pub solo_enable_setting: TArray<u8>,
-}
-#[repr(C, align(8))]
-pub struct FNamedEmitterMaterial {
-    pub name: FName,
-    pub material: UPtr<UMaterialInterface>,
-}
+impl FUniqueNetIdRepl {}
 #[repr(C, align(16))]
 pub struct FParticleSysParam {
     pub name: FName,
@@ -5485,7 +2418,9 @@ pub struct FParticleSysParam {
     pub color: crate::bindings::core_u_object::FColor,
     pub actor: UPtr<AActor>,
     pub material: UPtr<UMaterialInterface>,
+    __padding_end: [u8; 128],
 }
+impl FParticleSysParam {}
 #[repr(C, align(8))]
 pub struct FFXSystemSpawnParameters {
     pub world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
@@ -5501,320 +2436,18 @@ pub struct FFXSystemSpawnParameters {
     pub pooling_method: EPSCPoolMethod,
     pub b_pre_cull_check: bool,
     pub b_is_player_effect: bool,
+    __padding_end: [u8; 6],
 }
-#[repr(C, align(8))]
-pub struct FParticleSystemWorldManagerTickFunction {}
-#[repr(C, align(8))]
-pub struct FPSCPoolElem {
-    pub psc: UPtr<UParticleSystemComponent>,
-}
-#[repr(C, align(8))]
-pub struct FPSCPool {
-    pub free_elements: TArray<FPSCPoolElem>,
-}
-#[repr(C, align(8))]
-pub struct FWorldPSCPool {
-    pub world_particle_system_pools: TMap<UPtr<UParticleSystem>, FPSCPool>,
-}
-#[repr(C, align(4))]
-pub struct FClusterUnionBoneData {}
-#[repr(C, align(8))]
-pub struct FClusteredComponentData {
-    pub replicated_proxy_component: TWeakObjectPtr<
-        UClusterUnionReplicatedProxyComponent,
-    >,
-    pub owner: TWeakObjectPtr<AActor>,
-    pub b_was_replicating: bool,
-    pub b_pending_deletion: bool,
-}
-#[repr(C, align(8))]
-pub struct FClusteredActorData {
-    pub b_was_replicating_movement: bool,
-}
-#[repr(C, align(1))]
-pub struct FClusterUnionReplicatedData {
-    pub object_state: u8,
-    pub b_is_anchored: bool,
-}
-#[repr(C, align(8))]
-pub struct FClusterUnionPendingAddData {
-    pub acceleration_payloads: TArray<FExternalSpatialAccelerationPayload>,
-    pub bones_data: TSet<FClusterUnionBoneData>,
-}
-#[repr(C, align(4))]
-pub struct FExternalSpatialAccelerationPayload {}
-#[repr(C, align(8))]
-pub struct FClusterUnionInitializationData {
-    pub cluster_union_component: UPtr<UClusterUnionComponent>,
-    pub processed_components: TArray<UPtr<UPrimitiveComponent>>,
-}
-#[repr(C, align(4))]
-pub struct FConstraintDrive {
-    pub stiffness: f32,
-    pub damping: f32,
-    pub max_force: f32,
-    pub flags_12: u8,
-}
-#[repr(C, align(8))]
-pub struct FLinearDriveConstraint {
-    pub position_target: crate::bindings::core_u_object::FVector,
-    pub velocity_target: crate::bindings::core_u_object::FVector,
-    pub x_drive: FConstraintDrive,
-    pub y_drive: FConstraintDrive,
-    pub z_drive: FConstraintDrive,
-    pub b_acceleration_mode: bool,
-    pub flags_97: u8,
-}
-#[repr(C, align(8))]
-pub struct FAngularDriveConstraint {
-    pub twist_drive: FConstraintDrive,
-    pub swing_drive: FConstraintDrive,
-    pub slerp_drive: FConstraintDrive,
-    pub orientation_target: crate::bindings::core_u_object::FRotator,
-    pub angular_velocity_target: crate::bindings::core_u_object::FVector,
-    pub angular_drive_mode: EAngularDriveMode,
-    pub b_acceleration_mode: bool,
-}
-#[repr(C, align(8))]
-pub struct FConstraintProfileProperties {
-    pub projection_linear_tolerance: f32,
-    pub projection_angular_tolerance: f32,
-    pub projection_linear_alpha: f32,
-    pub projection_angular_alpha: f32,
-    pub shock_propagation_alpha: f32,
-    pub linear_break_threshold: f32,
-    pub linear_plasticity_threshold: f32,
-    pub angular_break_threshold: f32,
-    pub angular_plasticity_threshold: f32,
-    pub contact_transfer_scale: f32,
-    pub linear_limit: FLinearConstraint,
-    pub cone_limit: FConeConstraint,
-    pub twist_limit: FTwistConstraint,
-    pub flags_128: u8,
-    pub flags_129: u8,
-    pub linear_drive: FLinearDriveConstraint,
-    pub angular_drive: FAngularDriveConstraint,
-    pub linear_plasticity_type: crate::bindings::physics_core::EConstraintPlasticityType,
-}
-#[repr(C, align(4))]
-pub struct FConstraintBaseParams {
-    pub stiffness: f32,
-    pub damping: f32,
-    pub restitution: f32,
-    pub contact_distance: f32,
-    pub flags_16: u8,
-}
-#[repr(C, align(4))]
-pub struct FTwistConstraint {
-    pub twist_limit_degrees: f32,
-    pub twist_motion: crate::bindings::physics_core::EAngularConstraintMotion,
-}
-#[repr(C, align(4))]
-pub struct FConeConstraint {
-    pub swing1_limit_degrees: f32,
-    pub swing2_limit_degrees: f32,
-    pub swing1_motion: crate::bindings::physics_core::EAngularConstraintMotion,
-    pub swing2_motion: crate::bindings::physics_core::EAngularConstraintMotion,
-}
-#[repr(C, align(4))]
-pub struct FLinearConstraint {
-    pub limit: f32,
-    pub x_motion: crate::bindings::physics_core::ELinearConstraintMotion,
-    pub y_motion: crate::bindings::physics_core::ELinearConstraintMotion,
-    pub z_motion: crate::bindings::physics_core::ELinearConstraintMotion,
-}
-#[repr(C, align(8))]
-pub struct FConstraintInstanceBase {}
-#[repr(C, align(16))]
-pub struct FConstraintInstance {
-    pub joint_name: FName,
-    pub constraint_bone1: FName,
-    pub constraint_bone2: FName,
-    pub pos1: crate::bindings::core_u_object::FVector,
-    pub pri_axis1: crate::bindings::core_u_object::FVector,
-    pub sec_axis1: crate::bindings::core_u_object::FVector,
-    pub pos2: crate::bindings::core_u_object::FVector,
-    pub pri_axis2: crate::bindings::core_u_object::FVector,
-    pub sec_axis2: crate::bindings::core_u_object::FVector,
-    pub angular_rotation_offset: crate::bindings::core_u_object::FRotator,
-    pub flags_304: u8,
-    pub profile_instance: FConstraintProfileProperties,
-    pub flags_680: u8,
-    pub projection_linear_tolerance_deprecated: f32,
-    pub projection_angular_tolerance_deprecated: f32,
-    pub linear_x_motion_deprecated: crate::bindings::physics_core::ELinearConstraintMotion,
-    pub linear_y_motion_deprecated: crate::bindings::physics_core::ELinearConstraintMotion,
-    pub linear_z_motion_deprecated: crate::bindings::physics_core::ELinearConstraintMotion,
-    pub linear_limit_size_deprecated: f32,
-    pub flags_700: u8,
-    pub linear_limit_stiffness_deprecated: f32,
-    pub linear_limit_damping_deprecated: f32,
-    pub flags_712: u8,
-    pub linear_break_threshold_deprecated: f32,
-    pub angular_swing1_motion_deprecated: crate::bindings::physics_core::EAngularConstraintMotion,
-    pub angular_twist_motion_deprecated: crate::bindings::physics_core::EAngularConstraintMotion,
-    pub angular_swing2_motion_deprecated: crate::bindings::physics_core::EAngularConstraintMotion,
-    pub flags_724: u8,
-    pub swing1_limit_angle_deprecated: f32,
-    pub twist_limit_angle_deprecated: f32,
-    pub swing2_limit_angle_deprecated: f32,
-    pub swing_limit_stiffness_deprecated: f32,
-    pub swing_limit_damping_deprecated: f32,
-    pub twist_limit_stiffness_deprecated: f32,
-    pub twist_limit_damping_deprecated: f32,
-    pub flags_756: u8,
-    pub angular_break_threshold_deprecated: f32,
-    pub flags_764: u8,
-    pub linear_position_target_deprecated: crate::bindings::core_u_object::FVector,
-    pub linear_velocity_target_deprecated: crate::bindings::core_u_object::FVector,
-    pub linear_drive_spring_deprecated: f32,
-    pub linear_drive_damping_deprecated: f32,
-    pub linear_drive_force_limit_deprecated: f32,
-    pub flags_828: u8,
-    pub flags_829: u8,
-    pub angular_position_target_deprecated: crate::bindings::core_u_object::FQuat,
-    pub angular_drive_mode_deprecated: EAngularDriveMode,
-    pub angular_orientation_target_deprecated: crate::bindings::core_u_object::FRotator,
-    pub angular_velocity_target_deprecated: crate::bindings::core_u_object::FVector,
-    pub angular_drive_spring_deprecated: f32,
-    pub angular_drive_damping_deprecated: f32,
-    pub angular_drive_force_limit_deprecated: f32,
-}
+impl FFXSystemSpawnParameters {}
 #[repr(C, align(16))]
 pub struct FConstraintInstanceAccessor {
-    pub owner: TWeakObjectPtr<crate::bindings::core_u_object::UObject>,
-    pub index: u32,
+    __padding_end: [u8; 64],
 }
-#[repr(C, align(8))]
-pub struct FNetworkPhysicsRewindDataProxy {
-    pub owner: UPtr<UNetworkPhysicsComponent>,
-}
-#[repr(C, align(8))]
-pub struct FNetworkPhysicsRewindDataInputProxy {}
-#[repr(C, align(8))]
-pub struct FNetworkPhysicsRewindDataRemoteInputProxy {}
-#[repr(C, align(8))]
-pub struct FNetworkPhysicsRewindDataStateProxy {}
-#[repr(C, align(8))]
-pub struct FNetworkPhysicsRewindDataImportantInputProxy {}
-#[repr(C, align(8))]
-pub struct FNetworkPhysicsRewindDataImportantStateProxy {}
-#[repr(C, align(8))]
-pub struct FNetworkPhysicsRewindDataDeltaSourceStateProxy {}
-#[repr(C, align(8))]
-pub struct FNetworkPhysicsRewindDataDeltaSourceInputProxy {}
-#[repr(C, align(8))]
-pub struct FNetworkPhysicsPayload {
-    pub server_frame: i32,
-}
-#[repr(C, align(8))]
-pub struct FNetworkPhysicsDataCollection {
-    pub data_array: TArray<crate::bindings::core_u_object::FInstancedStruct>,
-}
-#[repr(C, align(8))]
-pub struct FNetworkPhysicsData {
-    pub input_frame_deprecated: i32,
-}
-#[repr(C, align(4))]
-pub struct FNetworkPhysicsSettings {
-    pub b_override_sim_proxy_rep_mode: bool,
-    pub sim_proxy_rep_mode: EPhysicsReplicationMode,
-    pub b_focal_particle_in_physics_replication_lod: bool,
-    pub event_scheduling_min_delay_seconds: f32,
-}
-#[repr(C, align(4))]
-pub struct FNetworkPhysicsSettingsDefaultReplication {
-    pub flags_0: u8,
-    pub max_linear_hard_snap_distance: f32,
-    pub b_hardsnap_in_physics_thread: bool,
-    pub b_correct_connected_bodies: bool,
-    pub b_correct_connected_bodies_friction: bool,
-}
-#[repr(C, align(4))]
-pub struct FNetworkPhysicsSettingsPredictiveInterpolation {
-    pub flags_0: u8,
-    pub flags_1: u8,
-    pub pos_correction_time_base: f32,
-    pub pos_correction_time_min: f32,
-    pub pos_correction_time_multiplier: f32,
-    pub rot_correction_time_base: f32,
-    pub rot_correction_time_min: f32,
-    pub rot_correction_time_multiplier: f32,
-    pub pos_interpolation_time_multiplier: f32,
-    pub rot_interpolation_time_multiplier: f32,
-    pub soft_snap_pos_strength: f32,
-    pub soft_snap_rot_strength: f32,
-    pub b_soft_snap_to_source: bool,
-    pub b_disable_soft_snap: bool,
-    pub b_skip_velocity_rep_on_pos_early_out: bool,
-    pub b_post_resim_wait_for_update: bool,
-    pub b_correct_connected_bodies: bool,
-    pub b_correct_connected_bodies_friction: bool,
-}
-#[repr(C, align(4))]
-pub struct FNetworkPhysicsSettingsResimulationErrorCorrection {
-    pub flags_0: u8,
-    pub resim_error_correction_duration: f32,
-    pub resim_error_maximum_distance_before_snapping: f32,
-    pub resim_error_maximum_desync_time_before_snapping: f32,
-    pub resim_error_directional_decay_multiplier: f32,
-    pub b_render_interp_apply_exponential_decay: bool,
-    pub render_interp_exponential_decay_linear_half_life: f32,
-    pub render_interp_exponential_decay_angular_half_life: f32,
-    pub render_interp_minimum_linear_threshold: f32,
-    pub render_interp_minimum_angular_threshold: f32,
-}
-#[repr(C, align(4))]
-pub struct FNetworkPhysicsSettingsResimulation {
-    pub flags_0: u8,
-    pub flags_1: u8,
-    pub resimulation_error_threshold_deprecated: u32,
-    pub resimulation_error_position_threshold: f32,
-    pub resimulation_error_rotation_threshold: f32,
-    pub resimulation_error_linear_velocity_threshold: f32,
-    pub resimulation_error_angular_velocity_threshold: f32,
-    pub b_runtime_correction_enabled: bool,
-    pub b_runtime_velocity_correction: bool,
-    pub b_runtime_correct_connected_bodies: bool,
-    pub pos_stability_multiplier: f32,
-    pub rot_stability_multiplier: f32,
-    pub vel_stability_multiplier: f32,
-    pub ang_vel_stability_multiplier: f32,
-    pub resimulation_error_correction_settings: FNetworkPhysicsSettingsResimulationErrorCorrection,
-}
-#[repr(C, align(8))]
-pub struct FNetworkPhysicsSettingsNetworkPhysicsComponent {
-    pub flags_0: u8,
-    pub flags_1: u8,
-    pub redundant_inputs: u16,
-    pub redundant_remote_inputs: u16,
-    pub redundant_states: u16,
-    pub b_compare_state_to_trigger_rewind: bool,
-    pub b_compare_state_to_trigger_rewind_include_sim_proxies: bool,
-    pub b_compare_input_to_trigger_rewind: bool,
-    pub b_enable_unreliable_flow: bool,
-    pub b_enable_reliable_flow: bool,
-    pub b_apply_data_instead_of_merge_data: bool,
-    pub b_allow_input_extrapolation: bool,
-    pub b_validate_data_on_game_thread: bool,
-    pub b_apply_sim_proxy_state_at_runtime: bool,
-    pub b_apply_sim_proxy_input_at_runtime: bool,
-    pub b_trigger_resim_on_input_receive: bool,
-    pub b_apply_input_decay_over_set_time: bool,
-    pub input_decay_set_time: f32,
-    pub input_decay_curve: FRuntimeFloatCurve,
-}
-#[repr(C, align(8))]
-pub struct FNetworkPhysicsSettingsData {
-    pub general_settings: FNetworkPhysicsSettings,
-    pub default_replication_settings: FNetworkPhysicsSettingsDefaultReplication,
-    pub predictive_interpolation_settings: FNetworkPhysicsSettingsPredictiveInterpolation,
-    pub resimulation_settings: FNetworkPhysicsSettingsResimulation,
-    pub network_physics_component_settings: FNetworkPhysicsSettingsNetworkPhysicsComponent,
-}
+impl FConstraintInstanceAccessor {}
 #[repr(C, align(4))]
 pub struct FPhysicalAnimationData {
-    pub body_name: FName,
+    #[doc(hidden)]
+    __padding_12: [u8; 12],
     pub flags_12: u8,
     pub orientation_strength: f32,
     pub angular_velocity_strength: f32,
@@ -5823,6 +2456,7 @@ pub struct FPhysicalAnimationData {
     pub max_linear_force: f32,
     pub max_angular_force: f32,
 }
+impl FPhysicalAnimationData {}
 #[repr(C, align(4))]
 pub struct FPhysicsAssetSolverSettings {
     pub position_iterations: i32,
@@ -5833,7 +2467,9 @@ pub struct FPhysicsAssetSolverSettings {
     pub fixed_time_step: f32,
     pub b_use_linear_joint_solver: bool,
     pub b_use_manifolds: bool,
+    __padding_end: [u8; 2],
 }
+impl FPhysicsAssetSolverSettings {}
 #[repr(C, align(4))]
 pub struct FSolverIterations {
     pub solver_iterations: i32,
@@ -5843,111 +2479,24 @@ pub struct FSolverIterations {
     pub joint_push_out_iterations: i32,
     pub collision_push_out_iterations: i32,
 }
-#[repr(C, align(8))]
-pub struct FPhysicsConstraintProfileHandle {
-    pub profile_properties: FConstraintProfileProperties,
-    pub profile_name: FName,
-}
-#[repr(C, align(4))]
-pub struct FPhysicalSurfaceName {
-    pub ty: crate::bindings::physics_core::EPhysicalSurface,
-    pub name: FName,
-}
-#[repr(C, align(1))]
-pub struct FChaosPhysicsSettings {
-    pub default_threading_model: crate::bindings::chaos::EChaosThreadingMode,
-    pub dedicated_thread_tick_mode: crate::bindings::chaos::EChaosSolverTickMode,
-    pub dedicated_thread_buffer_mode: crate::bindings::chaos::EChaosBufferMode,
-}
-#[repr(C, align(4))]
-pub struct FPhysicsReplicationResimulationSettings {
-    pub b_enable_resimulation_error_position_threshold: bool,
-    pub resimulation_error_position_threshold: f32,
-    pub b_enable_resimulation_error_rotation_threshold: bool,
-    pub resimulation_error_rotation_threshold: f32,
-    pub b_enable_resimulation_error_linear_velocity_threshold: bool,
-    pub resimulation_error_linear_velocity_threshold: f32,
-    pub b_enable_resimulation_error_angular_velocity_threshold: bool,
-    pub resimulation_error_angular_velocity_threshold: f32,
-}
-#[repr(C, align(4))]
-pub struct FPhysicsReplicationLODSettings {
-    pub b_enable_physics_replication_lod: bool,
-    pub minimum_base_distance: f32,
-    pub base_distance_radius_multiplier: f32,
-    pub base_distances_for_resimulation_mode: f32,
-    pub base_distances_for_full_prediction: f32,
-    pub time_over_distance: f32,
-}
-#[repr(C, align(4))]
-pub struct FPhysicsPredictionSettings {
-    pub b_enable_physics_resimulation_deprecated: bool,
-    pub resimulation_error_threshold_deprecated: f32,
-    pub b_enable_physics_prediction: bool,
-    pub b_enable_physics_history_capture: bool,
-    pub max_supported_latency_prediction: f32,
-    pub resimulation_settings: FPhysicsReplicationResimulationSettings,
-    pub physics_replication_lod_settings: FPhysicsReplicationLODSettings,
-}
-#[repr(C, align(4))]
-pub struct FPhysicalAnimationProfile {
-    pub profile_name: FName,
-    pub physical_animation_data: FPhysicalAnimationData,
-}
-#[repr(C, align(16))]
-pub struct FCameraCacheEntry {
-    pub time_stamp: f32,
-    pub pov: FMinimalViewInfo,
-}
+impl FSolverIterations {}
 #[repr(C, align(16))]
 pub struct FTViewTarget {
     pub target: UPtr<AActor>,
     pub pov: FMinimalViewInfo,
     pub player_state: UPtr<APlayerState>,
+    __padding_end: [u8; 8],
 }
+impl FTViewTarget {}
 #[repr(C, align(4))]
 pub struct FViewTargetTransitionParams {
     pub blend_time: f32,
     pub blend_function: EViewTargetBlendFunction,
     pub blend_exp: f32,
     pub flags_12: u8,
+    __padding_end: [u8; 3],
 }
-#[repr(C, align(4))]
-pub struct FUpdateLevelStreamingLevelStatus {
-    pub package_name: FName,
-    pub lod_index: i32,
-    pub b_new_should_be_loaded: bool,
-    pub b_new_should_be_visible: bool,
-    pub b_new_should_block_on_load: bool,
-    pub b_new_should_block_on_unload: bool,
-}
-#[repr(C, align(4))]
-pub struct FAsyncPhysicsTimestamp {
-    pub server_frame: i32,
-    pub local_frame: i32,
-}
-#[repr(C, align(8))]
-pub struct FPlayerMuteList {
-    pub b_has_voice_handshake_completed: bool,
-    pub voice_channel_idx: i32,
-}
-#[repr(C, align(8))]
-pub struct FPropertyAccessIndirection {
-    pub property: TFieldPath<FProperty>,
-    pub function: UPtr<crate::bindings::core_u_object::UFunction>,
-    pub return_buffer_size: i32,
-    pub return_buffer_alignment: i32,
-    pub array_index: i32,
-    pub offset: u32,
-    pub object_type: EPropertyAccessObjectType,
-    pub ty: EPropertyAccessIndirectionType,
-}
-#[repr(C, align(8))]
-pub struct FPropertyAccessIndirectionChain {
-    pub property: TFieldPath<FProperty>,
-    pub indirection_start_index: i32,
-    pub indirection_end_index: i32,
-}
+impl FViewTargetTransitionParams {}
 #[repr(C, align(8))]
 pub struct FNeuralProfileStruct {
     pub input_format: ENeuralProfileFormat,
@@ -5957,17 +2506,17 @@ pub struct FNeuralProfileStruct {
     pub input_dimension: crate::bindings::core_u_object::FIntVector4,
     pub output_dimension: crate::bindings::core_u_object::FIntVector4,
     pub batch_size_override: i32,
-    pub tile_size: ENeuralModelTileType,
-    pub tile_overlap: crate::bindings::core_u_object::FIntPoint,
-    pub tile_overlap_resolve_type: ETileOverlapResolveType,
+    __padding_end: [u8; 20],
 }
+impl FNeuralProfileStruct {}
 #[repr(C, align(8))]
 pub struct FSpecularProfileStruct {
     pub format: ESpecularProfileFormat,
-    pub view_color: FRuntimeCurveLinearColor,
-    pub light_color: FRuntimeCurveLinearColor,
+    #[doc(hidden)]
+    __padding_1048: [u8; 1040],
     pub texture: UPtr<UTexture2D>,
 }
+impl FSpecularProfileStruct {}
 #[repr(C, align(4))]
 pub struct FSubsurfaceProfileStruct {
     pub surface_albedo: crate::bindings::core_u_object::FLinearColor,
@@ -5991,22 +2540,16 @@ pub struct FSubsurfaceProfileStruct {
     pub lobe_mix: f32,
     pub transmission_tint_color: crate::bindings::core_u_object::FLinearColor,
 }
-#[repr(C, align(8))]
-pub struct FLevelNameAndTime {
-    pub level_name: FString,
-    pub level_change_time_in_ms: u32,
-}
-#[repr(C, align(8))]
-pub struct FRepMovementNetSerializerConfig {}
+impl FSubsurfaceProfileStruct {}
 #[repr(C, align(8))]
 pub struct FReverbSettings {
     pub b_apply_reverb: bool,
-    pub reverb_type_deprecated: ReverbPreset,
     pub reverb_effect: UPtr<UReverbEffect>,
     pub reverb_plugin_effect: UPtr<USoundEffectSubmixPreset>,
     pub volume: f32,
     pub fade_time: f32,
 }
+impl FReverbSettings {}
 #[repr(C, align(16))]
 pub struct FColorGradePerRangeSettings {
     pub saturation: crate::bindings::core_u_object::FVector4,
@@ -6015,6 +2558,7 @@ pub struct FColorGradePerRangeSettings {
     pub gain: crate::bindings::core_u_object::FVector4,
     pub offset: crate::bindings::core_u_object::FVector4,
 }
+impl FColorGradePerRangeSettings {}
 #[repr(C, align(16))]
 pub struct FColorGradingSettings {
     pub global: FColorGradePerRangeSettings,
@@ -6024,7 +2568,9 @@ pub struct FColorGradingSettings {
     pub shadows_max: f32,
     pub highlights_min: f32,
     pub highlights_max: f32,
+    __padding_end: [u8; 4],
 }
+impl FColorGradingSettings {}
 #[repr(C, align(4))]
 pub struct FFilmStockSettings {
     pub slope: f32,
@@ -6033,6 +2579,7 @@ pub struct FFilmStockSettings {
     pub black_clip: f32,
     pub white_clip: f32,
 }
+impl FFilmStockSettings {}
 #[repr(C, align(4))]
 pub struct FGaussianSumBloomSettings {
     pub intensity: f32,
@@ -6051,6 +2598,7 @@ pub struct FGaussianSumBloomSettings {
     pub filter5_tint: crate::bindings::core_u_object::FLinearColor,
     pub filter6_tint: crate::bindings::core_u_object::FLinearColor,
 }
+impl FGaussianSumBloomSettings {}
 #[repr(C, align(8))]
 pub struct FConvolutionBloomSettings {
     pub intensity: f32,
@@ -6063,25 +2611,32 @@ pub struct FConvolutionBloomSettings {
     pub pre_filter_mult: f32,
     pub buffer_scale: f32,
 }
+impl FConvolutionBloomSettings {}
 #[repr(C, align(8))]
 pub struct FLensBloomSettings {
     pub intensity: f32,
     pub gaussian_sum: FGaussianSumBloomSettings,
     pub convolution: FConvolutionBloomSettings,
     pub method: EBloomMethod,
+    __padding_end: [u8; 7],
 }
+impl FLensBloomSettings {}
 #[repr(C, align(8))]
 pub struct FLensImperfectionSettings {
     pub dirt_mask: UPtr<UTexture>,
     pub dirt_mask_intensity: f32,
     pub dirt_mask_tint: crate::bindings::core_u_object::FLinearColor,
+    __padding_end: [u8; 4],
 }
+impl FLensImperfectionSettings {}
 #[repr(C, align(8))]
 pub struct FLensSettings {
     pub bloom: FLensBloomSettings,
     pub imperfections: FLensImperfectionSettings,
     pub chromatic_aberration: f32,
+    __padding_end: [u8; 4],
 }
+impl FLensSettings {}
 #[repr(C, align(8))]
 pub struct FCameraExposureSettings {
     pub method: EAutoExposureMethod,
@@ -6098,255 +2653,43 @@ pub struct FCameraExposureSettings {
     pub histogram_log_max: f32,
     pub calibration_constant: f32,
     pub flags_60: u8,
+    __padding_end: [u8; 3],
 }
-#[repr(C, align(8))]
-pub struct FShaderCompilerCounters {
-    pub accumulated_local_worker_idle_time: f64,
-    pub times_local_workers_were_idle: f64,
-    pub jobs_assigned: i64,
-    pub jobs_completed: i64,
-    pub accumulated_pending_time: f64,
-    pub max_pending_time: f64,
-    pub accumulated_job_execution_time: f64,
-    pub max_job_execution_time: f64,
-    pub accumulated_job_life_time: f64,
-    pub max_job_life_time: f64,
-    pub accumulated_task_submit_jobs: f64,
-    pub accumulated_task_submit_jobs_stall: f64,
-    pub local_job_batches_seen: i64,
-    pub total_jobs_reported_in_local_job_batches: i64,
-    pub distributed_job_batches_seen: i64,
-    pub total_jobs_reported_in_distributed_job_batches: i64,
-    pub min_shader_code_size: i32,
-    pub max_shader_code_size: i32,
-    pub accumulated_shader_code_size: u64,
-    pub num_accumulated_shader_codes: u64,
-    pub shader_map_ddc_misses: u32,
-    pub shader_map_ddc_hits: u32,
-    pub total_cache_search_attempts: u64,
-    pub total_cache_hits: u64,
-    pub total_cache_duplicates: u32,
-    pub total_cache_ddc_queries: u32,
-    pub total_cache_ddc_hits: u32,
-    pub unique_cache_input_hashes: u64,
-    pub unique_cache_outputs: u64,
-    pub cache_mem_used: u64,
-    pub cache_mem_budget: u64,
-    pub max_remote_agents: u32,
-    pub max_active_agent_cores: u32,
-}
-#[repr(C, align(8))]
-pub struct FShaderCompilerMaterialCounters {
-    pub material_translate_calls: i32,
-    pub material_translate_total_time_sec: f64,
-    pub material_translate_translation_only_time_sec: f64,
-    pub material_translate_serialization_only_time_sec: f64,
-    pub material_cache_hits: i32,
-}
-#[repr(C, align(4))]
-pub struct FShaderTimings {
-    pub min_compile_time: f32,
-    pub max_compile_time: f32,
-    pub total_compile_time: f32,
-    pub total_preprocess_time: f32,
-    pub num_compiled: i32,
-    pub average_compile_time: f32,
-}
-#[repr(C, align(8))]
-pub struct FShaderCompilerSinglePermutationStat {
-    pub permutation_hash: u64,
-    pub permutation_string: u32,
-    pub compiled: u32,
-    pub cooked: u32,
-    pub compiled_double: u32,
-    pub cooked_double: u32,
-}
-#[repr(C, align(8))]
-pub struct FShaderStats {
-    pub permutation_compilations: TArray<FShaderCompilerSinglePermutationStat>,
-    pub compiled: u32,
-    pub cooked: u32,
-    pub compiled_double: u32,
-    pub cooked_double: u32,
-    pub compile_time: f32,
-}
+impl FCameraExposureSettings {}
 #[repr(C, align(8))]
 pub struct FSingleAnimationPlayData {
     pub anim_to_play: UPtr<UAnimationAsset>,
     pub flags_8: u8,
     pub saved_position: f32,
     pub saved_play_rate: f32,
+    __padding_end: [u8; 4],
 }
-#[repr(C, align(4))]
-pub struct FBoneMirrorInfo {
-    pub source_index: i32,
-    pub bone_flip_axis: crate::bindings::core_u_object::EAxis,
-}
-#[repr(C, align(4))]
-pub struct FBoneMirrorExport {
-    pub bone_name: FName,
-    pub source_bone_name: FName,
-    pub bone_flip_axis: crate::bindings::core_u_object::EAxis,
-}
-#[repr(C, align(8))]
-pub struct FSkeletalMeshClothBuildParams {
-    pub target_asset: TWeakObjectPtr<
-        crate::bindings::clothing_system_runtime_interface::UClothingAssetBase,
-    >,
-    pub target_lod: i32,
-    pub b_remap_parameters: bool,
-    pub asset_name: FString,
-    pub lod_index: i32,
-    pub source_section: i32,
-    pub b_remove_from_mesh: bool,
-    pub physics_asset: TSoftObjectPtr<UPhysicsAsset>,
-}
-#[repr(C, align(4))]
-pub struct FClothPhysicsProperties_Legacy {
-    pub vertical_resistance: f32,
-    pub horizontal_resistance: f32,
-    pub bend_resistance: f32,
-    pub shear_resistance: f32,
-    pub friction: f32,
-    pub damping: f32,
-    pub tether_stiffness: f32,
-    pub tether_limit: f32,
-    pub drag: f32,
-    pub stiffness_frequency: f32,
-    pub gravity_scale: f32,
-    pub mass_scale: f32,
-    pub inertia_blend: f32,
-    pub self_collision_thickness: f32,
-    pub self_collision_squash_scale: f32,
-    pub self_collision_stiffness: f32,
-    pub solver_frequency: f32,
-    pub fiber_compression: f32,
-    pub fiber_expansion: f32,
-    pub fiber_resistance: f32,
-}
-#[repr(C, align(8))]
-pub struct FClothingAssetData_Legacy {
-    pub asset_name: FName,
-    pub apex_file_name: FString,
-    pub b_cloth_properties_changed: bool,
-    pub physics_properties: FClothPhysicsProperties_Legacy,
-}
-#[repr(C, align(4))]
-pub struct FBoneFilter {
-    pub b_exclude_self: bool,
-    pub bone_name: FName,
-}
-#[repr(C, align(8))]
-pub struct FSkeletalMeshLODGroupSettings {
-    pub screen_size: crate::bindings::core_u_object::FPerPlatformFloat,
-    pub lod_hysteresis: f32,
-    pub bone_filter_action_option: EBoneFilterActionOption,
-    pub bone_list: TArray<FBoneFilter>,
-    pub bones_to_prioritize: TArray<FName>,
-    pub sections_to_prioritize: TArray<i32>,
-    pub weight_of_prioritization: f32,
-    pub bake_pose: UPtr<UAnimSequence>,
-    pub reduction_settings: FSkeletalMeshOptimizationSettings,
-    pub b_allow_mesh_deformer: bool,
-}
+impl FSingleAnimationPlayData {}
 #[repr(C, align(8))]
 pub struct FSkelMeshMergeSectionMapping {
     pub section_i_ds: TArray<i32>,
 }
+impl FSkelMeshMergeSectionMapping {}
 #[repr(C, align(8))]
 pub struct FSkelMeshMergeMeshUVTransforms {
     pub uv_transforms: TArray<crate::bindings::core_u_object::FTransform>,
 }
+impl FSkelMeshMergeMeshUVTransforms {}
 #[repr(C, align(8))]
 pub struct FSkelMeshMergeUVTransformMapping {
     pub uv_transforms_per_mesh: TArray<FSkelMeshMergeMeshUVTransforms>,
 }
-#[repr(C, align(8))]
-pub struct FSkeletalMeshSamplingRegionBuiltData {}
-#[repr(C, align(8))]
-pub struct FSkeletalMeshSamplingLODBuiltData {}
-#[repr(C, align(8))]
-pub struct FSkeletalMeshSamplingBuiltData {
-    pub whole_mesh_built_data: TArray<FSkeletalMeshSamplingLODBuiltData>,
-    pub region_built_data: TArray<FSkeletalMeshSamplingRegionBuiltData>,
-}
-#[repr(C, align(4))]
-pub struct FSkeletalMeshSamplingRegionBoneFilter {
-    pub bone_name: FName,
-    pub flags_12: u8,
-}
-#[repr(C, align(4))]
-pub struct FSkeletalMeshSamplingRegionMaterialFilter {
-    pub material_name: FName,
-}
-#[repr(C, align(8))]
-pub struct FSkeletalMeshSamplingRegion {
-    pub name: FName,
-    pub lod_index: i32,
-    pub flags_16: u8,
-    pub material_filters: TArray<FSkeletalMeshSamplingRegionMaterialFilter>,
-    pub bone_filters: TArray<FSkeletalMeshSamplingRegionBoneFilter>,
-}
-#[repr(C, align(8))]
-pub struct FSkeletalMeshSamplingInfo {
-    pub regions: TArray<FSkeletalMeshSamplingRegion>,
-    pub built_data: FSkeletalMeshSamplingBuiltData,
-}
-#[repr(C, align(8))]
-pub struct FSkeletalMeshLODInfo {
-    pub screen_size: crate::bindings::core_u_object::FPerPlatformFloat,
-    pub lod_hysteresis: f32,
-    pub lod_material_map: TArray<i32>,
-    pub b_enable_shadow_casting_deprecated: TArray<bool>,
-    pub removed_bones_deprecated: TArray<FName>,
-    pub build_settings: FSkeletalMeshBuildSettings,
-    pub reduction_settings: FSkeletalMeshOptimizationSettings,
-    pub bones_to_remove: TArray<FBoneReference>,
-    pub bones_to_prioritize: TArray<FBoneReference>,
-    pub sections_to_prioritize: TArray<FSectionReference>,
-    pub weight_of_prioritization: f32,
-    pub bake_pose: UPtr<UAnimSequence>,
-    pub bake_pose_override: UPtr<UAnimSequence>,
-    pub source_import_filename: FString,
-    pub skin_cache_usage: ESkinCacheUsage,
-    pub morph_target_position_error_tolerance: f32,
-    pub imported_morph_target_source_filename: TMap<
-        FString,
-        FMorphTargetImportedSourceFileInfo,
-    >,
-    pub vertex_attributes: TArray<FSkeletalMeshVertexAttributeInfo>,
-    pub flags_480: u8,
-}
-#[repr(C, align(8))]
-pub struct FMorphTargetImportedSourceFileInfo {
-    pub source_filename: FString,
-    pub derived_data_hash: crate::bindings::core_u_object::FGuid,
-}
-#[repr(C, align(4))]
-pub struct FSectionReference {
-    pub section_index: i32,
-}
-#[repr(C, align(8))]
-pub struct FSkeletalMeshSourceModel {
-    pub triangle_count: i32,
-    pub vertex_count: i32,
-    pub bounds: crate::bindings::core_u_object::FBoxSphereBounds,
-    pub cached_skin_weight_profile_names: TArray<FName>,
-    pub cached_morph_target_names: TArray<FName>,
-    pub cached_has_vertex_colors: TOptional<bool>,
-    pub cached_vertex_color_guid: crate::bindings::core_u_object::FGuid,
-    pub mesh_description_bulk_data: UPtr<USkeletalMeshDescriptionBulkData>,
-}
+impl FSkelMeshMergeUVTransformMapping {}
 #[repr(C, align(8))]
 pub struct FSkeletalMaterial {
     pub material_interface: UPtr<UMaterialInterface>,
     pub material_slot_name: FName,
-    pub b_enable_shadow_casting_deprecated: bool,
-    pub b_recompute_tangent_deprecated: bool,
-    pub imported_material_slot_name: FName,
+    #[doc(hidden)]
+    __padding_36: [u8; 16],
     pub uv_channel_data: FMeshUVChannelInfo,
     pub overlay_material_interface: UPtr<UMaterialInterface>,
 }
+impl FSkeletalMaterial {}
 #[repr(C, align(8))]
 pub struct FSoundAttenuationPluginSettings {
     pub spatialization_plugin_settings_array: TArray<
@@ -6364,10 +2707,16 @@ pub struct FSoundAttenuationPluginSettings {
         >,
     >,
 }
+impl FSoundAttenuationPluginSettings {}
 #[repr(C, align(8))]
-pub struct FAttenuationSubmixSendSettings {}
+pub struct FAttenuationSubmixSendSettings {
+    __padding_end: [u8; 176],
+}
+impl FAttenuationSubmixSendSettings {}
 #[repr(C, align(8))]
 pub struct FSoundAttenuationSettings {
+    #[doc(hidden)]
+    __padding_192: [u8; 192],
     pub flags_192: u8,
     pub flags_193: u8,
     pub spatialization_algorithm: ESoundSpatializationAlgorithm,
@@ -6381,17 +2730,14 @@ pub struct FSoundAttenuationSettings {
     pub occlusion_trace_channel: ECollisionChannel,
     pub reverb_send_method: EReverbSendMethod,
     pub priority_attenuation_method: EPriorityAttenuationMethod,
-    pub distance_type_deprecated: ESoundDistanceCalc,
-    pub omni_radius_deprecated: f32,
+    #[doc(hidden)]
+    __padding_500: [u8; 8],
     pub non_spatialized_radius_start: f32,
     pub non_spatialized_radius_end: f32,
     pub non_spatialized_radius_mode: ENonSpatializedRadiusSpeakerMapMode,
     pub stereo_spread: f32,
-    pub spatialization_plugin_settings_deprecated: UPtr<
-        crate::bindings::audio_extensions::USpatializationPluginSourceSettingsBase,
-    >,
-    pub radius_min_deprecated: f32,
-    pub radius_max_deprecated: f32,
+    #[doc(hidden)]
+    __padding_536: [u8; 20],
     pub lpf_radius_min: f32,
     pub lpf_radius_max: f32,
     pub lpf_frequency_at_min: f32,
@@ -6411,12 +2757,8 @@ pub struct FSoundAttenuationSettings {
     pub occlusion_low_pass_filter_frequency: f32,
     pub occlusion_volume_attenuation: f32,
     pub occlusion_interpolation_time: f32,
-    pub occlusion_plugin_settings_deprecated: UPtr<
-        crate::bindings::audio_extensions::UOcclusionPluginSourceSettingsBase,
-    >,
-    pub reverb_plugin_settings_deprecated: UPtr<
-        crate::bindings::audio_extensions::UReverbPluginSourceSettingsBase,
-    >,
+    #[doc(hidden)]
+    __padding_632: [u8; 20],
     pub reverb_wet_level_min: f32,
     pub reverb_wet_level_max: f32,
     pub reverb_distance_min: f32,
@@ -6432,12 +2774,7 @@ pub struct FSoundAttenuationSettings {
     pub custom_priority_attenuation_curve: FRuntimeFloatCurve,
     pub plugin_settings: FSoundAttenuationPluginSettings,
 }
-#[repr(C, align(1))]
-pub struct FSoundBaseEditorData {
-    pub override_use_submixes_on_preview: EUseSubmixOnPreviewMode,
-}
-#[repr(C, align(4))]
-pub struct FSoundClassEditorData {}
+impl FSoundAttenuationSettings {}
 #[repr(C, align(8))]
 pub struct FSoundClassProperties {
     pub volume: f32,
@@ -6453,9 +2790,11 @@ pub struct FSoundClassProperties {
     pub modulation_settings: FSoundModulationDefaultSettings,
     pub output_target: EAudioOutputTarget,
     pub loading_behavior: ESoundWaveLoadingBehavior,
-    pub size_of_first_audio_chunk_in_seconds: crate::bindings::core_u_object::FPerPlatformFloat,
+    #[doc(hidden)]
+    __padding_520: [u8; 88],
     pub default_submix: UPtr<USoundSubmix>,
 }
+impl FSoundClassProperties {}
 #[repr(C, align(8))]
 pub struct FSoundModulationDefaultSettings {
     pub volume_modulation_destination: FSoundModulationDestinationSettings,
@@ -6463,19 +2802,22 @@ pub struct FSoundModulationDefaultSettings {
     pub highpass_modulation_destination: FSoundModulationDestinationSettings,
     pub lowpass_modulation_destination: FSoundModulationDestinationSettings,
 }
+impl FSoundModulationDefaultSettings {}
 #[repr(C, align(8))]
 pub struct FSoundModulationDestinationSettings {
     pub value: f32,
-    pub b_enable_modulation: bool,
-    pub modulator: UPtr<crate::bindings::audio_extensions::USoundModulatorBase>,
+    #[doc(hidden)]
+    __padding_16: [u8; 8],
     pub modulators: TSet<UPtr<crate::bindings::audio_extensions::USoundModulatorBase>>,
 }
+impl FSoundModulationDestinationSettings {}
 #[repr(C, align(8))]
 pub struct FPassiveSoundMixModifier {
     pub sound_mix: UPtr<USoundMix>,
     pub min_volume_threshold: f32,
     pub max_volume_threshold: f32,
 }
+impl FPassiveSoundMixModifier {}
 #[repr(C, align(8))]
 pub struct FSoundConcurrencySettings {
     pub max_count: i32,
@@ -6483,36 +2825,15 @@ pub struct FSoundConcurrencySettings {
     pub resolution_rule: EMaxConcurrentResolutionRule,
     pub retrigger_time: f32,
     pub platform_max_count: crate::bindings::core_u_object::FPerPlatformInt,
-    pub volume_scale: f32,
+    #[doc(hidden)]
+    __padding_108: [u8; 4],
     pub volume_scale_mode: EConcurrencyVolumeScaleMode,
     pub volume_scale_attack_time: f32,
     pub volume_scale_release_time: f32,
     pub voice_steal_release_time: f32,
+    __padding_end: [u8; 4],
 }
-#[repr(C, align(4))]
-pub struct FSoundNodeEditorData {}
-#[repr(C, align(8))]
-pub struct FSoundGroup {
-    pub sound_group: ESoundGroup,
-    pub display_name: FString,
-    pub flags_24: u8,
-    pub decompressed_duration: f32,
-}
-#[repr(C, align(8))]
-pub struct FAudioEQEffect {
-    pub frequency_center0: f32,
-    pub gain0: f32,
-    pub bandwidth0: f32,
-    pub frequency_center1: f32,
-    pub gain1: f32,
-    pub bandwidth1: f32,
-    pub frequency_center2: f32,
-    pub gain2: f32,
-    pub bandwidth2: f32,
-    pub frequency_center3: f32,
-    pub gain3: f32,
-    pub bandwidth3: f32,
-}
+impl FSoundConcurrencySettings {}
 #[repr(C, align(8))]
 pub struct FSoundClassAdjuster {
     pub sound_class_object: UPtr<USoundClass>,
@@ -6521,36 +2842,26 @@ pub struct FSoundClassAdjuster {
     pub low_pass_filter_frequency: f32,
     pub flags_20: u8,
     pub voice_center_channel_volume_adjuster: f32,
+    __padding_end: [u8; 4],
 }
+impl FSoundClassAdjuster {}
 #[repr(C, align(8))]
 pub struct FSoundModulationDefaultRoutingSettings {
+    #[doc(hidden)]
+    __padding_384: [u8; 384],
     pub volume_routing: EModulationRouting,
     pub pitch_routing: EModulationRouting,
     pub highpass_routing: EModulationRouting,
     pub lowpass_routing: EModulationRouting,
+    __padding_end: [u8; 4],
 }
-#[repr(C, align(4))]
-pub struct FDistanceDatum {
-    pub fade_in_distance_start: f32,
-    pub fade_in_distance_end: f32,
-    pub fade_out_distance_start: f32,
-    pub fade_out_distance_end: f32,
-    pub volume: f32,
-}
+impl FSoundModulationDefaultRoutingSettings {}
 #[repr(C, align(4))]
 pub struct FModulatorContinuousParams {
     pub parameter_name: FName,
-    pub default: f32,
-    pub min_input: f32,
-    pub max_input: f32,
-    pub min_output: f32,
-    pub max_output: f32,
-    pub param_mode: ModulationParamMode,
+    __padding_end: [u8; 24],
 }
-#[repr(C, align(8))]
-pub struct FDynamicChildSubmix {
-    pub child_submixes: TArray<UPtr<USoundSubmixBase>>,
-}
+impl FModulatorContinuousParams {}
 #[repr(C, align(4))]
 pub struct FSoundSubmixSpectralAnalysisBandSettings {
     pub band_frequency: f32,
@@ -6558,300 +2869,49 @@ pub struct FSoundSubmixSpectralAnalysisBandSettings {
     pub release_time_msec: i32,
     pub q_factor: f32,
 }
-#[repr(C, align(8))]
-pub struct FStreamedAudioPlatformData {}
+impl FSoundSubmixSpectralAnalysisBandSettings {}
 #[repr(C, align(4))]
 pub struct FSoundWaveSpectralData {
     pub frequency_hz: f32,
     pub magnitude: f32,
     pub normalized_magnitude: f32,
 }
+impl FSoundWaveSpectralData {}
 #[repr(C, align(8))]
 pub struct FSoundWaveSpectralDataPerSound {
     pub spectral_data: TArray<FSoundWaveSpectralData>,
     pub playback_time: f32,
     pub sound_wave: UPtr<USoundWave>,
 }
+impl FSoundWaveSpectralDataPerSound {}
 #[repr(C, align(8))]
 pub struct FSoundWaveEnvelopeDataPerSound {
     pub envelope: f32,
     pub playback_time: f32,
     pub sound_wave: UPtr<USoundWave>,
 }
-#[repr(C, align(4))]
-pub struct FSoundWaveSpectralDataEntry {
-    pub magnitude: f32,
-    pub normalized_magnitude: f32,
-}
-#[repr(C, align(8))]
-pub struct FSoundWaveSpectralTimeData {
-    pub data: TArray<FSoundWaveSpectralDataEntry>,
-    pub time_sec: f32,
-}
-#[repr(C, align(4))]
-pub struct FSoundWaveEnvelopeTimeData {
-    pub amplitude: f32,
-    pub time_sec: f32,
-}
-#[repr(C, align(8))]
-pub struct FSplineMeshComponentDescriptorBase {
-    pub hash: u32,
-    pub component_class: TSubclassOf<USplineMeshComponent>,
-    pub mobility: EComponentMobility,
-    pub virtual_texture_render_pass_type: ERuntimeVirtualTextureMainPassType,
-    pub lightmap_type: ELightmapType,
-    pub lighting_channels: FLightingChannels,
-    pub ray_tracing_group_id: i32,
-    pub ray_tracing_group_culling_priority: ERayTracingGroupCullingPriority,
-    pub b_has_custom_navigable_geometry: EHasCustomNavigableGeometry,
-    pub custom_depth_stencil_write_mask: ERendererStencilMask,
-    pub body_instance: FBodyInstance,
-    pub virtual_texture_cull_mips: i32,
-    pub translucency_sort_priority: i32,
-    pub overridden_light_map_res: i32,
-    pub custom_depth_stencil_value: i32,
-    pub hlod_batching_policy: EHLODBatchingPolicy,
-    pub flags_489: u8,
-    pub flags_490: u8,
-    pub flags_491: u8,
-    pub flags_492: u8,
-    pub world_position_offset_disable_distance: i32,
-    pub shadow_cache_invalidation_behavior: EShadowCacheInvalidationBehavior,
-    pub detail_mode: EDetailMode,
-}
-#[repr(C, align(8))]
-pub struct FSplineMeshComponentDescriptor {
-    pub static_mesh: UPtr<UStaticMesh>,
-    pub override_materials: TArray<UPtr<UMaterialInterface>>,
-    pub overlay_material: UPtr<UMaterialInterface>,
-    pub runtime_virtual_textures: TArray<UPtr<URuntimeVirtualTexture>>,
-}
-#[repr(C, align(8))]
-pub struct FSoftSplineMeshComponentDescriptor {
-    pub static_mesh: TSoftObjectPtr<UStaticMesh>,
-    pub override_materials: TArray<TSoftObjectPtr<UMaterialInterface>>,
-    pub overlay_material: TSoftObjectPtr<UMaterialInterface>,
-    pub runtime_virtual_textures: TArray<TSoftObjectPtr<URuntimeVirtualTexture>>,
-}
-#[repr(C, align(4))]
-pub struct FStaticMeshOptimizationSettings {
-    pub reduction_method: EOptimizationType,
-    pub num_of_triangles_percentage: f32,
-    pub max_deviation_percentage: f32,
-    pub welding_threshold: f32,
-    pub b_recalc_normals: bool,
-    pub normals_threshold: f32,
-    pub silhouette_importance: u8,
-    pub texture_importance: u8,
-    pub shading_importance: u8,
-}
-#[repr(C, align(4))]
-pub struct FMeshSectionInfo {
-    pub material_index: i32,
-    pub b_enable_collision: bool,
-    pub b_cast_shadow: bool,
-    pub b_visible_in_ray_tracing: bool,
-    pub b_affect_distance_field_lighting: bool,
-    pub b_force_opaque: bool,
-}
-#[repr(C, align(8))]
-pub struct FMeshSectionInfoMap {
-    pub map: TMap<u32, FMeshSectionInfo>,
-}
-#[repr(C, align(8))]
-pub struct FAssetEditorOrbitCameraPosition {
-    pub b_is_set: bool,
-    pub cam_orbit_point: crate::bindings::core_u_object::FVector,
-    pub cam_orbit_zoom: crate::bindings::core_u_object::FVector,
-    pub cam_orbit_rotation: crate::bindings::core_u_object::FRotator,
-}
+impl FSoundWaveEnvelopeDataPerSound {}
 #[repr(C, align(8))]
 pub struct FStaticMaterial {
     pub material_interface: UPtr<UMaterialInterface>,
     pub material_slot_name: FName,
-    pub imported_material_slot_name: FName,
+    #[doc(hidden)]
+    __padding_32: [u8; 12],
     pub uv_channel_data: FMeshUVChannelInfo,
     pub overlay_material_interface: UPtr<UMaterialInterface>,
 }
-#[repr(C, align(8))]
-pub struct FStaticMaterialMinimalInfo {}
-#[repr(C, align(8))]
-pub struct FMaterialRemapIndex {
-    pub import_version_key: u32,
-    pub material_remap: TArray<i32>,
-}
-#[repr(C, align(8))]
-pub struct FStaticMeshSourceModel {
-    pub static_mesh_description_bulk_data: UPtr<UStaticMeshDescriptionBulkData>,
-    pub build_settings: FMeshBuildSettings,
-    pub reduction_settings: FMeshReductionSettings,
-    pub cache_mesh_description_triangles_count: u32,
-    pub cache_mesh_description_vertices_count: u32,
-    pub lod_distance_deprecated: f32,
-    pub screen_size: crate::bindings::core_u_object::FPerPlatformFloat,
-    pub source_import_filename: FString,
-    pub b_import_with_base_mesh: bool,
-}
-#[repr(C, align(8))]
-pub struct FStreamableTexture {
-    pub name: FString,
-    pub guid: crate::bindings::core_u_object::FGuid,
-}
+impl FStaticMaterial {}
 #[repr(C, align(8))]
 pub struct FSubtitleAssetData {
     pub text: FText,
     pub subtitle_duration_type: ESubtitleDurationType,
-    pub b_can_edit_duration: bool,
     pub duration: f32,
     pub start_offset: f32,
     pub priority: f32,
     pub subtitle_type: ESubtitleType,
-    pub comment: FString,
+    __padding_end: [u8; 23],
 }
-#[repr(C, align(8))]
-pub struct FSyncPointDescription {
-    pub registered_name: FName,
-    pub event_type: ESyncPointEventType,
-    pub activation_rules: ESyncPointActivationRules,
-    pub first_possible_tick_group: ETickingGroup,
-    pub last_possible_tick_group: ETickingGroup,
-    pub prerequisite_sync_groups: TArray<FName>,
-}
-#[repr(C, align(8))]
-pub struct FExternalToolDefinition {
-    pub tool_name: FString,
-    pub executable_path: crate::bindings::core_u_object::FFilePath,
-    pub command_line_options: FString,
-    pub working_directory: crate::bindings::core_u_object::FDirectoryPath,
-    pub script_extension: FString,
-    pub script_directory: crate::bindings::core_u_object::FDirectoryPath,
-}
-#[repr(C, align(8))]
-pub struct FImportFactorySettingValues {
-    pub setting_name: FString,
-    pub value: FString,
-}
-#[repr(C, align(8))]
-pub struct FEditorImportExportTestDefinition {
-    pub import_file_path: crate::bindings::core_u_object::FFilePath,
-    pub export_file_extension: FString,
-    pub b_skip_export: bool,
-    pub factory_settings: TArray<FImportFactorySettingValues>,
-}
-#[repr(C, align(8))]
-pub struct FEditorImportWorkflowDefinition {
-    pub import_file_path: crate::bindings::core_u_object::FFilePath,
-    pub factory_settings: TArray<FImportFactorySettingValues>,
-}
-#[repr(C, align(8))]
-pub struct FBuildPromotionImportWorkflowSettings {
-    pub diffuse: FEditorImportWorkflowDefinition,
-    pub normal: FEditorImportWorkflowDefinition,
-    pub static_mesh: FEditorImportWorkflowDefinition,
-    pub reimport_static_mesh: FEditorImportWorkflowDefinition,
-    pub blend_shape_mesh: FEditorImportWorkflowDefinition,
-    pub morph_mesh: FEditorImportWorkflowDefinition,
-    pub skeletal_mesh: FEditorImportWorkflowDefinition,
-    pub animation: FEditorImportWorkflowDefinition,
-    pub sound: FEditorImportWorkflowDefinition,
-    pub surround_sound: FEditorImportWorkflowDefinition,
-    pub other_assets_to_import: TArray<FEditorImportWorkflowDefinition>,
-}
-#[repr(C, align(8))]
-pub struct FBuildPromotionOpenAssetSettings {
-    pub blueprint_asset: crate::bindings::core_u_object::FFilePath,
-    pub material_asset: crate::bindings::core_u_object::FFilePath,
-    pub particle_system_asset: crate::bindings::core_u_object::FFilePath,
-    pub skeletal_mesh_asset: crate::bindings::core_u_object::FFilePath,
-    pub static_mesh_asset: crate::bindings::core_u_object::FFilePath,
-    pub texture_asset: crate::bindings::core_u_object::FFilePath,
-}
-#[repr(C, align(8))]
-pub struct FBuildPromotionNewProjectSettings {
-    pub new_project_folder_override: crate::bindings::core_u_object::FDirectoryPath,
-    pub new_project_name_override: FString,
-}
-#[repr(C, align(8))]
-pub struct FMaterialEditorPromotionSettings {
-    pub default_material_asset: crate::bindings::core_u_object::FFilePath,
-    pub default_diffuse_texture: crate::bindings::core_u_object::FFilePath,
-    pub default_normal_texture: crate::bindings::core_u_object::FFilePath,
-}
-#[repr(C, align(8))]
-pub struct FParticleEditorPromotionSettings {
-    pub default_particle_asset: crate::bindings::core_u_object::FFilePath,
-}
-#[repr(C, align(8))]
-pub struct FBlueprintEditorPromotionSettings {
-    pub first_mesh_path: crate::bindings::core_u_object::FFilePath,
-    pub second_mesh_path: crate::bindings::core_u_object::FFilePath,
-    pub default_particle_asset: crate::bindings::core_u_object::FFilePath,
-}
-#[repr(C, align(8))]
-pub struct FBuildPromotionTestSettings {
-    pub default_static_mesh_asset: crate::bindings::core_u_object::FFilePath,
-    pub import_workflow: FBuildPromotionImportWorkflowSettings,
-    pub open_assets: FBuildPromotionOpenAssetSettings,
-    pub new_project_settings: FBuildPromotionNewProjectSettings,
-    pub source_control_material: crate::bindings::core_u_object::FFilePath,
-}
-#[repr(C, align(8))]
-pub struct FEditorMapPerformanceTestDefinition {
-    pub performance_testmap: crate::bindings::core_u_object::FSoftObjectPath,
-    pub test_timer: i32,
-}
-#[repr(C, align(8))]
-pub struct FLaunchOnTestSettings {
-    pub launch_on_testmap: crate::bindings::core_u_object::FFilePath,
-    pub device_id: FString,
-}
-#[repr(C, align(8))]
-pub struct FTextImportTestStruct {
-    pub embedded_flags: ETextImportTestFlags,
-    pub test_int: i32,
-    pub test_string: FString,
-}
-#[repr(C, align(4))]
-pub struct FTextureSourceLayerColorInfo {
-    pub color_min: crate::bindings::core_u_object::FLinearColor,
-    pub color_max: crate::bindings::core_u_object::FLinearColor,
-}
-#[repr(C, align(4))]
-pub struct FTextureSourceBlock {
-    pub block_x: i32,
-    pub block_y: i32,
-    pub size_x: i32,
-    pub size_y: i32,
-    pub num_slices: i32,
-    pub num_mips: i32,
-}
-#[repr(C, align(8))]
-pub struct FTextureSource {
-    pub id: crate::bindings::core_u_object::FGuid,
-    pub base_block_x: i32,
-    pub base_block_y: i32,
-    pub size_x: i32,
-    pub size_y: i32,
-    pub num_slices: i32,
-    pub num_mips: i32,
-    pub num_layers: i32,
-    pub b_png_compressed_deprecated: bool,
-    pub b_long_lat_cubemap: bool,
-    pub compression_format: ETextureSourceCompressionFormat,
-    pub b_guid_is_hash: bool,
-    pub layer_color_info_lock_protected: TArray<FTextureSourceLayerColorInfo>,
-    pub format: ETextureSourceFormat,
-    pub layer_format: TArray<ETextureSourceFormat>,
-    pub blocks: TArray<FTextureSourceBlock>,
-    pub block_data_offsets: TArray<i64>,
-}
-#[repr(C, align(8))]
-pub struct FTexturePlatformData {}
-#[repr(C, align(1))]
-pub struct FTextureFormatSettings {
-    pub compression_settings: TextureCompressionSettings,
-    pub flags_1: u8,
-}
+impl FSubtitleAssetData {}
 #[repr(C, align(8))]
 pub struct FTextureSourceColorSettings {
     pub encoding_override: ETextureSourceEncoding,
@@ -6861,91 +2921,9 @@ pub struct FTextureSourceColorSettings {
     pub blue_chromaticity_coordinate: crate::bindings::core_u_object::FVector2D,
     pub white_chromaticity_coordinate: crate::bindings::core_u_object::FVector2D,
     pub chromatic_adaptation_method: ETextureChromaticAdaptationMethod,
+    __padding_end: [u8; 7],
 }
-#[repr(C, align(4))]
-pub struct FTextureLODGroup {
-    pub group: TextureGroup,
-    pub mip_gen_settings: TextureMipGenSettings,
-    pub mip_load_options: ETextureMipLoadOptions,
-    pub lod_bias: i32,
-    pub lod_bias_smaller: i32,
-    pub lod_bias_smallest: i32,
-    pub lod_bias_vt: i32,
-    pub num_streamed_mips: i32,
-    pub min_lod_size: i32,
-    pub max_lod_size: i32,
-    pub max_lod_size_smaller: i32,
-    pub max_lod_size_smallest: i32,
-    pub max_lod_size_vt: i32,
-    pub optional_lod_bias: i32,
-    pub optional_max_lod_size: i32,
-    pub min_mag_filter: FName,
-    pub mip_filter: FName,
-    pub flags_80: u8,
-    pub downscale_options: ETextureDownscaleOptions,
-    pub lossy_compression_amount: ETextureLossyCompressionAmount,
-    pub downscale: f32,
-    pub virtual_texture_tile_count_bias: i32,
-    pub virtual_texture_tile_size_bias: i32,
-    pub virtual_texture_streaming_priority: crate::bindings::render_core::EVTProducerPriority,
-    pub max_aniso: i32,
-}
-#[repr(C, align(8))]
-pub struct FTTTrackBase {
-    pub track_name: FName,
-    pub b_is_external_curve: bool,
-    pub b_is_expanded: bool,
-    pub b_is_curve_view_synchronized: bool,
-}
-#[repr(C, align(4))]
-pub struct FTTTrackId {
-    pub track_type: i32,
-    pub track_index: i32,
-}
-#[repr(C, align(8))]
-pub struct FTTEventTrack {
-    pub function_name: FName,
-    pub curve_keys: UPtr<UCurveFloat>,
-}
-#[repr(C, align(8))]
-pub struct FTTPropertyTrack {
-    pub property_name: FName,
-}
-#[repr(C, align(8))]
-pub struct FTTFloatTrack {
-    pub curve_float: UPtr<UCurveFloat>,
-}
-#[repr(C, align(8))]
-pub struct FTTVectorTrack {
-    pub curve_vector: UPtr<UCurveVector>,
-}
-#[repr(C, align(8))]
-pub struct FTTLinearColorTrack {
-    pub curve_linear_color: UPtr<UCurveLinearColor>,
-}
-#[repr(C, align(8))]
-pub struct FActorLocatorFragmentResolveParameter {
-    pub streaming_world: UPtr<UWorld>,
-    pub container_id: FActorContainerID,
-    pub source_asset_path: crate::bindings::core_u_object::FTopLevelAssetPath,
-}
-#[repr(C, align(8))]
-pub struct FActorLocatorFragment {
-    pub path: crate::bindings::core_u_object::FSoftObjectPath,
-}
-#[repr(C, align(4))]
-pub struct FAnimInstanceLocatorFragment {
-    pub ty: EAnimInstanceLocatorFragmentType,
-}
-#[repr(C, align(4))]
-pub struct FAssetLocatorFragment {
-    pub path: crate::bindings::core_u_object::FTopLevelAssetPath,
-}
-#[repr(C, align(8))]
-pub struct FHardwareCursorReference {
-    pub cursor_path: FName,
-    pub hot_spot: crate::bindings::core_u_object::FVector2D,
-}
+impl FTextureSourceColorSettings {}
 #[repr(C, align(8))]
 pub struct FCanvasIcon {
     pub texture: UPtr<UTexture>,
@@ -6954,11 +2932,7 @@ pub struct FCanvasIcon {
     pub ul: f32,
     pub vl: f32,
 }
-#[repr(C, align(8))]
-pub struct FAutoCompleteNode {
-    pub index_char: i32,
-    pub auto_complete_list_indices: TArray<i32>,
-}
+impl FCanvasIcon {}
 #[repr(C, align(4))]
 pub struct FHardwareDeviceIdentifier {
     pub input_class_name: FName,
@@ -6966,81 +2940,33 @@ pub struct FHardwareDeviceIdentifier {
     pub primary_device_type: EHardwareDevicePrimaryType,
     pub supported_features_mask: i32,
 }
-#[repr(C, align(8))]
-pub struct FKeyBind {
-    pub key: crate::bindings::input_core::FKey,
-    pub command: FString,
-    pub flags_48: u8,
-    pub flags_49: u8,
-}
-#[repr(C, align(4))]
-pub struct FInputAxisProperties {
-    pub dead_zone: f32,
-    pub sensitivity: f32,
-    pub exponent: f32,
-    pub flags_12: u8,
-}
-#[repr(C, align(4))]
-pub struct FInputAxisConfigEntry {
-    pub axis_key_name: FName,
-    pub axis_properties: FInputAxisProperties,
-}
+impl FHardwareDeviceIdentifier {}
 #[repr(C, align(8))]
 pub struct FInputActionKeyMapping {
     pub action_name: FName,
     pub flags_12: u8,
     pub key: crate::bindings::input_core::FKey,
 }
+impl FInputActionKeyMapping {}
 #[repr(C, align(8))]
 pub struct FInputAxisKeyMapping {
     pub axis_name: FName,
     pub scale: f32,
     pub key: crate::bindings::input_core::FKey,
 }
+impl FInputAxisKeyMapping {}
 #[repr(C, align(4))]
 pub struct FInputActionSpeechMapping {
-    pub action_name: FName,
-    pub speech_keyword: FName,
+    __padding_end: [u8; 24],
 }
+impl FInputActionSpeechMapping {}
 #[repr(C, align(8))]
 pub struct FVoiceSettings {
     pub component_to_attach_to: UPtr<USceneComponent>,
     pub attenuation_settings: UPtr<USoundAttenuation>,
     pub source_effect_chain: UPtr<USoundEffectSourcePresetChain>,
 }
-#[repr(C, align(4))]
-pub struct FVirtualTextureBuildSettings {
-    pub tile_size: i32,
-    pub tile_border_size: i32,
-}
-#[repr(C, align(8))]
-pub struct FVirtualTextureSpacePoolConfig {
-    pub formats: TArray<crate::bindings::core_u_object::EPixelFormat>,
-    pub min_tile_size: i32,
-    pub max_tile_size: i32,
-    pub size_in_megabyte: i32,
-    pub b_enable_residency_mip_map_bias: bool,
-    pub residency_mip_map_bias_group: i32,
-    pub b_allow_size_scale: bool,
-    pub min_scaled_size_in_megabyte: i32,
-    pub max_scaled_size_in_megabyte: i32,
-}
-#[repr(C, align(8))]
-pub struct FStartPhysicsTickFunction {}
-#[repr(C, align(8))]
-pub struct FEndPhysicsTickFunction {}
-#[repr(C, align(8))]
-pub struct FLevelCollection {
-    pub game_state: UPtr<AGameStateBase>,
-    pub net_driver: UPtr<UNetDriver>,
-    pub demo_net_driver: UPtr<UDemoNetDriver>,
-    pub persistent_level: UPtr<ULevel>,
-    pub levels: TSet<UPtr<ULevel>>,
-}
-#[repr(C, align(8))]
-pub struct FStreamingLevelsToConsider {
-    pub streaming_levels: TArray<UPtr<ULevelStreaming>>,
-}
+impl FVoiceSettings {}
 #[repr(C, align(8))]
 pub struct FActorDesc {
     pub guid: crate::bindings::core_u_object::FGuid,
@@ -7056,264 +2982,17 @@ pub struct FActorDesc {
     pub actor_path: FName,
     pub data_layer_assets: TArray<crate::bindings::core_u_object::FSoftObjectPath>,
 }
-#[repr(C, align(4))]
-pub struct FExternalDataLayerUID {
-    pub value: u32,
-}
-#[repr(C, align(8))]
-pub struct FActorPlacementDataLayers {
-    pub data_layer_instance_names: TArray<FName>,
-    pub external_data_layer_name: FName,
-    pub current_colorized_data_layer_instance_name: FName,
-    pub context_id: i32,
-}
-#[repr(C, align(8))]
-pub struct FWorldPartitionActorFilter {}
-#[repr(C, align(4))]
-pub struct FWorldPartitionDestructibleHLODDamagedActorState {
-    pub actor_index: i32,
-    pub actor_health: u8,
-}
-#[repr(C, align(8))]
-pub struct FWorldPartitionDestructibleHLODState {
-    pub damaged_actors: TArray<FWorldPartitionDestructibleHLODDamagedActorState>,
-    pub owner_component: UPtr<UWorldPartitionDestructibleHLODComponent>,
-}
-#[repr(C, align(4))]
-pub struct FComponentInstanceMapping {
-    pub a: u32,
-    pub b: u32,
-}
-#[repr(C, align(4))]
-pub struct FActorInstanceMappingsRef {
-    pub a: u32,
-    pub b: u32,
-}
-#[repr(C, align(8))]
-pub struct FHLODInstancingPackedMappingData {
-    pub ism_cs: TArray<UPtr<UHLODInstancedStaticMeshComponent>>,
-    pub components_mapping: TArray<FComponentInstanceMapping>,
-    pub per_actor_mapping_data: TMap<u32, FActorInstanceMappingsRef>,
-}
+impl FActorDesc {}
 #[repr(C, align(8))]
 pub struct FExportHLODAssetsParams {
-    pub mesh_origin: EExportHLODMeshOrigin,
-    pub export_root_path: crate::bindings::core_u_object::FDirectoryPath,
+    __padding_end: [u8; 32],
 }
-#[repr(C, align(8))]
-pub struct FHLODBuildInputReferencedAssets {
-    pub static_meshes: TMap<crate::bindings::core_u_object::FTopLevelAssetPath, u32>,
-}
-#[repr(C, align(8))]
-pub struct FHLODBuildInputStats {
-    pub builders_referenced_assets: TMap<FName, FHLODBuildInputReferencedAssets>,
-}
+impl FExportHLODAssetsParams {}
 #[repr(C, align(8))]
 pub struct FWorldPartitionHLODDestructionTag {
-    pub hlod_destruction_component: UPtr<UWorldPartitionDestructibleHLODComponent>,
-    pub actor_index: i32,
+    __padding_end: [u8; 16],
 }
-#[repr(C, align(8))]
-pub struct FHLODSkinnedMeshComponentDescriptor {}
-#[repr(C, align(16))]
-pub struct FHLODISMComponentDescriptor {}
-#[repr(C, align(4))]
-pub struct FHLODModifierScalarParameter {
-    pub parameter_name: FName,
-    pub override_value: f32,
-}
-#[repr(C, align(8))]
-pub struct FRuntimePartitionHLODSetup {
-    pub name: FName,
-    pub hlod_layers: TArray<UPtr<UHLODLayer>>,
-    pub row_display_name: FName,
-    pub partition_layer: UPtr<URuntimePartition>,
-    pub b_is_spatially_loaded: bool,
-}
-#[repr(C, align(8))]
-pub struct FRuntimePartitionDesc {
-    pub name: FName,
-    pub class: TSubclassOf<URuntimePartition>,
-    pub main_layer: UPtr<URuntimePartition>,
-    pub hlod_setups: TArray<FRuntimePartitionHLODSetup>,
-}
-#[repr(C, align(8))]
-pub struct FRuntimePartitionStreamingData {
-    pub name: FName,
-    pub debug_name: FString,
-    pub loading_range: i32,
-    pub spatially_loaded_cells: TArray<UPtr<UWorldPartitionRuntimeCell>>,
-    pub non_spatially_loaded_cells: TArray<UPtr<UWorldPartitionRuntimeCell>>,
-}
-#[repr(C, align(8))]
-pub struct FVolumetricLightMapGridCell {
-    pub bounds: crate::bindings::core_u_object::FBox,
-    pub cell_id: u32,
-}
-#[repr(C, align(8))]
-pub struct FVolumetricLightMapGridDesc {
-    pub grid_bounds: crate::bindings::core_u_object::FBox,
-    pub guid: crate::bindings::core_u_object::FGuid,
-    pub cell_size: f32,
-    pub detail_cell_size: f32,
-    pub brick_size: f32,
-    pub cells: TArray<FVolumetricLightMapGridCell>,
-}
-#[repr(C, align(8))]
-pub struct FRuntimeCellTransformerInstance {
-    pub class: TSubclassOf<UWorldPartitionRuntimeCellTransformer>,
-    pub instance: UPtr<UWorldPartitionRuntimeCellTransformer>,
-}
-#[repr(C, align(8))]
-pub struct FWorldPartitionPerWorldSettings {
-    pub loaded_editor_regions: TArray<crate::bindings::core_u_object::FBox>,
-    pub loaded_editor_location_volumes: TArray<FName>,
-    pub not_loaded_data_layers: TArray<TSoftObjectPtr<UDataLayerAsset>>,
-    pub loaded_data_layers: TArray<TSoftObjectPtr<UDataLayerAsset>>,
-}
-#[repr(C, align(8))]
-pub struct FSubObjectPropertyOverride {
-    pub serialized_tagged_properties: TArray<u8>,
-}
-#[repr(C, align(8))]
-pub struct FPropertyOverrideReferenceTable {
-    pub soft_object_path_table: TArray<crate::bindings::core_u_object::FSoftObjectPath>,
-    pub object_references: TSet<UPtr<crate::bindings::core_u_object::UObject>>,
-    pub b_is_valid: bool,
-}
-#[repr(C, align(8))]
-pub struct FActorPropertyOverride {
-    pub actor: TWeakObjectPtr<AActor>,
-    pub sub_object_overrides: TMap<FString, FSubObjectPropertyOverride>,
-    pub reference_table: FPropertyOverrideReferenceTable,
-}
-#[repr(C, align(8))]
-pub struct FContainerPropertyOverride {
-    pub actor_overrides: TMap<
-        crate::bindings::core_u_object::FGuid,
-        FActorPropertyOverride,
-    >,
-}
-#[repr(C, align(8))]
-pub struct FWorldPartitionRuntimeCellPropertyOverride {
-    pub owner_container_id: FActorContainerID,
-    pub asset_path: FString,
-    pub package_name: FName,
-    pub container_path: FActorContainerPath,
-}
-#[repr(C, align(16))]
-pub struct FWorldPartitionRuntimeCellObjectMapping {
-    pub package: FName,
-    pub path: FName,
-    pub base_class: crate::bindings::core_u_object::FTopLevelAssetPath,
-    pub native_class: crate::bindings::core_u_object::FTopLevelAssetPath,
-    pub container_id: FActorContainerID,
-    pub container_transform: crate::bindings::core_u_object::FTransform,
-    pub editor_only_parent_transform: crate::bindings::core_u_object::FTransform,
-    pub container_package: FName,
-    pub world_package: FName,
-    pub actor_instance_guid: crate::bindings::core_u_object::FGuid,
-    pub loaded_path: FName,
-    pub b_is_editor_only: bool,
-    pub property_overrides: TArray<FWorldPartitionRuntimeCellPropertyOverride>,
-}
-#[repr(C, align(8))]
-pub struct FWorldPartitionRuntimeCellDebugInfo {
-    pub name: FString,
-    pub grid_name: FName,
-    pub coord_x: i64,
-    pub coord_y: i64,
-    pub coord_z: i64,
-}
-#[repr(C, align(4))]
-pub struct FWorldPartitionRuntimeContainerInstance {
-    pub actor_guid: crate::bindings::core_u_object::FGuid,
-    pub container_package: FName,
-}
-#[repr(C, align(8))]
-pub struct FWorldPartitionRuntimeContainer {
-    pub container_instances: TMap<FName, FWorldPartitionRuntimeContainerInstance>,
-}
-#[repr(C, align(8))]
-pub struct FWorldPartitionRuntimeContainerResolver {
-    pub containers: TMap<FName, FWorldPartitionRuntimeContainer>,
-    pub main_container_package: FName,
-    pub container_id_to_editor_path: TMap<FActorContainerID, FString>,
-}
-#[repr(C, align(8))]
-pub struct FWorldPartitionRuntimeCellStreamingData {
-    pub package_name: FString,
-    pub world_asset: crate::bindings::core_u_object::FSoftObjectPath,
-}
-#[repr(C, align(1))]
-pub struct FSpatialHashSettings {
-    pub b_use_aligned_grid_levels: bool,
-    pub b_snap_non_aligned_grid_levels_to_lower_levels: bool,
-    pub b_place_small_actors_using_location: bool,
-    pub b_place_partition_actors_using_location: bool,
-}
-#[repr(C, align(8))]
-pub struct FSpatialHashStreamingGridLayerCell {
-    pub grid_cells: TArray<UPtr<UWorldPartitionRuntimeCell>>,
-}
-#[repr(C, align(8))]
-pub struct FSpatialHashStreamingGridLevel {
-    pub layer_cells: TArray<FSpatialHashStreamingGridLayerCell>,
-    pub layer_cells_mapping: TMap<i64, i32>,
-}
-#[repr(C, align(8))]
-pub struct FSpatialHashStreamingGrid {
-    pub grid_name: FName,
-    pub origin: crate::bindings::core_u_object::FVector,
-    pub cell_size: i32,
-    pub loading_range: f32,
-    pub b_block_on_slow_streaming: bool,
-    pub debug_color: crate::bindings::core_u_object::FLinearColor,
-    pub grid_levels: TArray<FSpatialHashStreamingGridLevel>,
-    pub world_bounds: crate::bindings::core_u_object::FBox,
-    pub b_client_only_visible: bool,
-    pub grid_index: i32,
-    pub settings: FSpatialHashSettings,
-    pub injected_grid_levels: TArray<FSpatialHashStreamingGridLevel>,
-}
-#[repr(C, align(8))]
-pub struct FSpatialHashRuntimeGrid {
-    pub grid_name: FName,
-    pub cell_size: i32,
-    pub loading_range: f32,
-    pub b_block_on_slow_streaming: bool,
-    pub origin: crate::bindings::core_u_object::FVector2D,
-    pub priority: i32,
-    pub debug_color: crate::bindings::core_u_object::FLinearColor,
-    pub b_client_only_visible: bool,
-    pub hlod_layer: UPtr<UHLODLayer>,
-}
-#[repr(C, align(8))]
-pub struct FWorldPartitionRuntimeSpatialHashGridPreviewer {
-    pub material: UPtr<UMaterial>,
-    pub mid: UPtr<UMaterialInstanceDynamic>,
-    pub volume: UPtr<APostProcessVolume>,
-}
-#[repr(C, align(8))]
-pub struct FHLODLayerTypeUnsupportedActorClasses {
-    pub actor_classes: TArray<TSubclassOf<AActor>>,
-}
-#[repr(C, align(8))]
-pub struct FActivatedCells {
-    pub cells: TSet<UPtr<UWorldPartitionRuntimeCell>>,
-}
-#[repr(C, align(8))]
-pub struct FWorldPartitionUpdateStreamingTargetState {
-    pub to_load_cells: TArray<UPtr<UWorldPartitionRuntimeCell>>,
-    pub to_activate_cells: TArray<UPtr<UWorldPartitionRuntimeCell>>,
-    pub to_deactivate_cells: TArray<UPtr<UWorldPartitionRuntimeCell>>,
-    pub to_unload_cells: TArray<UPtr<UWorldPartitionRuntimeCell>>,
-}
-#[repr(C, align(8))]
-pub struct FWorldPartitionUpdateStreamingCurrentState {
-    pub loaded_cells: TSet<UPtr<UWorldPartitionRuntimeCell>>,
-    pub activated_cells: FActivatedCells,
-}
+impl FWorldPartitionHLODDestructionTag {}
 #[repr(C, align(8))]
 pub struct FStreamingSourceShape {
     pub b_use_grid_loading_range: bool,
@@ -7324,6 +3003,7 @@ pub struct FStreamingSourceShape {
     pub location: crate::bindings::core_u_object::FVector,
     pub rotation: crate::bindings::core_u_object::FRotator,
 }
+impl FStreamingSourceShape {}
 #[repr(C, align(8))]
 pub struct FWorldPartitionStreamingQuerySource {
     pub location: crate::bindings::core_u_object::FVector,
@@ -7332,7 +3012,9 @@ pub struct FWorldPartitionStreamingQuerySource {
     pub data_layers: TArray<FName>,
     pub b_data_layers_only: bool,
     pub b_spatial_query: bool,
+    __padding_end: [u8; 214],
 }
+impl FWorldPartitionStreamingQuerySource {}
 #[repr(C, align(4))]
 pub struct FLightmassWorldInfoSettings {
     pub static_lighting_level_scale: f32,
@@ -7342,7 +3024,8 @@ pub struct FLightmassWorldInfoSettings {
     pub indirect_lighting_smoothness: f32,
     pub environment_color: crate::bindings::core_u_object::FColor,
     pub environment_intensity: f32,
-    pub emissive_boost: f32,
+    #[doc(hidden)]
+    __padding_32: [u8; 4],
     pub diffuse_boost: f32,
     pub volume_lighting_method: EVolumeLightingMethod,
     pub flags_37: u8,
@@ -7356,222 +3039,268 @@ pub struct FLightmassWorldInfoSettings {
     pub occlusion_exponent: f32,
     pub fully_occluded_samples_fraction: f32,
     pub max_occlusion_distance: f32,
-    pub b_world_partition: bool,
+    __padding_end: [u8; 4],
 }
+impl FLightmassWorldInfoSettings {}
 #[repr(C, align(8))]
-pub struct FNetViewer {
-    pub connection: UPtr<UNetConnection>,
-    pub in_viewer: UPtr<AActor>,
-    pub view_target: UPtr<AActor>,
-    pub view_location: crate::bindings::core_u_object::FVector,
-    pub view_dir: crate::bindings::core_u_object::FVector,
-}
-#[repr(C, align(1))]
-pub struct FNaniteSettings {
-    pub b_allow_masked_materials: bool,
-}
-#[repr(C, align(8))]
-pub struct FBroadphaseSettings {
-    pub b_use_mbp_on_client: bool,
-    pub b_use_mbp_on_server: bool,
-    pub b_use_mbp_outer_bounds: bool,
-    pub mbp_bounds: crate::bindings::core_u_object::FBox,
-    pub mbp_outer_bounds: crate::bindings::core_u_object::FBox,
-    pub mbp_num_subdivs: u32,
-}
 pub struct UMaterialExpression {
+    #[doc(hidden)]
+    __padding_48: [u8; 48],
     pub material_expression_editor_x: i32,
     pub material_expression_editor_y: i32,
-    pub graph_node: UPtr<UEdGraphNode>,
-    pub subgraph_expression: UPtr<UMaterialExpression>,
-    pub material_expression_guid: crate::bindings::core_u_object::FGuid,
-    pub material: UPtr<UMaterial>,
-    pub function: UPtr<UMaterialFunction>,
-    pub desc: FString,
-    pub flags_136: u8,
-    pub flags_140: u8,
-    pub flags_144: u8,
-    pub menu_categories: TArray<FText>,
-    pub outputs: TArray<FExpressionOutput>,
+    __padding_end: [u8; 144],
 }
-pub struct UMaterialExpressionCustomOutput {}
+impl UMaterialExpression {}
+#[repr(C, align(8))]
+pub struct UMaterialExpressionCustomOutput {
+    __padding_end: [u8; 200],
+}
+impl UMaterialExpressionCustomOutput {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionBentNormalCustomOutput {
-    pub input: FExpressionInput,
+    __padding_end: [u8; 248],
 }
+impl UMaterialExpressionBentNormalCustomOutput {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionClearCoatNormalCustomOutput {
-    pub input: FExpressionInput,
+    __padding_end: [u8; 248],
 }
+impl UMaterialExpressionClearCoatNormalCustomOutput {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionTangentOutput {
-    pub input: FExpressionInput,
+    __padding_end: [u8; 248],
 }
+impl UMaterialExpressionTangentOutput {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionThinTranslucentMaterialOutput {
-    pub transmittance_color: FExpressionInput,
-    pub surface_coverage: FExpressionInput,
+    __padding_end: [u8; 296],
 }
+impl UMaterialExpressionThinTranslucentMaterialOutput {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionFirstPersonOutput {
-    pub first_person_interpolation_alpha: FExpressionInput,
-    pub const_first_person_interpolation_alpha: f32,
+    __padding_end: [u8; 256],
 }
+impl UMaterialExpressionFirstPersonOutput {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionMaterialCache {
-    pub b_is_sample: bool,
-    pub tag: UPtr<UMaterialCacheVirtualTextureTag>,
-    pub attributes: TArray<FMaterialExpressionMaterialCacheAttribute>,
-    pub primitive: FExpressionInput,
-    pub uv: FExpressionInput,
+    __padding_end: [u8; 552],
 }
+impl UMaterialExpressionMaterialCache {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionTemporalResponsivenessOutput {
-    pub input: FExpressionInput,
+    __padding_end: [u8; 248],
 }
+impl UMaterialExpressionTemporalResponsivenessOutput {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionMotionVectorWorldOffsetOutput {
-    pub input: FExpressionInput,
+    __padding_end: [u8; 248],
 }
+impl UMaterialExpressionMotionVectorWorldOffsetOutput {}
+#[repr(C, align(8))]
 pub struct UEdGraph {
-    pub schema: TSubclassOf<UEdGraphSchema>,
-    pub nodes: TArray<UPtr<UEdGraphNode>>,
-    pub flags_72: u8,
-    pub sub_graphs: TArray<UPtr<UEdGraph>>,
-    pub graph_guid: crate::bindings::core_u_object::FGuid,
-    pub interface_guid: crate::bindings::core_u_object::FGuid,
+    __padding_end: [u8; 192],
 }
+impl UEdGraph {}
+#[repr(C, align(8))]
 pub struct UEdGraphNode {
-    pub deprecated_pins: TArray<UPtr<UEdGraphPin_Deprecated>>,
-    pub node_pos_x: i32,
-    pub node_pos_y: i32,
-    pub node_width: i32,
-    pub node_height: i32,
-    pub advanced_pin_display: ENodeAdvancedPins,
-    pub enabled_state: ENodeEnabledState,
-    pub flags_99: u8,
-    pub flags_100: u8,
-    pub node_upgrade_message: FText,
-    pub node_comment: FString,
-    pub error_type: i32,
-    pub error_msg: FString,
-    pub node_guid: crate::bindings::core_u_object::FGuid,
+    __padding_end: [u8; 192],
 }
-pub struct UEdGraphSchema {}
+impl UEdGraphNode {}
+#[repr(C, align(8))]
+pub struct UEdGraphSchema {
+    __padding_end: [u8; 48],
+}
+impl UEdGraphSchema {}
+#[repr(C, align(8))]
 pub struct UDataAsset {
-    pub native_class: TSubclassOf<UDataAsset>,
+    __padding_end: [u8; 56],
 }
+impl UDataAsset {}
+#[repr(C, align(8))]
 pub struct AActor {
-    pub primary_actor_tick: FActorTickFunction,
+    #[doc(hidden)]
+    __padding_104: [u8; 104],
     pub flags_104: u8,
-    pub flags_105: u8,
-    pub level_instance_type: ELevelInstanceType,
-    pub level_instance_flags: ELevelInstanceFlags,
+    #[doc(hidden)]
+    __padding_108: [u8; 3],
     pub flags_108: u8,
     pub flags_109: u8,
     pub flags_110: u8,
     pub flags_111: u8,
-    pub flags_112: u8,
-    pub flags_113: u8,
-    pub update_overlaps_method_during_level_streaming: EActorUpdateOverlapsMethod,
-    pub default_update_overlaps_method_during_level_streaming: EActorUpdateOverlapsMethod,
-    pub remote_role: ENetRole,
+    #[doc(hidden)]
+    __padding_120: [u8; 8],
     pub initial_life_span: f32,
     pub custom_time_dilation: f32,
-    pub ray_tracing_group_id: i32,
-    pub grid_placement_deprecated: EActorGridPlacement,
+    #[doc(hidden)]
+    __padding_136: [u8; 8],
     pub runtime_grid: FName,
-    pub attachment_replication: FRepAttachment,
-    pub replicated_movement: FRepMovement,
-    pub owner: UPtr<AActor>,
-    pub net_driver_name: FName,
-    pub role: ENetRole,
+    #[doc(hidden)]
+    __padding_421: [u8; 273],
     pub net_dormancy: ENetDormancy,
     pub spawn_collision_handling_method: ESpawnActorCollisionHandlingMethod,
-    pub auto_receive_input: EAutoReceiveInput,
-    pub input_priority: i32,
-    pub input_component: UPtr<UInputComponent>,
-    pub net_tag: i32,
+    #[doc(hidden)]
+    __padding_444: [u8; 20],
     pub net_cull_distance_squared: f32,
     pub net_update_frequency: f32,
     pub min_net_update_frequency: f32,
     pub net_priority: f32,
-    pub physics_replication_mode: EPhysicsReplicationMode,
+    #[doc(hidden)]
+    __padding_472: [u8; 8],
     pub instigator: UPtr<APawn>,
-    pub children: TArray<UPtr<AActor>>,
+    #[doc(hidden)]
+    __padding_496: [u8; 16],
     pub root_component: UPtr<USceneComponent>,
     pub pivot_offset: crate::bindings::core_u_object::FVector,
-    pub hlod_layer: UPtr<UHLODLayer>,
-    pub objects_detached_from_external_package: TArray<
-        UPtr<crate::bindings::core_u_object::UObject>,
-    >,
-    pub layers: TArray<FName>,
-    pub parent_component_actor_deprecated: TWeakObjectPtr<AActor>,
-    pub parent_component: TWeakObjectPtr<UChildActorComponent>,
+    #[doc(hidden)]
+    __padding_592: [u8; 64],
     pub actor_guid: crate::bindings::core_u_object::FGuid,
     pub actor_instance_guid: crate::bindings::core_u_object::FGuid,
     pub content_bundle_guid: crate::bindings::core_u_object::FGuid,
-    pub data_layers: TArray<FActorDataLayer>,
-    pub data_layer_assets: TArray<TSoftObjectPtr<UDataLayerAsset>>,
-    pub external_data_layer_asset: UPtr<UExternalDataLayerAsset>,
-    pub group_actor: UPtr<AActor>,
+    #[doc(hidden)]
+    __padding_712: [u8; 72],
     pub sprite_scale: f32,
-    pub hidden_editor_views: u64,
-    pub actor_label: FString,
-    pub folder_path: FName,
-    pub folder_guid: crate::bindings::core_u_object::FGuid,
-    pub flags_804: u8,
+    #[doc(hidden)]
+    __padding_805: [u8; 89],
     pub flags_805: u8,
     pub tags: TArray<FName>,
-    pub on_take_any_damage: FActor_OnTakeAnyDamage,
-    pub on_take_point_damage: FActor_OnTakePointDamage,
-    pub on_take_radial_damage: FActor_OnTakeRadialDamage,
-    pub on_actor_begin_overlap: FActor_OnActorBeginOverlap,
-    pub on_actor_end_overlap: FActor_OnActorEndOverlap,
-    pub on_begin_cursor_over: FActor_OnBeginCursorOver,
-    pub on_end_cursor_over: FActor_OnEndCursorOver,
-    pub on_clicked: FActor_OnClicked,
-    pub on_released: FActor_OnReleased,
-    pub on_input_touch_begin: FActor_OnInputTouchBegin,
-    pub on_input_touch_end: FActor_OnInputTouchEnd,
-    pub on_input_touch_enter: FActor_OnInputTouchEnter,
-    pub on_input_touch_leave: FActor_OnInputTouchLeave,
-    pub on_actor_hit: FActor_OnActorHit,
-    pub on_destroyed: FActor_OnDestroyed,
-    pub on_end_play: FActor_OnEndPlay,
-    pub instance_components: TArray<UPtr<UActorComponent>>,
-    pub blueprint_created_components: TArray<UPtr<UActorComponent>>,
+    __padding_end: [u8; 312],
 }
+impl AActor {
+    pub fn verify_layout() {
+        log::warn!(
+            "{} = {} vs {}", "initial_life_span", std::mem::offset_of!(AActor,
+            initial_life_span), 120usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "custom_time_dilation", std::mem::offset_of!(AActor,
+            custom_time_dilation), 124usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "runtime_grid", std::mem::offset_of!(AActor, runtime_grid),
+            136usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "net_dormancy", std::mem::offset_of!(AActor, net_dormancy),
+            421usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "spawn_collision_handling_method",
+            std::mem::offset_of!(AActor, spawn_collision_handling_method), 422usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "net_cull_distance_squared", std::mem::offset_of!(AActor,
+            net_cull_distance_squared), 444usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "net_update_frequency", std::mem::offset_of!(AActor,
+            net_update_frequency), 448usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "min_net_update_frequency", std::mem::offset_of!(AActor,
+            min_net_update_frequency), 452usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "net_priority", std::mem::offset_of!(AActor, net_priority),
+            456usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "instigator", std::mem::offset_of!(AActor, instigator),
+            472usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "root_component", std::mem::offset_of!(AActor,
+            root_component), 496usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "pivot_offset", std::mem::offset_of!(AActor, pivot_offset),
+            504usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "actor_guid", std::mem::offset_of!(AActor, actor_guid),
+            592usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "actor_instance_guid", std::mem::offset_of!(AActor,
+            actor_instance_guid), 608usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "content_bundle_guid", std::mem::offset_of!(AActor,
+            content_bundle_guid), 624usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "sprite_scale", std::mem::offset_of!(AActor, sprite_scale),
+            712usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "tags", std::mem::offset_of!(AActor, tags), 808usize
+        );
+    }
+}
+#[repr(C, align(8))]
 pub struct UActorComponent {
-    pub primary_component_tick: FActorComponentTickFunction,
+    #[doc(hidden)]
+    __padding_120: [u8; 120],
     pub component_tags: TArray<FName>,
-    pub asset_user_data: TArray<UPtr<UAssetUserData>>,
-    pub asset_user_data_editor_only: TArray<UPtr<UAssetUserData>>,
-    pub ucs_serialization_index: i32,
+    #[doc(hidden)]
+    __padding_184: [u8; 48],
     pub flags_184: u8,
+    #[doc(hidden)]
+    __padding_186: [u8; 1],
     pub flags_186: u8,
     pub flags_187: u8,
-    pub creation_method: EComponentCreationMethod,
-    pub on_component_activated: FActorComponent_OnComponentActivated,
-    pub on_component_deactivated: FActorComponent_OnComponentDeactivated,
-    pub ucs_modified_properties_deprecated: TArray<FSimpleMemberReference>,
+    __padding_end: [u8; 52],
 }
+impl UActorComponent {}
+#[repr(C, align(16))]
 pub struct USceneComponent {
-    pub physics_volume: TWeakObjectPtr<APhysicsVolume>,
-    pub attach_parent: UPtr<USceneComponent>,
-    pub attach_socket_name: FName,
-    pub attach_children: TArray<UPtr<USceneComponent>>,
-    pub client_attached_children: TArray<UPtr<USceneComponent>>,
+    #[doc(hidden)]
+    __padding_384: [u8; 384],
     pub relative_location: crate::bindings::core_u_object::FVector,
     pub relative_rotation: crate::bindings::core_u_object::FRotator,
     pub relative_scale3_d: crate::bindings::core_u_object::FVector,
-    pub component_velocity: crate::bindings::core_u_object::FVector,
+    #[doc(hidden)]
+    __padding_480: [u8; 24],
     pub flags_480: u8,
     pub flags_481: u8,
-    pub flags_482: u8,
-    pub flags_483: u8,
+    #[doc(hidden)]
+    __padding_484: [u8; 2],
     pub mobility: EComponentMobility,
     pub detail_mode: EDetailMode,
-    pub physics_volume_changed_delegate: FSceneComponent_PhysicsVolumeChangedDelegate,
+    __padding_end: [u8; 170],
 }
+impl USceneComponent {
+    pub fn verify_layout() {
+        log::warn!(
+            "{} = {} vs {}", "relative_location", std::mem::offset_of!(USceneComponent,
+            relative_location), 384usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "relative_rotation", std::mem::offset_of!(USceneComponent,
+            relative_rotation), 408usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "relative_scale3_d", std::mem::offset_of!(USceneComponent,
+            relative_scale3_d), 432usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "mobility", std::mem::offset_of!(USceneComponent, mobility),
+            484usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "detail_mode", std::mem::offset_of!(USceneComponent,
+            detail_mode), 485usize
+        );
+    }
+}
+#[repr(C, align(16))]
 pub struct UPrimitiveComponent {
+    #[doc(hidden)]
+    __padding_680: [u8; 680],
     pub min_draw_distance: f32,
     pub ld_max_draw_distance: f32,
     pub cached_max_draw_distance: f32,
-    pub depth_priority_group: ESceneDepthPriorityGroup,
-    pub view_owner_depth_priority_group: ESceneDepthPriorityGroup,
+    #[doc(hidden)]
+    __padding_694: [u8; 2],
     pub indirect_lighting_cache_quality: EIndirectLightingCacheQuality,
     pub lightmap_type: ELightmapType,
     pub hlod_batching_policy: EHLODBatchingPolicy,
@@ -7587,145 +3316,139 @@ pub struct UPrimitiveComponent {
     pub flags_706: u8,
     pub first_person_primitive_type: EFirstPersonPrimitiveType,
     pub flags_708: u8,
-    pub b_has_custom_navigable_geometry: EHasCustomNavigableGeometry,
-    pub hit_proxy_priority: EHitProxyPriority,
+    #[doc(hidden)]
+    __padding_720: [u8; 8],
     pub exclude_for_specific_hlod_levels_deprecated: TArray<i32>,
-    pub can_be_character_base_deprecated: ECanBeCharacterBase,
-    pub flags_737: u8,
+    #[doc(hidden)]
+    __padding_739: [u8; 3],
     pub can_character_step_up_on: ECanBeCharacterBase,
     pub lighting_channels: FLightingChannels,
+    #[doc(hidden)]
+    __padding_769: [u8; 28],
     pub ray_tracing_group_culling_priority: ERayTracingGroupCullingPriority,
     pub custom_depth_stencil_write_mask: ERendererStencilMask,
-    pub exclude_from_hlod_levels: u8,
     pub ray_tracing_group_id: i32,
-    pub visibility_id: i32,
+    #[doc(hidden)]
+    __padding_780: [u8; 4],
     pub custom_depth_stencil_value: i32,
-    pub custom_primitive_data: FCustomPrimitiveData,
-    pub custom_primitive_data_internal: FCustomPrimitiveData,
+    #[doc(hidden)]
+    __padding_856: [u8; 72],
     pub translucency_sort_priority: i32,
     pub translucency_sort_distance_offset: f32,
     pub runtime_virtual_textures: TArray<UPtr<URuntimeVirtualTexture>>,
-    pub virtual_texture_lod_bias: i8,
-    pub virtual_texture_cull_mips: i8,
-    pub virtual_texture_min_coverage: i8,
+    #[doc(hidden)]
+    __padding_883: [u8; 3],
     pub virtual_texture_render_pass_type: ERuntimeVirtualTextureMainPassType,
-    pub bounds_scale: f32,
-    pub move_ignore_actors: TArray<UPtr<AActor>>,
-    pub move_ignore_components: TArray<UPtr<UPrimitiveComponent>>,
+    #[doc(hidden)]
+    __padding_1032: [u8; 144],
     pub body_instance: FBodyInstance,
-    pub on_component_hit: FPrimitiveComponent_OnComponentHit,
-    pub on_component_begin_overlap: FPrimitiveComponent_OnComponentBeginOverlap,
-    pub on_component_end_overlap: FPrimitiveComponent_OnComponentEndOverlap,
-    pub on_component_wake: FPrimitiveComponent_OnComponentWake,
-    pub on_component_sleep: FPrimitiveComponent_OnComponentSleep,
-    pub on_component_physics_state_changed: FPrimitiveComponent_OnComponentPhysicsStateChanged,
-    pub on_begin_cursor_over: FPrimitiveComponent_OnBeginCursorOver,
-    pub on_end_cursor_over: FPrimitiveComponent_OnEndCursorOver,
-    pub on_clicked: FPrimitiveComponent_OnClicked,
-    pub on_released: FPrimitiveComponent_OnReleased,
-    pub on_input_touch_begin: FPrimitiveComponent_OnInputTouchBegin,
-    pub on_input_touch_end: FPrimitiveComponent_OnInputTouchEnd,
-    pub on_input_touch_enter: FPrimitiveComponent_OnInputTouchEnter,
-    pub on_input_touch_leave: FPrimitiveComponent_OnInputTouchLeave,
-    pub lod_parent_primitive: UPtr<UPrimitiveComponent>,
+    __padding_end: [u8; 40],
 }
+impl UPrimitiveComponent {}
+#[repr(C, align(16))]
 pub struct UMeshComponent {
-    pub override_materials: TArray<UPtr<UMaterialInterface>>,
+    #[doc(hidden)]
+    __padding_1520: [u8; 1520],
     pub overlay_material: UPtr<UMaterialInterface>,
     pub overlay_material_max_draw_distance: f32,
     pub material_slots_overlay_material: TArray<UPtr<UMaterialInterface>>,
     pub flags_1552: u8,
+    __padding_end: [u8; 31],
 }
+impl UMeshComponent {}
+#[repr(C, align(16))]
 pub struct UStaticMeshComponent {
+    #[doc(hidden)]
+    __padding_1576: [u8; 1576],
     pub forced_lod_model: i32,
     pub min_lod: i32,
-    pub sub_division_step_size: i32,
+    #[doc(hidden)]
+    __padding_1588: [u8; 4],
     pub wireframe_color_override: crate::bindings::core_u_object::FColor,
     pub static_mesh: UPtr<UStaticMesh>,
+    #[doc(hidden)]
+    __padding_1608: [u8; 8],
     pub world_position_offset_disable_distance: i32,
     pub flags_1612: u8,
-    pub selected_editor_section: i32,
-    pub selected_editor_material: i32,
-    pub section_index_preview: i32,
-    pub material_index_preview: i32,
-    pub static_mesh_import_version: i32,
+    #[doc(hidden)]
+    __padding_1636: [u8; 23],
     pub flags_1636: u8,
     pub flags_1637: u8,
     pub flags_1638: u8,
     pub overridden_mesh_paint_texture_coordinate_index: i32,
     pub overridden_mesh_paint_texture_resolution: i32,
     pub overridden_light_map_res: i32,
-    pub mesh_paint_texture: UPtr<UTexture>,
-    pub mesh_paint_texture_cooked: UPtr<UTexture>,
-    pub mesh_paint_texture_override: UPtr<UTexture>,
+    #[doc(hidden)]
+    __padding_1680: [u8; 28],
     pub material_cache_tile_count: crate::bindings::core_u_object::FIntPoint,
-    pub material_cache_textures: TArray<UPtr<UMaterialCacheVirtualTexture>>,
+    #[doc(hidden)]
+    __padding_1704: [u8; 16],
     pub distance_field_indirect_shadow_min_visibility: f32,
     pub distance_field_self_shadow_bias: f32,
     pub streaming_distance_multiplier: f32,
     pub nanite_pixel_programmable_distance: f32,
-    pub irrelevant_lights_deprecated: TArray<crate::bindings::core_u_object::FGuid>,
-    pub lod_data: TArray<FStaticMeshComponentLODInfo>,
-    pub streaming_texture_data: TArray<FStreamingTextureBuildInfo>,
-    pub static_mesh_derived_data_key: FString,
-    pub material_streaming_relative_boxes: TArray<u32>,
-    pub lightmass_settings: FLightmassPrimitiveSettings,
+    __padding_end: [u8; 168],
 }
-pub struct USubsystem {}
-pub struct UDynamicSubsystem {}
-pub struct UBlueprintFunctionLibrary {}
-pub struct UDebugDrawComponent {}
+impl UStaticMeshComponent {}
+#[repr(C, align(8))]
+pub struct USubsystem {
+    __padding_end: [u8; 56],
+}
+impl USubsystem {}
+#[repr(C, align(8))]
+pub struct UDynamicSubsystem {
+    __padding_end: [u8; 56],
+}
+impl UDynamicSubsystem {}
+#[repr(C, align(8))]
+pub struct UBlueprintFunctionLibrary {
+    __padding_end: [u8; 48],
+}
+impl UBlueprintFunctionLibrary {}
+#[repr(C, align(16))]
+pub struct UDebugDrawComponent {
+    __padding_end: [u8; 1616],
+}
+impl UDebugDrawComponent {}
+#[repr(C, align(8))]
 pub struct AController {
+    #[doc(hidden)]
+    __padding_1144: [u8; 1144],
     pub player_state: UPtr<APlayerState>,
-    pub on_instigated_any_damage: FController_OnInstigatedAnyDamage,
-    pub on_possessed_pawn_changed: FController_OnPossessedPawnChanged,
-    pub state_name: FName,
-    pub pawn: UPtr<APawn>,
-    pub character: UPtr<ACharacter>,
-    pub transform_component: UPtr<USceneComponent>,
-    pub control_rotation: crate::bindings::core_u_object::FRotator,
-    pub flags_1312: u8,
+    __padding_end: [u8; 168],
 }
+impl AController {}
+#[repr(C, align(8))]
 pub struct UAISystemBase {
-    pub ai_system_class_name: crate::bindings::core_u_object::FSoftClassPath,
-    pub ai_system_module_name: FName,
-    pub b_instantiate_ai_system_on_client: bool,
+    __padding_end: [u8; 120],
 }
+impl UAISystemBase {}
+#[repr(C, align(8))]
 pub struct APawn {
+    #[doc(hidden)]
+    __padding_1144: [u8; 1144],
     pub flags_1144: u8,
     pub base_eye_height: f32,
-    pub auto_possess_player: EAutoReceiveInput,
-    pub auto_possess_ai: EAutoPossessAI,
-    pub remote_view_pitch16: u16,
-    pub remote_view_pitch: u8,
+    #[doc(hidden)]
+    __padding_1160: [u8; 8],
     pub ai_controller_class: TSubclassOf<AController>,
     pub player_state: UPtr<APlayerState>,
     pub last_hit_by: UPtr<AController>,
-    pub controller: UPtr<AController>,
-    pub previous_controller: UPtr<AController>,
-    pub receive_controller_changed_delegate: FPawn_ReceiveControllerChangedDelegate,
-    pub receive_restarted_delegate: FPawn_ReceiveRestartedDelegate,
-    pub control_input_vector: crate::bindings::core_u_object::FVector,
-    pub last_control_input_vector: crate::bindings::core_u_object::FVector,
-    pub override_input_component_class: TSubclassOf<UInputComponent>,
+    __padding_end: [u8; 80],
 }
+impl APawn {}
+#[repr(C, align(16))]
 pub struct ACharacter {
+    #[doc(hidden)]
+    __padding_1264: [u8; 1264],
     pub mesh: UPtr<USkeletalMeshComponent>,
     pub character_movement: UPtr<UCharacterMovementComponent>,
     pub capsule_component: UPtr<UCapsuleComponent>,
-    pub arrow_component: UPtr<UArrowComponent>,
-    pub based_movement: FBasedMovementInfo,
-    pub replicated_based_movement: FBasedMovementInfo,
-    pub replicated_server_last_transform_update_time_stamp: f32,
-    pub replay_last_transform_update_time_stamp: f32,
-    pub base_rotation_offset: crate::bindings::core_u_object::FQuat,
-    pub base_translation_offset: crate::bindings::core_u_object::FVector,
-    pub replicated_gravity_direction: FVector_NetQuantizeNormal,
-    pub anim_root_motion_translation_scale: f32,
+    #[doc(hidden)]
+    __padding_1564: [u8; 276],
     pub crouched_eye_height: f32,
     pub flags_1568: u8,
     pub flags_1569: u8,
-    pub replicated_movement_mode: u8,
     pub jump_key_hold_time: f32,
     pub jump_force_time_remaining: f32,
     pub proxy_jump_force_started_time: f32,
@@ -7733,121 +3456,85 @@ pub struct ACharacter {
     pub jump_max_count: i32,
     pub jump_current_count: i32,
     pub jump_current_count_pre_jump: i32,
-    pub on_reached_jump_apex: FCharacter_OnReachedJumpApex,
-    pub landed_delegate: FCharacter_LandedDelegate,
-    pub movement_mode_changed_delegate: FCharacter_MovementModeChangedDelegate,
-    pub on_character_movement_updated: FCharacter_OnCharacterMovementUpdated,
-    pub saved_root_motion: FRootMotionSourceGroup,
-    pub client_root_motion_params: FRootMotionMovementParams,
-    pub root_motion_rep_moves: TArray<FSimulatedRootMotionReplicatedMove>,
-    pub rep_root_motion: FRepRootMotionMontage,
+    __padding_end: [u8; 512],
 }
-pub struct UWorldSubsystem {}
-pub struct UTickableWorldSubsystem {}
+impl ACharacter {}
+#[repr(C, align(8))]
+pub struct UWorldSubsystem {
+    __padding_end: [u8; 64],
+}
+impl UWorldSubsystem {}
+#[repr(C, align(8))]
+pub struct UTickableWorldSubsystem {
+    __padding_end: [u8; 80],
+}
+impl UTickableWorldSubsystem {}
+#[repr(C, align(8))]
 pub struct UNavLinkDefinition {
-    pub links: TArray<FNavigationLink>,
-    pub segment_links: TArray<FNavigationSegmentLink>,
+    __padding_end: [u8; 88],
 }
-pub struct UNavAreaBase {}
+impl UNavLinkDefinition {}
+#[repr(C, align(8))]
+pub struct UNavAreaBase {
+    __padding_end: [u8; 56],
+}
+impl UNavAreaBase {}
+#[repr(C, align(8))]
 pub struct UNavCollisionBase {
-    pub flags_48: u8,
+    __padding_end: [u8; 152],
 }
+impl UNavCollisionBase {}
+#[repr(C, align(8))]
 pub struct UWorld {
-    pub layers: TArray<UPtr<ULayer>>,
-    pub active_group_actors: TArray<UPtr<AActor>>,
-    pub thumbnail_info: UPtr<UThumbnailInfo>,
-    pub persistent_level: UPtr<ULevel>,
-    pub net_driver: UPtr<UNetDriver>,
-    pub line_batcher_deprecated: UPtr<ULineBatchComponent>,
-    pub persistent_line_batcher_deprecated: UPtr<ULineBatchComponent>,
-    pub foreground_line_batcher_deprecated: UPtr<ULineBatchComponent>,
-    pub network_manager: UPtr<AGameNetworkManager>,
-    pub physics_collision_handler: UPtr<UPhysicsCollisionHandler>,
-    pub physics_query_handler: UPtr<UPhysicsQueryHandler>,
-    pub extra_referenced_objects: TArray<UPtr<crate::bindings::core_u_object::UObject>>,
-    pub per_module_data_objects: TArray<UPtr<crate::bindings::core_u_object::UObject>>,
-    pub streaming_levels: TArray<UPtr<ULevelStreaming>>,
-    pub streaming_levels_to_consider: FStreamingLevelsToConsider,
-    pub server_streaming_levels_visibility: UPtr<AServerStreamingLevelsVisibility>,
-    pub streaming_levels_prefix: FString,
-    pub line_batchers: UPtr<ULineBatchComponent>,
-    pub making_visible_levels: TArray<UPtr<ULevel>>,
-    pub making_invisible_levels: TArray<UPtr<ULevel>>,
-    pub demo_net_driver: UPtr<UDemoNetDriver>,
-    pub my_particle_event_manager: UPtr<AParticleEventManager>,
-    pub default_physics_volume: UPtr<APhysicsVolume>,
-    pub flags_447: u8,
-    pub navigation_system: UPtr<UNavigationSystemBase>,
-    pub authority_game_mode: UPtr<AGameModeBase>,
-    pub game_state: UPtr<AGameStateBase>,
-    pub ai_system: UPtr<UAISystemBase>,
-    pub avoidance_manager: UPtr<UAvoidanceManager>,
-    pub levels: TArray<UPtr<ULevel>>,
-    pub level_collections: TArray<FLevelCollection>,
-    pub current_level: UPtr<ULevel>,
-    pub owning_game_instance: UPtr<UGameInstance>,
-    pub parameter_collection_instances: TArray<
-        UPtr<UMaterialParameterCollectionInstance>,
-    >,
-    pub canvas_for_rendering_to_target: UPtr<UCanvas>,
-    pub canvas_for_draw_material_to_render_target: UPtr<UCanvas>,
-    pub editor_views: TArray<FLevelViewportInfo>,
-    pub physics_field: UPtr<UPhysicsFieldComponent>,
-    pub components_that_need_pre_end_of_frame_sync: TSet<UPtr<UActorComponent>>,
-    pub components_that_need_pre_end_of_frame_sync_async_tick: TSet<
-        UPtr<UActorComponent>,
-    >,
-    pub components_that_need_end_of_frame_update: TArray<UPtr<UActorComponent>>,
-    pub components_that_need_end_of_frame_update_async_tick: TArray<
-        UPtr<UActorComponent>,
-    >,
-    pub components_that_need_end_of_frame_update_on_game_thread: TArray<
-        UPtr<UActorComponent>,
-    >,
-    pub components_that_need_end_of_frame_mark_render_state_dirty: TArray<
-        UPtr<UActorComponent>,
-    >,
-    pub selected_levels: TArray<UPtr<ULevel>>,
-    pub world_composition: UPtr<UWorldComposition>,
-    pub content_bundle_manager: UPtr<UContentBundleManager>,
-    pub psc_pool: FWorldPSCPool,
+    __padding_end: [u8; 3248],
 }
-pub struct UNavigationSystemBase {}
+impl UWorld {}
+#[repr(C, align(8))]
+pub struct UNavigationSystemBase {
+    __padding_end: [u8; 48],
+}
+impl UNavigationSystemBase {}
+#[repr(C, align(8))]
 pub struct UNavigationSystemConfig {
-    pub navigation_system_class: crate::bindings::core_u_object::FSoftClassPath,
-    pub supported_agents_mask: FNavAgentSelector,
-    pub default_agent_name: FName,
-    pub flags_104: u8,
+    __padding_end: [u8; 112],
 }
+impl UNavigationSystemConfig {}
+#[repr(C, align(8))]
 pub struct ABrush {
-    pub brush_type: EBrushType,
-    pub brush_color: crate::bindings::core_u_object::FColor,
-    pub poly_flags: i32,
-    pub flags_1148: u8,
-    pub brush: UPtr<UModel>,
+    #[doc(hidden)]
+    __padding_1160: [u8; 1160],
     pub brush_component: UPtr<UBrushComponent>,
-    pub brush_builder: UPtr<UBrushBuilder>,
-    pub flags_1176: u8,
-    pub shaded_volume_opacity_value: f32,
-    pub flags_1184: u8,
-    pub saved_selections: TArray<FGeomSelection>,
+    __padding_end: [u8; 40],
 }
-pub struct AVolume {}
+impl ABrush {}
+#[repr(C, align(8))]
+pub struct AVolume {
+    __padding_end: [u8; 1208],
+}
+impl AVolume {}
+#[repr(C, align(8))]
 pub struct UNavigationDataChunk {
-    pub navigation_data_name: FName,
+    __padding_end: [u8; 64],
 }
-pub struct UEngineSubsystem {}
+impl UNavigationDataChunk {}
+#[repr(C, align(8))]
+pub struct UEngineSubsystem {
+    __padding_end: [u8; 56],
+}
+impl UEngineSubsystem {}
+#[repr(C, align(16))]
 pub struct ACameraActor {
-    pub auto_activate_for_player: EAutoReceiveInput,
+    #[doc(hidden)]
+    __padding_1144: [u8; 1144],
     pub camera_component: UPtr<UCameraComponent>,
     pub scene_component: UPtr<USceneComponent>,
-    pub flags_1160: u8,
-    pub aspect_ratio_deprecated: f32,
-    pub fov_angle_deprecated: f32,
-    pub post_process_blend_weight_deprecated: f32,
-    pub post_process_settings_deprecated: FPostProcessSettings,
+    __padding_end: [u8; 1976],
 }
+impl ACameraActor {}
+#[repr(C, align(16))]
 pub struct UCameraComponent {
+    #[doc(hidden)]
+    __padding_656: [u8; 656],
     pub field_of_view: f32,
     pub first_person_field_of_view: f32,
     pub first_person_scale: f32,
@@ -7862,18 +3549,29 @@ pub struct UCameraComponent {
     pub aspect_ratio_axis_constraint: EAspectRatioAxisConstraint,
     pub flags_697: u8,
     pub overscan: f32,
-    pub asymmetric_overscan: crate::bindings::core_u_object::FVector4f,
+    #[doc(hidden)]
+    __padding_720: [u8; 16],
     pub b_scale_resolution_with_overscan: bool,
     pub b_crop_overscan: bool,
     pub b_draw_frustum_allowed: bool,
     pub flags_723: u8,
     pub projection_mode: ECameraProjectionMode,
+    #[doc(hidden)]
+    __padding_736: [u8; 8],
     pub camera_mesh: UPtr<UStaticMesh>,
+    #[doc(hidden)]
+    __padding_848: [u8; 104],
     pub post_process_blend_weight: f32,
+    #[doc(hidden)]
+    __padding_896: [u8; 32],
     pub post_process_settings: FPostProcessSettings,
-    pub flags_2848: u8,
+    __padding_end: [u8; 16],
 }
+impl UCameraComponent {}
+#[repr(C, align(8))]
 pub struct UAssetExportTask {
+    #[doc(hidden)]
+    __padding_48: [u8; 48],
     pub object: UPtr<crate::bindings::core_u_object::UObject>,
     pub exporter: UPtr<UExporter>,
     pub filename: FString,
@@ -7887,333 +3585,264 @@ pub struct UAssetExportTask {
     pub options: UPtr<crate::bindings::core_u_object::UObject>,
     pub errors: TArray<FString>,
 }
-pub struct UBlueprintExtension {}
-pub struct UBlueprintAsyncActionBase {}
+impl UAssetExportTask {}
+#[repr(C, align(8))]
+pub struct UBlueprintExtension {
+    __padding_end: [u8; 48],
+}
+impl UBlueprintExtension {}
+#[repr(C, align(8))]
+pub struct UBlueprintAsyncActionBase {
+    __padding_end: [u8; 56],
+}
+impl UBlueprintAsyncActionBase {}
+#[repr(C, align(8))]
 pub struct UBlueprintCore {
-    pub skeleton_generated_class: TSubclassOf<crate::bindings::core_u_object::UObject>,
-    pub generated_class: TSubclassOf<crate::bindings::core_u_object::UObject>,
-    pub b_legacy_need_to_purge_skel_refs: bool,
-    pub blueprint_guid: crate::bindings::core_u_object::FGuid,
+    __padding_end: [u8; 88],
 }
+impl UBlueprintCore {}
+#[repr(C, align(8))]
 pub struct UBlueprint {
-    pub parent_class: TSubclassOf<crate::bindings::core_u_object::UObject>,
-    pub blueprint_type: EBlueprintType,
-    pub flags_105: u8,
-    pub flags_106: u8,
-    pub should_cook_property_guids_value: EShouldCookBlueprintPropertyGuids,
-    pub compile_mode: EBlueprintCompileMode,
-    pub status: EBlueprintStatus,
-    pub blueprint_display_name: FString,
-    pub blueprint_description: FString,
-    pub blueprint_namespace: FString,
-    pub blueprint_category: FString,
-    pub hide_categories: TArray<FString>,
-    pub blueprint_system_version: i32,
-    pub simple_construction_script: UPtr<USimpleConstructionScript>,
-    pub ubergraph_pages: TArray<UPtr<UEdGraph>>,
-    pub function_graphs: TArray<UPtr<UEdGraph>>,
-    pub delegate_signature_graphs: TArray<UPtr<UEdGraph>>,
-    pub macro_graphs: TArray<UPtr<UEdGraph>>,
-    pub intermediate_generated_graphs: TArray<UPtr<UEdGraph>>,
-    pub event_graphs: TArray<UPtr<UEdGraph>>,
-    pub private_cached_macro_info: TMap<UPtr<UEdGraph>, FBlueprintMacroCosmeticInfo>,
-    pub component_templates: TArray<UPtr<UActorComponent>>,
-    pub timelines: TArray<UPtr<UTimelineTemplate>>,
-    pub component_class_overrides: TArray<FBPComponentClassOverride>,
-    pub inheritable_component_handler: UPtr<UInheritableComponentHandler>,
-    pub new_variables: TArray<FBPVariableDescription>,
-    pub generated_variables: TArray<FBPVariableDescription>,
-    pub category_sorting: TArray<FName>,
-    pub imported_namespaces: TSet<FString>,
-    pub implemented_interfaces: TArray<FBPInterfaceDescription>,
-    pub last_edited_documents: TArray<FEditedDocumentInfo>,
-    pub bookmarks: TMap<crate::bindings::core_u_object::FGuid, FEditedDocumentInfo>,
-    pub bookmark_nodes: TArray<FBPEditorBookmarkNode>,
-    pub breakpoints_deprecated: TArray<UPtr<UDEPRECATED_Breakpoint>>,
-    pub watched_pins_deprecated: TArray<FEdGraphPinReference>,
-    pub deprecated_pin_watches: TArray<UPtr<UEdGraphPin_Deprecated>>,
-    pub component_template_name_index: TMap<FName, i32>,
-    pub old_to_new_component_template_names: TMap<FName, FName>,
-    pub extensions: TArray<UPtr<UBlueprintExtension>>,
-    pub thumbnail_info: UPtr<UThumbnailInfo>,
-    pub crc_last_compiled_cdo: u32,
-    pub crc_last_compiled_signature: u32,
-    pub b_cached_dependencies_up_to_date: bool,
-    pub cached_dependencies: TSet<TWeakObjectPtr<UBlueprint>>,
-    pub cached_dependents: TSet<TWeakObjectPtr<UBlueprint>>,
-    pub cached_uds_dependencies: TSet<
-        TWeakObjectPtr<crate::bindings::core_u_object::UStruct>,
-    >,
-    pub original_class: TSubclassOf<crate::bindings::core_u_object::UObject>,
+    __padding_end: [u8; 1432],
 }
-pub struct UDynamicBlueprintBinding {}
+impl UBlueprint {}
+#[repr(C, align(8))]
+pub struct UDynamicBlueprintBinding {
+    __padding_end: [u8; 48],
+}
+impl UDynamicBlueprintBinding {}
+#[repr(C, align(8))]
 pub struct UBlueprintGeneratedClass {
-    pub num_replicated_properties: i32,
-    pub flags_636: u8,
-    pub dynamic_binding_objects: TArray<UPtr<UDynamicBlueprintBinding>>,
-    pub component_templates: TArray<UPtr<UActorComponent>>,
-    pub timelines: TArray<UPtr<UTimelineTemplate>>,
-    pub component_class_overrides: TArray<FBPComponentClassOverride>,
-    pub field_notifies: TArray<
-        crate::bindings::field_notification::FFieldNotificationId,
-    >,
-    pub simple_construction_script: UPtr<USimpleConstructionScript>,
-    pub inheritable_component_handler: UPtr<UInheritableComponentHandler>,
-    pub uber_graph_function: UPtr<crate::bindings::core_u_object::UFunction>,
-    pub fast_call_pairs_deprecated: TArray<FEventGraphFastCallPair>,
-    pub overriden_archetype_for_cdo: UPtr<crate::bindings::core_u_object::UObject>,
-    pub property_guids: TMap<FName, crate::bindings::core_u_object::FGuid>,
-    pub called_functions: TArray<UPtr<crate::bindings::core_u_object::UFunction>>,
-    pub cooked_property_guids: TMap<FName, crate::bindings::core_u_object::FGuid>,
-    pub cooked_component_instancing_data: TMap<
-        FName,
-        FBlueprintCookedComponentInstancingData,
-    >,
-    pub cached_cooked_meta_data_ptr: UPtr<
-        crate::bindings::core_u_object::UClassCookedMetaData,
-    >,
+    __padding_end: [u8; 1640],
 }
+impl UBlueprintGeneratedClass {}
+#[repr(C, align(8))]
 pub struct UGameInstance {
-    pub local_players: TArray<UPtr<ULocalPlayer>>,
-    pub online_session: UPtr<UOnlineSession>,
-    pub referenced_objects: TArray<UPtr<crate::bindings::core_u_object::UObject>>,
-    pub on_pawn_controller_changed_delegates: FGameInstance_OnPawnControllerChangedDelegates,
-    pub on_input_device_connection_change: FGameInstance_OnInputDeviceConnectionChange,
-    pub on_user_input_device_pairing_change: FGameInstance_OnUserInputDevicePairingChange,
+    __padding_end: [u8; 528],
 }
+impl UGameInstance {}
+#[repr(C, align(8))]
 pub struct UAssetImportData {
-    pub source_file_path_deprecated: FString,
-    pub source_file_timestamp_deprecated: FString,
-    pub source_data: FAssetImportInfo,
+    __padding_end: [u8; 96],
 }
+impl UAssetImportData {}
+#[repr(C, align(16))]
 pub struct USkinnedMeshComponent {
+    #[doc(hidden)]
+    __padding_1592: [u8; 1592],
     pub skeletal_mesh: UPtr<USkeletalMesh>,
     pub skinned_asset: UPtr<USkinnedAsset>,
     pub leader_pose_component: TWeakObjectPtr<USkinnedMeshComponent>,
+    #[doc(hidden)]
+    __padding_1624: [u8; 8],
     pub skin_cache_usage: TArray<ESkinCacheUsage>,
     pub b_set_mesh_deformer: bool,
     pub mesh_deformer: UPtr<UMeshDeformer>,
     pub b_always_use_mesh_deformer: bool,
     pub mesh_deformer_instance_settings: UPtr<UMeshDeformerInstanceSettings>,
     pub mesh_deformer_instance_deprecated: UPtr<UMeshDeformerInstance>,
-    pub mesh_deformer_instances: FMeshDeformerInstanceSet,
-    pub wireframe_color_deprecated: crate::bindings::core_u_object::FColor,
+    #[doc(hidden)]
+    __padding_2152: [u8; 472],
     pub physics_asset_override: UPtr<UPhysicsAsset>,
     pub forced_lod_model: i32,
+    #[doc(hidden)]
+    __padding_2168: [u8; 4],
     pub min_lod_model: i32,
+    #[doc(hidden)]
+    __padding_2180: [u8; 8],
     pub streaming_distance_multiplier: f32,
     pub nanite_pixel_programmable_distance: f32,
-    pub lod_info: TArray<FSkelMeshComponentLODInfo>,
+    #[doc(hidden)]
+    __padding_2252: [u8; 64],
     pub visibility_based_anim_tick_option: EVisibilityBasedAnimTickOption,
+    #[doc(hidden)]
+    __padding_2266: [u8; 13],
     pub flags_2266: u8,
     pub flags_2267: u8,
     pub flags_2268: u8,
     pub flags_2269: u8,
-    pub flags_2270: u8,
     pub capsule_indirect_shadow_min_visibility: f32,
-    pub cached_world_or_local_space_bounds: crate::bindings::core_u_object::FBoxSphereBounds,
-    pub cached_world_to_local_transform: crate::bindings::core_u_object::FMatrix,
+    __padding_end: [u8; 316],
 }
+impl USkinnedMeshComponent {}
+#[repr(C, align(16))]
 pub struct USkeletalMeshComponent {
+    #[doc(hidden)]
+    __padding_2600: [u8; 2600],
     pub skeletal_mesh_asset: UPtr<USkeletalMesh>,
-    pub animation_blueprint_deprecated: UPtr<UAnimBlueprint>,
+    #[doc(hidden)]
+    __padding_2616: [u8; 8],
     pub anim_blueprint_generated_class: TSubclassOf<
         crate::bindings::core_u_object::UObject,
     >,
     pub anim_class: TSubclassOf<UAnimInstance>,
-    pub anim_script_instance: UPtr<UAnimInstance>,
-    pub sub_instances: TArray<UPtr<UAnimInstance>>,
-    pub override_post_process_anim_bp: TSubclassOf<UAnimInstance>,
-    pub post_process_anim_instance: UPtr<UAnimInstance>,
+    #[doc(hidden)]
+    __padding_2672: [u8; 40],
     pub animation_data: FSingleAnimationPlayData,
-    pub root_bone_translation: crate::bindings::core_u_object::FVector,
-    pub line_check_bounds_scale: crate::bindings::core_u_object::FVector,
-    pub linked_instances: TArray<UPtr<UAnimInstance>>,
-    pub cached_bone_space_transforms: TArray<crate::bindings::core_u_object::FTransform>,
-    pub cached_component_space_transforms: TArray<
-        crate::bindings::core_u_object::FTransform,
-    >,
+    #[doc(hidden)]
+    __padding_3016: [u8; 320],
     pub global_anim_rate_scale: f32,
     pub kinematic_bones_update_type: EKinematicBonesUpdateToPhysics,
     pub physics_transform_update_mode: EPhysicsTransformUpdateMode,
     pub cloth_teleport_mode: crate::bindings::clothing_system_runtime_interface::EClothingTeleportMode,
     pub animation_mode: EAnimationMode,
+    #[doc(hidden)]
+    __padding_3025: [u8; 1],
     pub flags_3025: u8,
     pub flags_3026: u8,
+    #[doc(hidden)]
+    __padding_3032: [u8; 5],
     pub flags_3032: u8,
     pub flags_3033: u8,
     pub cloth_velocity_scale: f32,
     pub flags_3040: u8,
-    pub flags_3041: u8,
+    #[doc(hidden)]
+    __padding_3042: [u8; 1],
     pub flags_3042: u8,
-    pub flags_3043: u8,
-    pub cached_anim_curve_uid_version: u16,
+    #[doc(hidden)]
+    __padding_3048: [u8; 4],
     pub cloth_blend_weight: f32,
     pub b_wait_for_parallel_cloth_task: bool,
-    pub b_filtered_anim_curves_is_allow_list: bool,
-    pub cached_mesh_curve_meta_data_version: u16,
-    pub filtered_anim_curves: TArray<FName>,
-    pub body_setup: UPtr<UBodySetup>,
+    #[doc(hidden)]
+    __padding_3084: [u8; 28],
     pub cloth_max_distance_scale: f32,
     pub cloth_geometry_scale: f32,
     pub post_process_anim_bplod_threshold: i32,
-    pub on_constraint_broken: FSkeletalMeshComponent_OnConstraintBroken,
-    pub on_plastic_deformation: FSkeletalMeshComponent_OnPlasticDeformation,
-    pub clothing_simulation_factory: TSubclassOf<
-        crate::bindings::clothing_system_runtime_interface::UClothingSimulationFactory,
-    >,
+    #[doc(hidden)]
+    __padding_3392: [u8; 296],
     pub teleport_distance_threshold: f32,
     pub teleport_rotation_threshold: f32,
-    pub clothing_simulation_instances: TArray<
-        crate::bindings::clothing_system_runtime_interface::FClothingSimulationInstance,
-    >,
-    pub morph_target_curves: TMap<FName, f32>,
-    pub on_anim_initialized: FSkeletalMeshComponent_OnAnimInitialized,
-    pub sequence_to_play_deprecated: UPtr<UAnimSequence>,
-    pub anim_to_play_deprecated: UPtr<UAnimationAsset>,
-    pub flags_4248: u8,
-    pub default_position_deprecated: f32,
-    pub default_play_rate_deprecated: f32,
+    #[doc(hidden)]
+    __padding_4456: [u8; 1056],
     pub default_animating_rig_override: TSoftObjectPtr<
         crate::bindings::core_u_object::UObject,
     >,
-    pub last_pose_tick_frame: u32,
+    __padding_end: [u8; 168],
 }
+impl USkeletalMeshComponent {}
+#[repr(C, align(16))]
 pub struct UAnimInstance {
-    pub current_skeleton: UPtr<USkeleton>,
-    pub root_motion_mode: ERootMotionMode,
-    pub flags_57: u8,
-    pub flags_59: u8,
-    pub on_montage_blending_out: FAnimInstance_OnMontageBlendingOut,
-    pub on_montage_blended_in: FAnimInstance_OnMontageBlendedIn,
-    pub on_montage_started: FAnimInstance_OnMontageStarted,
-    pub on_montage_ended: FAnimInstance_OnMontageEnded,
-    pub on_all_montage_instances_ended: FAnimInstance_OnAllMontageInstancesEnded,
-    pub on_montage_section_changed: FAnimInstance_OnMontageSectionChanged,
-    pub slot_group_inertialization_request_data_map: TMap<
-        FName,
-        FInertializationRequest,
-    >,
-    pub post_compile_validation_class_name: crate::bindings::core_u_object::FSoftClassPath,
-    pub notify_queue: FAnimNotifyQueue,
-    pub active_anim_notify_state: TArray<FAnimNotifyEvent>,
-    pub active_anim_notify_event_reference: TArray<FAnimNotifyEventReference>,
+    __padding_end: [u8; 1136],
 }
+impl UAnimInstance {}
+#[repr(C, align(16))]
 pub struct UAnimSingleNodeInstance {
-    pub current_asset: UPtr<UAnimationAsset>,
-    pub post_evaluate_anim_event: FAnimSingleNodeInstance_PostEvaluateAnimEvent,
+    __padding_end: [u8; 1168],
 }
+impl UAnimSingleNodeInstance {}
+#[repr(C, align(8))]
 pub struct UAnimNotify {
+    #[doc(hidden)]
+    __padding_48: [u8; 48],
     pub notify_color: crate::bindings::core_u_object::FColor,
     pub b_should_fire_in_editor: bool,
+    __padding_end: [u8; 11],
 }
+impl UAnimNotify {}
+#[repr(C, align(8))]
 pub struct UAnimNotifyState {
+    #[doc(hidden)]
+    __padding_48: [u8; 48],
     pub notify_color: crate::bindings::core_u_object::FColor,
     pub b_should_fire_in_editor: bool,
+    __padding_end: [u8; 3],
 }
-pub struct UEngineCustomTimeStep {}
+impl UAnimNotifyState {}
+#[repr(C, align(8))]
+pub struct UEngineCustomTimeStep {
+    __padding_end: [u8; 48],
+}
+impl UEngineCustomTimeStep {}
+#[repr(C, align(8))]
 pub struct UTimecodeProvider {
-    pub frame_delay: f32,
+    __padding_end: [u8; 56],
 }
-pub struct UAudioEngineSubsystem {}
+impl UTimecodeProvider {}
+#[repr(C, align(8))]
+pub struct UAudioEngineSubsystem {
+    __padding_end: [u8; 56],
+}
+impl UAudioEngineSubsystem {}
+#[repr(C, align(8))]
 pub struct USoundBase {
+    #[doc(hidden)]
+    __padding_64: [u8; 64],
     pub sound_class_object: UPtr<USoundClass>,
-    pub editor_data: FSoundBaseEditorData,
+    #[doc(hidden)]
+    __padding_73: [u8; 1],
     pub flags_73: u8,
     pub flags_74: u8,
     pub virtualization_mode: EVirtualizationMode,
-    pub max_concurrent_resolution_rule_deprecated: EMaxConcurrentResolutionRule,
-    pub sound_concurrency_settings_deprecated: UPtr<USoundConcurrency>,
+    #[doc(hidden)]
+    __padding_168: [u8; 88],
     pub concurrency_set: TSet<UPtr<USoundConcurrency>>,
     pub concurrency_overrides: FSoundConcurrencySettings,
-    pub max_concurrent_play_count_deprecated: i32,
+    #[doc(hidden)]
+    __padding_380: [u8; 4],
     pub duration: f32,
     pub max_distance: f32,
     pub total_samples: f32,
     pub priority: f32,
-    pub attenuation_settings: UPtr<USoundAttenuation>,
+    #[doc(hidden)]
+    __padding_408: [u8; 8],
     pub sound_submix_object: UPtr<USoundSubmixBase>,
     pub sound_submix_sends: TArray<FSoundSubmixSendInfo>,
     pub source_effect_chain: UPtr<USoundEffectSourcePresetChain>,
     pub bus_sends: TArray<FSoundSourceBusSendInfo>,
     pub pre_effect_bus_sends: TArray<FSoundSourceBusSendInfo>,
-    pub asset_user_data: TArray<UPtr<UAssetUserData>>,
-    pub audio_properties_sheet: UPtr<
-        crate::bindings::audio_extensions::UAudioPropertiesSheetAssetBase,
-    >,
-    pub timecode_offset: FSoundTimecodeOffset,
-    pub local_audio_properties: TArray<FName>,
+    __padding_end: [u8; 48],
 }
+impl USoundBase {}
+#[repr(C, align(8))]
 pub struct USoundWave {
-    pub compression_quality: i32,
-    pub streaming_priority: i32,
-    pub sample_rate_quality: crate::bindings::audio_platform_configuration::ESoundwaveSampleRateSettings,
-    pub sound_group: ESoundGroup,
-    pub flags_547: u8,
-    pub sound_asset_compression_type: ESoundAssetCompressionType,
-    pub override_sound_to_use_for_analysis: UPtr<USoundWave>,
-    pub flags_576: u8,
-    pub fft_size: ESoundWaveFFTSize,
-    pub fft_analysis_frame_size: i32,
-    pub fft_analysis_attack_time: i32,
-    pub fft_analysis_release_time: i32,
-    pub envelope_follower_frame_size: i32,
-    pub envelope_follower_attack_time: i32,
-    pub envelope_follower_release_time: i32,
+    #[doc(hidden)]
+    __padding_608: [u8; 608],
     pub modulation_settings: FSoundModulationDefaultRoutingSettings,
-    pub frequencies_to_analyze: TArray<f32>,
-    pub cooked_spectral_time_data: TArray<FSoundWaveSpectralTimeData>,
-    pub cooked_envelope_time_data: TArray<FSoundWaveEnvelopeTimeData>,
-    pub initial_chunk_size_deprecated: i32,
+    #[doc(hidden)]
+    __padding_1084: [u8; 84],
     pub flags_1084: u8,
-    pub flags_1085: u8,
-    pub loading_behavior: ESoundWaveLoadingBehavior,
-    pub size_of_first_audio_chunk_in_seconds: crate::bindings::core_u_object::FPerPlatformFloat,
-    pub spoken_text_deprecated: FString,
+    #[doc(hidden)]
+    __padding_1200: [u8; 112],
     pub subtitle_priority: f32,
-    pub volume: f32,
-    pub pitch: f32,
-    pub num_channels: i32,
-    pub channel_offsets: TArray<i32>,
-    pub channel_sizes: TArray<i32>,
-    pub lufs: f32,
-    pub sample_peak_db: f32,
-    pub sample_rate: i32,
-    pub imported_sample_rate: i32,
+    #[doc(hidden)]
+    __padding_1264: [u8; 56],
     pub cue_points: TArray<crate::bindings::audio_extensions::FSoundWaveCuePoint>,
-    pub cue_point_origin: ESoundWaveCuePointOrigin,
+    #[doc(hidden)]
+    __padding_1296: [u8; 16],
     pub subtitles: TArray<FSubtitleCue>,
-    pub comment: FString,
-    pub timecode_info: FSoundWaveTimecodeInfo,
-    pub source_file_path_deprecated: FString,
-    pub source_file_timestamp_deprecated: FString,
-    pub asset_import_data: UPtr<UAssetImportData>,
-    pub curves: UPtr<UCurveTable>,
-    pub internal_curves: UPtr<UCurveTable>,
-    pub flags_1496: u8,
-    pub platform_settings: TMap<
-        crate::bindings::core_u_object::FGuid,
-        crate::bindings::audio_extensions::FSoundWaveCloudStreamingPlatformSettings,
-    >,
-    pub transformations: TArray<
-        UPtr<crate::bindings::audio_extensions::UWaveformTransformationBase>,
-    >,
+    __padding_end: [u8; 768],
 }
-pub struct USoundWaveProcedural {}
-pub struct USoundEffectPreset {}
-pub struct USoundEffectSubmixPreset {}
+impl USoundWave {}
+#[repr(C, align(16))]
+pub struct USoundWaveProcedural {
+    __padding_end: [u8; 2176],
+}
+impl USoundWaveProcedural {}
+#[repr(C, align(8))]
+pub struct USoundEffectPreset {
+    __padding_end: [u8; 112],
+}
+impl USoundEffectPreset {}
+#[repr(C, align(8))]
+pub struct USoundEffectSubmixPreset {
+    __padding_end: [u8; 112],
+}
+impl USoundEffectSubmixPreset {}
+#[repr(C, align(8))]
 pub struct UStreamableRenderAsset {
-    pub force_mip_levels_to_be_resident_timestamp: f64,
+    #[doc(hidden)]
+    __padding_80: [u8; 80],
     pub num_cinematic_mip_levels: i32,
-    pub no_ref_streaming_lod_bias: FPerQualityLevelInt,
-    pub streaming_index: i32,
+    #[doc(hidden)]
+    __padding_240: [u8; 156],
     pub flags_240: u8,
+    __padding_end: [u8; 15],
 }
+impl UStreamableRenderAsset {}
+#[repr(C, align(16))]
 pub struct UTexture {
-    pub source: FTextureSource,
-    pub lighting_guid: crate::bindings::core_u_object::FGuid,
-    pub source_file_path_deprecated: FString,
-    pub asset_import_data: UPtr<UAssetImportData>,
+    #[doc(hidden)]
+    __padding_664: [u8; 664],
     pub adjust_brightness: f32,
     pub adjust_brightness_curve: f32,
     pub adjust_vibrance: f32,
@@ -8223,16 +3852,22 @@ pub struct UTexture {
     pub adjust_min_alpha: f32,
     pub adjust_max_alpha: f32,
     pub flags_696: u8,
+    #[doc(hidden)]
+    __padding_700: [u8; 3],
     pub lossy_compression_amount: ETextureLossyCompressionAmount,
     pub oodle_texture_sdk_version: FName,
     pub max_texture_size: i32,
     pub compression_quality: ETextureCompressionQuality,
-    pub compression_cache_id: crate::bindings::core_u_object::FGuid,
-    pub flags_740: u8,
+    #[doc(hidden)]
+    __padding_744: [u8; 23],
     pub b_do_scale_mips_for_alpha_coverage: bool,
     pub alpha_coverage_thresholds: crate::bindings::core_u_object::FVector4,
     pub b_use_new_mip_filter: bool,
+    #[doc(hidden)]
+    __padding_788: [u8; 3],
     pub flags_788: u8,
+    #[doc(hidden)]
+    __padding_792: [u8; 3],
     pub power_of_two_mode: ETexturePowerOfTwoSetting,
     pub padding_color: crate::bindings::core_u_object::FColor,
     pub b_pad_with_border_color: bool,
@@ -8243,571 +3878,260 @@ pub struct UTexture {
     pub chroma_key_color: crate::bindings::core_u_object::FColor,
     pub mip_gen_settings: TextureMipGenSettings,
     pub composite_texture: UPtr<UTexture>,
+    #[doc(hidden)]
+    __padding_848: [u8; 8],
     pub composite_texture_mode: ECompositeTextureMode,
     pub composite_power: f32,
-    pub layer_format_settings: TArray<FTextureFormatSettings>,
-    pub level_index: i32,
+    #[doc(hidden)]
+    __padding_876: [u8; 20],
     pub lod_bias: i32,
     pub compression_settings: TextureCompressionSettings,
     pub filter: TextureFilter,
     pub mip_load_options: ETextureMipLoadOptions,
     pub virtual_texture_streaming_priority: crate::bindings::render_core::EVTProducerPriority,
-    pub virtual_texture_prefetch_mips: u8,
+    #[doc(hidden)]
+    __padding_885: [u8; 1],
     pub cook_platform_tiling_settings: TextureCookPlatformTilingSettings,
     pub b_oodle_preserve_extremes: bool,
     pub lod_group: TextureGroup,
-    pub downscale: crate::bindings::core_u_object::FPerPlatformFloat,
-    pub downscale_options: ETextureDownscaleOptions,
+    #[doc(hidden)]
+    __padding_977: [u8; 89],
     pub availability: ETextureAvailability,
     pub flags_978: u8,
     pub source_color_settings: FTextureSourceColorSettings,
+    #[doc(hidden)]
+    __padding_1100: [u8; 36],
     pub flags_1100: u8,
-    pub flags_1104: u8,
-    pub flags_1108: u8,
-    pub asset_user_data: TArray<UPtr<UAssetUserData>>,
+    __padding_end: [u8; 147],
 }
-pub struct UAssetUserData {}
+impl UTexture {}
+#[repr(C, align(8))]
+pub struct UAssetUserData {
+    __padding_end: [u8; 48],
+}
+impl UAssetUserData {}
+#[repr(C, align(8))]
 pub struct UExporter {
+    #[doc(hidden)]
+    __padding_48: [u8; 48],
     pub supported_class: TSubclassOf<crate::bindings::core_u_object::UObject>,
-    pub export_root_scope: UPtr<crate::bindings::core_u_object::UObject>,
+    #[doc(hidden)]
+    __padding_64: [u8; 8],
     pub format_extension: TArray<FString>,
     pub format_description: TArray<FString>,
-    pub preferred_format_index: i32,
-    pub text_indent: i32,
+    #[doc(hidden)]
+    __padding_104: [u8; 8],
     pub flags_104: u8,
     pub export_task: UPtr<UAssetExportTask>,
+    __padding_end: [u8; 8],
 }
+impl UExporter {}
+#[repr(C, align(8))]
 pub struct UCommandlet {
-    pub help_description: FString,
-    pub help_usage: FString,
-    pub help_web_link: FString,
-    pub help_param_names: TArray<FString>,
-    pub help_param_descriptions: TArray<FString>,
-    pub flags_128: u8,
+    __padding_end: [u8; 136],
 }
+impl UCommandlet {}
+#[repr(C, align(8))]
 pub struct UBrushBuilder {
-    pub bitmap_filename: FString,
-    pub tool_tip: FString,
-    pub flags_80: u8,
-    pub vertices: TArray<crate::bindings::core_u_object::FVector>,
-    pub polys: TArray<FBuilderPoly>,
-    pub layer: FName,
-    pub flags_132: u8,
+    __padding_end: [u8; 136],
 }
+impl UBrushBuilder {}
+#[repr(C, align(8))]
 pub struct UEngine {
-    pub tiny_font: UPtr<UFont>,
-    pub tiny_font_name: crate::bindings::core_u_object::FSoftObjectPath,
-    pub small_font: UPtr<UFont>,
-    pub small_font_name: crate::bindings::core_u_object::FSoftObjectPath,
-    pub medium_font: UPtr<UFont>,
-    pub medium_font_name: crate::bindings::core_u_object::FSoftObjectPath,
-    pub large_font: UPtr<UFont>,
-    pub large_font_name: crate::bindings::core_u_object::FSoftObjectPath,
-    pub subtitle_font: UPtr<UFont>,
-    pub subtitle_font_name: crate::bindings::core_u_object::FSoftObjectPath,
-    pub monospace_font: UPtr<UFont>,
-    pub monospace_font_name: crate::bindings::core_u_object::FSoftObjectPath,
-    pub additional_fonts: TArray<UPtr<UFont>>,
-    pub additional_font_names: TArray<FString>,
-    pub console_class: TSubclassOf<UConsole>,
-    pub console_class_name: crate::bindings::core_u_object::FSoftClassPath,
-    pub game_viewport_client_class: TSubclassOf<UGameViewportClient>,
-    pub game_viewport_client_class_name: crate::bindings::core_u_object::FSoftClassPath,
-    pub local_player_class: TSubclassOf<ULocalPlayer>,
-    pub local_player_class_name: crate::bindings::core_u_object::FSoftClassPath,
-    pub world_settings_class: TSubclassOf<AWorldSettings>,
-    pub world_settings_class_name: crate::bindings::core_u_object::FSoftClassPath,
-    pub navigation_system_class_name: crate::bindings::core_u_object::FSoftClassPath,
-    pub navigation_system_class: TSubclassOf<UNavigationSystemBase>,
-    pub navigation_system_config_class_name: crate::bindings::core_u_object::FSoftClassPath,
-    pub navigation_system_config_class: TSubclassOf<UNavigationSystemConfig>,
-    pub avoidance_manager_class_name: crate::bindings::core_u_object::FSoftClassPath,
-    pub avoidance_manager_class: TSubclassOf<UAvoidanceManager>,
-    pub ai_controller_class_name: crate::bindings::core_u_object::FSoftClassPath,
-    pub physics_collision_handler_class: TSubclassOf<UPhysicsCollisionHandler>,
-    pub physics_collision_handler_class_name: crate::bindings::core_u_object::FSoftClassPath,
-    pub game_user_settings_class_name: crate::bindings::core_u_object::FSoftClassPath,
-    pub game_user_settings_class: TSubclassOf<UGameUserSettings>,
-    pub game_user_settings: UPtr<UGameUserSettings>,
-    pub level_script_actor_class: TSubclassOf<ALevelScriptActor>,
-    pub level_script_actor_class_name: crate::bindings::core_u_object::FSoftClassPath,
-    pub default_blueprint_base_class_name: crate::bindings::core_u_object::FSoftClassPath,
-    pub game_singleton_class_name: crate::bindings::core_u_object::FSoftClassPath,
-    pub game_singleton: UPtr<crate::bindings::core_u_object::UObject>,
-    pub asset_manager_class_name: crate::bindings::core_u_object::FSoftClassPath,
-    pub asset_manager: UPtr<UAssetManager>,
-    pub default_texture: UPtr<UTexture2D>,
-    pub default_texture_name: crate::bindings::core_u_object::FSoftObjectPath,
-    pub default_diffuse_texture: UPtr<UTexture>,
-    pub default_diffuse_texture_name: crate::bindings::core_u_object::FSoftObjectPath,
-    pub default_bsp_vertex_texture: UPtr<UTexture2D>,
-    pub default_bsp_vertex_texture_name: crate::bindings::core_u_object::FSoftObjectPath,
-    pub high_frequency_noise_texture: UPtr<UTexture2D>,
-    pub high_frequency_noise_texture_name: crate::bindings::core_u_object::FSoftObjectPath,
-    pub default_bokeh_texture: UPtr<UTexture2D>,
-    pub default_bokeh_texture_name: crate::bindings::core_u_object::FSoftObjectPath,
-    pub default_bloom_kernel_texture: UPtr<UTexture2D>,
-    pub default_bloom_kernel_texture_name: crate::bindings::core_u_object::FSoftObjectPath,
-    pub default_film_grain_texture: UPtr<UTexture2D>,
-    pub default_film_grain_texture_name: crate::bindings::core_u_object::FSoftObjectPath,
-    pub wireframe_material: UPtr<UMaterial>,
-    pub wireframe_material_name: FString,
-    pub geom_material: UPtr<UMaterial>,
-    pub geom_material_name: crate::bindings::core_u_object::FSoftObjectPath,
-    pub debug_mesh_material: UPtr<UMaterial>,
-    pub debug_mesh_material_name: crate::bindings::core_u_object::FSoftObjectPath,
-    pub nanite_hidden_section_material: UPtr<UMaterial>,
-    pub nanite_hidden_section_material_name: FString,
-    pub emissive_mesh_material: UPtr<UMaterial>,
-    pub emissive_mesh_material_name: crate::bindings::core_u_object::FSoftObjectPath,
-    pub level_coloration_lit_material: UPtr<UMaterial>,
-    pub level_coloration_lit_material_name: FString,
-    pub level_coloration_unlit_material: UPtr<UMaterial>,
-    pub level_coloration_unlit_material_name: FString,
-    pub lighting_texel_density_material: UPtr<UMaterial>,
-    pub lighting_texel_density_name: FString,
-    pub shaded_level_coloration_lit_material: UPtr<UMaterial>,
-    pub shaded_level_coloration_lit_material_name: FString,
-    pub shaded_level_coloration_unlit_material: UPtr<UMaterial>,
-    pub shaded_level_coloration_unlit_material_name: FString,
-    pub remove_surface_material: UPtr<UMaterial>,
-    pub remove_surface_material_name: crate::bindings::core_u_object::FSoftObjectPath,
-    pub vertex_color_material: UPtr<UMaterial>,
-    pub vertex_color_material_name: FString,
-    pub vertex_color_view_mode_material_color_only: UPtr<UMaterial>,
-    pub vertex_color_view_mode_material_name_color_only: FString,
-    pub vertex_color_view_mode_material_alpha_as_color: UPtr<UMaterial>,
-    pub vertex_color_view_mode_material_name_alpha_as_color: FString,
-    pub vertex_color_view_mode_material_red_only: UPtr<UMaterial>,
-    pub vertex_color_view_mode_material_name_red_only: FString,
-    pub vertex_color_view_mode_material_green_only: UPtr<UMaterial>,
-    pub vertex_color_view_mode_material_name_green_only: FString,
-    pub vertex_color_view_mode_material_blue_only: UPtr<UMaterial>,
-    pub vertex_color_view_mode_material_name_blue_only: FString,
-    pub texture_color_view_mode_material: UPtr<UMaterial>,
-    pub texture_color_view_mode_material_name: FString,
-    pub default_zen_streaming_texture_name: crate::bindings::core_u_object::FSoftObjectPath,
-    pub bone_weight_material: UPtr<UMaterial>,
-    pub bone_weight_material_name: crate::bindings::core_u_object::FSoftObjectPath,
-    pub cloth_paint_material: UPtr<UMaterial>,
-    pub cloth_paint_opaque_material: UPtr<UMaterial>,
-    pub cloth_paint_material_wireframe: UPtr<UMaterial>,
-    pub cloth_paint_opaque_material_wireframe: UPtr<UMaterial>,
-    pub cloth_paint_material_instance: UPtr<UMaterialInstanceDynamic>,
-    pub cloth_paint_opaque_material_instance: UPtr<UMaterialInstanceDynamic>,
-    pub cloth_paint_material_wireframe_instance: UPtr<UMaterialInstanceDynamic>,
-    pub cloth_paint_opaque_material_wireframe_instance: UPtr<UMaterialInstanceDynamic>,
-    pub cloth_paint_material_name: crate::bindings::core_u_object::FSoftObjectPath,
-    pub cloth_paint_opaque_material_name: crate::bindings::core_u_object::FSoftObjectPath,
-    pub cloth_paint_material_wireframe_name: crate::bindings::core_u_object::FSoftObjectPath,
-    pub cloth_paint_opaque_material_wireframe_name: crate::bindings::core_u_object::FSoftObjectPath,
-    pub physical_material_mask_material: UPtr<UMaterial>,
-    pub physical_material_mask_material_name: crate::bindings::core_u_object::FSoftObjectPath,
-    pub debug_editor_material: UPtr<UMaterial>,
-    pub default_flatten_material_name: crate::bindings::core_u_object::FSoftObjectPath,
-    pub default_hlod_flatten_material_name: crate::bindings::core_u_object::FSoftObjectPath,
-    pub default_landscape_flatten_material_name: crate::bindings::core_u_object::FSoftObjectPath,
-    pub default_flatten_material: UPtr<UMaterial>,
-    pub default_hlod_flatten_material: UPtr<UMaterial>,
-    pub default_landscape_flatten_material: UPtr<UMaterial>,
-    pub texture_painting_mask_material: UPtr<UMaterial>,
-    pub texture_painting_mask_material_name: crate::bindings::core_u_object::FSoftObjectPath,
-    pub clay_material: UPtr<UMaterialInterface>,
-    pub clay_material_name: crate::bindings::core_u_object::FSoftObjectPath,
-    pub zebra_material: UPtr<UMaterial>,
-    pub zebra_material_instance: UPtr<UMaterialInstanceDynamic>,
-    pub zebra_material_name: crate::bindings::core_u_object::FSoftObjectPath,
-    pub front_back_face_material: UPtr<UMaterialInterface>,
-    pub front_back_face_material_name: crate::bindings::core_u_object::FSoftObjectPath,
-    pub random_color_material: UPtr<UMaterialInterface>,
-    pub random_color_material_name: crate::bindings::core_u_object::FSoftObjectPath,
-    pub debug_editor_material_name: crate::bindings::core_u_object::FSoftObjectPath,
-    pub constraint_limit_material: UPtr<UMaterial>,
-    pub constraint_limit_material_x: UPtr<UMaterialInstanceDynamic>,
-    pub constraint_limit_material_x_axis: UPtr<UMaterialInstanceDynamic>,
-    pub constraint_limit_material_y: UPtr<UMaterialInstanceDynamic>,
-    pub constraint_limit_material_y_axis: UPtr<UMaterialInstanceDynamic>,
-    pub constraint_limit_material_z: UPtr<UMaterialInstanceDynamic>,
-    pub constraint_limit_material_z_axis: UPtr<UMaterialInstanceDynamic>,
-    pub constraint_limit_material_prismatic: UPtr<UMaterialInstanceDynamic>,
-    pub invalid_lightmap_settings_material: UPtr<UMaterial>,
-    pub invalid_lightmap_settings_material_name: crate::bindings::core_u_object::FSoftObjectPath,
-    pub preview_shadows_indicator_material: UPtr<UMaterial>,
-    pub preview_shadows_indicator_material_name: crate::bindings::core_u_object::FSoftObjectPath,
-    pub arrow_material: UPtr<UMaterial>,
-    pub arrow_material_yellow: UPtr<UMaterialInstanceDynamic>,
-    pub arrow_material_name: crate::bindings::core_u_object::FSoftObjectPath,
-    pub lighting_only_brightness: crate::bindings::core_u_object::FLinearColor,
-    pub shader_complexity_colors: TArray<crate::bindings::core_u_object::FLinearColor>,
-    pub quad_complexity_colors: TArray<crate::bindings::core_u_object::FLinearColor>,
-    pub light_complexity_colors: TArray<crate::bindings::core_u_object::FLinearColor>,
-    pub stationary_light_overlap_colors: TArray<
-        crate::bindings::core_u_object::FLinearColor,
-    >,
-    pub lod_coloration_colors: TArray<crate::bindings::core_u_object::FLinearColor>,
-    pub hlod_coloration_colors: TArray<crate::bindings::core_u_object::FLinearColor>,
-    pub streaming_accuracy_colors: TArray<crate::bindings::core_u_object::FLinearColor>,
-    pub gpu_skin_cache_visualization_excluded_color: crate::bindings::core_u_object::FLinearColor,
-    pub gpu_skin_cache_visualization_included_color: crate::bindings::core_u_object::FLinearColor,
-    pub gpu_skin_cache_visualization_recompute_tangents_color: crate::bindings::core_u_object::FLinearColor,
-    pub gpu_skin_cache_visualization_low_memory_threshold_in_mb: f32,
-    pub gpu_skin_cache_visualization_high_memory_threshold_in_mb: f32,
-    pub gpu_skin_cache_visualization_low_memory_color: crate::bindings::core_u_object::FLinearColor,
-    pub gpu_skin_cache_visualization_mid_memory_color: crate::bindings::core_u_object::FLinearColor,
-    pub gpu_skin_cache_visualization_high_memory_color: crate::bindings::core_u_object::FLinearColor,
-    pub gpu_skin_cache_visualization_ray_tracing_lod_offset_colors: TArray<
-        crate::bindings::core_u_object::FLinearColor,
-    >,
-    pub max_pixel_shader_additive_complexity_count: f32,
-    pub max_es3_pixel_shader_additive_complexity_count: f32,
-    pub min_light_map_density: f32,
-    pub ideal_light_map_density: f32,
-    pub max_light_map_density: f32,
-    pub flags_3188: u8,
-    pub render_light_map_density_grayscale_scale: f32,
-    pub render_light_map_density_color_scale: f32,
-    pub light_map_density_vertex_mapped_color: crate::bindings::core_u_object::FLinearColor,
-    pub light_map_density_selected_color: crate::bindings::core_u_object::FLinearColor,
-    pub stat_color_mappings: TArray<FStatColorMapping>,
-    pub editor_brush_material: UPtr<UMaterial>,
-    pub editor_brush_material_name: crate::bindings::core_u_object::FSoftObjectPath,
-    pub default_phys_material: UPtr<crate::bindings::physics_core::UPhysicalMaterial>,
-    pub default_phys_material_name: crate::bindings::core_u_object::FSoftObjectPath,
-    pub default_destructible_phys_material: UPtr<
-        crate::bindings::physics_core::UPhysicalMaterial,
-    >,
-    pub default_destructible_phys_material_name: crate::bindings::core_u_object::FSoftObjectPath,
-    pub active_game_name_redirects: TArray<FGameNameRedirect>,
-    pub active_class_redirects: TArray<FClassRedirect>,
-    pub active_plugin_redirects: TArray<FPluginRedirect>,
-    pub active_struct_redirects: TArray<FStructRedirect>,
-    pub pre_integrated_skin_brdf_texture: UPtr<UTexture2D>,
-    pub pre_integrated_skin_brdf_texture_name: crate::bindings::core_u_object::FSoftObjectPath,
-    pub blue_noise_scalar_texture: UPtr<UTexture2D>,
-    pub blue_noise_vec2_texture: UPtr<UTexture2D>,
-    pub blue_noise_scalar_texture_name: crate::bindings::core_u_object::FSoftObjectPath,
-    pub blue_noise_scalar_mobile_texture_name: crate::bindings::core_u_object::FSoftObjectPath,
-    pub blue_noise_vec2_texture_name: crate::bindings::core_u_object::FSoftObjectPath,
-    pub ggxltc_amp_texture: UPtr<UTexture2D>,
-    pub ggxltc_amp_texture_name: crate::bindings::core_u_object::FSoftObjectPath,
-    pub ggxltc_mat_texture: UPtr<UTexture2D>,
-    pub ggxltc_mat_texture_name: crate::bindings::core_u_object::FSoftObjectPath,
-    pub sheen_ltc_texture: UPtr<UTexture2D>,
-    pub sheen_ltc_texture_name: crate::bindings::core_u_object::FSoftObjectPath,
-    pub ggx_reflection_energy_texture: UPtr<UTexture2D>,
-    pub ggx_reflection_energy_texture_name: crate::bindings::core_u_object::FSoftObjectPath,
-    pub ggx_transmission_energy_texture: UPtr<UTexture2D>,
-    pub ggx_transmission_energy_texture_name: crate::bindings::core_u_object::FSoftObjectPath,
-    pub sheen_energy_texture: UPtr<UTexture2D>,
-    pub sheen_legacy_energy_texture_name: crate::bindings::core_u_object::FSoftObjectPath,
-    pub sheen_energy_texture_name: crate::bindings::core_u_object::FSoftObjectPath,
-    pub diffuse_energy_texture: UPtr<UTexture2D>,
-    pub diffuse_energy_texture_name: crate::bindings::core_u_object::FSoftObjectPath,
-    pub glint_texture: UPtr<UTexture2DArray>,
-    pub glint_texture2: UPtr<UTexture2DArray>,
-    pub glint_texture_name: crate::bindings::core_u_object::FSoftObjectPath,
-    pub glint_texture2_name: crate::bindings::core_u_object::FSoftObjectPath,
-    pub simple_volume_texture: UPtr<UVolumeTexture>,
-    pub simple_volume_texture_name: crate::bindings::core_u_object::FSoftObjectPath,
-    pub simple_volume_env_texture: UPtr<UVolumeTexture>,
-    pub simple_volume_env_texture_name: crate::bindings::core_u_object::FSoftObjectPath,
-    pub mini_font_texture: UPtr<UTexture2D>,
-    pub mini_font_texture_name: crate::bindings::core_u_object::FSoftObjectPath,
-    pub weight_map_placeholder_texture: UPtr<UTexture>,
-    pub weight_map_array_placeholder_texture: UPtr<UTexture>,
-    pub weight_map_placeholder_texture_name: crate::bindings::core_u_object::FSoftObjectPath,
-    pub weight_map_array_placeholder_texture_name: crate::bindings::core_u_object::FSoftObjectPath,
-    pub light_map_density_texture: UPtr<UTexture2D>,
-    pub light_map_density_texture_name: crate::bindings::core_u_object::FSoftObjectPath,
-    pub smaa_area_texture: UPtr<UTexture2D>,
-    pub smaa_area_texture_name: crate::bindings::core_u_object::FSoftObjectPath,
-    pub smaa_search_texture: UPtr<UTexture2D>,
-    pub smaa_search_texture_name: crate::bindings::core_u_object::FSoftObjectPath,
-    pub game_viewport: UPtr<UGameViewportClient>,
-    pub deferred_commands: TArray<FString>,
-    pub near_clip_plane: f32,
-    pub flags_4532: u8,
-    pub maximum_loop_iteration_count: i32,
-    pub flags_4540: u8,
-    pub fixed_frame_rate: f32,
-    pub smoothed_frame_rate_range: crate::bindings::core_u_object::FFloatRange,
-    pub custom_time_step: UPtr<UEngineCustomTimeStep>,
-    pub custom_time_step_class_name: crate::bindings::core_u_object::FSoftClassPath,
-    pub timecode_provider: UPtr<UTimecodeProvider>,
-    pub timecode_provider_class_name: crate::bindings::core_u_object::FSoftClassPath,
-    pub b_generate_default_timecode: bool,
-    pub generate_default_timecode_frame_rate: crate::bindings::core_u_object::FFrameRate,
-    pub generate_default_timecode_frame_delay: f32,
-    pub flags_4760: u8,
-    pub num_pawns_allowed_to_be_spawned_in_a_frame: i32,
-    pub flags_4768: u8,
-    pub c_world_box: crate::bindings::core_u_object::FColor,
-    pub c_brush_wire: crate::bindings::core_u_object::FColor,
-    pub c_add_wire: crate::bindings::core_u_object::FColor,
-    pub c_subtract_wire: crate::bindings::core_u_object::FColor,
-    pub c_semi_solid_wire: crate::bindings::core_u_object::FColor,
-    pub c_non_solid_wire: crate::bindings::core_u_object::FColor,
-    pub c_wire_background: crate::bindings::core_u_object::FColor,
-    pub c_scale_box_hi: crate::bindings::core_u_object::FColor,
-    pub c_volume_collision: crate::bindings::core_u_object::FColor,
-    pub c_bsp_collision: crate::bindings::core_u_object::FColor,
-    pub c_ortho_background: crate::bindings::core_u_object::FColor,
-    pub c_volume: crate::bindings::core_u_object::FColor,
-    pub c_brush_shape: crate::bindings::core_u_object::FColor,
-    pub game_screenshot_save_directory: crate::bindings::core_u_object::FDirectoryPath,
-    pub use_static_mesh_min_lod_per_quality_levels: bool,
-    pub use_skeletal_mesh_min_lod_per_quality_levels: bool,
-    pub use_cloth_asset_min_lod_per_quality_levels: bool,
-    pub use_grass_varity_per_quality_levels: bool,
-    pub transition_type: ETransitionType,
-    pub transition_description: FString,
-    pub transition_game_mode: FString,
-    pub flags_4880: u8,
-    pub camera_rotation_threshold: f32,
-    pub camera_translation_threshold: f32,
-    pub primitive_probably_visible_time: f32,
-    pub max_occlusion_pixels_fraction: f32,
-    pub flags_4900: u8,
-    pub max_particle_resize: i32,
-    pub max_particle_resize_warn: i32,
-    pub pending_dropped_notes: TArray<FDropNoteInfo>,
-    pub net_client_ticks_per_second: f32,
-    pub display_gamma: f32,
-    pub min_desired_frame_rate: f32,
-    pub default_selected_material_color: crate::bindings::core_u_object::FLinearColor,
-    pub selected_material_color: crate::bindings::core_u_object::FLinearColor,
-    pub selection_outline_color: crate::bindings::core_u_object::FLinearColor,
-    pub subdued_selection_outline_color: crate::bindings::core_u_object::FLinearColor,
-    pub selected_material_color_override: crate::bindings::core_u_object::FLinearColor,
-    pub b_is_overriding_selected_color: bool,
-    pub flags_5024: u8,
-    pub b_enable_visual_log_recording_on_start: u32,
-    pub screen_saver_inhibitor_semaphore: i32,
-    pub flags_5036: u8,
-    pub particle_event_manager_class_path: FString,
-    pub selection_highlight_intensity: f32,
-    pub bsp_selection_highlight_intensity: f32,
-    pub selection_highlight_intensity_billboards: f32,
-    pub global_net_travel_count: u32,
-    pub net_driver_definitions: TArray<FNetDriverDefinition>,
-    pub iris_net_driver_configs: TArray<FIrisNetDriverConfig>,
-    pub server_actors: TArray<FString>,
-    pub runtime_server_actors: TArray<FString>,
-    pub net_error_log_interval: f32,
-    pub flags_6484: u8,
-    pub next_world_context_handle: i32,
+    __padding_end: [u8; 6832],
 }
-pub struct UActorElementAssetDataInterface {}
-pub struct UActorElementSelectionInterface {}
-pub struct UActorElementWorldInterface {}
-pub struct UComponentElementSelectionInterface {}
-pub struct UComponentElementWorldInterface {}
-pub struct UObjectElementSelectionInterface {}
-pub struct USMInstanceProxyEditingObject {}
-pub struct USMInstanceElementSelectionInterface {}
-pub struct USMInstanceElementWorldInterface {}
+impl UEngine {}
+#[repr(C, align(8))]
+pub struct UActorElementAssetDataInterface {
+    __padding_end: [u8; 56],
+}
+impl UActorElementAssetDataInterface {}
+#[repr(C, align(8))]
+pub struct UActorElementSelectionInterface {
+    __padding_end: [u8; 56],
+}
+impl UActorElementSelectionInterface {}
+#[repr(C, align(8))]
+pub struct UActorElementWorldInterface {
+    __padding_end: [u8; 56],
+}
+impl UActorElementWorldInterface {}
+#[repr(C, align(8))]
+pub struct UComponentElementSelectionInterface {
+    __padding_end: [u8; 56],
+}
+impl UComponentElementSelectionInterface {}
+#[repr(C, align(8))]
+pub struct UComponentElementWorldInterface {
+    __padding_end: [u8; 56],
+}
+impl UComponentElementWorldInterface {}
+#[repr(C, align(8))]
+pub struct UObjectElementSelectionInterface {
+    __padding_end: [u8; 56],
+}
+impl UObjectElementSelectionInterface {}
+#[repr(C, align(8))]
+pub struct USMInstanceProxyEditingObject {
+    __padding_end: [u8; 48],
+}
+impl USMInstanceProxyEditingObject {}
+#[repr(C, align(8))]
+pub struct USMInstanceElementSelectionInterface {
+    __padding_end: [u8; 56],
+}
+impl USMInstanceElementSelectionInterface {}
+#[repr(C, align(8))]
+pub struct USMInstanceElementWorldInterface {
+    __padding_end: [u8; 56],
+}
+impl USMInstanceElementWorldInterface {}
+#[repr(C, align(16))]
 pub struct UInstancedPlacemenClientSettings {
-    pub update_guid: crate::bindings::core_u_object::FGuid,
-    pub object_path: crate::bindings::core_u_object::FSoftObjectPath,
-    pub instanced_component_settings: FISMComponentDescriptor,
+    __padding_end: [u8; 800],
 }
+impl UInstancedPlacemenClientSettings {}
+#[repr(C, align(8))]
 pub struct UMaterialInterface {
-    pub editor_only_data: UPtr<UMaterialInterfaceEditorOnlyData>,
+    #[doc(hidden)]
+    __padding_72: [u8; 72],
     pub subsurface_profile: UPtr<USubsurfaceProfile>,
-    pub subsurface_profiles: TArray<UPtr<USubsurfaceProfile>>,
-    pub specular_profiles: TArray<UPtr<USpecularProfile>>,
+    #[doc(hidden)]
+    __padding_112: [u8; 32],
     pub neural_profile: UPtr<UNeuralProfile>,
-    pub lightmass_settings: FLightmassMaterialInterfaceSettings,
-    pub b_texture_streaming_data_sorted: bool,
-    pub texture_streaming_data_version: i32,
-    pub texture_streaming_data: TArray<FMaterialTextureInfo>,
-    pub asset_user_data: TArray<UPtr<UAssetUserData>>,
-    pub cached_textures_sampling_info: TOptional<FMaterialCachedTexturesSamplingInfo>,
-    pub flags_244: u8,
-    pub texture_streaming_data_missing_entries: TArray<FMaterialTextureInfo>,
-    pub preview_mesh: crate::bindings::core_u_object::FSoftObjectPath,
-    pub thumbnail_info: UPtr<UThumbnailInfo>,
-    pub layer_parameter_expansion: TMap<FString, bool>,
-    pub parameter_overview_expansion: TMap<FString, bool>,
-    pub asset_import_data: UPtr<UAssetImportData>,
-    pub lighting_guid: crate::bindings::core_u_object::FGuid,
+    __padding_end: [u8; 720],
 }
+impl UMaterialInterface {}
+#[repr(C, align(8))]
 pub struct UMaterial {
-    pub phys_material: UPtr<crate::bindings::physics_core::UPhysicalMaterial>,
-    pub phys_material_mask: UPtr<UPhysicalMaterialMask>,
-    pub physical_material_map: UPtr<crate::bindings::physics_core::UPhysicalMaterial>,
-    pub render_trace_physical_material_outputs: TArray<
-        UPtr<crate::bindings::physics_core::UPhysicalMaterial>,
-    >,
+    #[doc(hidden)]
+    __padding_936: [u8; 936],
     pub material_domain: EMaterialDomain,
     pub blend_mode: EBlendMode,
-    pub decal_blend_mode: EDecalBlendMode,
+    #[doc(hidden)]
+    __padding_939: [u8; 1],
     pub material_decal_response: EMaterialDecalResponse,
-    pub nanite_override_material: FMaterialOverrideNanite,
+    #[doc(hidden)]
+    __padding_1016: [u8; 76],
     pub displacement_scaling: FDisplacementScaling,
     pub displacement_fade_range: FDisplacementFadeRange,
-    pub shading_model: EMaterialShadingModel,
-    pub flags_1033: u8,
-    pub shading_models: FMaterialShadingModelField,
-    pub used_shading_models: FString,
-    pub opacity_mask_clip_value: f32,
-    pub flags_1060: u8,
-    pub flags_1061: u8,
-    pub translucency_pass: EMaterialTranslucencyPass,
-    pub translucency_lighting_mode: ETranslucencyLightingMode,
-    pub flags_1064: u8,
-    pub num_customized_u_vs: i32,
-    pub translucency_directional_lighting_intensity: f32,
-    pub translucent_shadow_density_scale: f32,
-    pub translucent_self_shadow_density_scale: f32,
-    pub translucent_self_shadow_second_density_scale: f32,
-    pub translucent_self_shadow_second_opacity: f32,
-    pub translucent_backscattering_exponent: f32,
-    pub translucent_multiple_scattering_extinction: crate::bindings::core_u_object::FLinearColor,
-    pub translucent_shadow_start_offset: f32,
+    #[doc(hidden)]
+    __padding_1116: [u8; 84],
     pub flags_1116: u8,
     pub flags_1117: u8,
     pub flags_1118: u8,
+    #[doc(hidden)]
+    __padding_1120: [u8; 1],
     pub flags_1120: u8,
+    #[doc(hidden)]
+    __padding_1124: [u8; 3],
     pub flags_1124: u8,
+    #[doc(hidden)]
+    __padding_1128: [u8; 3],
     pub flags_1128: u8,
+    #[doc(hidden)]
+    __padding_1132: [u8; 3],
     pub flags_1132: u8,
     pub float_precision_mode: EMaterialFloatPrecisionMode,
     pub flags_1134: u8,
+    #[doc(hidden)]
+    __padding_1136: [u8; 1],
     pub flags_1136: u8,
+    #[doc(hidden)]
+    __padding_1140: [u8; 3],
     pub flags_1140: u8,
-    pub flags_1141: u8,
-    pub translucent_local_light_shadow_quality: f32,
-    pub translucent_directional_light_shadow_quality: f32,
-    pub shading_rate: EMaterialShadingRate,
-    pub flags_1153: u8,
-    pub editor_x: i32,
-    pub editor_y: i32,
-    pub editor_pitch: i32,
-    pub editor_yaw: i32,
-    pub flags_1172: u8,
-    pub flags_1173: u8,
-    pub flags_1174: u8,
+    #[doc(hidden)]
+    __padding_1175: [u8; 34],
     pub blendable_location: EBlendableLocation,
     pub flags_1176: u8,
     pub user_scene_texture: FName,
     pub user_texture_divisor: crate::bindings::core_u_object::FIntPoint,
     pub resolution_relative_to_input: FName,
-    pub flags_1212: u8,
-    pub stencil_compare: EMaterialStencilCompare,
-    pub stencil_ref_value: u8,
-    pub neural_profile_id: i8,
-    pub refraction_mode_deprecated: ERefractionMode,
-    pub refraction_method: ERefractionMode,
-    pub refraction_coverage_mode: ERefractionCoverageMode,
-    pub pixel_depth_offset_mode: EPixelDepthOffsetMode,
+    #[doc(hidden)]
+    __padding_1220: [u8; 8],
     pub blendable_priority: i32,
     pub flags_1224: u8,
-    pub preshader_gap: u16,
-    pub usage_flag_warnings: u32,
-    pub refraction_depth_bias: f32,
+    #[doc(hidden)]
+    __padding_1240: [u8; 12],
     pub max_world_position_offset_displacement: f32,
     pub b_always_evaluate_world_position_offset: bool,
-    pub state_id: crate::bindings::core_u_object::FGuid,
-    pub b_saved_cached_expression_data_deprecated: bool,
-    pub referenced_texture_guids: TArray<crate::bindings::core_u_object::FGuid>,
-    pub editor_comments_deprecated: TArray<UPtr<UMaterialExpressionComment>>,
-    pub expressions_deprecated: TArray<UPtr<UMaterialExpression>>,
-    pub parameter_group_data_deprecated: TArray<FParameterGroupData>,
-    pub diffuse_color_deprecated: FColorMaterialInput,
-    pub specular_color_deprecated: FColorMaterialInput,
-    pub base_color_deprecated: FColorMaterialInput,
-    pub metallic_deprecated: FScalarMaterialInput,
-    pub specular_deprecated: FScalarMaterialInput,
-    pub roughness_deprecated: FScalarMaterialInput,
-    pub anisotropy_deprecated: FScalarMaterialInput,
-    pub normal_deprecated: FVectorMaterialInput,
-    pub tangent_deprecated: FVectorMaterialInput,
-    pub emissive_color_deprecated: FColorMaterialInput,
-    pub opacity_deprecated: FScalarMaterialInput,
-    pub opacity_mask_deprecated: FScalarMaterialInput,
-    pub world_position_offset_deprecated: FVectorMaterialInput,
-    pub subsurface_color_deprecated: FColorMaterialInput,
-    pub clear_coat_deprecated: FScalarMaterialInput,
-    pub clear_coat_roughness_deprecated: FScalarMaterialInput,
-    pub ambient_occlusion_deprecated: FScalarMaterialInput,
-    pub refraction_deprecated: FScalarMaterialInput,
-    pub customized_u_vs_deprecated: FVector2MaterialInput,
-    pub material_attributes_deprecated: FMaterialAttributesInput,
-    pub pixel_depth_offset_deprecated: FScalarMaterialInput,
-    pub shading_model_from_material_expression_deprecated: FShadingModelMaterialInput,
-    pub front_material_deprecated: FSubstrateMaterialInput,
+    __padding_end: [u8; 2155],
 }
+impl UMaterial {}
+#[repr(C, align(8))]
 pub struct ASkeletalMeshActor {
+    #[doc(hidden)]
+    __padding_1136: [u8; 1136],
     pub flags_1136: u8,
     pub skeletal_mesh_component: UPtr<USkeletalMeshComponent>,
-    pub replicated_mesh: UPtr<USkeletalMesh>,
-    pub replicated_phys_asset: UPtr<UPhysicsAsset>,
-    pub replicated_material0: UPtr<UMaterialInterface>,
-    pub replicated_material1: UPtr<UMaterialInterface>,
+    __padding_end: [u8; 112],
 }
-pub struct UThumbnailInfo {}
+impl ASkeletalMeshActor {}
+#[repr(C, align(8))]
+pub struct UThumbnailInfo {
+    __padding_end: [u8; 48],
+}
+impl UThumbnailInfo {}
+#[repr(C, align(16))]
 pub struct UInstancedStaticMeshComponent {
-    pub per_instance_sm_data: TArray<FInstancedStaticMeshInstanceData>,
-    pub per_instance_prev_transform: TArray<crate::bindings::core_u_object::FMatrix>,
-    pub previous_component_transform: crate::bindings::core_u_object::FTransform,
-    pub num_custom_data_floats: i32,
+    #[doc(hidden)]
+    __padding_2036: [u8; 2036],
     pub instancing_random_seed: i32,
-    pub per_instance_sm_custom_data: TArray<f32>,
-    pub additional_random_seeds: TArray<FInstancedStaticMeshRandomSeed>,
+    #[doc(hidden)]
+    __padding_2072: [u8; 32],
     pub instance_lod_distance_scale: f32,
     pub instance_min_draw_distance: i32,
     pub instance_start_cull_distance: i32,
     pub instance_end_cull_distance: i32,
     pub flags_2088: u8,
-    pub instance_reorder_table: TArray<i32>,
-    pub num_pending_lightmaps: i32,
-    pub cached_mappings: TArray<FInstancedStaticMeshMappingInfo>,
-    pub cached_bounds: FBoundsCacheElement,
+    __padding_end: [u8; 775],
 }
+impl UInstancedStaticMeshComponent {}
+#[repr(C, align(16))]
 pub struct UHierarchicalInstancedStaticMeshComponent {
-    pub flags_2880: u8,
-    pub translated_instance_space_origin: crate::bindings::core_u_object::FVector,
-    pub sorted_instances: TArray<i32>,
-    pub num_built_instances: i32,
-    pub built_instance_bounds: crate::bindings::core_u_object::FBox,
-    pub unbuilt_instance_bounds: crate::bindings::core_u_object::FBox,
-    pub unbuilt_instance_bounds_list: TArray<crate::bindings::core_u_object::FBox>,
-    pub flags_3064: u8,
-    pub occlusion_layer_num_nodes: i32,
-    pub cache_mesh_extended_bounds: crate::bindings::core_u_object::FBoxSphereBounds,
-    pub instance_count_to_render: i32,
+    __padding_end: [u8; 3280],
 }
+impl UHierarchicalInstancedStaticMeshComponent {}
+#[repr(C, align(8))]
 pub struct APartitionActor {
-    pub grid_size: u32,
+    __padding_end: [u8; 1144],
 }
+impl APartitionActor {}
+#[repr(C, align(8))]
 pub struct AISMPartitionActor {
-    pub clients: TArray<crate::bindings::core_u_object::FGuid>,
-    pub descriptors: TArray<FISMComponentDescriptor>,
-    pub descriptor_components: TArray<FISMComponentData>,
-    pub client_instance_managers: TMap<
-        crate::bindings::core_u_object::FGuid,
-        FISMClientInstanceManagerData,
-    >,
+    __padding_end: [u8; 1296],
 }
+impl AISMPartitionActor {}
+#[repr(C, align(8))]
 pub struct AStaticMeshActor {
+    #[doc(hidden)]
+    __padding_1136: [u8; 1136],
     pub static_mesh_component: UPtr<UStaticMeshComponent>,
-    pub b_static_mesh_replicate_movement: bool,
-    pub static_mesh_physics_replication_mode: EPhysicsReplicationMode,
-    pub navigation_geometry_gathering_mode: ENavDataGatheringMode,
+    __padding_end: [u8; 8],
 }
+impl AStaticMeshActor {}
+#[repr(C, align(8))]
 pub struct AInfo {
-    pub sprite_component: UPtr<UBillboardComponent>,
+    __padding_end: [u8; 1144],
 }
+impl AInfo {}
+#[repr(C, align(8))]
 pub struct UMaterialInstance {
+    #[doc(hidden)]
+    __padding_840: [u8; 840],
     pub phys_material: UPtr<crate::bindings::physics_core::UPhysicalMaterial>,
-    pub physical_material_map: UPtr<crate::bindings::physics_core::UPhysicalMaterial>,
+    #[doc(hidden)]
+    __padding_912: [u8; 64],
     pub parent: UPtr<UMaterialInterface>,
-    pub nanite_override_material: FMaterialOverrideNanite,
-    pub specular_profile_override: UPtr<USpecularProfile>,
+    #[doc(hidden)]
+    __padding_1000: [u8; 80],
     pub flags_1000: u8,
+    #[doc(hidden)]
+    __padding_1003: [u8; 2],
     pub blendable_location_override: EBlendableLocation,
     pub blendable_priority_override: i32,
+    #[doc(hidden)]
+    __padding_1040: [u8; 32],
     pub scalar_parameter_values: TArray<FScalarParameterValue>,
     pub vector_parameter_values: TArray<FVectorParameterValue>,
     pub double_vector_parameter_values: TArray<FDoubleVectorParameterValue>,
@@ -8823,357 +4147,437 @@ pub struct UMaterialInstance {
         FSparseVolumeTextureParameterValue,
     >,
     pub font_parameter_values: TArray<FFontParameterValue>,
-    pub user_scene_texture_overrides: TArray<FUserSceneTextureOverride>,
-    pub b_override_base_properties_deprecated: bool,
-    pub enumeration_objects: TArray<
-        TSoftObjectPtr<crate::bindings::core_u_object::UObject>,
-    >,
-    pub base_property_overrides: FMaterialInstanceBasePropertyOverrides,
-    pub static_parameters_runtime: FStaticParameterSetRuntimeData,
-    pub referenced_texture_guids: TArray<crate::bindings::core_u_object::FGuid>,
-    pub static_parameters_deprecated: FStaticParameterSet,
-    pub b_saved_cached_data_deprecated: bool,
+    __padding_end: [u8; 640],
 }
+impl UMaterialInstance {}
+#[repr(C, align(8))]
 pub struct UMaterialInstanceConstant {
-    pub parameter_state_id: crate::bindings::core_u_object::FGuid,
-    pub phys_material_mask: UPtr<UPhysicalMaterialMask>,
+    __padding_end: [u8; 1848],
 }
+impl UMaterialInstanceConstant {}
+#[repr(C, align(16))]
 pub struct UTexture2D {
-    pub first_resource_mem_mip: i32,
-    pub flags_1244: u8,
+    #[doc(hidden)]
+    __padding_1245: [u8; 1245],
     pub address_x: TextureAddress,
     pub address_y: TextureAddress,
-    pub imported_size: crate::bindings::core_u_object::FIntPoint,
-    pub cpu_copy_texture: UPtr<UTexture2D>,
+    __padding_end: [u8; 113],
 }
+impl UTexture2D {}
+#[repr(C, align(8))]
 pub struct UHLODBuilder {
-    pub hlod_builder_settings: UPtr<UHLODBuilderSettings>,
-    pub hlod_instanced_static_mesh_component_class: TSubclassOf<
-        UHLODInstancedStaticMeshComponent,
-    >,
-    pub hlod_instanced_skinned_mesh_component_class: TSubclassOf<
-        UHLODInstancedSkinnedMeshComponent,
-    >,
+    __padding_end: [u8; 72],
 }
-pub struct UTextureMipDataProviderFactory {}
-pub struct UTextureAllMipDataProviderFactory {}
+impl UHLODBuilder {}
+#[repr(C, align(8))]
+pub struct UTextureMipDataProviderFactory {
+    __padding_end: [u8; 48],
+}
+impl UTextureMipDataProviderFactory {}
+#[repr(C, align(8))]
+pub struct UTextureAllMipDataProviderFactory {
+    __padding_end: [u8; 48],
+}
+impl UTextureAllMipDataProviderFactory {}
 pub struct UActiveSoundUpdateInterface {}
 pub struct IActiveSoundUpdateInterface {}
+#[repr(C, align(8))]
 pub struct UChannel {
-    pub connection: UPtr<UNetConnection>,
+    __padding_end: [u8; 120],
 }
+impl UChannel {}
+#[repr(C, align(8))]
 pub struct UActorChannel {
-    pub actor: UPtr<AActor>,
-    pub create_sub_objects: TArray<UPtr<crate::bindings::core_u_object::UObject>>,
+    __padding_end: [u8; 680],
 }
+impl UActorChannel {}
 pub struct UActorInstanceManagerInterface {}
 pub struct IActorInstanceManagerInterface {}
-pub struct UAnimationAssetExtensions {}
-pub struct UAnimBlueprintClassSubsystem_PropertyAccess {}
+#[repr(C, align(8))]
+pub struct UAnimationAssetExtensions {
+    __padding_end: [u8; 48],
+}
+impl UAnimationAssetExtensions {}
+#[repr(C, align(8))]
+pub struct UAnimBlueprintClassSubsystem_PropertyAccess {
+    __padding_end: [u8; 48],
+}
+impl UAnimBlueprintClassSubsystem_PropertyAccess {}
 pub struct UInterface_AnimCurveMetaData {}
 pub struct IInterface_AnimCurveMetaData {}
+#[repr(C, align(8))]
 pub struct UAnimCurveMetaData {
-    pub curve_meta_data: TMap<FName, FCurveMetaData>,
+    __padding_end: [u8; 176],
 }
-pub struct UAnimationDataModelNotifiesExtensions {}
+impl UAnimCurveMetaData {}
+#[repr(C, align(8))]
+pub struct UAnimationDataModelNotifiesExtensions {
+    __padding_end: [u8; 48],
+}
+impl UAnimationDataModelNotifiesExtensions {}
 pub struct UAnimLayerInterface {}
 pub struct IAnimLayerInterface {}
+#[repr(C, align(8))]
 pub struct UAssetManagerSettings {
-    pub primary_asset_types_to_scan: TArray<FPrimaryAssetTypeInfo>,
-    pub directories_to_exclude: TArray<crate::bindings::core_u_object::FDirectoryPath>,
-    pub primary_asset_rules: TArray<FPrimaryAssetRulesOverride>,
-    pub custom_primary_asset_rules: TArray<FPrimaryAssetRulesCustomOverride>,
-    pub b_only_cook_production_assets: bool,
-    pub b_should_manager_determine_type_and_name: bool,
-    pub b_should_guess_type_and_name_in_editor: bool,
-    pub b_should_acquire_missing_chunks_on_load: bool,
-    pub b_should_warn_about_invalid_assets: bool,
-    pub primary_asset_id_redirects: TArray<FAssetManagerRedirect>,
-    pub primary_asset_type_redirects: TArray<FAssetManagerRedirect>,
-    pub asset_path_redirects: TArray<FAssetManagerRedirect>,
-    pub meta_data_tags_for_asset_registry: TSet<FName>,
+    __padding_end: [u8; 304],
 }
+impl UAssetManagerSettings {}
+#[repr(C, align(8))]
 pub struct UAsyncPhysicsData {
-    pub server_frame: i32,
-    pub replication_redundancy: i32,
+    __padding_end: [u8; 56],
 }
+impl UAsyncPhysicsData {}
 pub struct UAudioPanelWidgetInterface {}
 pub struct IAudioPanelWidgetInterface {}
+#[repr(C, align(8))]
 pub struct AAutoRTFMTestActor {
-    pub my_property: i32,
+    __padding_end: [u8; 1200],
 }
-pub struct AAutoRTFMTestAnotherActor {}
+impl AAutoRTFMTestActor {}
+#[repr(C, align(8))]
+pub struct AAutoRTFMTestAnotherActor {
+    __padding_end: [u8; 1144],
+}
+impl AAutoRTFMTestAnotherActor {}
+#[repr(C, align(8))]
 pub struct UBodySetup {
-    pub agg_geom: FKAggregateGeom,
-    pub flags_224: u8,
-    pub flags_225: u8,
-    pub phys_material: UPtr<crate::bindings::physics_core::UPhysicalMaterial>,
-    pub walkable_slope_override: FWalkableSlopeOverride,
-    pub build_scale_deprecated: f32,
-    pub default_instance: FBodyInstance,
-    pub build_scale3_d: crate::bindings::core_u_object::FVector,
+    __padding_end: [u8; 912],
 }
-pub struct UAutoRTFMTestBodySetup {}
+impl UBodySetup {}
+#[repr(C, align(8))]
+pub struct UAutoRTFMTestBodySetup {
+    __padding_end: [u8; 920],
+}
+impl UAutoRTFMTestBodySetup {}
+#[repr(C, align(16))]
 pub struct UCameraShakeBase {
-    pub b_single_instance: bool,
+    #[doc(hidden)]
+    __padding_52: [u8; 52],
     pub shake_scale: f32,
-    pub root_shake_pattern: UPtr<UCameraShakePattern>,
-    pub camera_manager: UPtr<APlayerCameraManager>,
+    __padding_end: [u8; 168],
 }
-pub struct UAutoRTFMTestCameraShake {}
+impl UCameraShakeBase {}
+#[repr(C, align(16))]
+pub struct UAutoRTFMTestCameraShake {
+    __padding_end: [u8; 224],
+}
+impl UAutoRTFMTestCameraShake {}
+#[repr(C, align(16))]
 pub struct UChildActorComponent {
+    #[doc(hidden)]
+    __padding_656: [u8; 656],
     pub child_actor_class: TSubclassOf<AActor>,
     pub child_actor: UPtr<AActor>,
-    pub child_actor_template: UPtr<AActor>,
-    pub editor_tree_view_visualization_mode: EChildActorComponentTreeViewVisualizationMode,
-    pub flags_713: u8,
+    __padding_end: [u8; 80],
 }
-pub struct UAutoRTFMTestChildActorComponent {}
+impl UChildActorComponent {}
+#[repr(C, align(16))]
+pub struct UAutoRTFMTestChildActorComponent {
+    __padding_end: [u8; 752],
+}
+impl UAutoRTFMTestChildActorComponent {}
+#[repr(C, align(8))]
 pub struct ULevel {
-    pub b_use_external_actors: bool,
-    pub owning_world: UPtr<UWorld>,
-    pub model: UPtr<UModel>,
-    pub model_components: TArray<UPtr<UModelComponent>>,
-    pub actor_cluster: UPtr<ULevelActorContainer>,
-    pub level_script_blueprint: UPtr<ULevelScriptBlueprint>,
-    pub texture_streaming_resource_guids: TArray<crate::bindings::core_u_object::FGuid>,
-    pub num_texture_streaming_unbuilt_components: i32,
-    pub num_texture_streaming_dirty_resources: i32,
-    pub level_script_actor: UPtr<ALevelScriptActor>,
-    pub nav_list_start: UPtr<ANavigationObjectBase>,
-    pub nav_list_end: UPtr<ANavigationObjectBase>,
-    pub nav_data_chunks: TArray<UPtr<UNavigationDataChunk>>,
-    pub lightmap_total_size: f32,
-    pub shadowmap_total_size: f32,
-    pub static_navigable_geometry: TArray<crate::bindings::core_u_object::FVector>,
-    pub streaming_texture_guids: TArray<crate::bindings::core_u_object::FGuid>,
-    pub streaming_textures: TArray<FName>,
-    pub packed_texture_streaming_quality_level_feature_level: u32,
-    pub level_build_data_id: crate::bindings::core_u_object::FGuid,
-    pub map_build_data: UPtr<UMapBuildDataRegistry>,
-    pub light_build_level_offset: crate::bindings::core_u_object::FIntVector,
-    pub flags_632: u8,
-    pub flags_635: u8,
-    pub level_simplification: FLevelSimplificationDetails,
-    pub level_color: crate::bindings::core_u_object::FLinearColor,
-    pub b_prompt_when_adding_to_level_before_checkout: bool,
-    pub b_prompt_when_adding_to_level_outside_bounds: bool,
-    pub actor_packaging_scheme: EActorPackagingScheme,
-    pub world_settings: UPtr<AWorldSettings>,
-    pub world_data_layers: UPtr<AWorldDataLayers>,
-    pub world_partition_runtime_cell: TSoftObjectPtr<UWorldPartitionRuntimeCell>,
-    pub asset_user_data: TArray<UPtr<UAssetUserData>>,
-    pub destroyed_replicated_static_actors: TArray<
-        FReplicatedStaticActorDestructionInfo,
-    >,
-    pub b_use_actor_folders: bool,
-    pub actor_folders: TMap<crate::bindings::core_u_object::FGuid, UPtr<UActorFolder>>,
-    pub folder_label_to_actor_folders: TMap<FString, FActorFolderSet>,
-    pub loaded_external_actor_folders: TArray<UPtr<UActorFolder>>,
-    pub editor_path_owner: TWeakObjectPtr<crate::bindings::core_u_object::UObject>,
+    __padding_end: [u8; 2888],
 }
-pub struct UAutoRTFMTestLevel {}
-pub struct UAutoRTFMTestObject {}
-pub struct UAutoRTFMTestPrimitiveComponent {}
+impl ULevel {}
+#[repr(C, align(8))]
+pub struct UAutoRTFMTestLevel {
+    __padding_end: [u8; 2896],
+}
+impl UAutoRTFMTestLevel {}
+#[repr(C, align(8))]
+pub struct UAutoRTFMTestObject {
+    __padding_end: [u8; 56],
+}
+impl UAutoRTFMTestObject {}
+#[repr(C, align(16))]
+pub struct UAutoRTFMTestPrimitiveComponent {
+    __padding_end: [u8; 1584],
+}
+impl UAutoRTFMTestPrimitiveComponent {}
 pub struct UBlendableInterface {}
 pub struct IBlendableInterface {}
-pub struct UBlueprintSpringMathLibrary {}
-pub struct UBookmarkBase {}
+#[repr(C, align(8))]
+pub struct UBlueprintSpringMathLibrary {
+    __padding_end: [u8; 48],
+}
+impl UBlueprintSpringMathLibrary {}
+#[repr(C, align(8))]
+pub struct UBookmarkBase {
+    __padding_end: [u8; 48],
+}
+impl UBookmarkBase {}
+#[repr(C, align(8))]
 pub struct UBookMark2D {
-    pub zoom2_d: f32,
-    pub location: crate::bindings::core_u_object::FIntPoint,
+    __padding_end: [u8; 64],
 }
+impl UBookMark2D {}
+#[repr(C, align(8))]
 pub struct AReflectionCapture {
+    #[doc(hidden)]
+    __padding_1136: [u8; 1136],
     pub capture_component: UPtr<UReflectionCaptureComponent>,
-    pub sprite_component: UPtr<UBillboardComponent>,
-    pub capture_offset_component: UPtr<UBillboardComponent>,
+    __padding_end: [u8; 16],
 }
-pub struct ABoxReflectionCapture {}
+impl AReflectionCapture {}
+#[repr(C, align(8))]
+pub struct ABoxReflectionCapture {
+    __padding_end: [u8; 1160],
+}
+impl ABoxReflectionCapture {}
+#[repr(C, align(16))]
 pub struct UReflectionCaptureComponent {
-    pub capture_offset_component: UPtr<UBillboardComponent>,
+    #[doc(hidden)]
+    __padding_664: [u8; 664],
     pub reflection_source_type: EReflectionSourceType,
     pub cubemap: UPtr<UTextureCube>,
     pub source_cubemap_angle: f32,
     pub brightness: f32,
     pub capture_offset: crate::bindings::core_u_object::FVector,
-    pub map_build_data_id: crate::bindings::core_u_object::FGuid,
+    __padding_end: [u8; 56],
 }
+impl UReflectionCaptureComponent {}
+#[repr(C, align(16))]
 pub struct UBoxReflectionCaptureComponent {
+    #[doc(hidden)]
+    __padding_768: [u8; 768],
     pub box_transition_distance: f32,
-    pub preview_influence_box: UPtr<UBoxComponent>,
-    pub preview_capture_box: UPtr<UBoxComponent>,
+    __padding_end: [u8; 28],
 }
-pub struct UBuiltInAttributesExtensions {}
+impl UBoxReflectionCaptureComponent {}
+#[repr(C, align(8))]
+pub struct UBuiltInAttributesExtensions {
+    __padding_end: [u8; 48],
+}
+impl UBuiltInAttributesExtensions {}
+#[repr(C, align(8))]
 pub struct UPlayer {
-    pub player_controller: UPtr<APlayerController>,
-    pub current_net_speed: i32,
-    pub configured_internet_speed: i32,
-    pub configured_lan_speed: i32,
+    __padding_end: [u8; 80],
 }
+impl UPlayer {}
+#[repr(C, align(16))]
 pub struct UNetConnection {
-    pub children: TArray<UPtr<UChildConnection>>,
-    pub driver: UPtr<UNetDriver>,
-    pub package_map_class: TSubclassOf<crate::bindings::core_u_object::UPackageMap>,
-    pub package_map: UPtr<crate::bindings::core_u_object::UPackageMap>,
-    pub open_channels: TArray<UPtr<UChannel>>,
-    pub sent_temporaries: TArray<UPtr<AActor>>,
-    pub view_target: UPtr<AActor>,
-    pub owning_actor: UPtr<AActor>,
-    pub max_packet: i32,
-    pub flags_172: u8,
-    pub children_lookup: TMap<i32, UPtr<UChildConnection>>,
-    pub player_id: FUniqueNetIdRepl,
-    pub last_receive_time: f64,
-    pub default_max_channel_size: i32,
-    pub channels_to_tick: TArray<UPtr<UChannel>>,
+    __padding_end: [u8; 8048],
 }
+impl UNetConnection {}
+#[repr(C, align(16))]
 pub struct UChildConnection {
-    pub parent: UPtr<UNetConnection>,
+    __padding_end: [u8; 8064],
 }
+impl UChildConnection {}
+#[repr(C, align(8))]
 pub struct UPlatformInterfaceBase {
-    pub all_delegates: TArray<FDelegateArray>,
+    __padding_end: [u8; 64],
 }
+impl UPlatformInterfaceBase {}
+#[repr(C, align(8))]
 pub struct UCloudStorageBase {
-    pub local_cloud_files: TArray<FString>,
-    pub flags_80: u8,
+    __padding_end: [u8; 88],
 }
-pub struct UControlChannel {}
-pub struct UDemoNetConnection {}
+impl UCloudStorageBase {}
+#[repr(C, align(8))]
+pub struct UControlChannel {
+    __padding_end: [u8; 144],
+}
+impl UControlChannel {}
+#[repr(C, align(16))]
+pub struct UDemoNetConnection {
+    __padding_end: [u8; 8128],
+}
+impl UDemoNetConnection {}
+#[repr(C, align(8))]
 pub struct UPendingNetGame {
-    pub net_driver: UPtr<UNetDriver>,
-    pub demo_net_driver: UPtr<UDemoNetDriver>,
+    __padding_end: [u8; 200],
 }
-pub struct UDemoPendingNetGame {}
+impl UPendingNetGame {}
+#[repr(C, align(8))]
+pub struct UDemoPendingNetGame {
+    __padding_end: [u8; 200],
+}
+impl UDemoPendingNetGame {}
+#[repr(C, align(8))]
 pub struct UDeviceProfileFragment {
-    pub c_vars: TArray<FString>,
+    __padding_end: [u8; 64],
 }
-pub struct UDialogueSoundWaveProxy {}
+impl UDeviceProfileFragment {}
+#[repr(C, align(8))]
+pub struct UDialogueSoundWaveProxy {
+    __padding_end: [u8; 560],
+}
+impl UDialogueSoundWaveProxy {}
+#[repr(C, align(8))]
 pub struct ALight {
+    #[doc(hidden)]
+    __padding_1136: [u8; 1136],
     pub light_component: UPtr<ULightComponent>,
-    pub flags_1144: u8,
+    __padding_end: [u8; 8],
 }
+impl ALight {}
+#[repr(C, align(8))]
 pub struct ADirectionalLight {
-    pub arrow_component: UPtr<UArrowComponent>,
-    pub directional_light_component: UPtr<UDirectionalLightComponent>,
+    __padding_end: [u8; 1168],
 }
-pub struct UDistribution {}
+impl ADirectionalLight {}
+#[repr(C, align(8))]
+pub struct UDistribution {
+    __padding_end: [u8; 56],
+}
+impl UDistribution {}
+#[repr(C, align(8))]
 pub struct UDistributionFloat {
-    pub flags_56: u8,
+    __padding_end: [u8; 64],
 }
+impl UDistributionFloat {}
+#[repr(C, align(8))]
 pub struct UDistributionFloatConstant {
-    pub constant: f32,
+    __padding_end: [u8; 72],
 }
+impl UDistributionFloatConstant {}
+#[repr(C, align(8))]
 pub struct UDistributionFloatConstantCurve {
-    pub constant_curve: crate::bindings::core_u_object::FInterpCurveFloat,
+    __padding_end: [u8; 88],
 }
+impl UDistributionFloatConstantCurve {}
+#[repr(C, align(8))]
 pub struct UDistributionFloatParameterBase {
-    pub parameter_name: FName,
-    pub min_input: f32,
-    pub max_input: f32,
-    pub min_output: f32,
-    pub max_output: f32,
-    pub param_mode: DistributionParamMode,
+    __padding_end: [u8; 104],
 }
-pub struct UDistributionFloatParticleParameter {}
+impl UDistributionFloatParameterBase {}
+#[repr(C, align(8))]
+pub struct UDistributionFloatParticleParameter {
+    __padding_end: [u8; 104],
+}
+impl UDistributionFloatParticleParameter {}
+#[repr(C, align(8))]
 pub struct UDistributionFloatUniform {
-    pub min: f32,
-    pub max: f32,
+    __padding_end: [u8; 72],
 }
+impl UDistributionFloatUniform {}
+#[repr(C, align(8))]
 pub struct UDistributionFloatUniformCurve {
-    pub constant_curve: crate::bindings::core_u_object::FInterpCurveVector2D,
+    __padding_end: [u8; 88],
 }
+impl UDistributionFloatUniformCurve {}
+#[repr(C, align(8))]
 pub struct UDistributionVector {
-    pub flags_56: u8,
+    __padding_end: [u8; 64],
 }
+impl UDistributionVector {}
+#[repr(C, align(8))]
 pub struct UDistributionVectorConstant {
-    pub constant: crate::bindings::core_u_object::FVector,
-    pub flags_88: u8,
-    pub locked_axes: EDistributionVectorLockFlags,
+    __padding_end: [u8; 96],
 }
+impl UDistributionVectorConstant {}
+#[repr(C, align(8))]
 pub struct UDistributionVectorConstantCurve {
-    pub constant_curve: crate::bindings::core_u_object::FInterpCurveVector,
-    pub flags_88: u8,
-    pub locked_axes: EDistributionVectorLockFlags,
+    __padding_end: [u8; 96],
 }
+impl UDistributionVectorConstantCurve {}
+#[repr(C, align(8))]
 pub struct UDistributionVectorParameterBase {
-    pub parameter_name: FName,
-    pub min_input: crate::bindings::core_u_object::FVector,
-    pub max_input: crate::bindings::core_u_object::FVector,
-    pub min_output: crate::bindings::core_u_object::FVector,
-    pub max_output: crate::bindings::core_u_object::FVector,
-    pub param_modes: DistributionParamMode,
+    __padding_end: [u8; 216],
 }
-pub struct UDistributionVectorParticleParameter {}
+impl UDistributionVectorParameterBase {}
+#[repr(C, align(8))]
+pub struct UDistributionVectorParticleParameter {
+    __padding_end: [u8; 216],
+}
+impl UDistributionVectorParticleParameter {}
+#[repr(C, align(8))]
 pub struct UDistributionVectorUniform {
-    pub max: crate::bindings::core_u_object::FVector,
-    pub min: crate::bindings::core_u_object::FVector,
-    pub flags_112: u8,
-    pub locked_axes: EDistributionVectorLockFlags,
-    pub mirror_flags: EDistributionVectorMirrorFlags,
-    pub flags_120: u8,
+    __padding_end: [u8; 128],
 }
+impl UDistributionVectorUniform {}
+#[repr(C, align(8))]
 pub struct UDistributionVectorUniformCurve {
-    pub constant_curve: crate::bindings::core_u_object::FInterpCurveTwoVectors,
-    pub flags_88: u8,
-    pub locked_axes: EDistributionVectorLockFlags,
-    pub mirror_flags: EDistributionVectorMirrorFlags,
-    pub flags_100: u8,
+    __padding_end: [u8; 104],
 }
+impl UDistributionVectorUniformCurve {}
+#[repr(C, align(8))]
 pub struct AEmitter {
+    #[doc(hidden)]
+    __padding_1136: [u8; 1136],
     pub particle_system_component: UPtr<UParticleSystemComponent>,
     pub flags_1144: u8,
-    pub on_particle_spawn: FEmitter_OnParticleSpawn,
-    pub on_particle_burst: FEmitter_OnParticleBurst,
-    pub on_particle_death: FEmitter_OnParticleDeath,
-    pub on_particle_collide: FEmitter_OnParticleCollide,
-    pub sprite_component: UPtr<UBillboardComponent>,
-    pub arrow_component: UPtr<UArrowComponent>,
+    __padding_end: [u8; 119],
 }
+impl AEmitter {}
+#[repr(C, align(16))]
 pub struct AEmitterCameraLensEffectBase {
-    pub ps_camera_effect: UPtr<UParticleSystem>,
-    pub base_camera: UPtr<APlayerCameraManager>,
-    pub relative_transform: crate::bindings::core_u_object::FTransform,
-    pub base_fov: f32,
-    pub flags_1396: u8,
-    pub emitters_to_treat_as_same: TArray<TSubclassOf<AActor>>,
-    pub dist_from_camera_deprecated: f32,
+    __padding_end: [u8; 1424],
 }
-pub struct UViewModeUtils {}
-pub struct UEngineBaseTypes {}
+impl AEmitterCameraLensEffectBase {}
+#[repr(C, align(8))]
+pub struct UViewModeUtils {
+    __padding_end: [u8; 48],
+}
+impl UViewModeUtils {}
+#[repr(C, align(8))]
+pub struct UEngineBaseTypes {
+    __padding_end: [u8; 48],
+}
+impl UEngineBaseTypes {}
+#[repr(C, align(8))]
 pub struct AExponentialHeightFog {
+    #[doc(hidden)]
+    __padding_1144: [u8; 1144],
     pub component: UPtr<UExponentialHeightFogComponent>,
-    pub flags_1152: u8,
+    __padding_end: [u8; 8],
 }
+impl AExponentialHeightFog {}
+#[repr(C, align(8))]
 pub struct UFontImportOptions {
-    pub data: FFontImportOptionsData,
+    __padding_end: [u8; 224],
 }
+impl UFontImportOptions {}
+#[repr(C, align(8))]
 pub struct UForceFeedbackAttenuation {
+    #[doc(hidden)]
+    __padding_48: [u8; 48],
     pub attenuation: FForceFeedbackAttenuationSettings,
 }
+impl UForceFeedbackAttenuation {}
+#[repr(C, align(8))]
 pub struct ASpotLight {
+    #[doc(hidden)]
+    __padding_1152: [u8; 1152],
     pub spot_light_component: UPtr<USpotLightComponent>,
-    pub arrow_component: UPtr<UArrowComponent>,
+    __padding_end: [u8; 8],
 }
-pub struct AGeneratedMeshAreaLight {}
-pub struct UHapticFeedbackEffect_Base {}
+impl ASpotLight {}
+#[repr(C, align(8))]
+pub struct AGeneratedMeshAreaLight {
+    __padding_end: [u8; 1168],
+}
+impl AGeneratedMeshAreaLight {}
+#[repr(C, align(8))]
+pub struct UHapticFeedbackEffect_Base {
+    __padding_end: [u8; 48],
+}
+impl UHapticFeedbackEffect_Base {}
+#[repr(C, align(8))]
 pub struct UHapticFeedbackEffect_Buffer {
-    pub amplitudes: TArray<u8>,
-    pub sample_rate: i32,
+    __padding_end: [u8; 72],
 }
+impl UHapticFeedbackEffect_Buffer {}
+#[repr(C, align(8))]
 pub struct UHapticFeedbackEffect_Curve {
-    pub haptic_details: FHapticFeedbackDetails_Curve,
+    __padding_end: [u8; 320],
 }
+impl UHapticFeedbackEffect_Curve {}
+#[repr(C, align(8))]
 pub struct UHapticFeedbackEffect_SoundWave {
-    pub sound_wave: UPtr<USoundWave>,
-    pub b_use_stereo: bool,
+    __padding_end: [u8; 80],
 }
+impl UHapticFeedbackEffect_SoundWave {}
 pub struct UAssetRegistryTagProviderInterface {}
 pub struct IAssetRegistryTagProviderInterface {}
+#[repr(C, align(8))]
 pub struct UInGameAdManager {
-    pub flags_64: u8,
-    pub clicked_banner_delegates: TArray<FInGameAdManager_ClickedBannerDelegates>,
-    pub closed_ad_delegates: TArray<FInGameAdManager_ClosedAdDelegates>,
+    __padding_end: [u8; 104],
 }
+impl UInGameAdManager {}
 pub struct UInterface_ActorSubobject {}
 pub struct IInterface_ActorSubobject {}
 pub struct UInterface_AssetUserData {}
@@ -9200,1260 +4604,1591 @@ pub struct UWorldPartitionObjectResolver {}
 pub struct IWorldPartitionObjectResolver {}
 pub struct ULevelInstanceEditorPivotInterface {}
 pub struct ILevelInstanceEditorPivotInterface {}
+#[repr(C, align(16))]
 pub struct ULevelStreaming {
-    pub package_name_deprecated: FName,
+    #[doc(hidden)]
+    __padding_64: [u8; 64],
     pub world_asset: TSoftObjectPtr<UWorld>,
     pub streaming_priority: i32,
-    pub package_name_to_load: FName,
-    pub lod_package_names: TArray<FName>,
+    #[doc(hidden)]
+    __padding_176: [u8; 48],
     pub level_transform: crate::bindings::core_u_object::FTransform,
-    pub b_client_only_visible: bool,
-    pub editor_path_owner: TWeakObjectPtr<crate::bindings::core_u_object::UObject>,
+    #[doc(hidden)]
+    __padding_284: [u8; 12],
     pub level_lod_index: i32,
     pub flags_288: u8,
+    #[doc(hidden)]
+    __padding_346: [u8; 57],
     pub flags_346: u8,
-    pub draw_color_deprecated: crate::bindings::core_u_object::FColor,
-    pub level_color: crate::bindings::core_u_object::FLinearColor,
-    pub editor_streaming_volumes: TArray<UPtr<ALevelStreamingVolume>>,
-    pub min_time_between_volume_unload_requests: f32,
-    pub keywords: TArray<FString>,
-    pub on_level_loaded: FLevelStreaming_OnLevelLoaded,
-    pub on_level_unloaded: FLevelStreaming_OnLevelUnloaded,
-    pub on_level_shown: FLevelStreaming_OnLevelShown,
-    pub on_level_hidden: FLevelStreaming_OnLevelHidden,
-    pub loaded_level: UPtr<ULevel>,
-    pub pending_unload_level: UPtr<ULevel>,
-    pub folder_path: FName,
+    __padding_end: [u8; 245],
 }
-pub struct ULevelStreamingAlwaysLoaded {}
+impl ULevelStreaming {}
+#[repr(C, align(16))]
+pub struct ULevelStreamingAlwaysLoaded {
+    __padding_end: [u8; 592],
+}
+impl ULevelStreamingAlwaysLoaded {}
+#[repr(C, align(16))]
 pub struct ULevelStreamingDynamic {
-    pub flags_584: u8,
+    __padding_end: [u8; 592],
 }
-pub struct ULevelStreamingPersistent {}
+impl ULevelStreamingDynamic {}
+#[repr(C, align(16))]
+pub struct ULevelStreamingPersistent {
+    __padding_end: [u8; 592],
+}
+impl ULevelStreamingPersistent {}
+#[repr(C, align(16))]
 pub struct ULightComponentBase {
-    pub original_light_guid: crate::bindings::core_u_object::FGuid,
-    pub light_guid: crate::bindings::core_u_object::FGuid,
-    pub brightness_deprecated: f32,
+    #[doc(hidden)]
+    __padding_692: [u8; 692],
     pub intensity: f32,
     pub light_color: crate::bindings::core_u_object::FColor,
     pub flags_700: u8,
-    pub flags_701: u8,
+    #[doc(hidden)]
+    __padding_704: [u8; 3],
     pub cast_raytraced_shadow: ECastRayTracedShadow,
+    #[doc(hidden)]
+    __padding_708: [u8; 3],
     pub flags_708: u8,
     pub deep_shadow_layer_distribution: f32,
     pub indirect_lighting_intensity: f32,
     pub volumetric_scattering_intensity: f32,
     pub samples_per_pixel: i32,
-    pub static_editor_texture: UPtr<UTexture2D>,
-    pub static_editor_texture_scale: f32,
-    pub dynamic_editor_texture: UPtr<UTexture2D>,
-    pub dynamic_editor_texture_scale: f32,
+    __padding_end: [u8; 40],
 }
-pub struct ULightMapTexture2D {}
+impl ULightComponentBase {}
+#[repr(C, align(16))]
+pub struct ULightMapTexture2D {
+    __padding_end: [u8; 1376],
+}
+impl ULightMapTexture2D {}
+#[repr(C, align(8))]
 pub struct ALightmassPortal {
+    #[doc(hidden)]
+    __padding_1136: [u8; 1136],
     pub portal_component: UPtr<ULightmassPortalComponent>,
-    pub sprite_component: UPtr<UBillboardComponent>,
+    __padding_end: [u8; 8],
 }
+impl ALightmassPortal {}
+#[repr(C, align(16))]
 pub struct ULightmassPortalComponent {
-    pub preview_box: UPtr<UBoxComponent>,
+    __padding_end: [u8; 672],
 }
+impl ULightmassPortalComponent {}
+#[repr(C, align(8))]
 pub struct ALocalFogVolume {
+    #[doc(hidden)]
+    __padding_1144: [u8; 1144],
     pub local_fog_volume_volume: UPtr<ULocalFogVolumeComponent>,
 }
+impl ALocalFogVolume {}
+#[repr(C, align(8))]
 pub struct UMapBuildDataRegistry {
-    pub level_lighting_quality: ELightingBuildQuality,
+    __padding_end: [u8; 736],
 }
-pub struct UMaterialCacheStackProvider {}
+impl UMapBuildDataRegistry {}
+#[repr(C, align(8))]
+pub struct UMaterialCacheStackProvider {
+    __padding_end: [u8; 48],
+}
+impl UMaterialCacheStackProvider {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionAbs {
-    pub input: FExpressionInput,
+    __padding_end: [u8; 248],
 }
+impl UMaterialExpressionAbs {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionAbsorptionMediumMaterialOutput {
-    pub transmittance_color: FExpressionInput,
+    __padding_end: [u8; 248],
 }
+impl UMaterialExpressionAbsorptionMediumMaterialOutput {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionActorPositionWS {
-    pub origin_type: EPositionOrigin,
+    __padding_end: [u8; 208],
 }
+impl UMaterialExpressionActorPositionWS {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionAdd {
-    pub a: FExpressionInput,
-    pub b: FExpressionInput,
-    pub const_a: f32,
-    pub const_b: f32,
+    __padding_end: [u8; 304],
 }
+impl UMaterialExpressionAdd {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionAggregate {
-    pub kind: EMaterialExpressionMakeAggregateKind,
-    pub user_aggregate: UPtr<UMaterialAggregate>,
-    pub attribute_names: TArray<FName>,
-    pub prototype_input: FExpressionInput,
-    pub entries: TArray<FMaterialExpressionAggregateEntry>,
+    __padding_end: [u8; 336],
 }
+impl UMaterialExpressionAggregate {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionTextureBase {
+    #[doc(hidden)]
+    __padding_200: [u8; 200],
     pub texture: UPtr<UTexture>,
     pub sampler_type: EMaterialSamplerType,
-    pub flags_209: u8,
+    __padding_end: [u8; 7],
 }
+impl UMaterialExpressionTextureBase {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionTextureSample {
-    pub coordinates: FExpressionInput,
-    pub texture_object: FExpressionInput,
-    pub mip_value: FExpressionInput,
-    pub coordinates_dx: FExpressionInput,
-    pub coordinates_dy: FExpressionInput,
-    pub automatic_view_mip_bias_value: FExpressionInput,
-    pub mip_value_mode: ETextureMipValueMode,
-    pub sampler_source: ESamplerSourceMode,
-    pub gather_mode: ETextureGatherMode,
-    pub flags_507: u8,
-    pub channel_names: FParameterChannelNames,
-    pub const_coordinate: u8,
-    pub const_mip_value: i32,
+    __padding_end: [u8; 584],
 }
+impl UMaterialExpressionTextureSample {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionTextureSampleParameter {
-    pub parameter_name: FName,
-    pub expression_guid: crate::bindings::core_u_object::FGuid,
-    pub group: FName,
-    pub sort_priority: i32,
+    __padding_end: [u8; 632],
 }
-pub struct UMaterialExpressionTextureSampleParameter2D {}
+impl UMaterialExpressionTextureSampleParameter {}
+#[repr(C, align(8))]
+pub struct UMaterialExpressionTextureSampleParameter2D {
+    __padding_end: [u8; 632],
+}
+impl UMaterialExpressionTextureSampleParameter2D {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionAntialiasedTextureMask {
-    pub threshold: f32,
-    pub channel: ETextureColorChannel,
+    __padding_end: [u8; 640],
 }
+impl UMaterialExpressionAntialiasedTextureMask {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionAppendVector {
-    pub a: FExpressionInput,
-    pub b: FExpressionInput,
+    __padding_end: [u8; 296],
 }
+impl UMaterialExpressionAppendVector {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionArccosine {
-    pub input: FExpressionInput,
+    __padding_end: [u8; 248],
 }
+impl UMaterialExpressionArccosine {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionArccosineFast {
-    pub input: FExpressionInput,
+    __padding_end: [u8; 248],
 }
+impl UMaterialExpressionArccosineFast {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionArcsine {
-    pub input: FExpressionInput,
+    __padding_end: [u8; 248],
 }
+impl UMaterialExpressionArcsine {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionArcsineFast {
-    pub input: FExpressionInput,
+    __padding_end: [u8; 248],
 }
+impl UMaterialExpressionArcsineFast {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionArctangent {
-    pub input: FExpressionInput,
+    __padding_end: [u8; 248],
 }
+impl UMaterialExpressionArctangent {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionArctangent2 {
-    pub y: FExpressionInput,
-    pub x: FExpressionInput,
+    __padding_end: [u8; 296],
 }
+impl UMaterialExpressionArctangent2 {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionArctangent2Fast {
-    pub y: FExpressionInput,
-    pub x: FExpressionInput,
+    __padding_end: [u8; 296],
 }
+impl UMaterialExpressionArctangent2Fast {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionArctangentFast {
-    pub input: FExpressionInput,
+    __padding_end: [u8; 248],
 }
+impl UMaterialExpressionArctangentFast {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionExternalCodeBase {
-    pub external_code_identifiers: TArray<FName>,
+    __padding_end: [u8; 216],
 }
+impl UMaterialExpressionExternalCodeBase {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionAtmosphericFogColor {
-    pub world_position: FExpressionInput,
-    pub world_position_origin_type: EPositionOrigin,
+    __padding_end: [u8; 272],
 }
-pub struct UMaterialExpressionAtmosphericLightColor {}
-pub struct UMaterialExpressionAtmosphericLightVector {}
+impl UMaterialExpressionAtmosphericFogColor {}
+#[repr(C, align(8))]
+pub struct UMaterialExpressionAtmosphericLightColor {
+    __padding_end: [u8; 216],
+}
+impl UMaterialExpressionAtmosphericLightColor {}
+#[repr(C, align(8))]
+pub struct UMaterialExpressionAtmosphericLightVector {
+    __padding_end: [u8; 216],
+}
+impl UMaterialExpressionAtmosphericLightVector {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionBindlessSwitch {
-    pub default: FExpressionInput,
-    pub bindless: FExpressionInput,
+    __padding_end: [u8; 296],
 }
+impl UMaterialExpressionBindlessSwitch {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionBlackBody {
-    pub temp: FExpressionInput,
+    __padding_end: [u8; 248],
 }
+impl UMaterialExpressionBlackBody {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionBlend {
-    pub a: FExpressionInput,
-    pub b: FExpressionInput,
-    pub alpha: FExpressionInput,
-    pub pixel_attributes_blend_mode: EMaterialExpressionBlendMode,
-    pub vertex_attributes_blend_mode: EMaterialExpressionBlendMode,
+    __padding_end: [u8; 352],
 }
+impl UMaterialExpressionBlend {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionBlendMaterialAttributes {
-    pub a: FMaterialAttributesInput,
-    pub b: FMaterialAttributesInput,
-    pub alpha: FExpressionInput,
-    pub pixel_attribute_blend_type: EMaterialAttributeBlend,
-    pub vertex_attribute_blend_type: EMaterialAttributeBlend,
+    __padding_end: [u8; 368],
 }
+impl UMaterialExpressionBlendMaterialAttributes {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionLegacyBlendMaterialAttributes {
-    pub vertex_attribute_use_a: FExpressionInput,
-    pub vertex_attribute_use_b: FExpressionInput,
-    pub pixel_attribute_use_a: FExpressionInput,
-    pub pixel_attribute_use_b: FExpressionInput,
-    pub blend_function_type: EMaterialAttributeBlendFunction,
+    __padding_end: [u8; 568],
 }
+impl UMaterialExpressionLegacyBlendMaterialAttributes {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionBounds {
-    pub ty: EMaterialExpressionBoundsType,
+    __padding_end: [u8; 240],
 }
+impl UMaterialExpressionBounds {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionBreakMaterialAttributes {
-    pub material_attributes: FMaterialAttributesInput,
+    __padding_end: [u8; 256],
 }
+impl UMaterialExpressionBreakMaterialAttributes {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionBumpOffset {
-    pub coordinate: FExpressionInput,
-    pub height: FExpressionInput,
-    pub height_ratio_input: FExpressionInput,
-    pub height_ratio: f32,
-    pub reference_plane: f32,
-    pub const_coordinate: u32,
+    __padding_end: [u8; 360],
 }
-pub struct UMaterialExpressionCameraPositionWS {}
-pub struct UMaterialExpressionCameraVectorWS {}
+impl UMaterialExpressionBumpOffset {}
+#[repr(C, align(8))]
+pub struct UMaterialExpressionCameraPositionWS {
+    __padding_end: [u8; 200],
+}
+impl UMaterialExpressionCameraPositionWS {}
+#[repr(C, align(8))]
+pub struct UMaterialExpressionCameraVectorWS {
+    __padding_end: [u8; 216],
+}
+impl UMaterialExpressionCameraVectorWS {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionCeil {
-    pub input: FExpressionInput,
+    __padding_end: [u8; 248],
 }
+impl UMaterialExpressionCeil {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionParameter {
-    pub parameter_name: FName,
-    pub expression_guid: crate::bindings::core_u_object::FGuid,
-    pub group: FName,
-    pub sort_priority: i32,
+    __padding_end: [u8; 248],
 }
+impl UMaterialExpressionParameter {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionVectorParameter {
-    pub default_value: crate::bindings::core_u_object::FLinearColor,
-    pub b_use_custom_primitive_data: bool,
-    pub primitive_data_index: u8,
-    pub channel_names: FParameterChannelNames,
+    __padding_end: [u8; 336],
 }
+impl UMaterialExpressionVectorParameter {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionChannelMaskParameter {
-    pub mask_channel: EChannelMaskParameterColor,
-    pub input: FExpressionInput,
+    __padding_end: [u8; 392],
 }
+impl UMaterialExpressionChannelMaskParameter {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionClamp {
-    pub input: FExpressionInput,
-    pub min: FExpressionInput,
-    pub max: FExpressionInput,
-    pub clamp_mode: EClampMode,
-    pub min_default: f32,
-    pub max_default: f32,
+    __padding_end: [u8; 360],
 }
-pub struct UMaterialExpressionCloudSampleAttribute {}
+impl UMaterialExpressionClamp {}
+#[repr(C, align(8))]
+pub struct UMaterialExpressionCloudSampleAttribute {
+    __padding_end: [u8; 216],
+}
+impl UMaterialExpressionCloudSampleAttribute {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionCollectionParameter {
-    pub collection: UPtr<UMaterialParameterCollection>,
-    pub parameter_name: FName,
-    pub expression_guid: crate::bindings::core_u_object::FGuid,
-    pub group: FName,
-    pub sort_priority: i32,
-    pub parameter_id: crate::bindings::core_u_object::FGuid,
+    __padding_end: [u8; 272],
 }
+impl UMaterialExpressionCollectionParameter {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionCollectionTransform {
-    pub input: FExpressionInput,
-    pub collection: UPtr<UMaterialParameterCollection>,
-    pub parameter_name: FName,
-    pub parameter_id: crate::bindings::core_u_object::FGuid,
-    pub transform_type: EParameterCollectionTransformType,
+    __padding_end: [u8; 288],
 }
+impl UMaterialExpressionCollectionTransform {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionColorRamp {
-    pub input: FExpressionInput,
-    pub const_input: f32,
-    pub color_curve: UPtr<UCurveLinearColor>,
+    __padding_end: [u8; 264],
 }
+impl UMaterialExpressionColorRamp {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionComment {
-    pub size_x: i32,
-    pub size_y: i32,
-    pub text: FString,
-    pub comment_color: crate::bindings::core_u_object::FLinearColor,
-    pub font_size: i32,
-    pub flags_244: u8,
-    pub b_group_mode: bool,
+    __padding_end: [u8; 256],
 }
+impl UMaterialExpressionComment {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionComponentMask {
-    pub input: FExpressionInput,
-    pub flags_248: u8,
+    __padding_end: [u8; 256],
 }
+impl UMaterialExpressionComponentMask {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionComposite {
-    pub subgraph_name: FString,
-    pub input_expressions: UPtr<UMaterialExpressionPinBase>,
-    pub output_expressions: UPtr<UMaterialExpressionPinBase>,
+    __padding_end: [u8; 232],
 }
+impl UMaterialExpressionComposite {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionConstant {
+    #[doc(hidden)]
+    __padding_200: [u8; 200],
     pub r: f32,
+    __padding_end: [u8; 4],
 }
+impl UMaterialExpressionConstant {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionConstant2Vector {
+    #[doc(hidden)]
+    __padding_200: [u8; 200],
     pub r: f32,
     pub g: f32,
 }
+impl UMaterialExpressionConstant2Vector {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionConstant3Vector {
+    #[doc(hidden)]
+    __padding_200: [u8; 200],
     pub constant: crate::bindings::core_u_object::FLinearColor,
 }
+impl UMaterialExpressionConstant3Vector {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionConstant4Vector {
+    #[doc(hidden)]
+    __padding_200: [u8; 200],
     pub constant: crate::bindings::core_u_object::FLinearColor,
 }
+impl UMaterialExpressionConstant4Vector {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionConstantBiasScale {
-    pub input: FExpressionInput,
-    pub bias: f32,
-    pub scale: f32,
+    __padding_end: [u8; 256],
 }
+impl UMaterialExpressionConstantBiasScale {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionConvert {
-    pub convert_inputs: TArray<FMaterialExpressionConvertInput>,
-    pub convert_outputs: TArray<FMaterialExpressionConvertOutput>,
-    pub convert_mappings: TArray<FMaterialExpressionConvertMapping>,
-    pub node_name: FString,
+    __padding_end: [u8; 264],
 }
+impl UMaterialExpressionConvert {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionCosine {
-    pub input: FExpressionInput,
-    pub period: f32,
+    __padding_end: [u8; 256],
 }
+impl UMaterialExpressionCosine {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionCrossProduct {
-    pub a: FExpressionInput,
-    pub b: FExpressionInput,
+    __padding_end: [u8; 296],
 }
+impl UMaterialExpressionCrossProduct {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionScalarParameter {
-    pub default_value: f32,
-    pub control_type: EMaterialScalarParameterControlType,
-    pub slider_min: f32,
-    pub slider_max: f32,
-    pub enumeration: TSoftObjectPtr<crate::bindings::core_u_object::UObject>,
-    pub enumeration_index: u8,
-    pub b_use_custom_primitive_data: bool,
-    pub primitive_data_index: u8,
+    __padding_end: [u8; 320],
 }
+impl UMaterialExpressionScalarParameter {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionCurveAtlasRowParameter {
-    pub curve: UPtr<UCurveLinearColor>,
-    pub atlas: UPtr<UCurveLinearColorAtlas>,
-    pub input_time: FExpressionInput,
+    __padding_end: [u8; 384],
 }
+impl UMaterialExpressionCurveAtlasRowParameter {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionCustom {
-    pub code: FString,
-    pub output_type: ECustomMaterialOutputType,
-    pub description: FString,
-    pub inputs: TArray<FCustomInput>,
-    pub additional_outputs: TArray<FCustomOutput>,
-    pub additional_defines: TArray<FCustomDefine>,
-    pub include_file_paths: TArray<FString>,
-    pub show_code: bool,
+    __padding_end: [u8; 312],
 }
+impl UMaterialExpressionCustom {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionDataDrivenShaderPlatformInfoSwitch {
-    pub input_true: FExpressionInput,
-    pub input_false: FExpressionInput,
-    pub ddspi_property_names: TArray<FDataDrivenShaderPlatformInfoInput>,
-    pub flags_312: u8,
+    __padding_end: [u8; 320],
 }
+impl UMaterialExpressionDataDrivenShaderPlatformInfoSwitch {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionDBufferTexture {
-    pub coordinates: FExpressionInput,
-    pub d_buffer_texture_id: EDBufferTextureId,
+    __padding_end: [u8; 256],
 }
+impl UMaterialExpressionDBufferTexture {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionDDX {
-    pub value: FExpressionInput,
+    __padding_end: [u8; 248],
 }
+impl UMaterialExpressionDDX {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionDDY {
-    pub value: FExpressionInput,
+    __padding_end: [u8; 248],
 }
-pub struct UMaterialExpressionDecalColor {}
-pub struct UMaterialExpressionDecalDerivative {}
-pub struct UMaterialExpressionDecalLifetimeOpacity {}
+impl UMaterialExpressionDDY {}
+#[repr(C, align(8))]
+pub struct UMaterialExpressionDecalColor {
+    __padding_end: [u8; 216],
+}
+impl UMaterialExpressionDecalColor {}
+#[repr(C, align(8))]
+pub struct UMaterialExpressionDecalDerivative {
+    __padding_end: [u8; 200],
+}
+impl UMaterialExpressionDecalDerivative {}
+#[repr(C, align(8))]
+pub struct UMaterialExpressionDecalLifetimeOpacity {
+    __padding_end: [u8; 216],
+}
+impl UMaterialExpressionDecalLifetimeOpacity {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionDecalMipmapLevel {
-    pub texture_size: FExpressionInput,
-    pub const_width: f32,
-    pub const_height: f32,
+    __padding_end: [u8; 256],
 }
-pub struct UMaterialExpressionDeltaTime {}
+impl UMaterialExpressionDecalMipmapLevel {}
+#[repr(C, align(8))]
+pub struct UMaterialExpressionDeltaTime {
+    __padding_end: [u8; 216],
+}
+impl UMaterialExpressionDeltaTime {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionDepthFade {
-    pub in_opacity: FExpressionInput,
-    pub fade_distance: FExpressionInput,
-    pub opacity_default: f32,
-    pub fade_distance_default: f32,
+    __padding_end: [u8; 304],
 }
+impl UMaterialExpressionDepthFade {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionDepthOfFieldFunction {
-    pub function_value: EDepthOfFieldFunctionValue,
-    pub depth: FExpressionInput,
+    __padding_end: [u8; 256],
 }
+impl UMaterialExpressionDepthOfFieldFunction {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionDeriveNormalZ {
-    pub in_xy: FExpressionInput,
+    __padding_end: [u8; 248],
 }
+impl UMaterialExpressionDeriveNormalZ {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionDesaturation {
-    pub input: FExpressionInput,
-    pub fraction: FExpressionInput,
-    pub luminance_factors: crate::bindings::core_u_object::FLinearColor,
+    __padding_end: [u8; 312],
 }
+impl UMaterialExpressionDesaturation {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionDistance {
-    pub a: FExpressionInput,
-    pub b: FExpressionInput,
+    __padding_end: [u8; 296],
 }
-pub struct UMaterialExpressionDistanceCullFade {}
+impl UMaterialExpressionDistance {}
+#[repr(C, align(8))]
+pub struct UMaterialExpressionDistanceCullFade {
+    __padding_end: [u8; 200],
+}
+impl UMaterialExpressionDistanceCullFade {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionDistanceFieldApproxAO {
-    pub position: FExpressionInput,
-    pub world_position_origin_type: EPositionOrigin,
-    pub normal: FExpressionInput,
-    pub base_distance: FExpressionInput,
-    pub base_distance_default: f32,
-    pub radius: FExpressionInput,
-    pub radius_default: f32,
-    pub num_steps: u32,
-    pub step_scale_default: f32,
+    __padding_end: [u8; 424],
 }
+impl UMaterialExpressionDistanceFieldApproxAO {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionDistanceFieldGradient {
-    pub position: FExpressionInput,
-    pub world_position_origin_type: EPositionOrigin,
+    __padding_end: [u8; 256],
 }
+impl UMaterialExpressionDistanceFieldGradient {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionDistanceFieldsRenderingSwitch {
-    pub no: FExpressionInput,
-    pub yes: FExpressionInput,
+    __padding_end: [u8; 296],
 }
+impl UMaterialExpressionDistanceFieldsRenderingSwitch {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionDistanceToNearestSurface {
-    pub position: FExpressionInput,
-    pub world_position_origin_type: EPositionOrigin,
+    __padding_end: [u8; 256],
 }
+impl UMaterialExpressionDistanceToNearestSurface {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionDivide {
-    pub a: FExpressionInput,
-    pub b: FExpressionInput,
-    pub const_a: f32,
-    pub const_b: f32,
+    __padding_end: [u8; 304],
 }
+impl UMaterialExpressionDivide {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionDotProduct {
-    pub a: FExpressionInput,
-    pub b: FExpressionInput,
+    __padding_end: [u8; 296],
 }
+impl UMaterialExpressionDotProduct {}
+#[repr(C, align(16))]
 pub struct UMaterialExpressionDoubleVectorParameter {
-    pub default_value: crate::bindings::core_u_object::FVector4d,
+    __padding_end: [u8; 288],
 }
+impl UMaterialExpressionDoubleVectorParameter {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionDynamicParameter {
-    pub param_names: TArray<FString>,
-    pub default_value: crate::bindings::core_u_object::FLinearColor,
-    pub parameter_index: u32,
+    __padding_end: [u8; 240],
 }
+impl UMaterialExpressionDynamicParameter {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionExponential {
-    pub input: FExpressionInput,
+    __padding_end: [u8; 248],
 }
+impl UMaterialExpressionExponential {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionExponential2 {
-    pub input: FExpressionInput,
+    __padding_end: [u8; 248],
 }
-pub struct UMaterialExpressionEyeAdaptation {}
+impl UMaterialExpressionExponential2 {}
+#[repr(C, align(8))]
+pub struct UMaterialExpressionEyeAdaptation {
+    __padding_end: [u8; 216],
+}
+impl UMaterialExpressionEyeAdaptation {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionEyeAdaptationInverse {
-    pub light_value_input: FExpressionInput,
-    pub alpha_input: FExpressionInput,
+    __padding_end: [u8; 312],
 }
+impl UMaterialExpressionEyeAdaptationInverse {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionFeatureLevelSwitch {
-    pub default: FExpressionInput,
-    pub inputs: FExpressionInput,
+    __padding_end: [u8; 488],
 }
+impl UMaterialExpressionFeatureLevelSwitch {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionFloatToUInt {
-    pub input: FExpressionInput,
-    pub mode: EFloatToIntMode,
+    __padding_end: [u8; 256],
 }
+impl UMaterialExpressionFloatToUInt {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionUIntToFloat {
-    pub input: FExpressionInput,
+    __padding_end: [u8; 248],
 }
+impl UMaterialExpressionUIntToFloat {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionFloor {
-    pub input: FExpressionInput,
+    __padding_end: [u8; 248],
 }
+impl UMaterialExpressionFloor {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionFmod {
-    pub a: FExpressionInput,
-    pub b: FExpressionInput,
+    __padding_end: [u8; 296],
 }
+impl UMaterialExpressionFmod {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionFontSample {
-    pub font: UPtr<UFont>,
-    pub font_texture_page: i32,
+    __padding_end: [u8; 216],
 }
+impl UMaterialExpressionFontSample {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionFontSampleParameter {
-    pub parameter_name: FName,
-    pub expression_guid: crate::bindings::core_u_object::FGuid,
-    pub group: FName,
-    pub sort_priority: i32,
+    __padding_end: [u8; 264],
 }
-pub struct UMaterialExpressionFontSignedDistance {}
+impl UMaterialExpressionFontSampleParameter {}
+#[repr(C, align(8))]
+pub struct UMaterialExpressionFontSignedDistance {
+    __padding_end: [u8; 216],
+}
+impl UMaterialExpressionFontSignedDistance {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionFrac {
-    pub input: FExpressionInput,
+    __padding_end: [u8; 248],
 }
+impl UMaterialExpressionFrac {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionFresnel {
-    pub exponent_in: FExpressionInput,
-    pub exponent: f32,
-    pub base_reflect_fraction_in: FExpressionInput,
-    pub base_reflect_fraction: f32,
-    pub normal: FExpressionInput,
+    __padding_end: [u8; 360],
 }
+impl UMaterialExpressionFresnel {}
+#[repr(C, align(16))]
 pub struct UMaterialExpressionFunctionInput {
-    pub preview: FExpressionInput,
+    #[doc(hidden)]
+    __padding_248: [u8; 248],
     pub input_name: FName,
-    pub description: FString,
-    pub id: crate::bindings::core_u_object::FGuid,
+    #[doc(hidden)]
+    __padding_296: [u8; 36],
     pub input_type: EFunctionInputType,
     pub preview_value: crate::bindings::core_u_object::FVector4f,
     pub flags_320: u8,
     pub sort_priority: i32,
-    pub blend_input_relevance: EBlendInputRelevance,
-    pub flags_332: u8,
+    __padding_end: [u8; 40],
 }
+impl UMaterialExpressionFunctionInput {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionFunctionOutput {
+    #[doc(hidden)]
+    __padding_200: [u8; 200],
     pub output_name: FName,
-    pub description: FString,
-    pub sort_priority: i32,
-    pub a: FExpressionInput,
-    pub flags_288: u8,
-    pub id: crate::bindings::core_u_object::FGuid,
+    __padding_end: [u8; 108],
 }
-pub struct UMaterialExpressionGenericConstant {}
+impl UMaterialExpressionFunctionOutput {}
+#[repr(C, align(8))]
+pub struct UMaterialExpressionGenericConstant {
+    __padding_end: [u8; 200],
+}
+impl UMaterialExpressionGenericConstant {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionConstantDouble {
+    #[doc(hidden)]
+    __padding_200: [u8; 200],
     pub value: f64,
 }
+impl UMaterialExpressionConstantDouble {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionGetMaterialAttributes {
-    pub material_attributes: FMaterialAttributesInput,
-    pub attribute_get_types: TArray<crate::bindings::core_u_object::FGuid>,
+    __padding_end: [u8; 288],
 }
+impl UMaterialExpressionGetMaterialAttributes {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionGIReplace {
-    pub default: FExpressionInput,
-    pub static_indirect: FExpressionInput,
-    pub dynamic_indirect: FExpressionInput,
+    __padding_end: [u8; 344],
 }
+impl UMaterialExpressionGIReplace {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionHairAttributes {
-    pub flags_200: u8,
+    __padding_end: [u8; 208],
 }
+impl UMaterialExpressionHairAttributes {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionHairColor {
-    pub melanin: FExpressionInput,
-    pub redness: FExpressionInput,
-    pub dye_color: FExpressionInput,
+    __padding_end: [u8; 344],
 }
+impl UMaterialExpressionHairColor {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionHsvToRgb {
-    pub input: FExpressionInput,
+    __padding_end: [u8; 248],
 }
+impl UMaterialExpressionHsvToRgb {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionIf {
-    pub a: FExpressionInput,
-    pub b: FExpressionInput,
-    pub a_greater_than_b: FExpressionInput,
-    pub a_equals_b: FExpressionInput,
-    pub a_less_than_b: FExpressionInput,
-    pub equals_threshold: f32,
-    pub const_b: f32,
-    pub const_a_equals_b_deprecated: f32,
+    __padding_end: [u8; 456],
 }
+impl UMaterialExpressionIf {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionIfThenElse {
-    pub condition: FExpressionInput,
-    pub true_: FExpressionInput,
-    pub false_: FExpressionInput,
+    __padding_end: [u8; 344],
 }
+impl UMaterialExpressionIfThenElse {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionInverseLinearInterpolate {
-    pub a: FExpressionInput,
-    pub b: FExpressionInput,
-    pub value: FExpressionInput,
-    pub const_a: f32,
-    pub const_b: f32,
-    pub const_value: f32,
-    pub b_clamp_result: bool,
+    __padding_end: [u8; 360],
 }
-pub struct UMaterialExpressionIsFirstPerson {}
-pub struct UMaterialExpressionIsOrthographic {}
+impl UMaterialExpressionInverseLinearInterpolate {}
+#[repr(C, align(8))]
+pub struct UMaterialExpressionIsFirstPerson {
+    __padding_end: [u8; 216],
+}
+impl UMaterialExpressionIsFirstPerson {}
+#[repr(C, align(8))]
+pub struct UMaterialExpressionIsOrthographic {
+    __padding_end: [u8; 216],
+}
+impl UMaterialExpressionIsOrthographic {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionLength {
-    pub input: FExpressionInput,
+    __padding_end: [u8; 248],
 }
-pub struct UMaterialExpressionLightmapUVs {}
+impl UMaterialExpressionLength {}
+#[repr(C, align(8))]
+pub struct UMaterialExpressionLightmapUVs {
+    __padding_end: [u8; 216],
+}
+impl UMaterialExpressionLightmapUVs {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionLightmassReplace {
-    pub realtime: FExpressionInput,
-    pub lightmass: FExpressionInput,
+    __padding_end: [u8; 296],
 }
-pub struct UMaterialExpressionLightVector {}
+impl UMaterialExpressionLightmassReplace {}
+#[repr(C, align(8))]
+pub struct UMaterialExpressionLightVector {
+    __padding_end: [u8; 216],
+}
+impl UMaterialExpressionLightVector {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionLinearInterpolate {
-    pub a: FExpressionInput,
-    pub b: FExpressionInput,
-    pub alpha: FExpressionInput,
-    pub const_a: f32,
-    pub const_b: f32,
-    pub const_alpha: f32,
+    __padding_end: [u8; 360],
 }
+impl UMaterialExpressionLinearInterpolate {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionLocalPosition {
-    pub included_offsets: EPositionIncludedOffsets,
-    pub local_origin: ELocalPositionOrigin,
+    __padding_end: [u8; 208],
 }
+impl UMaterialExpressionLocalPosition {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionLogarithm {
-    pub input: FExpressionInput,
+    __padding_end: [u8; 248],
 }
+impl UMaterialExpressionLogarithm {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionLogarithm10 {
-    pub x: FExpressionInput,
+    __padding_end: [u8; 248],
 }
+impl UMaterialExpressionLogarithm10 {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionLogarithm2 {
-    pub x: FExpressionInput,
+    __padding_end: [u8; 248],
 }
+impl UMaterialExpressionLogarithm2 {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionMakeMaterialAttributes {
-    pub base_color: FExpressionInput,
-    pub metallic: FExpressionInput,
-    pub specular: FExpressionInput,
-    pub roughness: FExpressionInput,
-    pub anisotropy: FExpressionInput,
-    pub emissive_color: FExpressionInput,
-    pub opacity: FExpressionInput,
-    pub opacity_mask: FExpressionInput,
-    pub normal: FExpressionInput,
-    pub tangent: FExpressionInput,
-    pub world_position_offset: FExpressionInput,
-    pub subsurface_color: FExpressionInput,
-    pub clear_coat: FExpressionInput,
-    pub clear_coat_roughness: FExpressionInput,
-    pub ambient_occlusion: FExpressionInput,
-    pub refraction: FExpressionInput,
-    pub customized_u_vs: FExpressionInput,
-    pub pixel_depth_offset: FExpressionInput,
-    pub shading_model: FExpressionInput,
-    pub displacement: FExpressionInput,
+    __padding_end: [u8; 1496],
 }
+impl UMaterialExpressionMakeMaterialAttributes {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionMapARPassthroughCameraUV {
-    pub coordinates: FExpressionInput,
+    __padding_end: [u8; 248],
 }
+impl UMaterialExpressionMapARPassthroughCameraUV {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionMaterialAttributeLayers {
-    pub input: FMaterialAttributesInput,
-    pub default_layers: FMaterialLayersFunctions,
-    pub layer_callers: TArray<UPtr<UMaterialExpressionMaterialFunctionCall>>,
-    pub num_active_layer_callers: i32,
-    pub blend_callers: TArray<UPtr<UMaterialExpressionMaterialFunctionCall>>,
-    pub num_active_blend_callers: i32,
-    pub output_caller: UPtr<UMaterialExpressionMaterialFunctionCall>,
-    pub b_is_layer_graph_built: bool,
+    __padding_end: [u8; 608],
 }
+impl UMaterialExpressionMaterialAttributeLayers {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionMaterialFunctionCall {
-    pub material_function: UPtr<UMaterialFunctionInterface>,
-    pub function_inputs: TArray<FFunctionExpressionInput>,
-    pub function_outputs: TArray<FFunctionExpressionOutput>,
-    pub function_parameter_info: FMaterialParameterInfo,
+    __padding_end: [u8; 280],
 }
-pub struct UMaterialExpressionMaterialLayerOutput {}
+impl UMaterialExpressionMaterialFunctionCall {}
+#[repr(C, align(8))]
+pub struct UMaterialExpressionMaterialLayerOutput {
+    __padding_end: [u8; 320],
+}
+impl UMaterialExpressionMaterialLayerOutput {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionMaterialProxyReplace {
-    pub realtime: FExpressionInput,
-    pub material_proxy: FExpressionInput,
+    __padding_end: [u8; 296],
 }
+impl UMaterialExpressionMaterialProxyReplace {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionMax {
-    pub a: FExpressionInput,
-    pub b: FExpressionInput,
-    pub const_a: f32,
-    pub const_b: f32,
+    __padding_end: [u8; 304],
 }
-pub struct UMaterialExpressionMeshPaintTextureCoordinateIndex {}
-pub struct UMaterialExpressionMeshPaintTextureObject {}
+impl UMaterialExpressionMax {}
+#[repr(C, align(8))]
+pub struct UMaterialExpressionMeshPaintTextureCoordinateIndex {
+    __padding_end: [u8; 216],
+}
+impl UMaterialExpressionMeshPaintTextureCoordinateIndex {}
+#[repr(C, align(8))]
+pub struct UMaterialExpressionMeshPaintTextureObject {
+    __padding_end: [u8; 216],
+}
+impl UMaterialExpressionMeshPaintTextureObject {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionMeshPaintTextureReplace {
-    pub default: FExpressionInput,
-    pub mesh_paint_texture: FExpressionInput,
+    __padding_end: [u8; 296],
 }
+impl UMaterialExpressionMeshPaintTextureReplace {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionMin {
-    pub a: FExpressionInput,
-    pub b: FExpressionInput,
-    pub const_a: f32,
-    pub const_b: f32,
+    __padding_end: [u8; 304],
 }
+impl UMaterialExpressionMin {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionModulo {
-    pub a: FExpressionInput,
-    pub b: FExpressionInput,
+    __padding_end: [u8; 296],
 }
+impl UMaterialExpressionModulo {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionMultiply {
-    pub a: FExpressionInput,
-    pub b: FExpressionInput,
-    pub const_a: f32,
-    pub const_b: f32,
+    __padding_end: [u8; 304],
 }
-pub struct UMaterialExpressionRerouteBase {}
-pub struct UMaterialExpressionNamedRerouteBase {}
+impl UMaterialExpressionMultiply {}
+#[repr(C, align(8))]
+pub struct UMaterialExpressionRerouteBase {
+    __padding_end: [u8; 200],
+}
+impl UMaterialExpressionRerouteBase {}
+#[repr(C, align(8))]
+pub struct UMaterialExpressionNamedRerouteBase {
+    __padding_end: [u8; 200],
+}
+impl UMaterialExpressionNamedRerouteBase {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionNamedRerouteDeclaration {
-    pub input: FExpressionInput,
-    pub name: FName,
-    pub node_color: crate::bindings::core_u_object::FLinearColor,
-    pub variable_guid: crate::bindings::core_u_object::FGuid,
+    __padding_end: [u8; 296],
 }
+impl UMaterialExpressionNamedRerouteDeclaration {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionNamedRerouteUsage {
-    pub declaration: UPtr<UMaterialExpressionNamedRerouteDeclaration>,
-    pub declaration_guid: crate::bindings::core_u_object::FGuid,
+    __padding_end: [u8; 224],
 }
+impl UMaterialExpressionNamedRerouteUsage {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionNaniteReplace {
-    pub default: FExpressionInput,
-    pub nanite: FExpressionInput,
+    __padding_end: [u8; 296],
 }
+impl UMaterialExpressionNaniteReplace {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionNeuralNetworkInput {
-    pub coordinates: FExpressionInput,
-    pub input0: FExpressionInput,
-    pub mask: FExpressionInput,
-    pub neural_index_type: ENeuralIndexType,
+    __padding_end: [u8; 352],
 }
+impl UMaterialExpressionNeuralNetworkInput {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionNeuralNetworkOutput {
-    pub coordinates: FExpressionInput,
-    pub neural_index_type: ENeuralIndexType,
+    __padding_end: [u8; 256],
 }
+impl UMaterialExpressionNeuralNetworkOutput {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionNormalize {
-    pub vector_input: FExpressionInput,
+    __padding_end: [u8; 248],
 }
-pub struct UMaterialExpressionObjectBounds {}
-pub struct UMaterialExpressionObjectLocalBounds {}
-pub struct UMaterialExpressionObjectOrientation {}
+impl UMaterialExpressionNormalize {}
+#[repr(C, align(8))]
+pub struct UMaterialExpressionObjectBounds {
+    __padding_end: [u8; 216],
+}
+impl UMaterialExpressionObjectBounds {}
+#[repr(C, align(8))]
+pub struct UMaterialExpressionObjectLocalBounds {
+    __padding_end: [u8; 232],
+}
+impl UMaterialExpressionObjectLocalBounds {}
+#[repr(C, align(8))]
+pub struct UMaterialExpressionObjectOrientation {
+    __padding_end: [u8; 216],
+}
+impl UMaterialExpressionObjectOrientation {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionObjectPositionWS {
-    pub origin_type: EPositionOrigin,
+    __padding_end: [u8; 208],
 }
-pub struct UMaterialExpressionObjectRadius {}
+impl UMaterialExpressionObjectPositionWS {}
+#[repr(C, align(8))]
+pub struct UMaterialExpressionObjectRadius {
+    __padding_end: [u8; 216],
+}
+impl UMaterialExpressionObjectRadius {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionOneMinus {
-    pub input: FExpressionInput,
+    __padding_end: [u8; 248],
 }
+impl UMaterialExpressionOneMinus {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionOperator {
-    pub dynamic_inputs: TArray<FMaterialExpressionOperatorInput>,
-    pub operator: EMaterialExpressionOperatorKind,
+    __padding_end: [u8; 232],
 }
+impl UMaterialExpressionOperator {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionPanner {
-    pub coordinate: FExpressionInput,
-    pub time: FExpressionInput,
-    pub speed: FExpressionInput,
-    pub speed_x: f32,
-    pub speed_y: f32,
-    pub const_coordinate: u32,
-    pub b_fractional_part: bool,
+    __padding_end: [u8; 360],
 }
-pub struct UMaterialExpressionParticleColor {}
-pub struct UMaterialExpressionParticleDirection {}
-pub struct UMaterialExpressionParticleMacroUV {}
-pub struct UMaterialExpressionParticleMotionBlurFade {}
+impl UMaterialExpressionPanner {}
+#[repr(C, align(8))]
+pub struct UMaterialExpressionParticleColor {
+    __padding_end: [u8; 216],
+}
+impl UMaterialExpressionParticleColor {}
+#[repr(C, align(8))]
+pub struct UMaterialExpressionParticleDirection {
+    __padding_end: [u8; 216],
+}
+impl UMaterialExpressionParticleDirection {}
+#[repr(C, align(8))]
+pub struct UMaterialExpressionParticleMacroUV {
+    __padding_end: [u8; 216],
+}
+impl UMaterialExpressionParticleMacroUV {}
+#[repr(C, align(8))]
+pub struct UMaterialExpressionParticleMotionBlurFade {
+    __padding_end: [u8; 216],
+}
+impl UMaterialExpressionParticleMotionBlurFade {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionParticlePositionWS {
-    pub origin_type: EPositionOrigin,
+    __padding_end: [u8; 224],
 }
-pub struct UMaterialExpressionParticleRadius {}
-pub struct UMaterialExpressionParticleRandom {}
-pub struct UMaterialExpressionParticleRelativeTime {}
-pub struct UMaterialExpressionParticleSize {}
-pub struct UMaterialExpressionParticleSpeed {}
-pub struct UMaterialExpressionParticleSpriteRotation {}
+impl UMaterialExpressionParticlePositionWS {}
+#[repr(C, align(8))]
+pub struct UMaterialExpressionParticleRadius {
+    __padding_end: [u8; 216],
+}
+impl UMaterialExpressionParticleRadius {}
+#[repr(C, align(8))]
+pub struct UMaterialExpressionParticleRandom {
+    __padding_end: [u8; 216],
+}
+impl UMaterialExpressionParticleRandom {}
+#[repr(C, align(8))]
+pub struct UMaterialExpressionParticleRelativeTime {
+    __padding_end: [u8; 216],
+}
+impl UMaterialExpressionParticleRelativeTime {}
+#[repr(C, align(8))]
+pub struct UMaterialExpressionParticleSize {
+    __padding_end: [u8; 216],
+}
+impl UMaterialExpressionParticleSize {}
+#[repr(C, align(8))]
+pub struct UMaterialExpressionParticleSpeed {
+    __padding_end: [u8; 216],
+}
+impl UMaterialExpressionParticleSpeed {}
+#[repr(C, align(8))]
+pub struct UMaterialExpressionParticleSpriteRotation {
+    __padding_end: [u8; 216],
+}
+impl UMaterialExpressionParticleSpriteRotation {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionParticleSubUV {
-    pub flags_584: u8,
+    __padding_end: [u8; 592],
 }
-pub struct UMaterialExpressionParticleSubUVProperties {}
+impl UMaterialExpressionParticleSubUV {}
+#[repr(C, align(8))]
+pub struct UMaterialExpressionParticleSubUVProperties {
+    __padding_end: [u8; 216],
+}
+impl UMaterialExpressionParticleSubUVProperties {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionPathTracingBufferTexture {
-    pub coordinates: FExpressionInput,
-    pub path_tracing_buffer_texture_id: EPathTracingBufferTextureId,
+    __padding_end: [u8; 256],
 }
+impl UMaterialExpressionPathTracingBufferTexture {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionPathTracingQualitySwitch {
-    pub normal: FExpressionInput,
-    pub path_traced: FExpressionInput,
+    __padding_end: [u8; 296],
 }
+impl UMaterialExpressionPathTracingQualitySwitch {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionPathTracingRayTypeSwitch {
-    pub main: FExpressionInput,
-    pub shadow: FExpressionInput,
-    pub indirect_diffuse: FExpressionInput,
-    pub indirect_specular: FExpressionInput,
-    pub indirect_volume: FExpressionInput,
+    __padding_end: [u8; 440],
 }
+impl UMaterialExpressionPathTracingRayTypeSwitch {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionPerInstanceCustomData {
-    pub default_value: FExpressionInput,
-    pub const_default_value: f32,
-    pub data_index: u32,
+    __padding_end: [u8; 272],
 }
+impl UMaterialExpressionPerInstanceCustomData {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionPerInstanceCustomData3Vector {
-    pub default_value: FExpressionInput,
-    pub const_default_value: crate::bindings::core_u_object::FLinearColor,
-    pub data_index: u32,
+    __padding_end: [u8; 288],
 }
-pub struct UMaterialExpressionPerInstanceFadeAmount {}
-pub struct UMaterialExpressionPerInstanceRandom {}
+impl UMaterialExpressionPerInstanceCustomData3Vector {}
+#[repr(C, align(8))]
+pub struct UMaterialExpressionPerInstanceFadeAmount {
+    __padding_end: [u8; 216],
+}
+impl UMaterialExpressionPerInstanceFadeAmount {}
+#[repr(C, align(8))]
+pub struct UMaterialExpressionPerInstanceRandom {
+    __padding_end: [u8; 216],
+}
+impl UMaterialExpressionPerInstanceRandom {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionPinBase {
-    pub reroute_pins: TArray<FCompositeReroute>,
-    pub pin_direction: EEdGraphPinDirection,
+    __padding_end: [u8; 240],
 }
-pub struct UMaterialExpressionPixelDepth {}
-pub struct UMaterialExpressionPixelNormalWS {}
+impl UMaterialExpressionPinBase {}
+#[repr(C, align(8))]
+pub struct UMaterialExpressionPixelDepth {
+    __padding_end: [u8; 216],
+}
+impl UMaterialExpressionPixelDepth {}
+#[repr(C, align(8))]
+pub struct UMaterialExpressionPixelNormalWS {
+    __padding_end: [u8; 200],
+}
+impl UMaterialExpressionPixelNormalWS {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionPostVolumeUserFlagTest {
-    pub bit_index: FExpressionInput,
-    pub const_bit_index: i32,
+    __padding_end: [u8; 256],
 }
+impl UMaterialExpressionPostVolumeUserFlagTest {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionPower {
-    pub base: FExpressionInput,
-    pub exponent: FExpressionInput,
-    pub const_exponent: f32,
+    __padding_end: [u8; 304],
 }
-pub struct UMaterialExpressionPrecomputedAOMask {}
-pub struct UMaterialExpressionPreSkinnedLocalBounds {}
-pub struct UMaterialExpressionPreSkinnedNormal {}
-pub struct UMaterialExpressionPreSkinnedPosition {}
+impl UMaterialExpressionPower {}
+#[repr(C, align(8))]
+pub struct UMaterialExpressionPrecomputedAOMask {
+    __padding_end: [u8; 216],
+}
+impl UMaterialExpressionPrecomputedAOMask {}
+#[repr(C, align(8))]
+pub struct UMaterialExpressionPreSkinnedLocalBounds {
+    __padding_end: [u8; 216],
+}
+impl UMaterialExpressionPreSkinnedLocalBounds {}
+#[repr(C, align(8))]
+pub struct UMaterialExpressionPreSkinnedNormal {
+    __padding_end: [u8; 216],
+}
+impl UMaterialExpressionPreSkinnedNormal {}
+#[repr(C, align(8))]
+pub struct UMaterialExpressionPreSkinnedPosition {
+    __padding_end: [u8; 216],
+}
+impl UMaterialExpressionPreSkinnedPosition {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionPreviousFrameSwitch {
-    pub current_frame: FExpressionInput,
-    pub previous_frame: FExpressionInput,
+    __padding_end: [u8; 296],
 }
+impl UMaterialExpressionPreviousFrameSwitch {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionQualitySwitch {
-    pub default: FExpressionInput,
-    pub inputs: FExpressionInput,
+    __padding_end: [u8; 440],
 }
+impl UMaterialExpressionQualitySwitch {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionRayTracingQualitySwitch {
-    pub normal: FExpressionInput,
-    pub ray_traced: FExpressionInput,
+    __padding_end: [u8; 296],
 }
+impl UMaterialExpressionRayTracingQualitySwitch {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionRecordTextureStreamingInfo {
-    pub texture_object: FExpressionInput,
-    pub coordinates: FExpressionInput,
+    __padding_end: [u8; 296],
 }
+impl UMaterialExpressionRecordTextureStreamingInfo {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionReflectionCapturePassSwitch {
-    pub default: FExpressionInput,
-    pub reflection: FExpressionInput,
+    __padding_end: [u8; 296],
 }
+impl UMaterialExpressionReflectionCapturePassSwitch {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionReflectionVectorWS {
-    pub custom_world_normal: FExpressionInput,
-    pub flags_248: u8,
+    __padding_end: [u8; 256],
 }
+impl UMaterialExpressionReflectionVectorWS {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionRequiredSamplersSwitch {
-    pub input_true: FExpressionInput,
-    pub input_false: FExpressionInput,
-    pub required_samplers: u32,
+    __padding_end: [u8; 304],
 }
+impl UMaterialExpressionRequiredSamplersSwitch {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionReroute {
-    pub input: FExpressionInput,
+    __padding_end: [u8; 248],
 }
+impl UMaterialExpressionReroute {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionRgbToHsv {
-    pub input: FExpressionInput,
+    __padding_end: [u8; 248],
 }
+impl UMaterialExpressionRgbToHsv {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionRotateAboutAxis {
-    pub normalized_rotation_axis: FExpressionInput,
-    pub rotation_angle: FExpressionInput,
-    pub pivot_point: FExpressionInput,
-    pub position: FExpressionInput,
-    pub period: f32,
+    __padding_end: [u8; 400],
 }
+impl UMaterialExpressionRotateAboutAxis {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionRotator {
-    pub coordinate: FExpressionInput,
-    pub time: FExpressionInput,
-    pub center_x: f32,
-    pub center_y: f32,
-    pub speed: f32,
-    pub const_coordinate: u32,
+    __padding_end: [u8; 312],
 }
+impl UMaterialExpressionRotator {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionRound {
-    pub input: FExpressionInput,
+    __padding_end: [u8; 248],
 }
-pub struct UMaterialExpressionRuntimeVirtualTextureCustomData {}
+impl UMaterialExpressionRound {}
+#[repr(C, align(8))]
+pub struct UMaterialExpressionRuntimeVirtualTextureCustomData {
+    __padding_end: [u8; 200],
+}
+impl UMaterialExpressionRuntimeVirtualTextureCustomData {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionRuntimeVirtualTextureOutput {
-    pub base_color: FExpressionInput,
-    pub specular: FExpressionInput,
-    pub roughness: FExpressionInput,
-    pub normal: FExpressionInput,
-    pub world_height: FExpressionInput,
-    pub opacity: FExpressionInput,
-    pub mask: FExpressionInput,
-    pub displacement: FExpressionInput,
-    pub mask4: FExpressionInput,
+    __padding_end: [u8; 632],
 }
+impl UMaterialExpressionRuntimeVirtualTextureOutput {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionRuntimeVirtualTextureReplace {
-    pub default: FExpressionInput,
-    pub virtual_texture_output: FExpressionInput,
+    __padding_end: [u8; 296],
 }
+impl UMaterialExpressionRuntimeVirtualTextureReplace {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionRuntimeVirtualTextureSample {
-    pub coordinates: FExpressionInput,
-    pub world_position: FExpressionInput,
-    pub mip_value: FExpressionInput,
-    pub ddx: FExpressionInput,
-    pub ddy: FExpressionInput,
-    pub virtual_texture: UPtr<URuntimeVirtualTexture>,
-    pub material_type: ERuntimeVirtualTextureMaterialType,
-    pub b_single_physical_space: bool,
-    pub b_adaptive: bool,
-    pub world_position_origin_type: EPositionOrigin,
-    pub texture_address_mode: ERuntimeVirtualTextureTextureAddressMode,
-    pub mip_value_mode: ERuntimeVirtualTextureMipValueMode,
-    pub b_enable_feedback: bool,
+    __padding_end: [u8; 456],
 }
+impl UMaterialExpressionRuntimeVirtualTextureSample {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionRuntimeVirtualTextureSampleParameter {
-    pub parameter_name: FName,
-    pub expression_guid: crate::bindings::core_u_object::FGuid,
-    pub group: FName,
-    pub sort_priority: i32,
+    __padding_end: [u8; 504],
 }
+impl UMaterialExpressionRuntimeVirtualTextureSampleParameter {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionSamplePhysicsVectorField {
-    pub world_position: FExpressionInput,
-    pub world_position_origin_type: EPositionOrigin,
-    pub field_target: crate::bindings::chaos::EFieldVectorType,
+    __padding_end: [u8; 256],
 }
+impl UMaterialExpressionSamplePhysicsVectorField {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionSamplePhysicsScalarField {
-    pub world_position: FExpressionInput,
-    pub world_position_origin_type: EPositionOrigin,
-    pub field_target: crate::bindings::chaos::EFieldScalarType,
+    __padding_end: [u8; 256],
 }
+impl UMaterialExpressionSamplePhysicsScalarField {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionSamplePhysicsIntegerField {
-    pub world_position: FExpressionInput,
-    pub world_position_origin_type: EPositionOrigin,
-    pub field_target: crate::bindings::chaos::EFieldIntegerType,
+    __padding_end: [u8; 256],
 }
+impl UMaterialExpressionSamplePhysicsIntegerField {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionSaturate {
-    pub input: FExpressionInput,
+    __padding_end: [u8; 248],
 }
+impl UMaterialExpressionSaturate {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionSceneColor {
-    pub input_mode: EMaterialSceneAttributeInputMode,
-    pub input: FExpressionInput,
-    pub offset_fraction_deprecated: FExpressionInput,
-    pub const_input: crate::bindings::core_u_object::FVector2D,
+    __padding_end: [u8; 320],
 }
+impl UMaterialExpressionSceneColor {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionSceneDepth {
-    pub input_mode: EMaterialSceneAttributeInputMode,
-    pub input: FExpressionInput,
-    pub coordinates_deprecated: FExpressionInput,
-    pub const_input: crate::bindings::core_u_object::FVector2D,
+    __padding_end: [u8; 320],
 }
+impl UMaterialExpressionSceneDepth {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionSceneDepthWithoutWater {
-    pub input_mode: EMaterialSceneAttributeInputMode,
-    pub input: FExpressionInput,
-    pub const_input: crate::bindings::core_u_object::FVector2D,
-    pub fallback_depth: f32,
+    __padding_end: [u8; 280],
 }
-pub struct UMaterialExpressionSceneTexelSize {}
+impl UMaterialExpressionSceneDepthWithoutWater {}
+#[repr(C, align(8))]
+pub struct UMaterialExpressionSceneTexelSize {
+    __padding_end: [u8; 200],
+}
+impl UMaterialExpressionSceneTexelSize {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionSceneTexture {
-    pub coordinates: FExpressionInput,
-    pub scene_texture_id: ESceneTextureId,
-    pub b_filtered: bool,
+    __padding_end: [u8; 256],
 }
-pub struct UMaterialExpressionScreenPosition {}
+impl UMaterialExpressionSceneTexture {}
+#[repr(C, align(8))]
+pub struct UMaterialExpressionScreenPosition {
+    __padding_end: [u8; 216],
+}
+impl UMaterialExpressionScreenPosition {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionSetMaterialAttributes {
-    pub inputs: TArray<FExpressionInput>,
-    pub attribute_set_types: TArray<crate::bindings::core_u_object::FGuid>,
+    __padding_end: [u8; 248],
 }
+impl UMaterialExpressionSetMaterialAttributes {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionShaderStageSwitch {
-    pub pixel_shader: FExpressionInput,
-    pub vertex_shader: FExpressionInput,
+    __padding_end: [u8; 296],
 }
+impl UMaterialExpressionShaderStageSwitch {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionShadingModel {
-    pub shading_model: EMaterialShadingModel,
+    __padding_end: [u8; 208],
 }
+impl UMaterialExpressionShadingModel {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionShadingPathSwitch {
-    pub default: FExpressionInput,
-    pub inputs: FExpressionInput,
+    __padding_end: [u8; 392],
 }
+impl UMaterialExpressionShadingPathSwitch {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionShadowReplace {
-    pub default: FExpressionInput,
-    pub shadow: FExpressionInput,
+    __padding_end: [u8; 296],
 }
+impl UMaterialExpressionShadowReplace {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionSign {
-    pub input: FExpressionInput,
+    __padding_end: [u8; 248],
 }
+impl UMaterialExpressionSign {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionSine {
-    pub input: FExpressionInput,
-    pub period: f32,
+    __padding_end: [u8; 256],
 }
+impl UMaterialExpressionSine {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionSingleLayerWaterMaterialOutput {
-    pub scattering_coefficients: FExpressionInput,
-    pub absorption_coefficients: FExpressionInput,
-    pub phase_g: FExpressionInput,
-    pub color_scale_behind_water: FExpressionInput,
+    __padding_end: [u8; 392],
 }
+impl UMaterialExpressionSingleLayerWaterMaterialOutput {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionSkyAtmosphereLightDirection {
+    #[doc(hidden)]
+    __padding_216: [u8; 216],
     pub light_index: i32,
+    __padding_end: [u8; 4],
 }
+impl UMaterialExpressionSkyAtmosphereLightDirection {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionSkyAtmosphereLightIlluminance {
+    #[doc(hidden)]
+    __padding_216: [u8; 216],
     pub light_index: i32,
-    pub world_position: FExpressionInput,
-    pub world_position_origin_type: EPositionOrigin,
+    __padding_end: [u8; 60],
 }
+impl UMaterialExpressionSkyAtmosphereLightIlluminance {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionSkyAtmosphereLightIlluminanceOnGround {
+    #[doc(hidden)]
+    __padding_216: [u8; 216],
     pub light_index: i32,
+    __padding_end: [u8; 4],
 }
+impl UMaterialExpressionSkyAtmosphereLightIlluminanceOnGround {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionSkyAtmosphereLightDiskLuminance {
+    #[doc(hidden)]
+    __padding_216: [u8; 216],
     pub light_index: i32,
-    pub disk_angular_diameter_override: FExpressionInput,
+    __padding_end: [u8; 52],
 }
+impl UMaterialExpressionSkyAtmosphereLightDiskLuminance {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionSkyAtmosphereAerialPerspective {
-    pub world_position: FExpressionInput,
-    pub world_position_origin_type: EPositionOrigin,
+    __padding_end: [u8; 272],
 }
-pub struct UMaterialExpressionSkyAtmosphereDistantLightScatteredLuminance {}
+impl UMaterialExpressionSkyAtmosphereAerialPerspective {}
+#[repr(C, align(8))]
+pub struct UMaterialExpressionSkyAtmosphereDistantLightScatteredLuminance {
+    __padding_end: [u8; 216],
+}
+impl UMaterialExpressionSkyAtmosphereDistantLightScatteredLuminance {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionSkyAtmosphereViewLuminance {
-    pub world_direction: FExpressionInput,
+    __padding_end: [u8; 264],
 }
+impl UMaterialExpressionSkyAtmosphereViewLuminance {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionSkyLightEnvMapSample {
-    pub direction: FExpressionInput,
-    pub roughness: FExpressionInput,
+    __padding_end: [u8; 312],
 }
+impl UMaterialExpressionSkyLightEnvMapSample {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionSmoothStep {
-    pub min: FExpressionInput,
-    pub max: FExpressionInput,
-    pub value: FExpressionInput,
-    pub const_min: f32,
-    pub const_max: f32,
-    pub const_value: f32,
+    __padding_end: [u8; 360],
 }
+impl UMaterialExpressionSmoothStep {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionSobol {
-    pub cell: FExpressionInput,
-    pub index: FExpressionInput,
-    pub seed: FExpressionInput,
-    pub const_index: u32,
-    pub const_seed: crate::bindings::core_u_object::FVector2D,
+    __padding_end: [u8; 368],
 }
+impl UMaterialExpressionSobol {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionSparseVolumeTextureBase {
+    #[doc(hidden)]
+    __padding_200: [u8; 200],
     pub sparse_volume_texture: UPtr<USparseVolumeTexture>,
 }
-pub struct UMaterialExpressionSparseVolumeTextureObject {}
+impl UMaterialExpressionSparseVolumeTextureBase {}
+#[repr(C, align(8))]
+pub struct UMaterialExpressionSparseVolumeTextureObject {
+    __padding_end: [u8; 208],
+}
+impl UMaterialExpressionSparseVolumeTextureObject {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionSparseVolumeTextureSample {
-    pub coordinates: FExpressionInput,
-    pub texture_object: FExpressionInput,
-    pub mip_value: FExpressionInput,
-    pub coordinates_dx: FExpressionInput,
-    pub coordinates_dy: FExpressionInput,
-    pub mip_value_mode: ETextureMipValueMode,
-    pub sampler_source: ESamplerSourceMode,
-    pub const_mip_value: i32,
+    __padding_end: [u8; 456],
 }
+impl UMaterialExpressionSparseVolumeTextureSample {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionSparseVolumeTextureSampleParameter {
-    pub parameter_name: FName,
-    pub expression_guid: crate::bindings::core_u_object::FGuid,
-    pub group: FName,
-    pub sort_priority: i32,
+    __padding_end: [u8; 504],
 }
-pub struct UMaterialExpressionSparseVolumeTextureObjectParameter {}
+impl UMaterialExpressionSparseVolumeTextureSampleParameter {}
+#[repr(C, align(8))]
+pub struct UMaterialExpressionSparseVolumeTextureObjectParameter {
+    __padding_end: [u8; 504],
+}
+impl UMaterialExpressionSparseVolumeTextureObjectParameter {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionSpeedTree {
-    pub geometry_input: FExpressionInput,
-    pub wind_input: FExpressionInput,
-    pub lod_input: FExpressionInput,
-    pub extra_bend_ws: FExpressionInput,
-    pub geometry_type: ESpeedTreeGeometryType,
-    pub wind_type: ESpeedTreeWindType,
-    pub lod_type: ESpeedTreeLODType,
-    pub billboard_threshold: f32,
-    pub b_accurate_wind_velocities: bool,
+    __padding_end: [u8; 408],
 }
+impl UMaterialExpressionSpeedTree {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionSphereMask {
-    pub a: FExpressionInput,
-    pub b: FExpressionInput,
-    pub radius: FExpressionInput,
-    pub hardness: FExpressionInput,
-    pub attenuation_radius: f32,
-    pub hardness_percent: f32,
+    __padding_end: [u8; 400],
 }
+impl UMaterialExpressionSphereMask {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionSphericalParticleOpacity {
-    pub density: FExpressionInput,
-    pub constant_density: f32,
+    __padding_end: [u8; 272],
 }
+impl UMaterialExpressionSphericalParticleOpacity {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionSquareRoot {
-    pub input: FExpressionInput,
+    __padding_end: [u8; 248],
 }
+impl UMaterialExpressionSquareRoot {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionSRGBColorToWorkingColorSpace {
-    pub input: FExpressionInput,
+    __padding_end: [u8; 248],
 }
+impl UMaterialExpressionSRGBColorToWorkingColorSpace {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionStaticBool {
-    pub flags_200: u8,
+    __padding_end: [u8; 208],
 }
+impl UMaterialExpressionStaticBool {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionStaticBoolParameter {
-    pub flags_248: u8,
+    __padding_end: [u8; 256],
 }
+impl UMaterialExpressionStaticBoolParameter {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionStaticComponentMaskParameter {
-    pub input: FExpressionInput,
-    pub flags_296: u8,
+    __padding_end: [u8; 304],
 }
+impl UMaterialExpressionStaticComponentMaskParameter {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionStaticSwitch {
-    pub flags_200: u8,
-    pub a: FExpressionInput,
-    pub b: FExpressionInput,
-    pub value: FExpressionInput,
+    __padding_end: [u8; 352],
 }
+impl UMaterialExpressionStaticSwitch {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionStaticSwitchParameter {
-    pub a: FExpressionInput,
-    pub b: FExpressionInput,
+    __padding_end: [u8; 352],
 }
+impl UMaterialExpressionStaticSwitchParameter {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionStep {
-    pub y: FExpressionInput,
-    pub x: FExpressionInput,
-    pub const_y: f32,
-    pub const_x: f32,
+    __padding_end: [u8; 304],
 }
+impl UMaterialExpressionStep {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionSubsurfaceMediumMaterialOutput {
-    pub mean_free_path: FExpressionInput,
-    pub scattering_distribution: FExpressionInput,
+    __padding_end: [u8; 296],
 }
+impl UMaterialExpressionSubsurfaceMediumMaterialOutput {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionSubtract {
-    pub a: FExpressionInput,
-    pub b: FExpressionInput,
-    pub const_a: f32,
-    pub const_b: f32,
+    __padding_end: [u8; 304],
 }
+impl UMaterialExpressionSubtract {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionSwitch {
-    pub description: FString,
-    pub switch_value: FExpressionInput,
-    pub const_switch_value: f32,
-    pub default: FExpressionInput,
-    pub const_default: f32,
-    pub inputs: TArray<FSwitchCustomInput>,
+    __padding_end: [u8; 344],
 }
+impl UMaterialExpressionSwitch {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionTangent {
-    pub input: FExpressionInput,
-    pub period: f32,
+    __padding_end: [u8; 256],
 }
+impl UMaterialExpressionTangent {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionTemporalSobol {
-    pub index: FExpressionInput,
-    pub seed: FExpressionInput,
-    pub const_index: u32,
-    pub const_seed: crate::bindings::core_u_object::FVector2D,
+    __padding_end: [u8; 320],
 }
+impl UMaterialExpressionTemporalSobol {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionTextureCollection {
+    #[doc(hidden)]
+    __padding_200: [u8; 200],
     pub texture_collection: UPtr<UTextureCollection>,
 }
+impl UMaterialExpressionTextureCollection {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionTextureCollectionParameter {
-    pub parameter_name: FName,
-    pub expression_guid: crate::bindings::core_u_object::FGuid,
-    pub group: FName,
-    pub sort_priority: i32,
+    __padding_end: [u8; 256],
 }
+impl UMaterialExpressionTextureCollectionParameter {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionTextureCoordinate {
+    #[doc(hidden)]
+    __padding_200: [u8; 200],
     pub coordinate_index: i32,
     pub u_tiling: f32,
     pub v_tiling: f32,
-    pub flags_212: u8,
+    __padding_end: [u8; 4],
 }
-pub struct UMaterialExpressionTextureObject {}
+impl UMaterialExpressionTextureCoordinate {}
+#[repr(C, align(8))]
+pub struct UMaterialExpressionTextureObject {
+    __padding_end: [u8; 216],
+}
+impl UMaterialExpressionTextureObject {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionTextureObjectFromCollection {
-    pub texture_collection: FExpressionInput,
+    #[doc(hidden)]
+    __padding_248: [u8; 248],
     pub texture_collection_object: UPtr<UTextureCollection>,
-    pub collection_index: FExpressionInput,
+    #[doc(hidden)]
+    __padding_304: [u8; 48],
     pub const_collection_index: i32,
     pub texture_type: ETextureCollectionMemberType,
+    __padding_end: [u8; 3],
 }
-pub struct UMaterialExpressionTextureObjectParameter {}
+impl UMaterialExpressionTextureObjectFromCollection {}
+#[repr(C, align(8))]
+pub struct UMaterialExpressionTextureObjectParameter {
+    __padding_end: [u8; 632],
+}
+impl UMaterialExpressionTextureObjectParameter {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionTextureProperty {
-    pub texture_object: FExpressionInput,
-    pub property: EMaterialExposedTextureProperty,
+    __padding_end: [u8; 256],
 }
-pub struct UMaterialExpressionTextureSampleParameter2DArray {}
-pub struct UMaterialExpressionTextureSampleParameterCube {}
-pub struct UMaterialExpressionTextureSampleParameterCubeArray {}
+impl UMaterialExpressionTextureProperty {}
+#[repr(C, align(8))]
+pub struct UMaterialExpressionTextureSampleParameter2DArray {
+    __padding_end: [u8; 632],
+}
+impl UMaterialExpressionTextureSampleParameter2DArray {}
+#[repr(C, align(8))]
+pub struct UMaterialExpressionTextureSampleParameterCube {
+    __padding_end: [u8; 632],
+}
+impl UMaterialExpressionTextureSampleParameterCube {}
+#[repr(C, align(8))]
+pub struct UMaterialExpressionTextureSampleParameterCubeArray {
+    __padding_end: [u8; 632],
+}
+impl UMaterialExpressionTextureSampleParameterCubeArray {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionTextureSampleParameterSubUV {
-    pub flags_632: u8,
+    __padding_end: [u8; 640],
 }
-pub struct UMaterialExpressionTextureSampleParameterVolume {}
+impl UMaterialExpressionTextureSampleParameterSubUV {}
+#[repr(C, align(8))]
+pub struct UMaterialExpressionTextureSampleParameterVolume {
+    __padding_end: [u8; 632],
+}
+impl UMaterialExpressionTextureSampleParameterVolume {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionTime {
-    pub flags_200: u8,
-    pub period: f32,
+    __padding_end: [u8; 208],
 }
+impl UMaterialExpressionTime {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionTransform {
-    pub input: FExpressionInput,
-    pub transform_source_type: EMaterialVectorCoordTransformSource,
-    pub transform_type: EMaterialVectorCoordTransform,
+    __padding_end: [u8; 256],
 }
+impl UMaterialExpressionTransform {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionTransformPosition {
-    pub input: FExpressionInput,
-    pub transform_source_type: EMaterialPositionTransformSource,
-    pub transform_type: EMaterialPositionTransformSource,
-    pub periodic_world_tile_size: FExpressionInput,
-    pub first_person_interpolation_alpha: FExpressionInput,
-    pub const_periodic_world_tile_size: f32,
-    pub const_first_person_interpolation_alpha: f32,
-    pub b_uses_periodic_world_position: bool,
-    pub b_uses_first_person_interpolation_alpha: bool,
+    __padding_end: [u8; 368],
 }
+impl UMaterialExpressionTransformPosition {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionTruncate {
-    pub input: FExpressionInput,
+    __padding_end: [u8; 248],
 }
+impl UMaterialExpressionTruncate {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionTruncateLWC {
-    pub input: FExpressionInput,
+    __padding_end: [u8; 248],
 }
-pub struct UMaterialExpressionTwoSidedSign {}
+impl UMaterialExpressionTruncateLWC {}
+#[repr(C, align(8))]
+pub struct UMaterialExpressionTwoSidedSign {
+    __padding_end: [u8; 216],
+}
+impl UMaterialExpressionTwoSidedSign {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionUserSceneTexture {
-    pub coordinates: FExpressionInput,
-    pub user_scene_texture: FName,
-    pub b_filtered: bool,
-    pub b_clamped: bool,
+    __padding_end: [u8; 264],
 }
+impl UMaterialExpressionUserSceneTexture {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionVectorNoise {
-    pub position: FExpressionInput,
-    pub world_position_origin_type: EPositionOrigin,
-    pub noise_function: EVectorNoiseFunction,
-    pub quality: i32,
-    pub flags_256: u8,
-    pub tile_size: u32,
+    __padding_end: [u8; 264],
 }
-pub struct UMaterialExpressionVertexColor {}
+impl UMaterialExpressionVectorNoise {}
+#[repr(C, align(8))]
+pub struct UMaterialExpressionVertexColor {
+    __padding_end: [u8; 216],
+}
+impl UMaterialExpressionVertexColor {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionVertexInterpolator {
-    pub input: FExpressionInput,
+    __padding_end: [u8; 304],
 }
-pub struct UMaterialExpressionVertexNormalWS {}
-pub struct UMaterialExpressionVertexTangentWS {}
+impl UMaterialExpressionVertexInterpolator {}
+#[repr(C, align(8))]
+pub struct UMaterialExpressionVertexNormalWS {
+    __padding_end: [u8; 216],
+}
+impl UMaterialExpressionVertexNormalWS {}
+#[repr(C, align(8))]
+pub struct UMaterialExpressionVertexTangentWS {
+    __padding_end: [u8; 216],
+}
+impl UMaterialExpressionVertexTangentWS {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionViewProperty {
-    pub property: EMaterialExposedViewProperty,
+    __padding_end: [u8; 208],
 }
-pub struct UMaterialExpressionViewSize {}
+impl UMaterialExpressionViewProperty {}
+#[repr(C, align(8))]
+pub struct UMaterialExpressionViewSize {
+    __padding_end: [u8; 200],
+}
+impl UMaterialExpressionViewSize {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionVirtualTextureFeatureSwitch {
-    pub no: FExpressionInput,
-    pub yes: FExpressionInput,
+    __padding_end: [u8; 296],
 }
-pub struct UMaterialExpressionVolumetricAdvancedMaterialInput {}
-pub struct UMaterialExpressionVolumetricCloudEmptySpaceSkippingInput {}
+impl UMaterialExpressionVirtualTextureFeatureSwitch {}
+#[repr(C, align(8))]
+pub struct UMaterialExpressionVolumetricAdvancedMaterialInput {
+    __padding_end: [u8; 200],
+}
+impl UMaterialExpressionVolumetricAdvancedMaterialInput {}
+#[repr(C, align(8))]
+pub struct UMaterialExpressionVolumetricCloudEmptySpaceSkippingInput {
+    __padding_end: [u8; 216],
+}
+impl UMaterialExpressionVolumetricCloudEmptySpaceSkippingInput {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionVolumetricAdvancedMaterialOutput {
-    pub phase_g: FExpressionInput,
-    pub phase_g2: FExpressionInput,
-    pub phase_blend: FExpressionInput,
-    pub multi_scattering_contribution: FExpressionInput,
-    pub multi_scattering_occlusion: FExpressionInput,
-    pub multi_scattering_eccentricity: FExpressionInput,
-    pub conservative_density: FExpressionInput,
-    pub const_phase_g: f32,
-    pub const_phase_g2: f32,
-    pub const_phase_blend: f32,
-    pub per_sample_phase_evaluation: bool,
-    pub multi_scattering_approximation_octave_count: u32,
-    pub const_multi_scattering_contribution: f32,
-    pub const_multi_scattering_occlusion: f32,
-    pub const_multi_scattering_eccentricity: f32,
-    pub b_ground_contribution: bool,
-    pub b_gray_scale_material: bool,
-    pub b_ray_march_volume_shadow: bool,
-    pub b_clamp_multi_scattering_contribution: bool,
+    __padding_end: [u8; 576],
 }
+impl UMaterialExpressionVolumetricAdvancedMaterialOutput {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionVolumetricCloudEmptySpaceSkippingOutput {
-    pub contains_matter: FExpressionInput,
+    __padding_end: [u8; 248],
 }
+impl UMaterialExpressionVolumetricCloudEmptySpaceSkippingOutput {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionWorldPosition {
-    pub world_position_shader_offset: EWorldPositionIncludedOffsets,
+    __padding_end: [u8; 208],
 }
-pub struct UMaterialFunctionInterfaceEditorOnlyData {}
+impl UMaterialExpressionWorldPosition {}
+#[repr(C, align(8))]
+pub struct UMaterialFunctionInterfaceEditorOnlyData {
+    __padding_end: [u8; 48],
+}
+impl UMaterialFunctionInterfaceEditorOnlyData {}
+#[repr(C, align(8))]
 pub struct UMaterialFunctionEditorOnlyData {
-    pub expression_collection: FMaterialExpressionCollection,
+    __padding_end: [u8; 96],
 }
+impl UMaterialFunctionEditorOnlyData {}
+#[repr(C, align(8))]
 pub struct UMaterialFunctionInterface {
-    pub editor_only_data: UPtr<UMaterialFunctionInterfaceEditorOnlyData>,
-    pub state_id: crate::bindings::core_u_object::FGuid,
-    pub material_function_usage: EMaterialFunctionUsage,
-    pub combined_input_types: u64,
-    pub combined_output_types: u64,
-    pub thumbnail_info: UPtr<UThumbnailInfo>,
+    __padding_end: [u8; 104],
 }
+impl UMaterialFunctionInterface {}
+#[repr(C, align(8))]
 pub struct UMaterialFunction {
-    pub parent_function: UPtr<UMaterialFunction>,
-    pub description: FString,
-    pub user_exposed_caption: FString,
-    pub flags_144: u8,
-    pub library_categories_deprecated: TArray<FString>,
-    pub library_categories_text: TArray<FText>,
-    pub preview_material: UPtr<UMaterial>,
-    pub dependent_function_expression_candidates: TArray<
-        UPtr<UMaterialExpressionMaterialFunctionCall>,
-    >,
-    pub preview_blend_mode: EBlendMode,
-    pub preview_material_domain: EMaterialDomain,
-    pub flags_232: u8,
-    pub function_expressions_deprecated: TArray<UPtr<UMaterialExpression>>,
-    pub function_editor_comments_deprecated: TArray<UPtr<UMaterialExpressionComment>>,
+    __padding_end: [u8; 272],
 }
+impl UMaterialFunction {}
+#[repr(C, align(8))]
 pub struct UMaterialFunctionInstance {
+    #[doc(hidden)]
+    __padding_104: [u8; 104],
     pub parent: UPtr<UMaterialFunctionInterface>,
-    pub base: UPtr<UMaterialFunctionInterface>,
-    pub scalar_parameter_values: TArray<FScalarParameterValue>,
-    pub vector_parameter_values: TArray<FVectorParameterValue>,
-    pub double_vector_parameter_values: TArray<FDoubleVectorParameterValue>,
-    pub texture_parameter_values: TArray<FTextureParameterValue>,
-    pub texture_collection_parameter_values: TArray<FTextureCollectionParameterValue>,
-    pub parameter_collection_parameter_values: TArray<
-        FParameterCollectionParameterValue,
-    >,
-    pub font_parameter_values: TArray<FFontParameterValue>,
-    pub static_switch_parameter_values: TArray<FStaticSwitchParameter>,
-    pub static_component_mask_parameter_values: TArray<FStaticComponentMaskParameter>,
-    pub runtime_virtual_texture_parameter_values: TArray<
-        FRuntimeVirtualTextureParameterValue,
-    >,
-    pub sparse_volume_texture_parameter_values: TArray<
-        FSparseVolumeTextureParameterValue,
-    >,
-    pub preview_material: UPtr<UMaterialInstanceConstant>,
+    __padding_end: [u8; 192],
 }
-pub struct UMaterialFunctionMaterialLayer {}
-pub struct UMaterialFunctionMaterialLayerInstance {}
-pub struct UMaterialFunctionMaterialLayerBlend {}
-pub struct UMaterialFunctionMaterialLayerBlendInstance {}
+impl UMaterialFunctionInstance {}
+#[repr(C, align(8))]
+pub struct UMaterialFunctionMaterialLayer {
+    __padding_end: [u8; 272],
+}
+impl UMaterialFunctionMaterialLayer {}
+#[repr(C, align(8))]
+pub struct UMaterialFunctionMaterialLayerInstance {
+    __padding_end: [u8; 304],
+}
+impl UMaterialFunctionMaterialLayerInstance {}
+#[repr(C, align(8))]
+pub struct UMaterialFunctionMaterialLayerBlend {
+    __padding_end: [u8; 272],
+}
+impl UMaterialFunctionMaterialLayerBlend {}
+#[repr(C, align(8))]
+pub struct UMaterialFunctionMaterialLayerBlendInstance {
+    __padding_end: [u8; 304],
+}
+impl UMaterialFunctionMaterialLayerBlendInstance {}
+#[repr(C, align(8))]
 pub struct UMaterialParameterCollectionInstance {
-    pub collection: TWeakObjectPtr<UMaterialParameterCollection>,
+    __padding_end: [u8; 312],
 }
-pub struct UMeshDeformer {}
-pub struct UMeshDeformerInstanceSettings {}
-pub struct UMeshDeformerInstance {}
+impl UMaterialParameterCollectionInstance {}
+#[repr(C, align(8))]
+pub struct UMeshDeformer {
+    __padding_end: [u8; 48],
+}
+impl UMeshDeformer {}
+#[repr(C, align(8))]
+pub struct UMeshDeformerInstanceSettings {
+    __padding_end: [u8; 48],
+}
+impl UMeshDeformerInstanceSettings {}
+#[repr(C, align(8))]
+pub struct UMeshDeformerInstance {
+    __padding_end: [u8; 48],
+}
+impl UMeshDeformerInstance {}
 pub struct UMeshDeformerProducer {}
 pub struct IMeshDeformerProducer {}
+#[repr(C, align(8))]
 pub struct UMeshDrawCommandStatsSettings {
-    pub budgets: TArray<FMeshDrawCommandStatsBudget>,
-    pub budget_totals: TArray<FMeshDrawCommandStatsBudgetTotals>,
-    pub collection_for_csv_profiler: i32,
+    __padding_end: [u8; 144],
 }
+impl UMeshDrawCommandStatsSettings {}
+#[repr(C, align(8))]
 pub struct UMicroTransactionBase {
-    pub available_products: TArray<FPurchaseInfo>,
-    pub last_error: FString,
-    pub last_error_solution: FString,
+    __padding_end: [u8; 112],
 }
+impl UMicroTransactionBase {}
 pub struct UNavAgentInterface {}
 pub struct INavAgentInterface {}
 pub struct UNavEdgeProviderInterface {}
@@ -10468,665 +6203,627 @@ pub struct UNavRelevantInterface {}
 pub struct INavRelevantInterface {}
 pub struct UNetworkPredictionInterface {}
 pub struct INetworkPredictionInterface {}
+#[repr(C, align(8))]
 pub struct UFXSystemAsset {
-    pub max_pool_size: u32,
-    pub pool_prime_size: u32,
+    __padding_end: [u8; 96],
 }
+impl UFXSystemAsset {}
+#[repr(C, align(8))]
 pub struct UParticleSystem {
-    pub update_time_fps: f32,
-    pub update_time_delta: f32,
-    pub warmup_time: f32,
-    pub warmup_tick_rate: f32,
-    pub emitters: TArray<UPtr<UParticleEmitter>>,
-    pub preview_component: UPtr<UParticleSystemComponent>,
-    pub thumbnail_angle: crate::bindings::core_u_object::FRotator,
-    pub thumbnail_distance: f32,
-    pub thumbnail_warmup: f32,
-    pub curve_ed_setup: UPtr<UInterpCurveEdSetup>,
-    pub lod_distance_check_time: f32,
-    pub macro_uv_radius: f32,
-    pub lod_distances: TArray<f32>,
-    pub editor_lod_setting: i32,
-    pub lod_settings: TArray<FParticleSystemLOD>,
-    pub fixed_relative_bounding_box: crate::bindings::core_u_object::FBox,
-    pub seconds_before_inactive: f32,
-    pub floor_mesh: FString,
-    pub floor_position: crate::bindings::core_u_object::FVector,
-    pub floor_rotation: crate::bindings::core_u_object::FRotator,
-    pub floor_scale: f32,
-    pub floor_scale3_d: crate::bindings::core_u_object::FVector,
-    pub background_color: crate::bindings::core_u_object::FColor,
-    pub delay: f32,
-    pub delay_low: f32,
-    pub flags_396: u8,
-    pub thumbnail_image: UPtr<UTexture2D>,
-    pub flags_408: u8,
-    pub system_update_mode: EParticleSystemUpdateMode,
-    pub lod_method: ParticleSystemLODMethod,
-    pub insignificant_reaction: EParticleSystemInsignificanceReaction,
-    pub occlusion_bounds_method: EParticleSystemOcclusionBoundsMethod,
-    pub max_significance_level: EParticleSignificanceLevel,
-    pub min_time_between_ticks: u32,
-    pub insignificance_delay: f32,
-    pub macro_uv_position: crate::bindings::core_u_object::FVector,
-    pub custom_occlusion_bounds: crate::bindings::core_u_object::FBox,
-    pub solo_tracking: TArray<FLODSoloTrack>,
-    pub named_material_slots: TArray<FNamedEmitterMaterial>,
+    __padding_end: [u8; 544],
 }
+impl UParticleSystem {}
+#[repr(C, align(8))]
 pub struct UParticleModule {
-    pub flags_48: u8,
-    pub flags_49: u8,
-    pub lod_validity: u8,
-    pub module_editor_color: crate::bindings::core_u_object::FColor,
+    __padding_end: [u8; 56],
 }
+impl UParticleModule {}
+#[repr(C, align(8))]
 pub struct UParticleModuleAccelerationBase {
-    pub flags_56: u8,
+    __padding_end: [u8; 64],
 }
+impl UParticleModuleAccelerationBase {}
+#[repr(C, align(8))]
 pub struct UParticleModuleAcceleration {
-    pub acceleration: FRawDistributionVector,
-    pub flags_160: u8,
+    __padding_end: [u8; 168],
 }
+impl UParticleModuleAcceleration {}
+#[repr(C, align(8))]
 pub struct UParticleModuleAccelerationConstant {
-    pub acceleration: crate::bindings::core_u_object::FVector,
+    __padding_end: [u8; 88],
 }
+impl UParticleModuleAccelerationConstant {}
+#[repr(C, align(8))]
 pub struct UParticleModuleAccelerationDrag {
-    pub drag_coefficient_deprecated: UPtr<UDistributionFloat>,
-    pub drag_coefficient_raw: FRawDistributionFloat,
+    __padding_end: [u8; 120],
 }
+impl UParticleModuleAccelerationDrag {}
+#[repr(C, align(8))]
 pub struct UParticleModuleAccelerationDragScaleOverLife {
-    pub drag_scale_deprecated: UPtr<UDistributionFloat>,
-    pub drag_scale_raw: FRawDistributionFloat,
+    __padding_end: [u8; 120],
 }
+impl UParticleModuleAccelerationDragScaleOverLife {}
+#[repr(C, align(8))]
 pub struct UParticleModuleAccelerationOverLifetime {
-    pub accel_over_life: FRawDistributionVector,
+    __padding_end: [u8; 160],
 }
-pub struct UParticleModuleAttractorBase {}
+impl UParticleModuleAccelerationOverLifetime {}
+#[repr(C, align(8))]
+pub struct UParticleModuleAttractorBase {
+    __padding_end: [u8; 56],
+}
+impl UParticleModuleAttractorBase {}
+#[repr(C, align(8))]
 pub struct UParticleModuleAttractorLine {
-    pub end_point0: crate::bindings::core_u_object::FVector,
-    pub end_point1: crate::bindings::core_u_object::FVector,
-    pub range: FRawDistributionFloat,
-    pub strength: FRawDistributionFloat,
+    __padding_end: [u8; 200],
 }
+impl UParticleModuleAttractorLine {}
+#[repr(C, align(8))]
 pub struct UParticleModuleAttractorParticle {
-    pub emitter_name: FName,
-    pub range: FRawDistributionFloat,
-    pub flags_120: u8,
-    pub strength: FRawDistributionFloat,
-    pub flags_176: u8,
-    pub selection_method: EAttractorParticleSelectionMethod,
-    pub flags_184: u8,
-    pub last_sel_index: i32,
+    __padding_end: [u8; 192],
 }
+impl UParticleModuleAttractorParticle {}
+#[repr(C, align(8))]
 pub struct UParticleModuleAttractorPoint {
-    pub position: FRawDistributionVector,
-    pub range: FRawDistributionFloat,
-    pub strength: FRawDistributionFloat,
-    pub flags_248: u8,
-    pub flags_249: u8,
+    __padding_end: [u8; 256],
 }
+impl UParticleModuleAttractorPoint {}
+#[repr(C, align(8))]
 pub struct UParticleModuleAttractorPointGravity {
-    pub position: crate::bindings::core_u_object::FVector,
-    pub radius: f32,
-    pub strength_deprecated: UPtr<UDistributionFloat>,
-    pub strength_raw: FRawDistributionFloat,
+    __padding_end: [u8; 144],
 }
-pub struct UParticleModuleBeamBase {}
+impl UParticleModuleAttractorPointGravity {}
+#[repr(C, align(8))]
+pub struct UParticleModuleBeamBase {
+    __padding_end: [u8; 56],
+}
+impl UParticleModuleBeamBase {}
+#[repr(C, align(8))]
 pub struct UParticleModuleBeamModifier {
-    pub modifier_type: BeamModifierType,
-    pub position_options: FBeamModifierOptions,
-    pub position: FRawDistributionVector,
-    pub tangent_options: FBeamModifierOptions,
-    pub tangent: FRawDistributionVector,
-    pub flags_264: u8,
-    pub strength_options: FBeamModifierOptions,
-    pub strength: FRawDistributionFloat,
+    __padding_end: [u8; 320],
 }
+impl UParticleModuleBeamModifier {}
+#[repr(C, align(8))]
 pub struct UParticleModuleBeamNoise {
-    pub flags_56: u8,
-    pub frequency: i32,
-    pub frequency_low_range: i32,
-    pub noise_range: FRawDistributionVector,
-    pub noise_range_scale: FRawDistributionFloat,
-    pub flags_216: u8,
-    pub noise_speed: FRawDistributionVector,
-    pub flags_320: u8,
-    pub noise_lock_radius: f32,
-    pub flags_328: u8,
-    pub noise_lock_time: f32,
-    pub noise_tension: f32,
-    pub flags_340: u8,
-    pub noise_tangent_strength: FRawDistributionFloat,
-    pub noise_tessellation: i32,
-    pub flags_396: u8,
-    pub frequency_distance: f32,
-    pub flags_404: u8,
-    pub noise_scale: FRawDistributionFloat,
+    __padding_end: [u8; 456],
 }
+impl UParticleModuleBeamNoise {}
+#[repr(C, align(8))]
 pub struct UParticleModuleBeamSource {
-    pub source_method: Beam2SourceTargetMethod,
-    pub source_name: FName,
-    pub flags_72: u8,
-    pub source: FRawDistributionVector,
-    pub flags_176: u8,
-    pub source_tangent_method: Beam2SourceTargetTangentMethod,
-    pub source_tangent: FRawDistributionVector,
-    pub flags_280: u8,
-    pub source_strength: FRawDistributionFloat,
-    pub flags_336: u8,
+    __padding_end: [u8; 344],
 }
+impl UParticleModuleBeamSource {}
+#[repr(C, align(8))]
 pub struct UParticleModuleBeamTarget {
-    pub target_method: Beam2SourceTargetMethod,
-    pub target_name: FName,
-    pub target: FRawDistributionVector,
-    pub flags_168: u8,
-    pub target_tangent_method: Beam2SourceTargetTangentMethod,
-    pub target_tangent: FRawDistributionVector,
-    pub flags_272: u8,
-    pub target_strength: FRawDistributionFloat,
-    pub flags_328: u8,
-    pub lock_radius: f32,
+    __padding_end: [u8; 344],
 }
-pub struct UParticleModuleCameraBase {}
+impl UParticleModuleBeamTarget {}
+#[repr(C, align(8))]
+pub struct UParticleModuleCameraBase {
+    __padding_end: [u8; 56],
+}
+impl UParticleModuleCameraBase {}
+#[repr(C, align(8))]
 pub struct UParticleModuleCameraOffset {
-    pub camera_offset: FRawDistributionFloat,
-    pub flags_104: u8,
-    pub update_method: EParticleCameraOffsetUpdateMethod,
+    __padding_end: [u8; 112],
 }
-pub struct UParticleModuleCollisionBase {}
+impl UParticleModuleCameraOffset {}
+#[repr(C, align(8))]
+pub struct UParticleModuleCollisionBase {
+    __padding_end: [u8; 56],
+}
+impl UParticleModuleCollisionBase {}
+#[repr(C, align(8))]
 pub struct UParticleModuleCollision {
-    pub damping_factor: FRawDistributionVector,
-    pub damping_factor_rotation: FRawDistributionVector,
-    pub max_collisions: FRawDistributionFloat,
-    pub collision_completion_option: EParticleCollisionComplete,
-    pub collision_types: TArray<EObjectTypeQuery>,
-    pub flags_328: u8,
-    pub particle_mass: FRawDistributionFloat,
-    pub dir_scalar: f32,
-    pub flags_388: u8,
-    pub vertical_fudge_factor: f32,
-    pub delay_amount: FRawDistributionFloat,
-    pub flags_448: u8,
-    pub max_collision_distance: f32,
+    __padding_end: [u8; 456],
 }
+impl UParticleModuleCollision {}
+#[repr(C, align(8))]
 pub struct UParticleModuleCollisionGPU {
-    pub resilience: FRawDistributionFloat,
-    pub resilience_scale_over_life: FRawDistributionFloat,
-    pub friction: f32,
-    pub random_spread: f32,
-    pub random_distribution: f32,
-    pub radius_scale: f32,
-    pub radius_bias: f32,
-    pub response: EParticleCollisionResponse,
-    pub collision_mode: EParticleCollisionMode,
+    __padding_end: [u8; 176],
 }
-pub struct UParticleModuleColorBase {}
+impl UParticleModuleCollisionGPU {}
+#[repr(C, align(8))]
+pub struct UParticleModuleColorBase {
+    __padding_end: [u8; 56],
+}
+impl UParticleModuleColorBase {}
+#[repr(C, align(8))]
 pub struct UParticleModuleColor {
-    pub start_color: FRawDistributionVector,
-    pub start_alpha: FRawDistributionFloat,
-    pub flags_200: u8,
+    __padding_end: [u8; 208],
 }
+impl UParticleModuleColor {}
+#[repr(C, align(8))]
 pub struct UParticleModuleColorOverLife {
-    pub color_over_life: FRawDistributionVector,
-    pub alpha_over_life: FRawDistributionFloat,
-    pub flags_200: u8,
+    __padding_end: [u8; 208],
 }
+impl UParticleModuleColorOverLife {}
+#[repr(C, align(8))]
 pub struct UParticleModuleColorScaleOverLife {
-    pub color_scale_over_life: FRawDistributionVector,
-    pub alpha_scale_over_life: FRawDistributionFloat,
-    pub flags_200: u8,
+    __padding_end: [u8; 208],
 }
+impl UParticleModuleColorScaleOverLife {}
+#[repr(C, align(8))]
 pub struct UParticleModuleColor_Seeded {
-    pub random_seed_info: FParticleRandomSeedInfo,
+    __padding_end: [u8; 240],
 }
-pub struct UParticleModuleEventBase {}
+impl UParticleModuleColor_Seeded {}
+#[repr(C, align(8))]
+pub struct UParticleModuleEventBase {
+    __padding_end: [u8; 56],
+}
+impl UParticleModuleEventBase {}
+#[repr(C, align(8))]
 pub struct UParticleModuleEventGenerator {
-    pub events: TArray<FParticleEvent_GenerateInfo>,
+    __padding_end: [u8; 72],
 }
+impl UParticleModuleEventGenerator {}
+#[repr(C, align(8))]
 pub struct UParticleModuleEventReceiverBase {
-    pub event_generator_type: EParticleEventType,
-    pub event_name: FName,
+    __padding_end: [u8; 72],
 }
+impl UParticleModuleEventReceiverBase {}
+#[repr(C, align(8))]
 pub struct UParticleModuleEventReceiverKillParticles {
-    pub flags_72: u8,
+    __padding_end: [u8; 80],
 }
+impl UParticleModuleEventReceiverKillParticles {}
+#[repr(C, align(8))]
 pub struct UParticleModuleEventReceiverSpawn {
-    pub spawn_count: FRawDistributionFloat,
-    pub flags_120: u8,
-    pub inherit_velocity_scale: FRawDistributionVector,
-    pub physical_materials: TArray<
-        UPtr<crate::bindings::physics_core::UPhysicalMaterial>,
-    >,
-    pub flags_240: u8,
+    __padding_end: [u8; 248],
 }
-pub struct UParticleModuleEventSendToGame {}
-pub struct UParticleModuleKillBase {}
+impl UParticleModuleEventReceiverSpawn {}
+#[repr(C, align(8))]
+pub struct UParticleModuleEventSendToGame {
+    __padding_end: [u8; 48],
+}
+impl UParticleModuleEventSendToGame {}
+#[repr(C, align(8))]
+pub struct UParticleModuleKillBase {
+    __padding_end: [u8; 56],
+}
+impl UParticleModuleKillBase {}
+#[repr(C, align(8))]
 pub struct UParticleModuleKillBox {
-    pub lower_left_corner: FRawDistributionVector,
-    pub upper_right_corner: FRawDistributionVector,
-    pub flags_248: u8,
+    __padding_end: [u8; 256],
 }
+impl UParticleModuleKillBox {}
+#[repr(C, align(8))]
 pub struct UParticleModuleKillHeight {
-    pub height: FRawDistributionFloat,
-    pub flags_104: u8,
+    __padding_end: [u8; 112],
 }
-pub struct UParticleModuleLifetimeBase {}
+impl UParticleModuleKillHeight {}
+#[repr(C, align(8))]
+pub struct UParticleModuleLifetimeBase {
+    __padding_end: [u8; 56],
+}
+impl UParticleModuleLifetimeBase {}
+#[repr(C, align(8))]
 pub struct UParticleModuleLifetime {
-    pub lifetime: FRawDistributionFloat,
+    __padding_end: [u8; 104],
 }
+impl UParticleModuleLifetime {}
+#[repr(C, align(8))]
 pub struct UParticleModuleLifetime_Seeded {
-    pub random_seed_info: FParticleRandomSeedInfo,
+    __padding_end: [u8; 136],
 }
-pub struct UParticleModuleLightBase {}
+impl UParticleModuleLifetime_Seeded {}
+#[repr(C, align(8))]
+pub struct UParticleModuleLightBase {
+    __padding_end: [u8; 56],
+}
+impl UParticleModuleLightBase {}
+#[repr(C, align(8))]
 pub struct UParticleModuleLight {
-    pub b_use_inverse_squared_falloff: bool,
-    pub b_affects_translucency: bool,
-    pub flags_60: u8,
-    pub b_preview_light_radius: bool,
-    pub spawn_fraction: f32,
-    pub color_scale_over_life: FRawDistributionVector,
-    pub brightness_over_life: FRawDistributionFloat,
-    pub radius_scale: FRawDistributionFloat,
-    pub light_exponent: FRawDistributionFloat,
+    #[doc(hidden)]
+    __padding_312: [u8; 312],
     pub inverse_exposure_blend: f32,
     pub lighting_channels: FLightingChannels,
     pub volumetric_scattering_intensity: f32,
-    pub b_high_quality_lights: bool,
-    pub b_shadow_casting_lights: bool,
+    __padding_end: [u8; 4],
 }
+impl UParticleModuleLight {}
+#[repr(C, align(8))]
 pub struct UParticleModuleLight_Seeded {
-    pub random_seed_info: FParticleRandomSeedInfo,
+    __padding_end: [u8; 360],
 }
-pub struct UParticleModuleLocationBase {}
+impl UParticleModuleLight_Seeded {}
+#[repr(C, align(8))]
+pub struct UParticleModuleLocationBase {
+    __padding_end: [u8; 56],
+}
+impl UParticleModuleLocationBase {}
+#[repr(C, align(8))]
 pub struct UParticleModuleLocation {
-    pub start_location: FRawDistributionVector,
-    pub distribute_over_n_points: f32,
-    pub distribute_threshold: f32,
+    __padding_end: [u8; 160],
 }
+impl UParticleModuleLocation {}
+#[repr(C, align(8))]
 pub struct UParticleModuleLocationBoneSocket {
-    pub source_type: ELocationBoneSocketSource,
-    pub universal_offset: crate::bindings::core_u_object::FVector,
-    pub source_locations: TArray<FLocationBoneSocketInfo>,
-    pub selection_method: ELocationBoneSocketSelectionMethod,
-    pub flags_108: u8,
-    pub inherit_velocity_scale: f32,
-    pub skel_mesh_actor_param_name: FName,
-    pub num_pre_selected_indices: i32,
-    pub editor_skel_mesh: UPtr<USkeletalMesh>,
+    __padding_end: [u8; 152],
 }
+impl UParticleModuleLocationBoneSocket {}
+#[repr(C, align(8))]
 pub struct UParticleModuleLocationDirect {
-    pub location: FRawDistributionVector,
-    pub location_offset: FRawDistributionVector,
-    pub scale_factor: FRawDistributionVector,
-    pub direction: FRawDistributionVector,
+    __padding_end: [u8; 440],
 }
+impl UParticleModuleLocationDirect {}
+#[repr(C, align(8))]
 pub struct UParticleModuleLocationEmitter {
-    pub emitter_name: FName,
-    pub selection_method: ELocationEmitterSelectionMethod,
-    pub flags_72: u8,
-    pub inherit_source_velocity_scale: f32,
-    pub flags_80: u8,
-    pub inherit_source_rotation_scale: f32,
+    __padding_end: [u8; 88],
 }
+impl UParticleModuleLocationEmitter {}
+#[repr(C, align(8))]
 pub struct UParticleModuleLocationEmitterDirect {
-    pub emitter_name: FName,
+    __padding_end: [u8; 72],
 }
+impl UParticleModuleLocationEmitterDirect {}
+#[repr(C, align(8))]
 pub struct UParticleModuleLocationPrimitiveBase {
-    pub flags_56: u8,
-    pub velocity_scale: FRawDistributionFloat,
-    pub start_location: FRawDistributionVector,
+    __padding_end: [u8; 208],
 }
+impl UParticleModuleLocationPrimitiveBase {}
+#[repr(C, align(8))]
 pub struct UParticleModuleLocationPrimitiveCylinder {
-    pub flags_208: u8,
-    pub start_radius: FRawDistributionFloat,
-    pub start_height: FRawDistributionFloat,
-    pub height_axis: CylinderHeightAxis,
+    __padding_end: [u8; 320],
 }
+impl UParticleModuleLocationPrimitiveCylinder {}
+#[repr(C, align(8))]
 pub struct UParticleModuleLocationPrimitiveCylinder_Seeded {
-    pub random_seed_info: FParticleRandomSeedInfo,
+    __padding_end: [u8; 352],
 }
+impl UParticleModuleLocationPrimitiveCylinder_Seeded {}
+#[repr(C, align(8))]
 pub struct UParticleModuleLocationPrimitiveSphere {
-    pub start_radius: FRawDistributionFloat,
+    __padding_end: [u8; 256],
 }
+impl UParticleModuleLocationPrimitiveSphere {}
+#[repr(C, align(8))]
 pub struct UParticleModuleLocationPrimitiveSphere_Seeded {
-    pub random_seed_info: FParticleRandomSeedInfo,
+    __padding_end: [u8; 288],
 }
+impl UParticleModuleLocationPrimitiveSphere_Seeded {}
+#[repr(C, align(8))]
 pub struct UParticleModuleLocationPrimitiveTriangle {
-    pub start_offset: FRawDistributionVector,
-    pub height: FRawDistributionFloat,
-    pub angle: FRawDistributionFloat,
-    pub thickness: FRawDistributionFloat,
+    __padding_end: [u8; 296],
 }
+impl UParticleModuleLocationPrimitiveTriangle {}
+#[repr(C, align(8))]
 pub struct UParticleModuleLocationSkelVertSurface {
-    pub source_type: ELocationSkelVertSurfaceSource,
-    pub universal_offset: crate::bindings::core_u_object::FVector,
-    pub flags_88: u8,
-    pub inherit_velocity_scale: f32,
-    pub skel_mesh_actor_param_name: FName,
-    pub editor_skel_mesh: UPtr<USkeletalMesh>,
-    pub valid_associated_bones: TArray<FName>,
-    pub flags_136: u8,
-    pub normal_to_compare: crate::bindings::core_u_object::FVector,
-    pub normal_check_tolerance_degrees: f32,
-    pub normal_check_tolerance: f32,
-    pub valid_material_indices: TArray<i32>,
-    pub flags_192: u8,
-    pub inherit_uv_channel: u32,
+    __padding_end: [u8; 200],
 }
-pub struct UParticleModuleLocationWorldOffset {}
+impl UParticleModuleLocationSkelVertSurface {}
+#[repr(C, align(8))]
+pub struct UParticleModuleLocationWorldOffset {
+    __padding_end: [u8; 160],
+}
+impl UParticleModuleLocationWorldOffset {}
+#[repr(C, align(8))]
 pub struct UParticleModuleLocationWorldOffset_Seeded {
-    pub random_seed_info: FParticleRandomSeedInfo,
+    __padding_end: [u8; 192],
 }
+impl UParticleModuleLocationWorldOffset_Seeded {}
+#[repr(C, align(8))]
 pub struct UParticleModuleLocation_Seeded {
-    pub random_seed_info: FParticleRandomSeedInfo,
+    __padding_end: [u8; 192],
 }
-pub struct UParticleModuleMaterialBase {}
+impl UParticleModuleLocation_Seeded {}
+#[repr(C, align(8))]
+pub struct UParticleModuleMaterialBase {
+    __padding_end: [u8; 56],
+}
+impl UParticleModuleMaterialBase {}
+#[repr(C, align(8))]
 pub struct UParticleModuleMeshMaterial {
-    pub mesh_materials: TArray<UPtr<UMaterialInterface>>,
+    __padding_end: [u8; 72],
 }
-pub struct UParticleModuleRotationBase {}
+impl UParticleModuleMeshMaterial {}
+#[repr(C, align(8))]
+pub struct UParticleModuleRotationBase {
+    __padding_end: [u8; 56],
+}
+impl UParticleModuleRotationBase {}
+#[repr(C, align(8))]
 pub struct UParticleModuleMeshRotation {
-    pub start_rotation: FRawDistributionVector,
-    pub flags_152: u8,
+    __padding_end: [u8; 160],
 }
-pub struct UParticleModuleRotationRateBase {}
+impl UParticleModuleMeshRotation {}
+#[repr(C, align(8))]
+pub struct UParticleModuleRotationRateBase {
+    __padding_end: [u8; 56],
+}
+impl UParticleModuleRotationRateBase {}
+#[repr(C, align(8))]
 pub struct UParticleModuleMeshRotationRate {
-    pub start_rotation_rate: FRawDistributionVector,
+    __padding_end: [u8; 152],
 }
+impl UParticleModuleMeshRotationRate {}
+#[repr(C, align(8))]
 pub struct UParticleModuleMeshRotationRateMultiplyLife {
-    pub life_multiplier: FRawDistributionVector,
+    __padding_end: [u8; 152],
 }
+impl UParticleModuleMeshRotationRateMultiplyLife {}
+#[repr(C, align(8))]
 pub struct UParticleModuleMeshRotationRateOverLife {
-    pub rot_rate: FRawDistributionVector,
-    pub flags_152: u8,
+    __padding_end: [u8; 160],
 }
+impl UParticleModuleMeshRotationRateOverLife {}
+#[repr(C, align(8))]
 pub struct UParticleModuleMeshRotationRate_Seeded {
-    pub random_seed_info: FParticleRandomSeedInfo,
+    __padding_end: [u8; 184],
 }
+impl UParticleModuleMeshRotationRate_Seeded {}
+#[repr(C, align(8))]
 pub struct UParticleModuleMeshRotation_Seeded {
-    pub random_seed_info: FParticleRandomSeedInfo,
+    __padding_end: [u8; 192],
 }
+impl UParticleModuleMeshRotation_Seeded {}
+#[repr(C, align(8))]
 pub struct UParticleModuleOrbitBase {
-    pub flags_56: u8,
+    __padding_end: [u8; 64],
 }
+impl UParticleModuleOrbitBase {}
+#[repr(C, align(8))]
 pub struct UParticleModuleOrbit {
-    pub chain_mode: EOrbitChainMode,
-    pub offset_amount: FRawDistributionVector,
-    pub offset_options: FOrbitOptions,
-    pub rotation_amount: FRawDistributionVector,
-    pub rotation_options: FOrbitOptions,
-    pub rotation_rate_amount: FRawDistributionVector,
-    pub rotation_rate_options: FOrbitOptions,
+    __padding_end: [u8; 384],
 }
-pub struct UParticleModuleOrientationBase {}
+impl UParticleModuleOrbit {}
+#[repr(C, align(8))]
+pub struct UParticleModuleOrientationBase {
+    __padding_end: [u8; 56],
+}
+impl UParticleModuleOrientationBase {}
+#[repr(C, align(8))]
 pub struct UParticleModuleOrientationAxisLock {
-    pub lock_axis_flags: EParticleAxisLock,
+    __padding_end: [u8; 64],
 }
-pub struct UParticleModuleParameterBase {}
+impl UParticleModuleOrientationAxisLock {}
+#[repr(C, align(8))]
+pub struct UParticleModuleParameterBase {
+    __padding_end: [u8; 56],
+}
+impl UParticleModuleParameterBase {}
+#[repr(C, align(8))]
 pub struct UParticleModuleParameterDynamic {
-    pub dynamic_params: TArray<FEmitterDynamicParameter>,
-    pub update_flags: i32,
-    pub flags_76: u8,
+    __padding_end: [u8; 80],
 }
+impl UParticleModuleParameterDynamic {}
+#[repr(C, align(8))]
 pub struct UParticleModuleParameterDynamic_Seeded {
-    pub random_seed_info: FParticleRandomSeedInfo,
+    __padding_end: [u8; 112],
 }
+impl UParticleModuleParameterDynamic_Seeded {}
+#[repr(C, align(8))]
 pub struct UParticleModulePivotOffset {
-    pub pivot_offset: crate::bindings::core_u_object::FVector2D,
+    __padding_end: [u8; 72],
 }
+impl UParticleModulePivotOffset {}
+#[repr(C, align(8))]
 pub struct UParticleModuleRequired {
-    pub material: UPtr<UMaterialInterface>,
-    pub min_facing_camera_blend_distance: f32,
-    pub max_facing_camera_blend_distance: f32,
-    pub emitter_origin: crate::bindings::core_u_object::FVector,
-    pub emitter_rotation: crate::bindings::core_u_object::FRotator,
-    pub screen_alignment: EParticleScreenAlignment,
-    pub flags_121: u8,
-    pub sort_mode: EParticleSortMode,
-    pub flags_123: u8,
-    pub emitter_duration: f32,
-    pub spawn_rate: FRawDistributionFloat,
-    pub burst_list: TArray<FParticleBurst>,
-    pub emitter_delay: f32,
-    pub emitter_delay_low: f32,
-    pub flags_200: u8,
-    pub interpolation_method: EParticleSubUVInterpMethod,
-    pub flags_202: u8,
-    pub particle_burst_method: EParticleBurstMethod,
-    pub flags_204: u8,
-    pub opacity_source_mode: EOpacitySourceMode,
-    pub emitter_normals_mode: EEmitterNormalsMode,
-    pub flags_207: u8,
-    pub sub_images_horizontal: i32,
-    pub sub_images_vertical: i32,
-    pub random_image_time: f32,
-    pub random_image_changes: i32,
-    pub macro_uv_position: crate::bindings::core_u_object::FVector,
-    pub macro_uv_radius: f32,
-    pub uv_flipping_mode: EParticleUVFlipMode,
-    pub bounding_mode: ESubUVBoundingVertexCount,
-    pub flags_254: u8,
-    pub normals_sphere_center: crate::bindings::core_u_object::FVector,
-    pub alpha_threshold: f32,
-    pub emitter_loops: i32,
-    pub cutout_texture: UPtr<UTexture2D>,
-    pub max_draw_count: i32,
-    pub emitter_duration_low: f32,
-    pub normals_cylinder_direction: crate::bindings::core_u_object::FVector,
-    pub named_material_overrides: TArray<FName>,
+    __padding_end: [u8; 376],
 }
+impl UParticleModuleRequired {}
+#[repr(C, align(8))]
 pub struct UParticleModuleRotation {
-    pub start_rotation: FRawDistributionFloat,
+    __padding_end: [u8; 104],
 }
+impl UParticleModuleRotation {}
+#[repr(C, align(8))]
 pub struct UParticleModuleRotationOverLifetime {
-    pub rotation_over_life: FRawDistributionFloat,
-    pub flags_104: u8,
+    __padding_end: [u8; 112],
 }
+impl UParticleModuleRotationOverLifetime {}
+#[repr(C, align(8))]
 pub struct UParticleModuleRotationRate {
-    pub start_rotation_rate: FRawDistributionFloat,
+    __padding_end: [u8; 104],
 }
+impl UParticleModuleRotationRate {}
+#[repr(C, align(8))]
 pub struct UParticleModuleRotationRateMultiplyLife {
-    pub life_multiplier: FRawDistributionFloat,
+    __padding_end: [u8; 104],
 }
+impl UParticleModuleRotationRateMultiplyLife {}
+#[repr(C, align(8))]
 pub struct UParticleModuleRotationRate_Seeded {
-    pub random_seed_info: FParticleRandomSeedInfo,
+    __padding_end: [u8; 136],
 }
+impl UParticleModuleRotationRate_Seeded {}
+#[repr(C, align(8))]
 pub struct UParticleModuleRotation_Seeded {
-    pub random_seed_info: FParticleRandomSeedInfo,
+    __padding_end: [u8; 136],
 }
-pub struct UParticleModuleSizeBase {}
+impl UParticleModuleRotation_Seeded {}
+#[repr(C, align(8))]
+pub struct UParticleModuleSizeBase {
+    __padding_end: [u8; 56],
+}
+impl UParticleModuleSizeBase {}
+#[repr(C, align(8))]
 pub struct UParticleModuleSize {
-    pub start_size: FRawDistributionVector,
+    __padding_end: [u8; 152],
 }
+impl UParticleModuleSize {}
+#[repr(C, align(8))]
 pub struct UParticleModuleSizeMultiplyLife {
-    pub life_multiplier: FRawDistributionVector,
-    pub flags_152: u8,
+    __padding_end: [u8; 160],
 }
+impl UParticleModuleSizeMultiplyLife {}
+#[repr(C, align(8))]
 pub struct UParticleModuleSizeScale {
-    pub size_scale: FRawDistributionVector,
-    pub flags_152: u8,
+    __padding_end: [u8; 160],
 }
+impl UParticleModuleSizeScale {}
+#[repr(C, align(8))]
 pub struct UParticleModuleSizeScaleBySpeed {
-    pub speed_scale: crate::bindings::core_u_object::FVector2D,
-    pub max_scale: crate::bindings::core_u_object::FVector2D,
+    __padding_end: [u8; 88],
 }
+impl UParticleModuleSizeScaleBySpeed {}
+#[repr(C, align(8))]
 pub struct UParticleModuleSize_Seeded {
-    pub random_seed_info: FParticleRandomSeedInfo,
+    __padding_end: [u8; 184],
 }
+impl UParticleModuleSize_Seeded {}
+#[repr(C, align(8))]
 pub struct UParticleModuleSourceMovement {
-    pub source_movement_scale: FRawDistributionVector,
+    __padding_end: [u8; 152],
 }
+impl UParticleModuleSourceMovement {}
+#[repr(C, align(8))]
 pub struct UParticleModuleSpawnBase {
-    pub flags_56: u8,
+    __padding_end: [u8; 64],
 }
+impl UParticleModuleSpawnBase {}
+#[repr(C, align(8))]
 pub struct UParticleModuleSpawn {
-    pub rate: FRawDistributionFloat,
-    pub rate_scale: FRawDistributionFloat,
-    pub burst_list: TArray<FParticleBurst>,
-    pub burst_scale: FRawDistributionFloat,
-    pub particle_burst_method: EParticleBurstMethod,
-    pub flags_228: u8,
+    __padding_end: [u8; 232],
 }
+impl UParticleModuleSpawn {}
+#[repr(C, align(8))]
 pub struct UParticleModuleSpawnPerUnit {
-    pub unit_scalar: f32,
-    pub movement_tolerance: f32,
-    pub spawn_per_unit: FRawDistributionFloat,
-    pub max_frame_distance: f32,
-    pub flags_124: u8,
+    __padding_end: [u8; 128],
 }
-pub struct UParticleModuleSubUVBase {}
+impl UParticleModuleSpawnPerUnit {}
+#[repr(C, align(8))]
+pub struct UParticleModuleSubUVBase {
+    __padding_end: [u8; 56],
+}
+impl UParticleModuleSubUVBase {}
+#[repr(C, align(8))]
 pub struct UParticleModuleSubUV {
-    pub animation: UPtr<USubUVAnimation>,
-    pub sub_image_index: FRawDistributionFloat,
-    pub flags_112: u8,
+    __padding_end: [u8; 120],
 }
+impl UParticleModuleSubUV {}
+#[repr(C, align(8))]
 pub struct UParticleModuleSubUVMovie {
-    pub flags_120: u8,
-    pub frame_rate: FRawDistributionFloat,
-    pub starting_frame: i32,
+    __padding_end: [u8; 184],
 }
-pub struct UParticleModuleTrailBase {}
+impl UParticleModuleSubUVMovie {}
+#[repr(C, align(8))]
+pub struct UParticleModuleTrailBase {
+    __padding_end: [u8; 56],
+}
+impl UParticleModuleTrailBase {}
+#[repr(C, align(8))]
 pub struct UParticleModuleTrailSource {
-    pub source_method: ETrail2SourceMethod,
-    pub source_name: FName,
-    pub source_strength: FRawDistributionFloat,
-    pub flags_120: u8,
-    pub source_offset_count: i32,
-    pub source_offset_defaults: TArray<crate::bindings::core_u_object::FVector>,
-    pub selection_method: EParticleSourceSelectionMethod,
-    pub flags_148: u8,
+    __padding_end: [u8; 152],
 }
-pub struct UParticleModuleTypeDataBase {}
+impl UParticleModuleTrailSource {}
+#[repr(C, align(8))]
+pub struct UParticleModuleTypeDataBase {
+    __padding_end: [u8; 56],
+}
+impl UParticleModuleTypeDataBase {}
+#[repr(C, align(8))]
 pub struct UParticleModuleTypeDataAnimTrail {
-    pub flags_56: u8,
-    pub tiling_distance: f32,
-    pub distance_tessellation_step_size: f32,
-    pub tangent_tessellation_step_size: f32,
-    pub width_tessellation_step_size: f32,
+    __padding_end: [u8; 80],
 }
+impl UParticleModuleTypeDataAnimTrail {}
+#[repr(C, align(8))]
 pub struct UParticleModuleTypeDataBeam2 {
-    pub beam_method: EBeam2Method,
-    pub texture_tile: i32,
-    pub texture_tile_distance: f32,
-    pub sheets: i32,
-    pub max_beam_count: i32,
-    pub speed: f32,
-    pub interpolation_points: i32,
-    pub flags_84: u8,
-    pub up_vector_step_size: i32,
-    pub branch_parent_name: FName,
-    pub distance: FRawDistributionFloat,
-    pub taper_method: EBeamTaperMethod,
-    pub taper_factor: FRawDistributionFloat,
-    pub taper_scale: FRawDistributionFloat,
-    pub flags_256: u8,
+    __padding_end: [u8; 344],
 }
+impl UParticleModuleTypeDataBeam2 {}
+#[repr(C, align(16))]
 pub struct UParticleModuleTypeDataGpu {
-    pub emitter_info: FGPUSpriteEmitterInfo,
-    pub resource_data: FGPUSpriteResourceData,
-    pub camera_motion_blur_amount: f32,
-    pub flags_1492: u8,
+    __padding_end: [u8; 1504],
 }
+impl UParticleModuleTypeDataGpu {}
+#[repr(C, align(8))]
 pub struct UParticleModuleTypeDataMesh {
-    pub mesh: UPtr<UStaticMesh>,
-    pub lod_size_scale: f32,
-    pub flags_76: u8,
-    pub mesh_alignment: EMeshScreenAlignment,
-    pub flags_78: u8,
-    pub roll_pitch_yaw_range: FRawDistributionVector,
-    pub axis_lock_option: EParticleAxisLock,
-    pub flags_177: u8,
-    pub camera_facing_up_axis_option_deprecated: EMeshCameraFacingUpAxis,
-    pub camera_facing_option: EMeshCameraFacingOptions,
-    pub flags_180: u8,
+    __padding_end: [u8; 184],
 }
+impl UParticleModuleTypeDataMesh {}
+#[repr(C, align(8))]
 pub struct UParticleModuleTypeDataRibbon {
-    pub max_tessellation_between_particles: i32,
-    pub sheets_per_trail: i32,
-    pub max_trail_count: i32,
-    pub max_particle_in_trail_count: i32,
-    pub flags_72: u8,
-    pub render_axis: ETrailsRenderAxisOption,
-    pub tangent_spawning_scalar: f32,
-    pub flags_84: u8,
-    pub tiling_distance: f32,
-    pub distance_tessellation_step_size: f32,
-    pub flags_96: u8,
-    pub tangent_tessellation_scalar: f32,
+    __padding_end: [u8; 104],
 }
-pub struct UParticleModuleVectorFieldBase {}
+impl UParticleModuleTypeDataRibbon {}
+#[repr(C, align(8))]
+pub struct UParticleModuleVectorFieldBase {
+    __padding_end: [u8; 56],
+}
+impl UParticleModuleVectorFieldBase {}
+#[repr(C, align(8))]
 pub struct UParticleModuleVectorFieldGlobal {
-    pub flags_56: u8,
-    pub global_vector_field_scale: f32,
-    pub global_vector_field_tightness: f32,
+    __padding_end: [u8; 72],
 }
+impl UParticleModuleVectorFieldGlobal {}
+#[repr(C, align(8))]
 pub struct UParticleModuleVectorFieldLocal {
-    pub vector_field: UPtr<UVectorField>,
-    pub relative_translation: crate::bindings::core_u_object::FVector,
-    pub relative_rotation: crate::bindings::core_u_object::FRotator,
-    pub relative_scale3_d: crate::bindings::core_u_object::FVector,
-    pub intensity: f32,
-    pub tightness: f32,
-    pub flags_144: u8,
+    __padding_end: [u8; 152],
 }
+impl UParticleModuleVectorFieldLocal {}
+#[repr(C, align(8))]
 pub struct UParticleModuleVectorFieldRotation {
-    pub min_initial_rotation: crate::bindings::core_u_object::FVector,
-    pub max_initial_rotation: crate::bindings::core_u_object::FVector,
+    __padding_end: [u8; 104],
 }
+impl UParticleModuleVectorFieldRotation {}
+#[repr(C, align(8))]
 pub struct UParticleModuleVectorFieldRotationRate {
-    pub rotation_rate: crate::bindings::core_u_object::FVector,
+    __padding_end: [u8; 80],
 }
+impl UParticleModuleVectorFieldRotationRate {}
+#[repr(C, align(8))]
 pub struct UParticleModuleVectorFieldScale {
-    pub vector_field_scale_deprecated: UPtr<UDistributionFloat>,
-    pub vector_field_scale_raw: FRawDistributionFloat,
+    __padding_end: [u8; 112],
 }
+impl UParticleModuleVectorFieldScale {}
+#[repr(C, align(8))]
 pub struct UParticleModuleVectorFieldScaleOverLife {
-    pub vector_field_scale_over_life_deprecated: UPtr<UDistributionFloat>,
-    pub vector_field_scale_over_life_raw: FRawDistributionFloat,
+    __padding_end: [u8; 112],
 }
+impl UParticleModuleVectorFieldScaleOverLife {}
+#[repr(C, align(8))]
 pub struct UParticleModuleVelocityBase {
-    pub flags_56: u8,
+    __padding_end: [u8; 64],
 }
+impl UParticleModuleVelocityBase {}
+#[repr(C, align(8))]
 pub struct UParticleModuleVelocity {
-    pub start_velocity: FRawDistributionVector,
-    pub start_velocity_radial: FRawDistributionFloat,
+    __padding_end: [u8; 208],
 }
+impl UParticleModuleVelocity {}
+#[repr(C, align(8))]
 pub struct UParticleModuleVelocityCone {
-    pub angle: FRawDistributionFloat,
-    pub velocity: FRawDistributionFloat,
-    pub direction: crate::bindings::core_u_object::FVector,
+    __padding_end: [u8; 184],
 }
+impl UParticleModuleVelocityCone {}
+#[repr(C, align(8))]
 pub struct UParticleModuleVelocityInheritParent {
-    pub scale: FRawDistributionVector,
+    __padding_end: [u8; 160],
 }
+impl UParticleModuleVelocityInheritParent {}
+#[repr(C, align(8))]
 pub struct UParticleModuleVelocityOverLifetime {
-    pub vel_over_life: FRawDistributionVector,
-    pub flags_160: u8,
+    __padding_end: [u8; 168],
 }
+impl UParticleModuleVelocityOverLifetime {}
+#[repr(C, align(8))]
 pub struct UParticleModuleVelocity_Seeded {
-    pub random_seed_info: FParticleRandomSeedInfo,
+    __padding_end: [u8; 240],
 }
+impl UParticleModuleVelocity_Seeded {}
+#[repr(C, align(8))]
 pub struct UParticleEmitter {
-    pub emitter_name: FName,
-    pub sub_uv_data_offset: i32,
-    pub emitter_render_mode: EEmitterRenderMode,
-    pub significance_level: EParticleSignificanceLevel,
-    pub flags_67: u8,
-    pub flags_68: u8,
-    pub emitter_editor_color: crate::bindings::core_u_object::FColor,
-    pub lod_levels: TArray<UPtr<UParticleLODLevel>>,
-    pub peak_active_particles: i32,
-    pub initial_allocation_count: i32,
-    pub quality_level_spawn_rate_scale: f32,
-    pub detail_mode_bitmask: u32,
-    pub detail_mode_display: FString,
+    __padding_end: [u8; 496],
 }
-pub struct UParticleSpriteEmitter {}
+impl UParticleEmitter {}
+#[repr(C, align(8))]
+pub struct UParticleSpriteEmitter {
+    __padding_end: [u8; 496],
+}
+impl UParticleSpriteEmitter {}
+#[repr(C, align(8))]
 pub struct UParticleSystemReplay {
-    pub clip_id_number: i32,
+    __padding_end: [u8; 72],
 }
+impl UParticleSystemReplay {}
 pub struct UPathFollowingAgentInterface {}
 pub struct IPathFollowingAgentInterface {}
+#[repr(C, align(16))]
 pub struct UPhysicsSpringComponent {
+    #[doc(hidden)]
+    __padding_656: [u8; 656],
     pub spring_stiffness: f32,
     pub spring_damping: f32,
     pub spring_length_at_rest: f32,
@@ -11134,36 +6831,58 @@ pub struct UPhysicsSpringComponent {
     pub spring_channel: ECollisionChannel,
     pub b_ignore_self: bool,
     pub spring_compression: f32,
+    __padding_end: [u8; 24],
 }
-pub struct UPhysicsThreadLibrary {}
+impl UPhysicsSpringComponent {}
+#[repr(C, align(8))]
+pub struct UPhysicsThreadLibrary {
+    __padding_end: [u8; 48],
+}
+impl UPhysicsThreadLibrary {}
+#[repr(C, align(16))]
 pub struct UPhysicsThrusterComponent {
+    #[doc(hidden)]
+    __padding_656: [u8; 656],
     pub thrust_strength: f32,
+    __padding_end: [u8; 12],
 }
+impl UPhysicsThrusterComponent {}
+#[repr(C, align(8))]
 pub struct UPieFixupTestObject {
-    pub path: crate::bindings::core_u_object::FSoftObjectPath,
-    pub typed_ptr: TSoftObjectPtr<AActor>,
-    pub _struct: FPieFixupStructWithSoftObjectPath,
-    pub array: TArray<FPieFixupStructWithSoftObjectPath>,
+    __padding_end: [u8; 240],
 }
+impl UPieFixupTestObject {}
+#[repr(C, align(8))]
 pub struct ASceneCapture {
-    pub mesh_comp_deprecated: UPtr<UStaticMeshComponent>,
+    #[doc(hidden)]
+    __padding_1144: [u8; 1144],
     pub scene_component: UPtr<USceneComponent>,
 }
+impl ASceneCapture {}
+#[repr(C, align(8))]
 pub struct APlanarReflection {
+    #[doc(hidden)]
+    __padding_1152: [u8; 1152],
     pub planar_reflection_component: UPtr<UPlanarReflectionComponent>,
-    pub sprite_component: UPtr<UBillboardComponent>,
-    pub b_show_preview_plane_deprecated: bool,
+    __padding_end: [u8; 16],
 }
+impl APlanarReflection {}
+#[repr(C, align(16))]
 pub struct USceneCaptureComponent {
+    #[doc(hidden)]
+    __padding_656: [u8; 656],
     pub primitive_render_mode: ESceneCapturePrimitiveRenderMode,
     pub capture_source: ESceneCaptureSource,
     pub flags_658: u8,
     pub b_always_persist_rendering_state: bool,
-    pub hidden_components: TArray<TWeakObjectPtr<UPrimitiveComponent>>,
+    #[doc(hidden)]
+    __padding_680: [u8; 16],
     pub hidden_actors: TArray<UPtr<AActor>>,
-    pub show_only_components: TArray<TWeakObjectPtr<UPrimitiveComponent>>,
+    #[doc(hidden)]
+    __padding_712: [u8; 16],
     pub show_only_actors: TArray<UPtr<AActor>>,
-    pub lod_distance_factor: f32,
+    #[doc(hidden)]
+    __padding_732: [u8; 4],
     pub max_view_distance_override: f32,
     pub capture_sort_priority: i32,
     pub b_use_ray_tracing_if_enabled: bool,
@@ -11172,59 +6891,92 @@ pub struct USceneCaptureComponent {
     pub collection_transform_projection: FName,
     pub view_lighting_channels: FViewLightingChannels,
     pub show_flag_settings: TArray<FEngineShowFlagsSetting>,
+    #[doc(hidden)]
+    __padding_864: [u8; 64],
     pub profiling_event_name: FString,
+    __padding_end: [u8; 80],
 }
+impl USceneCaptureComponent {}
+#[repr(C, align(16))]
 pub struct UPlanarReflectionComponent {
-    pub preview_box: UPtr<UBoxComponent>,
-    pub normal_distortion_strength: f32,
-    pub prefilter_roughness: f32,
-    pub prefilter_roughness_distance: f32,
-    pub screen_percentage: i32,
-    pub extra_fov: f32,
-    pub distance_from_plane_fade_start_deprecated: f32,
-    pub distance_from_plane_fade_end_deprecated: f32,
-    pub distance_from_plane_fadeout_start: f32,
-    pub distance_from_plane_fadeout_end: f32,
-    pub angle_from_plane_fade_start: f32,
-    pub angle_from_plane_fade_end: f32,
-    pub b_show_preview_plane: bool,
-    pub b_render_scene_two_sided: bool,
+    __padding_end: [u8; 1344],
 }
-pub struct APlaneReflectionCapture {}
+impl UPlanarReflectionComponent {}
+#[repr(C, align(8))]
+pub struct APlaneReflectionCapture {
+    __padding_end: [u8; 1160],
+}
+impl APlaneReflectionCapture {}
+#[repr(C, align(16))]
 pub struct UPlaneReflectionCaptureComponent {
+    #[doc(hidden)]
+    __padding_768: [u8; 768],
     pub influence_radius_scale: f32,
-    pub preview_influence_radius: UPtr<UDrawSphereComponent>,
-    pub preview_capture_box: UPtr<UBoxComponent>,
+    __padding_end: [u8; 28],
 }
+impl UPlaneReflectionCaptureComponent {}
+#[repr(C, align(8))]
 pub struct UPlatformInterfaceWebResponse {
-    pub original_url: FString,
-    pub response_code: i32,
-    pub tag: i32,
-    pub string_response: FString,
-    pub binary_response: TArray<u8>,
+    __padding_end: [u8; 184],
 }
+impl UPlatformInterfaceWebResponse {}
+#[repr(C, align(8))]
 pub struct APointLight {
+    #[doc(hidden)]
+    __padding_1152: [u8; 1152],
     pub point_light_component: UPtr<UPointLightComponent>,
 }
-pub struct UPolys {}
+impl APointLight {}
+#[repr(C, align(8))]
+pub struct UPolys {
+    __padding_end: [u8; 64],
+}
+impl UPolys {}
+#[repr(C, align(8))]
 pub struct APrecomputedVisibilityOverrideVolume {
+    #[doc(hidden)]
+    __padding_1208: [u8; 1208],
     pub override_visible_actors: TArray<UPtr<AActor>>,
     pub override_invisible_actors: TArray<UPtr<AActor>>,
     pub override_invisible_levels: TArray<FName>,
 }
-pub struct ARigidBodyBase {}
-pub struct ARadialForceActor {
-    pub force_component: UPtr<URadialForceComponent>,
-    pub sprite_component: UPtr<UBillboardComponent>,
+impl APrecomputedVisibilityOverrideVolume {}
+#[repr(C, align(8))]
+pub struct ARigidBodyBase {
+    __padding_end: [u8; 1136],
 }
-pub struct UReplicationDriver {}
-pub struct UReplicationConnectionDriver {}
+impl ARigidBodyBase {}
+#[repr(C, align(8))]
+pub struct ARadialForceActor {
+    #[doc(hidden)]
+    __padding_1136: [u8; 1136],
+    pub force_component: UPtr<URadialForceComponent>,
+    __padding_end: [u8; 8],
+}
+impl ARadialForceActor {}
+#[repr(C, align(8))]
+pub struct UReplicationDriver {
+    __padding_end: [u8; 48],
+}
+impl UReplicationDriver {}
+#[repr(C, align(8))]
+pub struct UReplicationConnectionDriver {
+    __padding_end: [u8; 48],
+}
+impl UReplicationConnectionDriver {}
 pub struct URVOAvoidanceInterface {}
 pub struct IRVOAvoidanceInterface {}
+#[repr(C, align(8))]
 pub struct ASceneCapture2D {
+    #[doc(hidden)]
+    __padding_1152: [u8; 1152],
     pub capture_component2_d: UPtr<USceneCaptureComponent2D>,
 }
+impl ASceneCapture2D {}
+#[repr(C, align(16))]
 pub struct USceneCaptureComponent2D {
+    #[doc(hidden)]
+    __padding_952: [u8; 952],
     pub projection_type: ECameraProjectionMode,
     pub fov_angle: f32,
     pub first_person_field_of_view: f32,
@@ -11243,7 +6995,8 @@ pub struct USceneCaptureComponent2D {
     pub custom_near_clipping_plane: f32,
     pub b_use_custom_projection_matrix: bool,
     pub custom_projection_matrix: crate::bindings::core_u_object::FMatrix,
-    pub b_use_faux_ortho_view_pos: bool,
+    #[doc(hidden)]
+    __padding_3105: [u8; 1],
     pub b_enable_orthographic_tiling: bool,
     pub num_x_tiles: i32,
     pub num_y_tiles: i32,
@@ -11252,372 +7005,413 @@ pub struct USceneCaptureComponent2D {
     pub clip_plane_normal: crate::bindings::core_u_object::FVector,
     pub b_render_in_main_renderer: bool,
     pub unlit_viewmode: ESceneCaptureUnlitViewmode,
+    #[doc(hidden)]
+    __padding_3172: [u8; 2],
     pub flags_3172: u8,
     pub flags_3173: u8,
     pub main_view_resolution_divisor: crate::bindings::core_u_object::FIntPoint,
     pub user_scene_texture_base_color: FName,
     pub user_scene_texture_normal: FName,
     pub user_scene_texture_scene_color: FName,
+    __padding_end: [u8; 44],
 }
+impl USceneCaptureComponent2D {}
+#[repr(C, align(16))]
 pub struct USceneCaptureComponentCube {
+    #[doc(hidden)]
+    __padding_952: [u8; 952],
     pub texture_target: UPtr<UTextureRenderTargetCube>,
     pub b_capture_rotation: bool,
     pub post_process_settings: FPostProcessSettings,
     pub post_process_blend_weight: f32,
+    __padding_end: [u8; 12],
 }
+impl USceneCaptureComponentCube {}
+#[repr(C, align(8))]
 pub struct ASceneCaptureCube {
+    #[doc(hidden)]
+    __padding_1152: [u8; 1152],
     pub capture_component_cube: UPtr<USceneCaptureComponentCube>,
 }
+impl ASceneCaptureCube {}
+#[repr(C, align(16))]
 pub struct UShadowMapTexture2D {
-    pub shadowmap_flags: EShadowMapFlags,
+    __padding_end: [u8; 1376],
 }
+impl UShadowMapTexture2D {}
+#[repr(C, align(8))]
 pub struct USkeletalMeshSocket {
+    #[doc(hidden)]
+    __padding_48: [u8; 48],
     pub socket_name: FName,
     pub bone_name: FName,
     pub relative_location: crate::bindings::core_u_object::FVector,
     pub relative_rotation: crate::bindings::core_u_object::FRotator,
     pub relative_scale: crate::bindings::core_u_object::FVector,
     pub b_force_always_animated: bool,
+    __padding_end: [u8; 39],
 }
+impl USkeletalMeshSocket {}
+#[repr(C, align(8))]
 pub struct ASkyLight {
+    #[doc(hidden)]
+    __padding_1144: [u8; 1144],
     pub light_component: UPtr<USkyLightComponent>,
-    pub flags_1152: u8,
+    __padding_end: [u8; 8],
 }
+impl ASkyLight {}
 pub struct USMInstanceManager {}
 pub struct ISMInstanceManager {}
 pub struct USMInstanceManagerProvider {}
 pub struct ISMInstanceManagerProvider {}
+#[repr(C, align(8))]
 pub struct USoundAttenuationEditorSettings {
-    pub b_enable_reverb_send: bool,
-    pub b_enable_send_to_audio_link: bool,
+    __padding_end: [u8; 56],
 }
+impl USoundAttenuationEditorSettings {}
 pub struct USoundEffectPresetWidgetInterface {}
 pub struct ISoundEffectPresetWidgetInterface {}
-pub struct USoundEffectSourcePreset {}
-pub struct USoundEffectSourcePresetChain {
-    pub chain: TArray<FSourceEffectChainEntry>,
-    pub flags_64: u8,
+#[repr(C, align(8))]
+pub struct USoundEffectSourcePreset {
+    __padding_end: [u8; 112],
 }
+impl USoundEffectSourcePreset {}
+#[repr(C, align(8))]
+pub struct USoundEffectSourcePresetChain {
+    __padding_end: [u8; 72],
+}
+impl USoundEffectSourcePresetChain {}
 pub struct USoundSubmixWidgetInterface {}
 pub struct ISoundSubmixWidgetInterface {}
+#[repr(C, align(8))]
 pub struct ASphereReflectionCapture {
-    pub draw_capture_radius: UPtr<UDrawSphereComponent>,
+    __padding_end: [u8; 1168],
 }
+impl ASphereReflectionCapture {}
+#[repr(C, align(16))]
 pub struct USphereReflectionCaptureComponent {
+    #[doc(hidden)]
+    __padding_768: [u8; 768],
     pub influence_radius: f32,
-    pub capture_distance_scale: f32,
-    pub preview_influence_radius: UPtr<UDrawSphereComponent>,
+    __padding_end: [u8; 12],
 }
+impl USphereReflectionCaptureComponent {}
+#[repr(C, align(8))]
 pub struct UStaticMeshSocket {
+    #[doc(hidden)]
+    __padding_48: [u8; 48],
     pub socket_name: FName,
     pub relative_location: crate::bindings::core_u_object::FVector,
     pub relative_rotation: crate::bindings::core_u_object::FRotator,
     pub relative_scale: crate::bindings::core_u_object::FVector,
     pub tag: FString,
-    pub preview_static_mesh: UPtr<UStaticMesh>,
-    pub b_socket_created_at_import: bool,
+    __padding_end: [u8; 48],
 }
+impl UStaticMeshSocket {}
 pub struct UStreamingWorldSubsystemInterface {}
 pub struct IStreamingWorldSubsystemInterface {}
 pub struct UTedsTypedElementBridgeInterface {}
 pub struct ITedsTypedElementBridgeInterface {}
+#[repr(C, align(8))]
 pub struct UTextPropertyTestObject {
-    pub defaulted_text: FText,
-    pub undefaulted_text: FText,
-    pub transient_text: FText,
+    __padding_end: [u8; 96],
 }
+impl UTextPropertyTestObject {}
+#[repr(C, align(8))]
 pub struct ATextRenderActor {
+    #[doc(hidden)]
+    __padding_1136: [u8; 1136],
     pub text_render: UPtr<UTextRenderComponent>,
-    pub sprite_component: UPtr<UBillboardComponent>,
+    __padding_end: [u8; 8],
 }
+impl ATextRenderActor {}
+#[repr(C, align(8))]
 pub struct UTextureEncodingProjectSettings {
-    pub flags_104: u8,
-    pub final_rdo_lambda: i8,
-    pub final_effort_level: ETextureEncodeEffort,
-    pub final_universal_tiling: ETextureUniversalTiling,
-    pub flags_112: u8,
-    pub fast_rdo_lambda: i8,
-    pub fast_effort_level: ETextureEncodeEffort,
-    pub fast_universal_tiling: ETextureUniversalTiling,
-    pub cook_uses_speed: ETextureEncodeSpeed,
-    pub editor_uses_speed: ETextureEncodeSpeed,
+    __padding_end: [u8; 128],
 }
+impl UTextureEncodingProjectSettings {}
+#[repr(C, align(8))]
 pub struct UTextureEncodingUserSettings {
-    pub force_encode_speed: ETextureEncodeSpeedOverride,
+    __padding_end: [u8; 112],
 }
+impl UTextureEncodingUserSettings {}
+#[repr(C, align(8))]
 pub struct UTimelineComponent {
-    pub the_timeline: FTimeline,
-    pub flags_440: u8,
+    __padding_end: [u8; 448],
 }
+impl UTimelineComponent {}
+#[repr(C, align(8))]
 pub struct UTransformProviderData {
-    pub b_enabled: bool,
+    __padding_end: [u8; 56],
 }
+impl UTransformProviderData {}
+#[repr(C, align(8))]
 pub struct ATriggerBase {
+    #[doc(hidden)]
+    __padding_1136: [u8; 1136],
     pub collision_component: UPtr<UShapeComponent>,
     pub sprite_component: UPtr<UBillboardComponent>,
 }
-pub struct ATriggerBox {}
-pub struct ATriggerCapsule {}
-pub struct ATriggerSphere {}
-pub struct UTwitterIntegrationBase {}
+impl ATriggerBase {}
+#[repr(C, align(8))]
+pub struct ATriggerBox {
+    __padding_end: [u8; 1152],
+}
+impl ATriggerBox {}
+#[repr(C, align(8))]
+pub struct ATriggerCapsule {
+    __padding_end: [u8; 1152],
+}
+impl ATriggerCapsule {}
+#[repr(C, align(8))]
+pub struct ATriggerSphere {
+    __padding_end: [u8; 1152],
+}
+impl ATriggerSphere {}
+#[repr(C, align(8))]
+pub struct UTwitterIntegrationBase {
+    __padding_end: [u8; 64],
+}
+impl UTwitterIntegrationBase {}
+#[repr(C, align(8))]
 pub struct UVectorField {
-    pub bounds: crate::bindings::core_u_object::FBox,
-    pub intensity: f32,
+    __padding_end: [u8; 112],
 }
+impl UVectorField {}
+#[repr(C, align(8))]
 pub struct UVectorFieldAnimated {
-    pub texture: UPtr<UTexture2D>,
-    pub construction_op: EVectorFieldConstructionOp,
-    pub volume_size_x: i32,
-    pub volume_size_y: i32,
-    pub volume_size_z: i32,
-    pub sub_images_x: i32,
-    pub sub_images_y: i32,
-    pub frame_count: i32,
-    pub frames_per_second: f32,
-    pub flags_152: u8,
-    pub noise_field: UPtr<UVectorFieldStatic>,
-    pub noise_scale: f32,
-    pub noise_max: f32,
+    __padding_end: [u8; 176],
 }
+impl UVectorFieldAnimated {}
+#[repr(C, align(16))]
 pub struct UVectorFieldComponent {
+    #[doc(hidden)]
+    __padding_1504: [u8; 1504],
     pub vector_field: UPtr<UVectorField>,
     pub intensity: f32,
     pub tightness: f32,
-    pub flags_1520: u8,
+    __padding_end: [u8; 32],
 }
+impl UVectorFieldComponent {}
+#[repr(C, align(8))]
 pub struct UVectorFieldStatic {
-    pub size_x: i32,
-    pub size_y: i32,
-    pub size_z: i32,
-    pub b_allow_cpu_access: bool,
-    pub source_file_path_deprecated: FString,
-    pub asset_import_data: UPtr<UAssetImportData>,
+    __padding_end: [u8; 256],
 }
+impl UVectorFieldStatic {}
 pub struct UVisualLoggerDebugSnapshotInterface {}
 pub struct IVisualLoggerDebugSnapshotInterface {}
+#[repr(C, align(16))]
 pub struct UWindDirectionalSourceComponent {
+    #[doc(hidden)]
+    __padding_656: [u8; 656],
     pub strength: f32,
     pub speed: f32,
     pub min_gust_amount: f32,
     pub max_gust_amount: f32,
     pub radius: f32,
     pub flags_676: u8,
+    __padding_end: [u8; 11],
 }
-pub struct UWorldPartitionEditorLoaderAdapter {}
+impl UWindDirectionalSourceComponent {}
+#[repr(C, align(8))]
+pub struct UWorldPartitionEditorLoaderAdapter {
+    __padding_end: [u8; 64],
+}
+impl UWorldPartitionEditorLoaderAdapter {}
+#[repr(C, align(16))]
 pub struct UTexture2DArray {
-    pub address_x: TextureAddress,
-    pub address_y: TextureAddress,
-    pub address_z: TextureAddress,
-    pub source_textures: TArray<UPtr<UTexture2D>>,
-    pub b_source_generated_from_source_textures_array: bool,
+    __padding_end: [u8; 1360],
 }
+impl UTexture2DArray {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionMaterialSample {
-    pub material_reference: UPtr<UMaterialInterface>,
+    __padding_end: [u8; 208],
 }
+impl UMaterialExpressionMaterialSample {}
+#[repr(C, align(8))]
 pub struct UActorFolder {
-    pub parent_folder_guid: crate::bindings::core_u_object::FGuid,
-    pub folder_guid: crate::bindings::core_u_object::FGuid,
-    pub folder_label: FString,
-    pub b_folder_initially_expanded: bool,
-    pub b_is_deleted: bool,
+    __padding_end: [u8; 104],
 }
-pub struct UActorPartitionSubsystem {}
-pub struct UNullNavSysConfig {}
+impl UActorFolder {}
+#[repr(C, align(8))]
+pub struct UActorPartitionSubsystem {
+    __padding_end: [u8; 160],
+}
+impl UActorPartitionSubsystem {}
+#[repr(C, align(8))]
+pub struct UNullNavSysConfig {
+    __padding_end: [u8; 112],
+}
+impl UNullNavSysConfig {}
+#[repr(C, align(8))]
 pub struct UAvoidanceManager {
-    pub default_time_to_live: f32,
-    pub lock_time_after_avoid: f32,
-    pub lock_time_after_clean: f32,
-    pub delta_time_to_predict: f32,
-    pub artificial_radius_expansion: f32,
-    pub test_height_difference_deprecated: f32,
-    pub height_check_margin: f32,
+    __padding_end: [u8; 256],
 }
+impl UAvoidanceManager {}
+#[repr(C, align(8))]
 pub struct AAmbientSound {
+    #[doc(hidden)]
+    __padding_1136: [u8; 1136],
     pub audio_component: UPtr<UAudioComponent>,
 }
+impl AAmbientSound {}
+#[repr(C, align(8))]
 pub struct UAnimationAsset {
-    pub skeleton: UPtr<USkeleton>,
-    pub meta_data: TArray<UPtr<UAnimMetaData>>,
-    pub parent_asset: UPtr<UAnimationAsset>,
-    pub children_assets: TArray<UPtr<UAnimationAsset>>,
-    pub asset_mapping_table: UPtr<UAssetMappingTable>,
-    pub asset_user_data: TArray<UPtr<UAssetUserData>>,
-    pub thumbnail_info: UPtr<UThumbnailInfo>,
-    pub preview_pose_asset: UPtr<UPoseAsset>,
-    pub preview_skeletal_mesh: TSoftObjectPtr<USkeletalMesh>,
+    __padding_end: [u8; 232],
 }
+impl UAnimationAsset {}
+#[repr(C, align(8))]
 pub struct UBlendSpace {
-    pub b_contains_rotation_offset_mesh_space_samples: bool,
-    pub interpolation_param: FInterpolationParameter,
-    pub analysis_properties: UPtr<UAnalysisProperties>,
-    pub target_weight_interpolation_speed_per_sec: f32,
-    pub b_target_weight_interpolation_ease_in_out: bool,
-    pub b_allow_mesh_space_blending: bool,
-    pub b_loop: bool,
-    pub b_allow_marker_based_sync: bool,
-    pub b_should_match_sync_phases: bool,
-    pub preview_base_pose: UPtr<UAnimSequence>,
-    pub anim_length: f32,
-    pub notify_trigger_mode: ENotifyTriggerMode,
-    pub b_interpolate_using_grid: bool,
-    pub preferred_triangulation_direction: EPreferredTriangulationDirection,
-    pub per_bone_blend_mode: EBlendSpacePerBoneBlendMode,
-    pub manual_per_bone_overrides: TArray<FPerBoneInterpolation>,
-    pub per_bone_blend_profile: FBlendSpaceBlendProfile,
-    pub sample_index_with_markers: i32,
-    pub sample_data: TArray<FBlendSample>,
-    pub grid_samples: TArray<FEditorElement>,
-    pub blend_space_data: FBlendSpaceData,
-    pub blend_parameters: FBlendParameter,
-    pub axis_to_scale_animation: EBlendSpaceAxis,
-    pub dimension_indices: TArray<i32>,
+    __padding_end: [u8; 712],
 }
-pub struct UAimOffsetBlendSpace {}
+impl UBlendSpace {}
+#[repr(C, align(8))]
+pub struct UAimOffsetBlendSpace {
+    __padding_end: [u8; 712],
+}
+impl UAimOffsetBlendSpace {}
+#[repr(C, align(8))]
 pub struct UBlendSpace1D {
-    pub b_display_editor_vertically_deprecated: bool,
-    pub b_scale_animation: bool,
+    __padding_end: [u8; 720],
 }
-pub struct UAimOffsetBlendSpace1D {}
+impl UBlendSpace1D {}
+#[repr(C, align(8))]
+pub struct UAimOffsetBlendSpace1D {
+    __padding_end: [u8; 720],
+}
+impl UAimOffsetBlendSpace1D {}
+#[repr(C, align(8))]
 pub struct UAnimationSettings {
-    pub compress_commandlet_version: i32,
-    pub key_end_effectors_match_name_array: TArray<FString>,
-    pub force_recompression: bool,
-    pub b_force_below_threshold: bool,
-    pub b_first_recompress_using_current_or_default: bool,
-    pub b_raise_max_error_to_existing: bool,
-    pub b_enable_performance_log: bool,
-    pub b_strip_animation_data_on_dedicated_server: bool,
-    pub b_tick_animation_on_skeletal_mesh_init: bool,
-    pub bone_timecode_custom_attribute_name_settings: FTimecodeCustomAttributeNameSettings,
-    pub bone_custom_attributes_names: TArray<FCustomAttributeSetting>,
-    pub bone_names_with_custom_attributes: TArray<FString>,
-    pub attribute_blend_modes: TMap<FName, ECustomAttributeBlendType>,
-    pub default_attribute_blend_mode: ECustomAttributeBlendType,
-    pub transform_attribute_names: TArray<FString>,
-    pub user_defined_struct_attributes: TArray<
-        TSoftObjectPtr<crate::bindings::core_u_object::UUserDefinedStruct>,
-    >,
-    pub mirror_find_replace_expressions: TArray<FMirrorFindReplaceExpression>,
-    pub default_frame_rate: crate::bindings::core_u_object::FFrameRate,
-    pub b_enforce_supported_frame_rates: bool,
+    __padding_end: [u8; 408],
 }
+impl UAnimationSettings {}
+#[repr(C, align(8))]
 pub struct UAnimBank {
+    #[doc(hidden)]
+    __padding_240: [u8; 240],
     pub sequences: TArray<FAnimBankSequence>,
     pub asset: UPtr<USkinnedAsset>,
+    __padding_end: [u8; 352],
 }
+impl UAnimBank {}
+#[repr(C, align(8))]
 pub struct UAnimBankData {
+    #[doc(hidden)]
+    __padding_56: [u8; 56],
     pub anim_bank_items: TArray<FAnimBankItem>,
 }
-pub struct UAnimBlueprintGeneratedStruct {}
+impl UAnimBankData {}
+#[repr(C, align(8))]
+pub struct UAnimBlueprintGeneratedStruct {
+    __padding_end: [u8; 224],
+}
+impl UAnimBlueprintGeneratedStruct {}
+#[repr(C, align(8))]
 pub struct UAnimBlueprintGeneratedClass {
-    pub baked_state_machines: TArray<FBakedAnimationStateMachine>,
-    pub target_skeleton: UPtr<USkeleton>,
-    pub anim_notifies: TArray<FAnimNotifyEvent>,
-    pub ordered_saved_pose_indices_map: TMap<FName, FCachedPoseIndices>,
-    pub sync_group_names: TArray<FName>,
-    pub evaluate_graph_exposed_inputs_deprecated: TArray<FExposedValueHandler>,
-    pub graph_asset_player_information: TMap<FName, FGraphAssetPlayerInformation>,
-    pub graph_blend_options: TMap<FName, FAnimGraphBlendOptions>,
-    pub anim_node_data: TArray<FAnimNodeData>,
-    pub node_type_map: TMap<
-        UPtr<crate::bindings::core_u_object::UScriptStruct>,
-        FAnimNodeStructData,
-    >,
+    __padding_end: [u8; 3352],
 }
+impl UAnimBlueprintGeneratedClass {}
+#[repr(C, align(8))]
 pub struct UAnimBoneCompressionCodec {
-    pub description: FString,
+    __padding_end: [u8; 64],
 }
+impl UAnimBoneCompressionCodec {}
+#[repr(C, align(8))]
 pub struct UAnimBoneCompressionSettings {
-    pub codecs: TArray<UPtr<UAnimBoneCompressionCodec>>,
-    pub error_threshold: f32,
-    pub b_force_below_threshold: bool,
+    __padding_end: [u8; 72],
 }
+impl UAnimBoneCompressionSettings {}
 pub struct UAnimClassInterface {}
 pub struct IAnimClassInterface {}
+#[repr(C, align(8))]
 pub struct UAnimSequenceBase {
-    pub notifies: TArray<FAnimNotifyEvent>,
+    #[doc(hidden)]
+    __padding_248: [u8; 248],
     pub sequence_length: f32,
-    pub raw_curve_data: FRawCurveTracks,
-    pub rate_scale: f32,
-    pub b_loop: bool,
-    pub anim_notify_tracks: TArray<FAnimNotifyTrack>,
+    #[doc(hidden)]
+    __padding_360: [u8; 104],
     pub data_model: UPtr<UAnimDataModel>,
-    pub data_model_interface: TScriptInterface<IAnimationDataModel>,
-    pub controller: TScriptInterface<IAnimationDataController>,
+    pub data_model_interface: TScriptInterface<UAnimationDataModel>,
+    #[doc(hidden)]
+    __padding_392: [u8; 8],
+    pub controller: TScriptInterface<UAnimationDataController>,
+    __padding_end: [u8; 88],
 }
+impl UAnimSequenceBase {}
+#[repr(C, align(8))]
 pub struct UAnimCompositeBase {
-    pub common_target_frame_rate: crate::bindings::core_u_object::FFrameRate,
+    __padding_end: [u8; 504],
 }
+impl UAnimCompositeBase {}
+#[repr(C, align(8))]
 pub struct UAnimComposite {
-    pub animation_track: FAnimTrack,
-    pub preview_base_pose: UPtr<UAnimSequence>,
+    __padding_end: [u8; 528],
 }
+impl UAnimComposite {}
+#[repr(C, align(8))]
 pub struct UAnimCompress {
-    pub flags_64: u8,
-    pub translation_compression_format: AnimationCompressionFormat,
-    pub rotation_compression_format: AnimationCompressionFormat,
-    pub scale_compression_format: AnimationCompressionFormat,
+    __padding_end: [u8; 72],
 }
-pub struct UAnimCompress_BitwiseCompressOnly {}
-pub struct UAnimCompress_LeastDestructive {}
+impl UAnimCompress {}
+#[repr(C, align(8))]
+pub struct UAnimCompress_BitwiseCompressOnly {
+    __padding_end: [u8; 72],
+}
+impl UAnimCompress_BitwiseCompressOnly {}
+#[repr(C, align(8))]
+pub struct UAnimCompress_LeastDestructive {
+    __padding_end: [u8; 72],
+}
+impl UAnimCompress_LeastDestructive {}
+#[repr(C, align(8))]
 pub struct UAnimCompress_RemoveLinearKeys {
-    pub max_pos_diff: f32,
-    pub max_angle_diff: f32,
-    pub max_scale_diff: f32,
-    pub max_effector_diff: f32,
-    pub min_effector_diff: f32,
-    pub effector_diff_socket: f32,
-    pub parent_key_scale: f32,
-    pub flags_100: u8,
+    __padding_end: [u8; 104],
 }
+impl UAnimCompress_RemoveLinearKeys {}
+#[repr(C, align(8))]
 pub struct UAnimCompress_PerTrackCompression {
-    pub max_zeroing_threshold: f32,
-    pub max_pos_diff_bitwise: f32,
-    pub max_angle_diff_bitwise: f32,
-    pub max_scale_diff_bitwise: f32,
-    pub allowed_rotation_formats: TArray<AnimationCompressionFormat>,
-    pub allowed_translation_formats: TArray<AnimationCompressionFormat>,
-    pub allowed_scale_formats: TArray<AnimationCompressionFormat>,
-    pub flags_168: u8,
-    pub resampled_framerate: f32,
-    pub min_keys_for_resampling: i32,
-    pub flags_180: u8,
-    pub track_height_bias: i32,
-    pub parenting_divisor: f32,
-    pub parenting_divisor_exponent: f32,
-    pub flags_196: u8,
-    pub rotation_error_source_ratio: f32,
-    pub translation_error_source_ratio: f32,
-    pub scale_error_source_ratio: f32,
-    pub max_error_per_track_ratio: f32,
-    pub perturbation_probe_size: f32,
+    __padding_end: [u8; 224],
 }
+impl UAnimCompress_PerTrackCompression {}
+#[repr(C, align(8))]
 pub struct UAnimCompress_RemoveEverySecondKey {
-    pub min_keys: i32,
-    pub flags_76: u8,
+    __padding_end: [u8; 80],
 }
+impl UAnimCompress_RemoveEverySecondKey {}
+#[repr(C, align(8))]
 pub struct UAnimCompress_RemoveTrivialKeys {
-    pub max_pos_diff: f32,
-    pub max_angle_diff: f32,
-    pub max_scale_diff: f32,
+    __padding_end: [u8; 88],
 }
-pub struct UAnimCurveCompressionCodec {}
+impl UAnimCompress_RemoveTrivialKeys {}
+#[repr(C, align(8))]
+pub struct UAnimCurveCompressionCodec {
+    __padding_end: [u8; 48],
+}
+impl UAnimCurveCompressionCodec {}
+#[repr(C, align(8))]
 pub struct UAnimCurveCompressionCodec_CompressedRichCurve {
-    pub max_curve_error: f32,
-    pub use_anim_sequence_sample_rate: bool,
-    pub error_sample_rate: f32,
+    __padding_end: [u8; 64],
 }
-pub struct UAnimCurveCompressionCodec_UniformIndexable {}
+impl UAnimCurveCompressionCodec_CompressedRichCurve {}
+#[repr(C, align(8))]
+pub struct UAnimCurveCompressionCodec_UniformIndexable {
+    __padding_end: [u8; 48],
+}
+impl UAnimCurveCompressionCodec_UniformIndexable {}
+#[repr(C, align(8))]
 pub struct UAnimCurveCompressionCodec_UniformlySampled {
-    pub use_anim_sequence_sample_rate: bool,
-    pub sample_rate: f32,
+    __padding_end: [u8; 56],
 }
+impl UAnimCurveCompressionCodec_UniformlySampled {}
+#[repr(C, align(8))]
 pub struct UAnimCurveCompressionSettings {
-    pub codec: UPtr<UAnimCurveCompressionCodec>,
+    __padding_end: [u8; 56],
 }
+impl UAnimCurveCompressionSettings {}
+#[repr(C, align(8))]
 pub struct UAnimDataModel {
-    pub bracket_counter: i32,
-    pub modified_event_dynamic: FAnimDataModel_ModifiedEventDynamic,
+    #[doc(hidden)]
+    __padding_120: [u8; 120],
     pub bone_animation_tracks: TArray<FBoneAnimationTrack>,
     pub play_length: f32,
     pub frame_rate: crate::bindings::core_u_object::FFrameRate,
@@ -11625,303 +7419,281 @@ pub struct UAnimDataModel {
     pub number_of_keys: i32,
     pub curve_data: FAnimationCurveData,
     pub animated_bone_attributes: TArray<FAnimatedBoneAttribute>,
-    pub b_populated: bool,
+    __padding_end: [u8; 16],
 }
+impl UAnimDataModel {}
 pub struct UAnimationDataController {}
 pub struct IAnimationDataController {}
 pub struct UAnimationDataModel {}
 pub struct IAnimationDataModel {}
-pub struct UAnimMetaData {}
+#[repr(C, align(8))]
+pub struct UAnimMetaData {
+    __padding_end: [u8; 48],
+}
+impl UAnimMetaData {}
+#[repr(C, align(8))]
 pub struct UAnimMontage {
+    #[doc(hidden)]
+    __padding_504: [u8; 504],
     pub blend_mode_in: EMontageBlendMode,
     pub blend_mode_out: EMontageBlendMode,
-    pub blend_in: FAlphaBlend,
-    pub blend_in_time_deprecated: f32,
-    pub blend_out: FAlphaBlend,
-    pub blend_out_time_deprecated: f32,
-    pub blend_out_trigger_time: f32,
-    pub sync_group: FName,
-    pub sync_slot_index: i32,
-    pub marker_data: FMarkerSyncData,
-    pub composite_sections: TArray<FCompositeSection>,
-    pub slot_anim_tracks: TArray<FSlotAnimationTrack>,
-    pub branching_points_deprecated: TArray<FBranchingPoint>,
-    pub b_enable_root_motion_translation: bool,
-    pub b_enable_root_motion_rotation: bool,
-    pub b_enable_auto_blend_out: bool,
+    #[doc(hidden)]
+    __padding_728: [u8; 216],
     pub blend_profile_in: UPtr<UBlendProfile>,
     pub blend_profile_out: UPtr<UBlendProfile>,
-    pub root_motion_root_lock: ERootMotionRootLock,
-    pub preview_base_pose: UPtr<UAnimSequence>,
-    pub branching_point_markers: TArray<FBranchingPointMarker>,
-    pub branching_point_state_notify_indices: TArray<i32>,
-    pub time_stretch_curve: FTimeStretchCurve,
-    pub time_stretch_curve_name: FName,
+    __padding_end: [u8; 136],
 }
-pub struct UAnimNotifyLibrary {}
-pub struct UAnimNotifyMirrorInspectionLibrary {}
-pub struct UAnimNotifyStateMachineInspectionLibrary {}
-pub struct UAnimNotifyState_DisableRootMotion {}
+impl UAnimMontage {}
+#[repr(C, align(8))]
+pub struct UAnimNotifyLibrary {
+    __padding_end: [u8; 48],
+}
+impl UAnimNotifyLibrary {}
+#[repr(C, align(8))]
+pub struct UAnimNotifyMirrorInspectionLibrary {
+    __padding_end: [u8; 48],
+}
+impl UAnimNotifyMirrorInspectionLibrary {}
+#[repr(C, align(8))]
+pub struct UAnimNotifyStateMachineInspectionLibrary {
+    __padding_end: [u8; 48],
+}
+impl UAnimNotifyStateMachineInspectionLibrary {}
+#[repr(C, align(8))]
+pub struct UAnimNotifyState_DisableRootMotion {
+    __padding_end: [u8; 56],
+}
+impl UAnimNotifyState_DisableRootMotion {}
+#[repr(C, align(8))]
 pub struct UAnimNotifyState_TimedParticleEffect {
-    pub ps_template: UPtr<UParticleSystem>,
-    pub socket_name: FName,
-    pub location_offset: crate::bindings::core_u_object::FVector,
-    pub rotation_offset: crate::bindings::core_u_object::FRotator,
-    pub b_destroy_at_end: bool,
-    pub previous_ps_templates: TArray<UPtr<UParticleSystem>>,
-    pub previous_socket_names: TArray<FName>,
+    __padding_end: [u8; 168],
 }
+impl UAnimNotifyState_TimedParticleEffect {}
+#[repr(C, align(8))]
 pub struct UAnimNotifyState_Trail {
+    #[doc(hidden)]
+    __padding_56: [u8; 56],
     pub ps_template: UPtr<UParticleSystem>,
     pub first_socket_name: FName,
     pub second_socket_name: FName,
     pub width_scale_mode: ETrailWidthMode,
     pub width_scale_curve: FName,
     pub flags_104: u8,
+    __padding_end: [u8; 7],
 }
-pub struct UAnimNotify_PauseClothingSimulation {}
+impl UAnimNotifyState_Trail {}
+#[repr(C, align(8))]
+pub struct UAnimNotify_PauseClothingSimulation {
+    __padding_end: [u8; 64],
+}
+impl UAnimNotify_PauseClothingSimulation {}
+#[repr(C, align(16))]
 pub struct UAnimNotify_PlayParticleEffect {
+    #[doc(hidden)]
+    __padding_64: [u8; 64],
     pub ps_template: UPtr<UParticleSystem>,
     pub location_offset: crate::bindings::core_u_object::FVector,
     pub rotation_offset: crate::bindings::core_u_object::FRotator,
-    pub scale: crate::bindings::core_u_object::FVector,
+    #[doc(hidden)]
+    __padding_176: [u8; 56],
     pub flags_176: u8,
     pub socket_name: FName,
 }
+impl UAnimNotify_PlayParticleEffect {}
+#[repr(C, align(8))]
 pub struct UAnimNotify_PlaySound {
+    #[doc(hidden)]
+    __padding_64: [u8; 64],
     pub sound: UPtr<USoundBase>,
     pub volume_multiplier: f32,
     pub pitch_multiplier: f32,
     pub flags_80: u8,
     pub attach_name: FName,
 }
-pub struct UAnimNotify_ResetClothingSimulation {}
-pub struct UAnimNotify_ResetDynamics {}
-pub struct UAnimNotify_ResumeClothingSimulation {}
+impl UAnimNotify_PlaySound {}
+#[repr(C, align(8))]
+pub struct UAnimNotify_ResetClothingSimulation {
+    __padding_end: [u8; 64],
+}
+impl UAnimNotify_ResetClothingSimulation {}
+#[repr(C, align(8))]
+pub struct UAnimNotify_ResetDynamics {
+    __padding_end: [u8; 64],
+}
+impl UAnimNotify_ResetDynamics {}
+#[repr(C, align(8))]
+pub struct UAnimNotify_ResumeClothingSimulation {
+    __padding_end: [u8; 64],
+}
+impl UAnimNotify_ResumeClothingSimulation {}
+#[repr(C, align(8))]
 pub struct UAnimSequence {
-    pub import_file_framerate: f32,
-    pub import_resample_framerate: i32,
-    pub num_frames: i32,
-    pub number_of_keys: i32,
-    pub sampling_frame_rate: crate::bindings::core_u_object::FFrameRate,
-    pub raw_data_guid: crate::bindings::core_u_object::FGuid,
-    pub animation_track_names: TArray<FName>,
-    pub b_allow_frame_stripping: bool,
-    pub compression_error_threshold_scale: f32,
-    pub bone_compression_settings: UPtr<UAnimBoneCompressionSettings>,
-    pub curve_compression_settings: UPtr<UAnimCurveCompressionSettings>,
-    pub variable_frame_stripping_settings: UPtr<UVariableFrameStrippingSettings>,
-    pub additive_anim_type: EAdditiveAnimationType,
-    pub ref_pose_type: EAdditiveBasePoseType,
-    pub ref_frame_index: i32,
-    pub ref_pose_seq: UPtr<UAnimSequence>,
-    pub retarget_source: FName,
-    pub retarget_source_asset: TSoftObjectPtr<USkeletalMesh>,
-    pub retarget_source_asset_reference_pose: TArray<
-        crate::bindings::core_u_object::FTransform,
-    >,
-    pub interpolation: EAnimInterpolationType,
-    pub b_enable_root_motion: bool,
-    pub root_motion_root_lock: ERootMotionRootLock,
-    pub b_force_root_lock: bool,
-    pub b_use_normalized_root_motion_scale: bool,
-    pub b_root_motion_settings_copied_from_montage: bool,
-    pub compress_commandlet_version: i32,
-    pub flags_948: u8,
-    pub asset_import_data: UPtr<UAssetImportData>,
-    pub source_file_path_deprecated: FString,
-    pub source_file_timestamp_deprecated: FString,
-    pub strip_anim_data_on_dedicated_server: EStripAnimDataOnDedicatedServerSettings,
-    pub authored_sync_markers: TArray<FAnimSyncMarker>,
-    pub platform_target_frame_rate: crate::bindings::core_u_object::FPerPlatformFrameRate,
-    pub target_frame_rate: crate::bindings::core_u_object::FFrameRate,
-    pub number_of_sampled_keys: i32,
-    pub number_of_sampled_frames: i32,
-    pub per_bone_custom_attribute_data: TArray<FCustomAttributePerBoneData>,
-    pub attribute_curves: TMap<FAnimationAttributeIdentifier, FAttributeCurve>,
+    __padding_end: [u8; 1680],
 }
+impl UAnimSequence {}
+#[repr(C, align(8))]
 pub struct UAnimSet {
-    pub flags_48: u8,
-    pub track_bone_names: TArray<FName>,
-    pub sequences: TArray<UPtr<UAnimSequence>>,
-    pub linkup_cache: TArray<FAnimSetMeshLinkup>,
-    pub bone_use_anim_translation: TArray<u8>,
-    pub force_use_mesh_translation: TArray<u8>,
-    pub use_translation_bone_names: TArray<FName>,
-    pub force_mesh_translation_bone_names: TArray<FName>,
-    pub preview_skel_mesh_name: FName,
-    pub best_ratio_skel_mesh_name: FName,
+    __padding_end: [u8; 272],
 }
-pub struct UAnimStateMachineTypes {}
+impl UAnimSet {}
+#[repr(C, align(8))]
+pub struct UAnimStateMachineTypes {
+    __padding_end: [u8; 48],
+}
+impl UAnimStateMachineTypes {}
+#[repr(C, align(8))]
 pub struct UAnimStreamable {
-    pub number_of_keys: i32,
-    pub interpolation: EAnimInterpolationType,
-    pub retarget_source: FName,
-    pub sampling_frame_rate: crate::bindings::core_u_object::FFrameRate,
-    pub source_sequence: UPtr<UAnimSequence>,
-    pub raw_data_guid: crate::bindings::core_u_object::FGuid,
-    pub num_frames: i32,
-    pub raw_animation_data: TArray<FRawAnimSequenceTrack>,
-    pub track_to_skeleton_map_table: TArray<FTrackToSkeletonMap>,
-    pub animation_track_names: TArray<FName>,
-    pub bone_compression_settings: UPtr<UAnimBoneCompressionSettings>,
-    pub curve_compression_settings: UPtr<UAnimCurveCompressionSettings>,
-    pub variable_frame_stripping_settings: UPtr<UVariableFrameStrippingSettings>,
-    pub b_enable_root_motion: bool,
-    pub root_motion_root_lock: ERootMotionRootLock,
-    pub b_force_root_lock: bool,
-    pub b_use_normalized_root_motion_scale: bool,
+    __padding_end: [u8; 728],
 }
-pub struct URawAnimSequenceTrackExtensions {}
+impl UAnimStreamable {}
+#[repr(C, align(8))]
+pub struct URawAnimSequenceTrackExtensions {
+    __padding_end: [u8; 48],
+}
+impl URawAnimSequenceTrackExtensions {}
+#[repr(C, align(8))]
 pub struct UAssetMappingTable {
-    pub mapped_assets: TArray<FAssetMapping>,
+    __padding_end: [u8; 64],
 }
-pub struct UAnimationAttributeIdentifierExtensions {}
+impl UAssetMappingTable {}
+#[repr(C, align(8))]
+pub struct UAnimationAttributeIdentifierExtensions {
+    __padding_end: [u8; 48],
+}
+impl UAnimationAttributeIdentifierExtensions {}
 pub struct UBlendProfileProviderInterface {}
 pub struct IBlendProfileProviderInterface {}
+#[repr(C, align(8))]
 pub struct UBlendProfile {
-    pub owning_skeleton: UPtr<USkeleton>,
-    pub profile_entries: TArray<FBlendProfileBoneEntry>,
-    pub mode: EBlendProfileMode,
+    __padding_end: [u8; 88],
 }
+impl UBlendProfile {}
+#[repr(C, align(8))]
 pub struct UAnalysisProperties {
-    pub function: FString,
+    __padding_end: [u8; 64],
 }
+impl UAnalysisProperties {}
+#[repr(C, align(8))]
 pub struct UBoneMaskFilter {
-    pub blend_poses: TArray<FInputBlendPose>,
+    __padding_end: [u8; 64],
 }
-pub struct UCachedAnimDataLibrary {}
-pub struct UAnimationCurveIdentifierExtensions {}
+impl UBoneMaskFilter {}
+#[repr(C, align(8))]
+pub struct UCachedAnimDataLibrary {
+    __padding_end: [u8; 48],
+}
+impl UCachedAnimDataLibrary {}
+#[repr(C, align(8))]
+pub struct UAnimationCurveIdentifierExtensions {
+    __padding_end: [u8; 48],
+}
+impl UAnimationCurveIdentifierExtensions {}
 pub struct UCurveSourceInterface {}
 pub struct ICurveSourceInterface {}
+#[repr(C, align(8))]
 pub struct UMeshDeformerCollection {
-    pub description: FString,
-    pub mesh_deformers: TArray<TSoftObjectPtr<UMeshDeformer>>,
-    pub mesh_deformer_collections: TArray<UPtr<UMeshDeformerCollection>>,
+    __padding_end: [u8; 104],
 }
+impl UMeshDeformerCollection {}
+#[repr(C, align(8))]
 pub struct UDataTable {
-    pub row_struct: UPtr<crate::bindings::core_u_object::UScriptStruct>,
-    pub flags_136: u8,
-    pub import_key_field: FString,
-    pub asset_import_data: UPtr<UAssetImportData>,
-    pub import_path_deprecated: FString,
-    pub row_struct_name_deprecated: FName,
-    pub row_struct_path_name: crate::bindings::core_u_object::FTopLevelAssetPath,
-    pub rows_serialized_with_tags: TArray<u8>,
-    pub temporarily_referenced_objects: TSet<
-        UPtr<crate::bindings::core_u_object::UObject>,
-    >,
+    __padding_end: [u8; 352],
 }
+impl UDataTable {}
+#[repr(C, align(8))]
 pub struct UMirrorDataTable {
-    pub mirror_find_replace_expressions: TArray<FMirrorFindReplaceExpression>,
-    pub mirror_axis: crate::bindings::core_u_object::EAxis,
-    pub b_mirror_root_motion: bool,
-    pub skeleton: UPtr<USkeleton>,
+    __padding_end: [u8; 672],
 }
+impl UMirrorDataTable {}
+#[repr(C, align(8))]
 pub struct UNodeMappingContainer {
-    pub source_items: TMap<FName, FNodeItem>,
-    pub target_items: TMap<FName, FNodeItem>,
-    pub source_to_target: TMap<FName, FName>,
-    pub source_asset: TSoftObjectPtr<crate::bindings::core_u_object::UObject>,
-    pub target_asset: TSoftObjectPtr<crate::bindings::core_u_object::UObject>,
+    __padding_end: [u8; 384],
 }
+impl UNodeMappingContainer {}
 pub struct UNodeMappingProviderInterface {}
 pub struct INodeMappingProviderInterface {}
+#[repr(C, align(8))]
 pub struct UPoseAsset {
-    pub pose_container: FPoseDataContainer,
-    pub b_additive_pose: bool,
-    pub base_pose_index: i32,
-    pub retarget_source: FName,
-    pub retarget_source_asset: TSoftObjectPtr<USkeletalMesh>,
-    pub retarget_source_asset_reference_pose: TArray<
-        crate::bindings::core_u_object::FTransform,
-    >,
-    pub source_animation: UPtr<UAnimSequence>,
-    pub source_animation_raw_data_guid: crate::bindings::core_u_object::FGuid,
+    __padding_end: [u8; 504],
 }
+impl UPoseAsset {}
 pub struct UPreviewCollectionInterface {}
 pub struct IPreviewCollectionInterface {}
+#[repr(C, align(8))]
 pub struct UPreviewMeshCollection {
-    pub skeleton: UPtr<USkeleton>,
-    pub skeletal_meshes: TArray<FPreviewMeshCollectionEntry>,
+    __padding_end: [u8; 88],
 }
+impl UPreviewMeshCollection {}
+#[repr(C, align(8))]
 pub struct USkeleton {
-    pub bone_tree: TArray<FBoneNode>,
-    pub ref_local_poses_deprecated: TArray<crate::bindings::core_u_object::FTransform>,
-    pub preview_forward_axis: crate::bindings::core_u_object::EAxis,
-    pub virtual_bone_guid: crate::bindings::core_u_object::FGuid,
-    pub virtual_bones: TArray<FVirtualBone>,
+    #[doc(hidden)]
+    __padding_432: [u8; 432],
     pub compatible_skeletons: TArray<TSoftObjectPtr<USkeleton>>,
-    pub b_use_retarget_modes_from_compatible_skeleton: bool,
-    pub sockets: TArray<UPtr<USkeletalMeshSocket>>,
-    pub smart_names_deprecated: FSmartNameContainer,
-    pub blend_profiles: TArray<UPtr<UBlendProfile>>,
-    pub slot_groups: TArray<FAnimSlotGroup>,
-    pub preview_skeletal_mesh: TSoftObjectPtr<USkeletalMesh>,
-    pub additional_preview_skeletal_meshes: TSoftObjectPtr<UDataAsset>,
-    pub animation_notifies: TArray<FName>,
-    pub preview_attached_asset_container: FPreviewAssetAttachContainer,
-    pub asset_user_data: TArray<UPtr<UAssetUserData>>,
-    pub asset_user_data_editor_only: TArray<UPtr<UAssetUserData>>,
+    __padding_end: [u8; 752],
 }
-pub struct UTransformTrajectoryBlueprintLibrary {}
+impl USkeleton {}
+#[repr(C, align(8))]
+pub struct UTransformTrajectoryBlueprintLibrary {
+    __padding_end: [u8; 48],
+}
+impl UTransformTrajectoryBlueprintLibrary {}
+#[repr(C, align(8))]
 pub struct UVariableFrameStrippingSettings {
-    pub use_variable_frame_stripping: crate::bindings::core_u_object::FPerPlatformBool,
-    pub frame_stripping_rate: crate::bindings::core_u_object::FPerPlatformInt,
+    __padding_end: [u8; 224],
 }
+impl UVariableFrameStrippingSettings {}
+#[repr(C, align(8))]
 pub struct UAnimBlueprint {
-    pub target_skeleton: UPtr<USkeleton>,
-    pub groups: TArray<FAnimGroupInfo>,
-    pub b_is_template: bool,
-    pub b_use_multi_threaded_animation_update: bool,
-    pub b_warn_about_blueprint_usage: bool,
-    pub flags_1467: u8,
-    pub parent_asset_overrides: TArray<FAnimParentNodeAssetOverride>,
-    pub pose_watch_folders: TArray<UPtr<UPoseWatchFolder>>,
-    pub pose_watches: TArray<UPtr<UPoseWatch>>,
-    pub preview_skeletal_mesh: TSoftObjectPtr<USkeletalMesh>,
-    pub preview_animation_blueprint: TSoftObjectPtr<UAnimBlueprint>,
-    pub default_binding_class: TSubclassOf<crate::bindings::core_u_object::UObject>,
-    pub preview_animation_blueprint_application_method: EPreviewAnimationBlueprintApplicationMethod,
-    pub preview_animation_blueprint_tag: FName,
+    __padding_end: [u8; 1712],
 }
+impl UAnimBlueprint {}
+#[repr(C, align(8))]
 pub struct UAssetManager {
-    pub object_reference_list: TArray<UPtr<crate::bindings::core_u_object::UObject>>,
-    pub b_is_global_async_scan_environment: bool,
-    pub b_should_guess_type_and_name: bool,
-    pub b_should_use_synchronous_load: bool,
-    pub b_is_loading_from_pak_files: bool,
-    pub b_should_acquire_missing_chunks_on_load: bool,
-    pub b_only_cook_production_assets: bool,
-    pub num_bulk_scan_requests: i32,
-    pub b_is_primary_asset_directory_current: bool,
-    pub b_is_management_database_current: bool,
-    pub b_update_management_database_after_scan: bool,
-    pub b_include_only_on_disk_assets: bool,
-    pub b_has_completed_initial_scan: bool,
-    pub number_of_spawned_notifications: i32,
+    __padding_end: [u8; 1568],
 }
-pub struct UAsyncActionLoadPrimaryAssetBase {}
+impl UAssetManager {}
+#[repr(C, align(8))]
+pub struct UAsyncActionLoadPrimaryAssetBase {
+    __padding_end: [u8; 128],
+}
+impl UAsyncActionLoadPrimaryAssetBase {}
+#[repr(C, align(8))]
 pub struct UAsyncActionLoadPrimaryAsset {
-    pub completed: FAsyncActionLoadPrimaryAsset_Completed,
+    __padding_end: [u8; 152],
 }
+impl UAsyncActionLoadPrimaryAsset {}
+#[repr(C, align(8))]
 pub struct UAsyncActionLoadPrimaryAssetClass {
-    pub completed: FAsyncActionLoadPrimaryAssetClass_Completed,
+    __padding_end: [u8; 152],
 }
+impl UAsyncActionLoadPrimaryAssetClass {}
+#[repr(C, align(8))]
 pub struct UAsyncActionLoadPrimaryAssetList {
-    pub completed: FAsyncActionLoadPrimaryAssetList_Completed,
+    __padding_end: [u8; 152],
 }
+impl UAsyncActionLoadPrimaryAssetList {}
+#[repr(C, align(8))]
 pub struct UAsyncActionLoadPrimaryAssetClassList {
-    pub completed: FAsyncActionLoadPrimaryAssetClassList_Completed,
+    __padding_end: [u8; 152],
 }
+impl UAsyncActionLoadPrimaryAssetClassList {}
+#[repr(C, align(8))]
 pub struct UAsyncActionChangePrimaryAssetBundles {
-    pub completed: FAsyncActionChangePrimaryAssetBundles_Completed,
+    __padding_end: [u8; 152],
 }
+impl UAsyncActionChangePrimaryAssetBundles {}
+#[repr(C, align(8))]
 pub struct AAtmosphericFog {
+    #[doc(hidden)]
+    __padding_1144: [u8; 1144],
     pub atmospheric_fog_component: UPtr<UAtmosphericFogComponent>,
-    pub arrow_component: UPtr<UArrowComponent>,
+    __padding_end: [u8; 8],
 }
+impl AAtmosphericFog {}
+#[repr(C, align(16))]
 pub struct USkyAtmosphereComponent {
+    #[doc(hidden)]
+    __padding_656: [u8; 656],
     pub transform_mode: ESkyAtmosphereTransformMode,
     pub bottom_radius: f32,
     pub ground_albedo: crate::bindings::core_u_object::FColor,
@@ -11947,44 +7719,28 @@ pub struct USkyAtmosphereComponent {
     pub transmittance_min_light_elevation_angle: f32,
     pub aerial_perspective_start_depth: f32,
     pub flags_832: u8,
-    pub b_static_lighting_built_guid: crate::bindings::core_u_object::FGuid,
+    __padding_end: [u8; 95],
 }
-pub struct UAtmosphericFogComponent {}
+impl USkyAtmosphereComponent {}
+#[repr(C, align(16))]
+pub struct UAtmosphericFogComponent {
+    __padding_end: [u8; 928],
+}
+impl UAtmosphericFogComponent {}
+#[repr(C, align(8))]
 pub struct UAudioBus {
-    pub audio_bus_channels: EAudioBusChannels,
+    __padding_end: [u8; 64],
 }
+impl UAudioBus {}
+#[repr(C, align(8))]
 pub struct UAudioSettings {
-    pub default_sound_class_name: crate::bindings::core_u_object::FSoftObjectPath,
-    pub default_media_sound_class_name: crate::bindings::core_u_object::FSoftObjectPath,
-    pub default_sound_concurrency_name: crate::bindings::core_u_object::FSoftObjectPath,
-    pub default_base_sound_mix: crate::bindings::core_u_object::FSoftObjectPath,
-    pub voi_p_sound_class: crate::bindings::core_u_object::FSoftObjectPath,
-    pub master_submix: crate::bindings::core_u_object::FSoftObjectPath,
-    pub base_default_submix: crate::bindings::core_u_object::FSoftObjectPath,
-    pub reverb_submix: crate::bindings::core_u_object::FSoftObjectPath,
-    pub eq_submix: crate::bindings::core_u_object::FSoftObjectPath,
-    pub voi_p_sample_rate: EVoiceSampleRate,
-    pub default_audio_compression_type: EDefaultAudioCompressionType,
-    pub default_occlusion_check_interval: crate::bindings::core_u_object::FPerPlatformFloat,
-    pub default_compression_quality_deprecated: i32,
-    pub default_reverb_send_level_deprecated: f32,
-    pub maximum_concurrent_streams: i32,
-    pub global_min_pitch_scale: f32,
-    pub global_max_pitch_scale: f32,
-    pub quality_levels: TArray<FAudioQualitySettings>,
-    pub flags_600: u8,
-    pub num_stopping_sources: u32,
-    pub panning_method: EPanningMethod,
-    pub mono_channel_upmix_method: EMonoChannelUpmixMethod,
-    pub dialogue_filename_format: FString,
-    pub debug_sounds: TArray<FSoundDebugEntry>,
-    pub default_audio_buses: TArray<FDefaultAudioBusSettings>,
-    pub b_enable_legacy_asset_types: bool,
-    pub default_sound_class: UPtr<USoundClass>,
-    pub default_media_sound_class: UPtr<USoundClass>,
-    pub default_sound_concurrency: UPtr<USoundConcurrency>,
+    __padding_end: [u8; 872],
 }
+impl UAudioSettings {}
+#[repr(C, align(8))]
 pub struct AAudioVolume {
+    #[doc(hidden)]
+    __padding_1208: [u8; 1208],
     pub priority: f32,
     pub flags_1212: u8,
     pub settings: FReverbSettings,
@@ -11992,61 +7748,129 @@ pub struct AAudioVolume {
     pub submix_send_settings: TArray<FAudioVolumeSubmixSendSettings>,
     pub submix_override_settings: TArray<FAudioVolumeSubmixOverrideSettings>,
 }
+impl AAudioVolume {}
 pub struct UActorSoundParameterInterface {}
 pub struct IActorSoundParameterInterface {}
-pub struct UAudioWidgetSubsystem {}
+#[repr(C, align(8))]
+pub struct UAudioWidgetSubsystem {
+    __padding_end: [u8; 56],
+}
+impl UAudioWidgetSubsystem {}
 pub struct USoundParameterControllerInterface {}
 pub struct ISoundParameterControllerInterface {}
-pub struct UAudioParameterConversionStatics {}
-pub struct ABlockingVolume {}
-pub struct UDEPRECATED_Breakpoint {}
-pub struct UBlueprintInstancedStructLibrary {}
-pub struct UBlueprintMapLibrary {}
-pub struct UBlueprintSetLibrary {}
-pub struct UBookMark {
-    pub location: crate::bindings::core_u_object::FVector,
-    pub rotation: crate::bindings::core_u_object::FRotator,
-    pub hidden_levels: TArray<FString>,
+#[repr(C, align(8))]
+pub struct UAudioParameterConversionStatics {
+    __padding_end: [u8; 48],
 }
-pub struct ABrushShape {}
-pub struct ACameraBlockingVolume {}
-pub struct UCameraProxyMeshComponent {}
+impl UAudioParameterConversionStatics {}
+#[repr(C, align(8))]
+pub struct ABlockingVolume {
+    __padding_end: [u8; 1208],
+}
+impl ABlockingVolume {}
+#[repr(C, align(8))]
+pub struct UDEPRECATED_Breakpoint {
+    __padding_end: [u8; 48],
+}
+impl UDEPRECATED_Breakpoint {}
+#[repr(C, align(8))]
+pub struct UBlueprintInstancedStructLibrary {
+    __padding_end: [u8; 48],
+}
+impl UBlueprintInstancedStructLibrary {}
+#[repr(C, align(8))]
+pub struct UBlueprintMapLibrary {
+    __padding_end: [u8; 48],
+}
+impl UBlueprintMapLibrary {}
+#[repr(C, align(8))]
+pub struct UBlueprintSetLibrary {
+    __padding_end: [u8; 48],
+}
+impl UBlueprintSetLibrary {}
+#[repr(C, align(8))]
+pub struct UBookMark {
+    __padding_end: [u8; 112],
+}
+impl UBookMark {}
+#[repr(C, align(8))]
+pub struct ABrushShape {
+    __padding_end: [u8; 1208],
+}
+impl ABrushShape {}
+#[repr(C, align(8))]
+pub struct ACameraBlockingVolume {
+    __padding_end: [u8; 1208],
+}
+impl ACameraBlockingVolume {}
+#[repr(C, align(16))]
+pub struct UCameraProxyMeshComponent {
+    __padding_end: [u8; 1888],
+}
+impl UCameraProxyMeshComponent {}
 pub struct UCameraLensEffectInterface {}
 pub struct ICameraLensEffectInterface {}
-pub struct UCameraLensEffectInterfaceClassSupportLibrary {}
+#[repr(C, align(8))]
+pub struct UCameraLensEffectInterfaceClassSupportLibrary {
+    __padding_end: [u8; 48],
+}
+impl UCameraLensEffectInterfaceClassSupportLibrary {}
+#[repr(C, align(8))]
 pub struct UCameraModifier {
+    #[doc(hidden)]
+    __padding_48: [u8; 48],
     pub flags_48: u8,
+    #[doc(hidden)]
+    __padding_52: [u8; 3],
     pub priority: u8,
     pub camera_owner: UPtr<APlayerCameraManager>,
     pub alpha_in_time: f32,
     pub alpha_out_time: f32,
     pub alpha: f32,
+    __padding_end: [u8; 4],
 }
+impl UCameraModifier {}
+#[repr(C, align(8))]
 pub struct UCameraModifier_CameraShake {
-    pub active_shakes: TArray<FActiveCameraShakeInfo>,
-    pub expired_pooled_shakes_map: TMap<
-        TSubclassOf<UCameraShakeBase>,
-        FPooledCameraShakes,
-    >,
-    pub split_screen_shake_scale: f32,
+    __padding_end: [u8; 208],
 }
-pub struct UCameraShakePattern {}
+impl UCameraModifier_CameraShake {}
+#[repr(C, align(8))]
+pub struct UCameraShakePattern {
+    __padding_end: [u8; 48],
+}
+impl UCameraShakePattern {}
+#[repr(C, align(8))]
 pub struct ACameraShakeSourceActor {
+    #[doc(hidden)]
+    __padding_1136: [u8; 1136],
     pub camera_shake_source_component: UPtr<UCameraShakeSourceComponent>,
 }
+impl ACameraShakeSourceActor {}
+#[repr(C, align(16))]
 pub struct UCameraShakeSourceComponent {
+    #[doc(hidden)]
+    __padding_664: [u8; 664],
     pub attenuation: ECameraShakeAttenuation,
     pub inner_attenuation_radius: f32,
     pub outer_attenuation_radius: f32,
     pub camera_shake: TSubclassOf<UCameraShakeBase>,
     pub b_auto_start: bool,
-    pub editor_sprite_texture: UPtr<UTexture2D>,
-    pub editor_sprite_texture_scale: f32,
+    __padding_end: [u8; 31],
 }
+impl UCameraShakeSourceComponent {}
+#[repr(C, align(16))]
 pub struct UTextureRenderTarget {
+    #[doc(hidden)]
+    __padding_1240: [u8; 1240],
     pub target_gamma: f32,
+    __padding_end: [u8; 4],
 }
+impl UTextureRenderTarget {}
+#[repr(C, align(16))]
 pub struct UTextureRenderTarget2D {
+    #[doc(hidden)]
+    __padding_1248: [u8; 1248],
     pub size_x: i32,
     pub size_y: i32,
     pub clear_color: crate::bindings::core_u_object::FLinearColor,
@@ -12058,116 +7882,131 @@ pub struct UTextureRenderTarget2D {
     pub mips_sampler_filter: TextureFilter,
     pub mips_address_u: TextureAddress,
     pub mips_address_v: TextureAddress,
-    pub override_format: crate::bindings::core_u_object::EPixelFormat,
+    __padding_end: [u8; 16],
 }
+impl UTextureRenderTarget2D {}
+#[repr(C, align(16))]
 pub struct UCanvasRenderTarget2D {
-    pub on_canvas_render_target_update: FCanvasRenderTarget2D_OnCanvasRenderTargetUpdate,
-    pub world: TWeakObjectPtr<UWorld>,
+    #[doc(hidden)]
+    __padding_1320: [u8; 1320],
     pub sample_count: ETextureRenderTargetSampleCount,
-    pub b_should_clear_render_target_on_receive_update: bool,
+    __padding_end: [u8; 7],
 }
+impl UCanvasRenderTarget2D {}
+#[repr(C, align(8))]
 pub struct APlayerController {
-    pub player: UPtr<UPlayer>,
-    pub acknowledged_pawn: UPtr<APawn>,
-    pub my_hud: UPtr<AHUD>,
+    #[doc(hidden)]
+    __padding_1352: [u8; 1352],
     pub player_camera_manager: UPtr<APlayerCameraManager>,
     pub player_camera_manager_class: TSubclassOf<APlayerCameraManager>,
-    pub b_auto_manage_active_camera_target: bool,
-    pub target_view_rotation: crate::bindings::core_u_object::FRotator,
+    #[doc(hidden)]
+    __padding_1424: [u8; 56],
     pub smooth_target_view_rotation_speed: f32,
-    pub hidden_actors: TArray<UPtr<AActor>>,
-    pub hidden_primitive_components: TArray<TWeakObjectPtr<UPrimitiveComponent>>,
-    pub last_spectator_state_synch_time: f32,
-    pub last_spectator_sync_location: crate::bindings::core_u_object::FVector,
-    pub last_spectator_sync_rotation: crate::bindings::core_u_object::FRotator,
-    pub client_cap: i32,
+    #[doc(hidden)]
+    __padding_1528: [u8; 96],
     pub cheat_manager: UPtr<UCheatManager>,
     pub cheat_class: TSubclassOf<UCheatManager>,
-    pub player_input: UPtr<UPlayerInput>,
-    pub active_force_feedback_effects: TArray<FActiveForceFeedbackEffect>,
+    #[doc(hidden)]
+    __padding_1712: [u8; 168],
     pub flags_1712: u8,
-    pub net_player_index: u8,
-    pub pending_swap_connection: UPtr<UNetConnection>,
-    pub net_connection: UPtr<UNetConnection>,
-    pub input_yaw_scale_deprecated: f32,
-    pub input_pitch_scale_deprecated: f32,
-    pub input_roll_scale_deprecated: f32,
+    #[doc(hidden)]
+    __padding_1860: [u8; 147],
     pub flags_1860: u8,
     pub flags_1861: u8,
+    #[doc(hidden)]
+    __padding_1864: [u8; 2],
     pub streaming_source_priority: EStreamingSourcePriority,
     pub streaming_source_debug_color: crate::bindings::core_u_object::FColor,
     pub streaming_source_shapes: TArray<FStreamingSourceShape>,
-    pub force_feedback_scale: f32,
+    #[doc(hidden)]
+    __padding_1896: [u8; 8],
     pub click_event_keys: TArray<crate::bindings::input_core::FKey>,
     pub default_mouse_cursor: crate::bindings::core_u_object::EMouseCursor,
     pub current_mouse_cursor: crate::bindings::core_u_object::EMouseCursor,
     pub default_click_trace_channel: ECollisionChannel,
     pub current_click_trace_channel: ECollisionChannel,
     pub hit_result_trace_distance: f32,
-    pub seamless_travel_count: u16,
-    pub last_completed_seamless_travel_count: u16,
-    pub inactive_state_input_component: UPtr<UInputComponent>,
+    #[doc(hidden)]
+    __padding_2064: [u8; 144],
     pub flags_2064: u8,
-    pub current_touch_interface: UPtr<UTouchInterface>,
-    pub override_player_input_class: TSubclassOf<UPlayerInput>,
-    pub spectator_pawn: UPtr<ASpectatorPawn>,
-    pub b_is_local_player_controller: bool,
-    pub spawn_location: crate::bindings::core_u_object::FVector,
-    pub cached_connection_player_id: FUniqueNetIdRepl,
-    pub client_handshake_id: u32,
+    __padding_end: [u8; 303],
 }
+impl APlayerController {}
+#[repr(C, align(8))]
 pub struct UCheatManager {
-    pub debug_camera_controller_ref: UPtr<ADebugCameraController>,
+    #[doc(hidden)]
+    __padding_56: [u8; 56],
     pub debug_camera_controller_class: TSubclassOf<ADebugCameraController>,
-    pub cheat_manager_extensions: TArray<UPtr<UCheatManagerExtension>>,
+    __padding_end: [u8; 80],
 }
-pub struct UCheatManagerExtension {}
+impl UCheatManager {}
+#[repr(C, align(8))]
+pub struct UCheatManagerExtension {
+    __padding_end: [u8; 48],
+}
+impl UCheatManagerExtension {}
+#[repr(C, align(8))]
 pub struct UCollisionProfile {
-    pub profiles: TArray<FCollisionResponseTemplate>,
-    pub default_channel_responses: TArray<FCustomChannelSetup>,
-    pub edit_profiles: TArray<FCustomProfile>,
-    pub profile_redirects: TArray<FRedirector>,
-    pub collision_channel_redirects: TArray<FRedirector>,
+    __padding_end: [u8; 424],
 }
-pub struct UPluginCommandlet {}
-pub struct USmokeTestCommandlet {}
+impl UCollisionProfile {}
+#[repr(C, align(8))]
+pub struct UPluginCommandlet {
+    __padding_end: [u8; 168],
+}
+impl UPluginCommandlet {}
+#[repr(C, align(8))]
+pub struct USmokeTestCommandlet {
+    __padding_end: [u8; 136],
+}
+impl USmokeTestCommandlet {}
+#[repr(C, align(8))]
 pub struct UComponentDelegateBinding {
-    pub component_delegate_bindings: TArray<FBlueprintComponentDelegateBinding>,
+    __padding_end: [u8; 64],
 }
+impl UComponentDelegateBinding {}
+#[repr(C, align(8))]
 pub struct UApplicationLifecycleComponent {
-    pub application_will_deactivate_delegate: FApplicationLifecycleComponent_ApplicationWillDeactivateDelegate,
-    pub application_has_reactivated_delegate: FApplicationLifecycleComponent_ApplicationHasReactivatedDelegate,
-    pub application_will_enter_background_delegate: FApplicationLifecycleComponent_ApplicationWillEnterBackgroundDelegate,
-    pub application_has_entered_foreground_delegate: FApplicationLifecycleComponent_ApplicationHasEnteredForegroundDelegate,
-    pub application_will_terminate_delegate: FApplicationLifecycleComponent_ApplicationWillTerminateDelegate,
-    pub application_should_unload_resources_delegate: FApplicationLifecycleComponent_ApplicationShouldUnloadResourcesDelegate,
-    pub application_received_startup_arguments_delegate: FApplicationLifecycleComponent_ApplicationReceivedStartupArgumentsDelegate,
-    pub on_temperature_change_delegate: FApplicationLifecycleComponent_OnTemperatureChangeDelegate,
-    pub on_low_power_mode_delegate: FApplicationLifecycleComponent_OnLowPowerModeDelegate,
+    __padding_end: [u8; 456],
 }
+impl UApplicationLifecycleComponent {}
+#[repr(C, align(16))]
 pub struct UArrowComponent {
+    #[doc(hidden)]
+    __padding_1504: [u8; 1504],
     pub arrow_color: crate::bindings::core_u_object::FColor,
     pub arrow_size: f32,
     pub arrow_length: f32,
     pub screen_size: f32,
     pub flags_1520: u8,
-    pub sprite_category_name_deprecated: FName,
-    pub sprite_info: FSpriteCategoryInfo,
-    pub flags_1584: u8,
+    #[doc(hidden)]
+    __padding_1588: [u8; 67],
     pub b_use_in_editor_scaling: bool,
+    __padding_end: [u8; 11],
 }
+impl UArrowComponent {}
+#[repr(C, align(8))]
 pub struct UInitialActiveSoundParams {
+    #[doc(hidden)]
+    __padding_48: [u8; 48],
     pub audio_params: TArray<crate::bindings::audio_extensions::FAudioParameter>,
 }
+impl UInitialActiveSoundParams {}
+#[repr(C, align(16))]
 pub struct UAudioComponent {
+    #[doc(hidden)]
+    __padding_1240: [u8; 1240],
     pub sound: UPtr<USoundBase>,
     pub default_parameters: TArray<crate::bindings::audio_extensions::FAudioParameter>,
-    pub instance_parameters: TArray<crate::bindings::audio_extensions::FAudioParameter>,
-    pub sound_class_override: UPtr<USoundClass>,
+    #[doc(hidden)]
+    __padding_1288: [u8; 24],
     pub flags_1288: u8,
     pub flags_1289: u8,
+    #[doc(hidden)]
+    __padding_1291: [u8; 1],
     pub flags_1291: u8,
-    pub audio_component_user_id: FName,
+    #[doc(hidden)]
+    __padding_1308: [u8; 16],
     pub pitch_modulation_min: f32,
     pub pitch_modulation_max: f32,
     pub volume_modulation_min: f32,
@@ -12178,31 +8017,33 @@ pub struct UAudioComponent {
     pub priority: f32,
     pub subtitle_priority: f32,
     pub source_effect_chain: UPtr<USoundEffectSourcePresetChain>,
-    pub volume_weighted_priority_scale_deprecated: f32,
-    pub high_frequency_gain_multiplier_deprecated: f32,
+    #[doc(hidden)]
+    __padding_1360: [u8; 8],
     pub pitch_multiplier: f32,
     pub low_pass_filter_frequency: f32,
     pub high_pass_filter_frequency: f32,
     pub attenuation_settings: UPtr<USoundAttenuation>,
     pub attenuation_overrides: FSoundAttenuationSettings,
-    pub concurrency_settings_deprecated: UPtr<USoundConcurrency>,
+    #[doc(hidden)]
+    __padding_2416: [u8; 8],
     pub concurrency_set: TSet<UPtr<USoundConcurrency>>,
-    pub occlusion_check_interval: f32,
+    #[doc(hidden)]
+    __padding_2508: [u8; 12],
     pub auto_attach_location_rule: EAttachmentRule,
     pub auto_attach_rotation_rule: EAttachmentRule,
     pub auto_attach_scale_rule: EAttachmentRule,
     pub modulation_routing: FSoundModulationDefaultRoutingSettings,
-    pub on_audio_play_state_changed: FAudioComponent_OnAudioPlayStateChanged,
-    pub on_audio_virtualization_changed: FAudioComponent_OnAudioVirtualizationChanged,
-    pub on_audio_finished: FAudioComponent_OnAudioFinished,
-    pub on_audio_playback_percent: FAudioComponent_OnAudioPlaybackPercent,
-    pub on_audio_single_envelope_value: FAudioComponent_OnAudioSingleEnvelopeValue,
-    pub on_audio_multi_envelope_value: FAudioComponent_OnAudioMultiEnvelopeValue,
-    pub on_queue_subtitles: FAudioComponent_OnQueueSubtitles,
+    #[doc(hidden)]
+    __padding_3288: [u8; 384],
     pub auto_attach_parent: TWeakObjectPtr<USceneComponent>,
     pub auto_attach_socket_name: FName,
+    __padding_end: [u8; 244],
 }
+impl UAudioComponent {}
+#[repr(C, align(16))]
 pub struct UBillboardComponent {
+    #[doc(hidden)]
+    __padding_1504: [u8; 1504],
     pub sprite: UPtr<UTexture2D>,
     pub flags_1512: u8,
     pub screen_size: f32,
@@ -12211,79 +8052,99 @@ pub struct UBillboardComponent {
     pub v: f32,
     pub vl: f32,
     pub opacity_mask_ref_val: f32,
-    pub sprite_category_name_deprecated: FName,
-    pub sprite_info: FSpriteCategoryInfo,
+    #[doc(hidden)]
+    __padding_1600: [u8; 60],
     pub b_use_in_editor_scaling: bool,
-    pub b_show_locked_location: bool,
+    __padding_end: [u8; 15],
 }
+impl UBillboardComponent {}
+#[repr(C, align(16))]
 pub struct UBoundsCopyComponent {
-    pub bounds_source_actor: TSoftObjectPtr<AActor>,
-    pub b_use_colliding_components_for_source_bounds: bool,
-    pub b_keep_own_bounds_scale: bool,
-    pub b_use_colliding_components_for_own_bounds: bool,
-    pub post_transform: crate::bindings::core_u_object::FTransform,
-    pub b_copy_x_bounds: bool,
-    pub b_copy_y_bounds: bool,
-    pub b_copy_z_bounds: bool,
+    __padding_end: [u8; 416],
 }
+impl UBoundsCopyComponent {}
+#[repr(C, align(16))]
 pub struct UShapeComponent {
-    pub shape_body_setup: UPtr<UBodySetup>,
-    pub area_class: TSubclassOf<UNavAreaBase>,
+    #[doc(hidden)]
+    __padding_1520: [u8; 1520],
     pub shape_color: crate::bindings::core_u_object::FColor,
-    pub flags_1524: u8,
-    pub area_class_override: TSubclassOf<UNavAreaBase>,
+    #[doc(hidden)]
+    __padding_1536: [u8; 12],
     pub line_thickness: f32,
+    __padding_end: [u8; 12],
 }
+impl UShapeComponent {}
+#[repr(C, align(16))]
 pub struct UBoxComponent {
+    #[doc(hidden)]
+    __padding_1544: [u8; 1544],
     pub box_extent: crate::bindings::core_u_object::FVector,
+    __padding_end: [u8; 64],
 }
+impl UBoxComponent {}
+#[repr(C, align(16))]
 pub struct UBrushComponent {
-    pub brush: UPtr<UModel>,
-    pub brush_body_setup: UPtr<UBodySetup>,
-    pub pre_pivot_deprecated: crate::bindings::core_u_object::FVector,
+    __padding_end: [u8; 1552],
 }
+impl UBrushComponent {}
+#[repr(C, align(16))]
 pub struct UCapsuleComponent {
+    #[doc(hidden)]
+    __padding_1544: [u8; 1544],
     pub capsule_half_height: f32,
     pub capsule_radius: f32,
-    pub capsule_height_deprecated: f32,
+    __padding_end: [u8; 16],
 }
+impl UCapsuleComponent {}
+#[repr(C, align(8))]
 pub struct UMovementComponent {
+    #[doc(hidden)]
+    __padding_240: [u8; 240],
     pub updated_component: UPtr<USceneComponent>,
     pub updated_primitive: UPtr<UPrimitiveComponent>,
+    #[doc(hidden)]
+    __padding_264: [u8; 8],
     pub velocity: crate::bindings::core_u_object::FVector,
     pub plane_constraint_normal: crate::bindings::core_u_object::FVector,
     pub plane_constraint_origin: crate::bindings::core_u_object::FVector,
     pub flags_336: u8,
-    pub plane_constraint_axis_setting: EPlaneConstraintAxisSetting,
+    __padding_end: [u8; 7],
 }
+impl UMovementComponent {}
+#[repr(C, align(8))]
 pub struct UNavMovementComponent {
-    pub fixed_path_braking_distance_deprecated: f32,
-    pub flags_356: u8,
-    pub nav_movement_properties: FNavMovementProperties,
+    #[doc(hidden)]
+    __padding_368: [u8; 368],
     pub nav_agent_props: FNavAgentProperties,
-    pub movement_state: FMovementProperties,
-    pub path_following_comp: UPtr<crate::bindings::core_u_object::UObject>,
+    __padding_end: [u8; 16],
 }
+impl UNavMovementComponent {}
+#[repr(C, align(8))]
 pub struct UPawnMovementComponent {
-    pub pawn_owner: UPtr<APawn>,
+    __padding_end: [u8; 456],
 }
+impl UPawnMovementComponent {}
+#[repr(C, align(16))]
 pub struct UCharacterMovementComponent {
-    pub character_owner: UPtr<ACharacter>,
+    #[doc(hidden)]
+    __padding_480: [u8; 480],
     pub gravity_scale: f32,
     pub max_step_height: f32,
     pub jump_z_velocity: f32,
     pub jump_off_jump_z_factor: f32,
-    pub walkable_floor_angle: f32,
-    pub walkable_floor_z: f32,
+    #[doc(hidden)]
+    __padding_536: [u8; 40],
     pub gravity_direction: crate::bindings::core_u_object::FVector,
     pub world_to_gravity_transform: crate::bindings::core_u_object::FQuat,
     pub gravity_to_world_transform: crate::bindings::core_u_object::FQuat,
+    #[doc(hidden)]
+    __padding_625: [u8; 1],
     pub movement_mode: EMovementMode,
     pub custom_movement_mode: u8,
     pub network_smoothing_mode: ENetworkSmoothingMode,
     pub ground_friction: f32,
-    pub old_base_quat: crate::bindings::core_u_object::FQuat,
-    pub old_base_location: crate::bindings::core_u_object::FVector,
+    #[doc(hidden)]
+    __padding_696: [u8; 64],
     pub max_walk_speed: f32,
     pub max_walk_speed_crouched: f32,
     pub max_swim_speed: f32,
@@ -12311,7 +8172,8 @@ pub struct UCharacterMovementComponent {
     pub flags_809: u8,
     pub flags_810: u8,
     pub flags_811: u8,
-    pub deferred_updated_move_component: UPtr<USceneComponent>,
+    #[doc(hidden)]
+    __padding_824: [u8; 12],
     pub max_out_of_water_step_height: f32,
     pub outof_water_z: f32,
     pub mass: f32,
@@ -12323,19 +8185,8 @@ pub struct UCharacterMovementComponent {
     pub min_touch_force: f32,
     pub max_touch_force: f32,
     pub repulsion_force: f32,
-    pub flags_868: u8,
-    pub crouched_speed_multiplier_deprecated: f32,
-    pub upper_impact_normal_scale_deprecated: f32,
-    pub acceleration: crate::bindings::core_u_object::FVector,
-    pub last_update_rotation: crate::bindings::core_u_object::FQuat,
-    pub last_update_location: crate::bindings::core_u_object::FVector,
-    pub last_update_velocity: crate::bindings::core_u_object::FVector,
-    pub server_last_transform_update_time_stamp: f32,
-    pub server_last_client_good_move_ack_time: f32,
-    pub server_last_client_adjustment_time: f32,
-    pub pending_impulse_to_apply: crate::bindings::core_u_object::FVector,
-    pub pending_force_to_apply: crate::bindings::core_u_object::FVector,
-    pub analog_input_modifier: f32,
+    #[doc(hidden)]
+    __padding_1072: [u8; 204],
     pub max_simulation_time_step: f32,
     pub max_simulation_iterations: i32,
     pub max_jump_apex_attempts_per_simulation: i32,
@@ -12343,41 +8194,36 @@ pub struct UCharacterMovementComponent {
     pub max_depenetration_with_geometry_as_proxy: f32,
     pub max_depenetration_with_pawn: f32,
     pub max_depenetration_with_pawn_as_proxy: f32,
-    pub network_simulated_smooth_location_time: f32,
-    pub network_simulated_smooth_rotation_time: f32,
-    pub listen_server_network_simulated_smooth_location_time: f32,
-    pub listen_server_network_simulated_smooth_rotation_time: f32,
-    pub net_proxy_shrink_radius: f32,
-    pub net_proxy_shrink_half_height: f32,
-    pub network_max_smooth_update_distance: f32,
-    pub network_no_smooth_update_distance: f32,
-    pub network_min_time_between_client_ack_good_moves: f32,
-    pub network_min_time_between_client_adjustments: f32,
-    pub network_min_time_between_client_adjustments_large_correction: f32,
-    pub network_large_client_correction_distance: f32,
+    #[doc(hidden)]
+    __padding_1148: [u8; 48],
     pub ledge_check_threshold: f32,
     pub jump_out_of_water_pitch: f32,
     pub current_floor: FFindFloorResult,
     pub default_land_movement_mode: EMovementMode,
     pub default_water_movement_mode: EMovementMode,
-    pub ground_movement_mode: EMovementMode,
+    #[doc(hidden)]
+    __padding_1452: [u8; 10],
     pub flags_1452: u8,
     pub flags_1453: u8,
     pub flags_1454: u8,
     pub flags_1455: u8,
     pub former_base_velocity_decay_half_life: f32,
     pub flags_1460: u8,
+    #[doc(hidden)]
+    __padding_1492: [u8; 28],
     pub avoidance_consideration_radius: f32,
-    pub requested_velocity: crate::bindings::core_u_object::FVector,
-    pub last_update_requested_velocity: crate::bindings::core_u_object::FVector,
+    #[doc(hidden)]
+    __padding_1544: [u8; 48],
     pub avoidance_uid: i32,
     pub avoidance_group: FNavAvoidanceMask,
     pub groups_to_avoid: FNavAvoidanceMask,
     pub groups_to_ignore: FNavAvoidanceMask,
     pub avoidance_weight: f32,
-    pub pending_launch_velocity: crate::bindings::core_u_object::FVector,
+    #[doc(hidden)]
+    __padding_1936: [u8; 372],
     pub nav_mesh_projection_interval: f32,
-    pub nav_mesh_projection_timer: f32,
+    #[doc(hidden)]
+    __padding_1944: [u8; 4],
     pub nav_mesh_projection_interp_speed: f32,
     pub nav_mesh_projection_height_scale_up: f32,
     pub nav_mesh_projection_height_scale_down: f32,
@@ -12386,14 +8232,359 @@ pub struct UCharacterMovementComponent {
     pub b_base_on_attachment_root: bool,
     pub b_stay_based_in_air: bool,
     pub stay_based_in_air_height: f32,
-    pub post_physics_tick_function: FCharacterMovementComponentPostPhysicsTickFunction,
-    pub min_time_between_time_stamp_resets: f32,
-    pub current_root_motion: FRootMotionSourceGroup,
-    pub server_correction_root_motion: FRootMotionSourceGroup,
-    pub root_motion_params: FRootMotionMovementParams,
-    pub anim_root_motion_velocity: crate::bindings::core_u_object::FVector,
+    __padding_end: [u8; 2160],
 }
+impl UCharacterMovementComponent {
+    pub fn verify_layout() {
+        log::warn!(
+            "{} = {} vs {}", "gravity_scale",
+            std::mem::offset_of!(UCharacterMovementComponent, gravity_scale), 480usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "max_step_height",
+            std::mem::offset_of!(UCharacterMovementComponent, max_step_height), 484usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "jump_z_velocity",
+            std::mem::offset_of!(UCharacterMovementComponent, jump_z_velocity), 488usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "jump_off_jump_z_factor",
+            std::mem::offset_of!(UCharacterMovementComponent, jump_off_jump_z_factor),
+            492usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "gravity_direction",
+            std::mem::offset_of!(UCharacterMovementComponent, gravity_direction),
+            536usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "world_to_gravity_transform",
+            std::mem::offset_of!(UCharacterMovementComponent,
+            world_to_gravity_transform), 560usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "gravity_to_world_transform",
+            std::mem::offset_of!(UCharacterMovementComponent,
+            gravity_to_world_transform), 592usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "movement_mode",
+            std::mem::offset_of!(UCharacterMovementComponent, movement_mode), 625usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "custom_movement_mode",
+            std::mem::offset_of!(UCharacterMovementComponent, custom_movement_mode),
+            626usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "network_smoothing_mode",
+            std::mem::offset_of!(UCharacterMovementComponent, network_smoothing_mode),
+            627usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "ground_friction",
+            std::mem::offset_of!(UCharacterMovementComponent, ground_friction), 628usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "max_walk_speed",
+            std::mem::offset_of!(UCharacterMovementComponent, max_walk_speed), 696usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "max_walk_speed_crouched",
+            std::mem::offset_of!(UCharacterMovementComponent, max_walk_speed_crouched),
+            700usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "max_swim_speed",
+            std::mem::offset_of!(UCharacterMovementComponent, max_swim_speed), 704usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "max_fly_speed",
+            std::mem::offset_of!(UCharacterMovementComponent, max_fly_speed), 708usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "max_custom_movement_speed",
+            std::mem::offset_of!(UCharacterMovementComponent, max_custom_movement_speed),
+            712usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "max_acceleration",
+            std::mem::offset_of!(UCharacterMovementComponent, max_acceleration), 716usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "min_analog_walk_speed",
+            std::mem::offset_of!(UCharacterMovementComponent, min_analog_walk_speed),
+            720usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "braking_friction_factor",
+            std::mem::offset_of!(UCharacterMovementComponent, braking_friction_factor),
+            724usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "braking_friction",
+            std::mem::offset_of!(UCharacterMovementComponent, braking_friction), 728usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "braking_sub_step_time",
+            std::mem::offset_of!(UCharacterMovementComponent, braking_sub_step_time),
+            732usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "braking_deceleration_walking",
+            std::mem::offset_of!(UCharacterMovementComponent,
+            braking_deceleration_walking), 736usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "braking_deceleration_falling",
+            std::mem::offset_of!(UCharacterMovementComponent,
+            braking_deceleration_falling), 740usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "braking_deceleration_swimming",
+            std::mem::offset_of!(UCharacterMovementComponent,
+            braking_deceleration_swimming), 744usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "braking_deceleration_flying",
+            std::mem::offset_of!(UCharacterMovementComponent,
+            braking_deceleration_flying), 748usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "air_control",
+            std::mem::offset_of!(UCharacterMovementComponent, air_control), 752usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "air_control_boost_multiplier",
+            std::mem::offset_of!(UCharacterMovementComponent,
+            air_control_boost_multiplier), 756usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "air_control_boost_velocity_threshold",
+            std::mem::offset_of!(UCharacterMovementComponent,
+            air_control_boost_velocity_threshold), 760usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "falling_lateral_friction",
+            std::mem::offset_of!(UCharacterMovementComponent, falling_lateral_friction),
+            764usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "crouched_half_height",
+            std::mem::offset_of!(UCharacterMovementComponent, crouched_half_height),
+            768usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "buoyancy",
+            std::mem::offset_of!(UCharacterMovementComponent, buoyancy), 772usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "perch_radius_threshold",
+            std::mem::offset_of!(UCharacterMovementComponent, perch_radius_threshold),
+            776usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "perch_additional_height",
+            std::mem::offset_of!(UCharacterMovementComponent, perch_additional_height),
+            780usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "rotation_rate",
+            std::mem::offset_of!(UCharacterMovementComponent, rotation_rate), 784usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "max_out_of_water_step_height",
+            std::mem::offset_of!(UCharacterMovementComponent,
+            max_out_of_water_step_height), 824usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "outof_water_z",
+            std::mem::offset_of!(UCharacterMovementComponent, outof_water_z), 828usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "mass", std::mem::offset_of!(UCharacterMovementComponent,
+            mass), 832usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "standing_downward_force_scale",
+            std::mem::offset_of!(UCharacterMovementComponent,
+            standing_downward_force_scale), 836usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "initial_push_force_factor",
+            std::mem::offset_of!(UCharacterMovementComponent, initial_push_force_factor),
+            840usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "push_force_factor",
+            std::mem::offset_of!(UCharacterMovementComponent, push_force_factor),
+            844usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "push_force_point_z_offset_factor",
+            std::mem::offset_of!(UCharacterMovementComponent,
+            push_force_point_z_offset_factor), 848usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "touch_force_factor",
+            std::mem::offset_of!(UCharacterMovementComponent, touch_force_factor),
+            852usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "min_touch_force",
+            std::mem::offset_of!(UCharacterMovementComponent, min_touch_force), 856usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "max_touch_force",
+            std::mem::offset_of!(UCharacterMovementComponent, max_touch_force), 860usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "repulsion_force",
+            std::mem::offset_of!(UCharacterMovementComponent, repulsion_force), 864usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "max_simulation_time_step",
+            std::mem::offset_of!(UCharacterMovementComponent, max_simulation_time_step),
+            1072usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "max_simulation_iterations",
+            std::mem::offset_of!(UCharacterMovementComponent, max_simulation_iterations),
+            1076usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "max_jump_apex_attempts_per_simulation",
+            std::mem::offset_of!(UCharacterMovementComponent,
+            max_jump_apex_attempts_per_simulation), 1080usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "max_depenetration_with_geometry",
+            std::mem::offset_of!(UCharacterMovementComponent,
+            max_depenetration_with_geometry), 1084usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "max_depenetration_with_geometry_as_proxy",
+            std::mem::offset_of!(UCharacterMovementComponent,
+            max_depenetration_with_geometry_as_proxy), 1088usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "max_depenetration_with_pawn",
+            std::mem::offset_of!(UCharacterMovementComponent,
+            max_depenetration_with_pawn), 1092usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "max_depenetration_with_pawn_as_proxy",
+            std::mem::offset_of!(UCharacterMovementComponent,
+            max_depenetration_with_pawn_as_proxy), 1096usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "ledge_check_threshold",
+            std::mem::offset_of!(UCharacterMovementComponent, ledge_check_threshold),
+            1148usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "jump_out_of_water_pitch",
+            std::mem::offset_of!(UCharacterMovementComponent, jump_out_of_water_pitch),
+            1152usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "current_floor",
+            std::mem::offset_of!(UCharacterMovementComponent, current_floor), 1160usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "default_land_movement_mode",
+            std::mem::offset_of!(UCharacterMovementComponent,
+            default_land_movement_mode), 1440usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "default_water_movement_mode",
+            std::mem::offset_of!(UCharacterMovementComponent,
+            default_water_movement_mode), 1441usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "former_base_velocity_decay_half_life",
+            std::mem::offset_of!(UCharacterMovementComponent,
+            former_base_velocity_decay_half_life), 1456usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "avoidance_consideration_radius",
+            std::mem::offset_of!(UCharacterMovementComponent,
+            avoidance_consideration_radius), 1492usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "avoidance_uid",
+            std::mem::offset_of!(UCharacterMovementComponent, avoidance_uid), 1544usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "avoidance_group",
+            std::mem::offset_of!(UCharacterMovementComponent, avoidance_group), 1548usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "groups_to_avoid",
+            std::mem::offset_of!(UCharacterMovementComponent, groups_to_avoid), 1552usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "groups_to_ignore",
+            std::mem::offset_of!(UCharacterMovementComponent, groups_to_ignore),
+            1556usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "avoidance_weight",
+            std::mem::offset_of!(UCharacterMovementComponent, avoidance_weight),
+            1560usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "nav_mesh_projection_interval",
+            std::mem::offset_of!(UCharacterMovementComponent,
+            nav_mesh_projection_interval), 1936usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "nav_mesh_projection_interp_speed",
+            std::mem::offset_of!(UCharacterMovementComponent,
+            nav_mesh_projection_interp_speed), 1944usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "nav_mesh_projection_height_scale_up",
+            std::mem::offset_of!(UCharacterMovementComponent,
+            nav_mesh_projection_height_scale_up), 1948usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "nav_mesh_projection_height_scale_down",
+            std::mem::offset_of!(UCharacterMovementComponent,
+            nav_mesh_projection_height_scale_down), 1952usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "nav_walking_floor_dist_tolerance",
+            std::mem::offset_of!(UCharacterMovementComponent,
+            nav_walking_floor_dist_tolerance), 1956usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "b_based_movement_ignore_physics_base",
+            std::mem::offset_of!(UCharacterMovementComponent,
+            b_based_movement_ignore_physics_base), 1960usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "b_base_on_attachment_root",
+            std::mem::offset_of!(UCharacterMovementComponent, b_base_on_attachment_root),
+            1961usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "b_stay_based_in_air",
+            std::mem::offset_of!(UCharacterMovementComponent, b_stay_based_in_air),
+            1962usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "stay_based_in_air_height",
+            std::mem::offset_of!(UCharacterMovementComponent, stay_based_in_air_height),
+            1964usize
+        );
+    }
+}
+#[repr(C, align(16))]
 pub struct UDecalComponent {
+    #[doc(hidden)]
+    __padding_656: [u8; 656],
     pub decal_material: UPtr<UMaterialInterface>,
     pub sort_order: i32,
     pub fade_screen_size: f32,
@@ -12404,15 +8595,19 @@ pub struct UDecalComponent {
     pub flags_688: u8,
     pub decal_size: crate::bindings::core_u_object::FVector,
     pub decal_color: crate::bindings::core_u_object::FLinearColor,
+    __padding_end: [u8; 32],
 }
+impl UDecalComponent {}
+#[repr(C, align(16))]
 pub struct ULightComponent {
+    #[doc(hidden)]
+    __padding_760: [u8; 760],
     pub temperature: f32,
     pub max_draw_distance: f32,
     pub max_distance_fade_range: f32,
     pub flags_772: u8,
-    pub shadow_map_channel_deprecated: i32,
-    pub preview_shadow_map_channel: i32,
-    pub min_roughness_deprecated: f32,
+    #[doc(hidden)]
+    __padding_788: [u8; 12],
     pub specular_scale: f32,
     pub diffuse_scale: f32,
     pub shadow_resolution_scale: f32,
@@ -12424,13 +8619,18 @@ pub struct ULightComponent {
     pub contact_shadow_casting_intensity: f32,
     pub contact_shadow_non_casting_intensity: f32,
     pub flags_828: u8,
+    #[doc(hidden)]
+    __padding_832: [u8; 3],
     pub mega_lights_shadow_method: EMegaLightsShadowMethod,
+    #[doc(hidden)]
+    __padding_836: [u8; 3],
     pub flags_836: u8,
     pub ray_end_bias: f32,
     pub lighting_channels: FLightingChannels,
     pub view_lighting_channels: FViewLightingChannels,
     pub light_function_material: UPtr<UMaterialInterface>,
-    pub stashed_light_function_material: UPtr<UMaterialInterface>,
+    #[doc(hidden)]
+    __padding_864: [u8; 8],
     pub light_function_scale: crate::bindings::core_u_object::FVector,
     pub ies_texture: UPtr<UTextureLightProfile>,
     pub flags_896: u8,
@@ -12444,14 +8644,20 @@ pub struct ULightComponent {
     pub bloom_tint: crate::bindings::core_u_object::FColor,
     pub b_use_ray_traced_distance_field_shadows: bool,
     pub ray_start_offset_depth_scale: f32,
+    __padding_end: [u8; 132],
 }
+impl ULightComponent {}
+#[repr(C, align(16))]
 pub struct UDirectionalLightComponent {
+    #[doc(hidden)]
+    __padding_1072: [u8; 1072],
     pub shadow_cascade_bias_distribution: f32,
     pub flags_1076: u8,
     pub occlusion_mask_darkness: f32,
     pub occlusion_depth_range: f32,
     pub light_shaft_override_direction: crate::bindings::core_u_object::FVector,
-    pub whole_scene_dynamic_shadow_radius_deprecated: f32,
+    #[doc(hidden)]
+    __padding_1116: [u8; 4],
     pub dynamic_shadow_distance_movable_light: f32,
     pub dynamic_shadow_distance_stationary_light: f32,
     pub dynamic_shadow_cascades: i32,
@@ -12479,12 +8685,18 @@ pub struct UDirectionalLightComponent {
     pub cloud_shadow_map_resolution_scale: f32,
     pub cloud_shadow_ray_sample_count_scale: f32,
     pub cloud_scattered_luminance_scale: crate::bindings::core_u_object::FLinearColor,
-    pub lightmass_settings: FLightmassDirectionalLightSettings,
+    #[doc(hidden)]
+    __padding_1264: [u8; 16],
     pub flags_1264: u8,
     pub modulated_shadow_color: crate::bindings::core_u_object::FColor,
     pub shadow_amount: f32,
+    __padding_end: [u8; 4],
 }
+impl UDirectionalLightComponent {}
+#[repr(C, align(16))]
 pub struct UDrawFrustumComponent {
+    #[doc(hidden)]
+    __padding_1504: [u8; 1504],
     pub b_frustum_enabled: bool,
     pub frustum_color: crate::bindings::core_u_object::FColor,
     pub frustum_angle: f32,
@@ -12493,15 +8705,29 @@ pub struct UDrawFrustumComponent {
     pub frustum_end_dist: f32,
     pub texture: UPtr<UTexture>,
 }
+impl UDrawFrustumComponent {}
+#[repr(C, align(16))]
 pub struct USphereComponent {
+    #[doc(hidden)]
+    __padding_1544: [u8; 1544],
     pub sphere_radius: f32,
+    __padding_end: [u8; 4],
 }
-pub struct UDrawSphereComponent {}
+impl USphereComponent {}
+#[repr(C, align(16))]
+pub struct UDrawSphereComponent {
+    __padding_end: [u8; 1552],
+}
+impl UDrawSphereComponent {}
+#[repr(C, align(16))]
 pub struct UExponentialHeightFogComponent {
+    #[doc(hidden)]
+    __padding_656: [u8; 656],
     pub fog_density: f32,
     pub fog_height_falloff: f32,
     pub second_fog_data: FExponentialHeightFogData,
-    pub fog_inscattering_color_deprecated: crate::bindings::core_u_object::FLinearColor,
+    #[doc(hidden)]
+    __padding_692: [u8; 16],
     pub fog_inscattering_luminance: crate::bindings::core_u_object::FLinearColor,
     pub sky_atmosphere_ambient_contribution_color_scale: crate::bindings::core_u_object::FLinearColor,
     pub inscattering_color_cubemap: UPtr<UTextureCube>,
@@ -12511,7 +8737,8 @@ pub struct UExponentialHeightFogComponent {
     pub non_directional_inscattering_color_distance: f32,
     pub directional_inscattering_exponent: f32,
     pub directional_inscattering_start_distance: f32,
-    pub directional_inscattering_color_deprecated: crate::bindings::core_u_object::FLinearColor,
+    #[doc(hidden)]
+    __padding_788: [u8; 16],
     pub directional_inscattering_luminance: crate::bindings::core_u_object::FLinearColor,
     pub fog_max_opacity: f32,
     pub start_distance: f32,
@@ -12528,71 +8755,88 @@ pub struct UExponentialHeightFogComponent {
     pub volumetric_fog_static_lighting_scattering_intensity: f32,
     pub b_override_light_colors_with_fog_inscattering_colors: bool,
     pub flags_869: u8,
+    __padding_end: [u8; 10],
 }
+impl UExponentialHeightFogComponent {}
+#[repr(C, align(16))]
 pub struct UForceFeedbackComponent {
+    #[doc(hidden)]
+    __padding_656: [u8; 656],
     pub force_feedback_effect: UPtr<UForceFeedbackEffect>,
     pub flags_664: u8,
     pub intensity_multiplier: f32,
     pub attenuation_settings: UPtr<UForceFeedbackAttenuation>,
     pub attenuation_overrides: FForceFeedbackAttenuationSettings,
-    pub on_force_feedback_finished: FForceFeedbackComponent_OnForceFeedbackFinished,
+    __padding_end: [u8; 40],
 }
+impl UForceFeedbackComponent {}
+#[repr(C, align(16))]
 pub struct UHeterogeneousVolumeComponent {
+    #[doc(hidden)]
+    __padding_1576: [u8; 1576],
     pub volume_resolution: crate::bindings::core_u_object::FIntVector,
     pub frame_transform: crate::bindings::core_u_object::FTransform,
     pub frame: f32,
-    pub frame_rate: f32,
-    pub start_frame: f32,
-    pub end_frame: f32,
-    pub flags_1712: u8,
-    pub streaming_mip_bias: f32,
-    pub flags_1720: u8,
-    pub step_factor: f32,
-    pub shadow_step_factor: f32,
-    pub shadow_bias_factor: f32,
-    pub lighting_downsample_factor: f32,
-    pub material_instance_dynamic: UPtr<UMaterialInstanceDynamic>,
+    __padding_end: [u8; 60],
 }
+impl UHeterogeneousVolumeComponent {}
+#[repr(C, align(8))]
 pub struct AHeterogeneousVolume {
+    #[doc(hidden)]
+    __padding_1144: [u8; 1144],
     pub heterogeneous_volume_component: UPtr<UHeterogeneousVolumeComponent>,
 }
+impl AHeterogeneousVolume {}
+#[repr(C, align(8))]
 pub struct UInputComponent {
-    pub cached_key_to_action_info: TArray<FCachedKeyToActionInfo>,
+    __padding_end: [u8; 376],
 }
+impl UInputComponent {}
+#[repr(C, align(16))]
 pub struct UInstancedSkinnedMeshComponent {
+    #[doc(hidden)]
+    __padding_2592: [u8; 2592],
     pub transform_provider: UPtr<UTransformProviderData>,
-    pub instance_data: TArray<FSkinnedMeshInstanceData>,
-    pub num_custom_data_floats: i32,
-    pub instance_custom_data: TArray<f32>,
+    #[doc(hidden)]
+    __padding_2640: [u8; 40],
     pub animation_min_screen_size: f32,
     pub instance_min_draw_distance: i32,
     pub instance_start_cull_distance: i32,
     pub instance_end_cull_distance: i32,
-    pub flags_2656: u8,
-    pub primitive_bounds_override: crate::bindings::core_u_object::FBox,
-    pub b_is_instance_data_gpu_only: bool,
-    pub num_instances_gpu_only: i32,
+    __padding_end: [u8; 368],
 }
+impl UInstancedSkinnedMeshComponent {}
+#[repr(C, align(8))]
 pub struct UInterpToMovementComponent {
+    #[doc(hidden)]
+    __padding_344: [u8; 344],
     pub duration: f32,
     pub flags_348: u8,
+    #[doc(hidden)]
+    __padding_352: [u8; 3],
     pub b_sweep: bool,
     pub teleport_type: ETeleportType,
     pub behaviour_type: EInterpToBehaviourType,
     pub b_check_if_still_in_world: bool,
     pub flags_356: u8,
-    pub on_interp_to_reverse: FInterpToMovementComponent_OnInterpToReverse,
-    pub on_interp_to_stop: FInterpToMovementComponent_OnInterpToStop,
-    pub on_wait_begin_delegate: FInterpToMovementComponent_OnWaitBeginDelegate,
-    pub on_wait_end_delegate: FInterpToMovementComponent_OnWaitEndDelegate,
-    pub on_reset_delegate: FInterpToMovementComponent_OnResetDelegate,
+    #[doc(hidden)]
+    __padding_480: [u8; 120],
     pub max_simulation_time_step: f32,
     pub speed_multiplier: f32,
     pub max_simulation_iterations: i32,
     pub control_points: TArray<FInterpControlPoint>,
+    __padding_end: [u8; 56],
 }
-pub struct ULineBatchComponent {}
+impl UInterpToMovementComponent {}
+#[repr(C, align(16))]
+pub struct ULineBatchComponent {
+    __padding_end: [u8; 1568],
+}
+impl ULineBatchComponent {}
+#[repr(C, align(16))]
 pub struct ULocalFogVolumeComponent {
+    #[doc(hidden)]
+    __padding_656: [u8; 656],
     pub radial_fog_extinction: f32,
     pub height_fog_extinction: f32,
     pub height_fog_falloff: f32,
@@ -12601,76 +8845,109 @@ pub struct ULocalFogVolumeComponent {
     pub fog_albedo: crate::bindings::core_u_object::FLinearColor,
     pub fog_emissive: crate::bindings::core_u_object::FLinearColor,
     pub fog_sort_priority: i32,
+    __padding_end: [u8; 8],
 }
+impl ULocalFogVolumeComponent {}
+#[repr(C, align(16))]
 pub struct ULocalLightComponent {
+    #[doc(hidden)]
+    __padding_1072: [u8; 1072],
     pub intensity_units: ELightUnits,
     pub inverse_exposure_blend: f32,
-    pub radius_deprecated: f32,
+    #[doc(hidden)]
+    __padding_1084: [u8; 4],
     pub attenuation_radius: f32,
-    pub lightmass_settings: FLightmassPointLightSettings,
+    __padding_end: [u8; 16],
 }
+impl ULocalLightComponent {}
+#[repr(C, align(8))]
 pub struct ULODSyncComponent {
+    #[doc(hidden)]
+    __padding_240: [u8; 240],
     pub num_lo_ds: i32,
     pub forced_lod: i32,
     pub min_lod: i32,
     pub components_to_sync: TArray<FComponentSync>,
     pub custom_lod_mapping: TMap<FName, FLODMappingData>,
-    pub current_lod: i32,
-    pub current_num_lo_ds: i32,
-    pub drive_components: TArray<UPtr<UPrimitiveComponent>>,
-    pub sub_components: TArray<UPtr<UPrimitiveComponent>>,
+    __padding_end: [u8; 40],
 }
+impl ULODSyncComponent {}
+#[repr(C, align(16))]
 pub struct UMaterialBillboardComponent {
+    #[doc(hidden)]
+    __padding_1504: [u8; 1504],
     pub elements: TArray<FMaterialSpriteElement>,
 }
+impl UMaterialBillboardComponent {}
+#[repr(C, align(16))]
 pub struct UModelComponent {
-    pub model_body_setup: UPtr<UBodySetup>,
+    __padding_end: [u8; 1568],
 }
+impl UModelComponent {}
+#[repr(C, align(8))]
 pub struct UPawnNoiseEmitterComponent {
-    pub flags_240: u8,
-    pub last_remote_noise_position: crate::bindings::core_u_object::FVector,
+    #[doc(hidden)]
+    __padding_272: [u8; 272],
     pub noise_lifetime: f32,
-    pub last_remote_noise_volume: f32,
-    pub last_remote_noise_time: f32,
-    pub last_local_noise_volume: f32,
-    pub last_local_noise_time: f32,
+    __padding_end: [u8; 20],
 }
+impl UPawnNoiseEmitterComponent {}
+#[repr(C, align(8))]
 pub struct UPlatformEventsComponent {
-    pub platform_changed_to_laptop_mode_delegate: FPlatformEventsComponent_PlatformChangedToLaptopModeDelegate,
-    pub platform_changed_to_tablet_mode_delegate: FPlatformEventsComponent_PlatformChangedToTabletModeDelegate,
+    __padding_end: [u8; 288],
 }
+impl UPlatformEventsComponent {}
+#[repr(C, align(16))]
 pub struct UPointLightComponent {
+    #[doc(hidden)]
+    __padding_1104: [u8; 1104],
     pub flags_1104: u8,
     pub light_falloff_exponent: f32,
     pub source_radius: f32,
     pub soft_source_radius: f32,
     pub source_length: f32,
+    __padding_end: [u8; 12],
 }
-pub struct UPoseableMeshComponent {}
+impl UPointLightComponent {}
+#[repr(C, align(16))]
+pub struct UPoseableMeshComponent {
+    __padding_end: [u8; 2960],
+}
+impl UPoseableMeshComponent {}
+#[repr(C, align(16))]
 pub struct UPostProcessComponent {
+    #[doc(hidden)]
+    __padding_672: [u8; 672],
     pub settings: FPostProcessSettings,
     pub priority: f32,
     pub blend_radius: f32,
     pub blend_weight: f32,
     pub flags_2636: u8,
-    pub volume_guid: crate::bindings::core_u_object::FGuid,
+    __padding_end: [u8; 19],
 }
+impl UPostProcessComponent {}
+#[repr(C, align(16))]
 pub struct UProjectileMovementComponent {
+    #[doc(hidden)]
+    __padding_344: [u8; 344],
     pub initial_speed: f32,
     pub max_speed: f32,
     pub flags_352: u8,
     pub flags_353: u8,
+    #[doc(hidden)]
+    __padding_360: [u8; 6],
     pub flags_360: u8,
     pub previous_hit_time: f32,
     pub previous_hit_normal: crate::bindings::core_u_object::FVector,
     pub projectile_gravity_scale: f32,
-    pub buoyancy: f32,
+    #[doc(hidden)]
+    __padding_400: [u8; 4],
     pub bounciness: f32,
     pub friction: f32,
     pub bounce_velocity_stop_simulating_threshold: f32,
     pub min_friction_fraction: f32,
-    pub on_projectile_bounce: FProjectileMovementComponent_OnProjectileBounce,
-    pub on_projectile_stop: FProjectileMovementComponent_OnProjectileStop,
+    #[doc(hidden)]
+    __padding_464: [u8; 48],
     pub homing_acceleration_magnitude: f32,
     pub homing_target_component: TWeakObjectPtr<USceneComponent>,
     pub max_simulation_time_step: f32,
@@ -12684,8 +8961,13 @@ pub struct UProjectileMovementComponent {
     pub throttle_interpolation_threshold_not_rendered_long_time: f32,
     pub throttle_interpolation_skip_frames_recent: i32,
     pub throttle_interpolation_skip_frames_not_recent: i32,
+    __padding_end: [u8; 184],
 }
+impl UProjectileMovementComponent {}
+#[repr(C, align(16))]
 pub struct URectLightComponent {
+    #[doc(hidden)]
+    __padding_1104: [u8; 1104],
     pub source_width: f32,
     pub source_height: f32,
     pub barn_door_angle: f32,
@@ -12694,41 +8976,47 @@ pub struct URectLightComponent {
     pub source_texture: UPtr<UTexture>,
     pub source_texture_scale: crate::bindings::core_u_object::FVector2f,
     pub source_texture_offset: crate::bindings::core_u_object::FVector2f,
-    pub b_light_requires_broken_ev_math: bool,
+    __padding_end: [u8; 16],
 }
+impl URectLightComponent {}
+#[repr(C, align(8))]
 pub struct URotatingMovementComponent {
+    #[doc(hidden)]
+    __padding_344: [u8; 344],
     pub rotation_rate: crate::bindings::core_u_object::FRotator,
     pub pivot_translation: crate::bindings::core_u_object::FVector,
     pub flags_392: u8,
+    __padding_end: [u8; 7],
 }
+impl URotatingMovementComponent {}
+#[repr(C, align(16))]
 pub struct URuntimeVirtualTextureComponent {
-    pub bounds_align_actor: TSoftObjectPtr<AActor>,
-    pub b_set_bounds_button: bool,
-    pub b_snap_bounds_to_landscape: bool,
-    pub expand_bounds: f32,
+    #[doc(hidden)]
+    __padding_712: [u8; 712],
     pub virtual_texture: UPtr<URuntimeVirtualTexture>,
-    pub enable_in_game_per_platform: crate::bindings::core_u_object::FPerPlatformBool,
-    pub b_enable_for_nanite_only: bool,
-    pub b_use_min_material_quality: bool,
-    pub min_in_game_material_quality: ERuntimeVirtualTextureMaterialQuality,
-    pub b_enable_scalability: bool,
-    pub scalability_group: u32,
-    pub b_hide_primitives: bool,
+    #[doc(hidden)]
+    __padding_824: [u8; 104],
     pub streaming_texture: UPtr<UVirtualTextureBuilder>,
-    pub stream_low_mips: i32,
-    pub b_build_streaming_mips_button: bool,
+    #[doc(hidden)]
+    __padding_837: [u8; 5],
     pub lossy_compression_amount: ETextureLossyCompressionAmount,
     pub b_use_streaming_mips_fixed_color: bool,
     pub streaming_mips_fixed_color: crate::bindings::core_u_object::FLinearColor,
-    pub b_use_streaming_mips_only: bool,
-    pub use_streaming_mips_in_editor_mode: ERuntimeVirtualTextureUseStreamingMipsInEditorMode,
-    pub b_use_streaming_mips_in_editor_deprecated: bool,
+    __padding_end: [u8; 72],
 }
+impl URuntimeVirtualTextureComponent {}
+#[repr(C, align(8))]
 pub struct ASkyAtmosphere {
+    #[doc(hidden)]
+    __padding_1144: [u8; 1144],
     pub sky_atmosphere_component: UPtr<USkyAtmosphereComponent>,
-    pub arrow_component: UPtr<UArrowComponent>,
+    __padding_end: [u8; 8],
 }
+impl ASkyAtmosphere {}
+#[repr(C, align(16))]
 pub struct USkyLightComponent {
+    #[doc(hidden)]
+    __padding_760: [u8; 760],
     pub b_real_time_capture: bool,
     pub source_type: ESkyLightSourceType,
     pub cubemap: UPtr<UTextureCube>,
@@ -12749,66 +9037,77 @@ pub struct USkyLightComponent {
     pub cloud_ambient_occlusion_map_resolution_scale: f32,
     pub cloud_ambient_occlusion_aperture_scale: f32,
     pub occlusion_combine_mode: EOcclusionCombineMode,
-    pub blend_destination_cubemap: UPtr<UTextureCube>,
+    __padding_end: [u8; 399],
 }
-pub struct USplineMetadata {}
+impl USkyLightComponent {}
+#[repr(C, align(8))]
+pub struct USplineMetadata {
+    __padding_end: [u8; 48],
+}
+impl USplineMetadata {}
+#[repr(C, align(16))]
 pub struct USplineComponent {
-    pub spline: FSpline,
-    pub spline_curves: FSplineCurves,
-    pub spline_info_deprecated: crate::bindings::core_u_object::FInterpCurveVector,
-    pub spline_rot_info_deprecated: crate::bindings::core_u_object::FInterpCurveQuat,
-    pub spline_scale_info_deprecated: crate::bindings::core_u_object::FInterpCurveVector,
-    pub spline_reparam_table_deprecated: crate::bindings::core_u_object::FInterpCurveFloat,
-    pub b_allow_spline_editing_per_instance_deprecated: bool,
-    pub reparam_steps_per_segment: i32,
+    #[doc(hidden)]
+    __padding_1808: [u8; 1808],
     pub duration: f32,
     pub b_stationary_endpoints: bool,
-    pub b_spline_has_been_edited: bool,
-    pub b_modified_by_construction_script: bool,
+    #[doc(hidden)]
+    __padding_1815: [u8; 2],
     pub b_input_spline_points_to_construction_script: bool,
     pub b_draw_debug: bool,
-    pub b_closed_loop: bool,
-    pub b_loop_position_override: bool,
-    pub loop_position: f32,
-    pub line_material: TSoftObjectPtr<UMaterialInterface>,
-    pub point_material: TSoftObjectPtr<UMaterialInterface>,
-    pub line_material_lifetime_ptr: UPtr<UMaterialInterface>,
-    pub point_material_lifetime_ptr: UPtr<UMaterialInterface>,
+    #[doc(hidden)]
+    __padding_1944: [u8; 120],
     pub default_up_vector: crate::bindings::core_u_object::FVector,
-    pub editor_unselected_spline_segment_color: crate::bindings::core_u_object::FLinearColor,
-    pub editor_selected_spline_segment_color: crate::bindings::core_u_object::FLinearColor,
-    pub editor_tangent_color: crate::bindings::core_u_object::FLinearColor,
-    pub b_allow_discontinuous_spline: bool,
-    pub b_adjust_tangents_on_snap: bool,
-    pub b_should_visualize_scale: bool,
-    pub scale_visualization_width: f32,
-    pub last_authority: ELastAuthority,
+    __padding_end: [u8; 192],
 }
+impl USplineComponent {}
+#[repr(C, align(16))]
 pub struct USplineMeshComponent {
-    pub spline_params: FSplineMeshParams,
-    pub spline_up_dir: crate::bindings::core_u_object::FVector,
-    pub spline_boundary_min: f32,
-    pub cached_mesh_body_setup_guid: crate::bindings::core_u_object::FGuid,
-    pub virtual_texture_main_pass_max_draw_distance: f32,
-    pub body_setup: UPtr<UBodySetup>,
-    pub spline_boundary_max: f32,
-    pub forward_axis: ESplineMeshAxis,
-    pub flags_2189: u8,
+    __padding_end: [u8; 2192],
 }
+impl USplineMeshComponent {}
+#[repr(C, align(16))]
 pub struct USpotLightComponent {
+    #[doc(hidden)]
+    __padding_1128: [u8; 1128],
     pub inner_cone_angle: f32,
     pub outer_cone_angle: f32,
 }
-pub struct UEditorFlagCollector {}
-pub struct UStereoLayerShape {}
-pub struct UStereoLayerShapeQuad {}
+impl USpotLightComponent {}
+#[repr(C, align(8))]
+pub struct UEditorFlagCollector {
+    __padding_end: [u8; 48],
+}
+impl UEditorFlagCollector {}
+#[repr(C, align(8))]
+pub struct UStereoLayerShape {
+    __padding_end: [u8; 48],
+}
+impl UStereoLayerShape {}
+#[repr(C, align(8))]
+pub struct UStereoLayerShapeQuad {
+    __padding_end: [u8; 48],
+}
+impl UStereoLayerShapeQuad {}
+#[repr(C, align(8))]
 pub struct UStereoLayerShapeCylinder {
+    #[doc(hidden)]
+    __padding_48: [u8; 48],
     pub radius: f32,
     pub overlay_arc: f32,
     pub height: i32,
+    __padding_end: [u8; 4],
 }
-pub struct UStereoLayerShapeCubemap {}
+impl UStereoLayerShapeCylinder {}
+#[repr(C, align(8))]
+pub struct UStereoLayerShapeCubemap {
+    __padding_end: [u8; 48],
+}
+impl UStereoLayerShapeCubemap {}
+#[repr(C, align(8))]
 pub struct UStereoLayerShapeEquirect {
+    #[doc(hidden)]
+    __padding_48: [u8; 48],
     pub left_uv_rect: crate::bindings::core_u_object::FBox2D,
     pub right_uv_rect: crate::bindings::core_u_object::FBox2D,
     pub left_scale: crate::bindings::core_u_object::FVector2D,
@@ -12816,8 +9115,13 @@ pub struct UStereoLayerShapeEquirect {
     pub left_bias: crate::bindings::core_u_object::FVector2D,
     pub right_bias: crate::bindings::core_u_object::FVector2D,
     pub radius: f32,
+    __padding_end: [u8; 4],
 }
+impl UStereoLayerShapeEquirect {}
+#[repr(C, align(16))]
 pub struct UStereoLayerComponent {
+    #[doc(hidden)]
+    __padding_656: [u8; 656],
     pub flags_656: u8,
     pub texture: UPtr<UTexture>,
     pub left_texture: UPtr<UTexture>,
@@ -12828,8 +9132,13 @@ pub struct UStereoLayerComponent {
     pub stereo_layer_type: EStereoLayerType,
     pub shape: UPtr<UStereoLayerShape>,
     pub priority: i32,
+    __padding_end: [u8; 132],
 }
+impl UStereoLayerComponent {}
+#[repr(C, align(16))]
 pub struct UTextRenderComponent {
+    #[doc(hidden)]
+    __padding_1504: [u8; 1504],
     pub text: FText,
     pub text_material: UPtr<UMaterialInterface>,
     pub font: UPtr<UFont>,
@@ -12839,12 +9148,18 @@ pub struct UTextRenderComponent {
     pub x_scale: f32,
     pub y_scale: f32,
     pub world_size: f32,
-    pub inv_default_size: f32,
+    #[doc(hidden)]
+    __padding_1560: [u8; 4],
     pub horiz_spacing_adjust: f32,
     pub vert_spacing_adjust: f32,
     pub flags_1568: u8,
+    __padding_end: [u8; 15],
 }
+impl UTextRenderComponent {}
+#[repr(C, align(16))]
 pub struct UVolumetricCloudComponent {
+    #[doc(hidden)]
+    __padding_656: [u8; 656],
     pub layer_bottom_altitude: f32,
     pub layer_height: f32,
     pub tracing_start_max_distance: f32,
@@ -12858,12 +9173,12 @@ pub struct UVolumetricCloudComponent {
     pub sky_light_cloud_bottom_occlusion: f32,
     pub view_sample_count_scale: f32,
     pub reflection_view_sample_count_scale_value: f32,
-    pub reflection_view_sample_count_scale_deprecated: f32,
-    pub reflection_sample_count_scale_deprecated: f32,
+    #[doc(hidden)]
+    __padding_760: [u8; 8],
     pub shadow_view_sample_count_scale: f32,
     pub shadow_reflection_view_sample_count_scale_value: f32,
-    pub shadow_reflection_view_sample_count_scale_deprecated: f32,
-    pub shadow_reflection_sample_count_scale_deprecated: f32,
+    #[doc(hidden)]
+    __padding_776: [u8; 8],
     pub shadow_tracing_distance: f32,
     pub stop_tracing_transmittance_threshold: f32,
     pub aerial_pespective_rayleigh_scattering_start_distance: f32,
@@ -12871,528 +9186,597 @@ pub struct UVolumetricCloudComponent {
     pub aerial_pespective_mie_scattering_start_distance: f32,
     pub aerial_pespective_mie_scattering_fade_distance: f32,
     pub flags_800: u8,
-    pub material_lifetime_ptr: UPtr<UMaterialInterface>,
+    __padding_end: [u8; 31],
 }
+impl UVolumetricCloudComponent {}
+#[repr(C, align(8))]
 pub struct AVolumetricCloud {
+    #[doc(hidden)]
+    __padding_1144: [u8; 1144],
     pub volumetric_cloud_component: UPtr<UVolumetricCloudComponent>,
 }
+impl AVolumetricCloud {}
+#[repr(C, align(8))]
 pub struct UWorldPartitionStreamingSourceComponent {
-    pub default_visualizer_loading_range: f32,
+    #[doc(hidden)]
+    __padding_252: [u8; 252],
     pub target_behavior: EStreamingSourceTargetBehavior,
     pub target_grids: TArray<FName>,
-    pub target_grid_deprecated: FName,
-    pub debug_color: crate::bindings::core_u_object::FColor,
-    pub target_hlod_layers_deprecated: TArray<UPtr<UHLODLayer>>,
-    pub target_hlod_layer_deprecated: UPtr<UHLODLayer>,
+    #[doc(hidden)]
+    __padding_312: [u8; 40],
     pub shapes: TArray<FStreamingSourceShape>,
     pub priority: EStreamingSourcePriority,
     pub b_streaming_source_enabled: bool,
-    pub target_state: EStreamingSourceTargetState,
+    __padding_end: [u8; 6],
 }
+impl UWorldPartitionStreamingSourceComponent {}
+#[repr(C, align(8))]
 pub struct UCurveTable {
-    pub asset_import_data: UPtr<UAssetImportData>,
-    pub import_path_deprecated: FString,
+    __padding_end: [u8; 200],
 }
+impl UCurveTable {}
+#[repr(C, align(8))]
 pub struct UCompositeCurveTable {
+    #[doc(hidden)]
+    __padding_200: [u8; 200],
     pub parent_tables: TArray<UPtr<UCurveTable>>,
-    pub old_parent_tables: TArray<UPtr<UCurveTable>>,
+    __padding_end: [u8; 24],
 }
+impl UCompositeCurveTable {}
+#[repr(C, align(8))]
 pub struct UCompositeDataTable {
+    #[doc(hidden)]
+    __padding_352: [u8; 352],
     pub parent_tables: TArray<UPtr<UDataTable>>,
-    pub old_parent_tables: TArray<UPtr<UDataTable>>,
+    __padding_end: [u8; 104],
 }
+impl UCompositeDataTable {}
+#[repr(C, align(8))]
 pub struct UStreamingSettings {
-    pub flags_104: u8,
-    pub time_limit_exceeded_multiplier: f32,
-    pub time_limit_exceeded_min_time: f32,
-    pub min_bulk_data_size_for_async_loading: i32,
-    pub flags_120: u8,
-    pub async_loading_time_limit: f32,
-    pub priority_async_loading_extra_time: f32,
-    pub level_streaming_actors_update_time_limit: f32,
-    pub priority_level_streaming_actors_update_extra_time: f32,
-    pub level_streaming_components_registration_granularity: i32,
-    pub level_streaming_add_primitive_granularity: i32,
-    pub level_streaming_unregister_components_time_limit: f32,
-    pub level_streaming_components_unregistration_granularity: i32,
-    pub flags_156: u8,
+    __padding_end: [u8; 160],
 }
+impl UStreamingSettings {}
+#[repr(C, align(8))]
 pub struct UGarbageCollectionSettings {
-    pub time_between_purging_pending_kill_objects: f32,
-    pub flags_108: u8,
-    pub flags_109: u8,
-    pub min_gc_cluster_size: i32,
-    pub num_retries_before_forcing_gc: i32,
-    pub max_objects_not_considered_by_gc: i32,
-    pub max_objects_in_game: i32,
-    pub max_objects_in_editor: i32,
+    __padding_end: [u8; 136],
 }
+impl UGarbageCollectionSettings {}
+#[repr(C, align(8))]
 pub struct ACullDistanceVolume {
+    #[doc(hidden)]
+    __padding_1208: [u8; 1208],
     pub cull_distances: TArray<FCullDistanceSizePair>,
     pub flags_1224: u8,
+    __padding_end: [u8; 7],
 }
+impl ACullDistanceVolume {}
+#[repr(C, align(8))]
 pub struct UCurveBase {
-    pub asset_import_data: UPtr<UAssetImportData>,
-    pub import_path_deprecated: FString,
+    __padding_end: [u8; 120],
 }
-pub struct UDEPRECATED_CurveEdPresetCurve {}
+impl UCurveBase {}
+#[repr(C, align(8))]
+pub struct UDEPRECATED_CurveEdPresetCurve {
+    __padding_end: [u8; 48],
+}
+impl UDEPRECATED_CurveEdPresetCurve {}
+#[repr(C, align(8))]
 pub struct UCurveFloat {
-    pub float_curve: FRichCurve,
-    pub b_is_event_curve: bool,
+    __padding_end: [u8; 256],
 }
+impl UCurveFloat {}
+#[repr(C, align(8))]
 pub struct UCurveLinearColor {
-    pub float_curves: FRichCurve,
-    pub adjust_hue: f32,
-    pub adjust_saturation: f32,
-    pub adjust_brightness: f32,
-    pub adjust_brightness_curve: f32,
-    pub adjust_vibrance: f32,
-    pub adjust_min_alpha: f32,
-    pub adjust_max_alpha: f32,
+    __padding_end: [u8; 664],
 }
+impl UCurveLinearColor {}
+#[repr(C, align(16))]
 pub struct UCurveLinearColorAtlas {
-    pub texture_size: u32,
-    pub gradient_curves: TArray<UPtr<UCurveLinearColor>>,
-    pub flags_1384: u8,
-    pub cached_color_adjustments: FCurveAtlasColorAdjustments,
+    __padding_end: [u8; 1424],
 }
+impl UCurveLinearColorAtlas {}
+#[repr(C, align(8))]
 pub struct UCurveVector {
-    pub float_curves: FRichCurve,
+    __padding_end: [u8; 504],
 }
+impl UCurveVector {}
+#[repr(C, align(8))]
 pub struct UDamageType {
+    #[doc(hidden)]
+    __padding_48: [u8; 48],
     pub flags_48: u8,
     pub damage_impulse: f32,
     pub destructible_impulse: f32,
     pub destructible_damage_spread_scale: f32,
     pub damage_falloff: f32,
+    __padding_end: [u8; 4],
 }
+impl UDamageType {}
+#[repr(C, align(8))]
 pub struct UPrimaryDataAsset {
-    pub asset_bundle_data: crate::bindings::core_u_object::FAssetBundleData,
+    __padding_end: [u8; 72],
 }
+impl UPrimaryDataAsset {}
+#[repr(C, align(8))]
 pub struct UDataDrivenCVarEngineSubsystem {
-    pub on_data_driven_c_var_delegate: FDataDrivenCVarEngineSubsystem_OnDataDrivenCVarDelegate,
+    __padding_end: [u8; 80],
 }
+impl UDataDrivenCVarEngineSubsystem {}
+#[repr(C, align(8))]
 pub struct UDataDrivenConsoleVariableSettings {
-    pub c_vars_array: TArray<FDataDrivenConsoleVariable>,
+    __padding_end: [u8; 168],
 }
-pub struct UDataTableFunctionLibrary {}
+impl UDataDrivenConsoleVariableSettings {}
+#[repr(C, align(8))]
+pub struct UDataTableFunctionLibrary {
+    __padding_end: [u8; 48],
+}
+impl UDataTableFunctionLibrary {}
+#[repr(C, align(8))]
 pub struct ADebugCameraController {
-    pub flags_2368: u8,
-    pub draw_frustum: UPtr<UDrawFrustumComponent>,
-    pub selected_actor: TWeakObjectPtr<AActor>,
-    pub selected_component: TWeakObjectPtr<UPrimitiveComponent>,
-    pub selected_hit_point: FHitResult,
-    pub original_controller_ref: UPtr<APlayerController>,
-    pub original_player: UPtr<UPlayer>,
+    #[doc(hidden)]
+    __padding_2680: [u8; 2680],
     pub speed_scale: f32,
     pub initial_max_speed: f32,
     pub initial_accel: f32,
     pub initial_decel: f32,
+    __padding_end: [u8; 88],
 }
+impl ADebugCameraController {}
+#[repr(C, align(8))]
 pub struct UDebugCameraControllerSettings {
-    pub cycle_view_modes: TArray<FDebugCameraControllerSettingsViewModeIndex>,
+    __padding_end: [u8; 120],
 }
+impl UDebugCameraControllerSettings {}
+#[repr(C, align(8))]
 pub struct AHUD {
+    #[doc(hidden)]
+    __padding_1136: [u8; 1136],
     pub player_owner: UPtr<APlayerController>,
     pub flags_1144: u8,
-    pub current_target_index: i32,
+    #[doc(hidden)]
+    __padding_1152: [u8; 7],
     pub flags_1152: u8,
-    pub post_rendered_actors: TArray<UPtr<AActor>>,
-    pub debug_display: TArray<FName>,
-    pub toggled_debug_categories: TArray<FName>,
-    pub canvas: UPtr<UCanvas>,
-    pub debug_canvas: UPtr<UCanvas>,
-    pub debug_text_list: TArray<FDebugTextInfo>,
-    pub show_debug_target_desired_class: TSubclassOf<AActor>,
-    pub show_debug_target_actor: UPtr<AActor>,
+    __padding_end: [u8; 223],
 }
-pub struct ADebugCameraHUD {}
-pub struct UDebugGarbageCollectionGraph {}
-pub struct UDebugDrawService {}
-pub struct UReporterBase {}
-pub struct UReporterGraph {}
+impl AHUD {}
+#[repr(C, align(8))]
+pub struct ADebugCameraHUD {
+    __padding_end: [u8; 1376],
+}
+impl ADebugCameraHUD {}
+#[repr(C, align(8))]
+pub struct UDebugGarbageCollectionGraph {
+    __padding_end: [u8; 80],
+}
+impl UDebugGarbageCollectionGraph {}
+#[repr(C, align(8))]
+pub struct UDebugDrawService {
+    __padding_end: [u8; 48],
+}
+impl UDebugDrawService {}
+#[repr(C, align(8))]
+pub struct UReporterBase {
+    __padding_end: [u8; 56],
+}
+impl UReporterBase {}
+#[repr(C, align(8))]
+pub struct UReporterGraph {
+    __padding_end: [u8; 208],
+}
+impl UReporterGraph {}
+#[repr(C, align(8))]
 pub struct ADecalActor {
+    #[doc(hidden)]
+    __padding_1136: [u8; 1136],
     pub decal: UPtr<UDecalComponent>,
-    pub arrow_component: UPtr<UArrowComponent>,
-    pub sprite_component: UPtr<UBillboardComponent>,
-    pub box_component_deprecated: UPtr<UBoxComponent>,
+    __padding_end: [u8; 24],
 }
+impl ADecalActor {}
+#[repr(C, align(8))]
 pub struct ADefaultPawn {
+    #[doc(hidden)]
+    __padding_1264: [u8; 1264],
     pub base_turn_rate: f32,
     pub base_look_up_rate: f32,
     pub movement_component: UPtr<UPawnMovementComponent>,
     pub collision_component: UPtr<USphereComponent>,
     pub mesh_component: UPtr<UStaticMeshComponent>,
     pub flags_1296: u8,
+    __padding_end: [u8; 7],
 }
+impl ADefaultPawn {}
+#[repr(C, align(8))]
 pub struct APhysicsVolume {
+    #[doc(hidden)]
+    __padding_1208: [u8; 1208],
     pub terminal_velocity: f32,
     pub priority: i32,
     pub fluid_friction: f32,
     pub flags_1220: u8,
+    __padding_end: [u8; 3],
 }
-pub struct ADefaultPhysicsVolume {}
+impl APhysicsVolume {}
+#[repr(C, align(8))]
+pub struct ADefaultPhysicsVolume {
+    __padding_end: [u8; 1224],
+}
+impl ADefaultPhysicsVolume {}
 pub struct UDeformableInterface {}
 pub struct IDeformableInterface {}
+#[repr(C, align(8))]
 pub struct UDeletedObjectPlaceholder {
-    pub display_name: FString,
-    pub external_data_layer_uid: u32,
-    pub original_object: TWeakObjectPtr<crate::bindings::core_u_object::UObject>,
+    __padding_end: [u8; 80],
 }
+impl UDeletedObjectPlaceholder {}
+#[repr(C, align(8))]
 pub struct UNetDriver {
-    pub net_connection_class_name: FString,
-    pub replication_driver_class_name: FString,
-    pub replication_bridge_class_name: FString,
-    pub replication_system_config_server: FNetDriverReplicationSystemConfig,
-    pub replication_system_config_client: FNetDriverReplicationSystemConfig,
-    pub max_download_size: i32,
-    pub flags_172: u8,
-    pub net_server_max_tick_rate: i32,
-    pub max_net_tick_rate: i32,
-    pub max_internet_client_rate: i32,
-    pub max_client_rate: i32,
-    pub server_travel_pause: f32,
-    pub spawn_priority_seconds: f32,
-    pub relevant_timeout: f32,
-    pub keep_alive_time: f32,
-    pub initial_connect_timeout: f32,
-    pub connection_timeout: f32,
-    pub graceful_close_connection_timeout: f32,
-    pub timeout_multiplier_for_unoptimized_builds: f32,
-    pub server_connection: UPtr<UNetConnection>,
-    pub client_connections: TArray<UPtr<UNetConnection>>,
-    pub recently_disconnected_tracking_time: i32,
-    pub world: UPtr<UWorld>,
-    pub world_package: UPtr<crate::bindings::core_u_object::UPackage>,
-    pub net_connection_class: TSubclassOf<crate::bindings::core_u_object::UObject>,
-    pub child_net_connection_class: TSubclassOf<crate::bindings::core_u_object::UObject>,
-    pub replication_driver_class: TSubclassOf<crate::bindings::core_u_object::UObject>,
-    pub replication_bridge_class: TSubclassOf<crate::bindings::core_u_object::UObject>,
-    pub net_driver_name: FName,
-    pub channel_definitions: TArray<FChannelDefinition>,
-    pub channel_definition_map: TMap<FName, FChannelDefinition>,
-    pub actor_channel_pool: TArray<UPtr<UChannel>>,
-    pub network_metrics_database: UPtr<UNetworkMetricsDatabase>,
-    pub network_metrics_listeners: TMap<FName, UPtr<UNetworkMetricsBaseListener>>,
-    pub flags_825: u8,
-    pub flags_826: u8,
-    pub replication_driver: UPtr<UReplicationDriver>,
-    pub b_send_immediate_acks: bool,
+    __padding_end: [u8; 2664],
 }
+impl UNetDriver {}
+#[repr(C, align(16))]
 pub struct UDemoNetDriver {
-    pub rollback_net_startup_actors: TMap<FString, FRollbackNetStartupActorInfo>,
-    pub checkpoint_save_max_ms_per_frame: f32,
-    pub multicast_record_options: TArray<FMulticastRecordOptions>,
-    pub spectator_controllers: TArray<UPtr<APlayerController>>,
+    __padding_end: [u8; 5936],
 }
+impl UDemoNetDriver {}
 pub struct UDestructibleInterface {}
 pub struct IDestructibleInterface {}
+#[repr(C, align(8))]
 pub struct UTextureLODSettings {
-    pub texture_lod_groups: TArray<FTextureLODGroup>,
+    __padding_end: [u8; 72],
 }
+impl UTextureLODSettings {}
+#[repr(C, align(8))]
 pub struct UDeviceProfile {
-    pub device_type: FString,
-    pub base_profile_name: FString,
-    pub flags_104: u8,
-    pub parent: UPtr<UDeviceProfile>,
-    pub c_vars: TArray<FString>,
-    pub matching_rules: TArray<FDPMatchingRulestruct>,
+    __padding_end: [u8; 520],
 }
+impl UDeviceProfile {}
+#[repr(C, align(8))]
 pub struct UDeviceProfileManager {
-    pub profiles: TArray<UPtr<UDeviceProfile>>,
-    pub backup_profiles: TArray<UPtr<UDeviceProfile>>,
+    __padding_end: [u8; 264],
 }
+impl UDeviceProfileManager {}
+#[repr(C, align(8))]
 pub struct UDialogueVoice {
-    pub gender: EGrammaticalGender,
-    pub plurality: EGrammaticalNumber,
-    pub localization_guid: crate::bindings::core_u_object::FGuid,
+    __padding_end: [u8; 72],
 }
+impl UDialogueVoice {}
+#[repr(C, align(8))]
 pub struct UDialogueWave {
+    #[doc(hidden)]
+    __padding_48: [u8; 48],
     pub flags_48: u8,
     pub spoken_text: FString,
     pub subtitle_override: FString,
-    pub voice_actor_direction: FString,
-    pub context_mappings: TArray<FDialogueContextMapping>,
-    pub localization_guid: crate::bindings::core_u_object::FGuid,
+    __padding_end: [u8; 48],
 }
+impl UDialogueWave {}
+#[repr(C, align(8))]
 pub struct ADocumentationActor {
+    #[doc(hidden)]
+    __padding_1136: [u8; 1136],
     pub document_link: FString,
     pub billboard: UPtr<UMaterialBillboardComponent>,
+    __padding_end: [u8; 8],
 }
-pub struct UDPICustomScalingRule {}
+impl ADocumentationActor {}
+#[repr(C, align(8))]
+pub struct UDPICustomScalingRule {
+    __padding_end: [u8; 48],
+}
+impl UDPICustomScalingRule {}
+#[repr(C, align(8))]
 pub struct UGraphNodeContextMenuContext {
-    pub blueprint: UPtr<UBlueprint>,
-    pub graph: UPtr<UEdGraph>,
-    pub node: UPtr<UEdGraphNode>,
-    pub b_is_debugging: bool,
+    __padding_end: [u8; 88],
 }
+impl UGraphNodeContextMenuContext {}
+#[repr(C, align(8))]
 pub struct UEdGraphNode_Documentation {
-    pub link: FString,
-    pub excerpt: FString,
+    __padding_end: [u8; 224],
 }
+impl UEdGraphNode_Documentation {}
+#[repr(C, align(8))]
 pub struct UEdGraphPin_Deprecated {
-    pub pin_name: FString,
-    pub pin_friendly_name: FText,
-    pub pin_tool_tip: FString,
-    pub direction: EEdGraphPinDirection,
-    pub pin_type: FEdGraphPinType,
-    pub default_value: FString,
-    pub autogenerated_default_value: FString,
-    pub default_object: UPtr<crate::bindings::core_u_object::UObject>,
-    pub default_text_value: FText,
-    pub linked_to: TArray<UPtr<UEdGraphPin_Deprecated>>,
-    pub sub_pins: TArray<UPtr<UEdGraphPin_Deprecated>>,
-    pub parent_pin: UPtr<UEdGraphPin_Deprecated>,
-    pub reference_pass_through_connection: UPtr<UEdGraphPin_Deprecated>,
-    pub flags_320: u8,
-    pub persistent_guid: crate::bindings::core_u_object::FGuid,
+    __padding_end: [u8; 344],
 }
-pub struct UActorElementCounterInterface {}
-pub struct UActorElementHierarchyInterface {}
-pub struct UActorElementObjectInterface {}
-pub struct UActorElementTedsTypedElementBridgeInterface {}
-pub struct UComponentElementCounterInterface {}
-pub struct UComponentElementHierarchyInterface {}
-pub struct UComponentElementObjectInterface {}
-pub struct UEngineElementsLibrary {}
-pub struct UTypedElementCommonActions {}
+impl UEdGraphPin_Deprecated {}
+#[repr(C, align(8))]
+pub struct UActorElementCounterInterface {
+    __padding_end: [u8; 56],
+}
+impl UActorElementCounterInterface {}
+#[repr(C, align(8))]
+pub struct UActorElementHierarchyInterface {
+    __padding_end: [u8; 56],
+}
+impl UActorElementHierarchyInterface {}
+#[repr(C, align(8))]
+pub struct UActorElementObjectInterface {
+    __padding_end: [u8; 56],
+}
+impl UActorElementObjectInterface {}
+#[repr(C, align(8))]
+pub struct UActorElementTedsTypedElementBridgeInterface {
+    __padding_end: [u8; 56],
+}
+impl UActorElementTedsTypedElementBridgeInterface {}
+#[repr(C, align(8))]
+pub struct UComponentElementCounterInterface {
+    __padding_end: [u8; 56],
+}
+impl UComponentElementCounterInterface {}
+#[repr(C, align(8))]
+pub struct UComponentElementHierarchyInterface {
+    __padding_end: [u8; 56],
+}
+impl UComponentElementHierarchyInterface {}
+#[repr(C, align(8))]
+pub struct UComponentElementObjectInterface {
+    __padding_end: [u8; 56],
+}
+impl UComponentElementObjectInterface {}
+#[repr(C, align(8))]
+pub struct UEngineElementsLibrary {
+    __padding_end: [u8; 48],
+}
+impl UEngineElementsLibrary {}
+#[repr(C, align(8))]
+pub struct UTypedElementCommonActions {
+    __padding_end: [u8; 2096],
+}
+impl UTypedElementCommonActions {}
 pub struct UTypedElementWorldInterface {}
 pub struct ITypedElementWorldInterface {}
-pub struct UObjectElementAssetDataInterface {}
-pub struct UObjectElementCounterInterface {}
-pub struct UObjectElementObjectInterface {}
-pub struct USMInstanceElementAssetDataInterface {}
-pub struct USMInstanceElementHierarchyInterface {}
-pub struct USMInstanceElementIdMapTransactor {}
-pub struct USMInstanceElementPrimitiveCustomDataInterface {}
-pub struct ULocalMessage {}
+#[repr(C, align(8))]
+pub struct UObjectElementAssetDataInterface {
+    __padding_end: [u8; 56],
+}
+impl UObjectElementAssetDataInterface {}
+#[repr(C, align(8))]
+pub struct UObjectElementCounterInterface {
+    __padding_end: [u8; 56],
+}
+impl UObjectElementCounterInterface {}
+#[repr(C, align(8))]
+pub struct UObjectElementObjectInterface {
+    __padding_end: [u8; 56],
+}
+impl UObjectElementObjectInterface {}
+#[repr(C, align(8))]
+pub struct USMInstanceElementAssetDataInterface {
+    __padding_end: [u8; 56],
+}
+impl USMInstanceElementAssetDataInterface {}
+#[repr(C, align(8))]
+pub struct USMInstanceElementHierarchyInterface {
+    __padding_end: [u8; 56],
+}
+impl USMInstanceElementHierarchyInterface {}
+#[repr(C, align(8))]
+pub struct USMInstanceElementIdMapTransactor {
+    __padding_end: [u8; 56],
+}
+impl USMInstanceElementIdMapTransactor {}
+#[repr(C, align(8))]
+pub struct USMInstanceElementPrimitiveCustomDataInterface {
+    __padding_end: [u8; 56],
+}
+impl USMInstanceElementPrimitiveCustomDataInterface {}
+#[repr(C, align(8))]
+pub struct ULocalMessage {
+    __padding_end: [u8; 48],
+}
+impl ULocalMessage {}
+#[repr(C, align(8))]
 pub struct UEngineMessage {
-    pub failed_place_message: FString,
-    pub maxed_out_message: FString,
-    pub entered_message: FString,
-    pub left_message: FString,
-    pub global_name_change: FString,
-    pub spec_entered_message: FString,
-    pub new_player_message: FString,
-    pub new_spec_message: FString,
+    __padding_end: [u8; 176],
 }
-pub struct UEngineTypes {}
+impl UEngineMessage {}
+#[repr(C, align(8))]
+pub struct UEngineTypes {
+    __padding_end: [u8; 48],
+}
+impl UEngineTypes {}
+#[repr(C, align(8))]
 pub struct UAutoDestroySubsystem {
-    pub actors_to_poll: TArray<UPtr<AActor>>,
+    __padding_end: [u8; 96],
 }
-pub struct UCancellableAsyncAction {}
+impl UAutoDestroySubsystem {}
+#[repr(C, align(8))]
+pub struct UCancellableAsyncAction {
+    __padding_end: [u8; 56],
+}
+impl UCancellableAsyncAction {}
 pub struct ULODSyncInterface {}
 pub struct ILODSyncInterface {}
+#[repr(C, align(8))]
 pub struct UPoseWatchFolder {
-    pub label: FText,
-    pub parent: TWeakObjectPtr<UPoseWatchFolder>,
-    pub b_is_visible: bool,
-    pub b_is_expanded: bool,
+    __padding_end: [u8; 80],
 }
+impl UPoseWatchFolder {}
+#[repr(C, align(8))]
 pub struct UPoseWatchElement {
-    pub b_is_visible: bool,
-    pub b_has_color: bool,
-    pub color: crate::bindings::core_u_object::FColor,
-    pub label: FText,
-    pub icon_name: FName,
-    pub parent: TWeakObjectPtr<UPoseWatch>,
+    __padding_end: [u8; 96],
 }
+impl UPoseWatchElement {}
+#[repr(C, align(8))]
 pub struct UPoseWatchPoseElement {
-    pub viewport_mask: UPtr<UBlendProfile>,
-    pub b_invert_viewport_mask: bool,
-    pub blend_scale_threshold: f32,
-    pub viewport_offset: crate::bindings::core_u_object::FVector3d,
+    __padding_end: [u8; 136],
 }
+impl UPoseWatchPoseElement {}
+#[repr(C, align(8))]
 pub struct UPoseWatch {
-    pub node: TWeakObjectPtr<UEdGraphNode>,
-    pub viewport_mask_deprecated: UPtr<UBlendProfile>,
-    pub b_invert_viewport_mask_deprecated: bool,
-    pub blend_scale_threshold_deprecated: f32,
-    pub viewport_offset_deprecated: crate::bindings::core_u_object::FVector3d,
-    pub elements: TArray<UPtr<UPoseWatchElement>>,
-    pub b_delete_on_deselection: bool,
-    pub b_is_visible: bool,
-    pub b_is_node_enabled: bool,
-    pub b_is_expanded: bool,
-    pub color_deprecated: crate::bindings::core_u_object::FColor,
-    pub label: FText,
-    pub icon_name_deprecated: FName,
-    pub parent: TWeakObjectPtr<UPoseWatchFolder>,
+    __padding_end: [u8; 160],
 }
+impl UPoseWatch {}
+#[repr(C, align(8))]
 pub struct AServerStatReplicator {
-    pub b_update_stat_net: bool,
-    pub b_overwrite_client_stats: bool,
-    pub channels: u32,
-    pub in_rate: u32,
-    pub out_rate: u32,
-    pub max_packet_overhead: u32,
-    pub in_rate_client_max: u32,
-    pub in_rate_client_min: u32,
-    pub in_rate_client_avg: u32,
-    pub in_packets_client_max: u32,
-    pub in_packets_client_min: u32,
-    pub in_packets_client_avg: u32,
-    pub out_rate_client_max: u32,
-    pub out_rate_client_min: u32,
-    pub out_rate_client_avg: u32,
-    pub out_packets_client_max: u32,
-    pub out_packets_client_min: u32,
-    pub out_packets_client_avg: u32,
-    pub net_num_clients: u32,
-    pub in_packets: u32,
-    pub out_packets: u32,
-    pub in_bunches: u32,
-    pub out_bunches: u32,
-    pub out_loss: u32,
-    pub in_loss: u32,
-    pub voice_bytes_sent: u32,
-    pub voice_bytes_recv: u32,
-    pub voice_packets_sent: u32,
-    pub voice_packets_recv: u32,
-    pub percent_in_voice: u32,
-    pub percent_out_voice: u32,
-    pub num_actor_channels: u32,
-    pub num_considered_actors: u32,
-    pub prioritized_actors: u32,
-    pub num_relevant_actors: u32,
-    pub num_relevant_deleted_actors: u32,
-    pub num_replicated_actor_attempts: u32,
-    pub num_replicated_actors: u32,
-    pub num_actors: u32,
-    pub num_net_actors: u32,
-    pub num_dormant_actors: u32,
-    pub num_initially_dormant_actors: u32,
-    pub num_net_gui_ds_ackd: u32,
-    pub num_net_gui_ds_pending: u32,
-    pub num_net_gui_ds_un_ackd: u32,
-    pub obj_path_bytes: u32,
-    pub net_guid_out_rate: u32,
-    pub net_guid_in_rate: u32,
-    pub net_saturated: u32,
+    __padding_end: [u8; 1336],
 }
+impl AServerStatReplicator {}
+#[repr(C, align(8))]
 pub struct USystemTimeTimecodeProvider {
-    pub frame_rate: crate::bindings::core_u_object::FFrameRate,
-    pub b_generate_full_frame: bool,
-    pub b_use_high_performance_clock: bool,
+    __padding_end: [u8; 72],
 }
-pub struct UViewportStatsSubsystem {}
-pub struct UFieldNotificationLibrary {}
+impl USystemTimeTimecodeProvider {}
+#[repr(C, align(8))]
+pub struct UViewportStatsSubsystem {
+    __padding_end: [u8; 96],
+}
+impl UViewportStatsSubsystem {}
+#[repr(C, align(8))]
+pub struct UFieldNotificationLibrary {
+    __padding_end: [u8; 48],
+}
+impl UFieldNotificationLibrary {}
+#[repr(C, align(8))]
 pub struct UFloatingPawnMovement {
+    #[doc(hidden)]
+    __padding_456: [u8; 456],
     pub max_speed: f32,
     pub acceleration: f32,
     pub deceleration: f32,
     pub turning_boost: f32,
-    pub flags_472: u8,
+    __padding_end: [u8; 8],
 }
+impl UFloatingPawnMovement {}
+#[repr(C, align(8))]
 pub struct UFont {
-    pub font_cache_type: EFontCacheType,
-    pub runtime_font_source: ERuntimeFontSource,
-    pub characters: TArray<FFontCharacter>,
-    pub textures: TArray<UPtr<UTexture2D>>,
-    pub is_remapped: i32,
-    pub em_scale: f32,
-    pub ascent: f32,
-    pub descent: f32,
-    pub leading: f32,
-    pub kerning: i32,
-    pub import_options: FFontImportOptionsData,
-    pub num_characters: i32,
-    pub max_char_height: TArray<i32>,
-    pub scaling_factor: f32,
-    pub legacy_font_size: i32,
-    pub legacy_font_name: FName,
-    pub composite_font: crate::bindings::slate_core::FCompositeFont,
+    __padding_end: [u8; 488],
 }
+impl UFont {}
+#[repr(C, align(8))]
 pub struct UFontFace {
+    #[doc(hidden)]
+    __padding_56: [u8; 56],
     pub source_filename: FString,
     pub hinting: crate::bindings::slate_core::EFontHinting,
     pub loading_policy: crate::bindings::slate_core::EFontLoadingPolicy,
     pub layout_method: crate::bindings::slate_core::EFontLayoutMethod,
-    pub ascend_overridden_value: i32,
-    pub b_is_ascend_overridden: bool,
-    pub descend_overridden_value: i32,
-    pub b_is_descend_overridden: bool,
+    #[doc(hidden)]
+    __padding_92: [u8; 16],
     pub strike_brush_height_percentage: i32,
-    pub font_face_data_deprecated: TArray<u8>,
-    pub sub_faces: TArray<FString>,
-    pub b_enable_distance_field_rendering: bool,
-    pub min_distance_field_ppem: i32,
-    pub mid_distance_field_ppem: i32,
-    pub max_distance_field_ppem: i32,
-    pub min_multi_distance_field_ppem: i32,
-    pub mid_multi_distance_field_ppem: i32,
-    pub max_multi_distance_field_ppem: i32,
-    pub platform_rasterization_mode_overrides: TOptional<
-        FFontFacePlatformRasterizationOverrides,
-    >,
+    __padding_end: [u8; 88],
 }
+impl UFontFace {}
+#[repr(C, align(8))]
 pub struct UGameEngine {
-    pub max_delta_time: f32,
-    pub server_flush_log_interval: f32,
-    pub game_instance: UPtr<UGameInstance>,
+    __padding_end: [u8; 6920],
 }
+impl UGameEngine {}
+#[repr(C, align(8))]
 pub struct UAsyncActionHandleSaveGame {
-    pub completed: FAsyncActionHandleSaveGame_Completed,
-    pub save_game_object: UPtr<USaveGame>,
+    __padding_end: [u8; 120],
 }
+impl UAsyncActionHandleSaveGame {}
+#[repr(C, align(8))]
 pub struct UForceFeedbackEffect {
-    pub channel_details: TArray<FForceFeedbackChannelDetails>,
-    pub per_device_overrides: TMap<FName, FForceFeedbackEffectOverridenChannelDetails>,
-    pub device_properties: TArray<UPtr<UInputDeviceProperty>>,
+    #[doc(hidden)]
+    __padding_160: [u8; 160],
     pub duration: f32,
+    __padding_end: [u8; 4],
 }
+impl UForceFeedbackEffect {}
+#[repr(C, align(8))]
 pub struct UInputDeviceProperty {
+    #[doc(hidden)]
+    __padding_48: [u8; 48],
     pub property_duration: f32,
+    __padding_end: [u8; 4],
 }
+impl UInputDeviceProperty {}
+#[repr(C, align(8))]
 pub struct UColorInputDeviceProperty {
+    #[doc(hidden)]
+    __padding_56: [u8; 56],
     pub color_data: FDeviceColorData,
     pub device_override_data: TMap<FName, FDeviceColorData>,
+    __padding_end: [u8; 24],
 }
+impl UColorInputDeviceProperty {}
+#[repr(C, align(8))]
 pub struct UColorInputDeviceCurveProperty {
+    #[doc(hidden)]
+    __padding_56: [u8; 56],
     pub color_data: FDeviceColorCurveData,
     pub device_override_data: TMap<FName, FDeviceColorCurveData>,
+    __padding_end: [u8; 24],
 }
+impl UColorInputDeviceCurveProperty {}
+#[repr(C, align(8))]
 pub struct UInputDeviceTriggerEffect {
+    #[doc(hidden)]
+    __padding_56: [u8; 56],
     pub base_trigger_data: FDeviceTriggerBaseData,
+    __padding_end: [u8; 22],
 }
+impl UInputDeviceTriggerEffect {}
+#[repr(C, align(8))]
 pub struct UInputDeviceTriggerFeedbackProperty {
+    #[doc(hidden)]
+    __padding_80: [u8; 80],
     pub trigger_data: FDeviceTriggerFeedbackData,
     pub device_override_data: TMap<FName, FDeviceTriggerFeedbackData>,
+    __padding_end: [u8; 24],
 }
+impl UInputDeviceTriggerFeedbackProperty {}
+#[repr(C, align(8))]
 pub struct UInputDeviceTriggerResistanceProperty {
+    #[doc(hidden)]
+    __padding_80: [u8; 80],
     pub trigger_data: FDeviceTriggerTriggerResistanceData,
     pub device_override_data: TMap<FName, FDeviceTriggerTriggerResistanceData>,
+    __padding_end: [u8; 32],
 }
+impl UInputDeviceTriggerResistanceProperty {}
+#[repr(C, align(8))]
 pub struct UInputDeviceTriggerVibrationProperty {
+    #[doc(hidden)]
+    __padding_80: [u8; 80],
     pub trigger_data: FDeviceTriggerTriggerVibrationData,
     pub device_override_data: TMap<FName, FDeviceTriggerTriggerVibrationData>,
+    __padding_end: [u8; 32],
 }
+impl UInputDeviceTriggerVibrationProperty {}
+#[repr(C, align(8))]
 pub struct UInputDeviceAudioBasedVibrationProperty {
+    #[doc(hidden)]
+    __padding_56: [u8; 56],
     pub data: FAudioBasedVibrationData,
     pub device_override_data: TMap<FName, FAudioBasedVibrationData>,
 }
+impl UInputDeviceAudioBasedVibrationProperty {}
+#[repr(C, align(8))]
 pub struct UInputDeviceSubsystem {
-    pub on_input_hardware_device_changed: FInputDeviceSubsystem_OnInputHardwareDeviceChanged,
-    pub active_properties: TSet<FActiveDeviceProperty>,
-    pub properties_pending_removal: TSet<FInputDevicePropertyHandle>,
+    __padding_end: [u8; 448],
 }
-pub struct UPlayerStateCountLimiterConfig {}
-pub struct USaveGame {}
+impl UInputDeviceSubsystem {}
+#[repr(C, align(8))]
+pub struct UPlayerStateCountLimiterConfig {
+    __padding_end: [u8; 72],
+}
+impl UPlayerStateCountLimiterConfig {}
+#[repr(C, align(8))]
+pub struct USaveGame {
+    __padding_end: [u8; 48],
+}
+impl USaveGame {}
+#[repr(C, align(8))]
 pub struct ULocalPlayerSaveGame {
-    pub owning_player: UPtr<ULocalPlayer>,
-    pub save_slot_name: FString,
-    pub saved_data_version: i32,
-    pub loaded_data_version: i32,
-    pub current_save_request: i32,
-    pub last_successful_save_request: i32,
-    pub last_error_save_request: i32,
+    __padding_end: [u8; 96],
 }
+impl ULocalPlayerSaveGame {}
+#[repr(C, align(16))]
 pub struct USpringArmComponent {
+    #[doc(hidden)]
+    __padding_656: [u8; 656],
     pub target_arm_length: f32,
     pub socket_offset: crate::bindings::core_u_object::FVector,
     pub target_offset: crate::bindings::core_u_object::FVector,
     pub probe_size: f32,
     pub probe_channel: ECollisionChannel,
+    #[doc(hidden)]
+    __padding_720: [u8; 3],
     pub flags_720: u8,
     pub flags_721: u8,
     pub camera_lag_speed: f32,
@@ -13400,18 +9784,18 @@ pub struct USpringArmComponent {
     pub camera_lag_max_time_step: f32,
     pub camera_lag_max_distance: f32,
     pub flags_740: u8,
+    __padding_end: [u8; 171],
 }
+impl USpringArmComponent {}
+#[repr(C, align(8))]
 pub struct UTouchInterface {
-    pub controls: TArray<FTouchInputControl>,
-    pub active_opacity: f32,
-    pub inactive_opacity: f32,
-    pub time_until_deactive: f32,
-    pub time_until_reset: f32,
-    pub activation_delay: f32,
-    pub b_prevent_recenter: bool,
-    pub startup_delay: f32,
+    __padding_end: [u8; 96],
 }
+impl UTouchInterface {}
+#[repr(C, align(8))]
 pub struct AGameModeBase {
+    #[doc(hidden)]
+    __padding_1144: [u8; 1144],
     pub options_string: FString,
     pub game_session_class: TSubclassOf<AGameSession>,
     pub game_state_class: TSubclassOf<AGameStateBase>,
@@ -13422,1053 +9806,1102 @@ pub struct AGameModeBase {
     pub spectator_class: TSubclassOf<ASpectatorPawn>,
     pub replay_spectator_player_controller_class: TSubclassOf<APlayerController>,
     pub server_stat_replicator_class: TSubclassOf<AServerStatReplicator>,
-    pub game_session: UPtr<AGameSession>,
-    pub game_state: UPtr<AGameStateBase>,
-    pub server_stat_replicator: UPtr<AServerStatReplicator>,
-    pub default_player_name: FText,
+    #[doc(hidden)]
+    __padding_1272: [u8; 40],
     pub flags_1272: u8,
+    #[doc(hidden)]
+    __padding_1276: [u8; 3],
     pub game_net_driver_replication_system: crate::bindings::net_core::EReplicationSystem,
+    __padding_end: [u8; 19],
 }
+impl AGameModeBase {}
+#[repr(C, align(8))]
 pub struct AGameMode {
-    pub match_state: FName,
+    #[doc(hidden)]
+    __padding_1308: [u8; 1308],
     pub flags_1308: u8,
     pub num_spectators: i32,
     pub num_players: i32,
     pub num_bots: i32,
     pub min_respawn_delay: f32,
     pub num_travelling_players: i32,
-    pub engine_message_class: TSubclassOf<ULocalMessage>,
-    pub inactive_player_array: TArray<UPtr<APlayerState>>,
-    pub inactive_player_state_life_span: f32,
-    pub max_inactive_players: i32,
-    pub b_handle_dedicated_server_replays: bool,
+    __padding_end: [u8; 44],
 }
+impl AGameMode {}
+#[repr(C, align(8))]
 pub struct AGameNetworkManager {
-    pub bad_packet_loss_threshold: f32,
-    pub severe_packet_loss_threshold: f32,
-    pub bad_ping_threshold: i32,
-    pub severe_ping_threshold: i32,
-    pub adjusted_net_speed: i32,
-    pub last_net_speed_update_time: f32,
-    pub total_net_bandwidth: i32,
-    pub min_dynamic_bandwidth: i32,
-    pub max_dynamic_bandwidth: i32,
-    pub flags_1180: u8,
-    pub standby_rx_cheat_time: f32,
-    pub standby_tx_cheat_time: f32,
-    pub percent_missing_for_rx_standby: f32,
-    pub percent_missing_for_tx_standby: f32,
-    pub percent_for_bad_ping: f32,
-    pub join_in_progress_standby_wait_time: f32,
-    pub move_rep_size: f32,
-    pub maxpositionerrorsquared: f32,
-    pub maxnearzerovelocitysquared: f32,
-    pub clientadjustupdatecost: f32,
-    pub maxclientupdateinterval: f32,
-    pub max_client_forced_update_duration: f32,
-    pub server_forced_update_hitch_threshold: f32,
-    pub server_forced_update_hitch_cooldown: f32,
-    pub max_move_delta_time: f32,
-    pub max_client_smoothing_delta_time: f32,
-    pub client_net_send_move_delta_time: f32,
-    pub client_net_send_move_delta_time_throttled: f32,
-    pub client_net_send_move_delta_time_stationary: f32,
-    pub client_net_send_move_throttle_at_net_speed: i32,
-    pub client_net_send_move_throttle_over_player_count: i32,
-    pub client_error_update_rate_limit: f32,
-    pub client_net_cam_update_delta_time: f32,
-    pub client_net_cam_update_position_limit: f32,
-    pub client_authorative_position: bool,
-    pub b_movement_time_discrepancy_detection: bool,
-    pub b_movement_time_discrepancy_resolution: bool,
-    pub movement_time_discrepancy_max_time_margin: f32,
-    pub movement_time_discrepancy_min_time_margin: f32,
-    pub movement_time_discrepancy_resolution_rate: f32,
-    pub movement_time_discrepancy_drift_allowance: f32,
-    pub b_movement_time_discrepancy_force_corrections_during_resolution: bool,
-    pub b_use_distance_based_relevancy: bool,
+    __padding_end: [u8; 1312],
 }
-pub struct UGameplayStatics {}
+impl AGameNetworkManager {}
+#[repr(C, align(8))]
+pub struct UGameplayStatics {
+    __padding_end: [u8; 48],
+}
+impl UGameplayStatics {}
+#[repr(C, align(8))]
 pub struct AGameSession {
-    pub max_spectators: i32,
-    pub max_players: i32,
-    pub max_party_size: i32,
-    pub max_splitscreens_per_connection: u8,
-    pub b_requires_push_to_talk: bool,
-    pub session_name: FName,
+    __padding_end: [u8; 1192],
 }
+impl AGameSession {}
+#[repr(C, align(8))]
 pub struct AGameStateBase {
+    #[doc(hidden)]
+    __padding_1144: [u8; 1144],
     pub game_mode_class: TSubclassOf<AGameModeBase>,
     pub authority_game_mode: UPtr<AGameModeBase>,
     pub spectator_class: TSubclassOf<ASpectatorPawn>,
     pub player_array: TArray<UPtr<APlayerState>>,
-    pub b_replicated_has_begun_play: bool,
-    pub replicated_world_time_seconds_double: f64,
-    pub server_world_time_seconds_delta: f32,
-    pub server_world_time_seconds_update_frequency: f32,
+    __padding_end: [u8; 48],
 }
+impl AGameStateBase {}
+#[repr(C, align(8))]
 pub struct AGameState {
+    #[doc(hidden)]
+    __padding_1232: [u8; 1232],
     pub match_state: FName,
     pub previous_match_state: FName,
     pub elapsed_time: i32,
+    __padding_end: [u8; 12],
 }
+impl AGameState {}
+#[repr(C, align(8))]
 pub struct UGameUserSettings {
-    pub b_use_v_sync: bool,
-    pub b_use_dynamic_resolution: bool,
-    pub resolution_size_x: u32,
-    pub resolution_size_y: u32,
-    pub last_user_confirmed_resolution_size_x: u32,
-    pub last_user_confirmed_resolution_size_y: u32,
-    pub window_pos_x_deprecated: i32,
-    pub window_pos_y_deprecated: i32,
-    pub window_positions: TArray<crate::bindings::core_u_object::FIntPoint>,
-    pub fullscreen_mode: i32,
-    pub last_confirmed_fullscreen_mode: i32,
-    pub preferred_fullscreen_mode: i32,
-    pub version: u32,
-    pub audio_quality_level: i32,
-    pub last_confirmed_audio_quality_level: i32,
-    pub frame_rate_limit: f32,
-    pub desired_screen_width: i32,
-    pub b_use_desired_screen_height: bool,
-    pub desired_screen_height: i32,
-    pub last_user_confirmed_desired_screen_width: i32,
-    pub last_user_confirmed_desired_screen_height: i32,
-    pub last_recommended_screen_width: f32,
-    pub last_recommended_screen_height: f32,
-    pub last_cpu_benchmark_result: f32,
-    pub last_gpu_benchmark_result: f32,
-    pub last_cpu_benchmark_steps: TArray<f32>,
-    pub last_gpu_benchmark_steps: TArray<f32>,
-    pub last_gpu_benchmark_multiplier: f32,
-    pub b_use_hdr_display_output: bool,
-    pub hdr_display_output_nits: i32,
-    pub on_game_user_settings_ui_needs_update: FGameUserSettings_OnGameUserSettingsUINeedsUpdate,
+    __padding_end: [u8; 376],
 }
-pub struct UScriptViewportClient {}
+impl UGameUserSettings {}
+#[repr(C, align(8))]
+pub struct UScriptViewportClient {
+    __padding_end: [u8; 64],
+}
+impl UScriptViewportClient {}
+#[repr(C, align(8))]
 pub struct UGameViewportClient {
-    pub viewport_console: UPtr<UConsole>,
-    pub debug_properties: TArray<FDebugDisplayProperty>,
-    pub max_splitscreen_players: i32,
-    pub world: UPtr<UWorld>,
-    pub game_instance: UPtr<UGameInstance>,
+    __padding_end: [u8; 1128],
 }
+impl UGameViewportClient {}
+#[repr(C, align(8))]
 pub struct UGeneratedBlueprintBinding {
-    pub generated_blueprint_bindings: TArray<FGeneratedBlueprintDelegateBinding>,
+    __padding_end: [u8; 64],
 }
+impl UGeneratedBlueprintBinding {}
+#[repr(C, align(8))]
 pub struct UHLODProxy {
-    pub owning_map: TSoftObjectPtr<UWorld>,
-    pub proxy_meshes: TArray<FHLODProxyMesh>,
-    pub hlod_actors: TMap<UPtr<UHLODProxyDesc>, FHLODProxyMesh>,
+    __padding_end: [u8; 192],
 }
-pub struct UHLODEngineSubsystem {}
+impl UHLODProxy {}
+#[repr(C, align(8))]
+pub struct UHLODEngineSubsystem {
+    __padding_end: [u8; 88],
+}
+impl UHLODEngineSubsystem {}
+#[repr(C, align(16))]
 pub struct UHLODProxyDesc {
-    pub sub_actors: TArray<FName>,
-    pub static_mesh: UPtr<UStaticMesh>,
-    pub ism_components_desc: TArray<FHLODISMComponentDesc>,
-    pub lod_draw_distance: f32,
-    pub b_override_material_merge_settings: bool,
-    pub material_settings: FMaterialProxySettings,
-    pub b_override_transition_screen_size: bool,
-    pub transition_screen_size: f32,
-    pub b_override_screen_size: bool,
-    pub screen_size: i32,
-    pub key: FName,
-    pub lod_level: i32,
-    pub lod_actor_tag: FString,
-    pub location: crate::bindings::core_u_object::FVector,
-    pub hlod_baking_transform: crate::bindings::core_u_object::FTransform,
-    pub sub_hlod_descs: TArray<TSoftObjectPtr<UHLODProxyDesc>>,
+    __padding_end: [u8; 448],
 }
+impl UHLODProxyDesc {}
+#[repr(C, align(8))]
 pub struct UHierarchicalLODSetup {
-    pub hierarchical_lod_setup: TArray<FHierarchicalSimplification>,
-    pub override_base_material: TSoftObjectPtr<UMaterialInterface>,
+    __padding_end: [u8; 112],
 }
+impl UHierarchicalLODSetup {}
 pub struct UImportantToggleSettingInterface {}
 pub struct IImportantToggleSettingInterface {}
+#[repr(C, align(8))]
 pub struct UInheritableComponentHandler {
-    pub records: TArray<FComponentOverrideRecord>,
-    pub unnecessary_components: TArray<UPtr<UActorComponent>>,
+    __padding_end: [u8; 80],
 }
-pub struct UInputDelegateBinding {}
+impl UInheritableComponentHandler {}
+#[repr(C, align(8))]
+pub struct UInputDelegateBinding {
+    __padding_end: [u8; 48],
+}
+impl UInputDelegateBinding {}
+#[repr(C, align(8))]
 pub struct UInputActionDelegateBinding {
-    pub input_action_delegate_bindings: TArray<FBlueprintInputActionDelegateBinding>,
+    __padding_end: [u8; 64],
 }
+impl UInputActionDelegateBinding {}
+#[repr(C, align(8))]
 pub struct UInputAxisDelegateBinding {
-    pub input_axis_delegate_bindings: TArray<FBlueprintInputAxisDelegateBinding>,
+    __padding_end: [u8; 64],
 }
+impl UInputAxisDelegateBinding {}
+#[repr(C, align(8))]
 pub struct UInputAxisKeyDelegateBinding {
-    pub input_axis_key_delegate_bindings: TArray<FBlueprintInputAxisKeyDelegateBinding>,
+    __padding_end: [u8; 64],
 }
-pub struct UInputDeviceLibrary {}
+impl UInputAxisKeyDelegateBinding {}
+#[repr(C, align(8))]
+pub struct UInputDeviceLibrary {
+    __padding_end: [u8; 48],
+}
+impl UInputDeviceLibrary {}
+#[repr(C, align(8))]
 pub struct UInputKeyDelegateBinding {
-    pub input_key_delegate_bindings: TArray<FBlueprintInputKeyDelegateBinding>,
+    __padding_end: [u8; 64],
 }
+impl UInputKeyDelegateBinding {}
+#[repr(C, align(8))]
 pub struct UInputTouchDelegateBinding {
-    pub input_touch_delegate_bindings: TArray<FBlueprintInputTouchDelegateBinding>,
+    __padding_end: [u8; 64],
 }
-pub struct UInputVectorAxisDelegateBinding {}
+impl UInputTouchDelegateBinding {}
+#[repr(C, align(8))]
+pub struct UInputVectorAxisDelegateBinding {
+    __padding_end: [u8; 64],
+}
+impl UInputVectorAxisDelegateBinding {}
+#[repr(C, align(8))]
 pub struct AInstancedPlacementPartitionActor {
-    pub placement_grid_guid: crate::bindings::core_u_object::FGuid,
+    __padding_end: [u8; 1392],
 }
-pub struct UStringTable {}
+impl AInstancedPlacementPartitionActor {}
+#[repr(C, align(8))]
+pub struct UStringTable {
+    __padding_end: [u8; 80],
+}
+impl UStringTable {}
+#[repr(C, align(8))]
 pub struct UInterpCurveEdSetup {
-    pub tabs: TArray<FCurveEdTab>,
-    pub active_tab: i32,
+    __padding_end: [u8; 72],
 }
+impl UInterpCurveEdSetup {}
+#[repr(C, align(8))]
 pub struct UIntSerialization {
-    pub unsigned_int16_variable: u16,
-    pub unsigned_int32_variable: u32,
-    pub unsigned_int64_variable: u64,
-    pub signed_int8_variable: i8,
-    pub signed_int16_variable: i16,
-    pub signed_int64_variable: i64,
-    pub unsigned_int8_variable: u8,
-    pub signed_int32_variable: i32,
+    __padding_end: [u8; 88],
 }
-pub struct AKillZVolume {}
-pub struct UKismetArrayLibrary {}
-pub struct UKismetGuidLibrary {}
-pub struct UKismetInputLibrary {}
-pub struct UKismetInternationalizationLibrary {}
-pub struct UKismetMaterialLibrary {}
-pub struct UKismetMathLibrary {}
-pub struct UKismetNodeHelperLibrary {}
-pub struct UKismetRenderingLibrary {}
-pub struct UKismetStringLibrary {}
-pub struct UKismetStringTableLibrary {}
-pub struct UKismetSystemLibrary {}
-pub struct UKismetTextLibrary {}
-pub struct UBlueprintPathsLibrary {}
+impl UIntSerialization {}
+#[repr(C, align(8))]
+pub struct AKillZVolume {
+    __padding_end: [u8; 1224],
+}
+impl AKillZVolume {}
+#[repr(C, align(8))]
+pub struct UKismetArrayLibrary {
+    __padding_end: [u8; 48],
+}
+impl UKismetArrayLibrary {}
+#[repr(C, align(8))]
+pub struct UKismetGuidLibrary {
+    __padding_end: [u8; 48],
+}
+impl UKismetGuidLibrary {}
+#[repr(C, align(8))]
+pub struct UKismetInputLibrary {
+    __padding_end: [u8; 48],
+}
+impl UKismetInputLibrary {}
+#[repr(C, align(8))]
+pub struct UKismetInternationalizationLibrary {
+    __padding_end: [u8; 48],
+}
+impl UKismetInternationalizationLibrary {}
+#[repr(C, align(8))]
+pub struct UKismetMaterialLibrary {
+    __padding_end: [u8; 48],
+}
+impl UKismetMaterialLibrary {}
+#[repr(C, align(8))]
+pub struct UKismetMathLibrary {
+    __padding_end: [u8; 48],
+}
+impl UKismetMathLibrary {}
+#[repr(C, align(8))]
+pub struct UKismetNodeHelperLibrary {
+    __padding_end: [u8; 48],
+}
+impl UKismetNodeHelperLibrary {}
+#[repr(C, align(8))]
+pub struct UKismetRenderingLibrary {
+    __padding_end: [u8; 48],
+}
+impl UKismetRenderingLibrary {}
+#[repr(C, align(8))]
+pub struct UKismetStringLibrary {
+    __padding_end: [u8; 48],
+}
+impl UKismetStringLibrary {}
+#[repr(C, align(8))]
+pub struct UKismetStringTableLibrary {
+    __padding_end: [u8; 48],
+}
+impl UKismetStringTableLibrary {}
+#[repr(C, align(8))]
+pub struct UKismetSystemLibrary {
+    __padding_end: [u8; 48],
+}
+impl UKismetSystemLibrary {}
+#[repr(C, align(8))]
+pub struct UKismetTextLibrary {
+    __padding_end: [u8; 48],
+}
+impl UKismetTextLibrary {}
+#[repr(C, align(8))]
+pub struct UBlueprintPathsLibrary {
+    __padding_end: [u8; 48],
+}
+impl UBlueprintPathsLibrary {}
+#[repr(C, align(8))]
 pub struct UPlatformGameInstance {
-    pub application_will_deactivate_delegate: FPlatformGameInstance_ApplicationWillDeactivateDelegate,
-    pub application_has_reactivated_delegate: FPlatformGameInstance_ApplicationHasReactivatedDelegate,
-    pub application_will_enter_background_delegate: FPlatformGameInstance_ApplicationWillEnterBackgroundDelegate,
-    pub application_has_entered_foreground_delegate: FPlatformGameInstance_ApplicationHasEnteredForegroundDelegate,
-    pub application_will_terminate_delegate: FPlatformGameInstance_ApplicationWillTerminateDelegate,
-    pub application_should_unload_resources_delegate: FPlatformGameInstance_ApplicationShouldUnloadResourcesDelegate,
-    pub application_received_startup_arguments_delegate: FPlatformGameInstance_ApplicationReceivedStartupArgumentsDelegate,
-    pub application_registered_for_remote_notifications_delegate: FPlatformGameInstance_ApplicationRegisteredForRemoteNotificationsDelegate,
-    pub application_registered_for_user_notifications_delegate: FPlatformGameInstance_ApplicationRegisteredForUserNotificationsDelegate,
-    pub application_failed_to_register_for_remote_notifications_delegate: FPlatformGameInstance_ApplicationFailedToRegisterForRemoteNotificationsDelegate,
-    pub application_received_remote_notification_delegate: FPlatformGameInstance_ApplicationReceivedRemoteNotificationDelegate,
-    pub application_received_local_notification_delegate: FPlatformGameInstance_ApplicationReceivedLocalNotificationDelegate,
-    pub application_received_screen_orientation_changed_notification_delegate: FPlatformGameInstance_ApplicationReceivedScreenOrientationChangedNotificationDelegate,
+    __padding_end: [u8; 840],
 }
-pub struct UBlueprintPlatformLibrary {}
-pub struct UBlueprintTypeConversions {}
-pub struct UImportanceSamplingLibrary {}
+impl UPlatformGameInstance {}
+#[repr(C, align(8))]
+pub struct UBlueprintPlatformLibrary {
+    __padding_end: [u8; 48],
+}
+impl UBlueprintPlatformLibrary {}
+#[repr(C, align(8))]
+pub struct UBlueprintTypeConversions {
+    __padding_end: [u8; 48],
+}
+impl UBlueprintTypeConversions {}
+#[repr(C, align(8))]
+pub struct UImportanceSamplingLibrary {
+    __padding_end: [u8; 48],
+}
+impl UImportanceSamplingLibrary {}
+#[repr(C, align(8))]
 pub struct ULayer {
-    pub layer_name: FName,
-    pub flags_60: u8,
-    pub actor_stats: TArray<FLayerActorStats>,
+    __padding_end: [u8; 80],
 }
+impl ULayer {}
+#[repr(C, align(8))]
 pub struct UActorContainer {
-    pub actors: TMap<FName, UPtr<AActor>>,
-    pub runtime_level: UPtr<ULevel>,
+    __padding_end: [u8; 136],
 }
+impl UActorContainer {}
+#[repr(C, align(8))]
 pub struct ULevelActorContainer {
-    pub actors: TArray<UPtr<AActor>>,
+    __padding_end: [u8; 64],
 }
+impl ULevelActorContainer {}
+#[repr(C, align(8))]
 pub struct ALevelBounds {
-    pub box_component: UPtr<UBoxComponent>,
-    pub b_auto_update_bounds: bool,
+    __padding_end: [u8; 1184],
 }
+impl ALevelBounds {}
+#[repr(C, align(8))]
 pub struct ALevelInstance {
-    pub world_asset: TSoftObjectPtr<UWorld>,
-    pub property_overrides: UPtr<ULevelInstancePropertyOverrideAsset>,
-    pub level_instance_component: UPtr<ULevelInstanceComponent>,
-    pub cooked_world_asset: TSoftObjectPtr<UWorld>,
-    pub level_instance_spawn_guid: crate::bindings::core_u_object::FGuid,
-    pub desired_runtime_behavior: ELevelInstanceRuntimeBehavior,
+    __padding_end: [u8; 1488],
 }
+impl ALevelInstance {}
+#[repr(C, align(16))]
 pub struct ULevelInstanceComponent {
-    pub shadow_desired_runtime_behavior: ELevelInstanceRuntimeBehavior,
-    pub filter: FWorldPartitionActorFilter,
-    pub edit_filter: FWorldPartitionActorFilter,
+    __padding_end: [u8; 1504],
 }
-pub struct ALevelInstanceEditorInstanceActor {}
-pub struct ULevelStreamingLevelInstanceEditor {}
+impl ULevelInstanceComponent {}
+#[repr(C, align(8))]
+pub struct ALevelInstanceEditorInstanceActor {
+    __padding_end: [u8; 1192],
+}
+impl ALevelInstanceEditorInstanceActor {}
+#[repr(C, align(16))]
+pub struct ULevelStreamingLevelInstanceEditor {
+    __padding_end: [u8; 672],
+}
+impl ULevelStreamingLevelInstanceEditor {}
+#[repr(C, align(8))]
 pub struct ULevelInstanceEditorObject {
-    pub b_moved_actors: bool,
-    pub other_packages_to_save: TArray<
-        TWeakObjectPtr<crate::bindings::core_u_object::UPackage>,
-    >,
+    __padding_end: [u8; 88],
 }
-pub struct ALevelInstancePivot {}
+impl ULevelInstanceEditorObject {}
+#[repr(C, align(16))]
+pub struct ALevelInstancePivot {
+    __padding_end: [u8; 1344],
+}
+impl ALevelInstancePivot {}
+#[repr(C, align(16))]
 pub struct ULevelStreamingLevelInstanceEditorPropertyOverride {
-    pub archetype_world: UPtr<UWorld>,
+    __padding_end: [u8; 704],
 }
+impl ULevelStreamingLevelInstanceEditorPropertyOverride {}
 pub struct ULevelInstanceInterface {}
 pub struct ILevelInstanceInterface {}
-pub struct ULevelStreamingLevelInstance {}
+#[repr(C, align(16))]
+pub struct ULevelStreamingLevelInstance {
+    __padding_end: [u8; 832],
+}
+impl ULevelStreamingLevelInstance {}
+#[repr(C, align(8))]
 pub struct UWorldPartitionPropertyOverride {
-    pub property_overrides_per_container: TMap<
-        FActorContainerPath,
-        FContainerPropertyOverride,
-    >,
+    __padding_end: [u8; 128],
 }
+impl UWorldPartitionPropertyOverride {}
+#[repr(C, align(8))]
 pub struct ULevelInstancePropertyOverrideAsset {
-    pub world_asset: TSoftObjectPtr<UWorld>,
-    pub b_saving_override_edit: bool,
+    __padding_end: [u8; 184],
 }
-pub struct UWorldPartitionPropertyOverridePolicy {}
-pub struct ULevelInstancePropertyOverridePolicy {}
+impl ULevelInstancePropertyOverrideAsset {}
+#[repr(C, align(8))]
+pub struct UWorldPartitionPropertyOverridePolicy {
+    __padding_end: [u8; 48],
+}
+impl UWorldPartitionPropertyOverridePolicy {}
+#[repr(C, align(8))]
+pub struct ULevelInstancePropertyOverridePolicy {
+    __padding_end: [u8; 48],
+}
+impl ULevelInstancePropertyOverridePolicy {}
+#[repr(C, align(8))]
 pub struct ULevelInstanceSettings {
-    pub property_override_policy_class: FString,
-    pub property_override_policy: UPtr<ULevelInstancePropertyOverridePolicy>,
-    pub b_is_level_instance_disabled: bool,
+    __padding_end: [u8; 80],
 }
-pub struct ULevelInstanceSubsystem {}
-pub struct ULevelInstancePropertyOverrideSamplePolicy {}
+impl ULevelInstanceSettings {}
+#[repr(C, align(8))]
+pub struct ULevelInstanceSubsystem {
+    __padding_end: [u8; 696],
+}
+impl ULevelInstanceSubsystem {}
+#[repr(C, align(8))]
+pub struct ULevelInstancePropertyOverrideSamplePolicy {
+    __padding_end: [u8; 48],
+}
+impl ULevelInstancePropertyOverrideSamplePolicy {}
+#[repr(C, align(8))]
 pub struct ALevelScriptActor {
-    pub flags_1136: u8,
+    __padding_end: [u8; 1144],
 }
+impl ALevelScriptActor {}
+#[repr(C, align(8))]
 pub struct ULevelScriptBlueprint {
-    pub friendly_name: FString,
+    __padding_end: [u8; 1448],
 }
+impl ULevelScriptBlueprint {}
+#[repr(C, align(8))]
 pub struct ALevelStreamingVolume {
+    #[doc(hidden)]
+    __padding_1208: [u8; 1208],
     pub streaming_level_names: TArray<FName>,
     pub flags_1224: u8,
+    #[doc(hidden)]
+    __padding_1228: [u8; 3],
     pub streaming_usage: EStreamingVolumeUsage,
+    __padding_end: [u8; 3],
 }
+impl ALevelStreamingVolume {}
+#[repr(C, align(8))]
 pub struct ULightmappedSurfaceCollection {
-    pub source_model: UPtr<UModel>,
-    pub surfaces: TArray<i32>,
+    __padding_end: [u8; 72],
 }
-pub struct ALightmassCharacterIndirectDetailVolume {}
-pub struct ALightmassImportanceVolume {}
+impl ULightmappedSurfaceCollection {}
+#[repr(C, align(8))]
+pub struct ALightmassCharacterIndirectDetailVolume {
+    __padding_end: [u8; 1208],
+}
+impl ALightmassCharacterIndirectDetailVolume {}
+#[repr(C, align(8))]
+pub struct ALightmassImportanceVolume {
+    __padding_end: [u8; 1208],
+}
+impl ALightmassImportanceVolume {}
+#[repr(C, align(8))]
 pub struct ULightmassPrimitiveSettingsObject {
-    pub lightmass_settings: FLightmassPrimitiveSettings,
+    __padding_end: [u8; 72],
 }
-pub struct ULightWeightInstanceBlueprintFunctionLibrary {}
+impl ULightmassPrimitiveSettingsObject {}
+#[repr(C, align(8))]
+pub struct ULightWeightInstanceBlueprintFunctionLibrary {
+    __padding_end: [u8; 48],
+}
+impl ULightWeightInstanceBlueprintFunctionLibrary {}
+#[repr(C, align(8))]
 pub struct ALightWeightInstanceManager {
-    pub represented_class: TSubclassOf<AActor>,
-    pub accepted_class: TSubclassOf<AActor>,
-    pub instance_transforms: TArray<crate::bindings::core_u_object::FTransform>,
-    pub actors: TMap<i32, UPtr<AActor>>,
-    pub free_indices: TArray<i32>,
-    pub valid_indices: TArray<bool>,
+    __padding_end: [u8; 1336],
 }
+impl ALightWeightInstanceManager {}
+#[repr(C, align(8))]
 pub struct ALightWeightInstanceStaticMeshManager {
+    #[doc(hidden)]
+    __padding_1344: [u8; 1344],
     pub static_mesh: TSoftObjectPtr<UStaticMesh>,
-    pub instanced_static_mesh_component_deprecated: UPtr<
-        UHierarchicalInstancedStaticMeshComponent,
-    >,
+    #[doc(hidden)]
+    __padding_1400: [u8; 8],
     pub ism_component: UPtr<UInstancedStaticMeshComponent>,
-    pub rendering_indices_to_data_indices: TArray<i32>,
-    pub data_indices_to_rendering_indices: TArray<i32>,
+    __padding_end: [u8; 48],
 }
+impl ALightWeightInstanceStaticMeshManager {}
+#[repr(C, align(8))]
 pub struct ULocalPlayer {
-    pub viewport_client: UPtr<UGameViewportClient>,
-    pub aspect_ratio_axis_constraint: EAspectRatioAxisConstraint,
-    pub pending_level_player_controller_class: TSubclassOf<APlayerController>,
-    pub flags_208: u8,
-    pub controller_id: i32,
+    __padding_end: [u8; 736],
 }
+impl ULocalPlayer {}
+#[repr(C, align(8))]
 pub struct ALocationVolume {
-    pub debug_color: crate::bindings::core_u_object::FColor,
+    __padding_end: [u8; 1232],
 }
+impl ALocationVolume {}
+#[repr(C, align(8))]
 pub struct ALODActor {
-    pub static_mesh_component: UPtr<UStaticMeshComponent>,
-    pub instanced_static_mesh_components: TMap<
-        FHLODInstancingKey,
-        UPtr<UInstancedStaticMeshComponent>,
-    >,
-    pub proxy: UPtr<UHLODProxy>,
-    pub key: FName,
-    pub lod_draw_distance: f32,
-    pub lod_level: i32,
-    pub sub_actors: TArray<UPtr<AActor>>,
-    pub cached_num_hlod_levels: u8,
-    pub num_triangles_in_sub_actors: u32,
-    pub num_triangles_in_merged_mesh: u32,
-    pub b_override_material_merge_settings: bool,
-    pub material_settings: FMaterialProxySettings,
-    pub b_override_transition_screen_size: bool,
-    pub transition_screen_size: f32,
-    pub b_override_screen_size: bool,
-    pub screen_size: i32,
-    pub lod_actor_tag: FString,
-    pub flags_1504: u8,
-    pub proxy_desc: UPtr<UHLODProxyDesc>,
+    __padding_end: [u8; 1520],
 }
+impl ALODActor {}
+#[repr(C, align(16))]
 pub struct UMaterialCacheVirtualTexture {
-    pub owning_component: TWeakObjectPtr<UPrimitiveComponent>,
-    pub material_stack_provider: TWeakObjectPtr<UMaterialCacheStackProvider>,
-    pub tag: UPtr<UMaterialCacheVirtualTextureTag>,
-    pub tile_count: crate::bindings::core_u_object::FIntPoint,
+    __padding_end: [u8; 1296],
 }
+impl UMaterialCacheVirtualTexture {}
+#[repr(C, align(8))]
 pub struct UMaterialCacheVirtualTextureTag {
-    pub attributes: TArray<EMaterialCacheAttribute>,
-    pub tile_count_multiplier: crate::bindings::core_u_object::FIntPoint,
-    pub runtime_layers: TArray<FMaterialCacheLayer>,
-    pub guid: crate::bindings::core_u_object::FGuid,
+    __padding_end: [u8; 104],
 }
+impl UMaterialCacheVirtualTextureTag {}
+#[repr(C, align(8))]
 pub struct AMaterialInstanceActor {
+    #[doc(hidden)]
+    __padding_1136: [u8; 1136],
     pub target_actors: TArray<UPtr<AActor>>,
+    __padding_end: [u8; 8],
 }
-pub struct UMaterialInterfaceEditorOnlyData {}
+impl AMaterialInstanceActor {}
+#[repr(C, align(8))]
+pub struct UMaterialInterfaceEditorOnlyData {
+    __padding_end: [u8; 72],
+}
+impl UMaterialInterfaceEditorOnlyData {}
+#[repr(C, align(8))]
 pub struct UMaterialEditorOnlyData {
-    pub base_color: FColorMaterialInput,
-    pub metallic: FScalarMaterialInput,
-    pub specular: FScalarMaterialInput,
-    pub roughness: FScalarMaterialInput,
-    pub anisotropy: FScalarMaterialInput,
-    pub normal: FVectorMaterialInput,
-    pub tangent: FVectorMaterialInput,
-    pub emissive_color: FColorMaterialInput,
-    pub opacity: FScalarMaterialInput,
-    pub opacity_mask: FScalarMaterialInput,
-    pub world_position_offset: FVectorMaterialInput,
-    pub displacement: FScalarMaterialInput,
-    pub subsurface_color: FColorMaterialInput,
-    pub clear_coat: FScalarMaterialInput,
-    pub clear_coat_roughness: FScalarMaterialInput,
-    pub ambient_occlusion: FScalarMaterialInput,
-    pub refraction: FScalarMaterialInput,
-    pub customized_u_vs: FVector2MaterialInput,
-    pub material_attributes: FMaterialAttributesInput,
-    pub pixel_depth_offset: FScalarMaterialInput,
-    pub shading_model_from_material_expression: FShadingModelMaterialInput,
-    pub surface_thickness: FScalarMaterialInput,
-    pub front_material: FSubstrateMaterialInput,
-    pub expression_collection: FMaterialExpressionCollection,
-    pub parameter_group_data: TArray<FParameterGroupData>,
-    pub substrate_conversion_version: i32,
-    pub substrate_version: i32,
-    pub b_is_subsutrate_auto_converted_and_not_saved: bool,
+    __padding_end: [u8; 1968],
 }
+impl UMaterialEditorOnlyData {}
+#[repr(C, align(8))]
 pub struct UMaterialAggregate {
-    pub attributes: TArray<FMaterialAggregateAttribute>,
+    __padding_end: [u8; 72],
 }
+impl UMaterialAggregate {}
 pub struct UMaterialEnumerationProvider {}
 pub struct IMaterialEnumerationProvider {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionLayerStack {
-    pub layer_inputs: TArray<FMaterialLayerInput>,
-    pub available_layers: TSet<UPtr<UMaterialFunctionInterface>>,
-    pub available_blends: TSet<UPtr<UMaterialFunctionInterface>>,
+    __padding_end: [u8; 808],
 }
+impl UMaterialExpressionLayerStack {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionNoise {
-    pub position: FExpressionInput,
-    pub world_position_origin_type: EPositionOrigin,
-    pub filter_width: FExpressionInput,
-    pub scale: f32,
-    pub quality: i32,
-    pub noise_function: ENoiseFunction,
-    pub flags_316: u8,
-    pub levels: i32,
-    pub output_min: f32,
-    pub output_max: f32,
-    pub level_scale: f32,
-    pub flags_336: u8,
-    pub repeat_size: u32,
+    __padding_end: [u8; 344],
 }
-pub struct UMaterialExpressionScalarBlueNoise {}
-pub struct UMaterialExpressionSubstrateBSDF {}
+impl UMaterialExpressionNoise {}
+#[repr(C, align(8))]
+pub struct UMaterialExpressionScalarBlueNoise {
+    __padding_end: [u8; 216],
+}
+impl UMaterialExpressionScalarBlueNoise {}
+#[repr(C, align(8))]
+pub struct UMaterialExpressionSubstrateBSDF {
+    __padding_end: [u8; 200],
+}
+impl UMaterialExpressionSubstrateBSDF {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionSubstrateShadingModels {
-    pub base_color: FExpressionInput,
-    pub metallic: FExpressionInput,
-    pub specular: FExpressionInput,
-    pub roughness: FExpressionInput,
-    pub anisotropy: FExpressionInput,
-    pub emissive_color: FExpressionInput,
-    pub normal: FExpressionInput,
-    pub tangent: FExpressionInput,
-    pub sub_surface_color: FExpressionInput,
-    pub clear_coat: FExpressionInput,
-    pub clear_coat_roughness: FExpressionInput,
-    pub opacity: FExpressionInput,
-    pub transmittance_color: FExpressionInput,
-    pub water_scattering_coefficients: FExpressionInput,
-    pub water_absorption_coefficients: FExpressionInput,
-    pub water_phase_g: FExpressionInput,
-    pub color_scale_behind_water: FExpressionInput,
-    pub clear_coat_normal: FExpressionInput,
-    pub custom_tangent: FExpressionInput,
-    pub shading_model: FShadingModelMaterialInput,
-    pub thin_translucent_surface_coverage: FExpressionInput,
-    pub shading_model_override: EMaterialShadingModel,
+    #[doc(hidden)]
+    __padding_1224: [u8; 1224],
     pub subsurface_profile: UPtr<USubsurfaceProfile>,
 }
+impl UMaterialExpressionSubstrateShadingModels {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionSubstrateSlabBSDF {
-    pub diffuse_albedo: FExpressionInput,
-    pub f0: FExpressionInput,
-    pub f90: FExpressionInput,
-    pub roughness: FExpressionInput,
-    pub anisotropy: FExpressionInput,
-    pub normal: FExpressionInput,
-    pub tangent: FExpressionInput,
-    pub sssmfp: FExpressionInput,
-    pub sssmfp_scale: FExpressionInput,
-    pub sss_phase_anisotropy: FExpressionInput,
-    pub emissive_color: FExpressionInput,
-    pub second_roughness: FExpressionInput,
-    pub second_roughness_weight: FExpressionInput,
-    pub fuzz_roughness: FExpressionInput,
-    pub fuzz_amount: FExpressionInput,
-    pub fuzz_color: FExpressionInput,
-    pub glint_value: FExpressionInput,
-    pub glint_uv: FExpressionInput,
+    #[doc(hidden)]
+    __padding_1064: [u8; 1064],
     pub subsurface_profile: UPtr<USubsurfaceProfile>,
     pub specular_profile: UPtr<USpecularProfile>,
-    pub flags_1080: u8,
-    pub sub_surface_type: EMaterialSubSurfaceType,
+    __padding_end: [u8; 8],
 }
+impl UMaterialExpressionSubstrateSlabBSDF {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionSubstrateSimpleClearCoatBSDF {
-    pub diffuse_albedo: FExpressionInput,
-    pub f0: FExpressionInput,
-    pub roughness: FExpressionInput,
-    pub clear_coat_coverage: FExpressionInput,
-    pub clear_coat_roughness: FExpressionInput,
-    pub normal: FExpressionInput,
-    pub emissive_color: FExpressionInput,
-    pub bottom_normal: FExpressionInput,
+    __padding_end: [u8; 584],
 }
+impl UMaterialExpressionSubstrateSimpleClearCoatBSDF {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionSubstrateVolumetricFogCloudBSDF {
-    pub albedo: FExpressionInput,
-    pub extinction: FExpressionInput,
-    pub emissive_color: FExpressionInput,
-    pub ambient_occlusion: FExpressionInput,
-    pub flags_392: u8,
+    __padding_end: [u8; 400],
 }
+impl UMaterialExpressionSubstrateVolumetricFogCloudBSDF {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionSubstrateUnlitBSDF {
-    pub emissive_color: FExpressionInput,
-    pub transmittance_color: FExpressionInput,
-    pub normal: FExpressionInput,
+    __padding_end: [u8; 344],
 }
+impl UMaterialExpressionSubstrateUnlitBSDF {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionSubstrateHairBSDF {
-    pub base_color: FExpressionInput,
-    pub scatter: FExpressionInput,
-    pub specular: FExpressionInput,
-    pub roughness: FExpressionInput,
-    pub backlit: FExpressionInput,
-    pub tangent: FExpressionInput,
-    pub emissive_color: FExpressionInput,
+    __padding_end: [u8; 536],
 }
+impl UMaterialExpressionSubstrateHairBSDF {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionSubstrateEyeBSDF {
-    pub diffuse_color: FExpressionInput,
-    pub roughness: FExpressionInput,
-    pub cornea_normal: FExpressionInput,
-    pub iris_normal: FExpressionInput,
-    pub iris_plane_normal: FExpressionInput,
-    pub iris_mask: FExpressionInput,
-    pub iris_distance: FExpressionInput,
-    pub emissive_color: FExpressionInput,
+    #[doc(hidden)]
+    __padding_584: [u8; 584],
     pub subsurface_profile: UPtr<USubsurfaceProfile>,
 }
+impl UMaterialExpressionSubstrateEyeBSDF {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionSubstrateSingleLayerWaterBSDF {
-    pub base_color: FExpressionInput,
-    pub metallic: FExpressionInput,
-    pub specular: FExpressionInput,
-    pub roughness: FExpressionInput,
-    pub normal: FExpressionInput,
-    pub emissive_color: FExpressionInput,
-    pub top_material_opacity: FExpressionInput,
-    pub water_albedo: FExpressionInput,
-    pub water_extinction: FExpressionInput,
-    pub water_phase_g: FExpressionInput,
-    pub color_scale_behind_water: FExpressionInput,
+    __padding_end: [u8; 728],
 }
+impl UMaterialExpressionSubstrateSingleLayerWaterBSDF {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionSubstrateLightFunction {
-    pub color: FExpressionInput,
+    __padding_end: [u8; 248],
 }
+impl UMaterialExpressionSubstrateLightFunction {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionSubstratePostProcess {
-    pub color: FExpressionInput,
-    pub opacity: FExpressionInput,
+    __padding_end: [u8; 296],
 }
+impl UMaterialExpressionSubstratePostProcess {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionSubstrateUI {
-    pub color: FExpressionInput,
-    pub opacity: FExpressionInput,
+    __padding_end: [u8; 296],
 }
+impl UMaterialExpressionSubstrateUI {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionSubstrateConvertToDecal {
-    pub decal_material: FExpressionInput,
-    pub coverage: FExpressionInput,
+    __padding_end: [u8; 296],
 }
+impl UMaterialExpressionSubstrateConvertToDecal {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionSubstrateConvertMaterialAttributes {
-    pub material_attributes: FMaterialAttributesInput,
-    pub water_scattering_coefficients: FExpressionInput,
-    pub water_absorption_coefficients: FExpressionInput,
-    pub water_phase_g: FExpressionInput,
-    pub color_scale_behind_water: FExpressionInput,
+    #[doc(hidden)]
+    __padding_448: [u8; 448],
     pub subsurface_profile: UPtr<USubsurfaceProfile>,
-    pub shading_model_override: EMaterialShadingModel,
+    __padding_end: [u8; 8],
 }
+impl UMaterialExpressionSubstrateConvertMaterialAttributes {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionSubstrateHorizontalMixing {
-    pub background: FExpressionInput,
-    pub foreground: FExpressionInput,
-    pub mix: FExpressionInput,
-    pub flags_344: u8,
+    __padding_end: [u8; 352],
 }
+impl UMaterialExpressionSubstrateHorizontalMixing {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionSubstrateVerticalLayering {
-    pub top: FExpressionInput,
-    pub base: FExpressionInput,
-    pub thickness: FExpressionInput,
-    pub flags_344: u8,
+    __padding_end: [u8; 352],
 }
+impl UMaterialExpressionSubstrateVerticalLayering {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionSubstrateAdd {
-    pub a: FExpressionInput,
-    pub b: FExpressionInput,
-    pub flags_296: u8,
+    __padding_end: [u8; 304],
 }
+impl UMaterialExpressionSubstrateAdd {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionSubstrateWeight {
-    pub a: FExpressionInput,
-    pub weight: FExpressionInput,
+    __padding_end: [u8; 296],
 }
+impl UMaterialExpressionSubstrateWeight {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionSubstrateSelect {
-    pub a: FExpressionInput,
-    pub b: FExpressionInput,
-    pub select_value: FExpressionInput,
-    pub threshold: f32,
+    __padding_end: [u8; 352],
 }
-pub struct UMaterialExpressionSubstrateUtilityBase {}
+impl UMaterialExpressionSubstrateSelect {}
+#[repr(C, align(8))]
+pub struct UMaterialExpressionSubstrateUtilityBase {
+    __padding_end: [u8; 200],
+}
+impl UMaterialExpressionSubstrateUtilityBase {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionSubstrateTransmittanceToMFP {
-    pub transmittance_color: FExpressionInput,
-    pub thickness: FExpressionInput,
+    __padding_end: [u8; 296],
 }
+impl UMaterialExpressionSubstrateTransmittanceToMFP {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionSubstrateMetalnessToDiffuseAlbedoF0 {
-    pub base_color: FExpressionInput,
-    pub metallic: FExpressionInput,
-    pub specular: FExpressionInput,
+    __padding_end: [u8; 344],
 }
+impl UMaterialExpressionSubstrateMetalnessToDiffuseAlbedoF0 {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionSubstrateHazinessToSecondaryRoughness {
-    pub base_roughness: FExpressionInput,
-    pub haziness: FExpressionInput,
+    __padding_end: [u8; 296],
 }
+impl UMaterialExpressionSubstrateHazinessToSecondaryRoughness {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionSubstrateThinFilm {
-    pub normal: FExpressionInput,
-    pub f0: FExpressionInput,
-    pub f90: FExpressionInput,
-    pub thickness: FExpressionInput,
-    pub ior: FExpressionInput,
+    __padding_end: [u8; 440],
 }
+impl UMaterialExpressionSubstrateThinFilm {}
+#[repr(C, align(8))]
 pub struct UMaterialExternalCodeCollection {
-    pub external_code_declarations: TArray<FMaterialExternalCodeDeclaration>,
+    __padding_end: [u8; 64],
 }
+impl UMaterialExternalCodeCollection {}
+#[repr(C, align(8))]
 pub struct UMaterialInstanceEditorOnlyData {
-    pub static_parameters: FStaticParameterSetEditorOnlyData,
+    __padding_end: [u8; 232],
 }
-pub struct UMaterialInstanceDynamic {}
+impl UMaterialInstanceEditorOnlyData {}
+#[repr(C, align(8))]
+pub struct UMaterialInstanceDynamic {
+    __padding_end: [u8; 1904],
+}
+impl UMaterialInstanceDynamic {}
+#[repr(C, align(8))]
 pub struct UMaterialParameterCollection {
-    pub state_id: crate::bindings::core_u_object::FGuid,
-    pub scalar_parameters: TArray<FCollectionScalarParameter>,
-    pub vector_parameters: TArray<FCollectionVectorParameter>,
-    pub base: UPtr<UMaterialParameterCollection>,
-    pub base_state_id: crate::bindings::core_u_object::FGuid,
-    pub scalar_parameter_base_overrides: TMap<
-        crate::bindings::core_u_object::FGuid,
-        f32,
-    >,
-    pub vector_parameter_base_overrides: TMap<
-        crate::bindings::core_u_object::FGuid,
-        crate::bindings::core_u_object::FLinearColor,
-    >,
+    __padding_end: [u8; 336],
 }
+impl UMaterialParameterCollection {}
+#[repr(C, align(8))]
 pub struct UMeshBudgetProjectSettings {
-    pub b_enable_static_mesh_budget: bool,
-    pub static_mesh_budget_infos: TArray<FStaticMeshBudgetInfo>,
+    __padding_end: [u8; 128],
 }
-pub struct AMeshMergeCullingVolume {}
+impl UMeshBudgetProjectSettings {}
+#[repr(C, align(8))]
+pub struct AMeshMergeCullingVolume {
+    __padding_end: [u8; 1208],
+}
+impl AMeshMergeCullingVolume {}
+#[repr(C, align(8))]
 pub struct UMeshSimplificationSettings {
-    pub mesh_reduction_module_name: FName,
-    pub b_mesh_reduction_backward_compatible: bool,
+    __padding_end: [u8; 120],
 }
-pub struct UMeshVertexPainterKismetLibrary {}
+impl UMeshSimplificationSettings {}
+#[repr(C, align(8))]
+pub struct UMeshVertexPainterKismetLibrary {
+    __padding_end: [u8; 48],
+}
+impl UMeshVertexPainterKismetLibrary {}
+#[repr(C, align(8))]
 pub struct UModel {
-    pub polys: UPtr<UPolys>,
-    pub surfs: TArray<FBspSurf>,
+    __padding_end: [u8; 952],
 }
+impl UModel {}
+#[repr(C, align(8))]
 pub struct UMorphTarget {
-    pub base_skel_mesh: UPtr<USkeletalMesh>,
+    __padding_end: [u8; 72],
 }
+impl UMorphTarget {}
+#[repr(C, align(8))]
 pub struct ANavigationObjectBase {
-    pub capsule_component: UPtr<UCapsuleComponent>,
-    pub good_sprite: UPtr<UBillboardComponent>,
-    pub bad_sprite: UPtr<UBillboardComponent>,
-    pub flags_1168: u8,
+    __padding_end: [u8; 1176],
 }
+impl ANavigationObjectBase {}
 pub struct UNavMovementInterface {}
 pub struct INavMovementInterface {}
-pub struct USimulatedClientNetConnection {}
+#[repr(C, align(16))]
+pub struct USimulatedClientNetConnection {
+    __padding_end: [u8; 8048],
+}
+impl USimulatedClientNetConnection {}
+#[repr(C, align(8))]
 pub struct UNetworkSettings {
-    pub flags_104: u8,
-    pub network_emulation_profiles: TArray<FNetworkEmulationProfileDescription>,
+    __padding_end: [u8; 128],
 }
+impl UNetworkSettings {}
+#[repr(C, align(8))]
 pub struct ABandwidthTestActor {
-    pub bandwidth_generator: FBandwidthTestGenerator,
+    __padding_end: [u8; 1168],
 }
-pub struct UDataStreamChannel {}
+impl ABandwidthTestActor {}
+#[repr(C, align(8))]
+pub struct UDataStreamChannel {
+    __padding_end: [u8; 8360],
+}
+impl UDataStreamChannel {}
+#[repr(C, align(16))]
 pub struct UEngineReplicationBridge {
-    pub object_reference_package_map: UPtr<
-        crate::bindings::iris_core::UIrisObjectReferencePackageMap,
-    >,
-    pub actor_factory_name: FName,
-    pub sub_object_factory_name: FName,
+    __padding_end: [u8; 1760],
 }
-pub struct UNetActorFactory {}
-pub struct UNetSubObjectFactory {}
-pub struct UNetFaultConfig {}
-pub struct UNetPushModelHelpers {}
+impl UEngineReplicationBridge {}
+#[repr(C, align(8))]
+pub struct UNetActorFactory {
+    __padding_end: [u8; 168],
+}
+impl UNetActorFactory {}
+#[repr(C, align(8))]
+pub struct UNetSubObjectFactory {
+    __padding_end: [u8; 64],
+}
+impl UNetSubObjectFactory {}
+#[repr(C, align(8))]
+pub struct UNetFaultConfig {
+    __padding_end: [u8; 160],
+}
+impl UNetFaultConfig {}
+#[repr(C, align(8))]
+pub struct UNetPushModelHelpers {
+    __padding_end: [u8; 48],
+}
+impl UNetPushModelHelpers {}
+#[repr(C, align(8))]
 pub struct UNetworkMetricsConfig {
-    pub listeners: TArray<FNetworkMetricConfig>,
+    __padding_end: [u8; 64],
 }
-pub struct UNetworkMetricsDatabase {}
+impl UNetworkMetricsConfig {}
+#[repr(C, align(8))]
+pub struct UNetworkMetricsDatabase {
+    __padding_end: [u8; 448],
+}
+impl UNetworkMetricsDatabase {}
+#[repr(C, align(8))]
 pub struct UNetworkMetricsBaseListener {
-    pub interval_seconds: f64,
-    pub mutators: TArray<crate::bindings::core_u_object::FInstancedStruct>,
+    __padding_end: [u8; 72],
 }
-pub struct UNetworkMetricsLog {}
-pub struct UNetworkMetricsCSV {}
-pub struct UNetworkMetricsCSV_Replication {}
-pub struct UNetworkMetricsPerfCounters {}
-pub struct UNetworkMetricsStats {}
+impl UNetworkMetricsBaseListener {}
+#[repr(C, align(8))]
+pub struct UNetworkMetricsLog {
+    __padding_end: [u8; 72],
+}
+impl UNetworkMetricsLog {}
+#[repr(C, align(8))]
+pub struct UNetworkMetricsCSV {
+    __padding_end: [u8; 80],
+}
+impl UNetworkMetricsCSV {}
+#[repr(C, align(8))]
+pub struct UNetworkMetricsCSV_Replication {
+    __padding_end: [u8; 80],
+}
+impl UNetworkMetricsCSV_Replication {}
+#[repr(C, align(8))]
+pub struct UNetworkMetricsPerfCounters {
+    __padding_end: [u8; 72],
+}
+impl UNetworkMetricsPerfCounters {}
+#[repr(C, align(8))]
+pub struct UNetworkMetricsStats {
+    __padding_end: [u8; 88],
+}
+impl UNetworkMetricsStats {}
 pub struct UReplicatedObjectInterface {}
 pub struct IReplicatedObjectInterface {}
+#[repr(C, align(8))]
 pub struct URPCDoSDetectionConfig {
-    pub b_rpc_do_s_detection: bool,
-    pub b_rpc_do_s_analytics: bool,
-    pub hitch_time_quota_ms: i32,
-    pub hitch_suspend_detection_time_ms: i32,
-    pub detection_severity: TArray<FString>,
-    pub initial_connect_tolerance_ms: i32,
-    pub rpc_block_whitelist: TArray<FName>,
-    pub rpc_block_allowlist: TArray<FName>,
-    pub rpc_analytics_thresholds: TArray<FRPCAnalyticsThreshold>,
-    pub rpc_analytics_override_chance: f64,
+    __padding_end: [u8; 144],
 }
-pub struct UNetworkSubsystem {}
+impl URPCDoSDetectionConfig {}
+#[repr(C, align(8))]
+pub struct UNetworkSubsystem {
+    __padding_end: [u8; 144],
+}
+impl UNetworkSubsystem {}
+#[repr(C, align(8))]
 pub struct ANote {
+    #[doc(hidden)]
+    __padding_1136: [u8; 1136],
     pub text: FString,
-    pub sprite_component: UPtr<UBillboardComponent>,
-    pub arrow_component: UPtr<UArrowComponent>,
+    __padding_end: [u8; 16],
 }
+impl ANote {}
+#[repr(C, align(8))]
 pub struct UValkyrieMetaData {
-    pub development_status_key: FName,
-    pub deprecation_status_key: FName,
+    __padding_end: [u8; 112],
 }
+impl UValkyrieMetaData {}
+#[repr(C, align(8))]
 pub struct UObjectLibrary {
-    pub object_base_class: TSubclassOf<crate::bindings::core_u_object::UObject>,
-    pub b_has_blueprint_classes: bool,
-    pub objects: TArray<UPtr<crate::bindings::core_u_object::UObject>>,
-    pub weak_objects: TArray<TWeakObjectPtr<crate::bindings::core_u_object::UObject>>,
-    pub b_use_weak_references: bool,
-    pub b_is_fully_loaded: bool,
+    __padding_end: [u8; 216],
 }
+impl UObjectLibrary {}
+#[repr(C, align(8))]
 pub struct UObjectReferencer {
-    pub referenced_objects: TArray<UPtr<crate::bindings::core_u_object::UObject>>,
+    __padding_end: [u8; 64],
 }
-pub struct UObjectTraceWorldSubsystem {}
-pub struct UOnlineBlueprintCallProxyBase {}
-pub struct UOnlineEngineInterface {}
-pub struct UOnlineSession {}
-pub struct UPackageMapClient {}
+impl UObjectReferencer {}
+#[repr(C, align(8))]
+pub struct UObjectTraceWorldSubsystem {
+    __padding_end: [u8; 80],
+}
+impl UObjectTraceWorldSubsystem {}
+#[repr(C, align(8))]
+pub struct UOnlineBlueprintCallProxyBase {
+    __padding_end: [u8; 56],
+}
+impl UOnlineBlueprintCallProxyBase {}
+#[repr(C, align(8))]
+pub struct UOnlineEngineInterface {
+    __padding_end: [u8; 48],
+}
+impl UOnlineEngineInterface {}
+#[repr(C, align(8))]
+pub struct UOnlineSession {
+    __padding_end: [u8; 48],
+}
+impl UOnlineSession {}
+#[repr(C, align(8))]
+pub struct UPackageMapClient {
+    __padding_end: [u8; 1216],
+}
+impl UPackageMapClient {}
+#[repr(C, align(8))]
 pub struct APackedLevelActor {
-    pub packed_version: crate::bindings::core_u_object::FGuid,
-    pub packed_hash: u32,
+    __padding_end: [u8; 1512],
 }
-pub struct UEngineHandlerComponentFactory {}
+impl APackedLevelActor {}
+#[repr(C, align(8))]
+pub struct UEngineHandlerComponentFactory {
+    __padding_end: [u8; 48],
+}
+impl UEngineHandlerComponentFactory {}
+#[repr(C, align(8))]
 pub struct APainCausingVolume {
+    #[doc(hidden)]
+    __padding_1224: [u8; 1224],
     pub flags_1224: u8,
     pub damage_per_sec: f32,
     pub damage_type: TSubclassOf<UDamageType>,
     pub pain_interval: f32,
     pub flags_1244: u8,
-    pub damage_instigator: UPtr<AController>,
+    __padding_end: [u8; 19],
 }
-pub struct AParticleEventManager {}
+impl APainCausingVolume {}
+#[repr(C, align(8))]
+pub struct AParticleEventManager {
+    __padding_end: [u8; 1136],
+}
+impl AParticleEventManager {}
+#[repr(C, align(8))]
 pub struct UParticleLODLevel {
-    pub level: i32,
-    pub flags_52: u8,
-    pub required_module: UPtr<UParticleModuleRequired>,
-    pub modules: TArray<UPtr<UParticleModule>>,
-    pub type_data_module: UPtr<UParticleModuleTypeDataBase>,
-    pub spawn_module: UPtr<UParticleModuleSpawn>,
-    pub event_generator: UPtr<UParticleModuleEventGenerator>,
-    pub spawning_modules: TArray<UPtr<UParticleModuleSpawnBase>>,
-    pub spawn_modules: TArray<UPtr<UParticleModule>>,
-    pub update_modules: TArray<UPtr<UParticleModule>>,
-    pub orbit_modules: TArray<UPtr<UParticleModuleOrbit>>,
-    pub event_receiver_modules: TArray<UPtr<UParticleModuleEventReceiverBase>>,
-    pub flags_184: u8,
-    pub peak_active_particles: i32,
+    __padding_end: [u8; 192],
 }
-pub struct UFXSystemComponent {}
+impl UParticleLODLevel {}
+#[repr(C, align(16))]
+pub struct UFXSystemComponent {
+    __padding_end: [u8; 1520],
+}
+impl UFXSystemComponent {}
+#[repr(C, align(16))]
 pub struct UParticleSystemComponent {
+    #[doc(hidden)]
+    __padding_1512: [u8; 1512],
     pub template: UPtr<UParticleSystem>,
-    pub emitter_materials: TArray<UPtr<UMaterialInterface>>,
-    pub skel_mesh_components: TArray<UPtr<USkeletalMeshComponent>>,
+    #[doc(hidden)]
+    __padding_1553: [u8; 33],
     pub flags_1553: u8,
     pub flags_1554: u8,
+    #[doc(hidden)]
+    __padding_1565: [u8; 10],
     pub lod_method: ParticleSystemLODMethod,
-    pub required_significance: EParticleSignificanceLevel,
     pub instance_parameters: TArray<FParticleSysParam>,
-    pub on_particle_spawn: FParticleSystemComponent_OnParticleSpawn,
-    pub on_particle_burst: FParticleSystemComponent_OnParticleBurst,
-    pub on_particle_death: FParticleSystemComponent_OnParticleDeath,
-    pub on_particle_collide: FParticleSystemComponent_OnParticleCollide,
-    pub b_old_position_valid: bool,
-    pub old_position: crate::bindings::core_u_object::FVector,
-    pub part_sys_velocity: crate::bindings::core_u_object::FVector,
-    pub warmup_time: f32,
-    pub warmup_tick_rate: f32,
+    #[doc(hidden)]
+    __padding_1748: [u8; 164],
     pub seconds_before_inactive: f32,
-    pub max_time_before_force_update_transform: f32,
-    pub editor_lod_level: i32,
-    pub editor_detail_mode: i32,
-    pub replay_clips: TArray<UPtr<UParticleSystemReplay>>,
+    #[doc(hidden)]
+    __padding_1824: [u8; 72],
     pub custom_time_dilation: f32,
+    #[doc(hidden)]
+    __padding_1912: [u8; 84],
     pub auto_attach_parent: TWeakObjectPtr<USceneComponent>,
     pub auto_attach_socket_name: FName,
-    pub auto_attach_location_type_deprecated: EAttachLocation,
+    #[doc(hidden)]
+    __padding_1933: [u8; 1],
     pub auto_attach_location_rule: EAttachmentRule,
     pub auto_attach_rotation_rule: EAttachmentRule,
     pub auto_attach_scale_rule: EAttachmentRule,
-    pub on_system_finished: FParticleSystemComponent_OnSystemFinished,
+    __padding_end: [u8; 416],
 }
+impl UParticleSystemComponent {}
+#[repr(C, align(8))]
 pub struct USubUVAnimation {
-    pub sub_uv_texture: UPtr<UTexture2D>,
-    pub sub_images_horizontal: i32,
-    pub sub_images_vertical: i32,
-    pub bounding_mode: ESubUVBoundingVertexCount,
-    pub opacity_source_mode: EOpacitySourceMode,
-    pub alpha_threshold: f32,
+    __padding_end: [u8; 104],
 }
+impl USubUVAnimation {}
+#[repr(C, align(8))]
 pub struct UAsyncPhysicsInputComponent {
-    pub data_class: TSubclassOf<UAsyncPhysicsData>,
-    pub buffered_data: TArray<UPtr<UAsyncPhysicsData>>,
-    pub data_to_consume: UPtr<UAsyncPhysicsData>,
-    pub data_to_write: UPtr<UAsyncPhysicsData>,
+    __padding_end: [u8; 280],
 }
+impl UAsyncPhysicsInputComponent {}
+#[repr(C, align(8))]
 pub struct AClusterUnionActor {
+    #[doc(hidden)]
+    __padding_1136: [u8; 1136],
     pub cluster_union: UPtr<UClusterUnionComponent>,
 }
+impl AClusterUnionActor {}
+#[repr(C, align(16))]
 pub struct UClusterUnionComponent {
+    #[doc(hidden)]
+    __padding_1504: [u8; 1504],
     pub b_enable_damage_from_collision: bool,
-    pub on_component_added_event: FClusterUnionComponent_OnComponentAddedEvent,
-    pub on_component_removed_event: FClusterUnionComponent_OnComponentRemovedEvent,
-    pub on_component_bounds_changed_event: FClusterUnionComponent_OnComponentBoundsChangedEvent,
-    pub clustered_components_references: TArray<FComponentReference>,
-    pub gravity_group_index_override: i32,
-    pub replicated_rigid_state: FClusterUnionReplicatedData,
+    __padding_end: [u8; 639],
 }
+impl UClusterUnionComponent {}
+#[repr(C, align(8))]
 pub struct UClusterUnionReplicatedProxyComponent {
-    pub parent_cluster_union: TWeakObjectPtr<UClusterUnionComponent>,
-    pub child_clustered_component: TWeakObjectPtr<UPrimitiveComponent>,
-    pub particle_bone_ids: TArray<i32>,
-    pub particle_child_to_parents: TArray<crate::bindings::core_u_object::FTransform>,
-    pub b_net_update_parent_cluster_union: bool,
-    pub b_net_update_child_clustered_component: bool,
-    pub b_net_update_particle_bone_ids: bool,
-    pub b_net_update_particle_child_to_parents: bool,
-    pub b_is_pending_deletion: bool,
+    __padding_end: [u8; 384],
 }
-pub struct UConstraintInstanceBlueprintLibrary {}
-pub struct UPhysicsQueryHandler {}
-pub struct UDefaultPhysicsQueryHandler {}
-pub struct UChaosBlueprintLibrary {}
+impl UClusterUnionReplicatedProxyComponent {}
+#[repr(C, align(8))]
+pub struct UConstraintInstanceBlueprintLibrary {
+    __padding_end: [u8; 48],
+}
+impl UConstraintInstanceBlueprintLibrary {}
+#[repr(C, align(8))]
+pub struct UPhysicsQueryHandler {
+    __padding_end: [u8; 48],
+}
+impl UPhysicsQueryHandler {}
+#[repr(C, align(8))]
+pub struct UDefaultPhysicsQueryHandler {
+    __padding_end: [u8; 48],
+}
+impl UDefaultPhysicsQueryHandler {}
+#[repr(C, align(8))]
+pub struct UChaosBlueprintLibrary {
+    __padding_end: [u8; 48],
+}
+impl UChaosBlueprintLibrary {}
+#[repr(C, align(8))]
 pub struct UChaosEventRelay {
-    pub on_collision_event: FChaosEventRelay_OnCollisionEvent,
-    pub on_break_event: FChaosEventRelay_OnBreakEvent,
-    pub on_removal_event: FChaosEventRelay_OnRemovalEvent,
-    pub on_crumbling_event: FChaosEventRelay_OnCrumblingEvent,
+    __padding_end: [u8; 144],
 }
-pub struct UNetworkPhysicsSystem {}
+impl UChaosEventRelay {}
+#[repr(C, align(8))]
+pub struct UNetworkPhysicsSystem {
+    __padding_end: [u8; 64],
+}
+impl UNetworkPhysicsSystem {}
+#[repr(C, align(8))]
 pub struct UNetworkPhysicsComponent {
-    pub replicated_delta_source_input: FNetworkPhysicsRewindDataDeltaSourceInputProxy,
-    pub replicated_delta_source_state: FNetworkPhysicsRewindDataDeltaSourceStateProxy,
-    pub replicated_important_input: FNetworkPhysicsRewindDataImportantInputProxy,
-    pub replicated_important_state: FNetworkPhysicsRewindDataImportantStateProxy,
-    pub replicated_inputs: FNetworkPhysicsRewindDataInputProxy,
-    pub replicated_remote_inputs: FNetworkPhysicsRewindDataRemoteInputProxy,
-    pub replicated_states: FNetworkPhysicsRewindDataStateProxy,
-    pub replicated_input_collection: FNetworkPhysicsDataCollection,
-    pub replicated_remote_input_collection: FNetworkPhysicsDataCollection,
-    pub replicated_state_collection: FNetworkPhysicsDataCollection,
-    pub inputs_to_network_owner: u16,
+    __padding_end: [u8; 656],
 }
+impl UNetworkPhysicsComponent {}
+#[repr(C, align(8))]
 pub struct UNetworkPhysicsSettingsDataAsset {
-    pub settings: FNetworkPhysicsSettingsData,
+    __padding_end: [u8; 408],
 }
+impl UNetworkPhysicsSettingsDataAsset {}
+#[repr(C, align(8))]
 pub struct UNetworkPhysicsSettingsComponent {
+    #[doc(hidden)]
+    __padding_240: [u8; 240],
     pub settings_data_asset: UPtr<UNetworkPhysicsSettingsDataAsset>,
-    pub general_settings: FNetworkPhysicsSettings,
-    pub default_replication_settings: FNetworkPhysicsSettingsDefaultReplication,
-    pub predictive_interpolation_settings: FNetworkPhysicsSettingsPredictiveInterpolation,
-    pub resimulation_settings: FNetworkPhysicsSettingsResimulation,
-    pub network_physics_component_settings: FNetworkPhysicsSettingsNetworkPhysicsComponent,
+    __padding_end: [u8; 336],
 }
+impl UNetworkPhysicsSettingsComponent {}
+#[repr(C, align(8))]
 pub struct UPhysicalAnimationComponent {
+    #[doc(hidden)]
+    __padding_240: [u8; 240],
     pub strength_multiplyer: f32,
-    pub skeletal_mesh_component: UPtr<USkeletalMeshComponent>,
+    __padding_end: [u8; 60],
 }
+impl UPhysicalAnimationComponent {}
+#[repr(C, align(8))]
 pub struct UPhysicalMaterialMask {
-    pub asset_import_data: UPtr<UAssetImportData>,
+    #[doc(hidden)]
+    __padding_56: [u8; 56],
     pub mask_texture: UPtr<UTexture>,
     pub uv_channel_index: i32,
     pub address_x: TextureAddress,
     pub address_y: TextureAddress,
+    __padding_end: [u8; 10],
 }
+impl UPhysicalMaterialMask {}
+#[repr(C, align(8))]
 pub struct UPhysicsAsset {
-    pub default_skel_mesh_deprecated: UPtr<USkeletalMesh>,
-    pub preview_skeletal_mesh: TSoftObjectPtr<USkeletalMesh>,
-    pub physical_animation_profiles: TArray<FName>,
-    pub constraint_profiles: TArray<FName>,
-    pub editor_body_flags: TArray<i32>,
-    pub current_physical_animation_profile_name: FName,
-    pub current_constraint_profile_name: FName,
-    pub bounds_bodies: TArray<i32>,
-    pub skeletal_body_setups: TArray<UPtr<USkeletalBodySetup>>,
-    pub constraint_setup: TArray<UPtr<UPhysicsConstraintTemplate>>,
-    pub solver_settings: FPhysicsAssetSolverSettings,
-    pub solver_iterations: FSolverIterations,
-    pub solver_type: EPhysicsAssetSolverType,
-    pub flags_293: u8,
-    pub thumbnail_info: UPtr<UThumbnailInfo>,
-    pub body_setup_deprecated: TArray<UPtr<UBodySetup>>,
-    pub asset_user_data: TArray<UPtr<UAssetUserData>>,
+    __padding_end: [u8; 528],
 }
+impl UPhysicsAsset {}
 pub struct UPhysicsBodyInstanceOwnerResolver {}
 pub struct IPhysicsBodyInstanceOwnerResolver {}
+#[repr(C, align(8))]
 pub struct UPhysicsCollisionHandler {
+    #[doc(hidden)]
+    __padding_48: [u8; 48],
     pub impact_threshold: f32,
     pub impact_re_fire_delay: f32,
     pub default_impact_sound: UPtr<USoundBase>,
-    pub last_impact_sound_time: f32,
+    __padding_end: [u8; 8],
 }
+impl UPhysicsCollisionHandler {}
+#[repr(C, align(8))]
 pub struct APhysicsConstraintActor {
+    #[doc(hidden)]
+    __padding_1136: [u8; 1136],
     pub constraint_comp: UPtr<UPhysicsConstraintComponent>,
-    pub constraint_actor1_deprecated: UPtr<AActor>,
-    pub constraint_actor2_deprecated: UPtr<AActor>,
-    pub flags_1160: u8,
+    __padding_end: [u8; 24],
 }
+impl APhysicsConstraintActor {}
+#[repr(C, align(16))]
 pub struct UPhysicsConstraintComponent {
-    pub constraint_actor1: UPtr<AActor>,
-    pub component_name1: FConstrainComponentPropName,
-    pub constraint_actor2: UPtr<AActor>,
-    pub component_name2: FConstrainComponentPropName,
-    pub constraint_setup_deprecated: UPtr<UPhysicsConstraintTemplate>,
-    pub on_constraint_broken: FPhysicsConstraintComponent_OnConstraintBroken,
-    pub on_plastic_deformation: FPhysicsConstraintComponent_OnPlasticDeformation,
-    pub constraint_instance: FConstraintInstance,
+    __padding_end: [u8; 1744],
 }
+impl UPhysicsConstraintComponent {}
+#[repr(C, align(16))]
 pub struct UPhysicsConstraintTemplate {
-    pub default_instance: FConstraintInstance,
-    pub profile_handles: TArray<FPhysicsConstraintProfileHandle>,
-    pub default_profile: FConstraintProfileProperties,
-    pub joint_name_deprecated: FName,
-    pub constraint_bone1_deprecated: FName,
-    pub constraint_bone2_deprecated: FName,
-    pub pos1_deprecated: crate::bindings::core_u_object::FVector,
-    pub pri_axis1_deprecated: crate::bindings::core_u_object::FVector,
-    pub sec_axis1_deprecated: crate::bindings::core_u_object::FVector,
-    pub pos2_deprecated: crate::bindings::core_u_object::FVector,
-    pub pri_axis2_deprecated: crate::bindings::core_u_object::FVector,
-    pub sec_axis2_deprecated: crate::bindings::core_u_object::FVector,
-    pub flags_1544: u8,
-    pub projection_linear_tolerance_deprecated: f32,
-    pub projection_angular_tolerance_deprecated: f32,
-    pub linear_x_motion_deprecated: crate::bindings::physics_core::ELinearConstraintMotion,
-    pub linear_y_motion_deprecated: crate::bindings::physics_core::ELinearConstraintMotion,
-    pub linear_z_motion_deprecated: crate::bindings::physics_core::ELinearConstraintMotion,
-    pub linear_limit_size_deprecated: f32,
-    pub flags_1564: u8,
-    pub linear_limit_stiffness_deprecated: f32,
-    pub linear_limit_damping_deprecated: f32,
-    pub flags_1576: u8,
-    pub linear_break_threshold_deprecated: f32,
-    pub angular_swing1_motion_deprecated: crate::bindings::physics_core::EAngularConstraintMotion,
-    pub angular_swing2_motion_deprecated: crate::bindings::physics_core::EAngularConstraintMotion,
-    pub angular_twist_motion_deprecated: crate::bindings::physics_core::EAngularConstraintMotion,
-    pub flags_1588: u8,
-    pub swing1_limit_angle_deprecated: f32,
-    pub swing2_limit_angle_deprecated: f32,
-    pub twist_limit_angle_deprecated: f32,
-    pub swing_limit_stiffness_deprecated: f32,
-    pub swing_limit_damping_deprecated: f32,
-    pub twist_limit_stiffness_deprecated: f32,
-    pub twist_limit_damping_deprecated: f32,
-    pub flags_1620: u8,
-    pub angular_break_threshold_deprecated: f32,
+    __padding_end: [u8; 1632],
 }
+impl UPhysicsConstraintTemplate {}
+#[repr(C, align(16))]
 pub struct UPhysicsHandleComponent {
-    pub grabbed_component: UPtr<UPrimitiveComponent>,
+    #[doc(hidden)]
+    __padding_260: [u8; 260],
     pub flags_260: u8,
     pub linear_damping: f32,
     pub linear_stiffness: f32,
     pub angular_damping: f32,
     pub angular_stiffness: f32,
+    #[doc(hidden)]
+    __padding_480: [u8; 200],
     pub interpolation_speed: f32,
+    __padding_end: [u8; 1164],
 }
-pub struct UPhysicsObjectBlueprintLibrary {}
+impl UPhysicsHandleComponent {}
+#[repr(C, align(8))]
+pub struct UPhysicsObjectBlueprintLibrary {
+    __padding_end: [u8; 48],
+}
+impl UPhysicsObjectBlueprintLibrary {}
+#[repr(C, align(8))]
 pub struct UPhysicsSettings {
-    pub physics_prediction: FPhysicsPredictionSettings,
-    pub physic_error_correction: FRigidBodyErrorCorrection,
-    pub locked_axis_deprecated: ESettingsLockedAxis,
-    pub default_degrees_of_freedom: ESettingsDOF,
-    pub b_suppress_face_remap_table: bool,
-    pub b_support_uv_from_hit_results: bool,
-    pub b_disable_active_actors: bool,
-    pub b_disable_kinematic_static_pairs: bool,
-    pub b_disable_kinematic_kinematic_pairs: bool,
-    pub b_disable_ccd: bool,
-    pub anim_physics_min_delta_time: f32,
-    pub b_simulate_anim_physics_after_reset: bool,
-    pub min_physics_delta_time: f32,
-    pub max_physics_delta_time: f32,
-    pub b_substepping: bool,
-    pub b_substepping_async: bool,
-    pub b_tick_physics_async: bool,
-    pub async_fixed_time_step_size: f32,
-    pub max_substep_delta_time: f32,
-    pub max_substeps: i32,
-    pub sync_scene_smoothing_factor: f32,
-    pub initial_average_frame_rate: f32,
-    pub phys_x_tree_rebuild_rate: i32,
-    pub physical_surfaces: TArray<FPhysicalSurfaceName>,
-    pub default_broadphase_settings: FBroadphaseSettings,
-    pub min_delta_velocity_for_hit_events: f32,
-    pub chaos_settings: FChaosPhysicsSettings,
+    __padding_end: [u8; 632],
 }
+impl UPhysicsSettings {}
+#[repr(C, align(8))]
 pub struct APhysicsThruster {
+    #[doc(hidden)]
+    __padding_1136: [u8; 1136],
     pub thruster_component: UPtr<UPhysicsThrusterComponent>,
-    pub arrow_component: UPtr<UArrowComponent>,
+    __padding_end: [u8; 8],
 }
+impl APhysicsThruster {}
+#[repr(C, align(16))]
 pub struct URadialForceComponent {
+    #[doc(hidden)]
+    __padding_656: [u8; 656],
     pub radius: f32,
     pub falloff: crate::bindings::physics_core::ERadialImpulseFalloff,
     pub impulse_strength: f32,
     pub flags_668: u8,
     pub force_strength: f32,
     pub destructible_damage: f32,
-    pub object_types_to_affect: TArray<EObjectTypeQuery>,
+    __padding_end: [u8; 24],
 }
+impl URadialForceComponent {}
+#[repr(C, align(8))]
 pub struct USkeletalBodySetup {
-    pub current_physical_animation_profile: FPhysicalAnimationProfile,
-    pub b_skip_scale_from_animation: bool,
-    pub physical_animation_data: TArray<FPhysicalAnimationProfile>,
+    __padding_end: [u8; 984],
 }
-pub struct UPhysicsFieldComponent {}
-pub struct UPhysicsFieldStatics {}
+impl USkeletalBodySetup {}
+#[repr(C, align(16))]
+pub struct UPhysicsFieldComponent {
+    __padding_end: [u8; 880],
+}
+impl UPhysicsFieldComponent {}
+#[repr(C, align(8))]
+pub struct UPhysicsFieldStatics {
+    __padding_end: [u8; 48],
+}
+impl UPhysicsFieldStatics {}
+#[repr(C, align(16))]
 pub struct APlayerCameraManager {
-    pub pc_owner: UPtr<APlayerController>,
+    #[doc(hidden)]
+    __padding_1144: [u8; 1144],
     pub transform_component: UPtr<USceneComponent>,
+    #[doc(hidden)]
+    __padding_1164: [u8; 12],
     pub default_fov: f32,
+    #[doc(hidden)]
+    __padding_1172: [u8; 4],
     pub default_ortho_width: f32,
+    #[doc(hidden)]
+    __padding_1180: [u8; 4],
     pub default_aspect_ratio: f32,
-    pub view_target: FTViewTarget,
-    pub pending_view_target: FTViewTarget,
-    pub camera_cache_private: FCameraCacheEntry,
-    pub last_frame_camera_cache_private: FCameraCacheEntry,
-    pub modifier_list: TArray<UPtr<UCameraModifier>>,
+    #[doc(hidden)]
+    __padding_10688: [u8; 9504],
     pub default_modifiers: TArray<TSubclassOf<UCameraModifier>>,
     pub free_cam_distance: f32,
     pub free_cam_offset: crate::bindings::core_u_object::FVector,
     pub view_target_offset: crate::bindings::core_u_object::FVector,
-    pub on_audio_fade_change_event: FPlayerCameraManager_OnAudioFadeChangeEvent,
-    pub camera_lens_effects: TArray<TScriptInterface<ICameraLensEffectInterface>>,
-    pub cached_camera_shake_mod: UPtr<UCameraModifier_CameraShake>,
-    pub post_process_blend_cache: TArray<FPostProcessSettings>,
-    pub anim_camera_actor: UPtr<ACameraActor>,
+    #[doc(hidden)]
+    __padding_10888: [u8; 128],
     pub flags_10888: u8,
     pub auto_plane_shift: f32,
     pub flags_10896: u8,
@@ -14479,483 +10912,448 @@ pub struct APlayerCameraManager {
     pub view_yaw_max: f32,
     pub view_roll_min: f32,
     pub view_roll_max: f32,
-    pub server_update_camera_timeout: f32,
+    __padding_end: [u8; 20],
 }
-pub struct ANoPawnPlayerController {}
+impl APlayerCameraManager {}
+#[repr(C, align(8))]
+pub struct ANoPawnPlayerController {
+    __padding_end: [u8; 2376],
+}
+impl ANoPawnPlayerController {}
+#[repr(C, align(8))]
 pub struct APlayerStart {
+    #[doc(hidden)]
+    __padding_1176: [u8; 1176],
     pub player_start_tag: FName,
-    pub arrow_component: UPtr<UArrowComponent>,
+    __padding_end: [u8; 12],
 }
-pub struct APlayerStartPIE {}
+impl APlayerStart {}
+#[repr(C, align(8))]
+pub struct APlayerStartPIE {
+    __padding_end: [u8; 1200],
+}
+impl APlayerStartPIE {}
+#[repr(C, align(8))]
 pub struct APlayerState {
+    #[doc(hidden)]
+    __padding_1144: [u8; 1144],
     pub score: f32,
     pub player_id: i32,
     pub compressed_ping: u8,
+    #[doc(hidden)]
+    __padding_1154: [u8; 1],
     pub flags_1154: u8,
-    pub start_time: i32,
-    pub unique_id: FUniqueNetIdRepl,
-    pub engine_message_class: TSubclassOf<ULocalMessage>,
-    pub saved_network_address: FString,
-    pub on_pawn_set: FPlayerState_OnPawnSet,
+    #[doc(hidden)]
+    __padding_1280: [u8; 120],
     pub pawn_private: UPtr<APawn>,
-    pub player_name_private: FString,
+    __padding_end: [u8; 56],
 }
-pub struct UPluginBlueprintLibrary {}
+impl APlayerState {}
+#[repr(C, align(8))]
+pub struct UPluginBlueprintLibrary {
+    __padding_end: [u8; 48],
+}
+impl UPluginBlueprintLibrary {}
+#[repr(C, align(16))]
 pub struct APostProcessVolume {
+    #[doc(hidden)]
+    __padding_1216: [u8; 1216],
     pub settings: FPostProcessSettings,
     pub priority: f32,
     pub blend_radius: f32,
     pub blend_weight: f32,
     pub flags_3180: u8,
-    pub volume_guid: crate::bindings::core_u_object::FGuid,
+    __padding_end: [u8; 19],
 }
-pub struct APrecomputedVisibilityVolume {}
+impl APostProcessVolume {}
+#[repr(C, align(8))]
+pub struct APrecomputedVisibilityVolume {
+    __padding_end: [u8; 1208],
+}
+impl APrecomputedVisibilityVolume {}
+#[repr(C, align(8))]
 pub struct UPrimaryAssetLabel {
-    pub rules: FPrimaryAssetRules,
-    pub flags_84: u8,
-    pub explicit_assets: TArray<TSoftObjectPtr<crate::bindings::core_u_object::UObject>>,
-    pub explicit_blueprints: TArray<
-        TSoftObjectPtr<crate::bindings::core_u_object::UClass>,
-    >,
-    pub asset_collection: FCollectionReference,
+    __padding_end: [u8; 136],
 }
-pub struct UHealthSnapshotBlueprintLibrary {}
-pub struct ULevelStreamingProfilingSubsystem {}
+impl UPrimaryAssetLabel {}
+#[repr(C, align(8))]
+pub struct UHealthSnapshotBlueprintLibrary {
+    __padding_end: [u8; 48],
+}
+impl UHealthSnapshotBlueprintLibrary {}
+#[repr(C, align(8))]
+pub struct ULevelStreamingProfilingSubsystem {
+    __padding_end: [u8; 448],
+}
+impl ULevelStreamingProfilingSubsystem {}
+#[repr(C, align(8))]
 pub struct UProxyLODMeshSimplificationSettings {
-    pub proxy_lod_mesh_reduction_module_name: FName,
+    __padding_end: [u8; 120],
 }
+impl UProxyLODMeshSimplificationSettings {}
+#[repr(C, align(8))]
 pub struct ARectLight {
+    #[doc(hidden)]
+    __padding_1152: [u8; 1152],
     pub rect_light_component: UPtr<URectLightComponent>,
 }
+impl ARectLight {}
+#[repr(C, align(8))]
 pub struct URendererSettings {
-    pub mobile_shading_path: EMobileShadingPath,
-    pub mobile_anti_aliasing: EMobileAntiAliasingMethod,
-    pub mobile_float_precision_mode: EMobileFloatPrecisionMode,
-    pub b_mobile_allow_dithered_lod_transition: bool,
-    pub flags_108: u8,
-    pub shader_compression_format_deprecated: EShaderCompressionFormat,
-    pub flags_116: u8,
-    pub min_screen_radius_for_lights: f32,
-    pub min_screen_radius_for_early_z_pass: f32,
-    pub flags_128: u8,
-    pub virtual_texture_tile_size: u32,
-    pub virtual_texture_tile_border_size: u32,
-    pub flags_140: u8,
-    pub mesh_paint_virtual_texture_tile_size: u32,
-    pub mesh_paint_virtual_texture_tile_border_size: u32,
-    pub mesh_paint_virtual_texture_use_compression: bool,
-    pub mesh_paint_default_on_static_mesh: bool,
-    pub mesh_paint_default_texels_per_vertex: i32,
-    pub mesh_paint_virtual_texture_max_texture_size: i32,
-    pub b_enable_rvt_base_color: bool,
-    pub b_enable_rvt_base_color_roughness: bool,
-    pub b_enable_rvt_base_color_specular: bool,
-    pub b_enable_rvt_mask4: bool,
-    pub b_enable_rvt_world_height: bool,
-    pub b_enable_rvt_displacement: bool,
-    pub b_use_high_quality_rvt_height_sampling: bool,
-    pub working_color_space_choice: EWorkingColorSpace,
-    pub red_chromaticity_coordinate: crate::bindings::core_u_object::FVector2D,
-    pub green_chromaticity_coordinate: crate::bindings::core_u_object::FVector2D,
-    pub blue_chromaticity_coordinate: crate::bindings::core_u_object::FVector2D,
-    pub white_chromaticity_coordinate: crate::bindings::core_u_object::FVector2D,
-    pub flags_240: u8,
-    pub dynamic_global_illumination: EDynamicGlobalIlluminationMethod,
-    pub reflections: EReflectionMethod,
-    pub reflection_capture_resolution: i32,
-    pub flags_252: u8,
-    pub lumen_ray_lighting_mode: ELumenRayLightingMode,
-    pub flags_260: u8,
-    pub lumen_software_tracing_mode: ELumenSoftwareTracingMode,
-    pub lumen_screen_tracing_source: ELumenScreenTracingSource,
-    pub flags_268: u8,
-    pub shadow_map_method: EShadowMapMethod,
-    pub flags_276: u8,
-    pub distance_field_voxel_density: f32,
-    pub flags_284: u8,
-    pub translucent_sort_policy: ETranslucentSortPolicy,
-    pub translucent_sort_axis: crate::bindings::core_u_object::FVector,
-    pub flags_320: u8,
-    pub foveation_level: EFixedFoveationLevels,
-    pub flags_328: u8,
-    pub custom_depth_stencil: ECustomDepthStencil,
-    pub flags_336: u8,
-    pub default_feature_auto_exposure: EAutoExposureMethodUI,
-    pub default_feature_auto_exposure_bias: f32,
-    pub flags_348: u8,
-    pub default_feature_local_exposure_highlight_contrast: f32,
-    pub default_feature_local_exposure_shadow_contrast: f32,
-    pub flags_360: u8,
-    pub default_feature_anti_aliasing: EAntiAliasingMethod,
-    pub msaa_sample_count: ECompositingSampleCount,
-    pub default_light_units: ELightUnits,
-    pub default_back_buffer_pixel_format: EDefaultBackBufferPixelFormat,
-    pub default_manual_screen_percentage: f32,
-    pub default_screen_percentage_desktop_mode: EScreenPercentageMode,
-    pub default_screen_percentage_mobile_mode: EScreenPercentageMode,
-    pub default_screen_percentage_vr_mode: EScreenPercentageMode,
-    pub default_screen_percentage_path_tracer_mode: EScreenPercentageMode,
-    pub flags_388: u8,
-    pub early_z_pass: EEarlyZPass,
-    pub flags_396: u8,
-    pub clear_scene_method: EClearSceneOptions,
-    pub velocity_pass: EVelocityOutputPass,
-    pub vertex_deformation_outputs_velocity: EVertexDeformationOutputsVelocity,
-    pub flags_404: u8,
-    pub gpu_simulation_texture_size_x: i32,
-    pub gpu_simulation_texture_size_y: i32,
-    pub flags_416: u8,
-    pub g_buffer_format: EGBufferFormat,
-    pub flags_424: u8,
-    pub morph_target_max_blend_weight: f32,
-    pub flags_432: u8,
-    pub light_function_atlas_pixel_format: ELightFunctionAtlasPixelFormat,
-    pub flags_440: u8,
-    pub flags_441: u8,
-    pub flags_442: u8,
-    pub wireframe_cull_threshold: f32,
-    pub flags_448: u8,
-    pub substrate_g_buffer_format: ESubstrateStorageFormat,
-    pub substrate_project_closures_per_pixel: u32,
-    pub substrate_closure_per_pixel_override: ESubstrateClosureConfig,
-    pub substrate_project_bytes_per_pixel: u32,
-    pub flags_468: u8,
-    pub flags_469: u8,
-    pub default_skin_cache_behavior: ESkinCacheDefaultBehavior,
-    pub skin_cache_scene_memory_limit_in_mb: f32,
-    pub flags_480: u8,
-    pub mobile_local_light_setting: EMobileLocalLightSetting,
-    pub flags_488: u8,
-    pub flags_489: u8,
-    pub unlimited_bon_influences_threshold: i32,
-    pub default_bone_influence_limit: crate::bindings::core_u_object::FPerPlatformInt,
-    pub max_skin_bones: crate::bindings::core_u_object::FPerPlatformInt,
-    pub mobile_planar_reflection_mode: u8,
-    pub flags_676: u8,
-    pub b_stream_skeletal_mesh_lo_ds: crate::bindings::core_u_object::FPerPlatformBool,
-    pub b_discard_skeletal_mesh_optional_lo_ds: crate::bindings::core_u_object::FPerPlatformBool,
-    pub visualize_calibration_color_material_path: crate::bindings::core_u_object::FSoftObjectPath,
-    pub visualize_calibration_custom_material_path: crate::bindings::core_u_object::FSoftObjectPath,
-    pub visualize_calibration_grayscale_material_path: crate::bindings::core_u_object::FSoftObjectPath,
+    __padding_end: [u8; 1000],
 }
+impl URendererSettings {}
+#[repr(C, align(8))]
 pub struct URendererOverrideSettings {
-    pub flags_104: u8,
+    __padding_end: [u8; 112],
 }
+impl URendererOverrideSettings {}
+#[repr(C, align(8))]
 pub struct UNeuralProfile {
-    pub settings: FNeuralProfileStruct,
-    pub guid: crate::bindings::core_u_object::FGuid,
+    __padding_end: [u8; 136],
 }
+impl UNeuralProfile {}
 pub struct USkeletalMeshHalfEdgeBufferAccessor {}
 pub struct ISkeletalMeshHalfEdgeBufferAccessor {}
+#[repr(C, align(8))]
 pub struct USpecularProfile {
-    pub settings: FSpecularProfileStruct,
-    pub guid: crate::bindings::core_u_object::FGuid,
+    __padding_end: [u8; 1120],
 }
+impl USpecularProfile {}
+#[repr(C, align(8))]
 pub struct USubsurfaceProfile {
-    pub settings: FSubsurfaceProfileStruct,
-    pub guid: crate::bindings::core_u_object::FGuid,
+    __padding_end: [u8; 224],
 }
-pub struct UReplayNetConnection {}
-pub struct UGameInstanceSubsystem {}
+impl USubsurfaceProfile {}
+#[repr(C, align(16))]
+pub struct UReplayNetConnection {
+    __padding_end: [u8; 10736],
+}
+impl UReplayNetConnection {}
+#[repr(C, align(8))]
+pub struct UGameInstanceSubsystem {
+    __padding_end: [u8; 56],
+}
+impl UGameInstanceSubsystem {}
+#[repr(C, align(8))]
 pub struct UReplaySubsystem {
-    pub b_load_default_map_on_stop: bool,
+    __padding_end: [u8; 72],
 }
+impl UReplaySubsystem {}
+#[repr(C, align(8))]
 pub struct UReverbEffect {
+    #[doc(hidden)]
+    __padding_48: [u8; 48],
     pub b_bypass_early_reflections: bool,
-    pub reflections_delay: f32,
-    pub gain_hf: f32,
-    pub reflections_gain: f32,
+    #[doc(hidden)]
+    __padding_64: [u8; 15],
     pub b_bypass_late_reflections: bool,
-    pub late_delay: f32,
-    pub decay_time: f32,
-    pub density: f32,
-    pub diffusion: f32,
-    pub air_absorption_gain_hf: f32,
-    pub decay_hf_ratio: f32,
-    pub late_gain: f32,
-    pub gain: f32,
-    pub room_rolloff_factor: f32,
-    pub flags_104: u8,
+    __padding_end: [u8; 47],
 }
-pub struct URuntimeOptionsBase {}
-pub struct UScene {}
+impl UReverbEffect {}
+#[repr(C, align(8))]
+pub struct URuntimeOptionsBase {
+    __padding_end: [u8; 64],
+}
+impl URuntimeOptionsBase {}
+#[repr(C, align(8))]
+pub struct UScene {
+    __padding_end: [u8; 48],
+}
+impl UScene {}
+#[repr(C, align(8))]
 pub struct USCS_Node {
-    pub component_class: TSubclassOf<crate::bindings::core_u_object::UObject>,
-    pub component_template: UPtr<UActorComponent>,
-    pub cooked_component_instancing_data: FBlueprintCookedComponentInstancingData,
-    pub category_name: FText,
-    pub attach_to_name: FName,
-    pub parent_component_or_variable_name: FName,
-    pub parent_component_owner_class_name: FName,
-    pub b_is_parent_component_native: bool,
-    pub child_nodes: TArray<UPtr<USCS_Node>>,
-    pub meta_data_array: TArray<FBPVariableMetaDataEntry>,
-    pub variable_guid: crate::bindings::core_u_object::FGuid,
-    pub b_is_native_deprecated: bool,
-    pub native_component_name_deprecated: FName,
-    pub b_variable_name_auto_generated_deprecated: bool,
-    pub internal_variable_name: FName,
+    __padding_end: [u8; 304],
 }
+impl USCS_Node {}
+#[repr(C, align(8))]
 pub struct USimpleConstructionScript {
-    pub root_nodes: TArray<UPtr<USCS_Node>>,
-    pub all_nodes: TArray<UPtr<USCS_Node>>,
-    pub default_scene_root_node: UPtr<USCS_Node>,
-    pub root_node_deprecated: UPtr<USCS_Node>,
-    pub actor_component_nodes_deprecated: TArray<UPtr<USCS_Node>>,
+    __padding_end: [u8; 216],
 }
-pub struct USkinnedAsset {}
+impl USimpleConstructionScript {}
+#[repr(C, align(8))]
+pub struct USkinnedAsset {
+    __padding_end: [u8; 288],
+}
+impl USkinnedAsset {}
+#[repr(C, align(8))]
 pub struct USkeletalMesh {
-    pub source_models: TArray<FSkeletalMeshSourceModel>,
+    #[doc(hidden)]
+    __padding_352: [u8; 352],
     pub skeleton: UPtr<USkeleton>,
-    pub imported_bounds: crate::bindings::core_u_object::FBoxSphereBounds,
-    pub extended_bounds: crate::bindings::core_u_object::FBoxSphereBounds,
+    #[doc(hidden)]
+    __padding_472: [u8; 112],
     pub positive_bounds_extension: crate::bindings::core_u_object::FVector,
     pub negative_bounds_extension: crate::bindings::core_u_object::FVector,
     pub materials: TArray<FSkeletalMaterial>,
-    pub skel_mirror_table: TArray<FBoneMirrorInfo>,
-    pub nanite_settings: FMeshNaniteSettings,
-    pub assembly_reference_cache: TArray<UPtr<USkeletalMesh>>,
-    pub min_quality_level_lod: FPerQualityLevelInt,
-    pub min_lod: crate::bindings::core_u_object::FPerPlatformInt,
-    pub disable_below_min_lod_stripping: crate::bindings::core_u_object::FPerPlatformBool,
-    pub b_override_lod_streaming_settings: bool,
-    pub b_support_lod_streaming: crate::bindings::core_u_object::FPerPlatformBool,
-    pub max_num_streamed_lo_ds: crate::bindings::core_u_object::FPerPlatformInt,
-    pub max_num_optional_lo_ds: crate::bindings::core_u_object::FPerPlatformInt,
+    #[doc(hidden)]
+    __padding_1288: [u8; 752],
     pub lod_settings: UPtr<USkeletalMeshLODSettings>,
     pub default_animating_rig: TSoftObjectPtr<crate::bindings::core_u_object::UObject>,
-    pub skel_mirror_axis: crate::bindings::core_u_object::EAxis,
-    pub skel_mirror_flip_axis: crate::bindings::core_u_object::EAxis,
-    pub flags_1346: u8,
-    pub vertex_color_guid: crate::bindings::core_u_object::FGuid,
-    pub body_setup: UPtr<UBodySetup>,
+    #[doc(hidden)]
+    __padding_1376: [u8; 32],
     pub physics_asset: UPtr<UPhysicsAsset>,
     pub shadow_physics_asset: UPtr<UPhysicsAsset>,
     pub node_mapping_data: TArray<UPtr<UNodeMappingContainer>>,
-    pub asset_import_data: UPtr<UAssetImportData>,
-    pub source_file_path_deprecated: FString,
-    pub source_file_timestamp_deprecated: FString,
-    pub thumbnail_info: UPtr<UThumbnailInfo>,
-    pub b_has_custom_default_editor_camera: bool,
-    pub default_editor_camera_location: crate::bindings::core_u_object::FVector,
-    pub default_editor_camera_rotation: crate::bindings::core_u_object::FRotator,
-    pub default_editor_camera_look_at: crate::bindings::core_u_object::FVector,
-    pub default_editor_camera_ortho_zoom: f32,
-    pub preview_attached_asset_container: FPreviewAssetAttachContainer,
-    pub flags_1564: u8,
-    pub ray_tracing_min_lod: i32,
-    pub cloth_lod_bias_mode: EClothLODBiasMode,
+    #[doc(hidden)]
+    __padding_1576: [u8; 168],
     pub morph_targets: TArray<UPtr<UMorphTarget>>,
-    pub floor_offset: f32,
-    pub clothing_assets_deprecated: TArray<FClothingAssetData_Legacy>,
-    pub bone_draw_size: f32,
+    #[doc(hidden)]
+    __padding_2008: [u8; 416],
     pub post_process_anim_blueprint: TSubclassOf<UAnimInstance>,
-    pub post_process_anim_bplod_threshold: i32,
+    #[doc(hidden)]
+    __padding_2024: [u8; 8],
     pub mesh_clothing_assets: TArray<
         UPtr<crate::bindings::clothing_system_runtime_interface::UClothingAssetBase>,
     >,
-    pub sampling_info: FSkeletalMeshSamplingInfo,
-    pub asset_user_data: TArray<UPtr<UAssetUserData>>,
-    pub asset_user_data_editor_only: TArray<UPtr<UAssetUserData>>,
-    pub sockets: TArray<UPtr<USkeletalMeshSocket>>,
-    pub skin_weight_profiles: TArray<FSkinWeightProfileInfo>,
+    #[doc(hidden)]
+    __padding_2272: [u8; 232],
     pub default_mesh_deformer: UPtr<UMeshDeformer>,
     pub target_mesh_deformers: UPtr<UMeshDeformerCollection>,
     pub overlay_material: UPtr<UMaterialInterface>,
     pub overlay_material_max_draw_distance: f32,
     pub forward_axis: crate::bindings::core_u_object::EAxis,
-    pub mesh_editor_data_object_deprecated: UPtr<USkeletalMeshEditorData>,
-    pub lod_info_deprecated: TArray<FSkeletalMeshLODInfo>,
+    __padding_end: [u8; 27],
 }
-pub struct USkeletalMeshEditorData {}
+impl USkeletalMesh {}
+#[repr(C, align(8))]
+pub struct USkeletalMeshEditorData {
+    __padding_end: [u8; 64],
+}
+impl USkeletalMeshEditorData {}
+#[repr(C, align(8))]
 pub struct USkeletalMeshLODSettings {
-    pub min_quality_level_lod: FPerQualityLevelInt,
-    pub min_lod: crate::bindings::core_u_object::FPerPlatformInt,
-    pub disable_below_min_lod_stripping: crate::bindings::core_u_object::FPerPlatformBool,
-    pub b_override_lod_streaming_settings: bool,
-    pub b_support_lod_streaming: crate::bindings::core_u_object::FPerPlatformBool,
-    pub max_num_streamed_lo_ds: crate::bindings::core_u_object::FPerPlatformInt,
-    pub max_num_optional_lo_ds: crate::bindings::core_u_object::FPerPlatformInt,
-    pub lod_groups: TArray<FSkeletalMeshLODGroupSettings>,
+    __padding_end: [u8; 648],
 }
+impl USkeletalMeshLODSettings {}
+#[repr(C, align(8))]
 pub struct USkeletalMeshSimplificationSettings {
-    pub skeletal_mesh_reduction_module_name: FName,
+    __padding_end: [u8; 120],
 }
-pub struct USkeletalMeshDescriptionBulkData {}
+impl USkeletalMeshSimplificationSettings {}
+#[repr(C, align(8))]
+pub struct USkeletalMeshDescriptionBulkData {
+    __padding_end: [u8; 72],
+}
+impl USkeletalMeshDescriptionBulkData {}
+#[repr(C, align(16))]
 pub struct UButtonStyleAsset {
-    pub button_style: crate::bindings::slate_core::FButtonStyle,
+    __padding_end: [u8; 1136],
 }
+impl UButtonStyleAsset {}
+#[repr(C, align(16))]
 pub struct UCheckBoxStyleAsset {
-    pub check_box_style: crate::bindings::slate_core::FCheckBoxStyle,
+    __padding_end: [u8; 2880],
 }
+impl UCheckBoxStyleAsset {}
+#[repr(C, align(16))]
 pub struct USlateBrushAsset {
-    pub brush: crate::bindings::slate_core::FSlateBrush,
+    __padding_end: [u8; 256],
 }
+impl USlateBrushAsset {}
 pub struct USlateTextureAtlasInterface {}
 pub struct ISlateTextureAtlasInterface {}
+#[repr(C, align(8))]
 pub struct USoundAttenuation {
+    #[doc(hidden)]
+    __padding_48: [u8; 48],
     pub attenuation: FSoundAttenuationSettings,
 }
+impl USoundAttenuation {}
+#[repr(C, align(8))]
 pub struct USoundClass {
+    #[doc(hidden)]
+    __padding_56: [u8; 56],
     pub properties: FSoundClassProperties,
     pub child_classes: TArray<UPtr<USoundClass>>,
     pub passive_sound_mix_modifiers: TArray<FPassiveSoundMixModifier>,
     pub parent_class: UPtr<USoundClass>,
-    pub asset_user_data: TArray<UPtr<UAssetUserData>>,
+    __padding_end: [u8; 24],
 }
+impl USoundClass {}
+#[repr(C, align(8))]
 pub struct USoundConcurrency {
+    #[doc(hidden)]
+    __padding_48: [u8; 48],
     pub concurrency: FSoundConcurrencySettings,
 }
+impl USoundConcurrency {}
+#[repr(C, align(8))]
 pub struct USoundCue {
+    #[doc(hidden)]
+    __padding_520: [u8; 520],
     pub first_node: UPtr<USoundNode>,
     pub volume_multiplier: f32,
     pub pitch_multiplier: f32,
-    pub attenuation_overrides: FSoundAttenuationSettings,
-    pub all_nodes: TArray<UPtr<USoundNode>>,
-    pub sound_cue_graph: UPtr<UEdGraph>,
-    pub subtitle_priority: f32,
-    pub flags_1592: u8,
-    pub cooked_quality_index: i32,
+    __padding_end: [u8; 1112],
 }
+impl USoundCue {}
+#[repr(C, align(8))]
 pub struct USoundGroups {
-    pub sound_group_profiles: TArray<FSoundGroup>,
+    __padding_end: [u8; 144],
 }
+impl USoundGroups {}
+#[repr(C, align(8))]
 pub struct USoundMix {
-    pub flags_48: u8,
-    pub eq_priority: f32,
-    pub eq_settings: FAudioEQEffect,
+    #[doc(hidden)]
+    __padding_120: [u8; 120],
     pub sound_class_effects: TArray<FSoundClassAdjuster>,
-    pub initial_delay: f32,
-    pub fade_in_time: f32,
-    pub duration: f32,
-    pub fade_out_time: f32,
-    pub flags_152: u8,
+    __padding_end: [u8; 24],
 }
+impl USoundMix {}
+#[repr(C, align(8))]
 pub struct USoundNode {
+    #[doc(hidden)]
+    __padding_48: [u8; 48],
     pub child_nodes: TArray<UPtr<USoundNode>>,
-    pub graph_node: UPtr<UEdGraphNode>,
+    __padding_end: [u8; 24],
 }
-pub struct USoundNodeAssetReferencer {}
+impl USoundNode {}
+#[repr(C, align(8))]
+pub struct USoundNodeAssetReferencer {
+    __padding_end: [u8; 88],
+}
+impl USoundNodeAssetReferencer {}
+#[repr(C, align(8))]
 pub struct USoundNodeAttenuation {
-    pub attenuation_settings: UPtr<USoundAttenuation>,
-    pub attenuation_overrides: FSoundAttenuationSettings,
-    pub flags_1120: u8,
+    __padding_end: [u8; 1128],
 }
+impl USoundNodeAttenuation {}
+#[repr(C, align(8))]
 pub struct USoundNodeBranch {
-    pub bool_parameter_name: FName,
+    __padding_end: [u8; 104],
 }
+impl USoundNodeBranch {}
+#[repr(C, align(8))]
 pub struct USoundNodeConcatenator {
-    pub input_volume: TArray<f32>,
+    __padding_end: [u8; 104],
 }
+impl USoundNodeConcatenator {}
+#[repr(C, align(8))]
 pub struct USoundNodeDelay {
-    pub delay_min: f32,
-    pub delay_max: f32,
+    __padding_end: [u8; 96],
 }
+impl USoundNodeDelay {}
+#[repr(C, align(8))]
 pub struct USoundNodeDialoguePlayer {
-    pub dialogue_wave_parameter: FDialogueWaveParameter,
-    pub flags_120: u8,
+    __padding_end: [u8; 128],
 }
+impl USoundNodeDialoguePlayer {}
+#[repr(C, align(8))]
 pub struct USoundNodeDistanceCrossFade {
-    pub cross_fade_input: TArray<FDistanceDatum>,
+    __padding_end: [u8; 104],
 }
+impl USoundNodeDistanceCrossFade {}
+#[repr(C, align(8))]
 pub struct USoundNodeDoppler {
-    pub doppler_intensity: f32,
-    pub b_use_smoothing: bool,
-    pub smoothing_interp_speed: f32,
+    __padding_end: [u8; 104],
 }
+impl USoundNodeDoppler {}
+#[repr(C, align(8))]
 pub struct USoundNodeEnveloper {
-    pub loop_start: f32,
-    pub loop_end: f32,
-    pub duration_after_loop: f32,
-    pub loop_count: i32,
-    pub flags_104: u8,
-    pub volume_interp_curve_deprecated: UPtr<UDistributionFloatConstantCurve>,
-    pub pitch_interp_curve_deprecated: UPtr<UDistributionFloatConstantCurve>,
-    pub volume_curve: FRuntimeFloatCurve,
-    pub pitch_curve: FRuntimeFloatCurve,
-    pub pitch_min: f32,
-    pub pitch_max: f32,
-    pub volume_min: f32,
-    pub volume_max: f32,
+    __padding_end: [u8; 416],
 }
+impl USoundNodeEnveloper {}
+#[repr(C, align(8))]
 pub struct USoundNodeGroupControl {
-    pub group_sizes: TArray<i32>,
+    __padding_end: [u8; 104],
 }
+impl USoundNodeGroupControl {}
+#[repr(C, align(8))]
 pub struct USoundNodeLooping {
-    pub loop_count: i32,
-    pub flags_92: u8,
+    __padding_end: [u8; 96],
 }
-pub struct USoundNodeMature {}
+impl USoundNodeLooping {}
+#[repr(C, align(8))]
+pub struct USoundNodeMature {
+    __padding_end: [u8; 88],
+}
+impl USoundNodeMature {}
+#[repr(C, align(8))]
 pub struct USoundNodeMixer {
-    pub input_volume: TArray<f32>,
+    __padding_end: [u8; 104],
 }
+impl USoundNodeMixer {}
+#[repr(C, align(8))]
 pub struct USoundNodeModulator {
-    pub pitch_min: f32,
-    pub pitch_max: f32,
-    pub volume_min: f32,
-    pub volume_max: f32,
+    __padding_end: [u8; 104],
 }
+impl USoundNodeModulator {}
+#[repr(C, align(8))]
 pub struct USoundNodeModulatorContinuous {
-    pub pitch_modulation_params: FModulatorContinuousParams,
-    pub volume_modulation_params: FModulatorContinuousParams,
+    __padding_end: [u8; 160],
 }
+impl USoundNodeModulatorContinuous {}
+#[repr(C, align(8))]
 pub struct USoundNodeOscillator {
-    pub flags_88: u8,
-    pub amplitude_min: f32,
-    pub amplitude_max: f32,
-    pub frequency_min: f32,
-    pub frequency_max: f32,
-    pub offset_min: f32,
-    pub offset_max: f32,
-    pub center_min: f32,
-    pub center_max: f32,
+    __padding_end: [u8; 128],
 }
+impl USoundNodeOscillator {}
+#[repr(C, align(8))]
 pub struct USoundNodeParamCrossFade {
-    pub param_name: FName,
+    __padding_end: [u8; 120],
 }
+impl USoundNodeParamCrossFade {}
+#[repr(C, align(8))]
 pub struct USoundNodeQualityLevel {
-    pub cooked_quality_level_index: i32,
+    __padding_end: [u8; 136],
 }
+impl USoundNodeQualityLevel {}
+#[repr(C, align(8))]
 pub struct USoundNodeRandom {
-    pub weights: TArray<f32>,
-    pub has_been_used: TArray<bool>,
-    pub num_random_used: i32,
-    pub preselect_at_level_load: i32,
-    pub flags_128: u8,
-    pub pie_hidden_nodes: TArray<i32>,
+    __padding_end: [u8; 152],
 }
+impl USoundNodeRandom {}
+#[repr(C, align(8))]
 pub struct USoundNodeSoundClass {
-    pub sound_class_override: UPtr<USoundClass>,
+    __padding_end: [u8; 104],
 }
+impl USoundNodeSoundClass {}
+#[repr(C, align(8))]
 pub struct USoundNodeSwitch {
-    pub int_parameter_name: FName,
+    __padding_end: [u8; 104],
 }
+impl USoundNodeSwitch {}
+#[repr(C, align(8))]
 pub struct USoundNodeWaveParam {
-    pub wave_parameter_name: FName,
+    __padding_end: [u8; 104],
 }
+impl USoundNodeWaveParam {}
+#[repr(C, align(8))]
 pub struct USoundNodeWavePlayer {
-    pub sound_wave_asset_ptr: TSoftObjectPtr<USoundWave>,
-    pub sound_wave: UPtr<USoundWave>,
-    pub flags_144: u8,
+    __padding_end: [u8; 152],
 }
+impl USoundNodeWavePlayer {}
+#[repr(C, align(8))]
 pub struct USoundSourceBus {
-    pub source_bus_channels: ESourceBusChannels,
-    pub source_bus_duration: f32,
-    pub audio_bus: UPtr<UAudioBus>,
-    pub flags_2096: u8,
+    __padding_end: [u8; 2104],
 }
+impl USoundSourceBus {}
+#[repr(C, align(8))]
 pub struct USoundSubmixBase {
+    #[doc(hidden)]
+    __padding_56: [u8; 56],
     pub b_auto_disable: bool,
     pub auto_disable_time: f32,
     pub child_submixes: TArray<UPtr<USoundSubmixBase>>,
-    pub dynamic_child_submixes: TMap<u32, FDynamicChildSubmix>,
+    __padding_end: [u8; 80],
 }
+impl USoundSubmixBase {}
+#[repr(C, align(8))]
 pub struct USoundSubmixWithParentBase {
+    #[doc(hidden)]
+    __padding_160: [u8; 160],
     pub parent_submix: UPtr<USoundSubmixBase>,
-    pub dynamic_parent_submix: TMap<u32, UPtr<USoundSubmixBase>>,
+    #[doc(hidden)]
+    __padding_248: [u8; 80],
     pub flags_248: u8,
+    __padding_end: [u8; 7],
 }
+impl USoundSubmixWithParentBase {}
+#[repr(C, align(8))]
 pub struct USoundSubmix {
+    #[doc(hidden)]
+    __padding_256: [u8; 256],
     pub flags_256: u8,
     pub submix_effect_chain: TArray<UPtr<USoundEffectSubmixPreset>>,
     pub ambisonics_plugin_settings: UPtr<
@@ -14970,1155 +11368,1608 @@ pub struct USoundSubmix {
     pub audio_link_settings: UPtr<
         crate::bindings::audio_link_core::UAudioLinkSettingsAbstract,
     >,
-    pub on_submix_recorded_file_done: FSoundSubmix_OnSubmixRecordedFileDone,
-    pub output_volume_deprecated: f32,
-    pub wet_level_deprecated: f32,
-    pub dry_level_deprecated: f32,
+    __padding_end: [u8; 48],
 }
+impl USoundSubmix {}
+#[repr(C, align(8))]
 pub struct USoundfieldSubmix {
-    pub soundfield_encoding_format: FName,
-    pub encoding_settings: UPtr<
-        crate::bindings::audio_extensions::USoundfieldEncodingSettingsBase,
-    >,
-    pub soundfield_effect_chain: TArray<
-        UPtr<crate::bindings::audio_extensions::USoundfieldEffectBase>,
-    >,
-    pub encoding_settings_class: TSubclassOf<
-        crate::bindings::audio_extensions::USoundfieldEncodingSettingsBase,
-    >,
+    __padding_end: [u8; 304],
 }
+impl USoundfieldSubmix {}
+#[repr(C, align(8))]
 pub struct UEndpointSubmix {
-    pub endpoint_type: FName,
-    pub endpoint_settings_class: TSubclassOf<
-        crate::bindings::audio_extensions::UAudioEndpointSettingsBase,
-    >,
-    pub endpoint_settings: UPtr<
-        crate::bindings::audio_extensions::UAudioEndpointSettingsBase,
-    >,
+    __padding_end: [u8; 192],
 }
+impl UEndpointSubmix {}
+#[repr(C, align(8))]
 pub struct USoundfieldEndpointSubmix {
-    pub soundfield_endpoint_type: FName,
-    pub endpoint_settings_class: TSubclassOf<
-        crate::bindings::audio_extensions::UAudioEndpointSettingsBase,
-    >,
-    pub endpoint_settings: UPtr<
-        crate::bindings::audio_extensions::USoundfieldEndpointSettingsBase,
-    >,
-    pub encoding_settings_class: TSubclassOf<
-        crate::bindings::audio_extensions::USoundfieldEncodingSettingsBase,
-    >,
-    pub encoding_settings: UPtr<
-        crate::bindings::audio_extensions::USoundfieldEncodingSettingsBase,
-    >,
-    pub soundfield_effect_chain: TArray<
-        UPtr<crate::bindings::audio_extensions::USoundfieldEffectBase>,
-    >,
+    __padding_end: [u8; 224],
 }
-pub struct USparseVolumeTexture {}
+impl USoundfieldEndpointSubmix {}
+#[repr(C, align(8))]
+pub struct USparseVolumeTexture {
+    __padding_end: [u8; 48],
+}
+impl USparseVolumeTexture {}
+#[repr(C, align(16))]
 pub struct USparseVolumeTextureFrame {
-    pub owner: UPtr<USparseVolumeTexture>,
-    pub frame_index: i32,
-    pub transform: crate::bindings::core_u_object::FTransform,
+    __padding_end: [u8; 704],
 }
+impl USparseVolumeTextureFrame {}
+#[repr(C, align(16))]
 pub struct UStreamableSparseVolumeTexture {
-    pub volume_resolution: crate::bindings::core_u_object::FIntVector,
-    pub num_mip_levels: i32,
-    pub num_frames: i32,
-    pub format_a: crate::bindings::core_u_object::EPixelFormat,
-    pub format_b: crate::bindings::core_u_object::EPixelFormat,
-    pub fallback_value_a: crate::bindings::core_u_object::FVector4f,
-    pub fallback_value_b: crate::bindings::core_u_object::FVector4f,
+    #[doc(hidden)]
+    __padding_112: [u8; 112],
     pub address_x: TextureAddress,
     pub address_y: TextureAddress,
     pub address_z: TextureAddress,
     pub b_local_ddc_only: bool,
-    pub streaming_pool_size_factor: f32,
-    pub number_of_prefetch_frames: i32,
-    pub prefetch_percentage_step_size: f32,
-    pub prefetch_percentage_bias: f32,
-    pub asset_import_data: UPtr<UAssetImportData>,
-    pub asset_user_data: TArray<UPtr<UAssetUserData>>,
-    pub frames: TArray<UPtr<USparseVolumeTextureFrame>>,
-    pub volume_bounds_min: crate::bindings::core_u_object::FIntVector,
-    pub volume_bounds_max: crate::bindings::core_u_object::FIntVector,
-    pub init_state: u8,
+    __padding_end: [u8; 92],
 }
-pub struct UStaticSparseVolumeTexture {}
-pub struct UAnimatedSparseVolumeTexture {}
+impl UStreamableSparseVolumeTexture {}
+#[repr(C, align(16))]
+pub struct UStaticSparseVolumeTexture {
+    __padding_end: [u8; 208],
+}
+impl UStaticSparseVolumeTexture {}
+#[repr(C, align(16))]
+pub struct UAnimatedSparseVolumeTexture {
+    __padding_end: [u8; 224],
+}
+impl UAnimatedSparseVolumeTexture {}
+#[repr(C, align(8))]
 pub struct UAnimatedSparseVolumeTextureController {
+    #[doc(hidden)]
+    __padding_48: [u8; 48],
     pub sparse_volume_texture: UPtr<USparseVolumeTexture>,
     pub time: f32,
     pub b_is_playing: bool,
     pub frame_rate: f32,
     pub mip_level: i32,
     pub b_blocking_streaming_requests: bool,
+    __padding_end: [u8; 7],
 }
-pub struct ASpectatorPawn {}
+impl UAnimatedSparseVolumeTextureController {}
+#[repr(C, align(8))]
+pub struct ASpectatorPawn {
+    __padding_end: [u8; 1304],
+}
+impl ASpectatorPawn {}
+#[repr(C, align(8))]
 pub struct USpectatorPawnMovement {
-    pub flags_480: u8,
+    __padding_end: [u8; 488],
 }
+impl USpectatorPawnMovement {}
+#[repr(C, align(8))]
 pub struct ASplineMeshActor {
+    #[doc(hidden)]
+    __padding_1136: [u8; 1136],
     pub spline_mesh_component: UPtr<USplineMeshComponent>,
 }
+impl ASplineMeshActor {}
+#[repr(C, align(8))]
 pub struct UStaticMesh {
-    pub source_models: TArray<FStaticMeshSourceModel>,
-    pub hi_res_source_model: FStaticMeshSourceModel,
-    pub section_info_map: FMeshSectionInfoMap,
-    pub original_section_info_map: FMeshSectionInfoMap,
-    pub lod_group: FName,
-    pub num_streamed_lo_ds: crate::bindings::core_u_object::FPerPlatformInt,
-    pub import_version: i32,
-    pub material_remap_index_per_import_version: TArray<FMaterialRemapIndex>,
-    pub flags_904: u8,
-    pub materials_deprecated: TArray<UPtr<UMaterialInterface>>,
-    pub nanite_settings: FMeshNaniteSettings,
-    pub lightmap_uv_version: i32,
-    pub min_quality_level_lod: FPerQualityLevelInt,
-    pub min_lod: crate::bindings::core_u_object::FPerPlatformInt,
-    pub element_to_ignore_for_tex_factor: i32,
+    #[doc(hidden)]
+    __padding_1272: [u8; 1272],
     pub static_materials: TArray<FStaticMaterial>,
-    pub assembly_reference_cache: TArray<UPtr<UStaticMesh>>,
-    pub lightmap_uv_density: f32,
-    pub light_map_resolution: i32,
-    pub light_map_coordinate_index: i32,
+    #[doc(hidden)]
+    __padding_1372: [u8; 84],
     pub static_mesh_paint_support: EStaticMeshPaintSupport,
-    pub mesh_paint_texture_coordinate_index: i32,
-    pub mesh_paint_texture_resolution: i32,
-    pub distance_field_self_shadow_bias: f32,
-    pub body_setup: UPtr<UBodySetup>,
+    #[doc(hidden)]
+    __padding_1400: [u8; 24],
     pub lod_for_collision: i32,
-    pub flags_1404: u8,
-    pub ray_tracing_proxy_settings: FMeshRayTracingProxySettings,
-    pub flags_1428: u8,
-    pub asset_import_data: UPtr<UAssetImportData>,
-    pub source_file_path_deprecated: FString,
-    pub source_file_timestamp_deprecated: FString,
-    pub thumbnail_info: UPtr<UThumbnailInfo>,
-    pub editor_camera_position: FAssetEditorOrbitCameraPosition,
-    pub b_customized_collision: bool,
-    pub sockets: TArray<UPtr<UStaticMeshSocket>>,
-    pub positive_bounds_extension: crate::bindings::core_u_object::FVector,
-    pub negative_bounds_extension: crate::bindings::core_u_object::FVector,
-    pub extended_bounds: crate::bindings::core_u_object::FBoxSphereBounds,
-    pub asset_user_data: TArray<UPtr<UAssetUserData>>,
-    pub editable_mesh_deprecated: UPtr<crate::bindings::core_u_object::UObject>,
-    pub complex_collision_mesh: UPtr<UStaticMesh>,
-    pub nav_collision: UPtr<UNavCollisionBase>,
+    __padding_end: [u8; 604],
 }
-pub struct UStaticMeshDescriptionBulkData {}
+impl UStaticMesh {
+    pub fn verify_layout() {
+        log::warn!(
+            "{} = {} vs {}", "static_materials", std::mem::offset_of!(UStaticMesh,
+            static_materials), 1272usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "static_mesh_paint_support",
+            std::mem::offset_of!(UStaticMesh, static_mesh_paint_support), 1372usize
+        );
+        log::warn!(
+            "{} = {} vs {}", "lod_for_collision", std::mem::offset_of!(UStaticMesh,
+            lod_for_collision), 1400usize
+        );
+    }
+}
+#[repr(C, align(8))]
+pub struct UStaticMeshDescriptionBulkData {
+    __padding_end: [u8; 72],
+}
+impl UStaticMeshDescriptionBulkData {}
+#[repr(C, align(8))]
 pub struct UActorTextureStreamingBuildDataComponent {
-    pub streamable_textures: TArray<FStreamableTexture>,
-    pub packed_texture_streaming_quality_level_feature_level: u32,
+    __padding_end: [u8; 272],
 }
-pub struct AServerStreamingLevelsVisibility {}
-pub struct UAudioSubsystemCollectionRoot {}
-pub struct ULocalPlayerSubsystem {}
-pub struct USubsystemBlueprintLibrary {}
+impl UActorTextureStreamingBuildDataComponent {}
+#[repr(C, align(8))]
+pub struct AServerStreamingLevelsVisibility {
+    __padding_end: [u8; 1216],
+}
+impl AServerStreamingLevelsVisibility {}
+#[repr(C, align(8))]
+pub struct UAudioSubsystemCollectionRoot {
+    __padding_end: [u8; 56],
+}
+impl UAudioSubsystemCollectionRoot {}
+#[repr(C, align(8))]
+pub struct ULocalPlayerSubsystem {
+    __padding_end: [u8; 56],
+}
+impl ULocalPlayerSubsystem {}
+#[repr(C, align(8))]
+pub struct USubsystemBlueprintLibrary {
+    __padding_end: [u8; 48],
+}
+impl USubsystemBlueprintLibrary {}
+#[repr(C, align(8))]
 pub struct USubtitleAssetUserData {
+    #[doc(hidden)]
+    __padding_48: [u8; 48],
     pub subtitles: TArray<FSubtitleAssetData>,
 }
+impl USubtitleAssetUserData {}
+#[repr(C, align(8))]
 pub struct ATargetPoint {
+    #[doc(hidden)]
+    __padding_1136: [u8; 1136],
     pub sprite_component: UPtr<UBillboardComponent>,
     pub arrow_component: UPtr<UArrowComponent>,
 }
+impl ATargetPoint {}
+#[repr(C, align(8))]
 pub struct UTaskSyncManagerSettings {
-    pub registered_sync_points: TArray<FSyncPointDescription>,
+    __padding_end: [u8; 120],
 }
+impl UTaskSyncManagerSettings {}
+#[repr(C, align(8))]
 pub struct UAutomationTestSettings {
-    pub engine_test_modules: TArray<FString>,
-    pub editor_test_modules: TArray<FString>,
-    pub automation_testmap: crate::bindings::core_u_object::FSoftObjectPath,
-    pub editor_performance_test_maps: TArray<FEditorMapPerformanceTestDefinition>,
-    pub assets_to_open: TArray<FString>,
-    pub maps_to_pie_test: TArray<FString>,
-    pub b_use_all_project_maps_to_play_in_pie: bool,
-    pub build_promotion_test: FBuildPromotionTestSettings,
-    pub material_editor_promotion_test: FMaterialEditorPromotionSettings,
-    pub particle_editor_promotion_test: FParticleEditorPromotionSettings,
-    pub blueprint_editor_promotion_test: FBlueprintEditorPromotionSettings,
-    pub test_level_folders: TArray<FString>,
-    pub external_tools: TArray<FExternalToolDefinition>,
-    pub import_export_test_definitions: TArray<FEditorImportExportTestDefinition>,
-    pub launch_on_settings: TArray<FLaunchOnTestSettings>,
-    pub default_screenshot_resolution: crate::bindings::core_u_object::FIntPoint,
-    pub pie_test_duration: f32,
-    pub default_interactive_framerate: f32,
-    pub default_interactive_framerate_wait_time: f32,
-    pub default_interactive_framerate_duration: f32,
+    __padding_end: [u8; 872],
 }
+impl UAutomationTestSettings {}
+#[repr(C, align(8))]
 pub struct UAsyncLoadingTests_ConvertFromType_V1 {
-    pub reference: TSoftObjectPtr<crate::bindings::core_u_object::UObject>,
+    __padding_end: [u8; 96],
 }
+impl UAsyncLoadingTests_ConvertFromType_V1 {}
+#[repr(C, align(8))]
 pub struct UAsyncLoadingTests_ConvertFromType_V2 {
-    pub reference: UPtr<crate::bindings::core_u_object::UObject>,
+    __padding_end: [u8; 56],
 }
+impl UAsyncLoadingTests_ConvertFromType_V2 {}
+#[repr(C, align(8))]
 pub struct UAsyncLoadingTests_Shared {
-    pub soft_reference: TSoftObjectPtr<crate::bindings::core_u_object::UObject>,
-    pub hard_reference: UPtr<crate::bindings::core_u_object::UObject>,
+    __padding_end: [u8; 104],
 }
+impl UAsyncLoadingTests_Shared {}
+#[repr(C, align(8))]
 pub struct UTextImportContainer {
-    pub result_struct: FTextImportTestStruct,
+    __padding_end: [u8; 72],
 }
+impl UTextImportContainer {}
+#[repr(C, align(8))]
 pub struct UTransactionDiffingTestObject {
-    pub names_array: TArray<FName>,
-    pub additional_name: FName,
-    pub objects_array: TArray<UPtr<crate::bindings::core_u_object::UObject>>,
-    pub additional_object: UPtr<crate::bindings::core_u_object::UObject>,
-    pub soft_objects_array: TArray<
-        TSoftObjectPtr<crate::bindings::core_u_object::UObject>,
-    >,
-    pub additional_soft_object: TSoftObjectPtr<crate::bindings::core_u_object::UObject>,
-    pub property_data: i32,
+    __padding_end: [u8; 176],
 }
+impl UTransactionDiffingTestObject {}
+#[repr(C, align(16))]
 pub struct UTexture2DDynamic {
-    pub format: crate::bindings::core_u_object::EPixelFormat,
+    __padding_end: [u8; 1264],
 }
+impl UTexture2DDynamic {}
+#[repr(C, align(8))]
 pub struct UTextureCollection {
-    pub textures: TArray<UPtr<UTexture>>,
+    __padding_end: [u8; 88],
 }
-pub struct UTextureCube {}
+impl UTextureCollection {}
+#[repr(C, align(16))]
+pub struct UTextureCube {
+    __padding_end: [u8; 1328],
+}
+impl UTextureCube {}
+#[repr(C, align(16))]
 pub struct UTextureCubeArray {
-    pub source_textures: TArray<UPtr<UTextureCube>>,
-    pub b_source_generated_from_source_textures_array: bool,
+    __padding_end: [u8; 1360],
 }
+impl UTextureCubeArray {}
+#[repr(C, align(16))]
 pub struct UTextureLightProfile {
-    pub brightness: f32,
-    pub texture_multiplier: f32,
+    __padding_end: [u8; 1376],
 }
+impl UTextureLightProfile {}
+#[repr(C, align(16))]
 pub struct UTextureRenderTarget2DArray {
+    #[doc(hidden)]
+    __padding_1248: [u8; 1248],
     pub size_x: i32,
     pub size_y: i32,
     pub slices: i32,
-    pub clear_color: crate::bindings::core_u_object::FLinearColor,
-    pub override_format: crate::bindings::core_u_object::EPixelFormat,
+    #[doc(hidden)]
+    __padding_1277: [u8; 17],
     pub flags_1277: u8,
+    __padding_end: [u8; 2],
 }
+impl UTextureRenderTarget2DArray {}
+#[repr(C, align(16))]
 pub struct UTextureRenderTargetCube {
+    #[doc(hidden)]
+    __padding_1248: [u8; 1248],
     pub size_x: i32,
-    pub clear_color: crate::bindings::core_u_object::FLinearColor,
-    pub override_format: crate::bindings::core_u_object::EPixelFormat,
+    #[doc(hidden)]
+    __padding_1269: [u8; 17],
     pub flags_1269: u8,
     pub mips_sampler_filter: TextureFilter,
+    __padding_end: [u8; 9],
 }
+impl UTextureRenderTargetCube {}
+#[repr(C, align(16))]
 pub struct UTextureRenderTargetVolume {
+    #[doc(hidden)]
+    __padding_1248: [u8; 1248],
     pub size_x: i32,
     pub size_y: i32,
     pub size_z: i32,
-    pub clear_color: crate::bindings::core_u_object::FLinearColor,
-    pub override_format: crate::bindings::core_u_object::EPixelFormat,
+    #[doc(hidden)]
+    __padding_1277: [u8; 17],
     pub flags_1277: u8,
+    __padding_end: [u8; 2],
 }
+impl UTextureRenderTargetVolume {}
+#[repr(C, align(8))]
 pub struct UTimelineTemplate {
-    pub timeline_length: f32,
-    pub length_mode: ETimelineLengthMode,
+    #[doc(hidden)]
+    __padding_53: [u8; 53],
     pub flags_53: u8,
-    pub event_tracks: TArray<FTTEventTrack>,
-    pub float_tracks: TArray<FTTFloatTrack>,
-    pub vector_tracks: TArray<FTTVectorTrack>,
-    pub linear_color_tracks: TArray<FTTLinearColorTrack>,
-    pub meta_data_array: TArray<FBPVariableMetaDataEntry>,
-    pub timeline_guid: crate::bindings::core_u_object::FGuid,
-    pub timeline_tick_group: ETickingGroup,
-    pub variable_name: FName,
-    pub direction_property_name: FName,
-    pub update_function_name: FName,
-    pub finished_function_name: FName,
-    pub track_display_order: TArray<FTTTrackId>,
+    __padding_end: [u8; 170],
 }
-pub struct ATriggerVolume {}
-pub struct UUniversalObjectLocatorScriptingExtensions {}
+impl UTimelineTemplate {}
+#[repr(C, align(8))]
+pub struct ATriggerVolume {
+    __padding_end: [u8; 1208],
+}
+impl ATriggerVolume {}
+#[repr(C, align(8))]
+pub struct UUniversalObjectLocatorScriptingExtensions {
+    __padding_end: [u8; 48],
+}
+impl UUniversalObjectLocatorScriptingExtensions {}
+#[repr(C, align(8))]
 pub struct UUserDefinedEnum {
-    pub unique_name_index: u32,
-    pub enum_description: FText,
-    pub display_name_map: TMap<FName, FText>,
-    pub cached_cooked_meta_data_ptr: UPtr<
-        crate::bindings::core_u_object::UEnumCookedMetaData,
-    >,
+    __padding_end: [u8; 232],
 }
+impl UUserDefinedEnum {}
+#[repr(C, align(8))]
 pub struct UUserInterfaceSettings {
-    pub render_focus_rule: ERenderFocusRule,
-    pub hardware_cursors: TMap<
-        crate::bindings::core_u_object::EMouseCursor,
-        FHardwareCursorReference,
-    >,
-    pub software_cursors: TMap<
-        crate::bindings::core_u_object::EMouseCursor,
-        crate::bindings::core_u_object::FSoftClassPath,
-    >,
-    pub default_cursor_deprecated: crate::bindings::core_u_object::FSoftClassPath,
-    pub text_edit_beam_cursor_deprecated: crate::bindings::core_u_object::FSoftClassPath,
-    pub crosshairs_cursor_deprecated: crate::bindings::core_u_object::FSoftClassPath,
-    pub hand_cursor_deprecated: crate::bindings::core_u_object::FSoftClassPath,
-    pub grab_hand_cursor_deprecated: crate::bindings::core_u_object::FSoftClassPath,
-    pub grab_hand_closed_cursor_deprecated: crate::bindings::core_u_object::FSoftClassPath,
-    pub slashed_circle_cursor_deprecated: crate::bindings::core_u_object::FSoftClassPath,
-    pub application_scale: f32,
-    pub ui_scale_rule: EUIScalingRule,
-    pub custom_scaling_rule_class: crate::bindings::core_u_object::FSoftClassPath,
-    pub ui_scale_curve: FRuntimeFloatCurve,
-    pub b_allow_high_dpi_in_game_mode: bool,
-    pub design_screen_size: crate::bindings::core_u_object::FIntPoint,
-    pub b_load_widgets_on_dedicated_server: bool,
-    pub b_authorize_automatic_widget_variable_creation: bool,
-    pub custom_font_dpi: u32,
-    pub font_dpi_preset: EFontDPI,
-    pub b_use_custom_font_dpi: bool,
-    pub b_enable_distance_field_font_rasterization: bool,
-    pub cursor_classes: TArray<UPtr<crate::bindings::core_u_object::UObject>>,
-    pub custom_scaling_rule_class_instance: TSubclassOf<
-        crate::bindings::core_u_object::UObject,
-    >,
-    pub custom_scaling_rule: UPtr<UDPICustomScalingRule>,
+    __padding_end: [u8; 808],
 }
+impl UUserInterfaceSettings {}
+#[repr(C, align(16))]
 pub struct UCanvas {
-    pub org_x: f32,
-    pub org_y: f32,
-    pub clip_x: f32,
-    pub clip_y: f32,
-    pub draw_color: crate::bindings::core_u_object::FColor,
-    pub flags_68: u8,
-    pub size_x: i32,
-    pub size_y: i32,
-    pub color_modulate: crate::bindings::core_u_object::FPlane,
-    pub default_texture: UPtr<UTexture2D>,
-    pub gradient_texture0: UPtr<UTexture2D>,
-    pub reporter_graph: UPtr<UReporterGraph>,
+    __padding_end: [u8; 944],
 }
+impl UCanvas {}
+#[repr(C, align(8))]
 pub struct UConsole {
-    pub console_target_player: UPtr<ULocalPlayer>,
-    pub default_texture_black: UPtr<UTexture2D>,
-    pub default_texture_white: UPtr<UTexture2D>,
-    pub history_buffer: TArray<FString>,
+    __padding_end: [u8; 368],
 }
+impl UConsole {}
+#[repr(C, align(8))]
 pub struct UInputSettings {
-    pub axis_config: TArray<FInputAxisConfigEntry>,
-    pub platform_settings: crate::bindings::developer_settings::FPerPlatformSettings,
-    pub flags_80: u8,
-    pub flags_81: u8,
-    pub excluded_autocorrect_os: TArray<FString>,
-    pub excluded_autocorrect_cultures: TArray<FString>,
-    pub excluded_autocorrect_device_models: TArray<FString>,
-    pub default_viewport_mouse_capture_mode: EMouseCaptureMode,
-    pub default_viewport_mouse_lock_mode: EMouseLockMode,
-    pub fov_scale: f32,
-    pub double_click_time: f32,
-    pub action_mappings: TArray<FInputActionKeyMapping>,
-    pub axis_mappings: TArray<FInputAxisKeyMapping>,
-    pub deprecated_action_and_axis_names: TSet<FName>,
-    pub speech_mappings: TArray<FInputActionSpeechMapping>,
-    pub default_player_input_class: TSoftObjectPtr<
-        crate::bindings::core_u_object::UClass,
-    >,
-    pub default_input_component_class: TSoftObjectPtr<
-        crate::bindings::core_u_object::UClass,
-    >,
-    pub default_touch_interface: crate::bindings::core_u_object::FSoftObjectPath,
-    pub console_keys: TArray<crate::bindings::input_core::FKey>,
+    __padding_end: [u8; 432],
 }
+impl UInputSettings {}
+#[repr(C, align(8))]
 pub struct UInputPlatformSettings {
-    pub max_platform_user_count: i32,
-    pub device_mapping_policy: crate::bindings::core_u_object::EInputDeviceMappingPolicy,
-    pub max_trigger_feedback_position: i32,
-    pub max_trigger_feedback_strength: i32,
-    pub max_trigger_vibration_trigger_position: i32,
-    pub max_trigger_vibration_frequency: i32,
-    pub max_trigger_vibration_amplitude: i32,
-    pub hardware_devices: TArray<FHardwareDeviceIdentifier>,
+    __padding_end: [u8; 128],
 }
+impl UInputPlatformSettings {}
+#[repr(C, align(8))]
 pub struct UPlayerInput {
-    pub debug_exec_bindings: TArray<FKeyBind>,
-    pub inverted_axis: TArray<FName>,
+    __padding_end: [u8; 1184],
 }
+impl UPlayerInput {}
+#[repr(C, align(8))]
 pub struct AVectorFieldVolume {
+    #[doc(hidden)]
+    __padding_1136: [u8; 1136],
     pub vector_field_component: UPtr<UVectorFieldComponent>,
-    pub sprite_component: UPtr<UBillboardComponent>,
+    __padding_end: [u8; 8],
 }
+impl AVectorFieldVolume {}
+#[repr(C, align(8))]
 pub struct UTireType {
-    pub friction_scale: f32,
+    __padding_end: [u8; 64],
 }
+impl UTireType {}
+#[repr(C, align(8))]
 pub struct UVirtualTextureCollection {
-    pub b_allow_format_conversion: bool,
-    pub b_is_srgb: bool,
-    pub runtime_pixel_format: crate::bindings::core_u_object::EPixelFormat,
+    __padding_end: [u8; 96],
 }
-pub struct UVisualLoggerAutomationTests {}
-pub struct AVisualLoggerFilterVolume {}
-pub struct UVisualLoggerKismetLibrary {}
-pub struct UVoiceChannel {}
+impl UVirtualTextureCollection {}
+#[repr(C, align(8))]
+pub struct UVisualLoggerAutomationTests {
+    __padding_end: [u8; 48],
+}
+impl UVisualLoggerAutomationTests {}
+#[repr(C, align(8))]
+pub struct AVisualLoggerFilterVolume {
+    __padding_end: [u8; 1208],
+}
+impl AVisualLoggerFilterVolume {}
+#[repr(C, align(8))]
+pub struct UVisualLoggerKismetLibrary {
+    __padding_end: [u8; 48],
+}
+impl UVisualLoggerKismetLibrary {}
+#[repr(C, align(8))]
+pub struct UVoiceChannel {
+    __padding_end: [u8; 136],
+}
+impl UVoiceChannel {}
+#[repr(C, align(8))]
 pub struct UVOIPTalker {
+    #[doc(hidden)]
+    __padding_240: [u8; 240],
     pub settings: FVoiceSettings,
+    __padding_end: [u8; 40],
 }
-pub struct UVOIPStatics {}
+impl UVOIPTalker {}
+#[repr(C, align(8))]
+pub struct UVOIPStatics {
+    __padding_end: [u8; 48],
+}
+impl UVOIPStatics {}
+#[repr(C, align(16))]
 pub struct UVolumeTexture {
-    pub source2_d_texture: UPtr<UTexture2D>,
-    pub source_lighting_guid_deprecated: crate::bindings::core_u_object::FGuid,
-    pub source2_d_tile_size_x: i32,
-    pub source2_d_tile_size_y: i32,
+    #[doc(hidden)]
+    __padding_1360: [u8; 1360],
     pub address_mode: TextureAddress,
+    __padding_end: [u8; 15],
 }
+impl UVolumeTexture {}
+#[repr(C, align(8))]
 pub struct AVolumetricLightmapDensityVolume {
-    pub allowed_mip_level_range: crate::bindings::core_u_object::FInt32Interval,
+    __padding_end: [u8; 1216],
 }
+impl AVolumetricLightmapDensityVolume {}
+#[repr(C, align(16))]
 pub struct ULightMapVirtualTexture2D {
-    pub type_to_layer: TArray<i8>,
+    __padding_end: [u8; 1392],
 }
+impl ULightMapVirtualTexture2D {}
+#[repr(C, align(16))]
 pub struct UMeshPaintVirtualTexture {
-    pub owning_component: TWeakObjectPtr<UPrimitiveComponent>,
+    __padding_end: [u8; 1376],
 }
+impl UMeshPaintVirtualTexture {}
+#[repr(C, align(16))]
 pub struct URuntimeVirtualTexture {
+    #[doc(hidden)]
+    __padding_48: [u8; 48],
     pub tile_count: i32,
     pub tile_size: i32,
     pub tile_border_size: i32,
     pub material_type: ERuntimeVirtualTextureMaterialType,
     pub b_compress_textures: bool,
     pub b_use_low_quality_compression: bool,
-    pub custom_priority: crate::bindings::render_core::EVTProducerPriority,
-    pub b_use_custom_priority: bool,
-    pub b_clear_textures: bool,
-    pub b_single_physical_space: bool,
-    pub b_private_space: bool,
-    pub b_adaptive: bool,
-    pub b_continuous_update: bool,
-    pub remove_low_mips: i32,
+    #[doc(hidden)]
+    __padding_80: [u8; 16],
     pub custom_material_data: crate::bindings::core_u_object::FVector4f,
     pub lod_group: TextureGroup,
-    pub size_deprecated: i32,
-    pub streaming_texture_deprecated: UPtr<URuntimeVirtualTextureStreamingProxy>,
+    __padding_end: [u8; 191],
 }
+impl URuntimeVirtualTexture {}
+#[repr(C, align(8))]
 pub struct ARuntimeVirtualTextureVolume {
+    #[doc(hidden)]
+    __padding_1136: [u8; 1136],
     pub virtual_texture_component: UPtr<URuntimeVirtualTextureComponent>,
-    pub box_: UPtr<UBoxComponent>,
+    __padding_end: [u8; 8],
 }
-pub struct UVirtualTexture {}
-pub struct ULightMapVirtualTexture {}
-pub struct URuntimeVirtualTextureStreamingProxy {}
+impl ARuntimeVirtualTextureVolume {}
+#[repr(C, align(8))]
+pub struct UVirtualTexture {
+    __padding_end: [u8; 48],
+}
+impl UVirtualTexture {}
+#[repr(C, align(8))]
+pub struct ULightMapVirtualTexture {
+    __padding_end: [u8; 48],
+}
+impl ULightMapVirtualTexture {}
+#[repr(C, align(16))]
+pub struct URuntimeVirtualTextureStreamingProxy {
+    __padding_end: [u8; 1360],
+}
+impl URuntimeVirtualTextureStreamingProxy {}
+#[repr(C, align(16))]
 pub struct UVirtualTexture2D {
-    pub settings: FVirtualTextureBuildSettings,
-    pub b_continuous_update_deprecated: bool,
-    pub b_single_physical_space: bool,
+    __padding_end: [u8; 1376],
 }
+impl UVirtualTexture2D {}
+#[repr(C, align(16))]
 pub struct UVirtualTextureAdapter {
-    pub texture: UPtr<UTexture>,
-    pub override_with_texture_format: UPtr<UTexture2D>,
-    pub b_use_default_tile_sizes: bool,
-    pub tile_size: i32,
-    pub tile_border_size: i32,
+    __padding_end: [u8; 1280],
 }
+impl UVirtualTextureAdapter {}
+#[repr(C, align(8))]
 pub struct UVirtualTextureBuilder {
+    #[doc(hidden)]
+    __padding_48: [u8; 48],
     pub texture: UPtr<UVirtualTexture2D>,
     pub texture_mobile: UPtr<UVirtualTexture2D>,
-    pub build_hash: u64,
-    pub b_separate_texture_for_mobile: bool,
+    __padding_end: [u8; 16],
 }
+impl UVirtualTextureBuilder {}
+#[repr(C, align(8))]
 pub struct UVirtualTexturePoolConfig {
-    pub default_size_in_megabyte: i32,
-    pub b_pool_auto_grow_in_editor: bool,
-    pub pools: TArray<FVirtualTextureSpacePoolConfig>,
-    pub transient_pools: TArray<FVirtualTextureSpacePoolConfig>,
+    __padding_end: [u8; 144],
 }
+impl UVirtualTexturePoolConfig {}
+#[repr(C, align(8))]
 pub struct AWindDirectionalSource {
+    #[doc(hidden)]
+    __padding_1144: [u8; 1144],
     pub component: UPtr<UWindDirectionalSourceComponent>,
-    pub arrow_component: UPtr<UArrowComponent>,
+    __padding_end: [u8; 8],
 }
+impl AWindDirectionalSource {}
+#[repr(C, align(8))]
 pub struct UWorldComposition {
-    pub tiles_streaming: TArray<UPtr<ULevelStreaming>>,
-    pub tiles_streaming_time_threshold: f64,
-    pub b_load_all_tiles_during_cinematic: bool,
-    pub b_rebase_origin_in3_d_space: bool,
-    pub b_lock_tiles_location: bool,
-    pub rebase_origin_distance: f32,
+    __padding_end: [u8; 120],
 }
-pub struct UWorldPartitionBlueprintLibrary {}
-pub struct UActorDescContainer {}
+impl UWorldComposition {}
+#[repr(C, align(8))]
+pub struct UWorldPartitionBlueprintLibrary {
+    __padding_end: [u8; 48],
+}
+impl UWorldPartitionBlueprintLibrary {}
+#[repr(C, align(8))]
+pub struct UActorDescContainer {
+    __padding_end: [u8; 512],
+}
+impl UActorDescContainer {}
+#[repr(C, align(16))]
 pub struct UActorDescContainerInstance {
-    pub container: UPtr<UActorDescContainer>,
-    pub child_container_instances: TMap<
-        crate::bindings::core_u_object::FGuid,
-        UPtr<UActorDescContainerInstance>,
-    >,
+    __padding_end: [u8; 688],
 }
-pub struct UActorDescContainerSubsystem {}
+impl UActorDescContainerInstance {}
+#[repr(C, align(8))]
+pub struct UActorDescContainerSubsystem {
+    __padding_end: [u8; 288],
+}
+impl UActorDescContainerSubsystem {}
+#[repr(C, align(8))]
 pub struct UContentBundleDescriptor {
-    pub display_name: FString,
-    pub debug_color: crate::bindings::core_u_object::FColor,
-    pub guid: crate::bindings::core_u_object::FGuid,
+    __padding_end: [u8; 88],
 }
+impl UContentBundleDescriptor {}
+#[repr(C, align(8))]
 pub struct UContentBundleUnsavedActorMonitor {
-    pub unsaved_actors: TArray<TWeakObjectPtr<AActor>>,
+    __padding_end: [u8; 72],
 }
+impl UContentBundleUnsavedActorMonitor {}
+#[repr(C, align(8))]
 pub struct UContentBundleEngineSubsystem {
-    pub content_bundle_type_factory_class: TSoftObjectPtr<
-        crate::bindings::core_u_object::UClass,
-    >,
-    pub content_bundle_type_factory: UPtr<UContentBundleTypeFactory>,
+    __padding_end: [u8; 272],
 }
-pub struct UContentBundleTypeFactory {}
+impl UContentBundleEngineSubsystem {}
+#[repr(C, align(8))]
+pub struct UContentBundleTypeFactory {
+    __padding_end: [u8; 48],
+}
+impl UContentBundleTypeFactory {}
+#[repr(C, align(8))]
 pub struct UContentBundleManager {
-    pub pie_duplicate_helper: UPtr<UContentBundleDuplicateForPIEHelper>,
+    __padding_end: [u8; 72],
 }
+impl UContentBundleManager {}
+#[repr(C, align(8))]
 pub struct UContentBundleDuplicateForPIEHelper {
-    pub streaming_objects: TMap<
-        crate::bindings::core_u_object::FGuid,
-        UPtr<URuntimeHashExternalStreamingObjectBase>,
-    >,
+    __padding_end: [u8; 128],
 }
+impl UContentBundleDuplicateForPIEHelper {}
 pub struct UWorldPartitionCookPackageObject {}
 pub struct IWorldPartitionCookPackageObject {}
+#[repr(C, align(8))]
 pub struct AWorldDataLayers {
-    pub b_use_external_package_data_layer_instances: bool,
-    pub b_allow_runtime_data_layer_editing: bool,
-    pub current_data_layers: FActorPlacementDataLayers,
-    pub root_external_data_layer_instance: UPtr<UExternalDataLayerInstance>,
-    pub data_layer_instances: TSet<UPtr<UDataLayerInstance>>,
-    pub external_package_data_layer_instances: TSet<UPtr<UDataLayerInstance>>,
-    pub loaded_external_package_data_layer_instances: TArray<UPtr<UDataLayerInstance>>,
-    pub transient_data_layer_instances: TArray<UPtr<UDataLayerInstance>>,
-    pub deprecated_data_layer_name_to_data_layer_instance: TMap<
-        FName,
-        TWeakObjectPtr<UDataLayerInstance>,
-    >,
-    pub world_data_layers_deprecated: TSet<UPtr<UDEPRECATED_DataLayer>>,
-    pub rep_active_data_layer_names: TArray<FName>,
-    pub rep_loaded_data_layer_names: TArray<FName>,
-    pub rep_effective_active_data_layer_names: TArray<FName>,
-    pub rep_effective_loaded_data_layer_names: TArray<FName>,
+    __padding_end: [u8; 2552],
 }
+impl AWorldDataLayers {}
+#[repr(C, align(8))]
 pub struct UDEPRECATED_DataLayer {
-    pub flags_48: u8,
-    pub data_layer_label: FName,
-    pub flags_64: u8,
-    pub initial_runtime_state: EDataLayerRuntimeState,
-    pub debug_color: crate::bindings::core_u_object::FColor,
-    pub parent_deprecated: UPtr<UDEPRECATED_DataLayer>,
-    pub children_deprecated: TArray<UPtr<UDEPRECATED_DataLayer>>,
+    __padding_end: [u8; 104],
 }
+impl UDEPRECATED_DataLayer {}
+#[repr(C, align(8))]
 pub struct UDataLayerAsset {
-    pub data_layer_type: EDataLayerType,
-    pub b_supports_actor_filters: bool,
-    pub debug_color: crate::bindings::core_u_object::FColor,
-    pub load_filter: EDataLayerLoadFilter,
+    __padding_end: [u8; 72],
 }
+impl UDataLayerAsset {}
+#[repr(C, align(8))]
 pub struct UDataLayerInstance {
-    pub flags_48: u8,
-    pub override_block_on_slow_streaming: EOverrideBlockOnSlowStreaming,
-    pub streaming_priority: i32,
-    pub initial_runtime_state: EDataLayerRuntimeState,
-    pub parent: UPtr<UDataLayerInstance>,
-    pub children: TArray<UPtr<UDataLayerInstance>>,
+    __padding_end: [u8; 88],
 }
+impl UDataLayerInstance {}
+#[repr(C, align(8))]
 pub struct UDataLayerInstancePrivate {
-    pub short_name: FString,
-    pub data_layer_asset: UPtr<UDataLayerAsset>,
-    pub b_is_included_in_actor_filter_default: bool,
+    __padding_end: [u8; 120],
 }
+impl UDataLayerInstancePrivate {}
 pub struct UDataLayerInstanceProvider {}
 pub struct IDataLayerInstanceProvider {}
+#[repr(C, align(8))]
 pub struct UDataLayerInstanceWithAsset {
-    pub data_layer_asset: UPtr<UDataLayerAsset>,
-    pub b_is_included_in_actor_filter_default: bool,
+    __padding_end: [u8; 120],
 }
+impl UDataLayerInstanceWithAsset {}
+#[repr(C, align(16))]
 pub struct UWorldPartition {
-    pub editor_hash: UPtr<UWorldPartitionEditorHash>,
-    pub world_partition_streaming_policy_class: TSubclassOf<
-        UWorldPartitionStreamingPolicy,
-    >,
-    pub b_streaming_was_enabled: bool,
-    pub runtime_hash: UPtr<UWorldPartitionRuntimeHash>,
-    pub b_enable_streaming: bool,
-    pub server_streaming_mode: EWorldPartitionServerStreamingMode,
-    pub server_streaming_out_mode: EWorldPartitionServerStreamingOutMode,
-    pub data_layers_logic_operator: EWorldPartitionDataLayersLogicOperator,
-    pub flags_572: u8,
-    pub runtime_cells_transformer_stack: TArray<FRuntimeCellTransformerInstance>,
-    pub default_hlod_layer: UPtr<UHLODLayer>,
-    pub actor_desc_container_instance: UPtr<UActorDescContainerInstance>,
-    pub container_instance_class: TSubclassOf<UActorDescContainerInstance>,
-    pub referenced_objects: TSet<UPtr<crate::bindings::core_u_object::UObject>>,
-    pub data_layer_manager: UPtr<UDataLayerManager>,
-    pub external_data_layer_manager: UPtr<UExternalDataLayerManager>,
-    pub streaming_policy: UPtr<UWorldPartitionStreamingPolicy>,
-    pub registered_editor_loader_adapters: TSet<
-        UPtr<UWorldPartitionEditorLoaderAdapter>,
-    >,
+    __padding_end: [u8; 1184],
 }
+impl UWorldPartition {
+    pub fn verify_layout() {}
+}
+#[repr(C, align(8))]
 pub struct UDataLayerManager {
-    pub on_data_layer_instance_runtime_state_changed: FDataLayerManager_OnDataLayerInstanceRuntimeStateChanged,
-    pub data_layer_loading_policy_class: TSoftObjectPtr<
-        crate::bindings::core_u_object::UClass,
-    >,
-    pub data_layer_instance_with_asset_class: TSoftObjectPtr<
-        crate::bindings::core_u_object::UClass,
-    >,
-    pub data_layer_loading_policy: UPtr<UDataLayerLoadingPolicy>,
+    __padding_end: [u8; 280],
 }
-pub struct UDataLayerLoadingPolicy {}
+impl UDataLayerManager {}
+#[repr(C, align(8))]
+pub struct UDataLayerLoadingPolicy {
+    __padding_end: [u8; 48],
+}
+impl UDataLayerLoadingPolicy {}
+#[repr(C, align(8))]
 pub struct UDataLayerSubsystem {
-    pub on_data_layer_runtime_state_changed: FDataLayerSubsystem_OnDataLayerRuntimeStateChanged,
-    pub data_layer_loading_policy_class: TSoftObjectPtr<
-        crate::bindings::core_u_object::UClass,
-    >,
+    __padding_end: [u8; 136],
 }
+impl UDataLayerSubsystem {}
+#[repr(C, align(8))]
 pub struct UDeprecatedDataLayerInstance {
-    pub label: FName,
-    pub deprecated_data_layer_f_name: FName,
-    pub data_layer_type: EDataLayerType,
-    pub debug_color: crate::bindings::core_u_object::FColor,
+    __padding_end: [u8; 120],
 }
+impl UDeprecatedDataLayerInstance {}
+#[repr(C, align(8))]
 pub struct UExternalDataLayerAsset {
-    pub uid: FExternalDataLayerUID,
+    __padding_end: [u8; 80],
 }
+impl UExternalDataLayerAsset {}
+#[repr(C, align(8))]
 pub struct UExternalDataLayerEngineSubsystem {
-    pub injection_policy_class: TSubclassOf<UExternalDataLayerInjectionPolicy>,
-    pub injection_policy: UPtr<UExternalDataLayerInjectionPolicy>,
+    __padding_end: [u8; 400],
 }
-pub struct UExternalDataLayerInjectionPolicy {}
-pub struct UExternalDataLayerInstance {}
+impl UExternalDataLayerEngineSubsystem {}
+#[repr(C, align(8))]
+pub struct UExternalDataLayerInjectionPolicy {
+    __padding_end: [u8; 48],
+}
+impl UExternalDataLayerInjectionPolicy {}
+#[repr(C, align(8))]
+pub struct UExternalDataLayerInstance {
+    __padding_end: [u8; 120],
+}
+impl UExternalDataLayerInstance {}
+#[repr(C, align(8))]
 pub struct UExternalDataLayerManager {
-    pub external_streaming_objects: TMap<
-        UPtr<UExternalDataLayerAsset>,
-        UPtr<URuntimeHashExternalStreamingObjectBase>,
-    >,
-    pub injected_external_data_layer_assets: TSet<UPtr<UExternalDataLayerAsset>>,
+    __padding_end: [u8; 456],
 }
+impl UExternalDataLayerManager {}
+#[repr(C, align(8))]
 pub struct AWorldPartitionCustomHLOD {
+    #[doc(hidden)]
+    __padding_1144: [u8; 1144],
     pub static_mesh_component: UPtr<UStaticMeshComponent>,
-    pub hlod_instance_guid: crate::bindings::core_u_object::FGuid,
+    __padding_end: [u8; 16],
 }
-pub struct AWorldPartitionCustomHLODPlaceholder {}
+impl AWorldPartitionCustomHLOD {}
+#[repr(C, align(8))]
+pub struct AWorldPartitionCustomHLODPlaceholder {
+    __padding_end: [u8; 1160],
+}
+impl AWorldPartitionCustomHLODPlaceholder {}
+#[repr(C, align(16))]
 pub struct UWorldPartitionDestructibleHLODComponent {
-    pub destructible_hlod_material: UPtr<UMaterialInterface>,
-    pub destructible_hlod_instances_mapping_data: FHLODInstancingPackedMappingData,
-    pub destructible_hlod_state: FWorldPartitionDestructibleHLODState,
-    pub visibility_material: UPtr<UMaterialInstanceDynamic>,
-    pub visibility_texture: UPtr<UTexture2DDynamic>,
-    pub destructible_actors: TArray<FName>,
+    __padding_end: [u8; 1152],
 }
-pub struct UDEPRECATED_UWorldPartitionDestructibleHLODMeshComponent {}
+impl UWorldPartitionDestructibleHLODComponent {}
+#[repr(C, align(16))]
+pub struct UDEPRECATED_UWorldPartitionDestructibleHLODMeshComponent {
+    __padding_end: [u8; 1152],
+}
+impl UDEPRECATED_UWorldPartitionDestructibleHLODMeshComponent {}
+#[repr(C, align(8))]
 pub struct AWorldPartitionHLOD {
-    pub source_actors: UPtr<UWorldPartitionHLODSourceActors>,
-    pub input_stats: FHLODBuildInputStats,
-    pub hlod_bounds: crate::bindings::core_u_object::FBox,
-    pub min_visible_distance: f64,
-    pub hlod_hash: u32,
-    pub hlod_stats: TMap<FName, i64>,
-    pub hlod_build_report: FString,
-    pub lod_level: u32,
-    pub b_require_warmup: bool,
-    pub source_cell_guid: crate::bindings::core_u_object::FGuid,
-    pub standalone_hlod_guid: crate::bindings::core_u_object::FGuid,
-    pub source_cell_deprecated: TSoftObjectPtr<UWorldPartitionRuntimeCell>,
-    pub source_cell_name_deprecated: FName,
-    pub hlod_sub_actors_deprecated: TArray<FWorldPartitionRuntimeCellObjectMapping>,
-    pub sub_actors_hlod_layer_deprecated: UPtr<UHLODLayer>,
+    __padding_end: [u8; 1528],
 }
-pub struct UHLODBuilderSettings {}
-pub struct UNullHLODBuilder {}
+impl AWorldPartitionHLOD {}
+#[repr(C, align(8))]
+pub struct UHLODBuilderSettings {
+    __padding_end: [u8; 48],
+}
+impl UHLODBuilderSettings {}
+#[repr(C, align(8))]
+pub struct UNullHLODBuilder {
+    __padding_end: [u8; 72],
+}
+impl UNullHLODBuilder {}
 pub struct UWorldPartitionDestructibleInHLODInterface {}
 pub struct IWorldPartitionDestructibleInHLODInterface {}
-pub struct UWorldPartitionDestructibleInHLODSupportLibrary {}
-pub struct UHLODInstancedSkinnedMeshComponent {}
-pub struct UHLODInstancedStaticMeshComponent {}
+#[repr(C, align(8))]
+pub struct UWorldPartitionDestructibleInHLODSupportLibrary {
+    __padding_end: [u8; 48],
+}
+impl UWorldPartitionDestructibleInHLODSupportLibrary {}
+#[repr(C, align(16))]
+pub struct UHLODInstancedSkinnedMeshComponent {
+    __padding_end: [u8; 3024],
+}
+impl UHLODInstancedSkinnedMeshComponent {}
+#[repr(C, align(16))]
+pub struct UHLODInstancedStaticMeshComponent {
+    __padding_end: [u8; 2880],
+}
+impl UHLODInstancedStaticMeshComponent {}
+#[repr(C, align(8))]
 pub struct UHLODLayer {
-    pub layer_type: EHLODLayerType,
-    pub hlod_builder_class: TSubclassOf<UHLODBuilder>,
-    pub hlod_builder_settings: UPtr<UHLODBuilderSettings>,
-    pub flags_72: u8,
-    pub cell_size: i32,
-    pub loading_range: f64,
-    pub parent_layer: UPtr<UHLODLayer>,
-    pub linked_layer: UPtr<UHLODLayer>,
-    pub hlod_actor_class: TSubclassOf<AWorldPartitionHLOD>,
-    pub hlod_modifier_class: TSubclassOf<UWorldPartitionHLODModifier>,
-    pub mesh_merge_settings_deprecated: FMeshMergingSettings,
-    pub mesh_simplify_settings_deprecated: FMeshProxySettings,
-    pub mesh_approximation_settings_deprecated: FMeshApproximationSettings,
-    pub hlod_material_deprecated: TSoftObjectPtr<UMaterialInterface>,
-    pub flags_1120: u8,
+    __padding_end: [u8; 1128],
 }
-pub struct UWorldPartitionHLODModifier {}
+impl UHLODLayer {}
+#[repr(C, align(8))]
+pub struct UWorldPartitionHLODModifier {
+    __padding_end: [u8; 48],
+}
+impl UWorldPartitionHLODModifier {}
+#[repr(C, align(8))]
 pub struct AWorldPartitionHLODOnlyLevelInstance {
-    pub world_asset: TSoftObjectPtr<UWorld>,
-    pub level_instance_spawn_guid: crate::bindings::core_u_object::FGuid,
+    __padding_end: [u8; 1416],
 }
+impl AWorldPartitionHLODOnlyLevelInstance {}
 pub struct UWorldPartitionHLODProvider {}
 pub struct IWorldPartitionHLODProvider {}
-pub struct UWorldPartitionHLODRuntimeSubsystem {}
+#[repr(C, align(8))]
+pub struct UWorldPartitionHLODRuntimeSubsystem {
+    __padding_end: [u8; 728],
+}
+impl UWorldPartitionHLODRuntimeSubsystem {}
+#[repr(C, align(8))]
 pub struct UWorldPartitionHLODSourceActors {
-    pub hlod_layer: UPtr<UHLODLayer>,
+    __padding_end: [u8; 56],
 }
+impl UWorldPartitionHLODSourceActors {}
+#[repr(C, align(8))]
 pub struct UWorldPartitionHLODSourceActorsFromCell {
-    pub actors: TArray<FWorldPartitionRuntimeCellObjectMapping>,
+    __padding_end: [u8; 72],
 }
+impl UWorldPartitionHLODSourceActorsFromCell {}
+#[repr(C, align(8))]
 pub struct UWorldPartitionHLODSourceActorsFromLevel {
-    pub source_level: TSoftObjectPtr<UWorld>,
+    __padding_end: [u8; 104],
 }
+impl UWorldPartitionHLODSourceActorsFromLevel {}
+#[repr(C, align(8))]
 pub struct UMaterialParameterCollectionHLODModifier {
-    pub mpc: UPtr<UMaterialParameterCollection>,
-    pub scalar_parameters: TArray<FHLODModifierScalarParameter>,
+    __padding_end: [u8; 96],
 }
+impl UMaterialParameterCollectionHLODModifier {}
+#[repr(C, align(8))]
 pub struct AWorldPartitionStandaloneHLOD {
-    pub world_asset: TSoftObjectPtr<UWorld>,
-    pub level_instance_spawn_guid: crate::bindings::core_u_object::FGuid,
+    __padding_end: [u8; 1416],
 }
-pub struct UWorldPartitionStandaloneHLODSubsystem {}
+impl AWorldPartitionStandaloneHLOD {}
+#[repr(C, align(8))]
+pub struct UWorldPartitionStandaloneHLODSubsystem {
+    __padding_end: [u8; 232],
+}
+impl UWorldPartitionStandaloneHLODSubsystem {}
+#[repr(C, align(16))]
 pub struct ULevelInstanceContainerInstance {
-    pub override_container: UPtr<UActorDescContainer>,
-    pub parent_container_references: TArray<UPtr<UActorDescContainer>>,
-    pub property_override_asset: TWeakObjectPtr<ULevelInstancePropertyOverrideAsset>,
-    pub container_id_to_container_path: TMap<FActorContainerID, FActorContainerPath>,
+    __padding_end: [u8; 800],
 }
-pub struct ULevelInstancePropertyOverrideContainer {}
+impl ULevelInstanceContainerInstance {}
+#[repr(C, align(8))]
+pub struct ULevelInstancePropertyOverrideContainer {
+    __padding_end: [u8; 528],
+}
+impl ULevelInstancePropertyOverrideContainer {}
+#[repr(C, align(8))]
 pub struct ANavigationDataChunkActor {
-    pub nav_data_chunks: TArray<UPtr<UNavigationDataChunk>>,
-    pub data_chunk_actor_bounds: crate::bindings::core_u_object::FBox,
+    __padding_end: [u8; 1216],
 }
+impl ANavigationDataChunkActor {}
+#[repr(C, align(8))]
 pub struct URuntimePartition {
-    pub name: FName,
-    pub b_block_on_slow_streaming: bool,
-    pub b_client_only_visible: bool,
-    pub priority: i32,
-    pub bounds_method: ERuntimePartitionCellBoundsMethod,
-    pub loading_range: i32,
-    pub debug_color: crate::bindings::core_u_object::FLinearColor,
-    pub hlod_index: i32,
+    __padding_end: [u8; 96],
 }
-pub struct URuntimePartitionLevelStreaming {}
+impl URuntimePartition {}
+#[repr(C, align(8))]
+pub struct URuntimePartitionLevelStreaming {
+    __padding_end: [u8; 96],
+}
+impl URuntimePartitionLevelStreaming {}
+#[repr(C, align(8))]
 pub struct URuntimePartitionLHGrid {
-    pub cell_size: u32,
-    pub origin: crate::bindings::core_u_object::FVector,
-    pub b_is2_d: bool,
-    pub b_show_grid_preview: bool,
+    __padding_end: [u8; 144],
 }
-pub struct URuntimePartitionPersistent {}
+impl URuntimePartitionLHGrid {}
+#[repr(C, align(8))]
+pub struct URuntimePartitionPersistent {
+    __padding_end: [u8; 96],
+}
+impl URuntimePartitionPersistent {}
+#[repr(C, align(8))]
 pub struct UWorldPartitionRuntimeCell {
-    pub unsaved_actors_container: UPtr<UActorContainer>,
-    pub b_is_always_loaded: bool,
-    pub b_is_spatially_loaded: bool,
-    pub data_layers: FDataLayerInstanceNames,
-    pub b_client_only_visible: bool,
-    pub b_is_hlod: bool,
-    pub b_is_custom_hlod_placeholder_cell: bool,
-    pub b_block_on_slow_loading: bool,
-    pub content_bundle_id: crate::bindings::core_u_object::FGuid,
-    pub cell_debug_color: crate::bindings::core_u_object::FLinearColor,
-    pub cell_guid: crate::bindings::core_u_object::FGuid,
-    pub source_cell_guid: crate::bindings::core_u_object::FGuid,
-    pub external_data_layer_asset: UPtr<UExternalDataLayerAsset>,
-    pub runtime_cell_data: UPtr<UWorldPartitionRuntimeCellData>,
+    __padding_end: [u8; 216],
 }
+impl UWorldPartitionRuntimeCell {}
+#[repr(C, align(8))]
 pub struct UWorldPartitionRuntimeCellData {
-    pub content_bounds: crate::bindings::core_u_object::FBox,
-    pub cell_bounds: TOptional<crate::bindings::core_u_object::FBox>,
-    pub grid_name: FName,
-    pub priority: i32,
-    pub hierarchical_level: i32,
+    __padding_end: [u8; 264],
 }
+impl UWorldPartitionRuntimeCellData {}
+#[repr(C, align(8))]
 pub struct UWorldPartitionRuntimeCellDataHashSet {
-    pub b_is2_d: bool,
+    __padding_end: [u8; 272],
 }
+impl UWorldPartitionRuntimeCellDataHashSet {}
+#[repr(C, align(8))]
 pub struct URuntimeHashExternalStreamingObjectBase {
-    pub sub_objects_to_cell_remapping: TMap<FName, FName>,
-    pub container_resolver: FWorldPartitionRuntimeContainerResolver,
-    pub outer_world: TSoftObjectPtr<UWorld>,
-    pub cell_to_streaming_data: TMap<FName, FWorldPartitionRuntimeCellStreamingData>,
-    pub data_layer_instances: TSet<UPtr<UDataLayerInstance>>,
-    pub root_external_data_layer_instance: UPtr<UExternalDataLayerInstance>,
-    pub packages_to_generate_for_cook: TMap<FString, UPtr<UWorldPartitionRuntimeCell>>,
-    pub external_data_layer_asset: UPtr<UExternalDataLayerAsset>,
+    __padding_end: [u8; 664],
 }
+impl URuntimeHashExternalStreamingObjectBase {}
+#[repr(C, align(8))]
 pub struct URuntimeHashSetExternalStreamingObject {
-    pub runtime_streaming_data: TArray<FRuntimePartitionStreamingData>,
+    __padding_end: [u8; 680],
 }
-pub struct UWorldPartitionRuntimeHash {}
+impl URuntimeHashSetExternalStreamingObject {}
+#[repr(C, align(8))]
+pub struct UWorldPartitionRuntimeHash {
+    __padding_end: [u8; 224],
+}
+impl UWorldPartitionRuntimeHash {}
+#[repr(C, align(8))]
 pub struct UWorldPartitionRuntimeHashSet {
-    pub runtime_partitions: TArray<FRuntimePartitionDesc>,
-    pub runtime_streaming_data: TArray<FRuntimePartitionStreamingData>,
-    pub world_asset_streaming_objects: TMap<
-        crate::bindings::core_u_object::FGuid,
-        UPtr<URuntimeHashSetExternalStreamingObject>,
-    >,
-    pub standalone_hlod_actor_to_source_cells_map: TMap<
-        crate::bindings::core_u_object::FGuid,
-        crate::bindings::core_u_object::FGuid,
-    >,
-    pub custom_hlod_actor_to_source_cells_map: TMap<
-        crate::bindings::core_u_object::FGuid,
-        crate::bindings::core_u_object::FGuid,
-    >,
+    __padding_end: [u8; 592],
 }
+impl UWorldPartitionRuntimeHashSet {}
+#[repr(C, align(8))]
 pub struct AMapBuildDataActor {
-    pub build_data: UPtr<UMapBuildDataRegistry>,
-    pub force_link_to_actor: UPtr<AActor>,
-    pub actor_bounds: crate::bindings::core_u_object::FBox,
-    pub cell_package: FName,
-    pub actor_instances: TArray<crate::bindings::core_u_object::FGuid>,
-    pub level_build_data_id: crate::bindings::core_u_object::FGuid,
+    __padding_end: [u8; 1264],
 }
+impl AMapBuildDataActor {}
 pub struct UWorldPartitionActorLoaderInterface {}
 pub struct IWorldPartitionActorLoaderInterface {}
-pub struct UWorldPartitionEditorHash {}
+#[repr(C, align(8))]
+pub struct UWorldPartitionEditorHash {
+    __padding_end: [u8; 48],
+}
+impl UWorldPartitionEditorHash {}
+#[repr(C, align(8))]
 pub struct UWorldPartitionEditorPerProjectUserSettings {
-    pub flags_104: u8,
-    pub flags_105: u8,
-    pub minimap_unloaded_opacity: f32,
-    pub per_world_editor_settings: TMap<
-        TSoftObjectPtr<UWorld>,
-        FWorldPartitionPerWorldSettings,
-    >,
+    __padding_end: [u8; 192],
 }
+impl UWorldPartitionEditorPerProjectUserSettings {}
+#[repr(C, align(8))]
 pub struct UWorldPartitionEditorSpatialHash {
-    pub cell_size: i32,
-    pub world_image: crate::bindings::core_u_object::FSoftObjectPath,
-    pub world_image_top_left_w: crate::bindings::core_u_object::FVector2D,
-    pub world_image_bottom_right_w: crate::bindings::core_u_object::FVector2D,
+    __padding_end: [u8; 2088],
 }
+impl UWorldPartitionEditorSpatialHash {}
+#[repr(C, align(16))]
 pub struct UWorldPartitionLevelStreamingDynamic {
-    pub runtime_level: UPtr<ULevel>,
-    pub b_should_be_always_loaded: bool,
-    pub b_should_perform_standard_level_loading: bool,
-    pub unsaved_actors_container: UPtr<UActorContainer>,
-    pub streaming_cell: TWeakObjectPtr<UWorldPartitionRuntimeLevelStreamingCell>,
-    pub outer_world_partition: TSoftObjectPtr<UWorldPartition>,
+    __padding_end: [u8; 736],
 }
+impl UWorldPartitionLevelStreamingDynamic {}
+#[repr(C, align(8))]
 pub struct UWorldPartitionStreamingPolicy {
-    pub current_state: FWorldPartitionUpdateStreamingCurrentState,
-    pub current_streaming_performance: EWorldPartitionStreamingPerformance,
-    pub b_current_block_on_slow_streaming: bool,
-    pub target_state: FWorldPartitionUpdateStreamingTargetState,
-    pub async_task_current_state: FWorldPartitionUpdateStreamingCurrentState,
-    pub async_task_target_state: FWorldPartitionUpdateStreamingTargetState,
-    pub b_should_merge_streaming_source_info: bool,
+    __padding_end: [u8; 1112],
 }
+impl UWorldPartitionStreamingPolicy {}
+#[repr(C, align(8))]
 pub struct UWorldPartitionLevelStreamingPolicy {
-    pub source_world_asset_path: crate::bindings::core_u_object::FTopLevelAssetPath,
-    pub sub_objects_to_cell_remapping: TMap<FName, FName>,
-    pub container_resolver: FWorldPartitionRuntimeContainerResolver,
-    pub external_streaming_objects: TArray<
-        TWeakObjectPtr<URuntimeHashExternalStreamingObjectBase>,
-    >,
-    pub sub_objects_to_external_streaming_objects_remapping: TMap<
-        FName,
-        TWeakObjectPtr<URuntimeHashExternalStreamingObjectBase>,
-    >,
+    __padding_end: [u8; 1488],
 }
+impl UWorldPartitionLevelStreamingPolicy {}
+#[repr(C, align(8))]
 pub struct AWorldPartitionMiniMap {
-    pub mini_map_world_bounds: crate::bindings::core_u_object::FBox,
-    pub uv_offset: crate::bindings::core_u_object::FBox2D,
-    pub mini_map_texture: UPtr<UTexture2D>,
-    pub excluded_data_layers: TSet<UPtr<UDataLayerAsset>>,
-    pub world_units_per_pixel: i32,
-    pub builder_cell_size: i32,
-    pub capture_source: ESceneCaptureSource,
-    pub capture_warmup_frames: u32,
-    pub mini_map_tile_size_deprecated: i32,
+    __padding_end: [u8; 1352],
 }
-pub struct AWorldPartitionMiniMapVolume {}
+impl AWorldPartitionMiniMap {}
+#[repr(C, align(8))]
+pub struct AWorldPartitionMiniMapVolume {
+    __padding_end: [u8; 1208],
+}
+impl AWorldPartitionMiniMapVolume {}
+#[repr(C, align(8))]
 pub struct AWorldPartitionReplay {
-    pub streaming_source_names: TArray<FName>,
+    __padding_end: [u8; 1168],
 }
+impl AWorldPartitionReplay {}
+#[repr(C, align(8))]
 pub struct UWorldPartitionRuntimeCellDataSpatialHash {
-    pub position: crate::bindings::core_u_object::FVector,
-    pub extent: f32,
+    __padding_end: [u8; 384],
 }
+impl UWorldPartitionRuntimeCellDataSpatialHash {}
 pub struct UWorldPartitionCell {}
 pub struct IWorldPartitionCell {}
+#[repr(C, align(8))]
 pub struct UWorldPartitionRuntimeCellTransformerSettings {
-    pub ignored_component_classes: TArray<TSubclassOf<UActorComponent>>,
-    pub ignored_exact_component_classes: TArray<TSubclassOf<UActorComponent>>,
+    __padding_end: [u8; 80],
 }
+impl UWorldPartitionRuntimeCellTransformerSettings {}
+#[repr(C, align(8))]
 pub struct UWorldPartitionRuntimeCellTransformer {
-    pub b_enabled: bool,
+    __padding_end: [u8; 56],
 }
+impl UWorldPartitionRuntimeCellTransformer {}
+#[repr(C, align(8))]
 pub struct UWorldPartitionRuntimeCellTransformerISM {
-    pub allowed_classes: TArray<TSubclassOf<AActor>>,
-    pub disallowed_classes: TArray<TSubclassOf<AActor>>,
-    pub min_num_instances: u32,
+    __padding_end: [u8; 96],
 }
-pub struct AWorldPartitionAutoInstancedActor {}
+impl UWorldPartitionRuntimeCellTransformerISM {}
+#[repr(C, align(8))]
+pub struct AWorldPartitionAutoInstancedActor {
+    __padding_end: [u8; 1136],
+}
+impl AWorldPartitionAutoInstancedActor {}
+#[repr(C, align(8))]
 pub struct UWorldPartitionRuntimeCellTransformerLog {
-    pub b_only_log_differences: bool,
+    __padding_end: [u8; 144],
 }
+impl UWorldPartitionRuntimeCellTransformerLog {}
+#[repr(C, align(8))]
 pub struct UWorldPartitionRuntimeLevelStreamingCell {
-    pub packages: TArray<FWorldPartitionRuntimeCellObjectMapping>,
-    pub level_streaming: UPtr<UWorldPartitionLevelStreamingDynamic>,
+    __padding_end: [u8; 320],
 }
+impl UWorldPartitionRuntimeLevelStreamingCell {}
+#[repr(C, align(8))]
 pub struct ASpatialHashRuntimeGridInfo {
-    pub grid_settings: FSpatialHashRuntimeGrid,
+    __padding_end: [u8; 1216],
 }
+impl ASpatialHashRuntimeGridInfo {}
+#[repr(C, align(8))]
 pub struct URuntimeSpatialHashExternalStreamingObject {
-    pub streaming_grids: TArray<FSpatialHashStreamingGrid>,
+    __padding_end: [u8; 680],
 }
+impl URuntimeSpatialHashExternalStreamingObject {}
+#[repr(C, align(8))]
 pub struct UWorldPartitionRuntimeSpatialHash {
-    pub grids: TArray<FSpatialHashRuntimeGrid>,
-    pub b_preview_grids: bool,
-    pub preview_grid_level: i32,
-    pub grid_previewer: FWorldPartitionRuntimeSpatialHashGridPreviewer,
-    pub use_aligned_grid_levels: EWorldPartitionCVarProjectDefaultOverride,
-    pub snap_non_aligned_grid_levels_to_lower_levels: EWorldPartitionCVarProjectDefaultOverride,
-    pub place_small_actors_using_location: EWorldPartitionCVarProjectDefaultOverride,
-    pub place_partition_actors_using_location: EWorldPartitionCVarProjectDefaultOverride,
-    pub b_enable_z_culling: bool,
-    pub settings: FSpatialHashSettings,
-    pub streaming_grids: TArray<FSpatialHashStreamingGrid>,
-    pub world_asset_streaming_objects: TMap<
-        crate::bindings::core_u_object::FGuid,
-        UPtr<URuntimeSpatialHashExternalStreamingObject>,
-    >,
+    __padding_end: [u8; 704],
 }
+impl UWorldPartitionRuntimeSpatialHash {}
+#[repr(C, align(8))]
 pub struct UWorldPartitionSettings {
-    pub new_maps_data_layers_logic_operator: EWorldPartitionDataLayersLogicOperator,
-    pub b_new_maps_enable_world_partition: bool,
-    pub b_new_maps_enable_world_partition_streaming: bool,
-    pub editor_hash_default_class: TSubclassOf<UWorldPartitionEditorHash>,
-    pub runtime_hash_default_class: TSubclassOf<UWorldPartitionRuntimeHash>,
-    pub property_override_policy: UPtr<UWorldPartitionPropertyOverridePolicy>,
-    pub unsupported_actor_classes_per_hlod_layer_type: TMap<
-        EHLODLayerType,
-        FHLODLayerTypeUnsupportedActorClasses,
-    >,
-    pub b_should_edl_packages_inherit_world_chunk_assignments_during_cook: bool,
+    __padding_end: [u8; 224],
 }
-pub struct UWorldPartitionSubsystem {}
-pub struct ADEPRECATED_WorldPartitionVolume {}
+impl UWorldPartitionSettings {}
+#[repr(C, align(8))]
+pub struct UWorldPartitionSubsystem {
+    __padding_end: [u8; 872],
+}
+impl UWorldPartitionSubsystem {}
+#[repr(C, align(8))]
+pub struct ADEPRECATED_WorldPartitionVolume {
+    __padding_end: [u8; 1208],
+}
+impl ADEPRECATED_WorldPartitionVolume {}
+#[repr(C, align(16))]
 pub struct AWorldSettings {
-    pub visibility_cell_size: i32,
-    pub visibility_aggressiveness: EVisibilityAggressiveness,
+    #[doc(hidden)]
+    __padding_1157: [u8; 1157],
     pub flags_1157: u8,
     pub flags_1158: u8,
-    pub flags_1159: u8,
     pub ai_system_class: TSoftObjectPtr<crate::bindings::core_u_object::UClass>,
-    pub level_instance_pivot_offset: crate::bindings::core_u_object::FVector,
+    #[doc(hidden)]
+    __padding_1232: [u8; 24],
     pub navigation_system_config: UPtr<UNavigationSystemConfig>,
-    pub navigation_system_config_override: UPtr<UNavigationSystemConfig>,
-    pub world_partition: UPtr<UWorldPartition>,
-    pub instanced_foliage_grid_size: u32,
-    pub b_show_instanced_foliage_grid: bool,
-    pub landscape_spline_meshes_grid_size: u32,
-    pub navigation_data_chunk_grid_size: u32,
-    pub navigation_data_builder_loading_cell_size: u32,
-    pub default_placement_grid_size: u32,
-    pub base_navmesh_data_layers: TArray<UPtr<UDataLayerAsset>>,
+    #[doc(hidden)]
+    __padding_1304: [u8; 64],
     pub world_to_meters: f32,
     pub kill_z: f32,
     pub kill_z_damage_type: TSubclassOf<UDamageType>,
-    pub world_gravity_z: f32,
+    #[doc(hidden)]
+    __padding_1324: [u8; 4],
     pub global_gravity_z: f32,
     pub default_physics_volume_class: TSubclassOf<ADefaultPhysicsVolume>,
     pub physics_collision_handler_class: TSubclassOf<UPhysicsCollisionHandler>,
     pub default_game_mode: TSubclassOf<AGameModeBase>,
-    pub game_network_manager_class: TSubclassOf<AGameNetworkManager>,
-    pub packed_light_and_shadow_map_texture_size: i32,
+    #[doc(hidden)]
+    __padding_1368: [u8; 16],
     pub default_color_scale: crate::bindings::core_u_object::FVector,
-    pub default_max_distance_field_occlusion_distance: f32,
-    pub global_distance_field_view_distance: f32,
-    pub dynamic_indirect_shadows_self_shadowing_intensity: f32,
+    #[doc(hidden)]
+    __padding_1404: [u8; 12],
     pub lightmass_settings: FLightmassWorldInfoSettings,
     pub volumetric_lightmap_loading_range: f32,
-    pub nanite_settings: FNaniteSettings,
-    pub default_reverb_settings: FReverbSettings,
-    pub default_ambient_zone_settings: FInteriorSettings,
-    pub default_base_sound_mix: UPtr<USoundMix>,
-    pub hlod_setup_asset: TSoftObjectPtr<crate::bindings::core_u_object::UClass>,
-    pub override_base_material: TSoftObjectPtr<UMaterialInterface>,
-    pub hierarchical_lod_setup: TArray<FHierarchicalSimplification>,
-    pub num_hlod_levels: i32,
-    pub hlod_baking_transform: crate::bindings::core_u_object::FTransform,
-    pub book_marks: UPtr<UBookMark>,
-    pub time_dilation: f32,
-    pub cinematic_time_dilation: f32,
-    pub demo_play_time_dilation: f32,
-    pub min_global_time_dilation: f32,
-    pub max_global_time_dilation: f32,
-    pub min_cinematic_time_dilation: f32,
-    pub max_cinematic_time_dilation: f32,
-    pub min_undilated_frame_time: f32,
-    pub max_undilated_frame_time: f32,
-    pub broadphase_settings: FBroadphaseSettings,
-    pub replication_viewers: TArray<FNetViewer>,
-    pub asset_user_data: TArray<UPtr<UAssetUserData>>,
-    pub asset_user_data_editor_only: TArray<UPtr<UAssetUserData>>,
-    pub pauser_player_state: UPtr<APlayerState>,
-    pub default_world_partition_settings: FWorldPartitionPerWorldSettings,
-    pub max_number_of_bookmarks: i32,
-    pub default_bookmark_class: TSubclassOf<UBookmarkBase>,
-    pub bookmark_array: TArray<UPtr<UBookmarkBase>>,
-    pub last_bookmark_class: TSubclassOf<UBookmarkBase>,
-    pub default_bookmark: UPtr<UBookmarkBase>,
-    pub b_enable_hierarchical_lod_system_deprecated: bool,
-    pub flags_2209: u8,
+    __padding_end: [u8; 732],
 }
-pub struct FDelegateArray_Delegates;
-pub struct FTimelineEventEntry_EventFunc;
-pub struct FTimelineVectorTrack_InterpFunc;
-pub struct FTimelineFloatTrack_InterpFunc;
-pub struct FTimelineLinearColorTrack_InterpFunc;
-pub struct FTimeline_EventFunc;
-pub struct FTimeline_InterpFunc;
-pub struct FTimeline_TimelinePostUpdateFunc;
-pub struct FTimeline_TimelineFinishedFunc;
-pub struct FK2_ClearTimerDelegate_Delegate;
-pub struct FK2_GetTimerElapsedTimeDelegate_Delegate;
-pub struct FK2_GetTimerRemainingTimeDelegate_Delegate;
-pub struct FK2_IsTimerActiveDelegate_Delegate;
-pub struct FK2_IsTimerPausedDelegate_Delegate;
-pub struct FK2_PauseTimerDelegate_Delegate;
-pub struct FK2_SetTimerDelegate_Delegate;
-pub struct FK2_SetTimerForNextTickDelegate_Delegate;
-pub struct FK2_TimerExistsDelegate_Delegate;
-pub struct FK2_UnPauseTimerDelegate_Delegate;
-pub struct FLoadAsset_OnLoaded;
-pub struct FLoadAssetClass_OnLoaded;
-pub struct FLoadAssets_OnLoaded;
-pub struct FAddEvent_EventFunc;
-pub struct FAddInterpFloat_InterpFunc;
-pub struct FAddInterpLinearColor_InterpFunc;
-pub struct FAddInterpVector_InterpFunc;
-pub struct FOnRep_Timeline_EventFunc;
-pub struct FSetTimelineFinishedFunc_NewTimelineFinishedFunc;
-pub struct FSetTimelinePostUpdateFunc_NewTimelinePostUpdateFunc;
-pub struct FPlayQuantized_InDelegate;
-pub struct FAddDisplayDelegate_Delegate;
-pub struct FAsyncLoadOrCreateSaveGameForLocalPlayer_Delegate;
-pub struct FAddEnvelopeFollowerDelegate_OnSubmixEnvelopeBP;
-pub struct FAddSpectralAnalysisDelegate_OnSubmixSpectralAnalysisBP;
-pub struct FRemoveEnvelopeFollowerDelegate_OnSubmixEnvelopeBP;
-pub struct FRemoveSpectralAnalysisDelegate_OnSubmixSpectralAnalysisBP;
-pub struct FActor_OnTakeAnyDamage;
-pub struct FActor_OnTakePointDamage;
-pub struct FActor_OnTakeRadialDamage;
-pub struct FActor_OnActorBeginOverlap;
-pub struct FActor_OnActorEndOverlap;
-pub struct FActor_OnBeginCursorOver;
-pub struct FActor_OnEndCursorOver;
-pub struct FActor_OnClicked;
-pub struct FActor_OnReleased;
-pub struct FActor_OnInputTouchBegin;
-pub struct FActor_OnInputTouchEnd;
-pub struct FActor_OnInputTouchEnter;
-pub struct FActor_OnInputTouchLeave;
-pub struct FActor_OnActorHit;
-pub struct FActor_OnDestroyed;
-pub struct FActor_OnEndPlay;
-pub struct FActorComponent_OnComponentActivated;
-pub struct FActorComponent_OnComponentDeactivated;
-pub struct FSceneComponent_PhysicsVolumeChangedDelegate;
-pub struct FPrimitiveComponent_OnComponentHit;
-pub struct FPrimitiveComponent_OnComponentBeginOverlap;
-pub struct FPrimitiveComponent_OnComponentEndOverlap;
-pub struct FPrimitiveComponent_OnComponentWake;
-pub struct FPrimitiveComponent_OnComponentSleep;
-pub struct FPrimitiveComponent_OnComponentPhysicsStateChanged;
-pub struct FPrimitiveComponent_OnBeginCursorOver;
-pub struct FPrimitiveComponent_OnEndCursorOver;
-pub struct FPrimitiveComponent_OnClicked;
-pub struct FPrimitiveComponent_OnReleased;
-pub struct FPrimitiveComponent_OnInputTouchBegin;
-pub struct FPrimitiveComponent_OnInputTouchEnd;
-pub struct FPrimitiveComponent_OnInputTouchEnter;
-pub struct FPrimitiveComponent_OnInputTouchLeave;
-pub struct FController_OnInstigatedAnyDamage;
-pub struct FController_OnPossessedPawnChanged;
-pub struct FPawn_ReceiveControllerChangedDelegate;
-pub struct FPawn_ReceiveRestartedDelegate;
-pub struct FCharacter_OnReachedJumpApex;
-pub struct FCharacter_LandedDelegate;
-pub struct FCharacter_MovementModeChangedDelegate;
-pub struct FCharacter_OnCharacterMovementUpdated;
-pub struct FGameInstance_OnPawnControllerChangedDelegates;
-pub struct FGameInstance_OnInputDeviceConnectionChange;
-pub struct FGameInstance_OnUserInputDevicePairingChange;
-pub struct FSkeletalMeshComponent_OnConstraintBroken;
-pub struct FSkeletalMeshComponent_OnPlasticDeformation;
-pub struct FSkeletalMeshComponent_OnAnimInitialized;
-pub struct FAnimInstance_OnMontageBlendingOut;
-pub struct FAnimInstance_OnMontageBlendedIn;
-pub struct FAnimInstance_OnMontageStarted;
-pub struct FAnimInstance_OnMontageEnded;
-pub struct FAnimInstance_OnAllMontageInstancesEnded;
-pub struct FAnimInstance_OnMontageSectionChanged;
-pub struct FAnimSingleNodeInstance_PostEvaluateAnimEvent;
-pub struct FPlatformInterfaceBase_Delegates;
-pub struct FEmitter_OnParticleSpawn;
-pub struct FEmitter_OnParticleBurst;
-pub struct FEmitter_OnParticleDeath;
-pub struct FEmitter_OnParticleCollide;
-pub struct FInGameAdManager_ClickedBannerDelegates;
-pub struct FInGameAdManager_ClosedAdDelegates;
-pub struct FLevelStreaming_OnLevelLoaded;
-pub struct FLevelStreaming_OnLevelUnloaded;
-pub struct FLevelStreaming_OnLevelShown;
-pub struct FLevelStreaming_OnLevelHidden;
-pub struct FTimelineComponent_EventFunc;
-pub struct FAnimDataModel_ModifiedEventDynamic;
-pub struct FAsyncActionLoadPrimaryAsset_Completed;
-pub struct FAsyncActionLoadPrimaryAssetClass_Completed;
-pub struct FAsyncActionLoadPrimaryAssetList_Completed;
-pub struct FAsyncActionLoadPrimaryAssetClassList_Completed;
-pub struct FAsyncActionChangePrimaryAssetBundles_Completed;
-pub struct FCanvasRenderTarget2D_OnCanvasRenderTargetUpdate;
-pub struct FApplicationLifecycleComponent_ApplicationWillDeactivateDelegate;
-pub struct FApplicationLifecycleComponent_ApplicationHasReactivatedDelegate;
-pub struct FApplicationLifecycleComponent_ApplicationWillEnterBackgroundDelegate;
-pub struct FApplicationLifecycleComponent_ApplicationHasEnteredForegroundDelegate;
-pub struct FApplicationLifecycleComponent_ApplicationWillTerminateDelegate;
-pub struct FApplicationLifecycleComponent_ApplicationShouldUnloadResourcesDelegate;
-pub struct FApplicationLifecycleComponent_ApplicationReceivedStartupArgumentsDelegate;
-pub struct FApplicationLifecycleComponent_OnTemperatureChangeDelegate;
-pub struct FApplicationLifecycleComponent_OnLowPowerModeDelegate;
-pub struct FAudioComponent_OnAudioPlayStateChanged;
-pub struct FAudioComponent_OnAudioVirtualizationChanged;
-pub struct FAudioComponent_OnAudioFinished;
-pub struct FAudioComponent_OnAudioPlaybackPercent;
-pub struct FAudioComponent_OnAudioSingleEnvelopeValue;
-pub struct FAudioComponent_OnAudioMultiEnvelopeValue;
-pub struct FAudioComponent_OnQueueSubtitles;
-pub struct FForceFeedbackComponent_OnForceFeedbackFinished;
-pub struct FInterpToMovementComponent_OnInterpToReverse;
-pub struct FInterpToMovementComponent_OnInterpToStop;
-pub struct FInterpToMovementComponent_OnWaitBeginDelegate;
-pub struct FInterpToMovementComponent_OnWaitEndDelegate;
-pub struct FInterpToMovementComponent_OnResetDelegate;
-pub struct FPlatformEventsComponent_PlatformChangedToLaptopModeDelegate;
-pub struct FPlatformEventsComponent_PlatformChangedToTabletModeDelegate;
-pub struct FProjectileMovementComponent_OnProjectileBounce;
-pub struct FProjectileMovementComponent_OnProjectileStop;
-pub struct FDataDrivenCVarEngineSubsystem_OnDataDrivenCVarDelegate;
-pub struct FAsyncActionHandleSaveGame_Completed;
-pub struct FInputDeviceSubsystem_OnInputHardwareDeviceChanged;
-pub struct FGameUserSettings_OnGameUserSettingsUINeedsUpdate;
-pub struct FPlatformGameInstance_ApplicationWillDeactivateDelegate;
-pub struct FPlatformGameInstance_ApplicationHasReactivatedDelegate;
-pub struct FPlatformGameInstance_ApplicationWillEnterBackgroundDelegate;
-pub struct FPlatformGameInstance_ApplicationHasEnteredForegroundDelegate;
-pub struct FPlatformGameInstance_ApplicationWillTerminateDelegate;
-pub struct FPlatformGameInstance_ApplicationShouldUnloadResourcesDelegate;
-pub struct FPlatformGameInstance_ApplicationReceivedStartupArgumentsDelegate;
-pub struct FPlatformGameInstance_ApplicationRegisteredForRemoteNotificationsDelegate;
-pub struct FPlatformGameInstance_ApplicationRegisteredForUserNotificationsDelegate;
-pub struct FPlatformGameInstance_ApplicationFailedToRegisterForRemoteNotificationsDelegate;
-pub struct FPlatformGameInstance_ApplicationReceivedRemoteNotificationDelegate;
-pub struct FPlatformGameInstance_ApplicationReceivedLocalNotificationDelegate;
-pub struct FPlatformGameInstance_ApplicationReceivedScreenOrientationChangedNotificationDelegate;
-pub struct FParticleSystemComponent_OnParticleSpawn;
-pub struct FParticleSystemComponent_OnParticleBurst;
-pub struct FParticleSystemComponent_OnParticleDeath;
-pub struct FParticleSystemComponent_OnParticleCollide;
-pub struct FParticleSystemComponent_OnSystemFinished;
-pub struct FClusterUnionComponent_OnComponentAddedEvent;
-pub struct FClusterUnionComponent_OnComponentRemovedEvent;
-pub struct FClusterUnionComponent_OnComponentBoundsChangedEvent;
-pub struct FChaosEventRelay_OnCollisionEvent;
-pub struct FChaosEventRelay_OnBreakEvent;
-pub struct FChaosEventRelay_OnRemovalEvent;
-pub struct FChaosEventRelay_OnCrumblingEvent;
-pub struct FPhysicsConstraintComponent_OnConstraintBroken;
-pub struct FPhysicsConstraintComponent_OnPlasticDeformation;
-pub struct FPlayerCameraManager_OnAudioFadeChangeEvent;
-pub struct FPlayerState_OnPawnSet;
-pub struct FSoundSubmix_OnSubmixRecordedFileDone;
-pub struct FDataLayerManager_OnDataLayerInstanceRuntimeStateChanged;
-pub struct FDataLayerSubsystem_OnDataLayerRuntimeStateChanged;
-#[allow(non_camel_case_types)]
+impl AWorldSettings {}
+#[repr(transparent)]
+pub struct FDelegateArray_Delegates {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FTimelineEventEntry_EventFunc {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FTimelineVectorTrack_InterpFunc {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FTimelineFloatTrack_InterpFunc {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FTimelineLinearColorTrack_InterpFunc {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FTimeline_EventFunc {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FTimeline_InterpFunc {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FTimeline_TimelinePostUpdateFunc {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FTimeline_TimelineFinishedFunc {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FK2_ClearTimerDelegate_Delegate {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FK2_GetTimerElapsedTimeDelegate_Delegate {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FK2_GetTimerRemainingTimeDelegate_Delegate {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FK2_IsTimerActiveDelegate_Delegate {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FK2_IsTimerPausedDelegate_Delegate {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FK2_PauseTimerDelegate_Delegate {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FK2_SetTimerDelegate_Delegate {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FK2_SetTimerForNextTickDelegate_Delegate {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FK2_TimerExistsDelegate_Delegate {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FK2_UnPauseTimerDelegate_Delegate {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FLoadAsset_OnLoaded {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FLoadAssetClass_OnLoaded {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FLoadAssets_OnLoaded {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FAddEvent_EventFunc {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FAddInterpFloat_InterpFunc {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FAddInterpLinearColor_InterpFunc {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FAddInterpVector_InterpFunc {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FOnRep_Timeline_EventFunc {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FSetTimelineFinishedFunc_NewTimelineFinishedFunc {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FSetTimelinePostUpdateFunc_NewTimelinePostUpdateFunc {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FPlayQuantized_InDelegate {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FAddDisplayDelegate_Delegate {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FAsyncLoadOrCreateSaveGameForLocalPlayer_Delegate {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FAddEnvelopeFollowerDelegate_OnSubmixEnvelopeBP {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FAddSpectralAnalysisDelegate_OnSubmixSpectralAnalysisBP {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FRemoveEnvelopeFollowerDelegate_OnSubmixEnvelopeBP {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FRemoveSpectralAnalysisDelegate_OnSubmixSpectralAnalysisBP {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FActor_OnTakeAnyDamage {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FActor_OnTakePointDamage {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FActor_OnTakeRadialDamage {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FActor_OnActorBeginOverlap {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FActor_OnActorEndOverlap {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FActor_OnBeginCursorOver {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FActor_OnEndCursorOver {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FActor_OnClicked {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FActor_OnReleased {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FActor_OnInputTouchBegin {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FActor_OnInputTouchEnd {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FActor_OnInputTouchEnter {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FActor_OnInputTouchLeave {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FActor_OnActorHit {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FActor_OnDestroyed {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FActor_OnEndPlay {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FActorComponent_OnComponentActivated {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FActorComponent_OnComponentDeactivated {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FSceneComponent_PhysicsVolumeChangedDelegate {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FPrimitiveComponent_OnComponentHit {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FPrimitiveComponent_OnComponentBeginOverlap {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FPrimitiveComponent_OnComponentEndOverlap {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FPrimitiveComponent_OnComponentWake {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FPrimitiveComponent_OnComponentSleep {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FPrimitiveComponent_OnComponentPhysicsStateChanged {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FPrimitiveComponent_OnBeginCursorOver {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FPrimitiveComponent_OnEndCursorOver {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FPrimitiveComponent_OnClicked {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FPrimitiveComponent_OnReleased {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FPrimitiveComponent_OnInputTouchBegin {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FPrimitiveComponent_OnInputTouchEnd {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FPrimitiveComponent_OnInputTouchEnter {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FPrimitiveComponent_OnInputTouchLeave {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FController_OnInstigatedAnyDamage {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FController_OnPossessedPawnChanged {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FPawn_ReceiveControllerChangedDelegate {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FPawn_ReceiveRestartedDelegate {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FCharacter_OnReachedJumpApex {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FCharacter_LandedDelegate {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FCharacter_MovementModeChangedDelegate {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FCharacter_OnCharacterMovementUpdated {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FGameInstance_OnPawnControllerChangedDelegates {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FGameInstance_OnInputDeviceConnectionChange {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FGameInstance_OnUserInputDevicePairingChange {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FSkeletalMeshComponent_OnConstraintBroken {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FSkeletalMeshComponent_OnPlasticDeformation {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FSkeletalMeshComponent_OnAnimInitialized {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FAnimInstance_OnMontageBlendingOut {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FAnimInstance_OnMontageBlendedIn {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FAnimInstance_OnMontageStarted {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FAnimInstance_OnMontageEnded {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FAnimInstance_OnAllMontageInstancesEnded {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FAnimInstance_OnMontageSectionChanged {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FAnimSingleNodeInstance_PostEvaluateAnimEvent {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FPlatformInterfaceBase_Delegates {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FEmitter_OnParticleSpawn {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FEmitter_OnParticleBurst {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FEmitter_OnParticleDeath {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FEmitter_OnParticleCollide {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FInGameAdManager_ClickedBannerDelegates {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FInGameAdManager_ClosedAdDelegates {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FLevelStreaming_OnLevelLoaded {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FLevelStreaming_OnLevelUnloaded {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FLevelStreaming_OnLevelShown {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FLevelStreaming_OnLevelHidden {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FTimelineComponent_EventFunc {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FAnimDataModel_ModifiedEventDynamic {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FAsyncActionLoadPrimaryAsset_Completed {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FAsyncActionLoadPrimaryAssetClass_Completed {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FAsyncActionLoadPrimaryAssetList_Completed {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FAsyncActionLoadPrimaryAssetClassList_Completed {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FAsyncActionChangePrimaryAssetBundles_Completed {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FCanvasRenderTarget2D_OnCanvasRenderTargetUpdate {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FApplicationLifecycleComponent_ApplicationWillDeactivateDelegate {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FApplicationLifecycleComponent_ApplicationHasReactivatedDelegate {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FApplicationLifecycleComponent_ApplicationWillEnterBackgroundDelegate {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FApplicationLifecycleComponent_ApplicationHasEnteredForegroundDelegate {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FApplicationLifecycleComponent_ApplicationWillTerminateDelegate {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FApplicationLifecycleComponent_ApplicationShouldUnloadResourcesDelegate {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FApplicationLifecycleComponent_ApplicationReceivedStartupArgumentsDelegate {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FApplicationLifecycleComponent_OnTemperatureChangeDelegate {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FApplicationLifecycleComponent_OnLowPowerModeDelegate {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FAudioComponent_OnAudioPlayStateChanged {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FAudioComponent_OnAudioVirtualizationChanged {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FAudioComponent_OnAudioFinished {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FAudioComponent_OnAudioPlaybackPercent {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FAudioComponent_OnAudioSingleEnvelopeValue {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FAudioComponent_OnAudioMultiEnvelopeValue {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FAudioComponent_OnQueueSubtitles {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FForceFeedbackComponent_OnForceFeedbackFinished {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FInterpToMovementComponent_OnInterpToReverse {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FInterpToMovementComponent_OnInterpToStop {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FInterpToMovementComponent_OnWaitBeginDelegate {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FInterpToMovementComponent_OnWaitEndDelegate {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FInterpToMovementComponent_OnResetDelegate {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FPlatformEventsComponent_PlatformChangedToLaptopModeDelegate {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FPlatformEventsComponent_PlatformChangedToTabletModeDelegate {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FProjectileMovementComponent_OnProjectileBounce {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FProjectileMovementComponent_OnProjectileStop {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FDataDrivenCVarEngineSubsystem_OnDataDrivenCVarDelegate {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FAsyncActionHandleSaveGame_Completed {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FInputDeviceSubsystem_OnInputHardwareDeviceChanged {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FGameUserSettings_OnGameUserSettingsUINeedsUpdate {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FPlatformGameInstance_ApplicationWillDeactivateDelegate {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FPlatformGameInstance_ApplicationHasReactivatedDelegate {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FPlatformGameInstance_ApplicationWillEnterBackgroundDelegate {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FPlatformGameInstance_ApplicationHasEnteredForegroundDelegate {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FPlatformGameInstance_ApplicationWillTerminateDelegate {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FPlatformGameInstance_ApplicationShouldUnloadResourcesDelegate {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FPlatformGameInstance_ApplicationReceivedStartupArgumentsDelegate {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FPlatformGameInstance_ApplicationRegisteredForRemoteNotificationsDelegate {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FPlatformGameInstance_ApplicationRegisteredForUserNotificationsDelegate {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FPlatformGameInstance_ApplicationFailedToRegisterForRemoteNotificationsDelegate {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FPlatformGameInstance_ApplicationReceivedRemoteNotificationDelegate {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FPlatformGameInstance_ApplicationReceivedLocalNotificationDelegate {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FPlatformGameInstance_ApplicationReceivedScreenOrientationChangedNotificationDelegate {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FParticleSystemComponent_OnParticleSpawn {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FParticleSystemComponent_OnParticleBurst {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FParticleSystemComponent_OnParticleDeath {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FParticleSystemComponent_OnParticleCollide {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FParticleSystemComponent_OnSystemFinished {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FClusterUnionComponent_OnComponentAddedEvent {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FClusterUnionComponent_OnComponentRemovedEvent {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FClusterUnionComponent_OnComponentBoundsChangedEvent {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FChaosEventRelay_OnCollisionEvent {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FChaosEventRelay_OnBreakEvent {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FChaosEventRelay_OnRemovalEvent {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FChaosEventRelay_OnCrumblingEvent {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FPhysicsConstraintComponent_OnConstraintBroken {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FPhysicsConstraintComponent_OnPlasticDeformation {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FPlayerCameraManager_OnAudioFadeChangeEvent {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FPlayerState_OnPawnSet {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FSoundSubmix_OnSubmixRecordedFileDone {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FDataLayerManager_OnDataLayerInstanceRuntimeStateChanged {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FDataLayerSubsystem_OnDataLayerRuntimeStateChanged {
+    _opague: u8,
+}
 #[repr(transparent)]
 pub struct EFormatArgumentType(pub u8);
 impl EFormatArgumentType {
@@ -16129,7 +12980,6 @@ impl EFormatArgumentType {
     pub const TEXT: EFormatArgumentType = EFormatArgumentType(4);
     pub const GENDER: EFormatArgumentType = EFormatArgumentType(5);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ETextGender(pub u8);
 impl ETextGender {
@@ -16137,7 +12987,6 @@ impl ETextGender {
     pub const FEMININE: ETextGender = ETextGender(1);
     pub const NEUTER: ETextGender = ETextGender(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EPlatformInterfaceDataType(pub u8);
 impl EPlatformInterfaceDataType {
@@ -16148,7 +12997,6 @@ impl EPlatformInterfaceDataType {
     pub const PIDT_OBJECT: EPlatformInterfaceDataType = EPlatformInterfaceDataType(4);
     pub const PIDT_CUSTOM: EPlatformInterfaceDataType = EPlatformInterfaceDataType(5);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ETickingGroup(pub u8);
 impl ETickingGroup {
@@ -16161,7 +13009,6 @@ impl ETickingGroup {
     pub const TG_LAST_DEMOTABLE: ETickingGroup = ETickingGroup(6);
     pub const TG_NEWLY_SPAWNED: ETickingGroup = ETickingGroup(7);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EWalkableSlopeBehavior(pub u8);
 impl EWalkableSlopeBehavior {
@@ -16176,7 +13023,6 @@ impl EWalkableSlopeBehavior {
         3,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ECollisionChannel(pub u8);
 impl ECollisionChannel {
@@ -16214,7 +13060,6 @@ impl ECollisionChannel {
     pub const ECC_GAME_TRACE_CHANNEL18: ECollisionChannel = ECollisionChannel(31);
     pub const ECC_OVERLAP_ALL_DEPRECATED: ECollisionChannel = ECollisionChannel(32);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ECollisionEnabled(pub u8);
 impl ECollisionEnabled {
@@ -16225,7 +13070,6 @@ impl ECollisionEnabled {
     pub const PROBE_ONLY: ECollisionEnabled = ECollisionEnabled(4);
     pub const QUERY_AND_PROBE: ECollisionEnabled = ECollisionEnabled(5);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EDOFMode(pub u8);
 impl EDOFMode {
@@ -16237,7 +13081,6 @@ impl EDOFMode {
     pub const CUSTOM_PLANE: EDOFMode = EDOFMode(5);
     pub const NONE: EDOFMode = EDOFMode(6);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ECollisionResponse(pub u8);
 impl ECollisionResponse {
@@ -16245,7 +13088,6 @@ impl ECollisionResponse {
     pub const ECR_OVERLAP: ECollisionResponse = ECollisionResponse(1);
     pub const ECR_BLOCK: ECollisionResponse = ECollisionResponse(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EInputEvent(pub u8);
 impl EInputEvent {
@@ -16255,7 +13097,6 @@ impl EInputEvent {
     pub const IE_DOUBLE_CLICK: EInputEvent = EInputEvent(3);
     pub const IE_AXIS: EInputEvent = EInputEvent(4);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMaterialProperty(pub u8);
 impl EMaterialProperty {
@@ -16299,14 +13140,12 @@ impl EMaterialProperty {
     pub const MP_MATERIAL_ATTRIBUTES: EMaterialProperty = EMaterialProperty(33);
     pub const MP_CUSTOM_OUTPUT: EMaterialProperty = EMaterialProperty(34);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EBloomMethod(pub u8);
 impl EBloomMethod {
     pub const BM_SOG: EBloomMethod = EBloomMethod(0);
     pub const BM_FFT: EBloomMethod = EBloomMethod(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EAutoExposureMethod(pub u8);
 impl EAutoExposureMethod {
@@ -16314,7 +13153,6 @@ impl EAutoExposureMethod {
     pub const AEM_BASIC: EAutoExposureMethod = EAutoExposureMethod(1);
     pub const AEM_MANUAL: EAutoExposureMethod = EAutoExposureMethod(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EDepthOfFieldMethod(pub u8);
 impl EDepthOfFieldMethod {
@@ -16322,14 +13160,12 @@ impl EDepthOfFieldMethod {
     pub const DOFM_GAUSSIAN: EDepthOfFieldMethod = EDepthOfFieldMethod(1);
     pub const DOFM_CIRCLE_DOF: EDepthOfFieldMethod = EDepthOfFieldMethod(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ETemperatureMethod(pub u8);
 impl ETemperatureMethod {
     pub const TEMP_WHITE_BALANCE: ETemperatureMethod = ETemperatureMethod(0);
     pub const TEMP_COLOR_TEMPERATURE: ETemperatureMethod = ETemperatureMethod(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EDynamicGlobalIlluminationMethod(pub u8);
 impl EDynamicGlobalIlluminationMethod {
@@ -16346,7 +13182,6 @@ impl EDynamicGlobalIlluminationMethod {
         3,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ELumenRayLightingModeOverride(pub u8);
 impl ELumenRayLightingModeOverride {
@@ -16361,7 +13196,6 @@ impl ELumenRayLightingModeOverride {
         3,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EReflectionMethod(pub u8);
 impl EReflectionMethod {
@@ -16369,21 +13203,18 @@ impl EReflectionMethod {
     pub const LUMEN: EReflectionMethod = EReflectionMethod(1);
     pub const SCREEN_SPACE: EReflectionMethod = EReflectionMethod(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EReflectionsType(pub u8);
 impl EReflectionsType {
     pub const SCREEN_SPACE: EReflectionsType = EReflectionsType(0);
     pub const RAY_TRACING: EReflectionsType = EReflectionsType(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ELocalExposureMethod(pub u8);
 impl ELocalExposureMethod {
     pub const BILATERAL: ELocalExposureMethod = ELocalExposureMethod(0);
     pub const FUSION: ELocalExposureMethod = ELocalExposureMethod(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ETranslucencyType(pub u8);
 impl ETranslucencyType {
@@ -16392,7 +13223,6 @@ impl ETranslucencyType {
     pub const RAY_TRACING: ETranslucencyType = ETranslucencyType(1);
     pub const RAY_TRACED: ETranslucencyType = ETranslucencyType(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EReflectedAndRefractedRayTracedShadows(pub u8);
 impl EReflectedAndRefractedRayTracedShadows {
@@ -16406,7 +13236,6 @@ impl EReflectedAndRefractedRayTracedShadows {
         2,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ETraceTypeQuery(pub u8);
 impl ETraceTypeQuery {
@@ -16443,7 +13272,6 @@ impl ETraceTypeQuery {
     pub const TRACE_TYPE_QUERY31: ETraceTypeQuery = ETraceTypeQuery(30);
     pub const TRACE_TYPE_QUERY32: ETraceTypeQuery = ETraceTypeQuery(31);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EComponentCreationMethod(pub u8);
 impl EComponentCreationMethod {
@@ -16456,7 +13284,6 @@ impl EComponentCreationMethod {
     );
     pub const INSTANCE: EComponentCreationMethod = EComponentCreationMethod(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ERichCurveExtrapolation(pub u8);
 impl ERichCurveExtrapolation {
@@ -16469,7 +13296,6 @@ impl ERichCurveExtrapolation {
     pub const RCCE_CONSTANT: ERichCurveExtrapolation = ERichCurveExtrapolation(4);
     pub const RCCE_NONE: ERichCurveExtrapolation = ERichCurveExtrapolation(5);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ERichCurveInterpMode(pub u8);
 impl ERichCurveInterpMode {
@@ -16478,7 +13304,6 @@ impl ERichCurveInterpMode {
     pub const RCIM_CUBIC: ERichCurveInterpMode = ERichCurveInterpMode(2);
     pub const RCIM_NONE: ERichCurveInterpMode = ERichCurveInterpMode(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ERichCurveTangentMode(pub u8);
 impl ERichCurveTangentMode {
@@ -16488,7 +13313,6 @@ impl ERichCurveTangentMode {
     pub const RCTM_NONE: ERichCurveTangentMode = ERichCurveTangentMode(3);
     pub const RCTM_SMART_AUTO: ERichCurveTangentMode = ERichCurveTangentMode(4);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ERichCurveTangentWeightMode(pub u8);
 impl ERichCurveTangentWeightMode {
@@ -16505,7 +13329,6 @@ impl ERichCurveTangentWeightMode {
         3,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EPinContainerType(pub u8);
 impl EPinContainerType {
@@ -16514,14 +13337,12 @@ impl EPinContainerType {
     pub const SET: EPinContainerType = EPinContainerType(2);
     pub const MAP: EPinContainerType = EPinContainerType(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EEdGraphPinDirection(pub u8);
 impl EEdGraphPinDirection {
     pub const EGPD_INPUT: EEdGraphPinDirection = EEdGraphPinDirection(0);
     pub const EGPD_OUTPUT: EEdGraphPinDirection = EEdGraphPinDirection(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EGraphType(pub u8);
 impl EGraphType {
@@ -16531,7 +13352,6 @@ impl EGraphType {
     pub const GT_ANIMATION: EGraphType = EGraphType(3);
     pub const GT_STATE_MACHINE: EGraphType = EGraphType(4);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EAlphaBlendOption(pub u8);
 impl EAlphaBlendOption {
@@ -16551,7 +13371,6 @@ impl EAlphaBlendOption {
     pub const EXP_IN_OUT: EAlphaBlendOption = EAlphaBlendOption(13);
     pub const CUSTOM: EAlphaBlendOption = EAlphaBlendOption(14);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EAnimGroupRole(pub u8);
 impl EAnimGroupRole {
@@ -16562,7 +13381,6 @@ impl EAnimGroupRole {
     pub const TRANSITION_FOLLOWER: EAnimGroupRole = EAnimGroupRole(4);
     pub const EXCLUSIVE_ALWAYS_LEADER: EAnimGroupRole = EAnimGroupRole(5);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EAnimAlphaInputType(pub u8);
 impl EAnimAlphaInputType {
@@ -16570,7 +13388,6 @@ impl EAnimAlphaInputType {
     pub const BOOL: EAnimAlphaInputType = EAnimAlphaInputType(1);
     pub const CURVE: EAnimAlphaInputType = EAnimAlphaInputType(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EBoneAxis(pub u8);
 impl EBoneAxis {
@@ -16578,14 +13395,12 @@ impl EBoneAxis {
     pub const BA_Y: EBoneAxis = EBoneAxis(1);
     pub const BA_Z: EBoneAxis = EBoneAxis(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EAnimSyncGroupScope(pub u8);
 impl EAnimSyncGroupScope {
     pub const LOCAL: EAnimSyncGroupScope = EAnimSyncGroupScope(0);
     pub const COMPONENT: EAnimSyncGroupScope = EAnimSyncGroupScope(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EAnimSyncMethod(pub u8);
 impl EAnimSyncMethod {
@@ -16593,7 +13408,6 @@ impl EAnimSyncMethod {
     pub const SYNC_GROUP: EAnimSyncMethod = EAnimSyncMethod(1);
     pub const GRAPH: EAnimSyncMethod = EAnimSyncMethod(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EBoneControlSpace(pub u8);
 impl EBoneControlSpace {
@@ -16602,7 +13416,6 @@ impl EBoneControlSpace {
     pub const BCS_PARENT_BONE_SPACE: EBoneControlSpace = EBoneControlSpace(2);
     pub const BCS_BONE_SPACE: EBoneControlSpace = EBoneControlSpace(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ECurveBlendOption(pub u8);
 impl ECurveBlendOption {
@@ -16614,7 +13427,6 @@ impl ECurveBlendOption {
     pub const USE_MAX_VALUE: ECurveBlendOption = ECurveBlendOption(5);
     pub const USE_MIN_VALUE: ECurveBlendOption = ECurveBlendOption(6);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct AnimPhysTwistAxis(pub u8);
 impl AnimPhysTwistAxis {
@@ -16622,7 +13434,6 @@ impl AnimPhysTwistAxis {
     pub const AXIS_Y: AnimPhysTwistAxis = AnimPhysTwistAxis(1);
     pub const AXIS_Z: AnimPhysTwistAxis = AnimPhysTwistAxis(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct AnimPhysCollisionType(pub u8);
 impl AnimPhysCollisionType {
@@ -16631,7 +13442,6 @@ impl AnimPhysCollisionType {
     pub const INNER_SPHERE: AnimPhysCollisionType = AnimPhysCollisionType(2);
     pub const OUTER_SPHERE: AnimPhysCollisionType = AnimPhysCollisionType(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EComponentType(pub u8);
 impl EComponentType {
@@ -16647,7 +13457,6 @@ impl EComponentType {
     pub const SCALE_Y: EComponentType = EComponentType(9);
     pub const SCALE_Z: EComponentType = EComponentType(10);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EBoneRotationSource(pub u8);
 impl EBoneRotationSource {
@@ -16659,7 +13468,6 @@ impl EBoneRotationSource {
     );
     pub const BRS_COPY_FROM_TARGET: EBoneRotationSource = EBoneRotationSource(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EAxisOption(pub u8);
 impl EAxisOption {
@@ -16671,7 +13479,6 @@ impl EAxisOption {
     pub const Z_NEG: EAxisOption = EAxisOption(5);
     pub const CUSTOM: EAxisOption = EAxisOption(6);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ECameraShakePlaySpace(pub u8);
 impl ECameraShakePlaySpace {
@@ -16679,7 +13486,6 @@ impl ECameraShakePlaySpace {
     pub const WORLD: ECameraShakePlaySpace = ECameraShakePlaySpace(1);
     pub const USER_DEFINED: ECameraShakePlaySpace = ECameraShakePlaySpace(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMaterialParameterAssociation(pub u8);
 impl EMaterialParameterAssociation {
@@ -16693,7 +13499,6 @@ impl EMaterialParameterAssociation {
         2,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EVectorQuantization(pub u8);
 impl EVectorQuantization {
@@ -16701,14 +13506,12 @@ impl EVectorQuantization {
     pub const ROUND_ONE_DECIMAL: EVectorQuantization = EVectorQuantization(1);
     pub const ROUND_TWO_DECIMALS: EVectorQuantization = EVectorQuantization(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ERotatorQuantization(pub u8);
 impl ERotatorQuantization {
     pub const BYTE_COMPONENTS: ERotatorQuantization = ERotatorQuantization(0);
     pub const SHORT_COMPONENTS: ERotatorQuantization = ERotatorQuantization(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EAspectRatioAxisConstraint(pub u8);
 impl EAspectRatioAxisConstraint {
@@ -16722,14 +13525,12 @@ impl EAspectRatioAxisConstraint {
         2,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EAnimInterpolationType(pub u8);
 impl EAnimInterpolationType {
     pub const LINEAR: EAnimInterpolationType = EAnimInterpolationType(0);
     pub const STEP: EAnimInterpolationType = EAnimInterpolationType(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EViewModeIndex(pub u8);
 impl EViewModeIndex {
@@ -16778,7 +13579,6 @@ impl EViewModeIndex {
     pub const VMI_RANDOM_COLOR: EViewModeIndex = EViewModeIndex(43);
     pub const VMI_UNKNOWN: EViewModeIndex = EViewModeIndex(255);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EBlendableLocation(pub u8);
 impl EBlendableLocation {
@@ -16795,7 +13595,6 @@ impl EBlendableLocation {
     pub const BL_BEFORE_TONEMAPPING: EBlendableLocation = EBlendableLocation(1);
     pub const BL_AFTER_TONEMAPPING: EBlendableLocation = EBlendableLocation(0);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ECollectionScriptingShareType(pub u8);
 impl ECollectionScriptingShareType {
@@ -16803,7 +13602,6 @@ impl ECollectionScriptingShareType {
     pub const PRIVATE: ECollectionScriptingShareType = ECollectionScriptingShareType(1);
     pub const SHARED: ECollectionScriptingShareType = ECollectionScriptingShareType(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EShadowCacheInvalidationBehavior(pub u8);
 impl EShadowCacheInvalidationBehavior {
@@ -16820,7 +13618,6 @@ impl EShadowCacheInvalidationBehavior {
         3,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ESplineMeshAxis(pub u8);
 impl ESplineMeshAxis {
@@ -16828,7 +13625,6 @@ impl ESplineMeshAxis {
     pub const Y: ESplineMeshAxis = ESplineMeshAxis(1);
     pub const Z: ESplineMeshAxis = ESplineMeshAxis(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ERawCurveTrackTypes(pub u8);
 impl ERawCurveTrackTypes {
@@ -16836,7 +13632,6 @@ impl ERawCurveTrackTypes {
     pub const RCT_VECTOR: ERawCurveTrackTypes = ERawCurveTrackTypes(1);
     pub const RCT_TRANSFORM: ERawCurveTrackTypes = ERawCurveTrackTypes(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ETransformCurveChannel(pub u8);
 impl ETransformCurveChannel {
@@ -16845,7 +13640,6 @@ impl ETransformCurveChannel {
     pub const SCALE: ETransformCurveChannel = ETransformCurveChannel(2);
     pub const INVALID: ETransformCurveChannel = ETransformCurveChannel(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EVectorCurveChannel(pub u8);
 impl EVectorCurveChannel {
@@ -16854,7 +13648,6 @@ impl EVectorCurveChannel {
     pub const Z: EVectorCurveChannel = EVectorCurveChannel(2);
     pub const INVALID: EVectorCurveChannel = EVectorCurveChannel(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EAdditiveAnimationType(pub u8);
 impl EAdditiveAnimationType {
@@ -16864,7 +13657,6 @@ impl EAdditiveAnimationType {
         2,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EPrimaryAssetCookRule(pub u8);
 impl EPrimaryAssetCookRule {
@@ -16881,14 +13673,12 @@ impl EPrimaryAssetCookRule {
     );
     pub const ALWAYS_COOK: EPrimaryAssetCookRule = EPrimaryAssetCookRule(5);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ECameraProjectionMode(pub u8);
 impl ECameraProjectionMode {
     pub const PERSPECTIVE: ECameraProjectionMode = ECameraProjectionMode(0);
     pub const ORTHOGRAPHIC: ECameraProjectionMode = ECameraProjectionMode(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EFullyLoadPackageType(pub u8);
 impl EFullyLoadPackageType {
@@ -16902,7 +13692,6 @@ impl EFullyLoadPackageType {
     pub const FULLYLOAD_ALWAYS: EFullyLoadPackageType = EFullyLoadPackageType(3);
     pub const FULLYLOAD_MUTATOR: EFullyLoadPackageType = EFullyLoadPackageType(4);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EFontImportCharacterSet(pub u8);
 impl EFontImportCharacterSet {
@@ -16910,7 +13699,6 @@ impl EFontImportCharacterSet {
     pub const FONT_ICS_ANSI: EFontImportCharacterSet = EFontImportCharacterSet(1);
     pub const FONT_ICS_SYMBOL: EFontImportCharacterSet = EFontImportCharacterSet(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EAttenuationDistanceModel(pub u8);
 impl EAttenuationDistanceModel {
@@ -16921,7 +13709,6 @@ impl EAttenuationDistanceModel {
     pub const NATURAL_SOUND: EAttenuationDistanceModel = EAttenuationDistanceModel(4);
     pub const CUSTOM: EAttenuationDistanceModel = EAttenuationDistanceModel(5);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EAttenuationShape(pub u8);
 impl EAttenuationShape {
@@ -16930,7 +13717,6 @@ impl EAttenuationShape {
     pub const BOX: EAttenuationShape = EAttenuationShape(2);
     pub const CONE: EAttenuationShape = EAttenuationShape(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ENaturalSoundFalloffMode(pub u8);
 impl ENaturalSoundFalloffMode {
@@ -16938,7 +13724,6 @@ impl ENaturalSoundFalloffMode {
     pub const SILENT: ENaturalSoundFalloffMode = ENaturalSoundFalloffMode(1);
     pub const HOLD: ENaturalSoundFalloffMode = ENaturalSoundFalloffMode(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EObjectTypeQuery(pub u8);
 impl EObjectTypeQuery {
@@ -16975,7 +13760,6 @@ impl EObjectTypeQuery {
     pub const OBJECT_TYPE_QUERY31: EObjectTypeQuery = EObjectTypeQuery(30);
     pub const OBJECT_TYPE_QUERY32: EObjectTypeQuery = EObjectTypeQuery(31);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EDrawDebugTrace(pub u8);
 impl EDrawDebugTrace {
@@ -16984,7 +13768,6 @@ impl EDrawDebugTrace {
     pub const FOR_DURATION: EDrawDebugTrace = EDrawDebugTrace(2);
     pub const PERSISTENT: EDrawDebugTrace = EDrawDebugTrace(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ELevelInstanceCreationType(pub u8);
 impl ELevelInstanceCreationType {
@@ -16993,7 +13776,6 @@ impl ELevelInstanceCreationType {
         1,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ELevelInstancePivotType(pub u8);
 impl ELevelInstancePivotType {
@@ -17002,7 +13784,6 @@ impl ELevelInstancePivotType {
     pub const ACTOR: ELevelInstancePivotType = ELevelInstancePivotType(2);
     pub const WORLD_ORIGIN: ELevelInstancePivotType = ELevelInstancePivotType(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMaterialCacheAttributeIdentity(pub u8);
 impl EMaterialCacheAttributeIdentity {
@@ -17017,7 +13798,6 @@ impl EMaterialCacheAttributeIdentity {
         3,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMaterialCacheAttribute(pub u8);
 impl EMaterialCacheAttribute {
@@ -17032,7 +13812,6 @@ impl EMaterialCacheAttribute {
     pub const MASK: EMaterialCacheAttribute = EMaterialCacheAttribute(8);
     pub const FLOAT: EMaterialCacheAttribute = EMaterialCacheAttribute(9);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMaterialExpressionConvertType(pub u8);
 impl EMaterialExpressionConvertType {
@@ -17047,7 +13826,6 @@ impl EMaterialExpressionConvertType {
         3,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ECustomMaterialOutputType(pub u8);
 impl ECustomMaterialOutputType {
@@ -17059,7 +13837,6 @@ impl ECustomMaterialOutputType {
         4,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EDataDrivenShaderPlatformInfoCondition(pub u8);
 impl EDataDrivenShaderPlatformInfoCondition {
@@ -17070,7 +13847,6 @@ impl EDataDrivenShaderPlatformInfoCondition {
         1,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EBlendMode(pub u8);
 impl EBlendMode {
@@ -17085,7 +13861,6 @@ impl EBlendMode {
     pub const BLEND_TRANSLUCENT_GREY_TRANSMITTANCE: EBlendMode = EBlendMode(2);
     pub const BLEND_COLORED_TRANSMITTANCE_ONLY: EBlendMode = EBlendMode(4);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMaterialShadingModel(pub u8);
 impl EMaterialShadingModel {
@@ -17107,7 +13882,6 @@ impl EMaterialShadingModel {
         14,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMaterialLayerLinkState(pub u8);
 impl EMaterialLayerLinkState {
@@ -17116,7 +13890,6 @@ impl EMaterialLayerLinkState {
     pub const UNLINKED_FROM_PARENT: EMaterialLayerLinkState = EMaterialLayerLinkState(2);
     pub const NOT_FROM_PARENT: EMaterialLayerLinkState = EMaterialLayerLinkState(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ENaniteAssemblyNodeTransformSpace(pub u8);
 impl ENaniteAssemblyNodeTransformSpace {
@@ -17127,7 +13900,6 @@ impl ENaniteAssemblyNodeTransformSpace {
         1,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ENavLinkDirection(pub u8);
 impl ENavLinkDirection {
@@ -17135,7 +13907,6 @@ impl ENavLinkDirection {
     pub const LEFT_TO_RIGHT: ENavLinkDirection = ENavLinkDirection(1);
     pub const RIGHT_TO_LEFT: ENavLinkDirection = ENavLinkDirection(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EParticleEventType(pub u8);
 impl EParticleEventType {
@@ -17146,7 +13917,6 @@ impl EParticleEventType {
     pub const EPET_BURST: EParticleEventType = EParticleEventType(4);
     pub const EPET_BLUEPRINT: EParticleEventType = EParticleEventType(5);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EEmitterDynamicParameterValue(pub u8);
 impl EEmitterDynamicParameterValue {
@@ -17169,7 +13939,6 @@ impl EEmitterDynamicParameterValue {
         5,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EParticleScreenAlignment(pub u8);
 impl EParticleScreenAlignment {
@@ -17187,7 +13956,6 @@ impl EParticleScreenAlignment {
         6,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EParticleAxisLock(pub u8);
 impl EParticleAxisLock {
@@ -17202,14 +13970,12 @@ impl EParticleAxisLock {
     pub const EPAL_ROTATE_Y: EParticleAxisLock = EParticleAxisLock(8);
     pub const EPAL_ROTATE_Z: EParticleAxisLock = EParticleAxisLock(9);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EParticleCollisionMode(pub u8);
 impl EParticleCollisionMode {
     pub const SCENE_DEPTH: EParticleCollisionMode = EParticleCollisionMode(0);
     pub const DISTANCE_FIELD: EParticleCollisionMode = EParticleCollisionMode(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct SkeletalMeshTerminationCriterion(pub u8);
 impl SkeletalMeshTerminationCriterion {
@@ -17232,7 +13998,6 @@ impl SkeletalMeshTerminationCriterion {
         5,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct SkeletalMeshOptimizationType(pub u8);
 impl SkeletalMeshOptimizationType {
@@ -17243,7 +14008,6 @@ impl SkeletalMeshOptimizationType {
         2,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct SkeletalMeshOptimizationImportance(pub u8);
 impl SkeletalMeshOptimizationImportance {
@@ -17266,7 +14030,6 @@ impl SkeletalMeshOptimizationImportance {
         5,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ESkyAtmosphereTransformMode(pub u8);
 impl ESkyAtmosphereTransformMode {
@@ -17280,7 +14043,6 @@ impl ESkyAtmosphereTransformMode {
         2,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ESourceBusSendLevelControlMethod(pub u8);
 impl ESourceBusSendLevelControlMethod {
@@ -17294,14 +14056,12 @@ impl ESourceBusSendLevelControlMethod {
         2,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ETimelineLengthMode(pub u8);
 impl ETimelineLengthMode {
     pub const TL_TIMELINE_LENGTH: ETimelineLengthMode = ETimelineLengthMode(0);
     pub const TL_LAST_KEY_FRAME: ETimelineLengthMode = ETimelineLengthMode(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EQuartzCommandQuantization(pub u8);
 impl EQuartzCommandQuantization {
@@ -17346,7 +14106,6 @@ impl EQuartzCommandQuantization {
     pub const COUNT: EQuartzCommandQuantization = EQuartzCommandQuantization(18);
     pub const NONE: EQuartzCommandQuantization = EQuartzCommandQuantization(19);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EQuartzTimeSignatureQuantization(pub u8);
 impl EQuartzTimeSignatureQuantization {
@@ -17369,7 +14128,6 @@ impl EQuartzTimeSignatureQuantization {
         5,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EQuarztQuantizationReference(pub u8);
 impl EQuarztQuantizationReference {
@@ -17384,7 +14142,6 @@ impl EQuarztQuantizationReference {
     );
     pub const COUNT: EQuarztQuantizationReference = EQuarztQuantizationReference(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EComponentMobility(pub u8);
 impl EComponentMobility {
@@ -17392,7 +14149,6 @@ impl EComponentMobility {
     pub const STATIONARY: EComponentMobility = EComponentMobility(1);
     pub const MOVABLE: EComponentMobility = EComponentMobility(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EHLODBatchingPolicy(pub u8);
 impl EHLODBatchingPolicy {
@@ -17400,7 +14156,6 @@ impl EHLODBatchingPolicy {
     pub const MESH_SECTION: EHLODBatchingPolicy = EHLODBatchingPolicy(1);
     pub const INSTANCING: EHLODBatchingPolicy = EHLODBatchingPolicy(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EAnimLinkMethod(pub u8);
 impl EAnimLinkMethod {
@@ -17408,42 +14163,36 @@ impl EAnimLinkMethod {
     pub const RELATIVE: EAnimLinkMethod = EAnimLinkMethod(1);
     pub const PROPORTIONAL: EAnimLinkMethod = EAnimLinkMethod(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EAnimNotifyEventType(pub u8);
 impl EAnimNotifyEventType {
     pub const BEGIN: EAnimNotifyEventType = EAnimNotifyEventType(0);
     pub const END: EAnimNotifyEventType = EAnimNotifyEventType(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMontageBlendMode(pub u8);
 impl EMontageBlendMode {
     pub const STANDARD: EMontageBlendMode = EMontageBlendMode(0);
     pub const INERTIALIZATION: EMontageBlendMode = EMontageBlendMode(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMontageNotifyTickType(pub u8);
 impl EMontageNotifyTickType {
     pub const QUEUED: EMontageNotifyTickType = EMontageNotifyTickType(0);
     pub const BRANCHING_POINT: EMontageNotifyTickType = EMontageNotifyTickType(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ENotifyFilterType(pub u8);
 impl ENotifyFilterType {
     pub const NO_FILTERING: ENotifyFilterType = ENotifyFilterType(0);
     pub const LOD: ENotifyFilterType = ENotifyFilterType(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EEvaluatorDataSource(pub u8);
 impl EEvaluatorDataSource {
     pub const EDS_SOURCE_POSE: EEvaluatorDataSource = EEvaluatorDataSource(0);
     pub const EDS_DESTINATION_POSE: EEvaluatorDataSource = EEvaluatorDataSource(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EEvaluatorMode(pub u8);
 impl EEvaluatorMode {
@@ -17451,7 +14200,6 @@ impl EEvaluatorMode {
     pub const EM_FREEZE: EEvaluatorMode = EEvaluatorMode(1);
     pub const EM_DELAYED_FREEZE: EEvaluatorMode = EEvaluatorMode(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ETransitionLogicType(pub u8);
 impl ETransitionLogicType {
@@ -17459,7 +14207,6 @@ impl ETransitionLogicType {
     pub const TLT_INERTIALIZATION: ETransitionLogicType = ETransitionLogicType(1);
     pub const TLT_CUSTOM: ETransitionLogicType = ETransitionLogicType(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EPropertyAccessCopyType(pub u8);
 impl EPropertyAccessCopyType {
@@ -17524,7 +14271,6 @@ impl EPropertyAccessCopyType {
         25,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EFilterInterpolationType(pub u8);
 impl EFilterInterpolationType {
@@ -17537,14 +14283,12 @@ impl EFilterInterpolationType {
     );
     pub const BSIT_SPRING_DAMPER: EFilterInterpolationType = EFilterInterpolationType(5);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EPostCopyOperation(pub u8);
 impl EPostCopyOperation {
     pub const NONE: EPostCopyOperation = EPostCopyOperation(0);
     pub const LOGICAL_NEGATE_BOOL: EPostCopyOperation = EPostCopyOperation(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMirrorRowType(pub u8);
 impl EMirrorRowType {
@@ -17554,7 +14298,6 @@ impl EMirrorRowType {
     pub const SYNC_MARKER: EMirrorRowType = EMirrorRowType(3);
     pub const CUSTOM: EMirrorRowType = EMirrorRowType(4);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMirrorFindReplaceMethod(pub u8);
 impl EMirrorFindReplaceMethod {
@@ -17562,7 +14305,6 @@ impl EMirrorFindReplaceMethod {
     pub const SUFFIX: EMirrorFindReplaceMethod = EMirrorFindReplaceMethod(1);
     pub const REGULAR_EXPRESSION: EMirrorFindReplaceMethod = EMirrorFindReplaceMethod(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ESkeletalMeshVertexAttributeDataType(pub i32);
 impl ESkeletalMeshVertexAttributeDataType {
@@ -17576,7 +14318,6 @@ impl ESkeletalMeshVertexAttributeDataType {
         2,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EBoneTranslationRetargetingMode(pub u8);
 impl EBoneTranslationRetargetingMode {
@@ -17596,7 +14337,6 @@ impl EBoneTranslationRetargetingMode {
         4,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EAudioVolumeLocationState(pub u8);
 impl EAudioVolumeLocationState {
@@ -17607,14 +14347,12 @@ impl EAudioVolumeLocationState {
         1,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ESubmixSendStage(pub u8);
 impl ESubmixSendStage {
     pub const POST_DISTANCE_ATTENUATION: ESubmixSendStage = ESubmixSendStage(0);
     pub const PRE_DISTANCE_ATTENUATION: ESubmixSendStage = ESubmixSendStage(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ESendLevelControlMethod(pub u8);
 impl ESendLevelControlMethod {
@@ -17622,7 +14360,6 @@ impl ESendLevelControlMethod {
     pub const CUSTOM_CURVE: ESendLevelControlMethod = ESendLevelControlMethod(1);
     pub const MANUAL: ESendLevelControlMethod = ESendLevelControlMethod(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ECameraShakeDurationType(pub u8);
 impl ECameraShakeDurationType {
@@ -17630,7 +14367,6 @@ impl ECameraShakeDurationType {
     pub const INFINITE: ECameraShakeDurationType = ECameraShakeDurationType(1);
     pub const CUSTOM: ECameraShakeDurationType = ECameraShakeDurationType(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ESyncOption(pub u8);
 impl ESyncOption {
@@ -17638,7 +14374,6 @@ impl ESyncOption {
     pub const PASSIVE: ESyncOption = ESyncOption(1);
     pub const DISABLED: ESyncOption = ESyncOption(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ESplinePointType(pub u8);
 impl ESplinePointType {
@@ -17648,7 +14383,6 @@ impl ESplinePointType {
     pub const CURVE_CLAMPED: ESplinePointType = ESplinePointType(3);
     pub const CURVE_CUSTOM_TANGENT: ESplinePointType = ESplinePointType(4);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct FDataDrivenCVarType(pub u8);
 impl FDataDrivenCVarType {
@@ -17656,7 +14390,6 @@ impl FDataDrivenCVarType {
     pub const C_VAR_INT: FDataDrivenCVarType = FDataDrivenCVarType(1);
     pub const C_VAR_BOOL: FDataDrivenCVarType = FDataDrivenCVarType(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EUpdateRateShiftBucket(pub u8);
 impl EUpdateRateShiftBucket {
@@ -17668,7 +14401,6 @@ impl EUpdateRateShiftBucket {
     pub const SHIFT_BUCKET5: EUpdateRateShiftBucket = EUpdateRateShiftBucket(5);
     pub const SHIFT_BUCKET_MAX: EUpdateRateShiftBucket = EUpdateRateShiftBucket(6);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ENaniteShapePreservation(pub u8);
 impl ENaniteShapePreservation {
@@ -17676,14 +14408,12 @@ impl ENaniteShapePreservation {
     pub const PRESERVE_AREA: ENaniteShapePreservation = ENaniteShapePreservation(1);
     pub const VOXELIZE: ENaniteShapePreservation = ENaniteShapePreservation(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ENaniteGenerateFallback(pub u8);
 impl ENaniteGenerateFallback {
     pub const PLATFORM_DEFAULT: ENaniteGenerateFallback = ENaniteGenerateFallback(0);
     pub const ENABLED: ENaniteGenerateFallback = ENaniteGenerateFallback(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ENaniteFallbackTarget(pub u8);
 impl ENaniteFallbackTarget {
@@ -17691,7 +14421,6 @@ impl ENaniteFallbackTarget {
     pub const PERCENT_TRIANGLES: ENaniteFallbackTarget = ENaniteFallbackTarget(1);
     pub const RELATIVE_ERROR: ENaniteFallbackTarget = ENaniteFallbackTarget(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ERootMotionFinishVelocityMode(pub u8);
 impl ERootMotionFinishVelocityMode {
@@ -17705,14 +14434,12 @@ impl ERootMotionFinishVelocityMode {
         2,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ERootMotionAccumulateMode(pub u8);
 impl ERootMotionAccumulateMode {
     pub const OVERRIDE: ERootMotionAccumulateMode = ERootMotionAccumulateMode(0);
     pub const ADDITIVE: ERootMotionAccumulateMode = ERootMotionAccumulateMode(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EHierarchicalSimplificationMethod(pub u8);
 impl EHierarchicalSimplificationMethod {
@@ -17729,7 +14456,6 @@ impl EHierarchicalSimplificationMethod {
         3,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ETextureSizingType(pub u8);
 impl ETextureSizingType {
@@ -17755,21 +14481,18 @@ impl ETextureSizingType {
         6,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EUVOutput(pub u8);
 impl EUVOutput {
     pub const DO_NOT_OUTPUT_CHANNEL: EUVOutput = EUVOutput(0);
     pub const OUTPUT_CHANNEL: EUVOutput = EUVOutput(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMeshApproximationType(pub u8);
 impl EMeshApproximationType {
     pub const MESH_AND_MATERIALS: EMeshApproximationType = EMeshApproximationType(0);
     pub const MESH_SHAPE_ONLY: EMeshApproximationType = EMeshApproximationType(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMeshApproximationBaseCappingType(pub u8);
 impl EMeshApproximationBaseCappingType {
@@ -17783,7 +14506,6 @@ impl EMeshApproximationBaseCappingType {
         2,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EOccludedGeometryFilteringPolicy(pub u8);
 impl EOccludedGeometryFilteringPolicy {
@@ -17794,7 +14516,6 @@ impl EOccludedGeometryFilteringPolicy {
         1,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMeshApproximationSimplificationPolicy(pub u8);
 impl EMeshApproximationSimplificationPolicy {
@@ -17808,7 +14529,6 @@ impl EMeshApproximationSimplificationPolicy {
         2,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMeshApproximationGroundPlaneClippingPolicy(pub u8);
 impl EMeshApproximationGroundPlaneClippingPolicy {
@@ -17825,7 +14545,6 @@ impl EMeshApproximationGroundPlaneClippingPolicy {
         3,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMeshApproximationUVGenerationPolicy(pub u8);
 impl EMeshApproximationUVGenerationPolicy {
@@ -17839,14 +14558,12 @@ impl EMeshApproximationUVGenerationPolicy {
         2,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMaterialMergeType(pub u8);
 impl EMaterialMergeType {
     pub const MATERIAL_MERGE_TYPE_DEFAULT: EMaterialMergeType = EMaterialMergeType(0);
     pub const MATERIAL_MERGE_TYPE_SIMPLYGON: EMaterialMergeType = EMaterialMergeType(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMeshLODSelectionType(pub u8);
 impl EMeshLODSelectionType {
@@ -17855,7 +14572,6 @@ impl EMeshLODSelectionType {
     pub const CALCULATE_LOD: EMeshLODSelectionType = EMeshLODSelectionType(2);
     pub const LOWEST_DETAIL_LOD: EMeshLODSelectionType = EMeshLODSelectionType(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EProxyNormalComputationMethod(pub u8);
 impl EProxyNormalComputationMethod {
@@ -17869,7 +14585,6 @@ impl EProxyNormalComputationMethod {
         2,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ELandscapeCullingPrecision(pub u8);
 impl ELandscapeCullingPrecision {
@@ -17877,7 +14592,6 @@ impl ELandscapeCullingPrecision {
     pub const MEDIUM: ELandscapeCullingPrecision = ELandscapeCullingPrecision(1);
     pub const LOW: ELandscapeCullingPrecision = ELandscapeCullingPrecision(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ERuntimeVirtualTextureMainPassType(pub u8);
 impl ERuntimeVirtualTextureMainPassType {
@@ -17891,7 +14605,6 @@ impl ERuntimeVirtualTextureMainPassType {
         2,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ELightmapType(pub u8);
 impl ELightmapType {
@@ -17899,7 +14612,6 @@ impl ELightmapType {
     pub const FORCE_SURFACE: ELightmapType = ELightmapType(1);
     pub const FORCE_VOLUMETRIC: ELightmapType = ELightmapType(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ERayTracingGroupCullingPriority(pub u8);
 impl ERayTracingGroupCullingPriority {
@@ -17919,7 +14631,6 @@ impl ERayTracingGroupCullingPriority {
         8,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EHasCustomNavigableGeometry(pub u8);
 impl EHasCustomNavigableGeometry {
@@ -17930,7 +14641,6 @@ impl EHasCustomNavigableGeometry {
     );
     pub const DONT_EXPORT: EHasCustomNavigableGeometry = EHasCustomNavigableGeometry(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ERendererStencilMask(pub u8);
 impl ERendererStencilMask {
@@ -17945,7 +14655,6 @@ impl ERendererStencilMask {
     pub const ERSM_64: ERendererStencilMask = ERendererStencilMask(8);
     pub const ERSM_128: ERendererStencilMask = ERendererStencilMask(9);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EDetailMode(pub u8);
 impl EDetailMode {
@@ -17954,7 +14663,6 @@ impl EDetailMode {
     pub const DM_HIGH: EDetailMode = EDetailMode(2);
     pub const DM_EPIC: EDetailMode = EDetailMode(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EImportanceWeight(pub u8);
 impl EImportanceWeight {
@@ -17964,7 +14672,6 @@ impl EImportanceWeight {
     pub const BLUE: EImportanceWeight = EImportanceWeight(3);
     pub const ALPHA: EImportanceWeight = EImportanceWeight(4);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMaterialAggregateAttributeType(pub i32);
 impl EMaterialAggregateAttributeType {
@@ -18014,7 +14721,6 @@ impl EMaterialAggregateAttributeType {
         14,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EFunctionInputType(pub u8);
 impl EFunctionInputType {
@@ -18038,7 +14744,6 @@ impl EFunctionInputType {
     pub const FUNCTION_INPUT_BOOL: EFunctionInputType = EFunctionInputType(11);
     pub const FUNCTION_INPUT_SUBSTRATE: EFunctionInputType = EFunctionInputType(12);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMaterialShaderFrequency(pub u8);
 impl EMaterialShaderFrequency {
@@ -18047,7 +14752,6 @@ impl EMaterialShaderFrequency {
     pub const COMPUTE: EMaterialShaderFrequency = EMaterialShaderFrequency(32);
     pub const ANY: EMaterialShaderFrequency = EMaterialShaderFrequency(41);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMaterialValueTypeBridge(pub u64);
 impl EMaterialValueTypeBridge {
@@ -18112,7 +14816,6 @@ impl EMaterialValueTypeBridge {
         17179869184,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EDerivativeStatus(pub u8);
 impl EDerivativeStatus {
@@ -18121,7 +14824,6 @@ impl EDerivativeStatus {
     pub const ZERO: EDerivativeStatus = EDerivativeStatus(2);
     pub const VALID: EDerivativeStatus = EDerivativeStatus(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMaterialDomain(pub u8);
 impl EMaterialDomain {
@@ -18133,7 +14835,6 @@ impl EMaterialDomain {
     pub const MD_UI: EMaterialDomain = EMaterialDomain(5);
     pub const MD_RUNTIME_VIRTUAL_TEXTURE: EMaterialDomain = EMaterialDomain(6);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMaterialFeatureLevel(pub u8);
 impl EMaterialFeatureLevel {
@@ -18144,7 +14845,6 @@ impl EMaterialFeatureLevel {
     pub const SM6: EMaterialFeatureLevel = EMaterialFeatureLevel(4);
     pub const NUM: EMaterialFeatureLevel = EMaterialFeatureLevel(5);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMeshFeatureImportance(pub u8);
 impl EMeshFeatureImportance {
@@ -18155,7 +14855,6 @@ impl EMeshFeatureImportance {
     pub const HIGH: EMeshFeatureImportance = EMeshFeatureImportance(4);
     pub const HIGHEST: EMeshFeatureImportance = EMeshFeatureImportance(5);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EStaticMeshReductionTerimationCriterion(pub u8);
 impl EStaticMeshReductionTerimationCriterion {
@@ -18169,7 +14868,6 @@ impl EStaticMeshReductionTerimationCriterion {
         2,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ENetworkMetricEnableMode(pub u8);
 impl ENetworkMetricEnableMode {
@@ -18185,7 +14883,6 @@ impl ENetworkMetricEnableMode {
     pub const SERVER_ONLY: ENetworkMetricEnableMode = ENetworkMetricEnableMode(3);
     pub const CLIENT_ONLY: ENetworkMetricEnableMode = ENetworkMetricEnableMode(4);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EParticleSysParamType(pub u8);
 impl EParticleSysParamType {
@@ -18199,7 +14896,6 @@ impl EParticleSysParamType {
     pub const PSPT_MATERIAL: EParticleSysParamType = EParticleSysParamType(7);
     pub const PSPT_VECTOR_UNIT_RAND: EParticleSysParamType = EParticleSysParamType(8);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EAttachLocation(pub u8);
 impl EAttachLocation {
@@ -18208,7 +14904,6 @@ impl EAttachLocation {
     pub const SNAP_TO_TARGET: EAttachLocation = EAttachLocation(2);
     pub const SNAP_TO_TARGET_INCLUDING_SCALE: EAttachLocation = EAttachLocation(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EPSCPoolMethod(pub u8);
 impl EPSCPoolMethod {
@@ -18218,14 +14913,12 @@ impl EPSCPoolMethod {
     pub const MANUAL_RELEASE_ON_COMPLETE: EPSCPoolMethod = EPSCPoolMethod(3);
     pub const FREE_IN_POOL: EPSCPoolMethod = EPSCPoolMethod(4);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EAngularDriveMode(pub u8);
 impl EAngularDriveMode {
     pub const SLERP: EAngularDriveMode = EAngularDriveMode(0);
     pub const TWIST_AND_SWING: EAngularDriveMode = EAngularDriveMode(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EPhysicsReplicationMode(pub u8);
 impl EPhysicsReplicationMode {
@@ -18235,7 +14928,6 @@ impl EPhysicsReplicationMode {
     );
     pub const RESIMULATION: EPhysicsReplicationMode = EPhysicsReplicationMode(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EViewTargetBlendFunction(pub u8);
 impl EViewTargetBlendFunction {
@@ -18250,7 +14942,6 @@ impl EViewTargetBlendFunction {
         5,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EPropertyAccessObjectType(pub u8);
 impl EPropertyAccessObjectType {
@@ -18259,7 +14950,6 @@ impl EPropertyAccessObjectType {
     pub const WEAK_OBJECT: EPropertyAccessObjectType = EPropertyAccessObjectType(2);
     pub const SOFT_OBJECT: EPropertyAccessObjectType = EPropertyAccessObjectType(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EPropertyAccessIndirectionType(pub u8);
 impl EPropertyAccessIndirectionType {
@@ -18273,14 +14963,12 @@ impl EPropertyAccessIndirectionType {
         4,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ENeuralProfileFormat(pub u8);
 impl ENeuralProfileFormat {
     pub const TYPE32: ENeuralProfileFormat = ENeuralProfileFormat(0);
     pub const TYPE16: ENeuralProfileFormat = ENeuralProfileFormat(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ENeuralProfileRuntimeType(pub u8);
 impl ENeuralProfileRuntimeType {
@@ -18292,7 +14980,6 @@ impl ENeuralProfileRuntimeType {
     );
     pub const MAX: ENeuralProfileRuntimeType = ENeuralProfileRuntimeType(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ENeuralModelTileType(pub u8);
 impl ENeuralModelTileType {
@@ -18302,21 +14989,18 @@ impl ENeuralModelTileType {
     pub const EIGHT_BY_EIGHT: ENeuralModelTileType = ENeuralModelTileType(3);
     pub const AUTO: ENeuralModelTileType = ENeuralModelTileType(4);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ETileOverlapResolveType(pub u8);
 impl ETileOverlapResolveType {
     pub const IGNORE: ETileOverlapResolveType = ETileOverlapResolveType(0);
     pub const FEATHERING: ETileOverlapResolveType = ETileOverlapResolveType(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ESpecularProfileFormat(pub u8);
 impl ESpecularProfileFormat {
     pub const VIEW_LIGHT_VECTOR: ESpecularProfileFormat = ESpecularProfileFormat(0);
     pub const HALF_VECTOR: ESpecularProfileFormat = ESpecularProfileFormat(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ESubsurfaceImplementationTechniqueHint(pub u8);
 impl ESubsurfaceImplementationTechniqueHint {
@@ -18327,7 +15011,6 @@ impl ESubsurfaceImplementationTechniqueHint {
         1,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ReverbPreset(pub u8);
 impl ReverbPreset {
@@ -18355,7 +15038,6 @@ impl ReverbPreset {
     pub const REVERB_LARGE_HALL: ReverbPreset = ReverbPreset(21);
     pub const REVERB_PLATE: ReverbPreset = ReverbPreset(22);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EBoneFilterActionOption(pub u8);
 impl EBoneFilterActionOption {
@@ -18363,7 +15045,6 @@ impl EBoneFilterActionOption {
     pub const KEEP: EBoneFilterActionOption = EBoneFilterActionOption(1);
     pub const INVALID: EBoneFilterActionOption = EBoneFilterActionOption(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ESkinCacheUsage(pub u8);
 impl ESkinCacheUsage {
@@ -18371,7 +15052,6 @@ impl ESkinCacheUsage {
     pub const DISABLED: ESkinCacheUsage = ESkinCacheUsage(255);
     pub const ENABLED: ESkinCacheUsage = ESkinCacheUsage(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ESoundSpatializationAlgorithm(pub u8);
 impl ESoundSpatializationAlgorithm {
@@ -18382,14 +15062,12 @@ impl ESoundSpatializationAlgorithm {
         1,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EAirAbsorptionMethod(pub u8);
 impl EAirAbsorptionMethod {
     pub const LINEAR: EAirAbsorptionMethod = EAirAbsorptionMethod(0);
     pub const CUSTOM_CURVE: EAirAbsorptionMethod = EAirAbsorptionMethod(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EReverbSendMethod(pub u8);
 impl EReverbSendMethod {
@@ -18397,7 +15075,6 @@ impl EReverbSendMethod {
     pub const CUSTOM_CURVE: EReverbSendMethod = EReverbSendMethod(1);
     pub const MANUAL: EReverbSendMethod = EReverbSendMethod(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EPriorityAttenuationMethod(pub u8);
 impl EPriorityAttenuationMethod {
@@ -18405,7 +15082,6 @@ impl EPriorityAttenuationMethod {
     pub const CUSTOM_CURVE: EPriorityAttenuationMethod = EPriorityAttenuationMethod(1);
     pub const MANUAL: EPriorityAttenuationMethod = EPriorityAttenuationMethod(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ESoundDistanceCalc(pub u8);
 impl ESoundDistanceCalc {
@@ -18420,7 +15096,6 @@ impl ESoundDistanceCalc {
         3,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ENonSpatializedRadiusSpeakerMapMode(pub u8);
 impl ENonSpatializedRadiusSpeakerMapMode {
@@ -18434,7 +15109,6 @@ impl ENonSpatializedRadiusSpeakerMapMode {
         2,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EUseSubmixOnPreviewMode(pub u8);
 impl EUseSubmixOnPreviewMode {
@@ -18448,7 +15122,6 @@ impl EUseSubmixOnPreviewMode {
         2,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EAudioOutputTarget(pub u8);
 impl EAudioOutputTarget {
@@ -18456,7 +15129,6 @@ impl EAudioOutputTarget {
     pub const CONTROLLER: EAudioOutputTarget = EAudioOutputTarget(1);
     pub const CONTROLLER_FALLBACK_TO_SPEAKER: EAudioOutputTarget = EAudioOutputTarget(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ESoundWaveLoadingBehavior(pub u8);
 impl ESoundWaveLoadingBehavior {
@@ -18467,7 +15139,6 @@ impl ESoundWaveLoadingBehavior {
     pub const FORCE_INLINE: ESoundWaveLoadingBehavior = ESoundWaveLoadingBehavior(4);
     pub const UNINITIALIZED: ESoundWaveLoadingBehavior = ESoundWaveLoadingBehavior(255);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMaxConcurrentResolutionRule(pub u8);
 impl EMaxConcurrentResolutionRule {
@@ -18494,7 +15165,6 @@ impl EMaxConcurrentResolutionRule {
     );
     pub const COUNT: EMaxConcurrentResolutionRule = EMaxConcurrentResolutionRule(7);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EConcurrencyVolumeScaleMode(pub i32);
 impl EConcurrencyVolumeScaleMode {
@@ -18502,7 +15172,6 @@ impl EConcurrencyVolumeScaleMode {
     pub const DISTANCE: EConcurrencyVolumeScaleMode = EConcurrencyVolumeScaleMode(1);
     pub const PRIORITY: EConcurrencyVolumeScaleMode = EConcurrencyVolumeScaleMode(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ESoundGroup(pub u8);
 impl ESoundGroup {
@@ -18532,7 +15201,6 @@ impl ESoundGroup {
     pub const SOUNDGROUP_GAME_SOUND_GROUP19: ESoundGroup = ESoundGroup(23);
     pub const SOUNDGROUP_GAME_SOUND_GROUP20: ESoundGroup = ESoundGroup(24);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EModulationRouting(pub u8);
 impl EModulationRouting {
@@ -18541,7 +15209,6 @@ impl EModulationRouting {
     pub const OVERRIDE: EModulationRouting = EModulationRouting(2);
     pub const UNION: EModulationRouting = EModulationRouting(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ModulationParamMode(pub u8);
 impl ModulationParamMode {
@@ -18549,20 +15216,17 @@ impl ModulationParamMode {
     pub const MPM_ABS: ModulationParamMode = ModulationParamMode(1);
     pub const MPM_DIRECT: ModulationParamMode = ModulationParamMode(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EOptimizationType(pub u8);
 impl EOptimizationType {
     pub const OT_NUM_OF_TRIANGLES: EOptimizationType = EOptimizationType(0);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ESubtitleDurationType(pub u8);
 impl ESubtitleDurationType {
     pub const USE_SOUND_DURATION: ESubtitleDurationType = ESubtitleDurationType(0);
     pub const USE_DURATION_PROPERTY: ESubtitleDurationType = ESubtitleDurationType(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ESubtitleType(pub u8);
 impl ESubtitleType {
@@ -18570,7 +15234,6 @@ impl ESubtitleType {
     pub const CLOSED_CAPTION: ESubtitleType = ESubtitleType(1);
     pub const AUDIO_DESCRIPTION: ESubtitleType = ESubtitleType(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ESyncPointEventType(pub u8);
 impl ESyncPointEventType {
@@ -18585,7 +15248,6 @@ impl ESyncPointEventType {
         5,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ESyncPointActivationRules(pub u8);
 impl ESyncPointActivationRules {
@@ -18599,7 +15261,6 @@ impl ESyncPointActivationRules {
         4,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ETextImportTestFlags(pub u32);
 impl ETextImportTestFlags {
@@ -18611,7 +15272,6 @@ impl ETextImportTestFlags {
     pub const FLAG_E: ETextImportTestFlags = ETextImportTestFlags(16);
     pub const TEST_STRUCT_DEFAULT: ETextImportTestFlags = ETextImportTestFlags(32);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ETextureSourceCompressionFormat(pub u8);
 impl ETextureSourceCompressionFormat {
@@ -18631,7 +15291,6 @@ impl ETextureSourceCompressionFormat {
         4,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ETextureSourceFormat(pub u8);
 impl ETextureSourceFormat {
@@ -18648,7 +15307,6 @@ impl ETextureSourceFormat {
     pub const TSF_R16F: ETextureSourceFormat = ETextureSourceFormat(10);
     pub const TSF_R32F: ETextureSourceFormat = ETextureSourceFormat(11);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct TextureCompressionSettings(pub u8);
 impl TextureCompressionSettings {
@@ -18682,7 +15340,6 @@ impl TextureCompressionSettings {
     );
     pub const TC_HDR_F32: TextureCompressionSettings = TextureCompressionSettings(16);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ETextureSourceEncoding(pub u8);
 impl ETextureSourceEncoding {
@@ -18704,7 +15361,6 @@ impl ETextureSourceEncoding {
     pub const TSE_PRO_TUNE: ETextureSourceEncoding = ETextureSourceEncoding(15);
     pub const TSE_V_LOG: ETextureSourceEncoding = ETextureSourceEncoding(16);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ETextureColorSpace(pub u8);
 impl ETextureColorSpace {
@@ -18724,7 +15380,6 @@ impl ETextureColorSpace {
     pub const TCS_PANASONIC_V_GAMUT: ETextureColorSpace = ETextureColorSpace(13);
     pub const TCS_CUSTOM: ETextureColorSpace = ETextureColorSpace(99);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ETextureChromaticAdaptationMethod(pub u8);
 impl ETextureChromaticAdaptationMethod {
@@ -18738,7 +15393,6 @@ impl ETextureChromaticAdaptationMethod {
         2,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct TextureGroup(pub u8);
 impl TextureGroup {
@@ -18825,7 +15479,6 @@ impl TextureGroup {
     pub const TEXTUREGROUP_PROJECT47: TextureGroup = TextureGroup(80);
     pub const TEXTUREGROUP_PROJECT48: TextureGroup = TextureGroup(81);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct TextureMipGenSettings(pub u8);
 impl TextureMipGenSettings {
@@ -18854,7 +15507,6 @@ impl TextureMipGenSettings {
     pub const TMGS_UNFILTERED: TextureMipGenSettings = TextureMipGenSettings(20);
     pub const TMGS_ANGULAR: TextureMipGenSettings = TextureMipGenSettings(21);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ETextureMipLoadOptions(pub u8);
 impl ETextureMipLoadOptions {
@@ -18862,7 +15514,6 @@ impl ETextureMipLoadOptions {
     pub const ALL_MIPS: ETextureMipLoadOptions = ETextureMipLoadOptions(1);
     pub const ONLY_FIRST_MIP: ETextureMipLoadOptions = ETextureMipLoadOptions(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ETextureDownscaleOptions(pub u8);
 impl ETextureDownscaleOptions {
@@ -18881,7 +15532,6 @@ impl ETextureDownscaleOptions {
     pub const SHARPEN9: ETextureDownscaleOptions = ETextureDownscaleOptions(12);
     pub const SHARPEN10: ETextureDownscaleOptions = ETextureDownscaleOptions(13);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ETextureLossyCompressionAmount(pub u8);
 impl ETextureLossyCompressionAmount {
@@ -18907,7 +15557,6 @@ impl ETextureLossyCompressionAmount {
         6,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EAnimInstanceLocatorFragmentType(pub i32);
 impl EAnimInstanceLocatorFragmentType {
@@ -18918,7 +15567,6 @@ impl EAnimInstanceLocatorFragmentType {
         1,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EHardwareDevicePrimaryType(pub u8);
 impl EHardwareDevicePrimaryType {
@@ -18940,14 +15588,12 @@ impl EHardwareDevicePrimaryType {
     pub const CUSTOM_TYPE_C: EHardwareDevicePrimaryType = EHardwareDevicePrimaryType(11);
     pub const CUSTOM_TYPE_D: EHardwareDevicePrimaryType = EHardwareDevicePrimaryType(12);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EExportHLODMeshOrigin(pub u8);
 impl EExportHLODMeshOrigin {
     pub const ACTOR: EExportHLODMeshOrigin = EExportHLODMeshOrigin(0);
     pub const WORLD: EExportHLODMeshOrigin = EExportHLODMeshOrigin(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EVolumeLightingMethod(pub u8);
 impl EVolumeLightingMethod {
@@ -18956,7 +15602,6 @@ impl EVolumeLightingMethod {
         1,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct TextureFilter(pub u8);
 impl TextureFilter {
@@ -18965,7 +15610,6 @@ impl TextureFilter {
     pub const TF_TRILINEAR: TextureFilter = TextureFilter(2);
     pub const TF_DEFAULT: TextureFilter = TextureFilter(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct TextureAddress(pub u8);
 impl TextureAddress {
@@ -18973,7 +15617,6 @@ impl TextureAddress {
     pub const TA_CLAMP: TextureAddress = TextureAddress(1);
     pub const TA_MIRROR: TextureAddress = TextureAddress(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EConstraintTransformComponentFlags(pub u8);
 impl EConstraintTransformComponentFlags {
@@ -19008,7 +15651,6 @@ impl EConstraintTransformComponentFlags {
         15,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EPerQualityLevels(pub u8);
 impl EPerQualityLevels {
@@ -19019,14 +15661,12 @@ impl EPerQualityLevels {
     pub const CINEMATIC: EPerQualityLevels = EPerQualityLevels(4);
     pub const NUM: EPerQualityLevels = EPerQualityLevels(5);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ESceneDepthPriorityGroup(pub u8);
 impl ESceneDepthPriorityGroup {
     pub const SDPG_WORLD: ESceneDepthPriorityGroup = ESceneDepthPriorityGroup(0);
     pub const SDPG_FOREGROUND: ESceneDepthPriorityGroup = ESceneDepthPriorityGroup(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EFFTSize(pub u8);
 impl EFFTSize {
@@ -19038,7 +15678,6 @@ impl EFFTSize {
     pub const VERY_LARGE: EFFTSize = EFFTSize(5);
     pub const MAX: EFFTSize = EFFTSize(6);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EEndPlayReason(pub u8);
 impl EEndPlayReason {
@@ -19048,7 +15687,6 @@ impl EEndPlayReason {
     pub const REMOVED_FROM_WORLD: EEndPlayReason = EEndPlayReason(3);
     pub const QUIT: EEndPlayReason = EEndPlayReason(4);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EPlaneConstraintAxisSetting(pub u8);
 impl EPlaneConstraintAxisSetting {
@@ -19060,7 +15698,6 @@ impl EPlaneConstraintAxisSetting {
         4,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EDrawDebugSceneDepthPriorityGroup(pub u8);
 impl EDrawDebugSceneDepthPriorityGroup {
@@ -19071,7 +15708,6 @@ impl EDrawDebugSceneDepthPriorityGroup {
         1,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EEditorPropertyValueState(pub u8);
 impl EEditorPropertyValueState {
@@ -19080,7 +15716,6 @@ impl EEditorPropertyValueState {
     pub const NOT_FOUND: EEditorPropertyValueState = EEditorPropertyValueState(2);
     pub const ACCESS_DENIED: EEditorPropertyValueState = EEditorPropertyValueState(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMoveComponentAction(pub u8);
 impl EMoveComponentAction {
@@ -19088,14 +15723,12 @@ impl EMoveComponentAction {
     pub const STOP: EMoveComponentAction = EMoveComponentAction(1);
     pub const RETURN: EMoveComponentAction = EMoveComponentAction(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EQuitPreference(pub u8);
 impl EQuitPreference {
     pub const QUIT: EQuitPreference = EQuitPreference(0);
     pub const BACKGROUND: EQuitPreference = EQuitPreference(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ETravelFailure(pub u8);
 impl ETravelFailure {
@@ -19112,7 +15745,6 @@ impl ETravelFailure {
     pub const SERVER_TRAVEL_FAILURE: ETravelFailure = ETravelFailure(10);
     pub const CLIENT_TRAVEL_FAILURE: ETravelFailure = ETravelFailure(11);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ERelativeTransformSpace(pub u8);
 impl ERelativeTransformSpace {
@@ -19123,7 +15755,6 @@ impl ERelativeTransformSpace {
         3,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EAttachmentRule(pub u8);
 impl EAttachmentRule {
@@ -19131,21 +15762,18 @@ impl EAttachmentRule {
     pub const KEEP_WORLD: EAttachmentRule = EAttachmentRule(1);
     pub const SNAP_TO_TARGET: EAttachmentRule = EAttachmentRule(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EDetachmentRule(pub u8);
 impl EDetachmentRule {
     pub const KEEP_RELATIVE: EDetachmentRule = EDetachmentRule(0);
     pub const KEEP_WORLD: EDetachmentRule = EDetachmentRule(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EComponentPhysicsStateChange(pub u8);
 impl EComponentPhysicsStateChange {
     pub const CREATED: EComponentPhysicsStateChange = EComponentPhysicsStateChange(0);
     pub const DESTROYED: EComponentPhysicsStateChange = EComponentPhysicsStateChange(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EHLODLevelExclusion(pub u8);
 impl EHLODLevelExclusion {
@@ -19158,7 +15786,6 @@ impl EHLODLevelExclusion {
     pub const HLOD6: EHLODLevelExclusion = EHLODLevelExclusion(64);
     pub const HLOD7: EHLODLevelExclusion = EHLODLevelExclusion(128);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EFirstPersonPrimitiveType(pub u8);
 impl EFirstPersonPrimitiveType {
@@ -19168,7 +15795,6 @@ impl EFirstPersonPrimitiveType {
         2,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMouseLockMode(pub u8);
 impl EMouseLockMode {
@@ -19177,14 +15803,12 @@ impl EMouseLockMode {
     pub const LOCK_ALWAYS: EMouseLockMode = EMouseLockMode(2);
     pub const LOCK_IN_FULLSCREEN: EMouseLockMode = EMouseLockMode(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EWindowTitleBarMode(pub u8);
 impl EWindowTitleBarMode {
     pub const OVERLAY: EWindowTitleBarMode = EWindowTitleBarMode(0);
     pub const VERTICAL_BOX: EWindowTitleBarMode = EWindowTitleBarMode(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ENetRole(pub u8);
 impl ENetRole {
@@ -19193,7 +15817,6 @@ impl ENetRole {
     pub const ROLE_AUTONOMOUS_PROXY: ENetRole = ENetRole(2);
     pub const ROLE_AUTHORITY: ENetRole = ENetRole(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ENetDormancy(pub u8);
 impl ENetDormancy {
@@ -19203,7 +15826,6 @@ impl ENetDormancy {
     pub const DORM_DORMANT_PARTIAL: ENetDormancy = ENetDormancy(3);
     pub const DORM_INITIAL: ENetDormancy = ENetDormancy(4);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMaterialUsage(pub u8);
 impl EMaterialUsage {
@@ -19231,7 +15853,6 @@ impl EMaterialUsage {
     pub const MATUSAGE_HETEROGENEOUS_VOLUMES: EMaterialUsage = EMaterialUsage(21);
     pub const MATUSAGE_STATIC_MESH: EMaterialUsage = EMaterialUsage(22);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMovementMode(pub u8);
 impl EMovementMode {
@@ -19243,7 +15864,6 @@ impl EMovementMode {
     pub const MOVE_FLYING: EMovementMode = EMovementMode(5);
     pub const MOVE_CUSTOM: EMovementMode = EMovementMode(6);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ENavigationOptionFlag(pub u8);
 impl ENavigationOptionFlag {
@@ -19252,7 +15872,6 @@ impl ENavigationOptionFlag {
     pub const DISABLE: ENavigationOptionFlag = ENavigationOptionFlag(2);
     pub const MAX: ENavigationOptionFlag = ENavigationOptionFlag(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ENavigationQueryResult(pub u8);
 impl ENavigationQueryResult {
@@ -19261,7 +15880,6 @@ impl ENavigationQueryResult {
     pub const FAIL: ENavigationQueryResult = ENavigationQueryResult(2);
     pub const SUCCESS: ENavigationQueryResult = ENavigationQueryResult(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ENavDataGatheringModeConfig(pub u8);
 impl ENavDataGatheringModeConfig {
@@ -19269,7 +15887,6 @@ impl ENavDataGatheringModeConfig {
     pub const INSTANT: ENavDataGatheringModeConfig = ENavDataGatheringModeConfig(1);
     pub const LAZY: ENavDataGatheringModeConfig = ENavDataGatheringModeConfig(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EDataLayerRuntimeState(pub u8);
 impl EDataLayerRuntimeState {
@@ -19277,7 +15894,6 @@ impl EDataLayerRuntimeState {
     pub const LOADED: EDataLayerRuntimeState = EDataLayerRuntimeState(1);
     pub const ACTIVATED: EDataLayerRuntimeState = EDataLayerRuntimeState(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ELightingBuildQuality(pub u8);
 impl ELightingBuildQuality {
@@ -19286,7 +15902,6 @@ impl ELightingBuildQuality {
     pub const QUALITY_HIGH: ELightingBuildQuality = ELightingBuildQuality(2);
     pub const QUALITY_PRODUCTION: ELightingBuildQuality = ELightingBuildQuality(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EAnimCurveType(pub u8);
 impl EAnimCurveType {
@@ -19295,21 +15910,18 @@ impl EAnimCurveType {
     pub const MORPH_TARGET_CURVE: EAnimCurveType = EAnimCurveType(2);
     pub const MAX_ANIM_CURVE_TYPE: EAnimCurveType = EAnimCurveType(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMontagePlayReturnType(pub u8);
 impl EMontagePlayReturnType {
     pub const MONTAGE_LENGTH: EMontagePlayReturnType = EMontagePlayReturnType(0);
     pub const DURATION: EMontagePlayReturnType = EMontagePlayReturnType(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ETransitionRequestQueueMode(pub u8);
 impl ETransitionRequestQueueMode {
     pub const SHARED: ETransitionRequestQueueMode = ETransitionRequestQueueMode(0);
     pub const UNIQUE: ETransitionRequestQueueMode = ETransitionRequestQueueMode(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ETransitionRequestOverwriteMode(pub u8);
 impl ETransitionRequestOverwriteMode {
@@ -19323,7 +15935,6 @@ impl ETransitionRequestOverwriteMode {
         2,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ETeleportType(pub u8);
 impl ETeleportType {
@@ -19331,7 +15942,6 @@ impl ETeleportType {
     pub const TELEPORT_PHYSICS: ETeleportType = ETeleportType(1);
     pub const RESET_PHYSICS: ETeleportType = ETeleportType(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ERootMotionMode(pub u8);
 impl ERootMotionMode {
@@ -19340,7 +15950,6 @@ impl ERootMotionMode {
     pub const ROOT_MOTION_FROM_EVERYTHING: ERootMotionMode = ERootMotionMode(2);
     pub const ROOT_MOTION_FROM_MONTAGES_ONLY: ERootMotionMode = ERootMotionMode(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EAdditiveBasePoseType(pub u8);
 impl EAdditiveBasePoseType {
@@ -19350,7 +15959,6 @@ impl EAdditiveBasePoseType {
     pub const ABPT_ANIM_FRAME: EAdditiveBasePoseType = EAdditiveBasePoseType(3);
     pub const ABPT_LOCAL_ANIM_FRAME: EAdditiveBasePoseType = EAdditiveBasePoseType(4);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ERootMotionRootLock(pub u8);
 impl ERootMotionRootLock {
@@ -19358,7 +15966,6 @@ impl ERootMotionRootLock {
     pub const ANIM_FIRST_FRAME: ERootMotionRootLock = ERootMotionRootLock(1);
     pub const ZERO: ERootMotionRootLock = ERootMotionRootLock(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EAnimNodeReferenceConversionResult(pub u8);
 impl EAnimNodeReferenceConversionResult {
@@ -19369,7 +15976,6 @@ impl EAnimNodeReferenceConversionResult {
         0,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EAnimExecutionContextConversionResult(pub u8);
 impl EAnimExecutionContextConversionResult {
@@ -19380,7 +15986,6 @@ impl EAnimExecutionContextConversionResult {
         0,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ETimecodeProviderSynchronizationState(pub i32);
 impl ETimecodeProviderSynchronizationState {
@@ -19397,7 +16002,6 @@ impl ETimecodeProviderSynchronizationState {
         3,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EAudioSpectrumBandPresetType(pub u8);
 impl EAudioSpectrumBandPresetType {
@@ -19406,7 +16010,6 @@ impl EAudioSpectrumBandPresetType {
     pub const VOICE: EAudioSpectrumBandPresetType = EAudioSpectrumBandPresetType(2);
     pub const CYMBALS: EAudioSpectrumBandPresetType = EAudioSpectrumBandPresetType(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EFFTPeakInterpolationMethod(pub u8);
 impl EFFTPeakInterpolationMethod {
@@ -19417,7 +16020,6 @@ impl EFFTPeakInterpolationMethod {
     pub const QUADRATIC: EFFTPeakInterpolationMethod = EFFTPeakInterpolationMethod(2);
     pub const CONSTANT_Q: EFFTPeakInterpolationMethod = EFFTPeakInterpolationMethod(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EFFTWindowType(pub u8);
 impl EFFTWindowType {
@@ -19426,7 +16028,6 @@ impl EFFTWindowType {
     pub const HANN: EFFTWindowType = EFFTWindowType(2);
     pub const BLACKMAN: EFFTWindowType = EFFTWindowType(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EAudioSpectrumType(pub u8);
 impl EAudioSpectrumType {
@@ -19434,14 +16035,12 @@ impl EAudioSpectrumType {
     pub const POWER_SPECTRUM: EAudioSpectrumType = EAudioSpectrumType(1);
     pub const DECIBEL: EAudioSpectrumType = EAudioSpectrumType(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EAudioRecordingExportType(pub u8);
 impl EAudioRecordingExportType {
     pub const SOUND_WAVE: EAudioRecordingExportType = EAudioRecordingExportType(0);
     pub const WAV_FILE: EAudioRecordingExportType = EAudioRecordingExportType(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ESoundAssetCompressionType(pub u8);
 impl ESoundAssetCompressionType {
@@ -19457,7 +16056,6 @@ impl ESoundAssetCompressionType {
     );
     pub const RAD_AUDIO: ESoundAssetCompressionType = ESoundAssetCompressionType(6);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EAudioFaderCurve(pub u8);
 impl EAudioFaderCurve {
@@ -19467,7 +16065,6 @@ impl EAudioFaderCurve {
     pub const SIN: EAudioFaderCurve = EAudioFaderCurve(3);
     pub const COUNT: EAudioFaderCurve = EAudioFaderCurve(4);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EModulationDestination(pub u8);
 impl EModulationDestination {
@@ -19477,7 +16074,6 @@ impl EModulationDestination {
     pub const HIGHPASS: EModulationDestination = EModulationDestination(3);
     pub const COUNT: EModulationDestination = EModulationDestination(4);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EQuartzCommandDelegateSubType(pub u8);
 impl EQuartzCommandDelegateSubType {
@@ -19498,7 +16094,6 @@ impl EQuartzCommandDelegateSubType {
     );
     pub const COUNT: EQuartzCommandDelegateSubType = EQuartzCommandDelegateSubType(5);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ETextureStreamingMethod(pub u8);
 impl ETextureStreamingMethod {
@@ -19507,21 +16102,18 @@ impl ETextureStreamingMethod {
     pub const TSM_STREAMED: ETextureStreamingMethod = ETextureStreamingMethod(2);
     pub const TSM_VIRTUAL_STREAMED: ETextureStreamingMethod = ETextureStreamingMethod(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ESkinWeightProfileLayer(pub u8);
 impl ESkinWeightProfileLayer {
     pub const PRIMARY: ESkinWeightProfileLayer = ESkinWeightProfileLayer(0);
     pub const SECONDARY: ESkinWeightProfileLayer = ESkinWeightProfileLayer(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EPhysBodyOp(pub u8);
 impl EPhysBodyOp {
     pub const PBO_NONE: EPhysBodyOp = EPhysBodyOp(0);
     pub const PBO_TERM: EPhysBodyOp = EPhysBodyOp(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EAnimationMode(pub u8);
 impl EAnimationMode {
@@ -19529,7 +16121,6 @@ impl EAnimationMode {
     pub const ANIMATION_SINGLE_NODE: EAnimationMode = EAnimationMode(1);
     pub const ANIMATION_CUSTOM_MODE: EAnimationMode = EAnimationMode(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ECustomBoneAttributeLookup(pub u8);
 impl ECustomBoneAttributeLookup {
@@ -19541,7 +16132,6 @@ impl ECustomBoneAttributeLookup {
         2,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ECastRayTracedShadow(pub u8);
 impl ECastRayTracedShadow {
@@ -19549,7 +16139,6 @@ impl ECastRayTracedShadow {
     pub const USE_PROJECT_SETTING: ECastRayTracedShadow = ECastRayTracedShadow(1);
     pub const ENABLED: ECastRayTracedShadow = ECastRayTracedShadow(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ETwitterRequestMethod(pub u8);
 impl ETwitterRequestMethod {
@@ -19557,14 +16146,12 @@ impl ETwitterRequestMethod {
     pub const TRM_POST: ETwitterRequestMethod = ETwitterRequestMethod(1);
     pub const TRM_DELETE: ETwitterRequestMethod = ETwitterRequestMethod(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EWindSourceType(pub u8);
 impl EWindSourceType {
     pub const DIRECTIONAL: EWindSourceType = EWindSourceType(0);
     pub const POINT: EWindSourceType = EWindSourceType(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EAnimAssetCurveFlags(pub u8);
 impl EAnimAssetCurveFlags {
@@ -19583,21 +16170,18 @@ impl EAnimAssetCurveFlags {
     pub const AACF_DRIVE_TRACK: EAnimAssetCurveFlags = EAnimAssetCurveFlags(32);
     pub const AACF_DISABLED: EAnimAssetCurveFlags = EAnimAssetCurveFlags(64);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EStructUtilsResult(pub u8);
 impl EStructUtilsResult {
     pub const VALID: EStructUtilsResult = EStructUtilsResult(0);
     pub const NOT_VALID: EStructUtilsResult = EStructUtilsResult(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EInterfaceValidResult(pub u8);
 impl EInterfaceValidResult {
     pub const VALID: EInterfaceValidResult = EInterfaceValidResult(0);
     pub const INVALID: EInterfaceValidResult = EInterfaceValidResult(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ETextureRenderTargetSampleCount(pub u8);
 impl ETextureRenderTargetSampleCount {
@@ -19614,7 +16198,6 @@ impl ETextureRenderTargetSampleCount {
         3,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EAudioComponentPlayState(pub u8);
 impl EAudioComponentPlayState {
@@ -19625,7 +16208,6 @@ impl EAudioComponentPlayState {
     pub const FADING_OUT: EAudioComponentPlayState = EAudioComponentPlayState(4);
     pub const COUNT: EAudioComponentPlayState = EAudioComponentPlayState(5);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EPhysicsStateAction(pub u8);
 impl EPhysicsStateAction {
@@ -19641,14 +16223,12 @@ impl EPhysicsStateAction {
     pub const ADD_ACCELERATION: EPhysicsStateAction = EPhysicsStateAction(9);
     pub const NUM_ACTIONS: EPhysicsStateAction = EPhysicsStateAction(10);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EControllerAnalogStick(pub u8);
 impl EControllerAnalogStick {
     pub const CAS_LEFT_STICK: EControllerAnalogStick = EControllerAnalogStick(0);
     pub const CAS_RIGHT_STICK: EControllerAnalogStick = EControllerAnalogStick(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ELightUnits(pub u8);
 impl ELightUnits {
@@ -19658,21 +16238,18 @@ impl ELightUnits {
     pub const EV: ELightUnits = ELightUnits(3);
     pub const NITS: ELightUnits = ELightUnits(4);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EBoneSpaces(pub u8);
 impl EBoneSpaces {
     pub const WORLD_SPACE: EBoneSpaces = EBoneSpaces(0);
     pub const COMPONENT_SPACE: EBoneSpaces = EBoneSpaces(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ESplineCoordinateSpace(pub u8);
 impl ESplineCoordinateSpace {
     pub const LOCAL: ESplineCoordinateSpace = ESplineCoordinateSpace(0);
     pub const WORLD: ESplineCoordinateSpace = ESplineCoordinateSpace(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EHorizTextAligment(pub u8);
 impl EHorizTextAligment {
@@ -19680,7 +16257,6 @@ impl EHorizTextAligment {
     pub const EHTA_CENTER: EHorizTextAligment = EHorizTextAligment(1);
     pub const EHTA_RIGHT: EHorizTextAligment = EHorizTextAligment(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EVerticalTextAligment(pub u8);
 impl EVerticalTextAligment {
@@ -19689,14 +16265,12 @@ impl EVerticalTextAligment {
     pub const EVRTA_TEXT_BOTTOM: EVerticalTextAligment = EVerticalTextAligment(2);
     pub const EVRTA_QUAD_TOP: EVerticalTextAligment = EVerticalTextAligment(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EEvaluateCurveTableResult(pub u8);
 impl EEvaluateCurveTableResult {
     pub const ROW_FOUND: EEvaluateCurveTableResult = EEvaluateCurveTableResult(0);
     pub const ROW_NOT_FOUND: EEvaluateCurveTableResult = EEvaluateCurveTableResult(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ETravelType(pub u8);
 impl ETravelType {
@@ -19704,7 +16278,6 @@ impl ETravelType {
     pub const TRAVEL_PARTIAL: ETravelType = ETravelType(1);
     pub const TRAVEL_RELATIVE: ETravelType = ETravelType(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EStreamingSourcePriority(pub u8);
 impl EStreamingSourcePriority {
@@ -19715,7 +16288,6 @@ impl EStreamingSourcePriority {
     pub const LOWEST: EStreamingSourcePriority = EStreamingSourcePriority(255);
     pub const DEFAULT: EStreamingSourcePriority = EStreamingSourcePriority(128);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EDynamicForceFeedbackAction(pub u8);
 impl EDynamicForceFeedbackAction {
@@ -19723,14 +16295,12 @@ impl EDynamicForceFeedbackAction {
     pub const UPDATE: EDynamicForceFeedbackAction = EDynamicForceFeedbackAction(1);
     pub const STOP: EDynamicForceFeedbackAction = EDynamicForceFeedbackAction(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ETypedElementWorldType(pub u8);
 impl ETypedElementWorldType {
     pub const GAME: ETypedElementWorldType = ETypedElementWorldType(0);
     pub const EDITOR: ETypedElementWorldType = ETypedElementWorldType(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ESpawnActorCollisionHandlingMethod(pub u8);
 impl ESpawnActorCollisionHandlingMethod {
@@ -19750,7 +16320,6 @@ impl ESpawnActorCollisionHandlingMethod {
         4,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ESpawnActorScaleMethod(pub u8);
 impl ESpawnActorScaleMethod {
@@ -19760,7 +16329,6 @@ impl ESpawnActorScaleMethod {
         2,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ESuggestProjVelocityTraceOption(pub u8);
 impl ESuggestProjVelocityTraceOption {
@@ -19774,7 +16342,6 @@ impl ESuggestProjVelocityTraceOption {
         2,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMouseCaptureMode(pub u8);
 impl EMouseCaptureMode {
@@ -19786,7 +16353,6 @@ impl EMouseCaptureMode {
     pub const CAPTURE_DURING_MOUSE_DOWN: EMouseCaptureMode = EMouseCaptureMode(3);
     pub const CAPTURE_DURING_RIGHT_MOUSE_DOWN: EMouseCaptureMode = EMouseCaptureMode(4);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EWindowMode(pub u8);
 impl EWindowMode {
@@ -19794,14 +16360,12 @@ impl EWindowMode {
     pub const WINDOWED_FULLSCREEN: EWindowMode = EWindowMode(1);
     pub const WINDOWED: EWindowMode = EWindowMode(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EArraySortOrder(pub u8);
 impl EArraySortOrder {
     pub const ASCENDING: EArraySortOrder = EArraySortOrder(0);
     pub const DESCENDING: EArraySortOrder = EArraySortOrder(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ESlateGesture(pub u8);
 impl ESlateGesture {
@@ -19812,14 +16376,12 @@ impl ESlateGesture {
     pub const ROTATE: ESlateGesture = ESlateGesture(4);
     pub const LONG_PRESS: ESlateGesture = ESlateGesture(5);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMIDCreationFlags(pub u8);
 impl EMIDCreationFlags {
     pub const NONE: EMIDCreationFlags = EMIDCreationFlags(0);
     pub const TRANSIENT: EMIDCreationFlags = EMIDCreationFlags(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EEasingFunc(pub u8);
 impl EEasingFunc {
@@ -19838,7 +16400,6 @@ impl EEasingFunc {
     pub const CIRCULAR_OUT: EEasingFunc = EEasingFunc(12);
     pub const CIRCULAR_IN_OUT: EEasingFunc = EEasingFunc(13);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMatrixColumns(pub u8);
 impl EMatrixColumns {
@@ -19847,7 +16408,6 @@ impl EMatrixColumns {
     pub const THIRD: EMatrixColumns = EMatrixColumns(2);
     pub const FOURTH: EMatrixColumns = EMatrixColumns(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ELerpInterpolationMode(pub u8);
 impl ELerpInterpolationMode {
@@ -19855,7 +16415,6 @@ impl ELerpInterpolationMode {
     pub const EULER_INTERP: ELerpInterpolationMode = ELerpInterpolationMode(1);
     pub const DUAL_QUAT_INTERP: ELerpInterpolationMode = ELerpInterpolationMode(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ETextureRenderTargetFormat(pub u8);
 impl ETextureRenderTargetFormat {
@@ -19871,7 +16430,6 @@ impl ETextureRenderTargetFormat {
     pub const RTF_RGBA32F: ETextureRenderTargetFormat = ETextureRenderTargetFormat(9);
     pub const RTF_RGB10A2: ETextureRenderTargetFormat = ETextureRenderTargetFormat(10);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ERoundingMode(pub u8);
 impl ERoundingMode {
@@ -19883,7 +16441,6 @@ impl ERoundingMode {
     pub const TO_NEGATIVE_INFINITY: ERoundingMode = ERoundingMode(5);
     pub const TO_POSITIVE_INFINITY: ERoundingMode = ERoundingMode(6);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EDateTimeStyle(pub u8);
 impl EDateTimeStyle {
@@ -19894,14 +16451,12 @@ impl EDateTimeStyle {
     pub const FULL: EDateTimeStyle = EDateTimeStyle(4);
     pub const CUSTOM: EDateTimeStyle = EDateTimeStyle(5);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMemoryUnitStandard(pub u8);
 impl EMemoryUnitStandard {
     pub const IEC: EMemoryUnitStandard = EMemoryUnitStandard(0);
     pub const SI: EMemoryUnitStandard = EMemoryUnitStandard(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EScreenOrientation(pub u8);
 impl EScreenOrientation {
@@ -19916,7 +16471,6 @@ impl EScreenOrientation {
     pub const LANDSCAPE_SENSOR: EScreenOrientation = EScreenOrientation(8);
     pub const FULL_SENSOR: EScreenOrientation = EScreenOrientation(9);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EVertexPaintAxis(pub u8);
 impl EVertexPaintAxis {
@@ -19924,7 +16478,6 @@ impl EVertexPaintAxis {
     pub const Y: EVertexPaintAxis = EVertexPaintAxis(1);
     pub const Z: EVertexPaintAxis = EVertexPaintAxis(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ETrailWidthMode(pub u8);
 impl ETrailWidthMode {
@@ -19932,7 +16485,6 @@ impl ETrailWidthMode {
     pub const E_TRAIL_WIDTH_MODE_FROM_FIRST: ETrailWidthMode = ETrailWidthMode(1);
     pub const E_TRAIL_WIDTH_MODE_FROM_SECOND: ETrailWidthMode = ETrailWidthMode(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EDataLayerState(pub u8);
 impl EDataLayerState {
@@ -19940,7 +16492,6 @@ impl EDataLayerState {
     pub const LOADED: EDataLayerState = EDataLayerState(1);
     pub const ACTIVATED: EDataLayerState = EDataLayerState(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EDataLayerType(pub u8);
 impl EDataLayerType {
@@ -19949,7 +16500,6 @@ impl EDataLayerType {
     pub const UNKNOWN: EDataLayerType = EDataLayerType(2);
     pub const SIZE: EDataLayerType = EDataLayerType(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EWorldPartitionRuntimeCellState(pub u8);
 impl EWorldPartitionRuntimeCellState {
@@ -19963,7 +16513,6 @@ impl EWorldPartitionRuntimeCellState {
         2,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ESceneCaptureSource(pub u8);
 impl ESceneCaptureSource {
@@ -19978,7 +16527,6 @@ impl ESceneCaptureSource {
     pub const SCS_FINAL_COLOR_HDR: ESceneCaptureSource = ESceneCaptureSource(8);
     pub const SCS_FINAL_TONE_CURVE_HDR: ESceneCaptureSource = ESceneCaptureSource(9);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ERefractionMode(pub u8);
 impl ERefractionMode {
@@ -19988,7 +16536,6 @@ impl ERefractionMode {
     pub const RM_NONE: ERefractionMode = ERefractionMode(3);
     pub const RM_INDEX_OF_REFRACTION_FROM_F0: ERefractionMode = ERefractionMode(4);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ETranslucencyLightingMode(pub u8);
 impl ETranslucencyLightingMode {
@@ -20009,7 +16556,6 @@ impl ETranslucencyLightingMode {
         5,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ENodeAdvancedPins(pub u8);
 impl ENodeAdvancedPins {
@@ -20017,7 +16563,6 @@ impl ENodeAdvancedPins {
     pub const SHOWN: ENodeAdvancedPins = ENodeAdvancedPins(1);
     pub const HIDDEN: ENodeAdvancedPins = ENodeAdvancedPins(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ENodeEnabledState(pub u8);
 impl ENodeEnabledState {
@@ -20025,7 +16570,6 @@ impl ENodeEnabledState {
     pub const DISABLED: ENodeEnabledState = ENodeEnabledState(1);
     pub const DEVELOPMENT_ONLY: ENodeEnabledState = ENodeEnabledState(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ELevelInstanceType(pub u8);
 impl ELevelInstanceType {
@@ -20036,7 +16580,6 @@ impl ELevelInstanceType {
         3,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ELevelInstanceFlags(pub u8);
 impl ELevelInstanceFlags {
@@ -20047,7 +16590,6 @@ impl ELevelInstanceFlags {
         4,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EActorUpdateOverlapsMethod(pub u8);
 impl EActorUpdateOverlapsMethod {
@@ -20060,7 +16602,6 @@ impl EActorUpdateOverlapsMethod {
     );
     pub const NEVER_UPDATE: EActorUpdateOverlapsMethod = EActorUpdateOverlapsMethod(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EActorGridPlacement(pub u8);
 impl EActorGridPlacement {
@@ -20069,7 +16610,6 @@ impl EActorGridPlacement {
     pub const ALWAYS_LOADED: EActorGridPlacement = EActorGridPlacement(2);
     pub const NONE: EActorGridPlacement = EActorGridPlacement(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EAutoReceiveInput(pub u8);
 impl EAutoReceiveInput {
@@ -20083,7 +16623,6 @@ impl EAutoReceiveInput {
     pub const PLAYER6: EAutoReceiveInput = EAutoReceiveInput(7);
     pub const PLAYER7: EAutoReceiveInput = EAutoReceiveInput(8);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EIndirectLightingCacheQuality(pub u8);
 impl EIndirectLightingCacheQuality {
@@ -20095,7 +16634,6 @@ impl EIndirectLightingCacheQuality {
         2,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EHitProxyPriority(pub u8);
 impl EHitProxyPriority {
@@ -20104,7 +16642,6 @@ impl EHitProxyPriority {
     pub const HPP_FOREGROUND: EHitProxyPriority = EHitProxyPriority(2);
     pub const HPP_UI: EHitProxyPriority = EHitProxyPriority(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ECanBeCharacterBase(pub u8);
 impl ECanBeCharacterBase {
@@ -20112,7 +16649,6 @@ impl ECanBeCharacterBase {
     pub const ECB_YES: ECanBeCharacterBase = ECanBeCharacterBase(1);
     pub const ECB_OWNER: ECanBeCharacterBase = ECanBeCharacterBase(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EAutoPossessAI(pub u8);
 impl EAutoPossessAI {
@@ -20121,7 +16657,6 @@ impl EAutoPossessAI {
     pub const SPAWNED: EAutoPossessAI = EAutoPossessAI(2);
     pub const PLACED_IN_WORLD_OR_SPAWNED: EAutoPossessAI = EAutoPossessAI(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ENavigationInvokerPriority(pub u8);
 impl ENavigationInvokerPriority {
@@ -20132,7 +16667,6 @@ impl ENavigationInvokerPriority {
     pub const VERY_HIGH: ENavigationInvokerPriority = ENavigationInvokerPriority(5);
     pub const MAX: ENavigationInvokerPriority = ENavigationInvokerPriority(6);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ENavPathEvent(pub u8);
 impl ENavPathEvent {
@@ -20145,7 +16679,6 @@ impl ENavPathEvent {
     pub const META_PATH_UPDATE: ENavPathEvent = ENavPathEvent(6);
     pub const CUSTOM: ENavPathEvent = ENavPathEvent(7);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct FNavigationSystemRunMode(pub u8);
 impl FNavigationSystemRunMode {
@@ -20161,7 +16694,6 @@ impl FNavigationSystemRunMode {
         6,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EBrushType(pub u8);
 impl EBrushType {
@@ -20169,7 +16701,6 @@ impl EBrushType {
     pub const BRUSH_ADD: EBrushType = EBrushType(1);
     pub const BRUSH_SUBTRACT: EBrushType = EBrushType(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ENavigationDataResolution(pub u8);
 impl ENavigationDataResolution {
@@ -20179,7 +16710,6 @@ impl ENavigationDataResolution {
     pub const INVALID: ENavigationDataResolution = ENavigationDataResolution(3);
     pub const MAX: ENavigationDataResolution = ENavigationDataResolution(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EBlueprintType(pub u8);
 impl EBlueprintType {
@@ -20190,7 +16720,6 @@ impl EBlueprintType {
     pub const BPTYPE_LEVEL_SCRIPT: EBlueprintType = EBlueprintType(4);
     pub const BPTYPE_FUNCTION_LIBRARY: EBlueprintType = EBlueprintType(5);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EShouldCookBlueprintPropertyGuids(pub i32);
 impl EShouldCookBlueprintPropertyGuids {
@@ -20204,7 +16733,6 @@ impl EShouldCookBlueprintPropertyGuids {
         2,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EBlueprintCompileMode(pub u8);
 impl EBlueprintCompileMode {
@@ -20212,7 +16740,6 @@ impl EBlueprintCompileMode {
     pub const DEVELOPMENT: EBlueprintCompileMode = EBlueprintCompileMode(1);
     pub const FINAL_RELEASE: EBlueprintCompileMode = EBlueprintCompileMode(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EBlueprintStatus(pub u8);
 impl EBlueprintStatus {
@@ -20223,14 +16750,12 @@ impl EBlueprintStatus {
     pub const BS_BEING_CREATED: EBlueprintStatus = EBlueprintStatus(4);
     pub const BS_UP_TO_DATE_WITH_WARNINGS: EBlueprintStatus = EBlueprintStatus(5);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EBlueprintPinStyleType(pub u8);
 impl EBlueprintPinStyleType {
     pub const BPST_ORIGINAL: EBlueprintPinStyleType = EBlueprintPinStyleType(0);
     pub const BPST_VARIANT_A: EBlueprintPinStyleType = EBlueprintPinStyleType(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EVisibilityBasedAnimTickOption(pub u8);
 impl EVisibilityBasedAnimTickOption {
@@ -20250,7 +16775,6 @@ impl EVisibilityBasedAnimTickOption {
         4,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EKinematicBonesUpdateToPhysics(pub u8);
 impl EKinematicBonesUpdateToPhysics {
@@ -20261,7 +16785,6 @@ impl EKinematicBonesUpdateToPhysics {
         1,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EPhysicsTransformUpdateMode(pub u8);
 impl EPhysicsTransformUpdateMode {
@@ -20272,14 +16795,12 @@ impl EPhysicsTransformUpdateMode {
         1,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ETransitionBlendMode(pub u8);
 impl ETransitionBlendMode {
     pub const TBM_LINEAR: ETransitionBlendMode = ETransitionBlendMode(0);
     pub const TBM_CUBIC: ETransitionBlendMode = ETransitionBlendMode(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EVirtualizationMode(pub u8);
 impl EVirtualizationMode {
@@ -20288,7 +16809,6 @@ impl EVirtualizationMode {
     pub const RESTART: EVirtualizationMode = EVirtualizationMode(2);
     pub const SEEK_RESTART: EVirtualizationMode = EVirtualizationMode(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ESoundWaveFFTSize(pub u8);
 impl ESoundWaveFFTSize {
@@ -20298,7 +16818,6 @@ impl ESoundWaveFFTSize {
     pub const LARGE_1024: ESoundWaveFFTSize = ESoundWaveFFTSize(3);
     pub const VERY_LARGE_2048: ESoundWaveFFTSize = ESoundWaveFFTSize(4);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ESoundWaveCuePointOrigin(pub u8);
 impl ESoundWaveCuePointOrigin {
@@ -20307,7 +16826,6 @@ impl ESoundWaveCuePointOrigin {
         1,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ETextureCompressionQuality(pub u8);
 impl ETextureCompressionQuality {
@@ -20318,7 +16836,6 @@ impl ETextureCompressionQuality {
     pub const TCQ_HIGH: ETextureCompressionQuality = ETextureCompressionQuality(4);
     pub const TCQ_HIGHEST: ETextureCompressionQuality = ETextureCompressionQuality(5);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ETexturePowerOfTwoSetting(pub u8);
 impl ETexturePowerOfTwoSetting {
@@ -20339,7 +16856,6 @@ impl ETexturePowerOfTwoSetting {
         5,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ECompositeTextureMode(pub u8);
 impl ECompositeTextureMode {
@@ -20357,7 +16873,6 @@ impl ECompositeTextureMode {
         4,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct TextureCookPlatformTilingSettings(pub u8);
 impl TextureCookPlatformTilingSettings {
@@ -20371,14 +16886,12 @@ impl TextureCookPlatformTilingSettings {
         2,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ETextureAvailability(pub u8);
 impl ETextureAvailability {
     pub const GPU: ETextureAvailability = ETextureAvailability(0);
     pub const CPU: ETextureAvailability = ETextureAvailability(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ETransitionType(pub u8);
 impl ETransitionType {
@@ -20391,7 +16904,6 @@ impl ETransitionType {
     pub const WAITING_TO_CONNECT: ETransitionType = ETransitionType(6);
     pub const MAX: ETransitionType = ETransitionType(7);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EDecalBlendMode(pub u8);
 impl EDecalBlendMode {
@@ -20415,7 +16927,6 @@ impl EDecalBlendMode {
     pub const DBM_ALPHA_COMPOSITE: EDecalBlendMode = EDecalBlendMode(15);
     pub const DBM_AMBIENT_OCCLUSION: EDecalBlendMode = EDecalBlendMode(16);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMaterialDecalResponse(pub u8);
 impl EMaterialDecalResponse {
@@ -20430,7 +16941,6 @@ impl EMaterialDecalResponse {
     pub const MDR_NORMAL_ROUGHNESS: EMaterialDecalResponse = EMaterialDecalResponse(6);
     pub const MDR_ROUGHNESS: EMaterialDecalResponse = EMaterialDecalResponse(7);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMaterialTranslucencyPass(pub u8);
 impl EMaterialTranslucencyPass {
@@ -20440,7 +16950,6 @@ impl EMaterialTranslucencyPass {
         2,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMaterialFloatPrecisionMode(pub u8);
 impl EMaterialFloatPrecisionMode {
@@ -20451,7 +16960,6 @@ impl EMaterialFloatPrecisionMode {
     pub const MFPM_FULL: EMaterialFloatPrecisionMode = EMaterialFloatPrecisionMode(2);
     pub const MFPM_HALF: EMaterialFloatPrecisionMode = EMaterialFloatPrecisionMode(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMaterialShadingRate(pub u8);
 impl EMaterialShadingRate {
@@ -20464,7 +16972,6 @@ impl EMaterialShadingRate {
     pub const MSR_4X4: EMaterialShadingRate = EMaterialShadingRate(6);
     pub const MSR_COUNT: EMaterialShadingRate = EMaterialShadingRate(7);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMaterialStencilCompare(pub u8);
 impl EMaterialStencilCompare {
@@ -20478,7 +16985,6 @@ impl EMaterialStencilCompare {
     pub const MSC_ALWAYS: EMaterialStencilCompare = EMaterialStencilCompare(7);
     pub const MSC_COUNT: EMaterialStencilCompare = EMaterialStencilCompare(8);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ERefractionCoverageMode(pub u8);
 impl ERefractionCoverageMode {
@@ -20487,14 +16993,12 @@ impl ERefractionCoverageMode {
         1,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EPixelDepthOffsetMode(pub u8);
 impl EPixelDepthOffsetMode {
     pub const PDOM_LEGACY: EPixelDepthOffsetMode = EPixelDepthOffsetMode(0);
     pub const PDOM_ALONG_CAMERA_VECTOR: EPixelDepthOffsetMode = EPixelDepthOffsetMode(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EChildActorComponentTreeViewVisualizationMode(pub u8);
 impl EChildActorComponentTreeViewVisualizationMode {
@@ -20514,7 +17018,6 @@ impl EChildActorComponentTreeViewVisualizationMode {
         4,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EScreenPercentageMode(pub i32);
 impl EScreenPercentageMode {
@@ -20524,7 +17027,6 @@ impl EScreenPercentageMode {
     );
     pub const BASED_ON_DPI_SCALE: EScreenPercentageMode = EScreenPercentageMode(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ENavDataGatheringMode(pub u8);
 impl ENavDataGatheringMode {
@@ -20532,21 +17034,18 @@ impl ENavDataGatheringMode {
     pub const INSTANT: ENavDataGatheringMode = ENavDataGatheringMode(1);
     pub const LAZY: ENavDataGatheringMode = ENavDataGatheringMode(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EActorPackagingScheme(pub u8);
 impl EActorPackagingScheme {
     pub const ORIGINAL: EActorPackagingScheme = EActorPackagingScheme(0);
     pub const REDUCED: EActorPackagingScheme = EActorPackagingScheme(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EReflectionSourceType(pub u8);
 impl EReflectionSourceType {
     pub const CAPTURED_SCENE: EReflectionSourceType = EReflectionSourceType(0);
     pub const SPECIFIED_CUBEMAP: EReflectionSourceType = EReflectionSourceType(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct DistributionParamMode(pub u8);
 impl DistributionParamMode {
@@ -20554,7 +17053,6 @@ impl DistributionParamMode {
     pub const DPM_ABS: DistributionParamMode = DistributionParamMode(1);
     pub const DPM_DIRECT: DistributionParamMode = DistributionParamMode(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EDistributionVectorLockFlags(pub u8);
 impl EDistributionVectorLockFlags {
@@ -20564,7 +17062,6 @@ impl EDistributionVectorLockFlags {
     pub const EDVLF_YZ: EDistributionVectorLockFlags = EDistributionVectorLockFlags(3);
     pub const EDVLF_XYZ: EDistributionVectorLockFlags = EDistributionVectorLockFlags(4);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EDistributionVectorMirrorFlags(pub u8);
 impl EDistributionVectorMirrorFlags {
@@ -20578,14 +17075,12 @@ impl EDistributionVectorMirrorFlags {
         2,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EPositionOrigin(pub u8);
 impl EPositionOrigin {
     pub const ABSOLUTE: EPositionOrigin = EPositionOrigin(0);
     pub const CAMERA_RELATIVE: EPositionOrigin = EPositionOrigin(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMaterialExpressionMakeAggregateKind(pub i32);
 impl EMaterialExpressionMakeAggregateKind {
@@ -20596,7 +17091,6 @@ impl EMaterialExpressionMakeAggregateKind {
         1,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMaterialSamplerType(pub u8);
 impl EMaterialSamplerType {
@@ -20630,7 +17124,6 @@ impl EMaterialSamplerType {
         16,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ETextureMipValueMode(pub u8);
 impl ETextureMipValueMode {
@@ -20639,7 +17132,6 @@ impl ETextureMipValueMode {
     pub const TMVM_MIP_BIAS: ETextureMipValueMode = ETextureMipValueMode(2);
     pub const TMVM_DERIVATIVE: ETextureMipValueMode = ETextureMipValueMode(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ESamplerSourceMode(pub u8);
 impl ESamplerSourceMode {
@@ -20650,7 +17142,6 @@ impl ESamplerSourceMode {
         3,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ETextureGatherMode(pub u8);
 impl ETextureGatherMode {
@@ -20660,7 +17151,6 @@ impl ETextureGatherMode {
     pub const TGM_BLUE: ETextureGatherMode = ETextureGatherMode(3);
     pub const TGM_ALPHA: ETextureGatherMode = ETextureGatherMode(4);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ETextureColorChannel(pub u8);
 impl ETextureColorChannel {
@@ -20669,7 +17159,6 @@ impl ETextureColorChannel {
     pub const TCC_BLUE: ETextureColorChannel = ETextureColorChannel(2);
     pub const TCC_ALPHA: ETextureColorChannel = ETextureColorChannel(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMaterialExpressionBlendMode(pub u8);
 impl EMaterialExpressionBlendMode {
@@ -20677,7 +17166,6 @@ impl EMaterialExpressionBlendMode {
     pub const USE_A: EMaterialExpressionBlendMode = EMaterialExpressionBlendMode(1);
     pub const USE_B: EMaterialExpressionBlendMode = EMaterialExpressionBlendMode(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMaterialAttributeBlend(pub u8);
 impl EMaterialAttributeBlend {
@@ -20685,7 +17173,6 @@ impl EMaterialAttributeBlend {
     pub const USE_A: EMaterialAttributeBlend = EMaterialAttributeBlend(1);
     pub const USE_B: EMaterialAttributeBlend = EMaterialAttributeBlend(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMaterialAttributeBlendFunction(pub u8);
 impl EMaterialAttributeBlendFunction {
@@ -20696,7 +17183,6 @@ impl EMaterialAttributeBlendFunction {
         1,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMaterialExpressionBoundsType(pub u8);
 impl EMaterialExpressionBoundsType {
@@ -20710,7 +17196,6 @@ impl EMaterialExpressionBoundsType {
         2,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EChannelMaskParameterColor(pub u8);
 impl EChannelMaskParameterColor {
@@ -20719,7 +17204,6 @@ impl EChannelMaskParameterColor {
     pub const BLUE: EChannelMaskParameterColor = EChannelMaskParameterColor(2);
     pub const ALPHA: EChannelMaskParameterColor = EChannelMaskParameterColor(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EClampMode(pub u8);
 impl EClampMode {
@@ -20727,7 +17211,6 @@ impl EClampMode {
     pub const CMODE_CLAMP_MIN: EClampMode = EClampMode(1);
     pub const CMODE_CLAMP_MAX: EClampMode = EClampMode(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EParameterCollectionTransformType(pub u8);
 impl EParameterCollectionTransformType {
@@ -20747,7 +17230,6 @@ impl EParameterCollectionTransformType {
         4,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMaterialScalarParameterControlType(pub i32);
 impl EMaterialScalarParameterControlType {
@@ -20761,7 +17243,6 @@ impl EMaterialScalarParameterControlType {
         2,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EDBufferTextureId(pub u8);
 impl EDBufferTextureId {
@@ -20769,7 +17250,6 @@ impl EDBufferTextureId {
     pub const DBT_B: EDBufferTextureId = EDBufferTextureId(1);
     pub const DBT_C: EDBufferTextureId = EDBufferTextureId(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EDepthOfFieldFunctionValue(pub u8);
 impl EDepthOfFieldFunctionValue {
@@ -20782,7 +17262,6 @@ impl EDepthOfFieldFunctionValue {
         3,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EFloatToIntMode(pub u8);
 impl EFloatToIntMode {
@@ -20791,7 +17270,6 @@ impl EFloatToIntMode {
     pub const ROUND: EFloatToIntMode = EFloatToIntMode(2);
     pub const CEIL: EFloatToIntMode = EFloatToIntMode(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EBlendInputRelevance(pub u8);
 impl EBlendInputRelevance {
@@ -20799,14 +17277,12 @@ impl EBlendInputRelevance {
     pub const TOP: EBlendInputRelevance = EBlendInputRelevance(1);
     pub const BOTTOM: EBlendInputRelevance = EBlendInputRelevance(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EPositionIncludedOffsets(pub i32);
 impl EPositionIncludedOffsets {
     pub const INCLUDE_OFFSETS: EPositionIncludedOffsets = EPositionIncludedOffsets(0);
     pub const EXCLUDE_OFFSETS: EPositionIncludedOffsets = EPositionIncludedOffsets(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ELocalPositionOrigin(pub i32);
 impl ELocalPositionOrigin {
@@ -20814,14 +17290,12 @@ impl ELocalPositionOrigin {
     pub const INSTANCE_PRE_SKINNING: ELocalPositionOrigin = ELocalPositionOrigin(1);
     pub const PRIMITIVE: ELocalPositionOrigin = ELocalPositionOrigin(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ENeuralIndexType(pub u8);
 impl ENeuralIndexType {
     pub const NIT_TEXTURE_INDEX: ENeuralIndexType = ENeuralIndexType(0);
     pub const NIT_BUFFER_INDEX: ENeuralIndexType = ENeuralIndexType(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMaterialExpressionOperatorKind(pub i32);
 impl EMaterialExpressionOperatorKind {
@@ -21018,7 +17492,6 @@ impl EMaterialExpressionOperatorKind {
         71,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EPathTracingBufferTextureId(pub u8);
 impl EPathTracingBufferTextureId {
@@ -21034,7 +17507,6 @@ impl EPathTracingBufferTextureId {
         4,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ERuntimeVirtualTextureMaterialType(pub u8);
 impl ERuntimeVirtualTextureMaterialType {
@@ -21066,7 +17538,6 @@ impl ERuntimeVirtualTextureMaterialType {
         8,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ERuntimeVirtualTextureTextureAddressMode(pub u8);
 impl ERuntimeVirtualTextureTextureAddressMode {
@@ -21077,7 +17548,6 @@ impl ERuntimeVirtualTextureTextureAddressMode {
         1,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ERuntimeVirtualTextureMipValueMode(pub u8);
 impl ERuntimeVirtualTextureMipValueMode {
@@ -21100,7 +17570,6 @@ impl ERuntimeVirtualTextureMipValueMode {
         5,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMaterialSceneAttributeInputMode(pub u8);
 impl EMaterialSceneAttributeInputMode {
@@ -21111,7 +17580,6 @@ impl EMaterialSceneAttributeInputMode {
         1,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ESceneTextureId(pub u8);
 impl ESceneTextureId {
@@ -21155,7 +17623,6 @@ impl ESceneTextureId {
     pub const PPI_USER_SCENE_TEXTURE5: ESceneTextureId = ESceneTextureId(37);
     pub const PPI_USER_SCENE_TEXTURE6: ESceneTextureId = ESceneTextureId(38);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ESpeedTreeGeometryType(pub u8);
 impl ESpeedTreeGeometryType {
@@ -21165,7 +17632,6 @@ impl ESpeedTreeGeometryType {
     pub const STG_FACING_LEAF: ESpeedTreeGeometryType = ESpeedTreeGeometryType(3);
     pub const STG_BILLBOARD: ESpeedTreeGeometryType = ESpeedTreeGeometryType(4);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ESpeedTreeWindType(pub u8);
 impl ESpeedTreeWindType {
@@ -21177,14 +17643,12 @@ impl ESpeedTreeWindType {
     pub const STW_PALM: ESpeedTreeWindType = ESpeedTreeWindType(5);
     pub const STW_BEST_PLUS: ESpeedTreeWindType = ESpeedTreeWindType(6);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ESpeedTreeLODType(pub u8);
 impl ESpeedTreeLODType {
     pub const STLOD_POP: ESpeedTreeLODType = ESpeedTreeLODType(0);
     pub const STLOD_SMOOTH: ESpeedTreeLODType = ESpeedTreeLODType(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ETextureCollectionMemberType(pub u8);
 impl ETextureCollectionMemberType {
@@ -21203,7 +17667,6 @@ impl ETextureCollectionMemberType {
     );
     pub const MAX: ETextureCollectionMemberType = ETextureCollectionMemberType(5);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMaterialExposedTextureProperty(pub u8);
 impl EMaterialExposedTextureProperty {
@@ -21214,7 +17677,6 @@ impl EMaterialExposedTextureProperty {
         1,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMaterialVectorCoordTransformSource(pub u8);
 impl EMaterialVectorCoordTransformSource {
@@ -21240,7 +17702,6 @@ impl EMaterialVectorCoordTransformSource {
         6,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMaterialVectorCoordTransform(pub u8);
 impl EMaterialVectorCoordTransform {
@@ -21266,7 +17727,6 @@ impl EMaterialVectorCoordTransform {
         6,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMaterialPositionTransformSource(pub u8);
 impl EMaterialPositionTransformSource {
@@ -21298,7 +17758,6 @@ impl EMaterialPositionTransformSource {
         8,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EVectorNoiseFunction(pub u8);
 impl EVectorNoiseFunction {
@@ -21308,7 +17767,6 @@ impl EVectorNoiseFunction {
     pub const VNF_CURL_ALU: EVectorNoiseFunction = EVectorNoiseFunction(3);
     pub const VNF_VORONOI_ALU: EVectorNoiseFunction = EVectorNoiseFunction(4);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMaterialExposedViewProperty(pub u8);
 impl EMaterialExposedViewProperty {
@@ -21373,7 +17831,6 @@ impl EMaterialExposedViewProperty {
         19,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EWorldPositionIncludedOffsets(pub u8);
 impl EWorldPositionIncludedOffsets {
@@ -21390,7 +17847,6 @@ impl EWorldPositionIncludedOffsets {
         3,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMaterialFunctionUsage(pub u8);
 impl EMaterialFunctionUsage {
@@ -21398,14 +17854,12 @@ impl EMaterialFunctionUsage {
     pub const MATERIAL_LAYER: EMaterialFunctionUsage = EMaterialFunctionUsage(1);
     pub const MATERIAL_LAYER_BLEND: EMaterialFunctionUsage = EMaterialFunctionUsage(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EParticleSystemUpdateMode(pub u8);
 impl EParticleSystemUpdateMode {
     pub const EPSUM_REAL_TIME: EParticleSystemUpdateMode = EParticleSystemUpdateMode(0);
     pub const EPSUM_FIXED_TIME: EParticleSystemUpdateMode = EParticleSystemUpdateMode(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ParticleSystemLODMethod(pub u8);
 impl ParticleSystemLODMethod {
@@ -21419,7 +17873,6 @@ impl ParticleSystemLODMethod {
         2,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EParticleSystemInsignificanceReaction(pub u8);
 impl EParticleSystemInsignificanceReaction {
@@ -21439,7 +17892,6 @@ impl EParticleSystemInsignificanceReaction {
         4,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EParticleSystemOcclusionBoundsMethod(pub u8);
 impl EParticleSystemOcclusionBoundsMethod {
@@ -21453,7 +17905,6 @@ impl EParticleSystemOcclusionBoundsMethod {
         2,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EParticleSignificanceLevel(pub u8);
 impl EParticleSignificanceLevel {
@@ -21463,7 +17914,6 @@ impl EParticleSignificanceLevel {
     pub const CRITICAL: EParticleSignificanceLevel = EParticleSignificanceLevel(3);
     pub const NUM: EParticleSignificanceLevel = EParticleSignificanceLevel(4);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EAttractorParticleSelectionMethod(pub u8);
 impl EAttractorParticleSelectionMethod {
@@ -21474,14 +17924,12 @@ impl EAttractorParticleSelectionMethod {
         1,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct BeamModifierType(pub u8);
 impl BeamModifierType {
     pub const PEB2MT_SOURCE: BeamModifierType = BeamModifierType(0);
     pub const PEB2MT_TARGET: BeamModifierType = BeamModifierType(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct Beam2SourceTargetMethod(pub u8);
 impl Beam2SourceTargetMethod {
@@ -21491,7 +17939,6 @@ impl Beam2SourceTargetMethod {
     pub const PEB2STM_PARTICLE: Beam2SourceTargetMethod = Beam2SourceTargetMethod(3);
     pub const PEB2STM_ACTOR: Beam2SourceTargetMethod = Beam2SourceTargetMethod(4);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct Beam2SourceTargetTangentMethod(pub u8);
 impl Beam2SourceTargetTangentMethod {
@@ -21508,7 +17955,6 @@ impl Beam2SourceTargetTangentMethod {
         3,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EParticleCameraOffsetUpdateMethod(pub u8);
 impl EParticleCameraOffsetUpdateMethod {
@@ -21522,7 +17968,6 @@ impl EParticleCameraOffsetUpdateMethod {
         2,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EParticleCollisionComplete(pub u8);
 impl EParticleCollisionComplete {
@@ -21541,7 +17986,6 @@ impl EParticleCollisionComplete {
         5,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EParticleCollisionResponse(pub u8);
 impl EParticleCollisionResponse {
@@ -21549,7 +17993,6 @@ impl EParticleCollisionResponse {
     pub const STOP: EParticleCollisionResponse = EParticleCollisionResponse(1);
     pub const KILL: EParticleCollisionResponse = EParticleCollisionResponse(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ELocationBoneSocketSource(pub u8);
 impl ELocationBoneSocketSource {
@@ -21560,7 +18003,6 @@ impl ELocationBoneSocketSource {
         1,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ELocationBoneSocketSelectionMethod(pub u8);
 impl ELocationBoneSocketSelectionMethod {
@@ -21571,7 +18013,6 @@ impl ELocationBoneSocketSelectionMethod {
         1,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ELocationEmitterSelectionMethod(pub u8);
 impl ELocationEmitterSelectionMethod {
@@ -21582,7 +18023,6 @@ impl ELocationEmitterSelectionMethod {
         1,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct CylinderHeightAxis(pub u8);
 impl CylinderHeightAxis {
@@ -21590,7 +18030,6 @@ impl CylinderHeightAxis {
     pub const PMLPC_HEIGHTAXIS_Y: CylinderHeightAxis = CylinderHeightAxis(1);
     pub const PMLPC_HEIGHTAXIS_Z: CylinderHeightAxis = CylinderHeightAxis(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ELocationSkelVertSurfaceSource(pub u8);
 impl ELocationSkelVertSurfaceSource {
@@ -21601,7 +18040,6 @@ impl ELocationSkelVertSurfaceSource {
         1,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EOrbitChainMode(pub u8);
 impl EOrbitChainMode {
@@ -21609,7 +18047,6 @@ impl EOrbitChainMode {
     pub const EO_CHAIN_MODE_SCALE: EOrbitChainMode = EOrbitChainMode(1);
     pub const EO_CHAIN_MODE_LINK: EOrbitChainMode = EOrbitChainMode(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EParticleSortMode(pub u8);
 impl EParticleSortMode {
@@ -21619,7 +18056,6 @@ impl EParticleSortMode {
     pub const PSORTMODE_AGE_OLDEST_FIRST: EParticleSortMode = EParticleSortMode(3);
     pub const PSORTMODE_AGE_NEWEST_FIRST: EParticleSortMode = EParticleSortMode(4);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EParticleSubUVInterpMethod(pub u8);
 impl EParticleSubUVInterpMethod {
@@ -21633,14 +18069,12 @@ impl EParticleSubUVInterpMethod {
         4,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EParticleBurstMethod(pub u8);
 impl EParticleBurstMethod {
     pub const EPBM_INSTANT: EParticleBurstMethod = EParticleBurstMethod(0);
     pub const EPBM_INTERPOLATED: EParticleBurstMethod = EParticleBurstMethod(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EOpacitySourceMode(pub u8);
 impl EOpacitySourceMode {
@@ -21650,7 +18084,6 @@ impl EOpacitySourceMode {
     pub const OSM_GREEN_CHANNEL: EOpacitySourceMode = EOpacitySourceMode(3);
     pub const OSM_BLUE_CHANNEL: EOpacitySourceMode = EOpacitySourceMode(4);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EEmitterNormalsMode(pub u8);
 impl EEmitterNormalsMode {
@@ -21658,7 +18091,6 @@ impl EEmitterNormalsMode {
     pub const ENM_SPHERICAL: EEmitterNormalsMode = EEmitterNormalsMode(1);
     pub const ENM_CYLINDRICAL: EEmitterNormalsMode = EEmitterNormalsMode(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EParticleUVFlipMode(pub u8);
 impl EParticleUVFlipMode {
@@ -21671,7 +18103,6 @@ impl EParticleUVFlipMode {
     pub const RANDOM_FLIP_V_ONLY: EParticleUVFlipMode = EParticleUVFlipMode(6);
     pub const RANDOM_FLIP_UV_INDEPENDENT: EParticleUVFlipMode = EParticleUVFlipMode(7);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ESubUVBoundingVertexCount(pub u8);
 impl ESubUVBoundingVertexCount {
@@ -21682,7 +18113,6 @@ impl ESubUVBoundingVertexCount {
         1,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ETrail2SourceMethod(pub u8);
 impl ETrail2SourceMethod {
@@ -21690,7 +18120,6 @@ impl ETrail2SourceMethod {
     pub const PET2SRCM_PARTICLE: ETrail2SourceMethod = ETrail2SourceMethod(1);
     pub const PET2SRCM_ACTOR: ETrail2SourceMethod = ETrail2SourceMethod(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EParticleSourceSelectionMethod(pub u8);
 impl EParticleSourceSelectionMethod {
@@ -21701,7 +18130,6 @@ impl EParticleSourceSelectionMethod {
         1,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EBeam2Method(pub u8);
 impl EBeam2Method {
@@ -21709,7 +18137,6 @@ impl EBeam2Method {
     pub const PEB2M_TARGET: EBeam2Method = EBeam2Method(1);
     pub const PEB2M_BRANCH: EBeam2Method = EBeam2Method(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EBeamTaperMethod(pub u8);
 impl EBeamTaperMethod {
@@ -21717,7 +18144,6 @@ impl EBeamTaperMethod {
     pub const PEBTM_FULL: EBeamTaperMethod = EBeamTaperMethod(1);
     pub const PEBTM_PARTIAL: EBeamTaperMethod = EBeamTaperMethod(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMeshScreenAlignment(pub u8);
 impl EMeshScreenAlignment {
@@ -21731,7 +18157,6 @@ impl EMeshScreenAlignment {
         2,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMeshCameraFacingUpAxis(pub u8);
 impl EMeshCameraFacingUpAxis {
@@ -21747,7 +18172,6 @@ impl EMeshCameraFacingUpAxis {
         4,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMeshCameraFacingOptions(pub u8);
 impl EMeshCameraFacingOptions {
@@ -21787,7 +18211,6 @@ impl EMeshCameraFacingOptions {
         12,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ETrailsRenderAxisOption(pub u8);
 impl ETrailsRenderAxisOption {
@@ -21795,7 +18218,6 @@ impl ETrailsRenderAxisOption {
     pub const TRAILS_SOURCE_UP: ETrailsRenderAxisOption = ETrailsRenderAxisOption(1);
     pub const TRAILS_WORLD_UP: ETrailsRenderAxisOption = ETrailsRenderAxisOption(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EEmitterRenderMode(pub u8);
 impl EEmitterRenderMode {
@@ -21805,7 +18227,6 @@ impl EEmitterRenderMode {
     pub const ERM_LIGHTS_ONLY: EEmitterRenderMode = EEmitterRenderMode(3);
     pub const ERM_NONE: EEmitterRenderMode = EEmitterRenderMode(4);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ESceneCapturePrimitiveRenderMode(pub u8);
 impl ESceneCapturePrimitiveRenderMode {
@@ -21819,7 +18240,6 @@ impl ESceneCapturePrimitiveRenderMode {
         2,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ESceneCaptureCompositeMode(pub u8);
 impl ESceneCaptureCompositeMode {
@@ -21827,7 +18247,6 @@ impl ESceneCaptureCompositeMode {
     pub const SCCM_ADDITIVE: ESceneCaptureCompositeMode = ESceneCaptureCompositeMode(1);
     pub const SCCM_COMPOSITE: ESceneCaptureCompositeMode = ESceneCaptureCompositeMode(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ESceneCaptureUnlitViewmode(pub u8);
 impl ESceneCaptureUnlitViewmode {
@@ -21837,14 +18256,12 @@ impl ESceneCaptureUnlitViewmode {
         2,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EShadowMapFlags(pub u8);
 impl EShadowMapFlags {
     pub const SMF_NONE: EShadowMapFlags = EShadowMapFlags(0);
     pub const SMF_STREAMED: EShadowMapFlags = EShadowMapFlags(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ETextureEncodeEffort(pub u8);
 impl ETextureEncodeEffort {
@@ -21853,7 +18270,6 @@ impl ETextureEncodeEffort {
     pub const NORMAL: ETextureEncodeEffort = ETextureEncodeEffort(20);
     pub const HIGH: ETextureEncodeEffort = ETextureEncodeEffort(30);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ETextureUniversalTiling(pub u8);
 impl ETextureUniversalTiling {
@@ -21861,7 +18277,6 @@ impl ETextureUniversalTiling {
     pub const ENABLED_256KB: ETextureUniversalTiling = ETextureUniversalTiling(1);
     pub const ENABLED_64KB: ETextureUniversalTiling = ETextureUniversalTiling(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ETextureEncodeSpeed(pub u8);
 impl ETextureEncodeSpeed {
@@ -21869,7 +18284,6 @@ impl ETextureEncodeSpeed {
     pub const FINAL_IF_AVAILABLE: ETextureEncodeSpeed = ETextureEncodeSpeed(1);
     pub const FAST: ETextureEncodeSpeed = ETextureEncodeSpeed(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ETextureEncodeSpeedOverride(pub u8);
 impl ETextureEncodeSpeedOverride {
@@ -21880,14 +18294,12 @@ impl ETextureEncodeSpeedOverride {
     );
     pub const FAST: ETextureEncodeSpeedOverride = ETextureEncodeSpeedOverride(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EVectorFieldConstructionOp(pub u8);
 impl EVectorFieldConstructionOp {
     pub const VFCO_EXTRUDE: EVectorFieldConstructionOp = EVectorFieldConstructionOp(0);
     pub const VFCO_REVOLVE: EVectorFieldConstructionOp = EVectorFieldConstructionOp(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ENotifyTriggerMode(pub u8);
 impl ENotifyTriggerMode {
@@ -21895,7 +18307,6 @@ impl ENotifyTriggerMode {
     pub const HIGHEST_WEIGHTED_ANIMATION: ENotifyTriggerMode = ENotifyTriggerMode(1);
     pub const NONE: ENotifyTriggerMode = ENotifyTriggerMode(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EPreferredTriangulationDirection(pub u8);
 impl EPreferredTriangulationDirection {
@@ -21909,7 +18320,6 @@ impl EPreferredTriangulationDirection {
         2,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EBlendSpacePerBoneBlendMode(pub u8);
 impl EBlendSpacePerBoneBlendMode {
@@ -21920,7 +18330,6 @@ impl EBlendSpacePerBoneBlendMode {
         1,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EBlendSpaceAxis(pub u8);
 impl EBlendSpaceAxis {
@@ -21928,14 +18337,12 @@ impl EBlendSpaceAxis {
     pub const BSA_X: EBlendSpaceAxis = EBlendSpaceAxis(1);
     pub const BSA_Y: EBlendSpaceAxis = EBlendSpaceAxis(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ECustomAttributeBlendType(pub u8);
 impl ECustomAttributeBlendType {
     pub const OVERRIDE: ECustomAttributeBlendType = ECustomAttributeBlendType(0);
     pub const BLEND: ECustomAttributeBlendType = ECustomAttributeBlendType(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct AnimationCompressionFormat(pub u8);
 impl AnimationCompressionFormat {
@@ -21957,7 +18364,6 @@ impl AnimationCompressionFormat {
     );
     pub const ACF_IDENTITY: AnimationCompressionFormat = AnimationCompressionFormat(6);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EAnimDataModelNotifyType(pub u8);
 impl EAnimDataModelNotifyType {
@@ -21992,7 +18398,6 @@ impl EAnimDataModelNotifyType {
     pub const SKELETON_CHANGED: EAnimDataModelNotifyType = EAnimDataModelNotifyType(20);
     pub const INVALID: EAnimDataModelNotifyType = EAnimDataModelNotifyType(21);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EStripAnimDataOnDedicatedServerSettings(pub u8);
 impl EStripAnimDataOnDedicatedServerSettings {
@@ -22006,7 +18411,6 @@ impl EStripAnimDataOnDedicatedServerSettings {
         2,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EBlendProfileMode(pub u8);
 impl EBlendProfileMode {
@@ -22014,7 +18418,6 @@ impl EBlendProfileMode {
     pub const WEIGHT_FACTOR: EBlendProfileMode = EBlendProfileMode(1);
     pub const BLEND_MASK: EBlendProfileMode = EBlendProfileMode(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EPreviewAnimationBlueprintApplicationMethod(pub u8);
 impl EPreviewAnimationBlueprintApplicationMethod {
@@ -22025,7 +18428,6 @@ impl EPreviewAnimationBlueprintApplicationMethod {
         1,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EAudioBusChannels(pub u8);
 impl EAudioBusChannels {
@@ -22036,14 +18438,12 @@ impl EAudioBusChannels {
     pub const SEVEN_POINT_ONE: EAudioBusChannels = EAudioBusChannels(7);
     pub const MAX_CHANNEL_COUNT: EAudioBusChannels = EAudioBusChannels(8);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EVoiceSampleRate(pub i32);
 impl EVoiceSampleRate {
     pub const LOW16000_HZ: EVoiceSampleRate = EVoiceSampleRate(16000);
     pub const NORMAL24000_HZ: EVoiceSampleRate = EVoiceSampleRate(24000);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EDefaultAudioCompressionType(pub u8);
 impl EDefaultAudioCompressionType {
@@ -22056,14 +18456,12 @@ impl EDefaultAudioCompressionType {
     );
     pub const RAD_AUDIO: EDefaultAudioCompressionType = EDefaultAudioCompressionType(5);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EPanningMethod(pub i8);
 impl EPanningMethod {
     pub const LINEAR: EPanningMethod = EPanningMethod(0);
     pub const EQUAL_POWER: EPanningMethod = EPanningMethod(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMonoChannelUpmixMethod(pub i8);
 impl EMonoChannelUpmixMethod {
@@ -22071,14 +18469,12 @@ impl EMonoChannelUpmixMethod {
     pub const EQUAL_POWER: EMonoChannelUpmixMethod = EMonoChannelUpmixMethod(1);
     pub const FULL_VOLUME: EMonoChannelUpmixMethod = EMonoChannelUpmixMethod(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ECameraShakeAttenuation(pub u8);
 impl ECameraShakeAttenuation {
     pub const LINEAR: ECameraShakeAttenuation = ECameraShakeAttenuation(0);
     pub const QUADRATIC: ECameraShakeAttenuation = ECameraShakeAttenuation(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ETemperatureSeverityType(pub u8);
 impl ETemperatureSeverityType {
@@ -22089,7 +18485,6 @@ impl ETemperatureSeverityType {
     pub const CRITICAL: ETemperatureSeverityType = ETemperatureSeverityType(4);
     pub const NUM_SEVERITIES: ETemperatureSeverityType = ETemperatureSeverityType(5);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ENetworkSmoothingMode(pub u8);
 impl ENetworkSmoothingMode {
@@ -22097,7 +18492,6 @@ impl ENetworkSmoothingMode {
     pub const LINEAR: ENetworkSmoothingMode = ENetworkSmoothingMode(1);
     pub const EXPONENTIAL: ENetworkSmoothingMode = ENetworkSmoothingMode(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMegaLightsShadowMethod(pub u8);
 impl EMegaLightsShadowMethod {
@@ -22105,7 +18499,6 @@ impl EMegaLightsShadowMethod {
     pub const RAY_TRACING: EMegaLightsShadowMethod = EMegaLightsShadowMethod(1);
     pub const VIRTUAL_SHADOW_MAP: EMegaLightsShadowMethod = EMegaLightsShadowMethod(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EInterpToBehaviourType(pub u8);
 impl EInterpToBehaviourType {
@@ -22114,7 +18507,6 @@ impl EInterpToBehaviourType {
     pub const LOOP_RESET: EInterpToBehaviourType = EInterpToBehaviourType(2);
     pub const PING_PONG: EInterpToBehaviourType = EInterpToBehaviourType(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ERuntimeVirtualTextureMaterialQuality(pub u8);
 impl ERuntimeVirtualTextureMaterialQuality {
@@ -22131,7 +18523,6 @@ impl ERuntimeVirtualTextureMaterialQuality {
         3,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ERuntimeVirtualTextureUseStreamingMipsInEditorMode(pub u8);
 impl ERuntimeVirtualTextureUseStreamingMipsInEditorMode {
@@ -22145,21 +18536,18 @@ impl ERuntimeVirtualTextureUseStreamingMipsInEditorMode {
         2,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ESkyLightSourceType(pub u8);
 impl ESkyLightSourceType {
     pub const SLS_CAPTURED_SCENE: ESkyLightSourceType = ESkyLightSourceType(0);
     pub const SLS_SPECIFIED_CUBEMAP: ESkyLightSourceType = ESkyLightSourceType(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EOcclusionCombineMode(pub u8);
 impl EOcclusionCombineMode {
     pub const OCM_MINIMUM: EOcclusionCombineMode = EOcclusionCombineMode(0);
     pub const OCM_MULTIPLY: EOcclusionCombineMode = EOcclusionCombineMode(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ELastAuthority(pub u8);
 impl ELastAuthority {
@@ -22167,7 +18555,6 @@ impl ELastAuthority {
     pub const SPLINE: ELastAuthority = ELastAuthority(1);
     pub const SPLINE_CURVES: ELastAuthority = ELastAuthority(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EStereoLayerType(pub u8);
 impl EStereoLayerType {
@@ -22175,7 +18562,6 @@ impl EStereoLayerType {
     pub const SLT_TRACKER_LOCKED: EStereoLayerType = EStereoLayerType(1);
     pub const SLT_FACE_LOCKED: EStereoLayerType = EStereoLayerType(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EVolumetricCloudTracingMaxDistanceMode(pub u8);
 impl EVolumetricCloudTracingMaxDistanceMode {
@@ -22186,7 +18572,6 @@ impl EVolumetricCloudTracingMaxDistanceMode {
         1,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EStreamingSourceTargetBehavior(pub u8);
 impl EStreamingSourceTargetBehavior {
@@ -22197,14 +18582,12 @@ impl EStreamingSourceTargetBehavior {
         1,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EStreamingSourceTargetState(pub u8);
 impl EStreamingSourceTargetState {
     pub const LOADED: EStreamingSourceTargetState = EStreamingSourceTargetState(0);
     pub const ACTIVATED: EStreamingSourceTargetState = EStreamingSourceTargetState(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EGrammaticalGender(pub u8);
 impl EGrammaticalGender {
@@ -22213,28 +18596,24 @@ impl EGrammaticalGender {
     pub const FEMININE: EGrammaticalGender = EGrammaticalGender(2);
     pub const MIXED: EGrammaticalGender = EGrammaticalGender(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EGrammaticalNumber(pub u8);
 impl EGrammaticalNumber {
     pub const SINGULAR: EGrammaticalNumber = EGrammaticalNumber(0);
     pub const PLURAL: EGrammaticalNumber = EGrammaticalNumber(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EFontCacheType(pub u8);
 impl EFontCacheType {
     pub const OFFLINE: EFontCacheType = EFontCacheType(0);
     pub const RUNTIME: EFontCacheType = EFontCacheType(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ERuntimeFontSource(pub u8);
 impl ERuntimeFontSource {
     pub const ASSET: ERuntimeFontSource = ERuntimeFontSource(0);
     pub const CORE_STYLE_DEFAULT: ERuntimeFontSource = ERuntimeFontSource(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EApplicationState(pub u8);
 impl EApplicationState {
@@ -22243,7 +18622,6 @@ impl EApplicationState {
     pub const BACKGROUND: EApplicationState = EApplicationState(2);
     pub const ACTIVE: EApplicationState = EApplicationState(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ELevelInstanceRuntimeBehavior(pub u8);
 impl ELevelInstanceRuntimeBehavior {
@@ -22258,7 +18636,6 @@ impl ELevelInstanceRuntimeBehavior {
         3,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EStreamingVolumeUsage(pub u8);
 impl EStreamingVolumeUsage {
@@ -22272,7 +18649,6 @@ impl EStreamingVolumeUsage {
     pub const SVB_BLOCKING_ON_LOAD: EStreamingVolumeUsage = EStreamingVolumeUsage(3);
     pub const SVB_LOADING_NOT_VISIBLE: EStreamingVolumeUsage = EStreamingVolumeUsage(4);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ENoiseFunction(pub u8);
 impl ENoiseFunction {
@@ -22283,7 +18659,6 @@ impl ENoiseFunction {
     pub const NOISEFUNCTION_VALUE_ALU: ENoiseFunction = ENoiseFunction(4);
     pub const NOISEFUNCTION_VORONOI_ALU: ENoiseFunction = ENoiseFunction(5);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMaterialSubSurfaceType(pub u8);
 impl EMaterialSubSurfaceType {
@@ -22296,14 +18671,12 @@ impl EMaterialSubSurfaceType {
     );
     pub const MSS_SIMPLE_VOLUME: EMaterialSubSurfaceType = EMaterialSubSurfaceType(5);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EPhysicsAssetSolverType(pub u8);
 impl EPhysicsAssetSolverType {
     pub const RBAN: EPhysicsAssetSolverType = EPhysicsAssetSolverType(0);
     pub const WORLD: EPhysicsAssetSolverType = EPhysicsAssetSolverType(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ESettingsLockedAxis(pub u8);
 impl ESettingsLockedAxis {
@@ -22313,7 +18686,6 @@ impl ESettingsLockedAxis {
     pub const Z: ESettingsLockedAxis = ESettingsLockedAxis(3);
     pub const INVALID: ESettingsLockedAxis = ESettingsLockedAxis(4);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ESettingsDOF(pub u8);
 impl ESettingsDOF {
@@ -22322,14 +18694,12 @@ impl ESettingsDOF {
     pub const XZ_PLANE: ESettingsDOF = ESettingsDOF(2);
     pub const XY_PLANE: ESettingsDOF = ESettingsDOF(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMobileShadingPath(pub u8);
 impl EMobileShadingPath {
     pub const FORWARD: EMobileShadingPath = EMobileShadingPath(0);
     pub const DEFERRED: EMobileShadingPath = EMobileShadingPath(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMobileAntiAliasingMethod(pub u8);
 impl EMobileAntiAliasingMethod {
@@ -22340,7 +18710,6 @@ impl EMobileAntiAliasingMethod {
     pub const TSR: EMobileAntiAliasingMethod = EMobileAntiAliasingMethod(4);
     pub const SMAA: EMobileAntiAliasingMethod = EMobileAntiAliasingMethod(5);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMobileFloatPrecisionMode(pub u8);
 impl EMobileFloatPrecisionMode {
@@ -22350,7 +18719,6 @@ impl EMobileFloatPrecisionMode {
     );
     pub const FULL: EMobileFloatPrecisionMode = EMobileFloatPrecisionMode(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EShaderCompressionFormat(pub u8);
 impl EShaderCompressionFormat {
@@ -22359,7 +18727,6 @@ impl EShaderCompressionFormat {
     pub const OODLE: EShaderCompressionFormat = EShaderCompressionFormat(2);
     pub const ZLIB: EShaderCompressionFormat = EShaderCompressionFormat(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EWorkingColorSpace(pub u8);
 impl EWorkingColorSpace {
@@ -22371,7 +18738,6 @@ impl EWorkingColorSpace {
     pub const P3D65: EWorkingColorSpace = EWorkingColorSpace(6);
     pub const CUSTOM: EWorkingColorSpace = EWorkingColorSpace(7);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ELumenRayLightingMode(pub u8);
 impl ELumenRayLightingMode {
@@ -22381,14 +18747,12 @@ impl ELumenRayLightingMode {
     );
     pub const HIT_LIGHTING: ELumenRayLightingMode = ELumenRayLightingMode(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ELumenSoftwareTracingMode(pub u8);
 impl ELumenSoftwareTracingMode {
     pub const DETAIL_TRACING: ELumenSoftwareTracingMode = ELumenSoftwareTracingMode(1);
     pub const GLOBAL_TRACING: ELumenSoftwareTracingMode = ELumenSoftwareTracingMode(0);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ELumenScreenTracingSource(pub u8);
 impl ELumenScreenTracingSource {
@@ -22397,14 +18761,12 @@ impl ELumenScreenTracingSource {
         1,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EShadowMapMethod(pub u8);
 impl EShadowMapMethod {
     pub const SHADOW_MAPS: EShadowMapMethod = EShadowMapMethod(0);
     pub const VIRTUAL_SHADOW_MAPS: EShadowMapMethod = EShadowMapMethod(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ETranslucentSortPolicy(pub u8);
 impl ETranslucentSortPolicy {
@@ -22412,7 +18774,6 @@ impl ETranslucentSortPolicy {
     pub const SORT_BY_PROJECTED_Z: ETranslucentSortPolicy = ETranslucentSortPolicy(1);
     pub const SORT_ALONG_AXIS: ETranslucentSortPolicy = ETranslucentSortPolicy(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EFixedFoveationLevels(pub u8);
 impl EFixedFoveationLevels {
@@ -22422,7 +18783,6 @@ impl EFixedFoveationLevels {
     pub const HIGH: EFixedFoveationLevels = EFixedFoveationLevels(3);
     pub const HIGH_TOP: EFixedFoveationLevels = EFixedFoveationLevels(4);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ECustomDepthStencil(pub u8);
 impl ECustomDepthStencil {
@@ -22431,7 +18791,6 @@ impl ECustomDepthStencil {
     pub const ENABLED_ON_DEMAND: ECustomDepthStencil = ECustomDepthStencil(2);
     pub const ENABLED_WITH_STENCIL: ECustomDepthStencil = ECustomDepthStencil(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EAutoExposureMethodUI(pub u8);
 impl EAutoExposureMethodUI {
@@ -22439,7 +18798,6 @@ impl EAutoExposureMethodUI {
     pub const AEM_BASIC: EAutoExposureMethodUI = EAutoExposureMethodUI(1);
     pub const AEM_MANUAL: EAutoExposureMethodUI = EAutoExposureMethodUI(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EAntiAliasingMethod(pub u8);
 impl EAntiAliasingMethod {
@@ -22450,7 +18808,6 @@ impl EAntiAliasingMethod {
     pub const AAM_TSR: EAntiAliasingMethod = EAntiAliasingMethod(4);
     pub const AAM_SMAA: EAntiAliasingMethod = EAntiAliasingMethod(5);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ECompositingSampleCount(pub u8);
 impl ECompositingSampleCount {
@@ -22459,7 +18816,6 @@ impl ECompositingSampleCount {
     pub const FOUR: ECompositingSampleCount = ECompositingSampleCount(4);
     pub const EIGHT: ECompositingSampleCount = ECompositingSampleCount(8);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EDefaultBackBufferPixelFormat(pub u8);
 impl EDefaultBackBufferPixelFormat {
@@ -22479,7 +18835,6 @@ impl EDefaultBackBufferPixelFormat {
         4,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EEarlyZPass(pub u8);
 impl EEarlyZPass {
@@ -22488,7 +18843,6 @@ impl EEarlyZPass {
     pub const OPAQUE_AND_MASKED: EEarlyZPass = EEarlyZPass(2);
     pub const AUTO: EEarlyZPass = EEarlyZPass(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EClearSceneOptions(pub u8);
 impl EClearSceneOptions {
@@ -22496,7 +18850,6 @@ impl EClearSceneOptions {
     pub const HARDWARE_CLEAR: EClearSceneOptions = EClearSceneOptions(1);
     pub const QUAD_AT_MAX_Z: EClearSceneOptions = EClearSceneOptions(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EVelocityOutputPass(pub u8);
 impl EVelocityOutputPass {
@@ -22504,7 +18857,6 @@ impl EVelocityOutputPass {
     pub const BASE_PASS: EVelocityOutputPass = EVelocityOutputPass(1);
     pub const AFTER_BASE_PASS: EVelocityOutputPass = EVelocityOutputPass(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EVertexDeformationOutputsVelocity(pub u8);
 impl EVertexDeformationOutputsVelocity {
@@ -22518,7 +18870,6 @@ impl EVertexDeformationOutputsVelocity {
         2,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EGBufferFormat(pub u8);
 impl EGBufferFormat {
@@ -22527,7 +18878,6 @@ impl EGBufferFormat {
     pub const HIGH_PRECISION_NORMALS: EGBufferFormat = EGBufferFormat(3);
     pub const FORCE16_BITS_PER_CHANNEL: EGBufferFormat = EGBufferFormat(5);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ELightFunctionAtlasPixelFormat(pub u8);
 impl ELightFunctionAtlasPixelFormat {
@@ -22538,14 +18888,12 @@ impl ELightFunctionAtlasPixelFormat {
         1,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ESubstrateStorageFormat(pub u8);
 impl ESubstrateStorageFormat {
     pub const BLENDABLE_G_BUFFER: ESubstrateStorageFormat = ESubstrateStorageFormat(0);
     pub const ADAPTIVE_BUFFER: ESubstrateStorageFormat = ESubstrateStorageFormat(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ESubstrateClosureConfig(pub u8);
 impl ESubstrateClosureConfig {
@@ -22556,14 +18904,12 @@ impl ESubstrateClosureConfig {
         1,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ESkinCacheDefaultBehavior(pub u8);
 impl ESkinCacheDefaultBehavior {
     pub const EXCLUSIVE: ESkinCacheDefaultBehavior = ESkinCacheDefaultBehavior(0);
     pub const INCLUSIVE: ESkinCacheDefaultBehavior = ESkinCacheDefaultBehavior(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMobileLocalLightSetting(pub u8);
 impl EMobileLocalLightSetting {
@@ -22577,7 +18923,6 @@ impl EMobileLocalLightSetting {
         2,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EClothLODBiasMode(pub u8);
 impl EClothLODBiasMode {
@@ -22585,14 +18930,12 @@ impl EClothLODBiasMode {
     pub const MAPPINGS_TO_MIN_LOD: EClothLODBiasMode = EClothLODBiasMode(1);
     pub const MAPPINGS_TO_ANY_LOD: EClothLODBiasMode = EClothLODBiasMode(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ESourceBusChannels(pub u8);
 impl ESourceBusChannels {
     pub const MONO: ESourceBusChannels = ESourceBusChannels(0);
     pub const STEREO: ESourceBusChannels = ESourceBusChannels(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EStaticMeshPaintSupport(pub u8);
 impl EStaticMeshPaintSupport {
@@ -22600,7 +18943,6 @@ impl EStaticMeshPaintSupport {
     pub const ENABLED: EStaticMeshPaintSupport = EStaticMeshPaintSupport(1);
     pub const DISABLED: EStaticMeshPaintSupport = EStaticMeshPaintSupport(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ERenderFocusRule(pub u8);
 impl ERenderFocusRule {
@@ -22609,7 +18951,6 @@ impl ERenderFocusRule {
     pub const NAVIGATION_ONLY: ERenderFocusRule = ERenderFocusRule(2);
     pub const NEVER: ERenderFocusRule = ERenderFocusRule(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EUIScalingRule(pub u8);
 impl EUIScalingRule {
@@ -22620,7 +18961,6 @@ impl EUIScalingRule {
     pub const SCALE_TO_FIT: EUIScalingRule = EUIScalingRule(4);
     pub const CUSTOM: EUIScalingRule = EUIScalingRule(5);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EFontDPI(pub u8);
 impl EFontDPI {
@@ -22628,7 +18968,6 @@ impl EFontDPI {
     pub const UNREAL: EFontDPI = EFontDPI(1);
     pub const CUSTOM: EFontDPI = EFontDPI(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EDataLayerLoadFilter(pub u8);
 impl EDataLayerLoadFilter {
@@ -22636,7 +18975,6 @@ impl EDataLayerLoadFilter {
     pub const CLIENT_ONLY: EDataLayerLoadFilter = EDataLayerLoadFilter(1);
     pub const SERVER_ONLY: EDataLayerLoadFilter = EDataLayerLoadFilter(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EOverrideBlockOnSlowStreaming(pub u8);
 impl EOverrideBlockOnSlowStreaming {
@@ -22648,7 +18986,6 @@ impl EOverrideBlockOnSlowStreaming {
         2,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EWorldPartitionServerStreamingMode(pub u8);
 impl EWorldPartitionServerStreamingMode {
@@ -22665,7 +19002,6 @@ impl EWorldPartitionServerStreamingMode {
         3,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EWorldPartitionServerStreamingOutMode(pub u8);
 impl EWorldPartitionServerStreamingOutMode {
@@ -22679,7 +19015,6 @@ impl EWorldPartitionServerStreamingOutMode {
         2,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EWorldPartitionDataLayersLogicOperator(pub u8);
 impl EWorldPartitionDataLayersLogicOperator {
@@ -22690,7 +19025,6 @@ impl EWorldPartitionDataLayersLogicOperator {
         1,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EHLODLayerType(pub u8);
 impl EHLODLayerType {
@@ -22701,7 +19035,6 @@ impl EHLODLayerType {
     pub const CUSTOM: EHLODLayerType = EHLODLayerType(4);
     pub const CUSTOM_HLOD_ACTOR: EHLODLayerType = EHLODLayerType(5);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ERuntimePartitionCellBoundsMethod(pub u8);
 impl ERuntimePartitionCellBoundsMethod {
@@ -22715,7 +19048,6 @@ impl ERuntimePartitionCellBoundsMethod {
         2,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EWorldPartitionStreamingPerformance(pub u8);
 impl EWorldPartitionStreamingPerformance {
@@ -22732,7 +19064,6 @@ impl EWorldPartitionStreamingPerformance {
         3,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EWorldPartitionCVarProjectDefaultOverride(pub u8);
 impl EWorldPartitionCVarProjectDefaultOverride {
@@ -22746,7 +19077,6 @@ impl EWorldPartitionCVarProjectDefaultOverride {
         2,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EVisibilityAggressiveness(pub u8);
 impl EVisibilityAggressiveness {

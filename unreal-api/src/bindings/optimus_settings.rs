@@ -4,14 +4,11 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
+#[repr(C, align(8))]
 pub struct UOptimusSettings {
-    pub default_mode: EOptimusDefaultDeformerMode,
-    pub default_deformer: TSoftObjectPtr<crate::bindings::engine::UMeshDeformer>,
-    pub default_recompute_tangent_deformer: TSoftObjectPtr<
-        crate::bindings::engine::UMeshDeformer,
-    >,
+    __padding_end: [u8; 208],
 }
-#[allow(non_camel_case_types)]
+impl UOptimusSettings {}
 #[repr(transparent)]
 pub struct EOptimusDefaultDeformerMode(pub u8);
 impl EOptimusDefaultDeformerMode {

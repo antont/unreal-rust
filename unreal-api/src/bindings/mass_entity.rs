@@ -4,132 +4,91 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
-#[repr(C, align(1))]
-pub struct FMassFragment {}
-#[repr(C, align(4))]
-pub struct FMassDebugLogFragment {
-    pub log_owner: TWeakObjectPtr<crate::bindings::core_u_object::UObject>,
-}
-#[repr(C, align(1))]
-pub struct FMassTag {}
-#[repr(C, align(1))]
-pub struct FMassChunkFragment {}
-#[repr(C, align(1))]
-pub struct FMassSharedFragment {}
-#[repr(C, align(1))]
-pub struct FMassConstSharedFragment {}
-#[repr(C, align(8))]
-pub struct FMassEntityHandle {
-    pub index: i32,
-    pub serial_number: i32,
-}
-#[repr(C, align(8))]
-pub struct FMassGenericDebugEvent {}
-#[repr(C, align(1))]
-pub struct FMassRelation {}
-#[repr(C, align(8))]
-pub struct FMassRelationFragment {}
-#[repr(C, align(1))]
-pub struct FMassRelationMappingFragment {}
-#[repr(C, align(8))]
-pub struct FMassEntityView {}
-#[repr(C, align(8))]
-pub struct FMassObserversMap {
-    pub container: TMap<
-        UPtr<crate::bindings::core_u_object::UScriptStruct>,
-        FMassRuntimePipeline,
-    >,
-}
-#[repr(C, align(8))]
-pub struct FMassRuntimePipeline {
-    pub processors: TArray<UPtr<UMassProcessor>>,
-}
-#[repr(C, align(8))]
-pub struct FMassObserverManager {
-    pub fragment_observers: FMassObserversMap,
-    pub tag_observers: FMassObserversMap,
-}
-#[repr(C, align(8))]
-pub struct FMassObserverExecutionContext {}
-#[repr(C, align(8))]
-pub struct FMassProcessorClassCollection {
-    pub class_collection: TArray<TSubclassOf<UMassProcessor>>,
-}
-#[repr(C, align(8))]
-pub struct FMassEntityObserverClassesMap {
-    pub container: TMap<
-        UPtr<crate::bindings::core_u_object::UScriptStruct>,
-        FMassProcessorClassCollection,
-    >,
-}
-#[repr(C, align(8))]
-pub struct FMassProcessingPhaseConfig {
-    pub phase_name: FName,
-    pub phase_group_class: TSubclassOf<UMassCompositeProcessor>,
-    pub processor_cd_os: TArray<UPtr<UMassProcessor>>,
-    pub phase_processor: UPtr<UMassCompositeProcessor>,
-    pub description: FText,
-}
-#[repr(C, align(1))]
-pub struct FProcessorAuxDataBase {}
 #[repr(C, align(8))]
 pub struct FMassProcessingContext_DEPRECATED {
-    pub delta_seconds: f32,
-    pub aux_data: crate::bindings::core_u_object::FInstancedStruct,
-    pub b_flush_command_buffer: bool,
+    __padding_end: [u8; 32],
 }
+impl FMassProcessingContext_DEPRECATED {}
 #[repr(C, align(8))]
-pub struct FMassProcessorExecutionOrder {
-    pub execute_in_group: FName,
-    pub execute_before: TArray<FName>,
-    pub execute_after: TArray<FName>,
+pub struct UMassModuleSettings {
+    __padding_end: [u8; 48],
 }
-#[repr(C, align(1))]
-pub struct FMassChildOfRelation {}
+impl UMassModuleSettings {}
 #[repr(C, align(8))]
-pub struct FMassChildOfFragment {
-    pub parent: FMassEntityHandle,
-}
-pub struct UMassModuleSettings {}
 pub struct UMassEntitySettings {
-    pub chunk_memory_size: u32,
-    pub dump_dependency_graph_file_name: FString,
-    pub processing_phases_config: FMassProcessingPhaseConfig,
-    pub processor_cd_os: TArray<UPtr<UMassProcessor>>,
+    __padding_end: [u8; 544],
 }
-pub struct UMassSubsystemBase {}
-pub struct UMassEntitySubsystem {}
+impl UMassEntitySettings {}
+#[repr(C, align(8))]
+pub struct UMassSubsystemBase {
+    __padding_end: [u8; 72],
+}
+impl UMassSubsystemBase {}
+#[repr(C, align(8))]
+pub struct UMassEntitySubsystem {
+    __padding_end: [u8; 88],
+}
+impl UMassEntitySubsystem {}
+#[repr(C, align(8))]
 pub struct UMassProcessor {
-    pub execution_order: FMassProcessorExecutionOrder,
-    pub processing_phase: EMassProcessingPhase,
-    pub execution_flags: u8,
-    pub flags_114: u8,
-    pub activation_state: EActivationState,
-    pub execution_priority: i16,
+    __padding_end: [u8; 240],
 }
+impl UMassProcessor {}
+#[repr(C, align(8))]
 pub struct UMassObserverProcessor {
-    pub b_auto_register_with_observer_registry: bool,
-    pub observed_type: UPtr<crate::bindings::core_u_object::UScriptStruct>,
+    __padding_end: [u8; 264],
 }
+impl UMassObserverProcessor {}
+#[repr(C, align(8))]
 pub struct UMassObserverRegistry {
-    pub fragment_observers: FMassEntityObserverClassesMap,
-    pub tag_observers: FMassEntityObserverClassesMap,
+    __padding_end: [u8; 1336],
 }
+impl UMassObserverRegistry {}
+#[repr(C, align(8))]
 pub struct UMassCompositeProcessor {
-    pub child_pipeline: FMassRuntimePipeline,
-    pub group_name: FName,
+    __padding_end: [u8; 312],
 }
-pub struct UMassRelationObserver {}
-pub struct UMassRelationEntityCreation {}
-pub struct UMassRelationEntityGuardDog {}
-pub struct UMassRelationEntityDestruction {}
-pub struct UMassRelationRoleDestruction {}
+impl UMassCompositeProcessor {}
+#[repr(C, align(16))]
+pub struct UMassRelationObserver {
+    __padding_end: [u8; 1184],
+}
+impl UMassRelationObserver {}
+#[repr(C, align(16))]
+pub struct UMassRelationEntityCreation {
+    __padding_end: [u8; 1184],
+}
+impl UMassRelationEntityCreation {}
+#[repr(C, align(16))]
+pub struct UMassRelationEntityGuardDog {
+    __padding_end: [u8; 1184],
+}
+impl UMassRelationEntityGuardDog {}
+#[repr(C, align(16))]
+pub struct UMassRelationEntityDestruction {
+    __padding_end: [u8; 1184],
+}
+impl UMassRelationEntityDestruction {}
+#[repr(C, align(16))]
+pub struct UMassRelationRoleDestruction {
+    __padding_end: [u8; 1248],
+}
+impl UMassRelationRoleDestruction {}
+#[repr(C, align(8))]
 pub struct UMassSettings {
-    pub module_settings: TMap<FName, UPtr<UMassModuleSettings>>,
+    __padding_end: [u8; 184],
 }
-pub struct UMassTickableSubsystemBase {}
-pub struct UMassChildOfRelationEntityCreation {}
-#[allow(non_camel_case_types)]
+impl UMassSettings {}
+#[repr(C, align(8))]
+pub struct UMassTickableSubsystemBase {
+    __padding_end: [u8; 88],
+}
+impl UMassTickableSubsystemBase {}
+#[repr(C, align(16))]
+pub struct UMassChildOfRelationEntityCreation {
+    __padding_end: [u8; 1184],
+}
+impl UMassChildOfRelationEntityCreation {}
 #[repr(transparent)]
 pub struct EMassProcessingPhase(pub u8);
 impl EMassProcessingPhase {
@@ -141,7 +100,6 @@ impl EMassProcessingPhase {
     pub const FRAME_END: EMassProcessingPhase = EMassProcessingPhase(5);
     pub const MAX: EMassProcessingPhase = EMassProcessingPhase(6);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EActivationState(pub u8);
 impl EActivationState {

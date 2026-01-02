@@ -4,7 +4,6 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EFractureBrickBondEnum(pub u8);
 impl EFractureBrickBondEnum {
@@ -24,7 +23,6 @@ impl EFractureBrickBondEnum {
         4,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMeshCutterCutDistribution(pub u8);
 impl EMeshCutterCutDistribution {
@@ -32,7 +30,6 @@ impl EMeshCutterCutDistribution {
     pub const UNIFORM_RANDOM: EMeshCutterCutDistribution = EMeshCutterCutDistribution(1);
     pub const GRID: EMeshCutterCutDistribution = EMeshCutterCutDistribution(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMeshCutterPerCutMeshSelection(pub u8);
 impl EMeshCutterPerCutMeshSelection {
@@ -42,7 +39,6 @@ impl EMeshCutterPerCutMeshSelection {
         2,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ENonUniformSamplingDistributionMode(pub u8);
 impl ENonUniformSamplingDistributionMode {
@@ -56,7 +52,6 @@ impl ENonUniformSamplingDistributionMode {
         2,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ENonUniformSamplingWeightMode(pub u8);
 impl ENonUniformSamplingWeightMode {
@@ -70,21 +65,18 @@ impl ENonUniformSamplingWeightMode {
         2,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EConvexHullSimplifyMethod(pub i32);
 impl EConvexHullSimplifyMethod {
     pub const MESH_Q_SLIM: EConvexHullSimplifyMethod = EConvexHullSimplifyMethod(0);
     pub const ANGLE_TOLERANCE: EConvexHullSimplifyMethod = EConvexHullSimplifyMethod(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EFixTinyGeoMergeType(pub u8);
 impl EFixTinyGeoMergeType {
     pub const MERGE_GEOMETRY: EFixTinyGeoMergeType = EFixTinyGeoMergeType(0);
     pub const MERGE_CLUSTERS: EFixTinyGeoMergeType = EFixTinyGeoMergeType(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EFixTinyGeoNeighborSelectionMethod(pub u8);
 impl EFixTinyGeoNeighborSelectionMethod {
@@ -95,7 +87,6 @@ impl EFixTinyGeoNeighborSelectionMethod {
         1,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EFixTinyGeoUseBoneSelection(pub u8);
 impl EFixTinyGeoUseBoneSelection {
@@ -107,7 +98,6 @@ impl EFixTinyGeoUseBoneSelection {
         2,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EFixTinyGeoGeometrySelectionMethod(pub u8);
 impl EFixTinyGeoGeometrySelectionMethod {

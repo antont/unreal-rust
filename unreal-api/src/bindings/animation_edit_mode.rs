@@ -6,4 +6,8 @@ pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 pub struct UAnimationEditContext {}
 pub struct IAnimationEditContext {}
-pub struct UAnimationEditModeContext {}
+#[repr(C, align(8))]
+pub struct UAnimationEditModeContext {
+    __padding_end: [u8; 64],
+}
+impl UAnimationEditModeContext {}

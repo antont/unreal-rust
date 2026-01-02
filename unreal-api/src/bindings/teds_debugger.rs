@@ -5,8 +5,12 @@
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[repr(C, align(8))]
-pub struct FRowReferenceWidgetConstructor {}
+pub struct URowReferenceWidgetFactory {
+    __padding_end: [u8; 48],
+}
+impl URowReferenceWidgetFactory {}
 #[repr(C, align(8))]
-pub struct FSlateVisualizationWidgetConstructor {}
-pub struct URowReferenceWidgetFactory {}
-pub struct USlateVisualizationWidgetFactory {}
+pub struct USlateVisualizationWidgetFactory {
+    __padding_end: [u8; 48],
+}
+impl USlateVisualizationWidgetFactory {}

@@ -4,12 +4,13 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
+#[repr(C, align(8))]
 pub struct UPropertyConfigFileDisplayRow {
-    pub config_file_name: FString,
-    pub external_property: TFieldPath<FProperty>,
-    pub b_is_file_writable: bool,
+    __padding_end: [u8; 144],
 }
+impl UPropertyConfigFileDisplayRow {}
+#[repr(C, align(8))]
 pub struct UConfigHierarchyPropertyView {
-    pub edit_property: TFieldPath<FProperty>,
-    pub config_file_property_objects: TArray<UPtr<UPropertyConfigFileDisplayRow>>,
+    __padding_end: [u8; 112],
 }
+impl UConfigHierarchyPropertyView {}

@@ -5,14 +5,22 @@
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[repr(C, align(4))]
-pub struct FMeterChannelInfo {}
+pub struct FMeterChannelInfo {
+    __padding_end: [u8; 12],
+}
+impl FMeterChannelInfo {}
 #[repr(C, align(8))]
 pub struct FAudioMaterialWidgetStyle {
+    #[doc(hidden)]
+    __padding_8: [u8; 8],
     pub material: UPtr<crate::bindings::engine::UMaterialInterface>,
     pub desired_size: crate::bindings::core_u_object::FVector2f,
 }
+impl FAudioMaterialWidgetStyle {}
 #[repr(C, align(8))]
 pub struct FAudioMaterialMeterStyle {
+    #[doc(hidden)]
+    __padding_24: [u8; 24],
     pub meter_fill_min_color: crate::bindings::core_u_object::FLinearColor,
     pub meter_fill_mid_color: crate::bindings::core_u_object::FLinearColor,
     pub meter_fill_max_color: crate::bindings::core_u_object::FLinearColor,
@@ -27,21 +35,34 @@ pub struct FAudioMaterialMeterStyle {
     pub decibels_per_hash: i32,
     pub font: crate::bindings::slate_core::FSlateFontInfo,
 }
+impl FAudioMaterialMeterStyle {}
 #[repr(C, align(16))]
-pub struct FAudioMeterStyle {}
+pub struct FAudioMeterStyle {
+    __padding_end: [u8; 1248],
+}
+impl FAudioMeterStyle {}
 #[repr(C, align(16))]
 pub struct FAudioOscilloscopePanelStyle {
+    #[doc(hidden)]
+    __padding_16: [u8; 16],
     pub time_ruler_style: FFixedSampleSequenceRulerStyle,
     pub value_grid_style: FSampledSequenceValueGridOverlayStyle,
     pub wave_viewer_style: FSampledSequenceViewerStyle,
     pub trigger_threshold_line_style: FTriggerThresholdLineStyle,
+    __padding_end: [u8; 8],
 }
+impl FAudioOscilloscopePanelStyle {}
 #[repr(C, align(8))]
 pub struct FTriggerThresholdLineStyle {
+    #[doc(hidden)]
+    __padding_8: [u8; 8],
     pub line_color: crate::bindings::core_u_object::FLinearColor,
 }
+impl FTriggerThresholdLineStyle {}
 #[repr(C, align(16))]
 pub struct FSampledSequenceViewerStyle {
+    #[doc(hidden)]
+    __padding_8: [u8; 8],
     pub sequence_color: crate::bindings::slate_core::FSlateColor,
     pub sequence_line_thickness: f32,
     pub major_grid_line_color: crate::bindings::slate_core::FSlateColor,
@@ -53,9 +74,13 @@ pub struct FSampledSequenceViewerStyle {
     pub background_brush: crate::bindings::slate_core::FSlateBrush,
     pub desired_width: f32,
     pub desired_height: f32,
+    __padding_end: [u8; 8],
 }
+impl FSampledSequenceViewerStyle {}
 #[repr(C, align(8))]
 pub struct FSampledSequenceValueGridOverlayStyle {
+    #[doc(hidden)]
+    __padding_8: [u8; 8],
     pub grid_color: crate::bindings::slate_core::FSlateColor,
     pub grid_thickness: f32,
     pub label_text_color: crate::bindings::slate_core::FSlateColor,
@@ -63,8 +88,11 @@ pub struct FSampledSequenceValueGridOverlayStyle {
     pub desired_width: f32,
     pub desired_height: f32,
 }
+impl FSampledSequenceValueGridOverlayStyle {}
 #[repr(C, align(16))]
 pub struct FFixedSampleSequenceRulerStyle {
+    #[doc(hidden)]
+    __padding_8: [u8; 8],
     pub handle_width: f32,
     pub handle_color: crate::bindings::slate_core::FSlateColor,
     pub handle_brush: crate::bindings::slate_core::FSlateBrush,
@@ -76,22 +104,32 @@ pub struct FFixedSampleSequenceRulerStyle {
     pub background_brush: crate::bindings::slate_core::FSlateBrush,
     pub desired_width: f32,
     pub desired_height: f32,
+    __padding_end: [u8; 8],
 }
+impl FFixedSampleSequenceRulerStyle {}
 #[repr(C, align(16))]
 pub struct FAudioVectorscopePanelStyle {
+    #[doc(hidden)]
+    __padding_8: [u8; 8],
     pub value_grid_style: FSampledSequenceValueGridOverlayStyle,
     pub vector_viewer_style: FSampledSequenceVectorViewerStyle,
 }
+impl FAudioVectorscopePanelStyle {}
 #[repr(C, align(16))]
 pub struct FSampledSequenceVectorViewerStyle {
+    #[doc(hidden)]
+    __padding_8: [u8; 8],
     pub background_color: crate::bindings::slate_core::FSlateColor,
     pub background_brush: crate::bindings::slate_core::FSlateBrush,
     pub line_color: crate::bindings::core_u_object::FLinearColor,
     pub line_thickness: f32,
+    __padding_end: [u8; 12],
 }
+impl FSampledSequenceVectorViewerStyle {}
 #[repr(C, align(4))]
 pub struct FAudioMaterialEnvelopeSettings {
-    pub envelope_type: EAudioMaterialEnvelopeType,
+    #[doc(hidden)]
+    __padding_4: [u8; 4],
     pub attack_curve: f32,
     pub attack_value: f32,
     pub attack_time: f32,
@@ -101,20 +139,11 @@ pub struct FAudioMaterialEnvelopeSettings {
     pub release_curve: f32,
     pub release_time: f32,
 }
-#[repr(C, align(1))]
-pub struct FLoudnessMetricDisplayOptions {
-    pub b_show_value: bool,
-    pub b_show_meter: bool,
-}
-#[repr(C, align(1))]
-pub struct FLoudnessMeterRackUnitSettings {
-    pub b_display_analysis_timer: bool,
-    pub long_term_loudness: FLoudnessMetricDisplayOptions,
-    pub short_term_loudness: FLoudnessMetricDisplayOptions,
-    pub momentary_loudness: FLoudnessMetricDisplayOptions,
-}
+impl FAudioMaterialEnvelopeSettings {}
 #[repr(C, align(8))]
 pub struct FAudioMaterialButtonStyle {
+    #[doc(hidden)]
+    __padding_24: [u8; 24],
     pub button_main_color: crate::bindings::core_u_object::FLinearColor,
     pub button_main_color_tint_1: crate::bindings::core_u_object::FLinearColor,
     pub button_main_color_tint_2: crate::bindings::core_u_object::FLinearColor,
@@ -123,8 +152,11 @@ pub struct FAudioMaterialButtonStyle {
     pub button_unpressed_outline_color: crate::bindings::core_u_object::FLinearColor,
     pub button_pressed_outline_color: crate::bindings::core_u_object::FLinearColor,
 }
+impl FAudioMaterialButtonStyle {}
 #[repr(C, align(16))]
 pub struct FAudioMaterialSliderStyle {
+    #[doc(hidden)]
+    __padding_24: [u8; 24],
     pub slider_background_color: crate::bindings::core_u_object::FLinearColor,
     pub slider_background_accent_color: crate::bindings::core_u_object::FLinearColor,
     pub slider_value_main_color: crate::bindings::core_u_object::FLinearColor,
@@ -132,13 +164,20 @@ pub struct FAudioMaterialSliderStyle {
     pub slider_handle_outline_color: crate::bindings::core_u_object::FLinearColor,
     pub text_box_style: FAudioTextBoxStyle,
 }
+impl FAudioMaterialSliderStyle {}
 #[repr(C, align(16))]
 pub struct FAudioTextBoxStyle {
+    #[doc(hidden)]
+    __padding_16: [u8; 16],
     pub background_image: crate::bindings::slate_core::FSlateBrush,
     pub background_color: crate::bindings::slate_core::FSlateColor,
+    __padding_end: [u8; 12],
 }
+impl FAudioTextBoxStyle {}
 #[repr(C, align(16))]
 pub struct FAudioMaterialKnobStyle {
+    #[doc(hidden)]
+    __padding_24: [u8; 24],
     pub knob_main_color: crate::bindings::core_u_object::FLinearColor,
     pub knob_accent_color: crate::bindings::core_u_object::FLinearColor,
     pub knob_shadow_color: crate::bindings::core_u_object::FLinearColor,
@@ -153,38 +192,25 @@ pub struct FAudioMaterialKnobStyle {
     pub knob_bar_fill_tint_color: crate::bindings::core_u_object::FLinearColor,
     pub text_box_style: FAudioTextBoxStyle,
 }
+impl FAudioMaterialKnobStyle {}
 #[repr(C, align(8))]
 pub struct FAudioMaterialEnvelopeStyle {
+    #[doc(hidden)]
+    __padding_24: [u8; 24],
     pub curve_color: crate::bindings::core_u_object::FLinearColor,
     pub background_color: crate::bindings::core_u_object::FLinearColor,
     pub outline_color: crate::bindings::core_u_object::FLinearColor,
 }
+impl FAudioMaterialEnvelopeStyle {}
 #[repr(C, align(8))]
-pub struct FAudioMeterDefaultColorStyle {}
-#[repr(C, align(1))]
-pub struct FSpectrogramRackUnitSettings {
-    pub analyzer_type: EAudioSpectrumAnalyzerType,
-    pub fft_analyzer_fft_size: crate::bindings::engine::EFFTSize,
-    pub cqt_analyzer_fft_size: crate::bindings::audio_synesthesia::EConstantQFFTSizeEnum,
-    pub pixel_plot_mode: EAudioSpectrogramFrequencyAxisPixelBucketMode,
-    pub frequency_scale: EAudioSpectrogramFrequencyAxisScale,
-    pub color_map: EAudioColorGradient,
-    pub orientation: crate::bindings::slate_core::EOrientation,
+pub struct FAudioMeterDefaultColorStyle {
+    __padding_end: [u8; 104],
 }
-#[repr(C, align(1))]
-pub struct FSpectrumAnalyzerRackUnitSettings {
-    pub ballistics: EAudioSpectrumAnalyzerBallistics,
-    pub analyzer_type: EAudioSpectrumAnalyzerType,
-    pub fft_analyzer_fft_size: crate::bindings::engine::EFFTSize,
-    pub cqt_analyzer_fft_size: crate::bindings::audio_synesthesia::EConstantQFFTSizeEnum,
-    pub tilt_spectrum: EAudioSpectrumPlotTilt,
-    pub pixel_plot_mode: EAudioSpectrumPlotFrequencyAxisPixelBucketMode,
-    pub frequency_scale: EAudioSpectrumPlotFrequencyAxisScale,
-    pub b_display_frequency_axis_labels: bool,
-    pub b_display_sound_level_axis_labels: bool,
-}
+impl FAudioMeterDefaultColorStyle {}
 #[repr(C, align(8))]
 pub struct FAudioSpectrumPlotStyle {
+    #[doc(hidden)]
+    __padding_8: [u8; 8],
     pub background_color: crate::bindings::slate_core::FSlateColor,
     pub grid_color: crate::bindings::slate_core::FSlateColor,
     pub axis_label_color: crate::bindings::slate_core::FSlateColor,
@@ -193,8 +219,11 @@ pub struct FAudioSpectrumPlotStyle {
     pub crosshair_color: crate::bindings::slate_core::FSlateColor,
     pub crosshair_label_font: crate::bindings::slate_core::FSlateFontInfo,
 }
+impl FAudioSpectrumPlotStyle {}
 #[repr(C, align(16))]
 pub struct FAudioSliderStyle {
+    #[doc(hidden)]
+    __padding_16: [u8; 16],
     pub slider_style: crate::bindings::slate_core::FSliderStyle,
     pub text_box_style: FAudioTextBoxStyle,
     pub widget_background_image: crate::bindings::slate_core::FSlateBrush,
@@ -204,74 +233,121 @@ pub struct FAudioSliderStyle {
     pub slider_bar_color: crate::bindings::slate_core::FSlateColor,
     pub slider_thumb_color: crate::bindings::slate_core::FSlateColor,
     pub widget_background_color: crate::bindings::slate_core::FSlateColor,
+    __padding_end: [u8; 8],
 }
+impl FAudioSliderStyle {}
 #[repr(C, align(16))]
 pub struct FAudioRadialSliderStyle {
+    #[doc(hidden)]
+    __padding_16: [u8; 16],
     pub text_box_style: FAudioTextBoxStyle,
     pub center_background_color: crate::bindings::slate_core::FSlateColor,
     pub slider_bar_color: crate::bindings::slate_core::FSlateColor,
     pub slider_progress_color: crate::bindings::slate_core::FSlateColor,
     pub label_padding: f32,
     pub default_slider_radius: f32,
+    __padding_end: [u8; 12],
 }
+impl FAudioRadialSliderStyle {}
 #[repr(C, align(8))]
 pub struct FPlayheadOverlayStyle {
+    #[doc(hidden)]
+    __padding_8: [u8; 8],
     pub playhead_color: crate::bindings::slate_core::FSlateColor,
     pub playhead_width: f32,
     pub desired_width: f32,
     pub desired_height: f32,
 }
+impl FPlayheadOverlayStyle {}
+#[repr(C, align(16))]
 pub struct UAudioMaterialKnobWidgetStyle {
-    pub knob_style: FAudioMaterialKnobStyle,
+    __padding_end: [u8; 544],
 }
+impl UAudioMaterialKnobWidgetStyle {}
+#[repr(C, align(8))]
 pub struct UAudioMaterialMeterWidgetStyle {
-    pub meter_style: FAudioMaterialMeterStyle,
+    __padding_end: [u8; 312],
 }
+impl UAudioMaterialMeterWidgetStyle {}
+#[repr(C, align(8))]
 pub struct UAudioMaterialButtonWidgetStyle {
-    pub button_style: FAudioMaterialButtonStyle,
+    __padding_end: [u8; 192],
 }
+impl UAudioMaterialButtonWidgetStyle {}
+#[repr(C, align(16))]
 pub struct UAudioMaterialSliderWidgetStyle {
-    pub slider_style: FAudioMaterialSliderStyle,
+    __padding_end: [u8; 432],
 }
+impl UAudioMaterialSliderWidgetStyle {}
+#[repr(C, align(8))]
 pub struct UAudioMaterialButton {
+    #[doc(hidden)]
+    __padding_696: [u8; 696],
     pub widget_style: FAudioMaterialButtonStyle,
-    pub on_button_pressed_changed_event: FAudioMaterialButton_OnButtonPressedChangedEvent,
+    #[doc(hidden)]
+    __padding_856: [u8; 24],
     pub b_is_pressed: bool,
+    __padding_end: [u8; 23],
 }
+impl UAudioMaterialButton {}
+#[repr(C, align(8))]
 pub struct UAudioMaterialEnvelope {
+    #[doc(hidden)]
+    __padding_696: [u8; 696],
     pub widget_style: FAudioMaterialEnvelopeStyle,
     pub envelope_settings: FAudioMaterialEnvelopeSettings,
+    __padding_end: [u8; 20],
 }
+impl UAudioMaterialEnvelope {}
+#[repr(C, align(16))]
 pub struct UAudioMaterialKnob {
+    #[doc(hidden)]
+    __padding_704: [u8; 704],
     pub widget_style: FAudioMaterialKnobStyle,
-    pub on_knob_value_changed: FAudioMaterialKnob_OnKnobValueChanged,
+    #[doc(hidden)]
+    __padding_1208: [u8; 24],
     pub value: f32,
     pub tune_speed: f32,
     pub fine_tune_speed: f32,
     pub b_locked: bool,
     pub b_mouse_uses_step: bool,
     pub step_size: f32,
+    __padding_end: [u8; 20],
 }
+impl UAudioMaterialKnob {}
+#[repr(C, align(8))]
 pub struct UAudioMaterialMeter {
+    #[doc(hidden)]
+    __padding_696: [u8; 696],
     pub widget_style: FAudioMaterialMeterStyle,
     pub orientation: crate::bindings::slate_core::EOrientation,
-    pub meter_channel_info_delegate: FAudioMaterialMeter_MeterChannelInfoDelegate,
+    #[doc(hidden)]
+    __padding_1024: [u8; 64],
     pub meter_channel_info: TArray<FMeterChannelInfo>,
 }
+impl UAudioMaterialMeter {}
+#[repr(C, align(16))]
 pub struct UAudioMaterialSlider {
+    #[doc(hidden)]
+    __padding_704: [u8; 704],
     pub widget_style: FAudioMaterialSliderStyle,
-    pub on_value_changed: FAudioMaterialSlider_OnValueChanged,
+    #[doc(hidden)]
+    __padding_1096: [u8; 24],
     pub value: f32,
-    pub orientation: crate::bindings::slate_core::EOrientation,
+    #[doc(hidden)]
+    __padding_1104: [u8; 4],
     pub tune_speed: f32,
     pub fine_tune_speed: f32,
     pub b_locked: bool,
     pub b_mouse_uses_step: bool,
     pub step_size: f32,
+    __padding_end: [u8; 16],
 }
+impl UAudioMaterialSlider {}
+#[repr(C, align(16))]
 pub struct UAudioMeter {
-    pub meter_channel_info: TArray<FMeterChannelInfo>,
-    pub meter_channel_info_delegate: FAudioMeter_MeterChannelInfoDelegate,
+    #[doc(hidden)]
+    __padding_752: [u8; 752],
     pub widget_style: FAudioMeterStyle,
     pub orientation: crate::bindings::slate_core::EOrientation,
     pub background_color: crate::bindings::core_u_object::FLinearColor,
@@ -281,8 +357,13 @@ pub struct UAudioMeter {
     pub meter_clipping_color: crate::bindings::core_u_object::FLinearColor,
     pub meter_scale_color: crate::bindings::core_u_object::FLinearColor,
     pub meter_scale_label_color: crate::bindings::core_u_object::FLinearColor,
+    __padding_end: [u8; 44],
 }
+impl UAudioMeter {}
+#[repr(C, align(16))]
 pub struct UAudioOscilloscope {
+    #[doc(hidden)]
+    __padding_704: [u8; 704],
     pub oscilloscope_style: FAudioOscilloscopePanelStyle,
     pub audio_bus: UPtr<crate::bindings::engine::UAudioBus>,
     pub max_time_window_ms: f32,
@@ -297,57 +378,55 @@ pub struct UAudioOscilloscope {
     pub trigger_threshold: f32,
     pub panel_layout_type: EAudioPanelLayoutType,
     pub channel_to_analyze: i32,
+    __padding_end: [u8; 88],
 }
+impl UAudioOscilloscope {}
+#[repr(C, align(16))]
 pub struct UAudioRadialSlider {
-    pub value: f32,
-    pub value_delegate: FAudioRadialSlider_ValueDelegate,
-    pub widget_layout: EAudioRadialSliderLayout,
-    pub center_background_color: crate::bindings::core_u_object::FLinearColor,
-    pub slider_progress_color: crate::bindings::core_u_object::FLinearColor,
-    pub slider_bar_color: crate::bindings::core_u_object::FLinearColor,
-    pub hand_start_end_ratio: crate::bindings::core_u_object::FVector2D,
-    pub units_text: FText,
-    pub text_label_background_color: crate::bindings::core_u_object::FLinearColor,
-    pub show_label_only_on_hover: bool,
-    pub show_units_text: bool,
-    pub is_units_text_read_only: bool,
-    pub is_value_text_read_only: bool,
-    pub slider_thickness: f32,
-    pub output_range: crate::bindings::core_u_object::FVector2D,
-    pub on_value_changed: FAudioRadialSlider_OnValueChanged,
+    __padding_end: [u8; 1280],
 }
-pub struct UAudioVolumeRadialSlider {}
-pub struct UAudioFrequencyRadialSlider {}
+impl UAudioRadialSlider {}
+#[repr(C, align(16))]
+pub struct UAudioVolumeRadialSlider {
+    __padding_end: [u8; 1280],
+}
+impl UAudioVolumeRadialSlider {}
+#[repr(C, align(16))]
+pub struct UAudioFrequencyRadialSlider {
+    __padding_end: [u8; 1280],
+}
+impl UAudioFrequencyRadialSlider {}
+#[repr(C, align(16))]
 pub struct UAudioSliderBase {
-    pub value: f32,
-    pub units_text: FText,
-    pub text_label_background_color: crate::bindings::core_u_object::FLinearColor,
-    pub text_label_background_color_delegate: FAudioSliderBase_TextLabelBackgroundColorDelegate,
-    pub show_label_only_on_hover: bool,
-    pub show_units_text: bool,
-    pub is_units_text_read_only: bool,
-    pub is_value_text_read_only: bool,
-    pub value_delegate: FAudioSliderBase_ValueDelegate,
-    pub slider_background_color: crate::bindings::core_u_object::FLinearColor,
-    pub slider_background_color_delegate: FAudioSliderBase_SliderBackgroundColorDelegate,
-    pub slider_bar_color: crate::bindings::core_u_object::FLinearColor,
-    pub slider_bar_color_delegate: FAudioSliderBase_SliderBarColorDelegate,
-    pub slider_thumb_color: crate::bindings::core_u_object::FLinearColor,
-    pub slider_thumb_color_delegate: FAudioSliderBase_SliderThumbColorDelegate,
-    pub widget_background_color: crate::bindings::core_u_object::FLinearColor,
-    pub widget_background_color_delegate: FAudioSliderBase_WidgetBackgroundColorDelegate,
+    #[doc(hidden)]
+    __padding_1000: [u8; 1000],
     pub orientation: crate::bindings::slate_core::EOrientation,
-    pub on_value_changed: FAudioSliderBase_OnValueChanged,
+    __padding_end: [u8; 2023],
 }
+impl UAudioSliderBase {}
+#[repr(C, align(16))]
 pub struct UAudioSlider {
+    #[doc(hidden)]
+    __padding_3016: [u8; 3016],
     pub lin_to_output_curve: TWeakObjectPtr<crate::bindings::engine::UCurveFloat>,
     pub output_to_lin_curve: TWeakObjectPtr<crate::bindings::engine::UCurveFloat>,
+    __padding_end: [u8; 8],
 }
-pub struct UAudioVolumeSlider {}
+impl UAudioSlider {}
+#[repr(C, align(16))]
+pub struct UAudioVolumeSlider {
+    __padding_end: [u8; 3040],
+}
+impl UAudioVolumeSlider {}
+#[repr(C, align(16))]
 pub struct UAudioFrequencySlider {
-    pub output_range: crate::bindings::core_u_object::FVector2D,
+    __padding_end: [u8; 3040],
 }
+impl UAudioFrequencySlider {}
+#[repr(C, align(16))]
 pub struct UAudioVectorscope {
+    #[doc(hidden)]
+    __padding_704: [u8; 704],
     pub vectorscope_style: FAudioVectorscopePanelStyle,
     pub audio_bus: UPtr<crate::bindings::engine::UAudioBus>,
     pub b_show_grid: bool,
@@ -356,36 +435,77 @@ pub struct UAudioVectorscope {
     pub display_persistence_ms: f32,
     pub scale: f32,
     pub panel_layout_type: EAudioPanelLayoutType,
+    __padding_end: [u8; 83],
 }
-pub struct FAudioMaterialButton_OnButtonPressedChangedEvent;
-pub struct FAudioMaterialKnob_OnKnobValueChanged;
-pub struct FAudioMaterialMeter_MeterChannelInfoDelegate;
-pub struct FAudioMaterialSlider_OnValueChanged;
-pub struct FAudioMeter_MeterChannelInfoDelegate;
-pub struct FAudioRadialSlider_ValueDelegate;
-pub struct FAudioRadialSlider_OnValueChanged;
-pub struct FAudioSliderBase_TextLabelBackgroundColorDelegate;
-pub struct FAudioSliderBase_ValueDelegate;
-pub struct FAudioSliderBase_SliderBackgroundColorDelegate;
-pub struct FAudioSliderBase_SliderBarColorDelegate;
-pub struct FAudioSliderBase_SliderThumbColorDelegate;
-pub struct FAudioSliderBase_WidgetBackgroundColorDelegate;
-pub struct FAudioSliderBase_OnValueChanged;
-#[allow(non_camel_case_types)]
+impl UAudioVectorscope {}
+#[repr(transparent)]
+pub struct FAudioMaterialButton_OnButtonPressedChangedEvent {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FAudioMaterialKnob_OnKnobValueChanged {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FAudioMaterialMeter_MeterChannelInfoDelegate {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FAudioMaterialSlider_OnValueChanged {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FAudioMeter_MeterChannelInfoDelegate {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FAudioRadialSlider_ValueDelegate {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FAudioRadialSlider_OnValueChanged {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FAudioSliderBase_TextLabelBackgroundColorDelegate {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FAudioSliderBase_ValueDelegate {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FAudioSliderBase_SliderBackgroundColorDelegate {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FAudioSliderBase_SliderBarColorDelegate {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FAudioSliderBase_SliderThumbColorDelegate {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FAudioSliderBase_WidgetBackgroundColorDelegate {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FAudioSliderBase_OnValueChanged {
+    _opague: u8,
+}
 #[repr(transparent)]
 pub struct EAudioMaterialEnvelopeType(pub u8);
 impl EAudioMaterialEnvelopeType {
     pub const AD: EAudioMaterialEnvelopeType = EAudioMaterialEnvelopeType(0);
     pub const ADSR: EAudioMaterialEnvelopeType = EAudioMaterialEnvelopeType(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EAudioSpectrumAnalyzerType(pub u8);
 impl EAudioSpectrumAnalyzerType {
     pub const FFT: EAudioSpectrumAnalyzerType = EAudioSpectrumAnalyzerType(0);
     pub const CQT: EAudioSpectrumAnalyzerType = EAudioSpectrumAnalyzerType(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EAudioSpectrogramFrequencyAxisPixelBucketMode(pub u8);
 impl EAudioSpectrogramFrequencyAxisPixelBucketMode {
@@ -399,7 +519,6 @@ impl EAudioSpectrogramFrequencyAxisPixelBucketMode {
         2,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EAudioSpectrogramFrequencyAxisScale(pub u8);
 impl EAudioSpectrogramFrequencyAxisScale {
@@ -410,14 +529,12 @@ impl EAudioSpectrogramFrequencyAxisScale {
         1,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EAudioColorGradient(pub u8);
 impl EAudioColorGradient {
     pub const BLACK_TO_WHITE: EAudioColorGradient = EAudioColorGradient(0);
     pub const WHITE_TO_BLACK: EAudioColorGradient = EAudioColorGradient(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EAudioSpectrumAnalyzerBallistics(pub u8);
 impl EAudioSpectrumAnalyzerBallistics {
@@ -428,7 +545,6 @@ impl EAudioSpectrumAnalyzerBallistics {
         1,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EAudioSpectrumPlotTilt(pub u8);
 impl EAudioSpectrumPlotTilt {
@@ -438,7 +554,6 @@ impl EAudioSpectrumPlotTilt {
     pub const PLUS4_5D_B_PER_OCTAVE: EAudioSpectrumPlotTilt = EAudioSpectrumPlotTilt(3);
     pub const PLUS6D_B_PER_OCTAVE: EAudioSpectrumPlotTilt = EAudioSpectrumPlotTilt(4);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EAudioSpectrumPlotFrequencyAxisPixelBucketMode(pub u8);
 impl EAudioSpectrumPlotFrequencyAxisPixelBucketMode {
@@ -452,7 +567,6 @@ impl EAudioSpectrumPlotFrequencyAxisPixelBucketMode {
         2,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EAudioSpectrumPlotFrequencyAxisScale(pub u8);
 impl EAudioSpectrumPlotFrequencyAxisScale {
@@ -463,7 +577,6 @@ impl EAudioSpectrumPlotFrequencyAxisScale {
         1,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EAudioRadialSliderLayout(pub u8);
 impl EAudioRadialSliderLayout {
@@ -475,21 +588,18 @@ impl EAudioRadialSliderLayout {
         2,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EXAxisLabelsUnit(pub u8);
 impl EXAxisLabelsUnit {
     pub const SAMPLES: EXAxisLabelsUnit = EXAxisLabelsUnit(0);
     pub const SECONDS: EXAxisLabelsUnit = EXAxisLabelsUnit(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EYAxisLabelsUnit(pub u8);
 impl EYAxisLabelsUnit {
     pub const LINEAR: EYAxisLabelsUnit = EYAxisLabelsUnit(0);
     pub const DB: EYAxisLabelsUnit = EYAxisLabelsUnit(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EAudioOscilloscopeTriggerMode(pub u8);
 impl EAudioOscilloscopeTriggerMode {
@@ -497,14 +607,12 @@ impl EAudioOscilloscopeTriggerMode {
     pub const RISING: EAudioOscilloscopeTriggerMode = EAudioOscilloscopeTriggerMode(1);
     pub const FALLING: EAudioOscilloscopeTriggerMode = EAudioOscilloscopeTriggerMode(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EAudioPanelLayoutType(pub u8);
 impl EAudioPanelLayoutType {
     pub const BASIC: EAudioPanelLayoutType = EAudioPanelLayoutType(0);
     pub const ADVANCED: EAudioPanelLayoutType = EAudioPanelLayoutType(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EAudioUnitsValueType(pub u8);
 impl EAudioUnitsValueType {

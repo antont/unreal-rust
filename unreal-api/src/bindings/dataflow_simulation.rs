@@ -9,59 +9,21 @@ pub struct FDataflowSimulationAsset {
     pub dataflow_asset: UPtr<crate::bindings::dataflow_engine::UDataflow>,
     pub simulation_groups: TSet<FString>,
 }
+impl FDataflowSimulationAsset {}
 #[repr(C, align(8))]
-pub struct FDataflowSimulationProperty {}
-#[repr(C, align(8))]
-pub struct FDataflowSimulationNode {}
-#[repr(C, align(8))]
-pub struct FDataflowInvalidNode {}
-#[repr(C, align(8))]
-pub struct FDataflowExecutionNode {}
-#[repr(C, align(4))]
-pub struct FDataflowSimulationTime {
-    pub delta_time: f32,
-    pub current_time: f32,
-    pub time_offset: f32,
+pub struct FDataflowSimulationProperty {
+    __padding_end: [u8; 8],
 }
-#[repr(C, align(8))]
-pub struct FGetSimulationTimeDataflowNode {
-    pub simulation_time: FDataflowSimulationTime,
-}
-#[repr(C, align(8))]
-pub struct FGetPhysicsSolversDataflowNode {
-    pub physics_solvers: TArray<FDataflowSimulationProperty>,
-    pub simulation_groups: TArray<FString>,
-}
-#[repr(C, align(8))]
-pub struct FAdvancePhysicsSolversDataflowNode {
-    pub simulation_time: FDataflowSimulationTime,
-    pub physics_solvers: TArray<FDataflowSimulationProperty>,
-}
-#[repr(C, align(8))]
-pub struct FFilterSimulationProxiesDataflowNode {
-    pub simulation_proxies: TArray<FDataflowSimulationProperty>,
-    pub filtered_proxies: TArray<FDataflowSimulationProperty>,
-    pub simulation_groups: TArray<FString>,
-}
-#[repr(C, align(8))]
-pub struct FSimulationProxiesTerminalDataflowNode {
-    pub simulation_proxies: TArray<FDataflowSimulationProperty>,
-}
-#[repr(C, align(8))]
-pub struct FDataflowSimulationProxy {}
-#[repr(C, align(8))]
-pub struct FDataflowCollisionObjectProxy {}
-#[repr(C, align(8))]
-pub struct FDataflowConstraintObjectProxy {}
-#[repr(C, align(8))]
-pub struct FDataflowPhysicsObjectProxy {}
-#[repr(C, align(8))]
-pub struct FDataflowPhysicsSolverProxy {}
+impl FDataflowSimulationProperty {}
 pub struct UDataflowGeometryCachable {}
 pub struct IDataflowGeometryCachable {}
 pub struct UDataflowSimulationInterface {}
 pub struct IDataflowSimulationInterface {}
-pub struct UDataflowSimulationManager {}
+#[repr(C, align(8))]
+pub struct UDataflowSimulationManager {
+    __padding_end: [u8; 184],
+}
+impl UDataflowSimulationManager {}
 pub struct UDataflowSimulationActor {}
 pub struct IDataflowSimulationActor {}
 pub struct UDataflowCollisionObjectInterface {}

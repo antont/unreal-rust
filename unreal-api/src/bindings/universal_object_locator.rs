@@ -5,22 +5,15 @@
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[repr(C, align(8))]
-pub struct FDirectPathObjectLocator {
-    pub path: crate::bindings::core_u_object::FSoftObjectPath,
-}
-#[repr(C, align(8))]
-pub struct FSubObjectLocator {
-    pub path_within_context: FString,
-}
-#[repr(C, align(8))]
 pub struct FUniversalObjectLocator {
-    pub fragments: TArray<FUniversalObjectLocatorFragment>,
+    __padding_end: [u8; 16],
 }
+impl FUniversalObjectLocator {}
 #[repr(C, align(8))]
-pub struct FUniversalObjectLocatorFragment {}
-#[repr(C, align(1))]
-pub struct FUniversalObjectLocatorEmptyPayload {}
-#[allow(non_camel_case_types)]
+pub struct FUniversalObjectLocatorFragment {
+    __padding_end: [u8; 64],
+}
+impl FUniversalObjectLocatorFragment {}
 #[repr(transparent)]
 pub struct ELocatorResolveFlags(pub u8);
 impl ELocatorResolveFlags {

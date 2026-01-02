@@ -5,55 +5,22 @@
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[repr(C, align(8))]
-pub struct FPropertyPathSegment {
-    pub name: FName,
-    pub array_index: i32,
-    pub _struct: UPtr<crate::bindings::core_u_object::UStruct>,
-}
-#[repr(C, align(8))]
-pub struct FCachedPropertyPath {
-    pub segments: TArray<FPropertyPathSegment>,
-    pub cached_function: UPtr<crate::bindings::core_u_object::UFunction>,
-}
-#[repr(C, align(8))]
-pub struct FPropertyPathTestBaseStruct {}
-#[repr(C, align(8))]
 pub struct FPropertyPathTestInnerStruct {
-    pub float: f32,
-    pub bool: bool,
-    pub enum_one: EPropertyPathTestEnum,
-    pub enum_two: EPropertyPathTestEnum,
-    pub enum_three: EPropertyPathTestEnum,
-    pub enum_four: EPropertyPathTestEnum,
-    pub integer: i32,
-    pub string: FString,
+    __padding_end: [u8; 40],
 }
+impl FPropertyPathTestInnerStruct {}
 #[repr(C, align(8))]
 pub struct FPropertyPathTestStruct {
-    pub bool: bool,
-    pub integer: i32,
-    pub enum_one: EPropertyPathTestEnum,
-    pub enum_two: EPropertyPathTestEnum,
-    pub enum_three: EPropertyPathTestEnum,
-    pub enum_four: EPropertyPathTestEnum,
-    pub string: FString,
-    pub float: f32,
-    pub inner_struct: FPropertyPathTestInnerStruct,
-    pub inner_object: UPtr<UPropertyPathTestObject>,
+    __padding_end: [u8; 96],
 }
+impl FPropertyPathTestStruct {}
 #[repr(C, align(8))]
-pub struct FPropertyPathTestBed {
-    pub object: UPtr<UPropertyPathTestObject>,
-    pub modified_object: UPtr<UPropertyPathTestObject>,
-    pub modified_struct: FPropertyPathTestStruct,
-    pub default_struct: FPropertyPathTestStruct,
-}
 pub struct UPropertyPathTestObject {
+    #[doc(hidden)]
+    __padding_48: [u8; 48],
     pub bool: bool,
-    pub enum_one: EPropertyPathTestEnum,
-    pub enum_two: EPropertyPathTestEnum,
-    pub enum_three: EPropertyPathTestEnum,
-    pub enum_four: EPropertyPathTestEnum,
+    #[doc(hidden)]
+    __padding_56: [u8; 4],
     pub integer: i32,
     pub string: FString,
     pub float: f32,
@@ -61,8 +28,9 @@ pub struct UPropertyPathTestObject {
     pub struct_ref: FPropertyPathTestStruct,
     pub struct_const_ref: FPropertyPathTestStruct,
     pub inner_object: UPtr<UPropertyPathTestObject>,
+    __padding_end: [u8; 8],
 }
-#[allow(non_camel_case_types)]
+impl UPropertyPathTestObject {}
 #[repr(transparent)]
 pub struct EPropertyPathTestEnum(pub u8);
 impl EPropertyPathTestEnum {

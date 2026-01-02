@@ -4,21 +4,24 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
+#[repr(C, align(8))]
 pub struct UAnimationModifierSettings {
-    pub default_animation_modifiers: TArray<TSubclassOf<UAnimationModifier>>,
-    pub b_apply_animation_modifiers_on_import: bool,
+    __padding_end: [u8; 128],
 }
+impl UAnimationModifierSettings {}
+#[repr(C, align(8))]
 pub struct UAnimationModifier {
-    pub b_reapply_post_owner_change: bool,
-    pub revision_guid: crate::bindings::core_u_object::FGuid,
-    pub applied_guid_deprecated: crate::bindings::core_u_object::FGuid,
-    pub stored_native_revision: i32,
-    pub previously_applied_modifier_deprecated: UPtr<UAnimationModifier>,
+    __padding_end: [u8; 120],
 }
+impl UAnimationModifier {}
+#[repr(C, align(8))]
 pub struct UAnimationModifiersAssetUserData {
+    #[doc(hidden)]
+    __padding_48: [u8; 48],
     pub animation_modifier_instances: TArray<UPtr<UAnimationModifier>>,
     pub applied_modifiers: TMap<
         crate::bindings::core_u_object::FSoftObjectPath,
         UPtr<UAnimationModifier>,
     >,
 }
+impl UAnimationModifiersAssetUserData {}

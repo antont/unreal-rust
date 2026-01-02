@@ -4,13 +4,18 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
+#[repr(C, align(8))]
 pub struct UBaseCharacterFXEditor {
-    pub original_objects_to_edit: TArray<UPtr<crate::bindings::core_u_object::UObject>>,
+    __padding_end: [u8; 80],
 }
+impl UBaseCharacterFXEditor {}
+#[repr(C, align(8))]
 pub struct UBaseCharacterFXEditorMode {
-    pub original_objects_to_edit: TArray<UPtr<crate::bindings::core_u_object::UObject>>,
-    pub tool_targets: TArray<
-        UPtr<crate::bindings::interactive_tools_framework::UToolTarget>,
-    >,
+    __padding_end: [u8; 344],
 }
-pub struct UBaseCharacterFXEditorUISubsystem {}
+impl UBaseCharacterFXEditorMode {}
+#[repr(C, align(8))]
+pub struct UBaseCharacterFXEditorUISubsystem {
+    __padding_end: [u8; 56],
+}
+impl UBaseCharacterFXEditorUISubsystem {}

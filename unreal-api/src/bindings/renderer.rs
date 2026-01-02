@@ -4,7 +4,10 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
+#[repr(C, align(16))]
 pub struct USparseVolumeTextureViewerComponent {
+    #[doc(hidden)]
+    __padding_1504: [u8; 1504],
     pub sparse_volume_texture_preview: UPtr<
         crate::bindings::engine::USparseVolumeTexture,
     >,
@@ -15,13 +18,18 @@ pub struct USparseVolumeTextureViewerComponent {
     pub preview_attribute: ESparseVolumeTexturePreviewAttribute,
     pub mip_level: i32,
     pub extinction: f32,
+    __padding_end: [u8; 28],
 }
+impl USparseVolumeTextureViewerComponent {}
+#[repr(C, align(8))]
 pub struct ASparseVolumeTextureViewer {
+    #[doc(hidden)]
+    __padding_1144: [u8; 1144],
     pub sparse_volume_texture_viewer_component: UPtr<
         USparseVolumeTextureViewerComponent,
     >,
 }
-#[allow(non_camel_case_types)]
+impl ASparseVolumeTextureViewer {}
 #[repr(transparent)]
 pub struct ESparseVolumeTexturePreviewAttribute(pub u8);
 impl ESparseVolumeTexturePreviewAttribute {

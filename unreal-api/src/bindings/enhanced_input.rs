@@ -5,21 +5,22 @@
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[repr(C, align(8))]
-pub struct FInputActionValue {}
-#[repr(C, align(8))]
-pub struct FInjectedInput {
-    pub triggers: TArray<UPtr<UInputTrigger>>,
-    pub modifiers: TArray<UPtr<UInputModifier>>,
+pub struct FInputActionValue {
+    __padding_end: [u8; 32],
 }
+impl FInputActionValue {}
 #[repr(C, align(8))]
 pub struct FPlayerMappableKeyProfileCreationArgs {
     pub profile_type: TSubclassOf<UEnhancedPlayerMappableKeyProfile>,
-    pub profile_identifier: crate::bindings::gameplay_tags::FGameplayTag,
+    #[doc(hidden)]
+    __padding_24: [u8; 16],
     pub profile_string_identifier: FString,
     pub user_id: crate::bindings::core_u_object::FPlatformUserId,
     pub display_name: FText,
     pub flags_64: u8,
+    __padding_end: [u8; 7],
 }
+impl FPlayerMappableKeyProfileCreationArgs {}
 #[repr(C, align(8))]
 pub struct FPlayerKeyMapping {
     pub mapping_name: FName,
@@ -33,96 +34,80 @@ pub struct FPlayerKeyMapping {
     pub associated_input_action: UPtr<UInputAction>,
     pub associated_input_action_soft: TSoftObjectPtr<UInputAction>,
 }
+impl FPlayerKeyMapping {}
 #[repr(C, align(8))]
 pub struct FMapPlayerKeyArgs {
     pub mapping_name: FName,
     pub slot: EPlayerMappableKeySlot,
     pub new_key: crate::bindings::input_core::FKey,
     pub hardware_device_id: FName,
-    pub profile_id: crate::bindings::gameplay_tags::FGameplayTag,
+    #[doc(hidden)]
+    __padding_72: [u8; 8],
     pub profile_id_string: FString,
     pub flags_88: u8,
+    __padding_end: [u8; 7],
 }
+impl FMapPlayerKeyArgs {}
 #[repr(C, align(8))]
 pub struct FMappingQueryIssue {
     pub issue: EMappingQueryIssue,
     pub blocking_context: UPtr<UInputMappingContext>,
     pub blocking_action: UPtr<UInputAction>,
 }
+impl FMappingQueryIssue {}
 #[repr(C, align(8))]
 pub struct FEnhancedActionKeyMapping {
     pub triggers: TArray<UPtr<UInputTrigger>>,
     pub modifiers: TArray<UPtr<UInputModifier>>,
     pub action: UPtr<UInputAction>,
     pub key: crate::bindings::input_core::FKey,
-    pub flags_72: u8,
-    pub setting_behavior: EPlayerMappableKeySettingBehaviors,
-    pub player_mappable_key_settings: UPtr<UPlayerMappableKeySettings>,
+    __padding_end: [u8; 16],
 }
-#[repr(C, align(8))]
-pub struct FBlueprintEnhancedInputActionBinding {
-    pub input_action: UPtr<UInputAction>,
-    pub trigger_event: ETriggerEvent,
-    pub function_name_to_bind: FName,
-}
-#[repr(C, align(8))]
-pub struct FDefaultContextSetting {
-    pub input_mapping_context: TSoftObjectPtr<UInputMappingContext>,
-    pub priority: i32,
-    pub b_add_immediately: bool,
-    pub b_register_with_user_settings: bool,
-}
+impl FEnhancedActionKeyMapping {}
 #[repr(C, align(1))]
 pub struct FModifyContextOptions {
     pub flags_0: u8,
 }
-#[repr(C, align(8))]
-pub struct FKeyConsumptionOptions {}
-#[repr(C, align(8))]
-pub struct FInjectedInputArray {
-    pub injected: TArray<FInjectedInput>,
-}
-#[repr(C, align(4))]
-pub struct FAppliedInputContextData {
-    pub priority: i32,
-    pub registration_count: i32,
-}
+impl FModifyContextOptions {}
 #[repr(C, align(8))]
 pub struct FInputActionInstance {
     pub source_action: UPtr<UInputAction>,
+    #[doc(hidden)]
+    __padding_19: [u8; 11],
     pub trigger_event: ETriggerEvent,
     pub last_triggered_world_time: f32,
     pub triggers: TArray<UPtr<UInputTrigger>>,
     pub modifiers: TArray<UPtr<UInputModifier>>,
+    #[doc(hidden)]
+    __padding_88: [u8; 32],
     pub elapsed_processed_time: f32,
     pub elapsed_triggered_time: f32,
 }
-#[repr(C, align(8))]
-pub struct FBlueprintInputDebugKeyDelegateBinding {
-    pub input_chord: crate::bindings::slate::FInputChord,
-    pub input_key_event: crate::bindings::engine::EInputEvent,
-    pub function_name_to_bind: FName,
-    pub b_execute_when_paused: bool,
-}
+impl FInputActionInstance {}
 #[repr(C, align(8))]
 pub struct FInputMappingContextMappingData {
     pub mappings: TArray<FEnhancedActionKeyMapping>,
 }
+impl FInputMappingContextMappingData {}
 #[repr(C, align(8))]
 pub struct FInputComboStepData {
     pub combo_step_action: UPtr<UInputAction>,
     pub combo_step_completion_states: u8,
     pub time_to_press_key: f32,
 }
+impl FInputComboStepData {}
 #[repr(C, align(8))]
 pub struct FInputCancelAction {
     pub cancel_action: UPtr<UInputAction>,
     pub cancellation_states: u8,
+    __padding_end: [u8; 7],
 }
+impl FInputCancelAction {}
 #[repr(C, align(8))]
 pub struct FKeyMappingRow {
     pub mappings: TSet<FPlayerKeyMapping>,
 }
+impl FKeyMappingRow {}
 #[repr(C, align(8))]
 pub struct FPlayerMappableKeyQueryOptions {
     pub mapping_name: FName,
@@ -132,77 +117,68 @@ pub struct FPlayerMappableKeyQueryOptions {
     pub required_device_type: crate::bindings::engine::EHardwareDevicePrimaryType,
     pub required_device_flags: i32,
 }
+impl FPlayerMappableKeyQueryOptions {}
+#[repr(C, align(8))]
 pub struct UEnhancedInputActionDelegateBinding {
-    pub input_action_delegate_bindings: TArray<FBlueprintEnhancedInputActionBinding>,
+    __padding_end: [u8; 64],
 }
+impl UEnhancedInputActionDelegateBinding {}
+#[repr(C, align(8))]
 pub struct UEnhancedInputActionValueBinding {
-    pub input_action_value_bindings: TArray<FBlueprintEnhancedInputActionBinding>,
+    __padding_end: [u8; 64],
 }
-pub struct UEnhancedInputComponent {}
+impl UEnhancedInputActionValueBinding {}
+#[repr(C, align(8))]
+pub struct UEnhancedInputComponent {
+    __padding_end: [u8; 432],
+}
+impl UEnhancedInputComponent {}
+#[repr(C, align(8))]
 pub struct UEnhancedInputDeveloperSettings {
-    pub default_mapping_contexts: TArray<FDefaultContextSetting>,
-    pub default_world_subsystem_mapping_contexts: TArray<FDefaultContextSetting>,
-    pub platform_settings: crate::bindings::developer_settings::FPerPlatformSettings,
-    pub user_settings_class: TSoftObjectPtr<crate::bindings::core_u_object::UClass>,
-    pub default_player_mappable_key_profile_class: TSoftObjectPtr<
-        crate::bindings::core_u_object::UClass,
-    >,
-    pub input_settings_save_slot_name: FString,
-    pub default_world_input_class: TSoftObjectPtr<
-        crate::bindings::core_u_object::UClass,
-    >,
-    pub flags_312: u8,
-    pub default_mapping_context_input_mode_query: crate::bindings::gameplay_tags::FGameplayTagQuery,
-    pub default_input_mode: crate::bindings::gameplay_tags::FGameplayTagContainer,
+    __padding_end: [u8; 424],
 }
-pub struct UEnhancedInputLibrary {}
+impl UEnhancedInputDeveloperSettings {}
+#[repr(C, align(8))]
+pub struct UEnhancedInputLibrary {
+    __padding_end: [u8; 48],
+}
+impl UEnhancedInputLibrary {}
+#[repr(C, align(8))]
 pub struct UEnhancedInputPlatformData {
+    #[doc(hidden)]
+    __padding_48: [u8; 48],
     pub mapping_context_redirects: TMap<
         UPtr<UInputMappingContext>,
         UPtr<UInputMappingContext>,
     >,
 }
+impl UEnhancedInputPlatformData {}
+#[repr(C, align(8))]
 pub struct UEnhancedInputPlatformSettings {
-    pub input_data: TArray<TSoftObjectPtr<crate::bindings::core_u_object::UClass>>,
-    pub input_data_classes: TArray<TSubclassOf<UEnhancedInputPlatformData>>,
-    pub b_should_log_mapping_context_redirects: bool,
+    __padding_end: [u8; 120],
 }
+impl UEnhancedInputPlatformSettings {}
 pub struct UEnhancedInputSubsystemInterface {}
 pub struct IEnhancedInputSubsystemInterface {}
+#[repr(C, align(8))]
 pub struct UEnhancedInputLocalPlayerSubsystem {
-    pub control_mappings_rebuilt_delegate: FEnhancedInputLocalPlayerSubsystem_ControlMappingsRebuiltDelegate,
-    pub on_mapping_context_added: FEnhancedInputLocalPlayerSubsystem_OnMappingContextAdded,
-    pub on_mapping_context_removed: FEnhancedInputLocalPlayerSubsystem_OnMappingContextRemoved,
-    pub on_post_user_settings_initialized: FEnhancedInputLocalPlayerSubsystem_OnPostUserSettingsInitialized,
-    pub user_settings: UPtr<UEnhancedInputUserSettings>,
-    pub continuously_injected_inputs: TMap<UPtr<UInputAction>, FInjectedInput>,
+    __padding_end: [u8; 576],
 }
+impl UEnhancedInputLocalPlayerSubsystem {}
+#[repr(C, align(8))]
 pub struct UEnhancedInputWorldSubsystem {
-    pub player_input: UPtr<UEnhancedPlayerInput>,
-    pub current_input_stack: TArray<
-        TWeakObjectPtr<crate::bindings::engine::UInputComponent>,
-    >,
-    pub continuously_injected_inputs: TMap<UPtr<UInputAction>, FInjectedInput>,
+    __padding_end: [u8; 520],
 }
+impl UEnhancedInputWorldSubsystem {}
+#[repr(C, align(8))]
 pub struct UEnhancedPlayerInput {
-    pub key_consumption_data: TMap<UPtr<UInputAction>, FKeyConsumptionOptions>,
-    pub action_instance_data: TMap<UPtr<UInputAction>, FInputActionInstance>,
-    pub consumed_input_actions: TSet<UPtr<UInputAction>>,
-    pub applied_input_context_data: TMap<
-        UPtr<UInputMappingContext>,
-        FAppliedInputContextData,
-    >,
-    pub applied_input_contexts: TMap<UPtr<UInputMappingContext>, i32>,
-    pub enhanced_action_mappings: TArray<FEnhancedActionKeyMapping>,
-    pub current_input_mode: crate::bindings::gameplay_tags::FGameplayTagContainer,
-    pub keys_pressed_this_tick: TMap<
-        crate::bindings::input_core::FKey,
-        crate::bindings::core_u_object::FVector,
-    >,
-    pub inputs_injected_this_tick: TMap<UPtr<UInputAction>, FInjectedInputArray>,
-    pub last_injected_actions: TSet<UPtr<UInputAction>>,
+    __padding_end: [u8; 2312],
 }
+impl UEnhancedPlayerInput {}
+#[repr(C, align(8))]
 pub struct UInputAction {
+    #[doc(hidden)]
+    __padding_120: [u8; 120],
     pub action_description: FText,
     pub b_trigger_when_paused: bool,
     pub b_consume_input: bool,
@@ -215,12 +191,16 @@ pub struct UInputAction {
     pub modifiers: TArray<UPtr<UInputModifier>>,
     pub player_mappable_key_settings: UPtr<UPlayerMappableKeySettings>,
 }
+impl UInputAction {}
+#[repr(C, align(8))]
 pub struct UInputDebugKeyDelegateBinding {
-    pub input_debug_key_delegate_bindings: TArray<
-        FBlueprintInputDebugKeyDelegateBinding,
-    >,
+    __padding_end: [u8; 64],
 }
+impl UInputDebugKeyDelegateBinding {}
+#[repr(C, align(8))]
 pub struct UInputMappingContext {
+    #[doc(hidden)]
+    __padding_56: [u8; 56],
     pub mappings: TArray<FEnhancedActionKeyMapping>,
     pub default_key_mappings: FInputMappingContextMappingData,
     pub mapping_profile_overrides: TMap<FString, FInputMappingContextMappingData>,
@@ -229,131 +209,265 @@ pub struct UInputMappingContext {
     pub registration_tracking_mode: EMappingContextRegistrationTrackingMode,
     pub context_description: FText,
 }
-pub struct UInputModifier {}
+impl UInputMappingContext {}
+#[repr(C, align(8))]
+pub struct UInputModifier {
+    __padding_end: [u8; 48],
+}
+impl UInputModifier {}
+#[repr(C, align(8))]
 pub struct UInputModifierSmoothDelta {
+    #[doc(hidden)]
+    __padding_48: [u8; 48],
     pub smoothing_method: ENormalizeInputSmoothingType,
     pub speed: f32,
     pub easing_exponent: f32,
+    __padding_end: [u8; 52],
 }
+impl UInputModifierSmoothDelta {}
+#[repr(C, align(8))]
 pub struct UInputModifierDeadZone {
+    #[doc(hidden)]
+    __padding_48: [u8; 48],
     pub lower_threshold: f32,
     pub upper_threshold: f32,
     pub ty: EDeadZoneType,
+    __padding_end: [u8; 7],
 }
+impl UInputModifierDeadZone {}
+#[repr(C, align(8))]
 pub struct UInputModifierScalar {
+    #[doc(hidden)]
+    __padding_48: [u8; 48],
     pub scalar: crate::bindings::core_u_object::FVector,
 }
-pub struct UInputModifierScaleByDeltaTime {}
+impl UInputModifierScalar {}
+#[repr(C, align(8))]
+pub struct UInputModifierScaleByDeltaTime {
+    __padding_end: [u8; 48],
+}
+impl UInputModifierScaleByDeltaTime {}
+#[repr(C, align(8))]
 pub struct UInputModifierNegate {
+    #[doc(hidden)]
+    __padding_48: [u8; 48],
     pub b_x: bool,
     pub b_y: bool,
     pub b_z: bool,
+    __padding_end: [u8; 5],
 }
-pub struct UInputModifierSmooth {}
+impl UInputModifierNegate {}
+#[repr(C, align(8))]
+pub struct UInputModifierSmooth {
+    __padding_end: [u8; 96],
+}
+impl UInputModifierSmooth {}
+#[repr(C, align(8))]
 pub struct UInputModifierResponseCurveExponential {
+    #[doc(hidden)]
+    __padding_48: [u8; 48],
     pub curve_exponent: crate::bindings::core_u_object::FVector,
 }
+impl UInputModifierResponseCurveExponential {}
+#[repr(C, align(8))]
 pub struct UInputModifierResponseCurveUser {
+    #[doc(hidden)]
+    __padding_48: [u8; 48],
     pub response_x: UPtr<crate::bindings::engine::UCurveFloat>,
     pub response_y: UPtr<crate::bindings::engine::UCurveFloat>,
     pub response_z: UPtr<crate::bindings::engine::UCurveFloat>,
 }
+impl UInputModifierResponseCurveUser {}
+#[repr(C, align(8))]
 pub struct UInputModifierFOVScaling {
+    #[doc(hidden)]
+    __padding_48: [u8; 48],
     pub fov_scale: f32,
     pub fov_scaling_type: EFOVScalingType,
+    __padding_end: [u8; 3],
 }
-pub struct UInputModifierToWorldSpace {}
+impl UInputModifierFOVScaling {}
+#[repr(C, align(8))]
+pub struct UInputModifierToWorldSpace {
+    __padding_end: [u8; 48],
+}
+impl UInputModifierToWorldSpace {}
+#[repr(C, align(8))]
 pub struct UInputModifierSwizzleAxis {
+    #[doc(hidden)]
+    __padding_48: [u8; 48],
     pub order: EInputAxisSwizzle,
+    __padding_end: [u8; 7],
 }
+impl UInputModifierSwizzleAxis {}
+#[repr(C, align(8))]
 pub struct UInputTrigger {
+    #[doc(hidden)]
+    __padding_48: [u8; 48],
     pub actuation_threshold: f32,
     pub b_should_always_tick: bool,
     pub last_value: FInputActionValue,
 }
+impl UInputTrigger {}
+#[repr(C, align(8))]
 pub struct UInputTriggerTimedBase {
+    #[doc(hidden)]
+    __padding_88: [u8; 88],
     pub held_duration: f32,
     pub b_affected_by_time_dilation: bool,
+    __padding_end: [u8; 3],
 }
-pub struct UInputTriggerDown {}
-pub struct UInputTriggerPressed {}
-pub struct UInputTriggerReleased {}
+impl UInputTriggerTimedBase {}
+#[repr(C, align(8))]
+pub struct UInputTriggerDown {
+    __padding_end: [u8; 88],
+}
+impl UInputTriggerDown {}
+#[repr(C, align(8))]
+pub struct UInputTriggerPressed {
+    __padding_end: [u8; 88],
+}
+impl UInputTriggerPressed {}
+#[repr(C, align(8))]
+pub struct UInputTriggerReleased {
+    __padding_end: [u8; 88],
+}
+impl UInputTriggerReleased {}
+#[repr(C, align(8))]
 pub struct UInputTriggerHold {
+    #[doc(hidden)]
+    __padding_100: [u8; 100],
     pub hold_time_threshold: f32,
     pub b_is_one_shot: bool,
+    __padding_end: [u8; 7],
 }
+impl UInputTriggerHold {}
+#[repr(C, align(8))]
 pub struct UInputTriggerHoldAndRelease {
+    #[doc(hidden)]
+    __padding_96: [u8; 96],
     pub hold_time_threshold: f32,
+    __padding_end: [u8; 4],
 }
+impl UInputTriggerHoldAndRelease {}
+#[repr(C, align(8))]
 pub struct UInputTriggerTap {
+    #[doc(hidden)]
+    __padding_96: [u8; 96],
     pub tap_release_time_threshold: f32,
+    __padding_end: [u8; 4],
 }
+impl UInputTriggerTap {}
+#[repr(C, align(8))]
 pub struct UInputTriggerRepeatedTap {
+    #[doc(hidden)]
+    __padding_96: [u8; 96],
     pub repeat_delay: f64,
-    pub repeat_time: f64,
+    #[doc(hidden)]
+    __padding_112: [u8; 8],
     pub number_of_taps_which_trigger_repeat: i32,
     pub tap_release_time_threshold: f32,
-    pub number_of_taps_since_last_trigger: i32,
+    __padding_end: [u8; 8],
 }
+impl UInputTriggerRepeatedTap {}
+#[repr(C, align(8))]
 pub struct UInputTriggerPulse {
+    #[doc(hidden)]
+    __padding_100: [u8; 100],
     pub b_trigger_on_start: bool,
     pub interval: f32,
     pub trigger_limit: i32,
 }
+impl UInputTriggerPulse {}
+#[repr(C, align(8))]
 pub struct UInputTriggerChordAction {
+    #[doc(hidden)]
+    __padding_88: [u8; 88],
     pub chord_action: UPtr<UInputAction>,
 }
-pub struct UInputTriggerChordBlocker {}
+impl UInputTriggerChordAction {}
+#[repr(C, align(8))]
+pub struct UInputTriggerChordBlocker {
+    __padding_end: [u8; 96],
+}
+impl UInputTriggerChordBlocker {}
+#[repr(C, align(8))]
 pub struct UInputTriggerCombo {
+    #[doc(hidden)]
+    __padding_88: [u8; 88],
     pub current_combo_step_index: i32,
     pub current_time_between_combo_steps: f32,
     pub combo_actions: TArray<FInputComboStepData>,
     pub input_cancel_actions: TArray<FInputCancelAction>,
 }
+impl UInputTriggerCombo {}
+#[repr(C, align(8))]
 pub struct UPlayerMappableInputConfig {
+    #[doc(hidden)]
+    __padding_72: [u8; 72],
     pub config_name: FName,
     pub config_display_name: FText,
     pub b_is_deprecated: bool,
     pub metadata: UPtr<crate::bindings::core_u_object::UObject>,
     pub contexts: TMap<UPtr<UInputMappingContext>, i32>,
 }
+impl UPlayerMappableInputConfig {}
+#[repr(C, align(8))]
 pub struct UPlayerMappableKeySettings {
+    #[doc(hidden)]
+    __padding_48: [u8; 48],
     pub metadata: UPtr<crate::bindings::core_u_object::UObject>,
     pub name: FName,
     pub display_name: FText,
     pub display_category: FText,
-    pub supported_key_profiles: crate::bindings::gameplay_tags::FGameplayTagContainer,
+    #[doc(hidden)]
+    __padding_136: [u8; 32],
     pub supported_key_profile_ids: TArray<FString>,
 }
+impl UPlayerMappableKeySettings {}
+#[repr(C, align(8))]
 pub struct UEnhancedPlayerMappableKeyProfile {
-    pub profile_identifier: crate::bindings::gameplay_tags::FGameplayTag,
+    #[doc(hidden)]
+    __padding_64: [u8; 64],
     pub profile_identifier_string: FString,
     pub owning_user_id: crate::bindings::core_u_object::FPlatformUserId,
     pub display_name: FText,
     pub player_mapped_keys: TMap<FName, FKeyMappingRow>,
 }
+impl UEnhancedPlayerMappableKeyProfile {}
+#[repr(C, align(8))]
 pub struct UEnhancedInputUserSettings {
-    pub on_settings_changed: FEnhancedInputUserSettings_OnSettingsChanged,
-    pub on_settings_applied: FEnhancedInputUserSettings_OnSettingsApplied,
-    pub on_key_profile_changed: FEnhancedInputUserSettings_OnKeyProfileChanged,
-    pub current_profile_identifier: crate::bindings::gameplay_tags::FGameplayTag,
-    pub current_profile_identifier_string: FString,
-    pub saved_key_profiles: TMap<
-        crate::bindings::gameplay_tags::FGameplayTag,
-        UPtr<UEnhancedPlayerMappableKeyProfile>,
-    >,
-    pub saved_key_profiles_map: TMap<FString, UPtr<UEnhancedPlayerMappableKeyProfile>>,
-    pub owning_local_player: TWeakObjectPtr<crate::bindings::engine::ULocalPlayer>,
-    pub registered_mapping_contexts: TSet<UPtr<UInputMappingContext>>,
+    __padding_end: [u8; 432],
 }
-pub struct FEnhancedInputLocalPlayerSubsystem_ControlMappingsRebuiltDelegate;
-pub struct FEnhancedInputLocalPlayerSubsystem_OnMappingContextAdded;
-pub struct FEnhancedInputLocalPlayerSubsystem_OnMappingContextRemoved;
-pub struct FEnhancedInputLocalPlayerSubsystem_OnPostUserSettingsInitialized;
-pub struct FEnhancedInputUserSettings_OnSettingsChanged;
-pub struct FEnhancedInputUserSettings_OnSettingsApplied;
-pub struct FEnhancedInputUserSettings_OnKeyProfileChanged;
-#[allow(non_camel_case_types)]
+impl UEnhancedInputUserSettings {}
+#[repr(transparent)]
+pub struct FEnhancedInputLocalPlayerSubsystem_ControlMappingsRebuiltDelegate {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FEnhancedInputLocalPlayerSubsystem_OnMappingContextAdded {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FEnhancedInputLocalPlayerSubsystem_OnMappingContextRemoved {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FEnhancedInputLocalPlayerSubsystem_OnPostUserSettingsInitialized {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FEnhancedInputUserSettings_OnSettingsChanged {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FEnhancedInputUserSettings_OnSettingsApplied {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FEnhancedInputUserSettings_OnKeyProfileChanged {
+    _opague: u8,
+}
 #[repr(transparent)]
 pub struct EPlayerMappableKeySlot(pub u8);
 impl EPlayerMappableKeySlot {
@@ -367,7 +481,6 @@ impl EPlayerMappableKeySlot {
     pub const UNSPECIFIED: EPlayerMappableKeySlot = EPlayerMappableKeySlot(7);
     pub const MAX: EPlayerMappableKeySlot = EPlayerMappableKeySlot(8);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMappingQueryIssue(pub u8);
 impl EMappingQueryIssue {
@@ -381,7 +494,6 @@ impl EMappingQueryIssue {
     pub const FORCES_TYPE_PROMOTION: EMappingQueryIssue = EMappingQueryIssue(16);
     pub const FORCES_TYPE_DEMOTION: EMappingQueryIssue = EMappingQueryIssue(32);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EPlayerMappableKeySettingBehaviors(pub u8);
 impl EPlayerMappableKeySettingBehaviors {
@@ -395,7 +507,6 @@ impl EPlayerMappableKeySettingBehaviors {
         2,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ETriggerEvent(pub u8);
 impl ETriggerEvent {
@@ -406,7 +517,6 @@ impl ETriggerEvent {
     pub const CANCELED: ETriggerEvent = ETriggerEvent(8);
     pub const COMPLETED: ETriggerEvent = ETriggerEvent(16);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EInputActionValueType(pub u8);
 impl EInputActionValueType {
@@ -415,7 +525,6 @@ impl EInputActionValueType {
     pub const AXIS2_D: EInputActionValueType = EInputActionValueType(2);
     pub const AXIS3_D: EInputActionValueType = EInputActionValueType(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMappingQueryResult(pub u8);
 impl EMappingQueryResult {
@@ -429,7 +538,6 @@ impl EMappingQueryResult {
     pub const NOT_MAPPABLE: EMappingQueryResult = EMappingQueryResult(3);
     pub const MAPPING_AVAILABLE: EMappingQueryResult = EMappingQueryResult(4);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EInputMappingRebuildType(pub u8);
 impl EInputMappingRebuildType {
@@ -437,7 +545,6 @@ impl EInputMappingRebuildType {
     pub const REBUILD: EInputMappingRebuildType = EInputMappingRebuildType(1);
     pub const REBUILD_WITH_FLUSH: EInputMappingRebuildType = EInputMappingRebuildType(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ETriggerType(pub u8);
 impl ETriggerType {
@@ -445,7 +552,6 @@ impl ETriggerType {
     pub const IMPLICIT: ETriggerType = ETriggerType(1);
     pub const BLOCKER: ETriggerType = ETriggerType(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ETriggerState(pub u8);
 impl ETriggerState {
@@ -453,7 +559,6 @@ impl ETriggerState {
     pub const ONGOING: ETriggerState = ETriggerState(1);
     pub const TRIGGERED: ETriggerState = ETriggerState(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EInputActionAccumulationBehavior(pub u8);
 impl EInputActionAccumulationBehavior {
@@ -464,7 +569,6 @@ impl EInputActionAccumulationBehavior {
         1,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMappingContextInputModeFilterOptions(pub u8);
 impl EMappingContextInputModeFilterOptions {
@@ -478,7 +582,6 @@ impl EMappingContextInputModeFilterOptions {
         2,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMappingContextRegistrationTrackingMode(pub u8);
 impl EMappingContextRegistrationTrackingMode {
@@ -489,7 +592,6 @@ impl EMappingContextRegistrationTrackingMode {
         1,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ENormalizeInputSmoothingType(pub u8);
 impl ENormalizeInputSmoothingType {
@@ -536,7 +638,6 @@ impl ENormalizeInputSmoothingType {
         15,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EDeadZoneType(pub u8);
 impl EDeadZoneType {
@@ -544,14 +645,12 @@ impl EDeadZoneType {
     pub const RADIAL: EDeadZoneType = EDeadZoneType(1);
     pub const UNSCALED_RADIAL: EDeadZoneType = EDeadZoneType(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EFOVScalingType(pub u8);
 impl EFOVScalingType {
     pub const STANDARD: EFOVScalingType = EFOVScalingType(0);
     pub const UE4_BACK_COMPAT: EFOVScalingType = EFOVScalingType(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EInputAxisSwizzle(pub u8);
 impl EInputAxisSwizzle {

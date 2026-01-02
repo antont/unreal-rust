@@ -5,316 +5,44 @@
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[repr(C, align(8))]
-pub struct FMovieSceneMixedAnimationTarget {}
-#[repr(C, align(8))]
 pub struct FMovieSceneCameraShakeSourceTrigger {
     pub shake_class: TSubclassOf<crate::bindings::engine::UCameraShakeBase>,
     pub play_scale: f32,
     pub play_space: crate::bindings::engine::ECameraShakePlaySpace,
     pub user_defined_play_space: crate::bindings::core_u_object::FRotator,
 }
-#[repr(C, align(8))]
-pub struct FMovieSceneCameraShakeSourceTriggerChannel {
-    pub key_times: TArray<crate::bindings::core_u_object::FFrameNumber>,
-    pub key_values: TArray<FMovieSceneCameraShakeSourceTrigger>,
-    pub key_handles: crate::bindings::movie_scene::FMovieSceneKeyHandleMap,
-}
-#[repr(C, align(8))]
-pub struct FMovieSceneDoublePerlinNoiseChannel {
-    pub perlin_noise_params: FPerlinNoiseParams,
-}
-#[repr(C, align(8))]
-pub struct FPerlinNoiseParams {
-    pub frequency: f32,
-    pub amplitude: f64,
-    pub offset: f32,
-}
+impl FMovieSceneCameraShakeSourceTrigger {}
 #[repr(C, align(8))]
 pub struct FMovieSceneEventPayloadVariable {
-    pub object_value: crate::bindings::core_u_object::FSoftObjectPath,
-    pub value: FString,
+    __padding_end: [u8; 56],
 }
+impl FMovieSceneEventPayloadVariable {}
 #[repr(C, align(8))]
 pub struct FMovieSceneEventPtrs {
-    pub function: UPtr<crate::bindings::core_u_object::UFunction>,
-    pub bound_object_property: TFieldPath<FProperty>,
+    __padding_end: [u8; 56],
 }
+impl FMovieSceneEventPtrs {}
 #[repr(C, align(8))]
 pub struct FMovieSceneEvent {
-    pub ptrs: FMovieSceneEventPtrs,
-    pub payload_variables: TMap<FName, FMovieSceneEventPayloadVariable>,
-    pub compiled_function_name: FName,
-    pub bound_object_pin_name: FName,
-    pub weak_endpoint: TWeakObjectPtr<crate::bindings::core_u_object::UObject>,
-    pub graph_guid_deprecated: crate::bindings::core_u_object::FGuid,
-    pub node_guid_deprecated: crate::bindings::core_u_object::FGuid,
-    pub function_entry_deprecated: TWeakObjectPtr<
-        crate::bindings::core_u_object::UObject,
-    >,
+    __padding_end: [u8; 208],
 }
-#[repr(C, align(8))]
-pub struct FMovieSceneEventChannel {
-    pub key_times: TArray<crate::bindings::core_u_object::FFrameNumber>,
-    pub key_values: TArray<FMovieSceneEvent>,
-    pub key_handles: crate::bindings::movie_scene::FMovieSceneKeyHandleMap,
-}
-#[repr(C, align(8))]
-pub struct FMovieSceneFloatPerlinNoiseChannel {
-    pub perlin_noise_params: FPerlinNoiseParams,
-}
-#[repr(C, align(8))]
-pub struct FMovieSceneStringChannel {
-    pub times: TArray<crate::bindings::core_u_object::FFrameNumber>,
-    pub values: TArray<FString>,
-    pub default_value: FString,
-    pub b_has_default_value: bool,
-    pub key_handles: crate::bindings::movie_scene::FMovieSceneKeyHandleMap,
-}
-#[repr(C, align(8))]
-pub struct FMovieSceneTextChannel {
-    pub times: TArray<crate::bindings::core_u_object::FFrameNumber>,
-    pub values: TArray<FText>,
-    pub default_value: FText,
-    pub b_has_default_value: bool,
-    pub key_handles: crate::bindings::movie_scene::FMovieSceneKeyHandleMap,
-}
+impl FMovieSceneEvent {}
 #[repr(C, align(8))]
 pub struct FMovieSceneDirectorBlueprintConditionPayloadVariable {
-    pub object_value: crate::bindings::core_u_object::FSoftObjectPath,
-    pub value: FString,
+    __padding_end: [u8; 56],
 }
-#[repr(C, align(8))]
-pub struct FMovieSceneDirectorBlueprintConditionData {
-    pub function: UPtr<crate::bindings::core_u_object::UFunction>,
-    pub condition_context_property: TFieldPath<FProperty>,
-    pub payload_variables: TMap<
-        FName,
-        FMovieSceneDirectorBlueprintConditionPayloadVariable,
-    >,
-    pub compiled_function_name: FName,
-    pub condition_context_pin_name: FName,
-    pub weak_endpoint: TWeakObjectPtr<crate::bindings::core_u_object::UObject>,
-}
-#[repr(C, align(8))]
-pub struct FMovieScene3DPathSectionTemplate {
-    pub path_binding_id: crate::bindings::movie_scene::FMovieSceneObjectBindingID,
-    pub timing_curve: crate::bindings::movie_scene::FMovieSceneFloatChannel,
-    pub front_axis_enum: MovieScene3DPathSection_Axis,
-    pub up_axis_enum: MovieScene3DPathSection_Axis,
-    pub flags_372: u8,
-}
-#[repr(C, align(8))]
-pub struct FMovieSceneActorReferenceSectionTemplate {
-    pub property_data: crate::bindings::movie_scene::FMovieScenePropertySectionData,
-    pub actor_reference_data: FMovieSceneActorReferenceData,
-}
-#[repr(C, align(8))]
-pub struct FMovieSceneActorReferenceData {
-    pub key_times: TArray<crate::bindings::core_u_object::FFrameNumber>,
-    pub default_value: FMovieSceneActorReferenceKey,
-    pub key_values: TArray<FMovieSceneActorReferenceKey>,
-    pub key_handles: crate::bindings::movie_scene::FMovieSceneKeyHandleMap,
-}
-#[repr(C, align(4))]
-pub struct FMovieSceneActorReferenceKey {
-    pub object: crate::bindings::movie_scene::FMovieSceneObjectBindingID,
-    pub component_name: FName,
-    pub socket_name: FName,
-}
-#[repr(C, align(4))]
-pub struct FMovieSceneBaseCacheSectionTemplateParameters {
-    pub section_start_time: crate::bindings::core_u_object::FFrameNumber,
-    pub section_end_time: crate::bindings::core_u_object::FFrameNumber,
-}
-#[repr(C, align(8))]
-pub struct FMovieSceneEventSectionTemplate {
-    pub event_data: FMovieSceneEventSectionData,
-    pub flags_320: u8,
-}
-#[repr(C, align(8))]
-pub struct FMovieSceneEventSectionData {
-    pub times: TArray<crate::bindings::core_u_object::FFrameNumber>,
-    pub key_values: TArray<FEventPayload>,
-    pub key_handles: crate::bindings::movie_scene::FMovieSceneKeyHandleMap,
-    pub key_times_deprecated: TArray<f32>,
-}
+impl FMovieSceneDirectorBlueprintConditionPayloadVariable {}
 #[repr(C, align(8))]
 pub struct FEventPayload {
     pub event_name: FName,
     pub parameters: FMovieSceneEventParameters,
 }
+impl FEventPayload {}
 #[repr(C, align(8))]
-pub struct FMovieSceneEventParameters {}
-#[repr(C, align(8))]
-pub struct FMovieSceneParameterSectionTemplate {
-    pub scalars: TArray<FScalarParameterNameAndCurve>,
-    pub bools: TArray<FBoolParameterNameAndCurve>,
-    pub vector2_ds: TArray<FVector2DParameterNameAndCurves>,
-    pub vectors: TArray<FVectorParameterNameAndCurves>,
-    pub colors: TArray<FColorParameterNameAndCurves>,
-    pub transforms: TArray<FTransformParameterNameAndCurves>,
+pub struct FMovieSceneEventParameters {
+    __padding_end: [u8; 72],
 }
-#[repr(C, align(4))]
-pub struct FBaseParameterNameAndValue {
-    pub parameter_name: FName,
-}
-#[repr(C, align(8))]
-pub struct FTransformParameterNameAndCurves {
-    pub translation: crate::bindings::movie_scene::FMovieSceneFloatChannel,
-    pub rotation: crate::bindings::movie_scene::FMovieSceneFloatChannel,
-    pub scale: crate::bindings::movie_scene::FMovieSceneFloatChannel,
-}
-#[repr(C, align(8))]
-pub struct FColorParameterNameAndCurves {
-    pub red_curve: crate::bindings::movie_scene::FMovieSceneFloatChannel,
-    pub green_curve: crate::bindings::movie_scene::FMovieSceneFloatChannel,
-    pub blue_curve: crate::bindings::movie_scene::FMovieSceneFloatChannel,
-    pub alpha_curve: crate::bindings::movie_scene::FMovieSceneFloatChannel,
-}
-#[repr(C, align(8))]
-pub struct FVectorParameterNameAndCurves {
-    pub x_curve: crate::bindings::movie_scene::FMovieSceneFloatChannel,
-    pub y_curve: crate::bindings::movie_scene::FMovieSceneFloatChannel,
-    pub z_curve: crate::bindings::movie_scene::FMovieSceneFloatChannel,
-}
-#[repr(C, align(8))]
-pub struct FVector2DParameterNameAndCurves {
-    pub x_curve: crate::bindings::movie_scene::FMovieSceneFloatChannel,
-    pub y_curve: crate::bindings::movie_scene::FMovieSceneFloatChannel,
-}
-#[repr(C, align(8))]
-pub struct FBoolParameterNameAndCurve {
-    pub parameter_curve: crate::bindings::movie_scene::FMovieSceneBoolChannel,
-}
-#[repr(C, align(8))]
-pub struct FScalarParameterNameAndCurve {
-    pub parameter_curve: crate::bindings::movie_scene::FMovieSceneFloatChannel,
-}
-#[repr(C, align(8))]
-pub struct FMovieSceneParticleParameterSectionTemplate {}
-#[repr(C, align(8))]
-pub struct FMovieSceneParticleSectionTemplate {
-    pub particle_keys: FMovieSceneParticleChannel,
-}
-#[repr(C, align(8))]
-pub struct FMovieSceneParticleChannel {}
-#[repr(C, align(8))]
-pub struct FMovieSceneBoolPropertySectionTemplate {
-    pub bool_curve: crate::bindings::movie_scene::FMovieSceneBoolChannel,
-}
-#[repr(C, align(8))]
-pub struct FLevelVisibilityComponentData {
-    pub section: UPtr<UMovieSceneLevelVisibilitySection>,
-}
-#[repr(C, align(8))]
-pub struct FMovieSceneDataLayerComponentData {
-    pub section: UPtr<UMovieSceneDataLayerSection>,
-}
-#[repr(C, align(8))]
-pub struct FConstraintComponentData {
-    pub constraint_id: crate::bindings::core_u_object::FGuid,
-}
-#[repr(C, align(8))]
-pub struct FMovieSceneSkeletalAnimationComponentData {
-    pub section: UPtr<UMovieSceneSkeletalAnimationSection>,
-}
-#[repr(C, align(8))]
-pub struct FMovieSceneAudioComponentData {
-    pub section: UPtr<UMovieSceneAudioSection>,
-}
-#[repr(C, align(8))]
-pub struct FMovieSceneCameraShakeComponentData {
-    pub section_data: FMovieSceneCameraShakeSectionData,
-    pub section_start_time: crate::bindings::core_u_object::FFrameNumber,
-    pub section_end_time: crate::bindings::core_u_object::FFrameNumber,
-    pub section_signature: crate::bindings::core_u_object::FGuid,
-}
-#[repr(C, align(8))]
-pub struct FMovieSceneCameraShakeSectionData {
-    pub shake_class: TSubclassOf<crate::bindings::engine::UCameraShakeBase>,
-    pub play_scale: f32,
-    pub play_space: crate::bindings::engine::ECameraShakePlaySpace,
-    pub user_defined_play_space: crate::bindings::core_u_object::FRotator,
-}
-#[repr(C, align(8))]
-pub struct FMovieSceneCameraShakeInstanceData {
-    pub shake_instance: UPtr<crate::bindings::engine::UCameraShakeBase>,
-    pub section_signature: crate::bindings::core_u_object::FGuid,
-    pub b_managed_by_previewer: bool,
-}
-#[repr(C, align(4))]
-pub struct FMovieSceneAudioInputData {
-    pub float_inputs: FName,
-    pub string_input: FName,
-    pub bool_input: FName,
-    pub int_input: FName,
-}
-#[repr(C, align(8))]
-pub struct FMovieScene3DLocationKeyStruct {
-    pub location: crate::bindings::core_u_object::FVector,
-    pub time: crate::bindings::core_u_object::FFrameNumber,
-}
-#[repr(C, align(8))]
-pub struct FMovieScene3DRotationKeyStruct {
-    pub rotation: crate::bindings::core_u_object::FRotator,
-    pub time: crate::bindings::core_u_object::FFrameNumber,
-}
-#[repr(C, align(8))]
-pub struct FMovieScene3DScaleKeyStruct {
-    pub scale: crate::bindings::core_u_object::FVector,
-    pub time: crate::bindings::core_u_object::FFrameNumber,
-}
-#[repr(C, align(8))]
-pub struct FMovieScene3DTransformKeyStruct {
-    pub location: crate::bindings::core_u_object::FVector,
-    pub rotation: crate::bindings::core_u_object::FRotator,
-    pub scale: crate::bindings::core_u_object::FVector,
-    pub time: crate::bindings::core_u_object::FFrameNumber,
-}
-#[repr(C, align(4))]
-pub struct FMovieSceneTransformMask {
-    pub mask: u32,
-}
-#[repr(C, align(8))]
-pub struct FMovieSceneBaseCacheParams {
-    pub first_loop_start_frame_offset: crate::bindings::core_u_object::FFrameNumber,
-    pub start_frame_offset: crate::bindings::core_u_object::FFrameNumber,
-    pub end_frame_offset: crate::bindings::core_u_object::FFrameNumber,
-    pub play_rate: f32,
-    pub flags_24: u8,
-}
-#[repr(C, align(8))]
-pub struct FMovieSceneColorKeyStruct {
-    pub color: crate::bindings::core_u_object::FLinearColor,
-    pub time: crate::bindings::core_u_object::FFrameNumber,
-}
-#[repr(C, align(8))]
-pub struct FScalarMaterialParameterInfoAndCurve {
-    pub parameter_info: crate::bindings::engine::FMaterialParameterInfo,
-    pub parameter_curve: crate::bindings::movie_scene::FMovieSceneFloatChannel,
-    pub parameter_layer_name: FString,
-    pub parameter_asset_name: FString,
-}
-#[repr(C, align(8))]
-pub struct FColorMaterialParameterInfoAndCurves {
-    pub parameter_info: crate::bindings::engine::FMaterialParameterInfo,
-    pub red_curve: crate::bindings::movie_scene::FMovieSceneFloatChannel,
-    pub green_curve: crate::bindings::movie_scene::FMovieSceneFloatChannel,
-    pub blue_curve: crate::bindings::movie_scene::FMovieSceneFloatChannel,
-    pub alpha_curve: crate::bindings::movie_scene::FMovieSceneFloatChannel,
-    pub parameter_layer_name: FString,
-    pub parameter_asset_name: FString,
-    pub parameter_channel_names: crate::bindings::engine::FParameterChannelNames,
-}
-#[repr(C, align(8))]
-pub struct FMovieSceneConsoleVariableCollection {
-    pub interface: TScriptInterface<IMovieSceneConsoleVariableTrackInterface>,
-    pub b_only_include_checked: bool,
-}
-#[repr(C, align(8))]
-pub struct FMovieSceneCVarOverrides {
-    pub values_by_c_var: TMap<FString, FString>,
-}
+impl FMovieSceneEventParameters {}
 #[repr(C, align(8))]
 pub struct FMovieSceneSkeletalAnimationParams {
     pub animation: UPtr<crate::bindings::engine::UAnimSequenceBase>,
@@ -325,87 +53,51 @@ pub struct FMovieSceneSkeletalAnimationParams {
     pub flags_40: u8,
     pub slot_name: FName,
     pub mirror_data_table: UPtr<crate::bindings::engine::UMirrorDataTable>,
-    pub weight: crate::bindings::movie_scene::FMovieSceneFloatChannel,
+    #[doc(hidden)]
+    __padding_368: [u8; 304],
     pub b_skip_anim_notifiers: bool,
     pub b_force_custom_mode: bool,
     pub swap_root_bone: crate::bindings::anim_graph_runtime::ESwapRootBone,
     pub b_linear_playback_when_scaled: bool,
-    pub start_offset_deprecated: f32,
-    pub end_offset_deprecated: f32,
+    __padding_end: [u8; 12],
 }
-#[repr(C, align(8))]
-pub struct FMovieSceneFloatVectorKeyStructBase {
-    pub time: crate::bindings::core_u_object::FFrameNumber,
-}
-#[repr(C, align(8))]
-pub struct FMovieSceneVector2fKeyStruct {
-    pub vector: crate::bindings::core_u_object::FVector2f,
-}
-#[repr(C, align(8))]
-pub struct FMovieSceneVector3fKeyStruct {
-    pub vector: crate::bindings::core_u_object::FVector3f,
-}
-#[repr(C, align(16))]
-pub struct FMovieSceneVector4fKeyStruct {
-    pub vector: crate::bindings::core_u_object::FVector4f,
-}
-#[repr(C, align(8))]
-pub struct FMovieSceneDoubleVectorKeyStructBase {
-    pub time: crate::bindings::core_u_object::FFrameNumber,
-}
-#[repr(C, align(8))]
-pub struct FMovieSceneVector2DKeyStruct {
-    pub vector: crate::bindings::core_u_object::FVector2D,
-}
-#[repr(C, align(8))]
-pub struct FMovieSceneVector3dKeyStruct {
-    pub vector: crate::bindings::core_u_object::FVector3d,
-}
-#[repr(C, align(16))]
-pub struct FMovieSceneVector4dKeyStruct {
-    pub vector: crate::bindings::core_u_object::FVector4d,
-}
-#[repr(C, align(8))]
-pub struct FMovieSceneEventTriggerData {
-    pub ptrs: FMovieSceneEventPtrs,
-    pub object_binding_id: crate::bindings::core_u_object::FGuid,
-}
-#[repr(C, align(8))]
-pub struct FMovieScenePreAnimatedMaterialParameters {
-    pub previous_material: UPtr<crate::bindings::engine::UMaterialInterface>,
-    pub soft_previous_material: TSoftObjectPtr<
-        crate::bindings::engine::UMaterialInterface,
-    >,
-}
-#[repr(C, align(16))]
-pub struct FMovieSceneSkeletalAnimRootMotionTrackParams {}
+impl FMovieSceneSkeletalAnimationParams {}
 #[repr(C, align(4))]
 pub struct FComponentMaterialInfo {
     pub material_slot_name: FName,
     pub material_slot_index: i32,
     pub material_type: EComponentMaterialType,
+    __padding_end: [u8; 3],
 }
+impl FComponentMaterialInfo {}
+#[repr(C, align(8))]
 pub struct UMovieScenePropertySystem {
-    pub instantiator_system: UPtr<UMovieScenePropertyInstantiatorSystem>,
+    __padding_end: [u8; 104],
 }
+impl UMovieScenePropertySystem {}
+#[repr(C, align(8))]
 pub struct UMovieScenePropertyTrack {
-    pub unique_track_name: FName,
-    pub property_name_deprecated: FName,
-    pub property_path_deprecated: FString,
-    pub section_to_key: UPtr<crate::bindings::movie_scene::UMovieSceneSection>,
-    pub property_binding: crate::bindings::movie_scene::FMovieScenePropertyBinding,
-    pub sections: TArray<UPtr<crate::bindings::movie_scene::UMovieSceneSection>>,
+    __padding_end: [u8; 480],
 }
+impl UMovieScenePropertyTrack {}
+#[repr(C, align(8))]
 pub struct UMovieSceneMaterialTrack {
-    pub sections: TArray<UPtr<crate::bindings::movie_scene::UMovieSceneSection>>,
-    pub section_to_key: UPtr<crate::bindings::movie_scene::UMovieSceneSection>,
+    __padding_end: [u8; 408],
 }
+impl UMovieSceneMaterialTrack {}
 pub struct UMovieSceneTransformOrigin {}
 pub struct IMovieSceneTransformOrigin {}
 pub struct UMovieSceneConsoleVariableTrackInterface {}
 pub struct IMovieSceneConsoleVariableTrackInterface {}
-pub struct UMovieSceneReplaceableActorBinding {}
+#[repr(C, align(8))]
+pub struct UMovieSceneReplaceableActorBinding {
+    __padding_end: [u8; 56],
+}
+impl UMovieSceneReplaceableActorBinding {}
+#[repr(C, align(8))]
 pub struct UMovieSceneReplaceableActorBinding_BPBase {
+    #[doc(hidden)]
+    __padding_56: [u8; 56],
     pub binding_type_pretty_name: FText,
     pub binding_type_tooltip: FText,
     pub custom_binding_priority: i32,
@@ -413,490 +105,912 @@ pub struct UMovieSceneReplaceableActorBinding_BPBase {
         crate::bindings::movie_scene::UMovieSceneSpawnableBindingBase,
     >,
 }
+impl UMovieSceneReplaceableActorBinding_BPBase {}
+#[repr(C, align(8))]
 pub struct UMovieSceneReplaceableDirectorBlueprintBinding {
-    pub dynamic_binding: crate::bindings::movie_scene::FMovieSceneDynamicBinding,
+    #[doc(hidden)]
+    __padding_224: [u8; 224],
     pub preview_spawnable_type: TSubclassOf<
         crate::bindings::movie_scene::UMovieSceneSpawnableBindingBase,
     >,
 }
+impl UMovieSceneReplaceableDirectorBlueprintBinding {}
+#[repr(C, align(8))]
 pub struct UMovieSceneSpawnableActorBindingBase {
+    #[doc(hidden)]
+    __padding_56: [u8; 56],
     pub b_net_addressable_name: bool,
     pub level_name: FName,
 }
+impl UMovieSceneSpawnableActorBindingBase {}
+#[repr(C, align(8))]
 pub struct UMovieSceneSpawnableActorBinding {
-    pub actor_template: UPtr<crate::bindings::engine::AActor>,
+    __padding_end: [u8; 80],
 }
+impl UMovieSceneSpawnableActorBinding {}
+#[repr(C, align(8))]
 pub struct UMovieSceneSpawnableDirectorBlueprintBinding {
-    pub dynamic_binding: crate::bindings::movie_scene::FMovieSceneDynamicBinding,
+    __padding_end: [u8; 224],
 }
+impl UMovieSceneSpawnableDirectorBlueprintBinding {}
+#[repr(C, align(8))]
 pub struct UMovieSceneDoublePerlinNoiseChannelContainer {
-    pub perlin_noise_channel: FMovieSceneDoublePerlinNoiseChannel,
+    __padding_end: [u8; 240],
 }
+impl UMovieSceneDoublePerlinNoiseChannelContainer {}
+#[repr(C, align(8))]
 pub struct UMovieSceneFloatPerlinNoiseChannelContainer {
-    pub perlin_noise_channel: FMovieSceneFloatPerlinNoiseChannel,
+    __padding_end: [u8; 240],
 }
+impl UMovieSceneFloatPerlinNoiseChannelContainer {}
+#[repr(C, align(8))]
 pub struct UMovieSceneDirectorBlueprintCondition {
-    pub director_blueprint_condition_data: FMovieSceneDirectorBlueprintConditionData,
-    pub scope: crate::bindings::movie_scene::EMovieSceneConditionScope,
-    pub check_frequency: crate::bindings::movie_scene::EMovieSceneConditionCheckFrequency,
+    __padding_end: [u8; 296],
 }
+impl UMovieSceneDirectorBlueprintCondition {}
+#[repr(C, align(8))]
 pub struct UMovieScenePlatformCondition {
-    pub valid_platforms: TArray<FName>,
+    __padding_end: [u8; 136],
 }
+impl UMovieScenePlatformCondition {}
+#[repr(C, align(8))]
 pub struct UMovieSceneScalabilityCondition {
-    pub group: EMovieSceneScalabilityConditionGroup,
-    pub operator: EMovieSceneScalabilityConditionOperator,
-    pub level: EMovieSceneScalabilityConditionLevel,
+    __padding_end: [u8; 128],
 }
-pub struct UMovieSceneInterrogatedPropertyInstantiatorSystem {}
+impl UMovieSceneScalabilityCondition {}
+#[repr(C, align(8))]
+pub struct UMovieSceneInterrogatedPropertyInstantiatorSystem {
+    __padding_end: [u8; 536],
+}
+impl UMovieSceneInterrogatedPropertyInstantiatorSystem {}
+#[repr(C, align(8))]
 pub struct UMovieSceneTracksSettings {
-    pub b_preview_camera_cuts_in_simulate: bool,
+    __padding_end: [u8; 56],
 }
+impl UMovieSceneTracksSettings {}
+#[repr(C, align(8))]
 pub struct UMovieScene3DConstraintSection {
-    pub constraint_id_deprecated: crate::bindings::core_u_object::FGuid,
-    pub constraint_binding_id: crate::bindings::movie_scene::FMovieSceneObjectBindingID,
+    __padding_end: [u8; 408],
 }
+impl UMovieScene3DConstraintSection {}
+#[repr(C, align(8))]
 pub struct UMovieScene3DAttachSection {
+    #[doc(hidden)]
+    __padding_416: [u8; 416],
     pub attach_socket_name: FName,
     pub attach_component_name: FName,
-    pub b_full_revert_on_detach: bool,
-    pub re_attach_on_detach: TSoftObjectPtr<crate::bindings::engine::USceneComponent>,
+    #[doc(hidden)]
+    __padding_496: [u8; 56],
     pub attachment_location_rule: crate::bindings::engine::EAttachmentRule,
     pub attachment_rotation_rule: crate::bindings::engine::EAttachmentRule,
     pub attachment_scale_rule: crate::bindings::engine::EAttachmentRule,
     pub detachment_location_rule: crate::bindings::engine::EDetachmentRule,
     pub detachment_rotation_rule: crate::bindings::engine::EDetachmentRule,
     pub detachment_scale_rule: crate::bindings::engine::EDetachmentRule,
+    __padding_end: [u8; 2],
 }
+impl UMovieScene3DAttachSection {}
+#[repr(C, align(8))]
 pub struct UMovieScene3DPathSection {
-    pub timing_curve: crate::bindings::movie_scene::FMovieSceneFloatChannel,
+    #[doc(hidden)]
+    __padding_712: [u8; 712],
     pub front_axis_enum: MovieScene3DPathSection_Axis,
     pub up_axis_enum: MovieScene3DPathSection_Axis,
+    #[doc(hidden)]
+    __padding_716: [u8; 2],
     pub flags_716: u8,
+    __padding_end: [u8; 3],
 }
+impl UMovieScene3DPathSection {}
+#[repr(C, align(8))]
 pub struct UMovieScene3DTransformSectionConstraints {
-    pub constraints_channels: TArray<
-        crate::bindings::constraints::FConstraintAndActiveChannel,
-    >,
+    __padding_end: [u8; 64],
 }
+impl UMovieScene3DTransformSectionConstraints {}
+#[repr(C, align(8))]
 pub struct UMovieScene3DTransformSection {
-    pub transform_mask: FMovieSceneTransformMask,
-    pub translation: crate::bindings::movie_scene::FMovieSceneDoubleChannel,
-    pub rotation: crate::bindings::movie_scene::FMovieSceneDoubleChannel,
-    pub scale: crate::bindings::movie_scene::FMovieSceneDoubleChannel,
-    pub manual_weight: crate::bindings::movie_scene::FMovieSceneFloatChannel,
-    pub override_registry: UPtr<
-        crate::bindings::movie_scene::UMovieSceneSectionChannelOverrideRegistry,
-    >,
-    pub constraints: UPtr<UMovieScene3DTransformSectionConstraints>,
-    pub b_use_quaternion_interpolation: bool,
-    pub show3_d_trajectory: EShow3DTrajectory,
+    __padding_end: [u8; 3576],
 }
+impl UMovieScene3DTransformSection {}
+#[repr(C, align(8))]
 pub struct UMovieSceneActorReferenceSection {
-    pub actor_reference_data: FMovieSceneActorReferenceData,
-    pub actor_guid_index_curve_deprecated: crate::bindings::engine::FIntegralCurve,
-    pub actor_guid_strings_deprecated: TArray<FString>,
+    __padding_end: [u8; 832],
 }
+impl UMovieSceneActorReferenceSection {}
+#[repr(C, align(8))]
 pub struct UMovieSceneAudioSection {
+    #[doc(hidden)]
+    __padding_376: [u8; 376],
     pub sound: UPtr<crate::bindings::engine::USoundBase>,
-    pub start_frame_offset: crate::bindings::core_u_object::FFrameNumber,
-    pub start_offset_deprecated: f32,
-    pub audio_start_time_deprecated: f32,
-    pub audio_dilation_factor_deprecated: f32,
-    pub audio_volume_deprecated: f32,
-    pub sound_volume: crate::bindings::movie_scene::FMovieSceneFloatChannel,
-    pub pitch_multiplier: crate::bindings::movie_scene::FMovieSceneFloatChannel,
-    pub inputs_float: TMap<FName, crate::bindings::movie_scene::FMovieSceneFloatChannel>,
-    pub inputs_string: TMap<FName, FMovieSceneStringChannel>,
-    pub inputs_bool: TMap<FName, crate::bindings::movie_scene::FMovieSceneBoolChannel>,
-    pub inputs_int: TMap<FName, crate::bindings::movie_scene::FMovieSceneIntegerChannel>,
-    pub inputs_trigger: TMap<
-        FName,
-        crate::bindings::movie_scene::FMovieSceneAudioTriggerChannel,
-    >,
-    pub attach_actor_data: FMovieSceneActorReferenceData,
-    pub b_looping: bool,
-    pub b_suppress_subtitles: bool,
-    pub b_override_attenuation: bool,
-    pub attenuation_settings: UPtr<crate::bindings::engine::USoundAttenuation>,
-    pub on_queue_subtitles: FMovieSceneAudioSection_OnQueueSubtitles,
-    pub on_audio_finished: FMovieSceneAudioSection_OnAudioFinished,
-    pub on_audio_playback_percent: FMovieSceneAudioSection_OnAudioPlaybackPercent,
+    __padding_end: [u8; 1456],
 }
-pub struct UMovieSceneBaseCacheSection {}
+impl UMovieSceneAudioSection {}
+#[repr(C, align(8))]
+pub struct UMovieSceneBaseCacheSection {
+    __padding_end: [u8; 376],
+}
+impl UMovieSceneBaseCacheSection {}
+#[repr(C, align(8))]
 pub struct UMovieSceneByteSection {
-    pub byte_curve: crate::bindings::movie_scene::FMovieSceneByteChannel,
+    __padding_end: [u8; 664],
 }
+impl UMovieSceneByteSection {}
+#[repr(C, align(16))]
 pub struct UMovieSceneCameraCutSection {
-    pub b_lock_previous_camera: bool,
-    pub camera_guid_deprecated: crate::bindings::core_u_object::FGuid,
-    pub camera_binding_id: crate::bindings::movie_scene::FMovieSceneObjectBindingID,
-    pub initial_camera_cut_transform: crate::bindings::core_u_object::FTransform,
-    pub b_has_initial_camera_cut_transform: bool,
-    pub thumbnail_reference_offset: f32,
+    __padding_end: [u8; 528],
 }
+impl UMovieSceneCameraCutSection {}
+#[repr(C, align(8))]
 pub struct UMovieSceneCameraShakeSection {
-    pub shake_data: FMovieSceneCameraShakeSectionData,
-    pub shake_class_deprecated: TSubclassOf<crate::bindings::engine::UCameraShakeBase>,
-    pub play_scale_deprecated: f32,
-    pub play_space_deprecated: crate::bindings::engine::ECameraShakePlaySpace,
-    pub user_defined_play_space_deprecated: crate::bindings::core_u_object::FRotator,
+    __padding_end: [u8; 448],
 }
+impl UMovieSceneCameraShakeSection {}
+#[repr(C, align(8))]
 pub struct UMovieSceneCameraShakeSourceShakeSection {
-    pub shake_data: FMovieSceneCameraShakeSectionData,
+    __padding_end: [u8; 408],
 }
+impl UMovieSceneCameraShakeSourceShakeSection {}
+#[repr(C, align(8))]
 pub struct UMovieSceneCameraShakeSourceTriggerSection {
-    pub channel: FMovieSceneCameraShakeSourceTriggerChannel,
+    __padding_end: [u8; 640],
 }
+impl UMovieSceneCameraShakeSourceTriggerSection {}
+#[repr(C, align(8))]
 pub struct UMovieSceneCinematicShotSection {
-    pub shot_display_name: FString,
-    pub display_name_deprecated: FText,
-    pub thumbnail_reference_offset: f32,
+    __padding_end: [u8; 2464],
 }
+impl UMovieSceneCinematicShotSection {}
+#[repr(C, align(8))]
 pub struct UMovieSceneColorSection {
-    pub red_curve: crate::bindings::movie_scene::FMovieSceneFloatChannel,
-    pub green_curve: crate::bindings::movie_scene::FMovieSceneFloatChannel,
-    pub blue_curve: crate::bindings::movie_scene::FMovieSceneFloatChannel,
-    pub alpha_curve: crate::bindings::movie_scene::FMovieSceneFloatChannel,
+    __padding_end: [u8; 1584],
 }
+impl UMovieSceneColorSection {}
+#[repr(C, align(8))]
 pub struct UMovieSceneComponentMaterialParameterSection {
-    pub scalar_parameter_infos_and_curves: TArray<FScalarMaterialParameterInfoAndCurve>,
-    pub color_parameter_infos_and_curves: TArray<FColorMaterialParameterInfoAndCurves>,
+    __padding_end: [u8; 400],
 }
+impl UMovieSceneComponentMaterialParameterSection {}
 pub struct UMovieSceneConstrainedSection {}
 pub struct IMovieSceneConstrainedSection {}
+#[repr(C, align(8))]
 pub struct UMovieSceneParameterSection {
-    pub bool_parameter_names_and_curves: TArray<FBoolParameterNameAndCurve>,
-    pub scalar_parameter_names_and_curves: TArray<FScalarParameterNameAndCurve>,
-    pub vector2_d_parameter_names_and_curves: TArray<FVector2DParameterNameAndCurves>,
-    pub vector_parameter_names_and_curves: TArray<FVectorParameterNameAndCurves>,
-    pub color_parameter_names_and_curves: TArray<FColorParameterNameAndCurves>,
-    pub transform_parameter_names_and_curves: TArray<FTransformParameterNameAndCurves>,
+    __padding_end: [u8; 464],
 }
+impl UMovieSceneParameterSection {}
+#[repr(C, align(8))]
 pub struct UMovieSceneCustomPrimitiveDataSection {
-    pub channels_used_bitmap: u64,
+    __padding_end: [u8; 472],
 }
+impl UMovieSceneCustomPrimitiveDataSection {}
+#[repr(C, align(8))]
 pub struct UMovieSceneCVarSection {
-    pub console_variable_collections: TArray<FMovieSceneConsoleVariableCollection>,
-    pub console_variables: FMovieSceneCVarOverrides,
+    __padding_end: [u8; 464],
 }
+impl UMovieSceneCVarSection {}
+#[repr(C, align(8))]
 pub struct UMovieSceneDataLayerSection {
-    pub data_layer_assets: TArray<UPtr<crate::bindings::engine::UDataLayerAsset>>,
-    pub desired_state: crate::bindings::engine::EDataLayerRuntimeState,
-    pub preroll_state: crate::bindings::engine::EDataLayerRuntimeState,
-    pub b_flush_on_activated: bool,
-    pub b_flush_on_unload: bool,
+    __padding_end: [u8; 392],
 }
+impl UMovieSceneDataLayerSection {}
+#[repr(C, align(8))]
 pub struct UMovieSceneDoubleSection {
-    pub double_curve: crate::bindings::movie_scene::FMovieSceneDoubleChannel,
+    __padding_end: [u8; 680],
 }
+impl UMovieSceneDoubleSection {}
+#[repr(C, align(8))]
 pub struct UMovieSceneEnumSection {
-    pub enum_curve: crate::bindings::movie_scene::FMovieSceneByteChannel,
+    __padding_end: [u8; 664],
 }
-pub struct UMovieSceneEventSectionBase {}
+impl UMovieSceneEnumSection {}
+#[repr(C, align(8))]
+pub struct UMovieSceneEventSectionBase {
+    __padding_end: [u8; 368],
+}
+impl UMovieSceneEventSectionBase {}
+#[repr(C, align(8))]
 pub struct UMovieSceneEventRepeaterSection {
-    pub event: FMovieSceneEvent,
+    __padding_end: [u8; 584],
 }
+impl UMovieSceneEventRepeaterSection {}
+#[repr(C, align(8))]
 pub struct UMovieSceneEventSection {
-    pub events_deprecated: crate::bindings::engine::FNameCurve,
-    pub event_data: FMovieSceneEventSectionData,
+    __padding_end: [u8; 768],
 }
+impl UMovieSceneEventSection {}
+#[repr(C, align(8))]
 pub struct UMovieSceneEventTriggerSection {
-    pub event_channel: FMovieSceneEventChannel,
+    __padding_end: [u8; 648],
 }
+impl UMovieSceneEventTriggerSection {}
+#[repr(C, align(8))]
 pub struct UMovieSceneFadeSection {
-    pub float_curve: crate::bindings::movie_scene::FMovieSceneFloatChannel,
-    pub fade_color: crate::bindings::core_u_object::FLinearColor,
-    pub flags_688: u8,
+    __padding_end: [u8; 696],
 }
+impl UMovieSceneFadeSection {}
+#[repr(C, align(8))]
 pub struct UMovieSceneFloatSection {
-    pub float_curve: crate::bindings::movie_scene::FMovieSceneFloatChannel,
-    pub override_registry: UPtr<
-        crate::bindings::movie_scene::UMovieSceneSectionChannelOverrideRegistry,
-    >,
+    __padding_end: [u8; 688],
 }
+impl UMovieSceneFloatSection {}
+#[repr(C, align(8))]
 pub struct UMovieSceneIntegerSection {
-    pub integer_curve: crate::bindings::movie_scene::FMovieSceneIntegerChannel,
+    __padding_end: [u8; 656],
 }
+impl UMovieSceneIntegerSection {}
+#[repr(C, align(8))]
 pub struct UMovieSceneLevelVisibilitySection {
-    pub visibility: ELevelVisibility,
-    pub level_names: TArray<FName>,
+    __padding_end: [u8; 392],
 }
+impl UMovieSceneLevelVisibilitySection {}
+#[repr(C, align(8))]
 pub struct UMovieSceneObjectPropertySection {
-    pub object_channel: crate::bindings::movie_scene::FMovieSceneObjectPathChannel,
+    __padding_end: [u8; 704],
 }
+impl UMovieSceneObjectPropertySection {}
 pub struct UMovieSceneParameterSectionExtender {}
 pub struct IMovieSceneParameterSectionExtender {}
+#[repr(C, align(8))]
 pub struct UMovieSceneParticleSection {
-    pub particle_keys: FMovieSceneParticleChannel,
+    __padding_end: [u8; 656],
 }
+impl UMovieSceneParticleSection {}
+#[repr(C, align(8))]
 pub struct UMovieScenePrimitiveMaterialSection {
-    pub material_channel: crate::bindings::movie_scene::FMovieSceneObjectPathChannel,
+    __padding_end: [u8; 704],
 }
+impl UMovieScenePrimitiveMaterialSection {}
+#[repr(C, align(8))]
 pub struct UMovieSceneRotatorSection {
-    pub rotation: crate::bindings::movie_scene::FMovieSceneDoubleChannel,
+    __padding_end: [u8; 1304],
 }
+impl UMovieSceneRotatorSection {}
+#[repr(C, align(16))]
 pub struct UMovieSceneSkeletalAnimationSection {
+    #[doc(hidden)]
+    __padding_368: [u8; 368],
     pub params: FMovieSceneSkeletalAnimationParams,
-    pub anim_sequence_deprecated: UPtr<crate::bindings::engine::UAnimSequence>,
-    pub animation_deprecated: UPtr<crate::bindings::engine::UAnimSequenceBase>,
-    pub start_offset_deprecated: f32,
-    pub end_offset_deprecated: f32,
-    pub play_rate_deprecated: f32,
-    pub flags_788: u8,
-    pub slot_name_deprecated: FName,
+    #[doc(hidden)]
+    __padding_808: [u8; 56],
     pub start_location_offset: crate::bindings::core_u_object::FVector,
     pub start_rotation_offset: crate::bindings::core_u_object::FRotator,
-    pub matched_bone_name: FName,
+    #[doc(hidden)]
+    __padding_872: [u8; 16],
     pub matched_location_offset: crate::bindings::core_u_object::FVector,
     pub matched_rotation_offset: crate::bindings::core_u_object::FRotator,
     pub flags_920: u8,
-    pub mixed_animation_target: crate::bindings::core_u_object::FInstancedStruct,
-    pub mixed_animation_priority: i32,
+    __padding_end: [u8; 151],
 }
+impl UMovieSceneSkeletalAnimationSection {}
+#[repr(C, align(8))]
 pub struct UMovieSceneSlomoSection {
-    pub float_curve: crate::bindings::movie_scene::FMovieSceneFloatChannel,
+    __padding_end: [u8; 672],
 }
+impl UMovieSceneSlomoSection {}
+#[repr(C, align(8))]
 pub struct UMovieSceneStringSection {
-    pub string_curve: FMovieSceneStringChannel,
+    __padding_end: [u8; 664],
 }
+impl UMovieSceneStringSection {}
+#[repr(C, align(8))]
 pub struct UMovieSceneTextSection {
-    pub text_channel: FMovieSceneTextChannel,
+    __padding_end: [u8; 672],
 }
+impl UMovieSceneTextSection {}
+#[repr(C, align(8))]
 pub struct UMovieSceneFloatVectorSection {
-    pub curves: crate::bindings::movie_scene::FMovieSceneFloatChannel,
-    pub channels_used: i32,
+    __padding_end: [u8; 1592],
 }
+impl UMovieSceneFloatVectorSection {}
+#[repr(C, align(8))]
 pub struct UMovieSceneDoubleVectorSection {
-    pub curves: crate::bindings::movie_scene::FMovieSceneDoubleChannel,
-    pub channels_used: i32,
+    __padding_end: [u8; 1624],
 }
-pub struct UMovieSceneVisibilitySection {}
-pub struct UBoolChannelEvaluatorSystem {}
-pub struct UByteChannelEvaluatorSystem {}
-pub struct UDoubleChannelEvaluatorSystem {}
-pub struct UDoublePerlinNoiseChannelEvaluatorSystem {}
-pub struct UFloatChannelEvaluatorSystem {}
-pub struct UFloatPerlinNoiseChannelEvaluatorSystem {}
-pub struct UIntegerChannelEvaluatorSystem {}
-pub struct UMovieScene3DTransformPropertySystem {}
-pub struct UMovieSceneAudioSystem {}
-pub struct UMovieSceneBaseValueEvaluatorSystem {}
-pub struct UMovieSceneBoolPropertySystem {}
-pub struct UMovieSceneBytePropertySystem {}
-pub struct UMovieSceneCameraShakeInstantiatorSystem {}
-pub struct UMovieSceneCameraShakeEvaluatorSystem {}
-pub struct UMovieSceneColorPropertySystem {}
-pub struct UMovieSceneComponentAttachmentInvalidatorSystem {}
-pub struct UMovieSceneComponentAttachmentSystem {}
-pub struct UMovieSceneComponentMaterialSystem {}
-pub struct UMovieSceneComponentMobilitySystem {}
-pub struct UMovieSceneComponentTransformSystem {}
-pub struct UMovieSceneConstraintSystem {}
+impl UMovieSceneDoubleVectorSection {}
+#[repr(C, align(8))]
+pub struct UMovieSceneVisibilitySection {
+    __padding_end: [u8; 672],
+}
+impl UMovieSceneVisibilitySection {}
+#[repr(C, align(8))]
+pub struct UBoolChannelEvaluatorSystem {
+    __padding_end: [u8; 80],
+}
+impl UBoolChannelEvaluatorSystem {}
+#[repr(C, align(8))]
+pub struct UByteChannelEvaluatorSystem {
+    __padding_end: [u8; 80],
+}
+impl UByteChannelEvaluatorSystem {}
+#[repr(C, align(8))]
+pub struct UDoubleChannelEvaluatorSystem {
+    __padding_end: [u8; 80],
+}
+impl UDoubleChannelEvaluatorSystem {}
+#[repr(C, align(8))]
+pub struct UDoublePerlinNoiseChannelEvaluatorSystem {
+    __padding_end: [u8; 80],
+}
+impl UDoublePerlinNoiseChannelEvaluatorSystem {}
+#[repr(C, align(8))]
+pub struct UFloatChannelEvaluatorSystem {
+    __padding_end: [u8; 80],
+}
+impl UFloatChannelEvaluatorSystem {}
+#[repr(C, align(8))]
+pub struct UFloatPerlinNoiseChannelEvaluatorSystem {
+    __padding_end: [u8; 80],
+}
+impl UFloatPerlinNoiseChannelEvaluatorSystem {}
+#[repr(C, align(8))]
+pub struct UIntegerChannelEvaluatorSystem {
+    __padding_end: [u8; 80],
+}
+impl UIntegerChannelEvaluatorSystem {}
+#[repr(C, align(8))]
+pub struct UMovieScene3DTransformPropertySystem {
+    __padding_end: [u8; 104],
+}
+impl UMovieScene3DTransformPropertySystem {}
+#[repr(C, align(8))]
+pub struct UMovieSceneAudioSystem {
+    __padding_end: [u8; 256],
+}
+impl UMovieSceneAudioSystem {}
+#[repr(C, align(8))]
+pub struct UMovieSceneBaseValueEvaluatorSystem {
+    __padding_end: [u8; 80],
+}
+impl UMovieSceneBaseValueEvaluatorSystem {}
+#[repr(C, align(8))]
+pub struct UMovieSceneBoolPropertySystem {
+    __padding_end: [u8; 104],
+}
+impl UMovieSceneBoolPropertySystem {}
+#[repr(C, align(8))]
+pub struct UMovieSceneBytePropertySystem {
+    __padding_end: [u8; 104],
+}
+impl UMovieSceneBytePropertySystem {}
+#[repr(C, align(8))]
+pub struct UMovieSceneCameraShakeInstantiatorSystem {
+    __padding_end: [u8; 224],
+}
+impl UMovieSceneCameraShakeInstantiatorSystem {}
+#[repr(C, align(8))]
+pub struct UMovieSceneCameraShakeEvaluatorSystem {
+    __padding_end: [u8; 96],
+}
+impl UMovieSceneCameraShakeEvaluatorSystem {}
+#[repr(C, align(8))]
+pub struct UMovieSceneColorPropertySystem {
+    __padding_end: [u8; 104],
+}
+impl UMovieSceneColorPropertySystem {}
+#[repr(C, align(8))]
+pub struct UMovieSceneComponentAttachmentInvalidatorSystem {
+    __padding_end: [u8; 80],
+}
+impl UMovieSceneComponentAttachmentInvalidatorSystem {}
+#[repr(C, align(8))]
+pub struct UMovieSceneComponentAttachmentSystem {
+    __padding_end: [u8; 480],
+}
+impl UMovieSceneComponentAttachmentSystem {}
+#[repr(C, align(8))]
+pub struct UMovieSceneComponentMaterialSystem {
+    __padding_end: [u8; 536],
+}
+impl UMovieSceneComponentMaterialSystem {}
+#[repr(C, align(8))]
+pub struct UMovieSceneComponentMobilitySystem {
+    __padding_end: [u8; 608],
+}
+impl UMovieSceneComponentMobilitySystem {}
+#[repr(C, align(8))]
+pub struct UMovieSceneComponentTransformSystem {
+    __padding_end: [u8; 104],
+}
+impl UMovieSceneComponentTransformSystem {}
+#[repr(C, align(8))]
+pub struct UMovieSceneConstraintSystem {
+    __padding_end: [u8; 96],
+}
+impl UMovieSceneConstraintSystem {}
+#[repr(C, align(8))]
 pub struct UMovieSceneCustomPrimitiveDataSystem {
-    pub double_blender_system: UPtr<UMovieScenePiecewiseDoubleBlenderSystem>,
+    __padding_end: [u8; 488],
 }
-pub struct UMovieSceneDataLayerSystem {}
-pub struct UMovieSceneDeferredComponentMovementSystem {}
-pub struct UMovieSceneDoublePropertySystem {}
-pub struct UMovieSceneEnumPropertySystem {}
-pub struct UMovieSceneEulerTransformPropertySystem {}
-pub struct UMovieSceneEventSystem {}
-pub struct UMovieScenePreSpawnEventSystem {}
-pub struct UMovieScenePostSpawnEventSystem {}
-pub struct UMovieScenePostEvalEventSystem {}
-pub struct UMovieSceneFadeSystem {}
-pub struct UMovieSceneFloatPropertySystem {}
+impl UMovieSceneCustomPrimitiveDataSystem {}
+#[repr(C, align(8))]
+pub struct UMovieSceneDataLayerSystem {
+    __padding_end: [u8; 256],
+}
+impl UMovieSceneDataLayerSystem {}
+#[repr(C, align(8))]
+pub struct UMovieSceneDeferredComponentMovementSystem {
+    __padding_end: [u8; 104],
+}
+impl UMovieSceneDeferredComponentMovementSystem {}
+#[repr(C, align(8))]
+pub struct UMovieSceneDoublePropertySystem {
+    __padding_end: [u8; 104],
+}
+impl UMovieSceneDoublePropertySystem {}
+#[repr(C, align(8))]
+pub struct UMovieSceneEnumPropertySystem {
+    __padding_end: [u8; 104],
+}
+impl UMovieSceneEnumPropertySystem {}
+#[repr(C, align(8))]
+pub struct UMovieSceneEulerTransformPropertySystem {
+    __padding_end: [u8; 104],
+}
+impl UMovieSceneEulerTransformPropertySystem {}
+#[repr(C, align(8))]
+pub struct UMovieSceneEventSystem {
+    __padding_end: [u8; 160],
+}
+impl UMovieSceneEventSystem {}
+#[repr(C, align(8))]
+pub struct UMovieScenePreSpawnEventSystem {
+    __padding_end: [u8; 160],
+}
+impl UMovieScenePreSpawnEventSystem {}
+#[repr(C, align(8))]
+pub struct UMovieScenePostSpawnEventSystem {
+    __padding_end: [u8; 160],
+}
+impl UMovieScenePostSpawnEventSystem {}
+#[repr(C, align(8))]
+pub struct UMovieScenePostEvalEventSystem {
+    __padding_end: [u8; 160],
+}
+impl UMovieScenePostEvalEventSystem {}
+#[repr(C, align(8))]
+pub struct UMovieSceneFadeSystem {
+    __padding_end: [u8; 96],
+}
+impl UMovieSceneFadeSystem {}
+#[repr(C, align(8))]
+pub struct UMovieSceneFloatPropertySystem {
+    __padding_end: [u8; 104],
+}
+impl UMovieSceneFloatPropertySystem {}
+#[repr(C, align(8))]
 pub struct UMovieSceneHierarchicalBiasSystem {
-    pub grouping_system: UPtr<
-        crate::bindings::movie_scene::UMovieSceneEntityGroupingSystem,
-    >,
+    __padding_end: [u8; 88],
 }
-pub struct UMovieSceneIntegerPropertySystem {}
-pub struct UMovieSceneLevelVisibilitySystem {}
-pub struct UMovieSceneMaterialParameterCollectionSystem {}
+impl UMovieSceneHierarchicalBiasSystem {}
+#[repr(C, align(8))]
+pub struct UMovieSceneIntegerPropertySystem {
+    __padding_end: [u8; 104],
+}
+impl UMovieSceneIntegerPropertySystem {}
+#[repr(C, align(8))]
+pub struct UMovieSceneLevelVisibilitySystem {
+    __padding_end: [u8; 504],
+}
+impl UMovieSceneLevelVisibilitySystem {}
+#[repr(C, align(8))]
+pub struct UMovieSceneMaterialParameterCollectionSystem {
+    __padding_end: [u8; 120],
+}
+impl UMovieSceneMaterialParameterCollectionSystem {}
+#[repr(C, align(8))]
 pub struct UMovieSceneMaterialParameterInstantiatorSystem {
-    pub double_blender_system: UPtr<UMovieScenePiecewiseDoubleBlenderSystem>,
+    __padding_end: [u8; 872],
 }
-pub struct UMovieSceneMaterialParameterEvaluationSystem {}
-pub struct UMovieSceneMotionVectorSimulationSystem {}
-pub struct UMovieSceneObjectPropertySystem {}
-pub struct UMovieScenePiecewiseBoolBlenderSystem {}
-pub struct UMovieScenePiecewiseByteBlenderSystem {}
-pub struct UMovieScenePiecewiseDoubleBlenderSystem {}
-pub struct UMovieScenePiecewiseEnumBlenderSystem {}
-pub struct UMovieScenePiecewiseIntegerBlenderSystem {}
+impl UMovieSceneMaterialParameterInstantiatorSystem {}
+#[repr(C, align(8))]
+pub struct UMovieSceneMaterialParameterEvaluationSystem {
+    __padding_end: [u8; 80],
+}
+impl UMovieSceneMaterialParameterEvaluationSystem {}
+#[repr(C, align(8))]
+pub struct UMovieSceneMotionVectorSimulationSystem {
+    __padding_end: [u8; 168],
+}
+impl UMovieSceneMotionVectorSimulationSystem {}
+#[repr(C, align(8))]
+pub struct UMovieSceneObjectPropertySystem {
+    __padding_end: [u8; 104],
+}
+impl UMovieSceneObjectPropertySystem {}
+#[repr(C, align(8))]
+pub struct UMovieScenePiecewiseBoolBlenderSystem {
+    __padding_end: [u8; 160],
+}
+impl UMovieScenePiecewiseBoolBlenderSystem {}
+#[repr(C, align(8))]
+pub struct UMovieScenePiecewiseByteBlenderSystem {
+    __padding_end: [u8; 160],
+}
+impl UMovieScenePiecewiseByteBlenderSystem {}
+#[repr(C, align(8))]
+pub struct UMovieScenePiecewiseDoubleBlenderSystem {
+    __padding_end: [u8; 368],
+}
+impl UMovieScenePiecewiseDoubleBlenderSystem {}
+#[repr(C, align(8))]
+pub struct UMovieScenePiecewiseEnumBlenderSystem {
+    __padding_end: [u8; 160],
+}
+impl UMovieScenePiecewiseEnumBlenderSystem {}
+#[repr(C, align(8))]
+pub struct UMovieScenePiecewiseIntegerBlenderSystem {
+    __padding_end: [u8; 192],
+}
+impl UMovieScenePiecewiseIntegerBlenderSystem {}
+#[repr(C, align(8))]
 pub struct UMovieSceneAsyncAction_SequencePrediction {
-    pub result: FMovieSceneAsyncAction_SequencePrediction_Result,
-    pub failure: FMovieSceneAsyncAction_SequencePrediction_Failure,
-    pub sequence_player: UPtr<crate::bindings::movie_scene::UMovieSceneSequencePlayer>,
-    pub scene_component: UPtr<crate::bindings::engine::USceneComponent>,
+    __padding_end: [u8; 152],
 }
+impl UMovieSceneAsyncAction_SequencePrediction {}
+#[repr(C, align(8))]
 pub struct UMovieScenePredictionSystem {
-    pub pending_predictions: TArray<UPtr<UMovieSceneAsyncAction_SequencePrediction>>,
-    pub processing_predictions: TArray<UPtr<UMovieSceneAsyncAction_SequencePrediction>>,
+    __padding_end: [u8; 256],
 }
-pub struct UMovieScenePropertyInstantiatorSystem {}
-pub struct UMovieScenePropertyNotificationSystem {}
-pub struct UMovieSceneQuaternionBlenderSystem {}
-pub struct UMovieSceneQuaternionInterpolationRotationSystem {}
-pub struct UMovieSceneRotatorPropertySystem {}
-pub struct UMovieSceneSkeletalAnimationSystem {}
-pub struct UMovieSceneSlomoSystem {}
-pub struct UMovieSceneStringPropertySystem {}
-pub struct UMovieSceneTextPropertySystem {}
-pub struct UMovieSceneTransformOriginInstantiatorSystem {}
-pub struct UMovieSceneTransformOriginSystem {}
-pub struct UMovieSceneFloatVectorPropertySystem {}
-pub struct UMovieSceneDoubleVectorPropertySystem {}
-pub struct UMovieSceneVisibilitySystem {}
-pub struct UObjectPathChannelEvaluatorSystem {}
-pub struct UStringChannelEvaluatorSystem {}
-pub struct UTextChannelEvaluatorSystem {}
+impl UMovieScenePredictionSystem {}
+#[repr(C, align(8))]
+pub struct UMovieScenePropertyInstantiatorSystem {
+    __padding_end: [u8; 504],
+}
+impl UMovieScenePropertyInstantiatorSystem {}
+#[repr(C, align(8))]
+pub struct UMovieScenePropertyNotificationSystem {
+    __padding_end: [u8; 80],
+}
+impl UMovieScenePropertyNotificationSystem {}
+#[repr(C, align(8))]
+pub struct UMovieSceneQuaternionBlenderSystem {
+    __padding_end: [u8; 216],
+}
+impl UMovieSceneQuaternionBlenderSystem {}
+#[repr(C, align(8))]
+pub struct UMovieSceneQuaternionInterpolationRotationSystem {
+    __padding_end: [u8; 80],
+}
+impl UMovieSceneQuaternionInterpolationRotationSystem {}
+#[repr(C, align(8))]
+pub struct UMovieSceneRotatorPropertySystem {
+    __padding_end: [u8; 104],
+}
+impl UMovieSceneRotatorPropertySystem {}
+#[repr(C, align(8))]
+pub struct UMovieSceneSkeletalAnimationSystem {
+    __padding_end: [u8; 248],
+}
+impl UMovieSceneSkeletalAnimationSystem {}
+#[repr(C, align(8))]
+pub struct UMovieSceneSlomoSystem {
+    __padding_end: [u8; 104],
+}
+impl UMovieSceneSlomoSystem {}
+#[repr(C, align(8))]
+pub struct UMovieSceneStringPropertySystem {
+    __padding_end: [u8; 104],
+}
+impl UMovieSceneStringPropertySystem {}
+#[repr(C, align(8))]
+pub struct UMovieSceneTextPropertySystem {
+    __padding_end: [u8; 104],
+}
+impl UMovieSceneTextPropertySystem {}
+#[repr(C, align(8))]
+pub struct UMovieSceneTransformOriginInstantiatorSystem {
+    __padding_end: [u8; 80],
+}
+impl UMovieSceneTransformOriginInstantiatorSystem {}
+#[repr(C, align(8))]
+pub struct UMovieSceneTransformOriginSystem {
+    __padding_end: [u8; 360],
+}
+impl UMovieSceneTransformOriginSystem {}
+#[repr(C, align(8))]
+pub struct UMovieSceneFloatVectorPropertySystem {
+    __padding_end: [u8; 104],
+}
+impl UMovieSceneFloatVectorPropertySystem {}
+#[repr(C, align(8))]
+pub struct UMovieSceneDoubleVectorPropertySystem {
+    __padding_end: [u8; 104],
+}
+impl UMovieSceneDoubleVectorPropertySystem {}
+#[repr(C, align(8))]
+pub struct UMovieSceneVisibilitySystem {
+    __padding_end: [u8; 96],
+}
+impl UMovieSceneVisibilitySystem {}
+#[repr(C, align(8))]
+pub struct UObjectPathChannelEvaluatorSystem {
+    __padding_end: [u8; 80],
+}
+impl UObjectPathChannelEvaluatorSystem {}
+#[repr(C, align(8))]
+pub struct UStringChannelEvaluatorSystem {
+    __padding_end: [u8; 80],
+}
+impl UStringChannelEvaluatorSystem {}
+#[repr(C, align(8))]
+pub struct UTextChannelEvaluatorSystem {
+    __padding_end: [u8; 80],
+}
+impl UTextChannelEvaluatorSystem {}
+#[repr(C, align(8))]
 pub struct UMovieSceneHierarchicalEasingInstantiatorSystem {
-    pub evaluator_system: UPtr<UWeightAndEasingEvaluatorSystem>,
+    __padding_end: [u8; 232],
 }
-pub struct UMovieSceneHierarchicalEasingFinalizationSystem {}
-pub struct UWeightAndEasingEvaluatorSystem {}
+impl UMovieSceneHierarchicalEasingInstantiatorSystem {}
+#[repr(C, align(8))]
+pub struct UMovieSceneHierarchicalEasingFinalizationSystem {
+    __padding_end: [u8; 80],
+}
+impl UMovieSceneHierarchicalEasingFinalizationSystem {}
+#[repr(C, align(8))]
+pub struct UWeightAndEasingEvaluatorSystem {
+    __padding_end: [u8; 104],
+}
+impl UWeightAndEasingEvaluatorSystem {}
+#[repr(C, align(8))]
 pub struct UMovieSceneDecomposerTestObject {
-    pub float_property: f32,
+    __padding_end: [u8; 56],
 }
-pub struct UMovieSceneFadeTrackTestLibrary {}
+impl UMovieSceneDecomposerTestObject {}
+#[repr(C, align(8))]
+pub struct UMovieSceneFadeTrackTestLibrary {
+    __padding_end: [u8; 48],
+}
+impl UMovieSceneFadeTrackTestLibrary {}
+#[repr(C, align(8))]
 pub struct UMovieScenePartialEvaluationTestObject {
-    pub float_property: f32,
-    pub vector_property: crate::bindings::core_u_object::FVector,
+    __padding_end: [u8; 80],
 }
+impl UMovieScenePartialEvaluationTestObject {}
+#[repr(C, align(8))]
 pub struct UMovieSceneTestSequence {
-    pub movie_scene: UPtr<crate::bindings::movie_scene::UMovieScene>,
-    pub bound_objects: TArray<UPtr<crate::bindings::core_u_object::UObject>>,
-    pub binding_guids: TArray<crate::bindings::core_u_object::FGuid>,
+    __padding_end: [u8; 168],
 }
-pub struct UMovieSceneCameraCutTrackInstance {}
-pub struct UMovieSceneCVarTrackInstance {}
+impl UMovieSceneTestSequence {}
+#[repr(C, align(8))]
+pub struct UMovieSceneCameraCutTrackInstance {
+    __padding_end: [u8; 136],
+}
+impl UMovieSceneCameraCutTrackInstance {}
+#[repr(C, align(8))]
+pub struct UMovieSceneCVarTrackInstance {
+    __padding_end: [u8; 168],
+}
+impl UMovieSceneCVarTrackInstance {}
 pub struct UMovieSceneSectionsToKey {}
 pub struct IMovieSceneSectionsToKey {}
+#[repr(C, align(8))]
 pub struct UMovieScene3DConstraintTrack {
-    pub constraint_sections: TArray<
-        UPtr<crate::bindings::movie_scene::UMovieSceneSection>,
-    >,
+    __padding_end: [u8; 368],
 }
-pub struct UMovieScene3DAttachTrack {}
-pub struct UMovieScene3DPathTrack {}
+impl UMovieScene3DConstraintTrack {}
+#[repr(C, align(8))]
+pub struct UMovieScene3DAttachTrack {
+    __padding_end: [u8; 368],
+}
+impl UMovieScene3DAttachTrack {}
+#[repr(C, align(8))]
+pub struct UMovieScene3DPathTrack {
+    __padding_end: [u8; 376],
+}
+impl UMovieScene3DPathTrack {}
+#[repr(C, align(8))]
 pub struct UMovieScene3DTransformTrack {
-    pub blender_system_class: TSubclassOf<
-        crate::bindings::movie_scene::UMovieSceneBlenderSystem,
-    >,
+    __padding_end: [u8; 496],
 }
-pub struct UMovieSceneActorReferenceTrack {}
+impl UMovieScene3DTransformTrack {}
+#[repr(C, align(8))]
+pub struct UMovieSceneActorReferenceTrack {
+    __padding_end: [u8; 488],
+}
+impl UMovieSceneActorReferenceTrack {}
+#[repr(C, align(8))]
 pub struct UMovieSceneAudioTrack {
-    pub audio_sections: TArray<UPtr<crate::bindings::movie_scene::UMovieSceneSection>>,
-    pub row_height: i32,
+    __padding_end: [u8; 408],
 }
-pub struct UMovieSceneBoolTrack {}
+impl UMovieSceneAudioTrack {}
+#[repr(C, align(8))]
+pub struct UMovieSceneBoolTrack {
+    __padding_end: [u8; 496],
+}
+impl UMovieSceneBoolTrack {}
+#[repr(C, align(8))]
 pub struct UMovieSceneByteTrack {
-    pub enum_: UPtr<crate::bindings::core_u_object::UEnum>,
+    __padding_end: [u8; 488],
 }
+impl UMovieSceneByteTrack {}
+#[repr(C, align(8))]
 pub struct UMovieSceneCameraCutTrack {
-    pub b_can_blend: bool,
-    pub sections: TArray<UPtr<crate::bindings::movie_scene::UMovieSceneSection>>,
-    pub b_auto_arrange_sections: bool,
+    __padding_end: [u8; 416],
 }
+impl UMovieSceneCameraCutTrack {}
+#[repr(C, align(8))]
 pub struct UMovieSceneCameraShakeSourceShakeTrack {
-    pub camera_shake_sections: TArray<
-        UPtr<crate::bindings::movie_scene::UMovieSceneSection>,
-    >,
+    __padding_end: [u8; 400],
 }
+impl UMovieSceneCameraShakeSourceShakeTrack {}
+#[repr(C, align(8))]
 pub struct UMovieSceneCameraShakeSourceTriggerTrack {
-    pub sections: TArray<UPtr<crate::bindings::movie_scene::UMovieSceneSection>>,
+    __padding_end: [u8; 368],
 }
+impl UMovieSceneCameraShakeSourceTriggerTrack {}
+#[repr(C, align(8))]
 pub struct UMovieSceneCameraShakeTrack {
-    pub camera_shake_sections: TArray<
-        UPtr<crate::bindings::movie_scene::UMovieSceneSection>,
-    >,
+    __padding_end: [u8; 400],
 }
-pub struct UMovieSceneCinematicShotTrack {}
+impl UMovieSceneCameraShakeTrack {}
+#[repr(C, align(8))]
+pub struct UMovieSceneCinematicShotTrack {
+    __padding_end: [u8; 416],
+}
+impl UMovieSceneCinematicShotTrack {}
+#[repr(C, align(8))]
 pub struct UMovieSceneColorTrack {
-    pub b_is_slate_color_deprecated: bool,
+    __padding_end: [u8; 488],
 }
+impl UMovieSceneColorTrack {}
+#[repr(C, align(16))]
 pub struct UMovieSceneCommonAnimationTrack {
-    pub animation_sections: TArray<
-        UPtr<crate::bindings::movie_scene::UMovieSceneSection>,
-    >,
-    pub root_motion_params: FMovieSceneSkeletalAnimRootMotionTrackParams,
-    pub b_blend_first_child_of_root: bool,
-    pub b_show_root_motion_trail: bool,
+    __padding_end: [u8; 576],
 }
+impl UMovieSceneCommonAnimationTrack {}
+#[repr(C, align(8))]
 pub struct UMovieSceneCustomPrimitiveDataTrack {
-    pub sections: TArray<UPtr<crate::bindings::movie_scene::UMovieSceneSection>>,
-    pub section_to_key: UPtr<crate::bindings::movie_scene::UMovieSceneSection>,
+    __padding_end: [u8; 424],
 }
+impl UMovieSceneCustomPrimitiveDataTrack {}
+#[repr(C, align(8))]
 pub struct UMovieSceneCVarTrack {
-    pub sections: TArray<UPtr<crate::bindings::movie_scene::UMovieSceneSection>>,
+    __padding_end: [u8; 400],
 }
+impl UMovieSceneCVarTrack {}
+#[repr(C, align(8))]
 pub struct UMovieSceneDataLayerTrack {
-    pub sections: TArray<UPtr<crate::bindings::movie_scene::UMovieSceneSection>>,
+    __padding_end: [u8; 400],
 }
-pub struct UMovieSceneDoubleTrack {}
+impl UMovieSceneDataLayerTrack {}
+#[repr(C, align(8))]
+pub struct UMovieSceneDoubleTrack {
+    __padding_end: [u8; 480],
+}
+impl UMovieSceneDoubleTrack {}
+#[repr(C, align(8))]
 pub struct UMovieSceneEnumTrack {
-    pub enum_: UPtr<crate::bindings::core_u_object::UEnum>,
+    __padding_end: [u8; 488],
 }
-pub struct UMovieSceneEulerTransformTrack {}
+impl UMovieSceneEnumTrack {}
+#[repr(C, align(8))]
+pub struct UMovieSceneEulerTransformTrack {
+    __padding_end: [u8; 480],
+}
+impl UMovieSceneEulerTransformTrack {}
+#[repr(C, align(8))]
 pub struct UMovieSceneEventTrack {
-    pub flags_400: u8,
-    pub event_position: EFireEventsAtPosition,
-    pub sections: TArray<UPtr<crate::bindings::movie_scene::UMovieSceneSection>>,
+    __padding_end: [u8; 424],
 }
-pub struct UMovieSceneFloatTrack {}
-pub struct UMovieSceneFadeTrack {}
-pub struct UMovieSceneIntegerTrack {}
+impl UMovieSceneEventTrack {}
+#[repr(C, align(8))]
+pub struct UMovieSceneFloatTrack {
+    __padding_end: [u8; 480],
+}
+impl UMovieSceneFloatTrack {}
+#[repr(C, align(8))]
+pub struct UMovieSceneFadeTrack {
+    __padding_end: [u8; 480],
+}
+impl UMovieSceneFadeTrack {}
+#[repr(C, align(8))]
+pub struct UMovieSceneIntegerTrack {
+    __padding_end: [u8; 480],
+}
+impl UMovieSceneIntegerTrack {}
+#[repr(C, align(8))]
 pub struct UMovieSceneLevelVisibilityTrack {
-    pub sections: TArray<UPtr<crate::bindings::movie_scene::UMovieSceneSection>>,
+    __padding_end: [u8; 400],
 }
+impl UMovieSceneLevelVisibilityTrack {}
+#[repr(C, align(8))]
 pub struct UMovieSceneMaterialParameterCollectionTrack {
-    pub mpc: UPtr<crate::bindings::engine::UMaterialParameterCollection>,
+    __padding_end: [u8; 432],
 }
+impl UMovieSceneMaterialParameterCollectionTrack {}
+#[repr(C, align(8))]
 pub struct UMovieSceneComponentMaterialTrack {
-    pub material_index_deprecated: i32,
-    pub material_info: FComponentMaterialInfo,
+    __padding_end: [u8; 448],
 }
+impl UMovieSceneComponentMaterialTrack {}
+#[repr(C, align(8))]
 pub struct UMovieSceneObjectPropertyTrack {
-    pub property_class: TSubclassOf<crate::bindings::core_u_object::UObject>,
-    pub b_class_property: bool,
+    __padding_end: [u8; 496],
 }
+impl UMovieSceneObjectPropertyTrack {}
+#[repr(C, align(8))]
 pub struct UMovieSceneParticleParameterTrack {
-    pub sections: TArray<UPtr<crate::bindings::movie_scene::UMovieSceneSection>>,
+    __padding_end: [u8; 408],
 }
+impl UMovieSceneParticleParameterTrack {}
+#[repr(C, align(8))]
 pub struct UMovieSceneParticleTrack {
-    pub particle_sections: TArray<
-        UPtr<crate::bindings::movie_scene::UMovieSceneSection>,
-    >,
+    __padding_end: [u8; 408],
 }
+impl UMovieSceneParticleTrack {}
+#[repr(C, align(8))]
 pub struct UMovieScenePrimitiveMaterialTrack {
-    pub material_index_deprecated: i32,
-    pub material_info: FComponentMaterialInfo,
+    __padding_end: [u8; 504],
 }
-pub struct UMovieSceneRotatorTrack {}
+impl UMovieScenePrimitiveMaterialTrack {}
+#[repr(C, align(8))]
+pub struct UMovieSceneRotatorTrack {
+    __padding_end: [u8; 480],
+}
+impl UMovieSceneRotatorTrack {}
+#[repr(C, align(16))]
 pub struct UMovieSceneSkeletalAnimationTrack {
-    pub b_use_legacy_section_index_blend: bool,
+    #[doc(hidden)]
+    __padding_569: [u8; 569],
     pub swap_root_bone: crate::bindings::anim_graph_runtime::ESwapRootBone,
+    __padding_end: [u8; 6],
 }
-pub struct UMovieSceneSlomoTrack {}
-pub struct UMovieSceneStringTrack {}
-pub struct UMovieSceneTextTrack {}
-pub struct UMovieSceneTransformTrack {}
+impl UMovieSceneSkeletalAnimationTrack {}
+#[repr(C, align(8))]
+pub struct UMovieSceneSlomoTrack {
+    __padding_end: [u8; 480],
+}
+impl UMovieSceneSlomoTrack {}
+#[repr(C, align(8))]
+pub struct UMovieSceneStringTrack {
+    __padding_end: [u8; 480],
+}
+impl UMovieSceneStringTrack {}
+#[repr(C, align(8))]
+pub struct UMovieSceneTextTrack {
+    __padding_end: [u8; 480],
+}
+impl UMovieSceneTextTrack {}
+#[repr(C, align(8))]
+pub struct UMovieSceneTransformTrack {
+    __padding_end: [u8; 480],
+}
+impl UMovieSceneTransformTrack {}
+#[repr(C, align(8))]
 pub struct UMovieSceneFloatVectorTrack {
-    pub num_channels_used: i32,
+    __padding_end: [u8; 488],
 }
+impl UMovieSceneFloatVectorTrack {}
+#[repr(C, align(8))]
 pub struct UMovieSceneDoubleVectorTrack {
-    pub num_channels_used: i32,
+    __padding_end: [u8; 488],
 }
-pub struct UMovieSceneVisibilityTrack {}
-pub struct FMovieSceneAudioSection_OnQueueSubtitles;
-pub struct FMovieSceneAudioSection_OnAudioFinished;
-pub struct FMovieSceneAudioSection_OnAudioPlaybackPercent;
-pub struct FMovieSceneAsyncAction_SequencePrediction_Result;
-pub struct FMovieSceneAsyncAction_SequencePrediction_Failure;
-#[allow(non_camel_case_types)]
+impl UMovieSceneDoubleVectorTrack {}
+#[repr(C, align(8))]
+pub struct UMovieSceneVisibilityTrack {
+    __padding_end: [u8; 480],
+}
+impl UMovieSceneVisibilityTrack {}
+#[repr(transparent)]
+pub struct FMovieSceneAudioSection_OnQueueSubtitles {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FMovieSceneAudioSection_OnAudioFinished {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FMovieSceneAudioSection_OnAudioPlaybackPercent {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FMovieSceneAsyncAction_SequencePrediction_Result {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FMovieSceneAsyncAction_SequencePrediction_Failure {
+    _opague: u8,
+}
 #[repr(transparent)]
 pub struct MovieScene3DPathSection_Axis(pub u8);
 impl MovieScene3DPathSection_Axis {
@@ -907,7 +1021,6 @@ impl MovieScene3DPathSection_Axis {
     pub const NEG_Y: MovieScene3DPathSection_Axis = MovieScene3DPathSection_Axis(4);
     pub const NEG_Z: MovieScene3DPathSection_Axis = MovieScene3DPathSection_Axis(5);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EComponentMaterialType(pub u8);
 impl EComponentMaterialType {
@@ -919,14 +1032,12 @@ impl EComponentMaterialType {
         4,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ELevelVisibility(pub u8);
 impl ELevelVisibility {
     pub const VISIBLE: ELevelVisibility = ELevelVisibility(0);
     pub const HIDDEN: ELevelVisibility = ELevelVisibility(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EParticleKey(pub u8);
 impl EParticleKey {
@@ -934,7 +1045,6 @@ impl EParticleKey {
     pub const DEACTIVATE: EParticleKey = EParticleKey(1);
     pub const TRIGGER: EParticleKey = EParticleKey(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMovieSceneScalabilityConditionGroup(pub u8);
 impl EMovieSceneScalabilityConditionGroup {
@@ -972,7 +1082,6 @@ impl EMovieSceneScalabilityConditionGroup {
         10,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMovieSceneScalabilityConditionOperator(pub u8);
 impl EMovieSceneScalabilityConditionOperator {
@@ -992,7 +1101,6 @@ impl EMovieSceneScalabilityConditionOperator {
         4,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMovieSceneScalabilityConditionLevel(pub u8);
 impl EMovieSceneScalabilityConditionLevel {
@@ -1012,7 +1120,6 @@ impl EMovieSceneScalabilityConditionLevel {
         4,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EShow3DTrajectory(pub u8);
 impl EShow3DTrajectory {
@@ -1020,7 +1127,6 @@ impl EShow3DTrajectory {
     pub const EST_ALWAYS: EShow3DTrajectory = EShow3DTrajectory(1);
     pub const EST_NEVER: EShow3DTrajectory = EShow3DTrajectory(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EFireEventsAtPosition(pub u8);
 impl EFireEventsAtPosition {

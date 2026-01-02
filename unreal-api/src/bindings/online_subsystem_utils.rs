@@ -5,7 +5,10 @@
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[repr(C, align(8))]
-pub struct FBlueprintSessionResult {}
+pub struct FBlueprintSessionResult {
+    __padding_end: [u8; 288],
+}
+impl FBlueprintSessionResult {}
 #[repr(C, align(8))]
 pub struct FOnlineProxyStoreOffer {
     pub offer_id: FString,
@@ -22,12 +25,14 @@ pub struct FOnlineProxyStoreOffer {
     pub discount_type: EOnlineProxyStoreOfferDiscountType,
     pub dynamic_fields: TMap<FString, FString>,
 }
+impl FOnlineProxyStoreOffer {}
 #[repr(C, align(8))]
 pub struct FInAppPurchaseRestoreInfo2 {
     pub item_name: FString,
     pub item_id: FString,
     pub validation_info: FString,
 }
+impl FInAppPurchaseRestoreInfo2 {}
 #[repr(C, align(8))]
 pub struct FInAppPurchaseReceiptInfo2 {
     pub item_name: FString,
@@ -35,21 +40,7 @@ pub struct FInAppPurchaseReceiptInfo2 {
     pub validation_info: FString,
     pub transaction_identifier: FString,
 }
-#[repr(C, align(8))]
-pub struct FOnlineAccountStoredCredentials {
-    pub id: FString,
-    pub token: FString,
-    pub ty: FString,
-    pub token_bytes: TArray<u8>,
-}
-#[repr(C, align(8))]
-pub struct FPlayerReservation {
-    pub unique_id: crate::bindings::engine::FUniqueNetIdRepl,
-    pub validation_str: FString,
-    pub platform: FString,
-    pub b_allow_crossplay: bool,
-    pub elapsed_time: f32,
-}
+impl FInAppPurchaseReceiptInfo2 {}
 #[repr(C, align(8))]
 pub struct FInAppPurchaseProductInfo2 {
     pub identifier: FString,
@@ -65,269 +56,419 @@ pub struct FInAppPurchaseProductInfo2 {
     pub receipt_data: FString,
     pub dynamic_fields: TMap<FString, FString>,
 }
+impl FInAppPurchaseProductInfo2 {}
 #[repr(C, align(8))]
 pub struct FInAppPurchaseProductRequest2 {
     pub product_identifier: FString,
     pub b_is_consumable: bool,
+    __padding_end: [u8; 7],
 }
+impl FInAppPurchaseProductRequest2 {}
 #[repr(C, align(8))]
-pub struct FPartyReservation {
-    pub team_num: i32,
-    pub party_leader: crate::bindings::engine::FUniqueNetIdRepl,
-    pub party_members: TArray<FPlayerReservation>,
-    pub removed_party_members: TArray<FPlayerReservation>,
+pub struct UAchievementBlueprintLibrary {
+    __padding_end: [u8; 48],
 }
+impl UAchievementBlueprintLibrary {}
 #[repr(C, align(8))]
-pub struct FPartyBeaconCrossplayPlatformMapping {
-    pub platform_name: FString,
-    pub platform_type: FString,
-}
-#[repr(C, align(8))]
-pub struct FSpectatorReservation {
-    pub spectator_id: crate::bindings::engine::FUniqueNetIdRepl,
-    pub spectator: FPlayerReservation,
-}
-pub struct UAchievementBlueprintLibrary {}
 pub struct UAchievementQueryCallbackProxy {
-    pub on_success: FAchievementQueryCallbackProxy_OnSuccess,
-    pub on_failure: FAchievementQueryCallbackProxy_OnFailure,
+    __padding_end: [u8; 128],
 }
+impl UAchievementQueryCallbackProxy {}
+#[repr(C, align(8))]
 pub struct UAchievementWriteCallbackProxy {
-    pub on_write_success: FAchievementWriteCallbackProxy_OnWriteSuccess,
-    pub on_write_failure: FAchievementWriteCallbackProxy_OnWriteFailure,
+    __padding_end: [u8; 160],
 }
+impl UAchievementWriteCallbackProxy {}
+#[repr(C, align(8))]
 pub struct UConnectionCallbackProxy {
-    pub on_success: FConnectionCallbackProxy_OnSuccess,
-    pub on_failure: FConnectionCallbackProxy_OnFailure,
+    __padding_end: [u8; 152],
 }
+impl UConnectionCallbackProxy {}
+#[repr(C, align(8))]
 pub struct UCreateSessionCallbackProxy {
-    pub on_success: FCreateSessionCallbackProxy_OnSuccess,
-    pub on_failure: FCreateSessionCallbackProxy_OnFailure,
+    __padding_end: [u8; 192],
 }
+impl UCreateSessionCallbackProxy {}
+#[repr(C, align(8))]
 pub struct UDestroySessionCallbackProxy {
-    pub on_success: FDestroySessionCallbackProxy_OnSuccess,
-    pub on_failure: FDestroySessionCallbackProxy_OnFailure,
+    __padding_end: [u8; 152],
 }
+impl UDestroySessionCallbackProxy {}
+#[repr(C, align(8))]
 pub struct UEndMatchCallbackProxy {
-    pub on_success: FEndMatchCallbackProxy_OnSuccess,
-    pub on_failure: FEndMatchCallbackProxy_OnFailure,
+    __padding_end: [u8; 152],
 }
+impl UEndMatchCallbackProxy {}
+#[repr(C, align(8))]
 pub struct UEndTurnCallbackProxy {
-    pub on_success: FEndTurnCallbackProxy_OnSuccess,
-    pub on_failure: FEndTurnCallbackProxy_OnFailure,
+    __padding_end: [u8; 144],
 }
+impl UEndTurnCallbackProxy {}
+#[repr(C, align(8))]
 pub struct UFindSessionsCallbackProxy {
-    pub on_success: FFindSessionsCallbackProxy_OnSuccess,
-    pub on_failure: FFindSessionsCallbackProxy_OnFailure,
+    __padding_end: [u8; 176],
 }
+impl UFindSessionsCallbackProxy {}
+#[repr(C, align(8))]
 pub struct UFindTurnBasedMatchCallbackProxy {
-    pub on_success: FFindTurnBasedMatchCallbackProxy_OnSuccess,
-    pub on_failure: FFindTurnBasedMatchCallbackProxy_OnFailure,
+    __padding_end: [u8; 160],
 }
+impl UFindTurnBasedMatchCallbackProxy {}
+#[repr(C, align(8))]
 pub struct UInAppPurchaseCallbackProxy2 {
-    pub on_success: FInAppPurchaseCallbackProxy2_OnSuccess,
-    pub on_failure: FInAppPurchaseCallbackProxy2_OnFailure,
+    __padding_end: [u8; 200],
 }
+impl UInAppPurchaseCallbackProxy2 {}
+#[repr(C, align(8))]
 pub struct UInAppPurchaseCheckoutCallbackProxy {
-    pub on_success: FInAppPurchaseCheckoutCallbackProxy_OnSuccess,
-    pub on_failure: FInAppPurchaseCheckoutCallbackProxy_OnFailure,
+    __padding_end: [u8; 184],
 }
-pub struct UInAppPurchaseFinalizeProxy {}
+impl UInAppPurchaseCheckoutCallbackProxy {}
+#[repr(C, align(8))]
+pub struct UInAppPurchaseFinalizeProxy {
+    __padding_end: [u8; 48],
+}
+impl UInAppPurchaseFinalizeProxy {}
+#[repr(C, align(8))]
 pub struct UInAppPurchaseQueryCallbackProxy2 {
-    pub on_success: FInAppPurchaseQueryCallbackProxy2_OnSuccess,
-    pub on_failure: FInAppPurchaseQueryCallbackProxy2_OnFailure,
+    __padding_end: [u8; 128],
 }
+impl UInAppPurchaseQueryCallbackProxy2 {}
+#[repr(C, align(8))]
 pub struct UInAppPurchaseReceiptsCallbackProxy {
-    pub on_success: FInAppPurchaseReceiptsCallbackProxy_OnSuccess,
-    pub on_failure: FInAppPurchaseReceiptsCallbackProxy_OnFailure,
+    __padding_end: [u8; 168],
 }
+impl UInAppPurchaseReceiptsCallbackProxy {}
+#[repr(C, align(8))]
 pub struct UInAppPurchaseRestoreCallbackProxy2 {
-    pub on_success: FInAppPurchaseRestoreCallbackProxy2_OnSuccess,
-    pub on_failure: FInAppPurchaseRestoreCallbackProxy2_OnFailure,
+    __padding_end: [u8; 200],
 }
+impl UInAppPurchaseRestoreCallbackProxy2 {}
+#[repr(C, align(16))]
 pub struct UIpConnection {
-    pub socket_error_disconnect_delay: f32,
+    __padding_end: [u8; 8208],
 }
+impl UIpConnection {}
+#[repr(C, align(8))]
 pub struct UIpNetDriver {
-    pub flags_2664: u8,
-    pub max_port_count_to_try: u32,
-    pub server_desired_socket_receive_buffer_bytes: u32,
-    pub server_desired_socket_send_buffer_bytes: u32,
-    pub client_desired_socket_receive_buffer_bytes: u32,
-    pub client_desired_socket_send_buffer_bytes: u32,
-    pub max_seconds_in_receive: f64,
-    pub nb_packets_between_receive_time_test: i32,
-    pub resolution_connection_timeout: f32,
+    __padding_end: [u8; 2840],
 }
+impl UIpNetDriver {}
+#[repr(C, align(8))]
 pub struct UJoinSessionCallbackProxy {
-    pub on_success: FJoinSessionCallbackProxy_OnSuccess,
-    pub on_failure: FJoinSessionCallbackProxy_OnFailure,
+    __padding_end: [u8; 440],
 }
-pub struct ULeaderboardBlueprintLibrary {}
+impl UJoinSessionCallbackProxy {}
+#[repr(C, align(8))]
+pub struct ULeaderboardBlueprintLibrary {
+    __padding_end: [u8; 48],
+}
+impl ULeaderboardBlueprintLibrary {}
+#[repr(C, align(8))]
 pub struct ULeaderboardFlushCallbackProxy {
-    pub on_success: FLeaderboardFlushCallbackProxy_OnSuccess,
-    pub on_failure: FLeaderboardFlushCallbackProxy_OnFailure,
+    __padding_end: [u8; 136],
 }
+impl ULeaderboardFlushCallbackProxy {}
+#[repr(C, align(8))]
 pub struct ULeaderboardQueryCallbackProxy {
-    pub on_success: FLeaderboardQueryCallbackProxy_OnSuccess,
-    pub on_failure: FLeaderboardQueryCallbackProxy_OnFailure,
+    __padding_end: [u8; 192],
 }
+impl ULeaderboardQueryCallbackProxy {}
+#[repr(C, align(8))]
 pub struct ULogoutCallbackProxy {
-    pub on_success: FLogoutCallbackProxy_OnSuccess,
-    pub on_failure: FLogoutCallbackProxy_OnFailure,
+    __padding_end: [u8; 128],
 }
+impl ULogoutCallbackProxy {}
+#[repr(C, align(8))]
 pub struct AOnlineBeacon {
-    pub beacon_connection_initial_timeout: f32,
-    pub beacon_connection_timeout: f32,
-    pub net_driver: UPtr<crate::bindings::engine::UNetDriver>,
+    __padding_end: [u8; 1192],
 }
+impl AOnlineBeacon {}
+#[repr(C, align(8))]
 pub struct AOnlineBeaconClient {
-    pub beacon_owner: UPtr<AOnlineBeaconHostObject>,
-    pub beacon_connection: UPtr<crate::bindings::engine::UNetConnection>,
-    pub connection_state: EBeaconConnectionState,
+    __padding_end: [u8; 1296],
 }
+impl AOnlineBeaconClient {}
+#[repr(C, align(8))]
 pub struct AOnlineBeaconHost {
-    pub listen_port: i32,
-    pub b_reuse_address_and_port: bool,
-    pub b_auth_required: bool,
-    pub max_auth_token_size: u32,
-    pub client_actors: TArray<UPtr<AOnlineBeaconClient>>,
+    __padding_end: [u8; 1464],
 }
+impl AOnlineBeaconHost {}
+#[repr(C, align(8))]
 pub struct AOnlineBeaconHostObject {
-    pub beacon_type_name: FString,
-    pub client_beacon_actor_class: TSubclassOf<AOnlineBeaconClient>,
-    pub client_actors: TArray<UPtr<AOnlineBeaconClient>>,
+    __padding_end: [u8; 1176],
 }
+impl AOnlineBeaconHostObject {}
+#[repr(C, align(8))]
 pub struct UOnlineEngineInterfaceImpl {
-    pub mapped_unique_net_id_types: TMap<FName, FName>,
-    pub compatible_unique_net_id_types: TArray<FName>,
-    pub voice_subsystem_name_override: FName,
-    pub b_online_services_compatibility_enabled: bool,
-    pub online_services_compatibility_interface: UPtr<
-        crate::bindings::engine::UOnlineEngineInterface,
-    >,
+    __padding_end: [u8; 424],
 }
+impl UOnlineEngineInterfaceImpl {}
+#[repr(C, align(8))]
 pub struct UOnlinePIEConfig {
-    pub login_types_allowing_duplicates: TArray<FString>,
+    __padding_end: [u8; 64],
 }
+impl UOnlinePIEConfig {}
+#[repr(C, align(8))]
 pub struct UOnlinePIESettings {
-    pub b_online_pie_enabled: bool,
-    pub logins: TArray<FOnlineAccountStoredCredentials>,
+    __padding_end: [u8; 128],
 }
-pub struct UOnlineServicesEngineInterfaceImpl {}
+impl UOnlinePIESettings {}
+#[repr(C, align(8))]
+pub struct UOnlineServicesEngineInterfaceImpl {
+    __padding_end: [u8; 48],
+}
+impl UOnlineServicesEngineInterfaceImpl {}
+#[repr(C, align(8))]
 pub struct UOnlineSessionClient {
-    pub b_is_from_invite: bool,
-    pub b_handling_disconnect: bool,
+    __padding_end: [u8; 528],
 }
+impl UOnlineSessionClient {}
+#[repr(C, align(8))]
 pub struct APartyBeaconClient {
-    pub dest_session_id: FString,
-    pub pending_reservation: FPartyReservation,
-    pub request_type: EClientRequestType,
-    pub b_pending_reservation_sent: bool,
-    pub b_cancel_reservation: bool,
+    __padding_end: [u8; 1520],
 }
+impl APartyBeaconClient {}
+#[repr(C, align(8))]
 pub struct APartyBeaconHost {
-    pub state: UPtr<UPartyBeaconState>,
-    pub b_logout_on_session_timeout: bool,
-    pub b_is_validation_str_required: bool,
-    pub session_timeout_secs: f32,
-    pub travel_session_timeout_secs: f32,
+    __padding_end: [u8; 1344],
 }
+impl APartyBeaconHost {}
+#[repr(C, align(8))]
 pub struct UPartyBeaconState {
-    pub session_name: FName,
-    pub num_consumed_reservations: i32,
-    pub max_reservations: i32,
-    pub num_teams: i32,
-    pub num_players_per_team: i32,
-    pub team_assignment_method: FName,
-    pub reserved_host_team_num: i32,
-    pub force_team_num: i32,
-    pub b_restrict_cross_console: bool,
-    pub platform_crossplay_restrictions: TArray<FString>,
-    pub platform_type_mapping: TArray<FPartyBeaconCrossplayPlatformMapping>,
-    pub b_enable_removal_requests: bool,
-    pub b_respect_competitive_integrity: bool,
-    pub reservations: TArray<FPartyReservation>,
+    __padding_end: [u8; 176],
 }
+impl UPartyBeaconState {}
+#[repr(C, align(8))]
 pub struct UQuitMatchCallbackProxy {
-    pub on_success: FQuitMatchCallbackProxy_OnSuccess,
-    pub on_failure: FQuitMatchCallbackProxy_OnFailure,
+    __padding_end: [u8; 144],
 }
+impl UQuitMatchCallbackProxy {}
+#[repr(C, align(8))]
 pub struct UShowLoginUICallbackProxy {
-    pub on_success: FShowLoginUICallbackProxy_OnSuccess,
-    pub on_failure: FShowLoginUICallbackProxy_OnFailure,
+    __padding_end: [u8; 120],
 }
+impl UShowLoginUICallbackProxy {}
+#[repr(C, align(8))]
 pub struct ASpectatorBeaconClient {
-    pub dest_session_id: FString,
-    pub pending_reservation: FSpectatorReservation,
-    pub request_type: ESpectatorClientRequestType,
-    pub b_pending_reservation_sent: bool,
-    pub b_cancel_reservation: bool,
+    __padding_end: [u8; 1568],
 }
+impl ASpectatorBeaconClient {}
+#[repr(C, align(8))]
 pub struct ASpectatorBeaconHost {
-    pub state: UPtr<USpectatorBeaconState>,
-    pub b_logout_on_session_timeout: bool,
-    pub b_is_validation_str_required: bool,
-    pub session_timeout_secs: f32,
-    pub travel_session_timeout_secs: f32,
+    __padding_end: [u8; 1344],
 }
+impl ASpectatorBeaconHost {}
+#[repr(C, align(8))]
 pub struct USpectatorBeaconState {
-    pub session_name: FName,
-    pub num_consumed_reservations: i32,
-    pub max_reservations: i32,
-    pub b_restrict_cross_console: bool,
-    pub reservations: TArray<FSpectatorReservation>,
+    __padding_end: [u8; 104],
 }
-pub struct ATestBeaconClient {}
-pub struct ATestBeaconHost {}
-pub struct AOnlineBeaconUnitTestClient {}
-pub struct AOnlineBeaconUnitTestHost {}
-pub struct AOnlineBeaconUnitTestHostObject {}
-pub struct UOnlineBeaconUnitTestNetConnection {}
-pub struct UOnlineBeaconUnitTestNetDriver {}
-pub struct UTurnBasedBlueprintLibrary {}
-pub struct UVoipListenerSynthComponent {}
-pub struct FAchievementQueryCallbackProxy_OnSuccess;
-pub struct FAchievementQueryCallbackProxy_OnFailure;
-pub struct FAchievementWriteCallbackProxy_OnWriteSuccess;
-pub struct FAchievementWriteCallbackProxy_OnWriteFailure;
-pub struct FConnectionCallbackProxy_OnSuccess;
-pub struct FConnectionCallbackProxy_OnFailure;
-pub struct FCreateSessionCallbackProxy_OnSuccess;
-pub struct FCreateSessionCallbackProxy_OnFailure;
-pub struct FDestroySessionCallbackProxy_OnSuccess;
-pub struct FDestroySessionCallbackProxy_OnFailure;
-pub struct FEndMatchCallbackProxy_OnSuccess;
-pub struct FEndMatchCallbackProxy_OnFailure;
-pub struct FEndTurnCallbackProxy_OnSuccess;
-pub struct FEndTurnCallbackProxy_OnFailure;
-pub struct FFindSessionsCallbackProxy_OnSuccess;
-pub struct FFindSessionsCallbackProxy_OnFailure;
-pub struct FFindTurnBasedMatchCallbackProxy_OnSuccess;
-pub struct FFindTurnBasedMatchCallbackProxy_OnFailure;
-pub struct FInAppPurchaseCallbackProxy2_OnSuccess;
-pub struct FInAppPurchaseCallbackProxy2_OnFailure;
-pub struct FInAppPurchaseCheckoutCallbackProxy_OnSuccess;
-pub struct FInAppPurchaseCheckoutCallbackProxy_OnFailure;
-pub struct FInAppPurchaseQueryCallbackProxy2_OnSuccess;
-pub struct FInAppPurchaseQueryCallbackProxy2_OnFailure;
-pub struct FInAppPurchaseReceiptsCallbackProxy_OnSuccess;
-pub struct FInAppPurchaseReceiptsCallbackProxy_OnFailure;
-pub struct FInAppPurchaseRestoreCallbackProxy2_OnSuccess;
-pub struct FInAppPurchaseRestoreCallbackProxy2_OnFailure;
-pub struct FJoinSessionCallbackProxy_OnSuccess;
-pub struct FJoinSessionCallbackProxy_OnFailure;
-pub struct FLeaderboardFlushCallbackProxy_OnSuccess;
-pub struct FLeaderboardFlushCallbackProxy_OnFailure;
-pub struct FLeaderboardQueryCallbackProxy_OnSuccess;
-pub struct FLeaderboardQueryCallbackProxy_OnFailure;
-pub struct FLogoutCallbackProxy_OnSuccess;
-pub struct FLogoutCallbackProxy_OnFailure;
-pub struct FQuitMatchCallbackProxy_OnSuccess;
-pub struct FQuitMatchCallbackProxy_OnFailure;
-pub struct FShowLoginUICallbackProxy_OnSuccess;
-pub struct FShowLoginUICallbackProxy_OnFailure;
-#[allow(non_camel_case_types)]
+impl USpectatorBeaconState {}
+#[repr(C, align(8))]
+pub struct ATestBeaconClient {
+    __padding_end: [u8; 1296],
+}
+impl ATestBeaconClient {}
+#[repr(C, align(8))]
+pub struct ATestBeaconHost {
+    __padding_end: [u8; 1176],
+}
+impl ATestBeaconHost {}
+#[repr(C, align(8))]
+pub struct AOnlineBeaconUnitTestClient {
+    __padding_end: [u8; 1296],
+}
+impl AOnlineBeaconUnitTestClient {}
+#[repr(C, align(8))]
+pub struct AOnlineBeaconUnitTestHost {
+    __padding_end: [u8; 1464],
+}
+impl AOnlineBeaconUnitTestHost {}
+#[repr(C, align(8))]
+pub struct AOnlineBeaconUnitTestHostObject {
+    __padding_end: [u8; 1176],
+}
+impl AOnlineBeaconUnitTestHostObject {}
+#[repr(C, align(16))]
+pub struct UOnlineBeaconUnitTestNetConnection {
+    __padding_end: [u8; 8208],
+}
+impl UOnlineBeaconUnitTestNetConnection {}
+#[repr(C, align(8))]
+pub struct UOnlineBeaconUnitTestNetDriver {
+    __padding_end: [u8; 2840],
+}
+impl UOnlineBeaconUnitTestNetDriver {}
+#[repr(C, align(8))]
+pub struct UTurnBasedBlueprintLibrary {
+    __padding_end: [u8; 48],
+}
+impl UTurnBasedBlueprintLibrary {}
+#[repr(C, align(16))]
+pub struct UVoipListenerSynthComponent {
+    __padding_end: [u8; 2480],
+}
+impl UVoipListenerSynthComponent {}
+#[repr(transparent)]
+pub struct FAchievementQueryCallbackProxy_OnSuccess {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FAchievementQueryCallbackProxy_OnFailure {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FAchievementWriteCallbackProxy_OnWriteSuccess {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FAchievementWriteCallbackProxy_OnWriteFailure {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FConnectionCallbackProxy_OnSuccess {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FConnectionCallbackProxy_OnFailure {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FCreateSessionCallbackProxy_OnSuccess {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FCreateSessionCallbackProxy_OnFailure {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FDestroySessionCallbackProxy_OnSuccess {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FDestroySessionCallbackProxy_OnFailure {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FEndMatchCallbackProxy_OnSuccess {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FEndMatchCallbackProxy_OnFailure {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FEndTurnCallbackProxy_OnSuccess {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FEndTurnCallbackProxy_OnFailure {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FFindSessionsCallbackProxy_OnSuccess {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FFindSessionsCallbackProxy_OnFailure {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FFindTurnBasedMatchCallbackProxy_OnSuccess {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FFindTurnBasedMatchCallbackProxy_OnFailure {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FInAppPurchaseCallbackProxy2_OnSuccess {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FInAppPurchaseCallbackProxy2_OnFailure {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FInAppPurchaseCheckoutCallbackProxy_OnSuccess {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FInAppPurchaseCheckoutCallbackProxy_OnFailure {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FInAppPurchaseQueryCallbackProxy2_OnSuccess {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FInAppPurchaseQueryCallbackProxy2_OnFailure {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FInAppPurchaseReceiptsCallbackProxy_OnSuccess {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FInAppPurchaseReceiptsCallbackProxy_OnFailure {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FInAppPurchaseRestoreCallbackProxy2_OnSuccess {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FInAppPurchaseRestoreCallbackProxy2_OnFailure {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FJoinSessionCallbackProxy_OnSuccess {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FJoinSessionCallbackProxy_OnFailure {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FLeaderboardFlushCallbackProxy_OnSuccess {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FLeaderboardFlushCallbackProxy_OnFailure {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FLeaderboardQueryCallbackProxy_OnSuccess {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FLeaderboardQueryCallbackProxy_OnFailure {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FLogoutCallbackProxy_OnSuccess {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FLogoutCallbackProxy_OnFailure {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FQuitMatchCallbackProxy_OnSuccess {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FQuitMatchCallbackProxy_OnFailure {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FShowLoginUICallbackProxy_OnSuccess {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FShowLoginUICallbackProxy_OnFailure {
+    _opague: u8,
+}
 #[repr(transparent)]
 pub struct EOnlineProxyStoreOfferDiscountType(pub u8);
 impl EOnlineProxyStoreOfferDiscountType {
@@ -344,7 +485,6 @@ impl EOnlineProxyStoreOfferDiscountType {
         3,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EPartyReservationResult(pub u8);
 impl EPartyReservationResult {
@@ -382,7 +522,6 @@ impl EPartyReservationResult {
         16,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ESpectatorReservationResult(pub u8);
 impl ESpectatorReservationResult {
@@ -433,7 +572,6 @@ impl ESpectatorReservationResult {
         15,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EInAppPurchaseStatus(pub u8);
 impl EInAppPurchaseStatus {
@@ -444,7 +582,6 @@ impl EInAppPurchaseStatus {
     pub const PURCHASED: EInAppPurchaseStatus = EInAppPurchaseStatus(4);
     pub const RESTORED: EInAppPurchaseStatus = EInAppPurchaseStatus(5);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EBeaconConnectionState(pub u8);
 impl EBeaconConnectionState {
@@ -453,7 +590,6 @@ impl EBeaconConnectionState {
     pub const PENDING: EBeaconConnectionState = EBeaconConnectionState(2);
     pub const OPEN: EBeaconConnectionState = EBeaconConnectionState(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EClientRequestType(pub u8);
 impl EClientRequestType {
@@ -466,7 +602,6 @@ impl EClientRequestType {
     pub const RESERVATION_REMOVE_MEMBERS: EClientRequestType = EClientRequestType(6);
     pub const ADD_OR_UPDATE_RESERVATION: EClientRequestType = EClientRequestType(7);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ESpectatorClientRequestType(pub u8);
 impl ESpectatorClientRequestType {

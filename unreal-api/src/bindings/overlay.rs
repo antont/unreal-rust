@@ -11,13 +11,19 @@ pub struct FOverlayItem {
     pub text: FString,
     pub position: crate::bindings::core_u_object::FVector2D,
 }
-pub struct UOverlays {}
+impl FOverlayItem {}
+#[repr(C, align(8))]
+pub struct UOverlays {
+    __padding_end: [u8; 48],
+}
+impl UOverlays {}
+#[repr(C, align(8))]
 pub struct UBasicOverlays {
-    pub overlays: TArray<FOverlayItem>,
-    pub asset_import_data: UPtr<crate::bindings::engine::UAssetImportData>,
+    __padding_end: [u8; 72],
 }
+impl UBasicOverlays {}
+#[repr(C, align(8))]
 pub struct ULocalizedOverlays {
-    pub default_overlays: UPtr<UBasicOverlays>,
-    pub locale_to_overlays_map: TMap<FString, UPtr<UBasicOverlays>>,
-    pub asset_import_data: UPtr<crate::bindings::engine::UAssetImportData>,
+    __padding_end: [u8; 144],
 }
+impl ULocalizedOverlays {}

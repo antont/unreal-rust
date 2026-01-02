@@ -4,324 +4,257 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
-#[repr(C, align(8))]
-pub struct FISMEditorTarget {
-    pub transform_proxy: UPtr<
-        crate::bindings::interactive_tools_framework::UTransformProxy,
-    >,
-    pub transform_gizmo: UPtr<
-        crate::bindings::interactive_tools_framework::UCombinedTransformGizmo,
-    >,
-}
+#[repr(C, align(16))]
 pub struct UPivotActorTransformProperties {
-    pub position: crate::bindings::core_u_object::FVector,
-    pub rotation: crate::bindings::core_u_object::FQuat,
+    __padding_end: [u8; 240],
 }
-pub struct UAddPivotActorToolBuilder {}
+impl UPivotActorTransformProperties {}
+#[repr(C, align(8))]
+pub struct UAddPivotActorToolBuilder {
+    __padding_end: [u8; 48],
+}
+impl UAddPivotActorToolBuilder {}
+#[repr(C, align(16))]
 pub struct UAddPivotActorTool {
-    pub drag_alignment_mechanic: UPtr<
-        crate::bindings::modeling_components::UDragAlignmentMechanic,
-    >,
-    pub transform_gizmo: UPtr<
-        crate::bindings::interactive_tools_framework::UCombinedTransformGizmo,
-    >,
-    pub transform_proxy: UPtr<
-        crate::bindings::interactive_tools_framework::UTransformProxy,
-    >,
-    pub transform_properties: UPtr<UPivotActorTransformProperties>,
+    __padding_end: [u8; 624],
 }
+impl UAddPivotActorTool {}
+#[repr(C, align(8))]
 pub struct UBakeRenderCaptureResults {
-    pub base_color_map: UPtr<crate::bindings::engine::UTexture2D>,
-    pub normal_map: UPtr<crate::bindings::engine::UTexture2D>,
-    pub packed_mrs_map: UPtr<crate::bindings::engine::UTexture2D>,
-    pub metallic_map: UPtr<crate::bindings::engine::UTexture2D>,
-    pub roughness_map: UPtr<crate::bindings::engine::UTexture2D>,
-    pub specular_map: UPtr<crate::bindings::engine::UTexture2D>,
-    pub emissive_map: UPtr<crate::bindings::engine::UTexture2D>,
-    pub opacity_map: UPtr<crate::bindings::engine::UTexture2D>,
-    pub subsurface_color_map: UPtr<crate::bindings::engine::UTexture2D>,
-    pub device_depth_map: UPtr<crate::bindings::engine::UTexture2D>,
+    __padding_end: [u8; 264],
 }
-pub struct UBakeRenderCaptureToolBuilder {}
+impl UBakeRenderCaptureResults {}
+#[repr(C, align(8))]
+pub struct UBakeRenderCaptureToolBuilder {
+    __padding_end: [u8; 48],
+}
+impl UBakeRenderCaptureToolBuilder {}
+#[repr(C, align(8))]
 pub struct URenderCaptureProperties {
-    pub resolution: crate::bindings::modeling_components::EBakeTextureResolution,
-    pub b_base_color_map: bool,
-    pub b_normal_map: bool,
-    pub b_packed_mrs_map: bool,
-    pub b_metallic_map: bool,
-    pub b_roughness_map: bool,
-    pub b_specular_map: bool,
-    pub b_emissive_map: bool,
-    pub b_opacity_map: bool,
-    pub b_subsurface_color_map: bool,
-    pub b_anti_aliasing: bool,
-    pub b_device_depth_map: bool,
-    pub capture_field_of_view: f32,
-    pub near_plane_dist: f32,
+    __padding_end: [u8; 208],
 }
+impl URenderCaptureProperties {}
+#[repr(C, align(8))]
 pub struct UBakeRenderCaptureToolProperties {
-    pub map_preview: FString,
-    pub samples_per_pixel: crate::bindings::modeling_components::EBakeTextureSamplesPerPixel,
-    pub texture_size: crate::bindings::modeling_components::EBakeTextureResolution,
-    pub valid_sample_depth_threshold: f32,
-    pub b_enable_map_preview: bool,
-    pub map_preview_names_list: TArray<FString>,
+    __padding_end: [u8; 232],
 }
+impl UBakeRenderCaptureToolProperties {}
+#[repr(C, align(8))]
 pub struct UBakeRenderCaptureInputToolProperties {
-    pub target_static_mesh: UPtr<crate::bindings::engine::UStaticMesh>,
-    pub target_uv_layer: FString,
-    pub target_uv_layer_names_list: TArray<FString>,
+    __padding_end: [u8; 224],
 }
+impl UBakeRenderCaptureInputToolProperties {}
+#[repr(C, align(8))]
 pub struct UBakeRenderCaptureVisualizationProperties {
-    pub b_preview_as_material: bool,
-    pub brightness: f32,
-    pub ss_brightness: f32,
-    pub emissive_scale: f32,
+    __padding_end: [u8; 200],
 }
+impl UBakeRenderCaptureVisualizationProperties {}
+#[repr(C, align(8))]
 pub struct UBakeRenderCaptureTool {
-    pub actors: TArray<UPtr<crate::bindings::engine::AActor>>,
-    pub settings: UPtr<UBakeRenderCaptureToolProperties>,
-    pub render_capture_properties: UPtr<URenderCaptureProperties>,
-    pub input_mesh_settings: UPtr<UBakeRenderCaptureInputToolProperties>,
-    pub visualization_props: UPtr<UBakeRenderCaptureVisualizationProperties>,
-    pub result_settings: UPtr<UBakeRenderCaptureResults>,
-    pub empty_normal_map: UPtr<crate::bindings::engine::UTexture2D>,
-    pub empty_color_map_black: UPtr<crate::bindings::engine::UTexture2D>,
-    pub empty_color_map_white: UPtr<crate::bindings::engine::UTexture2D>,
-    pub empty_emissive_map: UPtr<crate::bindings::engine::UTexture2D>,
-    pub empty_opacity_map: UPtr<crate::bindings::engine::UTexture2D>,
-    pub empty_subsurface_color_map: UPtr<crate::bindings::engine::UTexture2D>,
-    pub empty_packed_mrs_map: UPtr<crate::bindings::engine::UTexture2D>,
-    pub empty_roughness_map: UPtr<crate::bindings::engine::UTexture2D>,
-    pub empty_metallic_map: UPtr<crate::bindings::engine::UTexture2D>,
-    pub empty_specular_map: UPtr<crate::bindings::engine::UTexture2D>,
-    pub working_preview_material: UPtr<
-        crate::bindings::engine::UMaterialInstanceDynamic,
-    >,
-    pub error_preview_material: UPtr<crate::bindings::engine::UMaterialInstanceDynamic>,
-    pub preview_material_rc: UPtr<crate::bindings::engine::UMaterialInstanceDynamic>,
-    pub preview_material_packed_rc: UPtr<
-        crate::bindings::engine::UMaterialInstanceDynamic,
-    >,
-    pub preview_material_rc_subsurface: UPtr<
-        crate::bindings::engine::UMaterialInstanceDynamic,
-    >,
-    pub preview_material_packed_rc_subsurface: UPtr<
-        crate::bindings::engine::UMaterialInstanceDynamic,
-    >,
-    pub preview_mesh: UPtr<crate::bindings::modeling_components::UPreviewMesh>,
+    __padding_end: [u8; 728],
 }
-pub struct UBspConversionToolBuilder {}
+impl UBakeRenderCaptureTool {}
+#[repr(C, align(8))]
+pub struct UBspConversionToolBuilder {
+    __padding_end: [u8; 48],
+}
+impl UBspConversionToolBuilder {}
+#[repr(C, align(8))]
 pub struct UBspConversionToolProperties {
-    pub conversion_mode: EBspConversionMode,
-    pub b_include_volumes: bool,
-    pub b_remove_converted_volumes: bool,
-    pub b_explicit_subtractive_brush_selection: bool,
-    pub b_remove_converted_subtractive_brushes: bool,
-    pub b_cache_brushes: bool,
-    pub b_show_preview: bool,
+    __padding_end: [u8; 192],
 }
-pub struct UBspConversionToolActionPropertySet {}
+impl UBspConversionToolProperties {}
+#[repr(C, align(8))]
+pub struct UBspConversionToolActionPropertySet {
+    __padding_end: [u8; 192],
+}
+impl UBspConversionToolActionPropertySet {}
+#[repr(C, align(8))]
 pub struct UBspConversionTool {
-    pub settings: UPtr<UBspConversionToolProperties>,
-    pub tool_actions: UPtr<UBspConversionToolActionPropertySet>,
-    pub preview_mesh: UPtr<crate::bindings::modeling_components::UPreviewMesh>,
+    __padding_end: [u8; 368],
 }
+impl UBspConversionTool {}
+#[repr(C, align(8))]
 pub struct UDrawSplineToolProperties {
-    pub b_loop: bool,
-    pub output_mode: EDrawSplineOutputMode,
-    pub target_actor: TWeakObjectPtr<crate::bindings::engine::AActor>,
-    pub blueprint_to_create: TWeakObjectPtr<crate::bindings::engine::UBlueprint>,
-    pub existing_spline_index_to_replace: i32,
-    pub draw_mode: EDrawSplineDrawMode,
-    pub min_point_spacing: f64,
-    pub click_offset: f64,
-    pub offset_method: ESplineOffsetMethod,
-    pub offset_direction: crate::bindings::core_u_object::FVector,
-    pub frame_visualization_width: f64,
-    pub up_vector_mode: EDrawSplineUpVectorMode,
-    pub b_preview_using_actor_copy: bool,
-    pub b_hit_world: bool,
-    pub b_hit_custom_plane: bool,
-    pub b_hit_ground_planes: bool,
-    pub b_rerun_construction_script_on_drag: bool,
+    __padding_end: [u8; 280],
 }
+impl UDrawSplineToolProperties {}
+#[repr(C, align(16))]
 pub struct UDrawSplineTool {
-    pub settings: UPtr<UDrawSplineToolProperties>,
-    pub click_or_drag_behavior: UPtr<
-        crate::bindings::interactive_tools_framework::USingleClickOrDragInputBehavior,
-    >,
-    pub plane_mechanic: UPtr<
-        crate::bindings::modeling_components::UConstructionPlaneMechanic,
-    >,
-    pub preview_actor: UPtr<crate::bindings::engine::AActor>,
-    pub previous_target_actor: UPtr<crate::bindings::engine::AActor>,
+    __padding_end: [u8; 432],
 }
-pub struct UDrawSplineToolBuilder {}
-pub struct UEditMeshMaterialsToolBuilder {}
+impl UDrawSplineTool {}
+#[repr(C, align(8))]
+pub struct UDrawSplineToolBuilder {
+    __padding_end: [u8; 48],
+}
+impl UDrawSplineToolBuilder {}
+#[repr(C, align(8))]
+pub struct UEditMeshMaterialsToolBuilder {
+    __padding_end: [u8; 56],
+}
+impl UEditMeshMaterialsToolBuilder {}
+#[repr(C, align(8))]
 pub struct UEditMeshMaterialsToolProperties {
-    pub active_material: FString,
-    pub material_names_list: TArray<FString>,
-    pub materials: TArray<UPtr<crate::bindings::engine::UMaterialInterface>>,
+    __padding_end: [u8; 232],
 }
-pub struct UEditMeshMaterialsEditActions {}
+impl UEditMeshMaterialsToolProperties {}
+#[repr(C, align(8))]
+pub struct UEditMeshMaterialsEditActions {
+    __padding_end: [u8; 192],
+}
+impl UEditMeshMaterialsEditActions {}
+#[repr(C, align(8))]
 pub struct UEditMeshMaterialsTool {
-    pub material_props: UPtr<UEditMeshMaterialsToolProperties>,
+    __padding_end: [u8; 2176],
 }
-pub struct UHarvestInstancesToolBuilder {}
+impl UEditMeshMaterialsTool {}
+#[repr(C, align(8))]
+pub struct UHarvestInstancesToolBuilder {
+    __padding_end: [u8; 48],
+}
+impl UHarvestInstancesToolBuilder {}
+#[repr(C, align(8))]
 pub struct UHarvestInstancesToolSettings {
-    pub b_draw_bounds: bool,
+    __padding_end: [u8; 192],
 }
+impl UHarvestInstancesToolSettings {}
+#[repr(C, align(8))]
 pub struct UHarvestInstancesTool_OutputSettings {
-    pub component_type: EHarvestInstancesToolOutputType,
-    pub b_single_actor: bool,
-    pub actor_name: FString,
-    pub b_include_single_instances: bool,
-    pub b_delete_inputs: bool,
-    pub b_have_single_instance_set: bool,
-    pub b_have_loner_instances: bool,
-    pub b_can_delete_inputs: bool,
+    __padding_end: [u8; 216],
 }
+impl UHarvestInstancesTool_OutputSettings {}
+#[repr(C, align(8))]
 pub struct UHarvestInstancesTool {
-    pub settings: UPtr<UHarvestInstancesToolSettings>,
-    pub output_settings: UPtr<UHarvestInstancesTool_OutputSettings>,
+    __padding_end: [u8; 320],
 }
-pub struct UISMEditorToolBuilder {}
+impl UHarvestInstancesTool {}
+#[repr(C, align(8))]
+pub struct UISMEditorToolBuilder {
+    __padding_end: [u8; 48],
+}
+impl UISMEditorToolBuilder {}
+#[repr(C, align(8))]
 pub struct UISMEditorToolProperties {
-    pub transform_mode: EISMEditorTransformMode,
-    pub b_set_pivot_mode: bool,
-    pub b_show_selectable: bool,
-    pub b_show_selected: bool,
-    pub b_hide_when_dragging: bool,
-    pub selected_instances: TArray<FString>,
+    __padding_end: [u8; 208],
 }
-pub struct UISMEditorToolActionPropertySetBase {}
-pub struct UISMEditorToolActionPropertySet {}
+impl UISMEditorToolProperties {}
+#[repr(C, align(8))]
+pub struct UISMEditorToolActionPropertySetBase {
+    __padding_end: [u8; 192],
+}
+impl UISMEditorToolActionPropertySetBase {}
+#[repr(C, align(8))]
+pub struct UISMEditorToolActionPropertySet {
+    __padding_end: [u8; 192],
+}
+impl UISMEditorToolActionPropertySet {}
+#[repr(C, align(8))]
 pub struct UISMEditorToolReplacePropertySet {
-    pub replace_with: UPtr<crate::bindings::engine::UStaticMesh>,
+    __padding_end: [u8; 200],
 }
+impl UISMEditorToolReplacePropertySet {}
+#[repr(C, align(8))]
 pub struct UISMEditorTool {
-    pub click_or_drag_behavior: UPtr<
-        crate::bindings::interactive_tools_framework::USingleClickOrDragInputBehavior,
-    >,
-    pub rectangle_marquee_mechanic: UPtr<
-        crate::bindings::modeling_components::URectangleMarqueeMechanic,
-    >,
-    pub transform_props: UPtr<UISMEditorToolProperties>,
-    pub tool_actions: UPtr<UISMEditorToolActionPropertySet>,
-    pub replace_action: UPtr<UISMEditorToolReplacePropertySet>,
-    pub target_components: TArray<
-        UPtr<crate::bindings::engine::UInstancedStaticMeshComponent>,
-    >,
-    pub active_gizmos: TArray<FISMEditorTarget>,
-    pub preview_geometry: UPtr<crate::bindings::modeling_components::UPreviewGeometry>,
+    __padding_end: [u8; 360],
 }
+impl UISMEditorTool {}
+#[repr(C, align(8))]
 pub struct UMergeMeshesToolProperties {
-    pub voxel_count: i32,
-    pub mesh_adaptivity: f32,
-    pub offset_distance: f32,
-    pub b_auto_simplify: bool,
+    __padding_end: [u8; 200],
 }
+impl UMergeMeshesToolProperties {}
+#[repr(C, align(8))]
 pub struct UMergeMeshesTool {
-    pub merge_props: UPtr<UMergeMeshesToolProperties>,
+    __padding_end: [u8; 344],
 }
-pub struct UMergeMeshesToolBuilder {}
-pub struct UMeshTangentsToolBuilder {}
+impl UMergeMeshesTool {}
+#[repr(C, align(8))]
+pub struct UMergeMeshesToolBuilder {
+    __padding_end: [u8; 48],
+}
+impl UMergeMeshesToolBuilder {}
+#[repr(C, align(8))]
+pub struct UMeshTangentsToolBuilder {
+    __padding_end: [u8; 48],
+}
+impl UMeshTangentsToolBuilder {}
+#[repr(C, align(8))]
 pub struct UMeshTangentsToolProperties {
-    pub calculation_method: crate::bindings::modeling_operators_editor_only::EMeshTangentsType,
-    pub b_show_tangents: bool,
-    pub b_show_normals: bool,
-    pub line_length: f32,
-    pub line_thickness: f32,
-    pub b_show_degenerates: bool,
-    pub b_compare_with_mikkt: bool,
-    pub compare_with_mikkt_threshold: f32,
+    __padding_end: [u8; 208],
 }
+impl UMeshTangentsToolProperties {}
+#[repr(C, align(8))]
 pub struct UMeshTangentsTool {
-    pub settings: UPtr<UMeshTangentsToolProperties>,
-    pub uv_channel_properties: UPtr<
-        crate::bindings::mesh_modeling_tools::UMeshUVChannelProperties,
-    >,
-    pub default_material: UPtr<crate::bindings::engine::UMaterialInterface>,
-    pub preview_mesh: UPtr<crate::bindings::modeling_components::UPreviewMesh>,
-    pub preview_geometry: UPtr<crate::bindings::modeling_components::UPreviewGeometry>,
-    pub geometry_selection_viz_properties: UPtr<
-        crate::bindings::modeling_components::UGeometrySelectionVisualizationProperties,
-    >,
-    pub geometry_selection_viz: UPtr<
-        crate::bindings::modeling_components::UPreviewGeometry,
-    >,
+    __padding_end: [u8; 720],
 }
-pub struct UMeshToVolumeToolBuilder {}
+impl UMeshTangentsTool {}
+#[repr(C, align(8))]
+pub struct UMeshToVolumeToolBuilder {
+    __padding_end: [u8; 48],
+}
+impl UMeshToVolumeToolBuilder {}
+#[repr(C, align(8))]
 pub struct UMeshToVolumeToolProperties {
-    pub conversion_mode: EMeshToVolumeMode,
-    pub b_preserve_group_boundaries: bool,
-    pub b_auto_simplify: bool,
-    pub simplify_max_triangles: i32,
-    pub new_volume_type: TSubclassOf<crate::bindings::engine::AVolume>,
-    pub target_volume: TLazyObjectPtr<crate::bindings::engine::AVolume>,
+    __padding_end: [u8; 232],
 }
+impl UMeshToVolumeToolProperties {}
+#[repr(C, align(8))]
 pub struct UMeshToVolumeTool {
-    pub settings: UPtr<UMeshToVolumeToolProperties>,
-    pub handle_sources_properties: UPtr<
-        crate::bindings::modeling_components::UOnAcceptHandleSourcesPropertiesSingle,
-    >,
-    pub preview_mesh: UPtr<crate::bindings::modeling_components::UPreviewMesh>,
-    pub volume_edges_set: UPtr<crate::bindings::modeling_components::ULineSetComponent>,
+    __padding_end: [u8; 288],
 }
-pub struct UShapeSprayToolBuilder {}
+impl UMeshToVolumeTool {}
+#[repr(C, align(8))]
+pub struct UShapeSprayToolBuilder {
+    __padding_end: [u8; 56],
+}
+impl UShapeSprayToolBuilder {}
+#[repr(C, align(8))]
 pub struct UShapeSprayToolProperties {
-    pub color: crate::bindings::core_u_object::FLinearColor,
-    pub b_random_color: bool,
-    pub drop_speed: f32,
-    pub object_size: f32,
-    pub num_splats: i32,
-    pub material: UPtr<crate::bindings::engine::UMaterialInterface>,
+    __padding_end: [u8; 224],
 }
+impl UShapeSprayToolProperties {}
+#[repr(C, align(8))]
 pub struct UShapeSprayTool {
-    pub settings: UPtr<UShapeSprayToolProperties>,
-    pub accum_mesh_component: UPtr<
-        crate::bindings::geometry_framework::UDynamicMeshComponent,
-    >,
+    __padding_end: [u8; 1600],
 }
-pub struct USubdividePolyToolBuilder {}
+impl UShapeSprayTool {}
+#[repr(C, align(8))]
+pub struct USubdividePolyToolBuilder {
+    __padding_end: [u8; 48],
+}
+impl USubdividePolyToolBuilder {}
+#[repr(C, align(8))]
 pub struct USubdividePolyToolProperties {
-    pub subdivision_level: i32,
-    pub subdivision_scheme: crate::bindings::modeling_components_editor_only::ESubdivisionScheme,
-    pub boundary_scheme: crate::bindings::modeling_components_editor_only::ESubdivisionBoundaryScheme,
-    pub normal_computation_method: crate::bindings::modeling_components_editor_only::ESubdivisionOutputNormals,
-    pub uv_computation_method: crate::bindings::modeling_components_editor_only::ESubdivisionOutputUVs,
-    pub b_new_poly_groups: bool,
-    pub b_render_groups: bool,
-    pub b_render_cage: bool,
-    pub b_add_extra_corners: bool,
-    pub extra_corner_angle_threshold_degrees: f64,
-    pub b_overridden_subdivision_scheme: bool,
+    __padding_end: [u8; 216],
 }
+impl USubdividePolyToolProperties {}
+#[repr(C, align(8))]
 pub struct USubdividePolyTool {
-    pub preview_mesh: UPtr<crate::bindings::modeling_components::UPreviewMesh>,
-    pub properties: UPtr<USubdividePolyToolProperties>,
-    pub preview_geometry: UPtr<crate::bindings::modeling_components::UPreviewGeometry>,
+    __padding_end: [u8; 328],
 }
+impl USubdividePolyTool {}
+#[repr(C, align(8))]
 pub struct UVoxelCSGMeshesToolProperties {
-    pub operation: EVoxelCSGOperation,
-    pub voxel_count: i32,
-    pub mesh_adaptivity: f32,
-    pub offset_distance: f32,
-    pub b_auto_simplify: bool,
+    __padding_end: [u8; 208],
 }
+impl UVoxelCSGMeshesToolProperties {}
+#[repr(C, align(8))]
 pub struct UVoxelCSGMeshesTool {
-    pub csg_props: UPtr<UVoxelCSGMeshesToolProperties>,
+    __padding_end: [u8; 344],
 }
-pub struct UVoxelCSGMeshesToolBuilder {}
-#[allow(non_camel_case_types)]
+impl UVoxelCSGMeshesTool {}
+#[repr(C, align(8))]
+pub struct UVoxelCSGMeshesToolBuilder {
+    __padding_end: [u8; 48],
+}
+impl UVoxelCSGMeshesToolBuilder {}
 #[repr(transparent)]
 pub struct EBspConversionMode(pub u8);
 impl EBspConversionMode {
     pub const CONVERT_FIRST: EBspConversionMode = EBspConversionMode(0);
     pub const COMBINE_FIRST: EBspConversionMode = EBspConversionMode(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EDrawSplineOutputMode(pub u8);
 impl EDrawSplineOutputMode {
@@ -329,7 +262,6 @@ impl EDrawSplineOutputMode {
     pub const EXISTING_ACTOR: EDrawSplineOutputMode = EDrawSplineOutputMode(1);
     pub const CREATE_BLUEPRINT: EDrawSplineOutputMode = EDrawSplineOutputMode(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EDrawSplineDrawMode(pub u8);
 impl EDrawSplineDrawMode {
@@ -337,21 +269,18 @@ impl EDrawSplineDrawMode {
     pub const CLICK_AUTO_TANGENT: EDrawSplineDrawMode = EDrawSplineDrawMode(1);
     pub const FREE_DRAW: EDrawSplineDrawMode = EDrawSplineDrawMode(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ESplineOffsetMethod(pub u8);
 impl ESplineOffsetMethod {
     pub const HIT_NORMAL: ESplineOffsetMethod = ESplineOffsetMethod(0);
     pub const CUSTOM: ESplineOffsetMethod = ESplineOffsetMethod(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EDrawSplineUpVectorMode(pub u8);
 impl EDrawSplineUpVectorMode {
     pub const ALIGN_TO_PREVIOUS: EDrawSplineUpVectorMode = EDrawSplineUpVectorMode(0);
     pub const USE_HIT_NORMAL: EDrawSplineUpVectorMode = EDrawSplineUpVectorMode(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EHarvestInstancesToolOutputType(pub i32);
 impl EHarvestInstancesToolOutputType {
@@ -360,7 +289,6 @@ impl EHarvestInstancesToolOutputType {
     );
     pub const ISMC: EHarvestInstancesToolOutputType = EHarvestInstancesToolOutputType(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EISMEditorTransformMode(pub u8);
 impl EISMEditorTransformMode {
@@ -369,14 +297,12 @@ impl EISMEditorTransformMode {
     pub const PER_OBJECT_GIZMO: EISMEditorTransformMode = EISMEditorTransformMode(2);
     pub const LAST_VALUE: EISMEditorTransformMode = EISMEditorTransformMode(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMeshToVolumeMode(pub i32);
 impl EMeshToVolumeMode {
     pub const TRIANGULATE_POLYGONS: EMeshToVolumeMode = EMeshToVolumeMode(0);
     pub const MINIMAL_POLYGONS: EMeshToVolumeMode = EMeshToVolumeMode(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EVoxelCSGOperation(pub u8);
 impl EVoxelCSGOperation {

@@ -5,11 +5,17 @@
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[repr(C, align(8))]
-pub struct FExternalWidgetExclusiveSelectionColumn {}
+pub struct UTypedElementTableViewerFactory {
+    __padding_end: [u8; 48],
+}
+impl UTypedElementTableViewerFactory {}
 #[repr(C, align(8))]
-pub struct FRowHandleWidgetConstructor {}
+pub struct URowHandleWidgetFactory {
+    __padding_end: [u8; 48],
+}
+impl URowHandleWidgetFactory {}
 #[repr(C, align(8))]
-pub struct FUObjectLabelWidgetConstructor {}
-pub struct UTypedElementTableViewerFactory {}
-pub struct URowHandleWidgetFactory {}
-pub struct UUObjectLabelWidgetFactory {}
+pub struct UUObjectLabelWidgetFactory {
+    __padding_end: [u8; 48],
+}
+impl UUObjectLabelWidgetFactory {}

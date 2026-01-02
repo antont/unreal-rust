@@ -5,37 +5,26 @@
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[repr(C, align(8))]
-pub struct FCurveEditorRetimeAnchor {
-    pub value_in_seconds: f64,
-    pub b_is_selected: bool,
-}
-#[repr(C, align(4))]
-pub struct FMultiScaleToolOptions {
-    pub x_scale: f32,
-    pub y_scale: f32,
-    pub pivot_type: EMultiScalePivotType,
-}
-#[repr(C, align(4))]
-pub struct FTransformToolOptions {
-    pub upper_bound: f32,
-    pub lower_bound: f32,
-    pub left_bound: crate::bindings::core_u_object::FFrameNumber,
-    pub right_bound: crate::bindings::core_u_object::FFrameNumber,
-    pub scale_center_x: crate::bindings::core_u_object::FFrameNumber,
-    pub scale_center_y: f32,
-    pub falloff_interp_type: EToolTransformInterpType,
-}
 pub struct UCurveEditorFFTFilter {
+    #[doc(hidden)]
+    __padding_48: [u8; 48],
     pub cutoff_frequency: f32,
     pub ty: ECurveEditorFFTFilterType,
     pub response: ECurveEditorFFTFilterClass,
     pub order: i32,
+    __padding_end: [u8; 4],
 }
-pub struct UCurveEditorTools_LatticeUndoObject {}
+impl UCurveEditorFFTFilter {}
+#[repr(C, align(8))]
+pub struct UCurveEditorTools_LatticeUndoObject {
+    __padding_end: [u8; 248],
+}
+impl UCurveEditorTools_LatticeUndoObject {}
+#[repr(C, align(8))]
 pub struct UCurveEditorRetimeToolData {
-    pub retiming_anchors: TArray<FCurveEditorRetimeAnchor>,
+    __padding_end: [u8; 64],
 }
-#[allow(non_camel_case_types)]
+impl UCurveEditorRetimeToolData {}
 #[repr(transparent)]
 pub struct EMultiScalePivotType(pub u8);
 impl EMultiScalePivotType {
@@ -44,7 +33,6 @@ impl EMultiScalePivotType {
     pub const FIRST_KEY: EMultiScalePivotType = EMultiScalePivotType(2);
     pub const LAST_KEY: EMultiScalePivotType = EMultiScalePivotType(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EToolTransformInterpType(pub u8);
 impl EToolTransformInterpType {
@@ -56,14 +44,12 @@ impl EToolTransformInterpType {
     pub const EXP_IN: EToolTransformInterpType = EToolTransformInterpType(5);
     pub const EXP_OUT: EToolTransformInterpType = EToolTransformInterpType(6);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ECurveEditorFFTFilterType(pub u8);
 impl ECurveEditorFFTFilterType {
     pub const LOWPASS: ECurveEditorFFTFilterType = ECurveEditorFFTFilterType(0);
     pub const HIGHPASS: ECurveEditorFFTFilterType = ECurveEditorFFTFilterType(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ECurveEditorFFTFilterClass(pub u8);
 impl ECurveEditorFFTFilterClass {

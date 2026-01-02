@@ -4,119 +4,143 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
-#[repr(C, align(4))]
-pub struct FTestFragment_Float {}
-#[repr(C, align(4))]
-pub struct FTestFragment_Int {}
-#[repr(C, align(1))]
-pub struct FTestFragment_Bool {}
-#[repr(C, align(1))]
-pub struct FTestFragment_Large {}
-#[repr(C, align(8))]
-pub struct FTestFragment_Array {}
-#[repr(C, align(8))]
-pub struct FFragmentWithSharedPtr {}
-#[repr(C, align(4))]
-pub struct FTestChunkFragment_Int {}
-#[repr(C, align(4))]
-pub struct FTestChunkFragment_Float {}
-#[repr(C, align(4))]
-pub struct FTestSharedFragment_Int {
-    pub value: i32,
-}
-#[repr(C, align(8))]
-pub struct FTestSharedFragment_Array {
-    pub value: TArray<i32>,
-}
-#[repr(C, align(4))]
-pub struct FTestConstSharedFragment_Int {
-    pub value: i32,
-}
-#[repr(C, align(4))]
-pub struct FTestSharedFragment_Float {
-    pub value: f32,
-}
-#[repr(C, align(4))]
-pub struct FTestConstSharedFragment_Float {
-    pub value: f32,
-}
-#[repr(C, align(1))]
-pub struct FTestFragment_Tag {}
-#[repr(C, align(1))]
-pub struct FTestTag_A {}
-#[repr(C, align(1))]
-pub struct FTestTag_B {}
-#[repr(C, align(1))]
-pub struct FTestTag_C {}
-#[repr(C, align(1))]
-pub struct FTestTag_D {}
 #[repr(C, align(8))]
 pub struct FFarmVisualDataRow {
-    pub mesh: UPtr<crate::bindings::engine::UStaticMesh>,
-    pub material_override: UPtr<crate::bindings::engine::UMaterialInterface>,
+    __padding_end: [u8; 24],
 }
-#[repr(C, align(1))]
-pub struct FFarmJustBecameReadyToHarvestTag {}
-#[repr(C, align(1))]
-pub struct FFarmReadyToHarvestTag {}
-#[repr(C, align(2))]
-pub struct FFarmGridCellData {}
-#[repr(C, align(4))]
-pub struct FFarmWaterFragment {}
-#[repr(C, align(4))]
-pub struct FFarmFlowerFragment {}
-#[repr(C, align(2))]
-pub struct FFarmCropFragment {}
-#[repr(C, align(4))]
-pub struct FFarmVisualFragment {}
-#[repr(C, align(4))]
-pub struct FHarvestTimerFragment {}
-pub struct UMassTestProcessorBase {}
-pub struct UMassTestProcessor_A {}
-pub struct UMassTestProcessor_B {}
-pub struct UMassTestProcessor_C {}
-pub struct UMassTestProcessor_D {}
-pub struct UMassTestProcessor_E {}
-pub struct UMassTestProcessor_F {}
-pub struct UMassTestProcessor_Floats {}
-pub struct UMassTestProcessor_Ints {}
-pub struct UMassTestProcessor_FloatsInts {}
-pub struct UMassTestStaticCounterProcessor {}
-pub struct UMassTestProcessorAutoExecuteQuery {}
-pub struct UMassTestProcessorAutoExecuteQueryComparison {}
-pub struct UMassTestProcessorAutoExecuteQueryComparison_Parallel {}
-pub struct UMassTestWorldSubsystem {}
-pub struct UMassTestParallelSubsystem {}
-pub struct UMassTestEngineSubsystem {}
-pub struct UMassTestLocalPlayerSubsystem {}
-pub struct UMassTestGameInstanceSubsystem {}
-pub struct UFarmProcessorBase {}
-pub struct UFarmWaterProcessor {}
-pub struct UFarmHarvestTimerSystem_Flowers {}
-pub struct UFarmHarvestTimerSystem_Crops {}
-pub struct UFarmHarvestTimerExpired {}
+impl FFarmVisualDataRow {}
+#[repr(C, align(16))]
+pub struct UMassTestProcessorBase {
+    __padding_end: [u8; 1216],
+}
+impl UMassTestProcessorBase {}
+#[repr(C, align(16))]
+pub struct UMassTestProcessor_A {
+    __padding_end: [u8; 1216],
+}
+impl UMassTestProcessor_A {}
+#[repr(C, align(16))]
+pub struct UMassTestProcessor_B {
+    __padding_end: [u8; 1216],
+}
+impl UMassTestProcessor_B {}
+#[repr(C, align(16))]
+pub struct UMassTestProcessor_C {
+    __padding_end: [u8; 1216],
+}
+impl UMassTestProcessor_C {}
+#[repr(C, align(16))]
+pub struct UMassTestProcessor_D {
+    __padding_end: [u8; 1216],
+}
+impl UMassTestProcessor_D {}
+#[repr(C, align(16))]
+pub struct UMassTestProcessor_E {
+    __padding_end: [u8; 1216],
+}
+impl UMassTestProcessor_E {}
+#[repr(C, align(16))]
+pub struct UMassTestProcessor_F {
+    __padding_end: [u8; 1216],
+}
+impl UMassTestProcessor_F {}
+#[repr(C, align(16))]
+pub struct UMassTestProcessor_Floats {
+    __padding_end: [u8; 1232],
+}
+impl UMassTestProcessor_Floats {}
+#[repr(C, align(16))]
+pub struct UMassTestProcessor_Ints {
+    __padding_end: [u8; 1232],
+}
+impl UMassTestProcessor_Ints {}
+#[repr(C, align(16))]
+pub struct UMassTestProcessor_FloatsInts {
+    __padding_end: [u8; 1248],
+}
+impl UMassTestProcessor_FloatsInts {}
+#[repr(C, align(8))]
+pub struct UMassTestStaticCounterProcessor {
+    __padding_end: [u8; 240],
+}
+impl UMassTestStaticCounterProcessor {}
+#[repr(C, align(16))]
+pub struct UMassTestProcessorAutoExecuteQuery {
+    __padding_end: [u8; 1120],
+}
+impl UMassTestProcessorAutoExecuteQuery {}
+#[repr(C, align(16))]
+pub struct UMassTestProcessorAutoExecuteQueryComparison {
+    __padding_end: [u8; 2096],
+}
+impl UMassTestProcessorAutoExecuteQueryComparison {}
+#[repr(C, align(16))]
+pub struct UMassTestProcessorAutoExecuteQueryComparison_Parallel {
+    __padding_end: [u8; 2096],
+}
+impl UMassTestProcessorAutoExecuteQueryComparison_Parallel {}
+#[repr(C, align(8))]
+pub struct UMassTestWorldSubsystem {
+    __padding_end: [u8; 72],
+}
+impl UMassTestWorldSubsystem {}
+#[repr(C, align(8))]
+pub struct UMassTestParallelSubsystem {
+    __padding_end: [u8; 72],
+}
+impl UMassTestParallelSubsystem {}
+#[repr(C, align(8))]
+pub struct UMassTestEngineSubsystem {
+    __padding_end: [u8; 56],
+}
+impl UMassTestEngineSubsystem {}
+#[repr(C, align(8))]
+pub struct UMassTestLocalPlayerSubsystem {
+    __padding_end: [u8; 56],
+}
+impl UMassTestLocalPlayerSubsystem {}
+#[repr(C, align(8))]
+pub struct UMassTestGameInstanceSubsystem {
+    __padding_end: [u8; 56],
+}
+impl UMassTestGameInstanceSubsystem {}
+#[repr(C, align(16))]
+pub struct UFarmProcessorBase {
+    __padding_end: [u8; 1120],
+}
+impl UFarmProcessorBase {}
+#[repr(C, align(16))]
+pub struct UFarmWaterProcessor {
+    __padding_end: [u8; 1120],
+}
+impl UFarmWaterProcessor {}
+#[repr(C, align(16))]
+pub struct UFarmHarvestTimerSystem_Flowers {
+    __padding_end: [u8; 1120],
+}
+impl UFarmHarvestTimerSystem_Flowers {}
+#[repr(C, align(16))]
+pub struct UFarmHarvestTimerSystem_Crops {
+    __padding_end: [u8; 1120],
+}
+impl UFarmHarvestTimerSystem_Crops {}
+#[repr(C, align(16))]
+pub struct UFarmHarvestTimerExpired {
+    __padding_end: [u8; 1120],
+}
+impl UFarmHarvestTimerExpired {}
+#[repr(C, align(16))]
 pub struct UFarmHarvestTimerSetIcon {
-    pub harvest_icon_ismc: UPtr<
-        crate::bindings::engine::UHierarchicalInstancedStaticMeshComponent,
-    >,
+    __padding_end: [u8; 1152],
 }
+impl UFarmHarvestTimerSetIcon {}
+#[repr(C, align(8))]
 pub struct AMassEntityTestFarmPlot {
-    pub grid_cell_width: f32,
-    pub grid_cell_height: f32,
-    pub harvest_icon_scale: f32,
-    pub visual_data_table: TArray<FFarmVisualDataRow>,
-    pub visual_data_ism_cs: TArray<
-        UPtr<crate::bindings::engine::UHierarchicalInstancedStaticMeshComponent>,
-    >,
-    pub per_frame_systems: TArray<UPtr<crate::bindings::mass_entity::UMassProcessor>>,
-    pub per_second_systems: TArray<UPtr<crate::bindings::mass_entity::UMassProcessor>>,
-    pub test_data_flower_indicies: TArray<u16>,
-    pub test_data_crop_indicies: TArray<u16>,
-    pub visual_near_cull_distance: u32,
-    pub visual_far_cull_distance: u32,
-    pub icon_near_cull_distance: u32,
-    pub icon_far_cull_distance: u32,
+    #[doc(hidden)]
+    __padding_1288: [u8; 1288],
     pub harvest_icon_ismc: UPtr<
         crate::bindings::engine::UHierarchicalInstancedStaticMeshComponent,
     >,
+    __padding_end: [u8; 32],
 }
+impl AMassEntityTestFarmPlot {}

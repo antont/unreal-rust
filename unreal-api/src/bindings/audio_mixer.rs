@@ -13,19 +13,24 @@ pub struct FAudioOutputDeviceInfo {
     pub format: EAudioMixerStreamDataFormatType,
     pub output_channel_array: TArray<EAudioMixerChannelType>,
     pub flags_64: u8,
+    __padding_end: [u8; 7],
 }
+impl FAudioOutputDeviceInfo {}
 #[repr(C, align(8))]
 pub struct FSwapAudioOutputResult {
     pub current_device_id: FString,
     pub requested_device_id: FString,
     pub result: ESwapAudioOutputDeviceResultState,
+    __padding_end: [u8; 7],
 }
+impl FSwapAudioOutputResult {}
 #[repr(C, align(4))]
 pub struct FSubmixEffectDynamicProcessorFilterSettings {
     pub flags_0: u8,
     pub cutoff: f32,
     pub gain_db: f32,
 }
+impl FSubmixEffectDynamicProcessorFilterSettings {}
 #[repr(C, align(8))]
 pub struct FSubmixEffectDynamicsProcessorSettings {
     pub dynamics_processor_type: ESubmixEffectDynamicsProcessorType,
@@ -46,18 +51,23 @@ pub struct FSubmixEffectDynamicsProcessorSettings {
     pub output_gain_db: f32,
     pub key_highshelf: FSubmixEffectDynamicProcessorFilterSettings,
     pub key_lowshelf: FSubmixEffectDynamicProcessorFilterSettings,
+    __padding_end: [u8; 4],
 }
+impl FSubmixEffectDynamicsProcessorSettings {}
 #[repr(C, align(4))]
 pub struct FSubmixEffectEQBand {
     pub frequency: f32,
     pub bandwidth: f32,
     pub gain_db: f32,
     pub flags_12: u8,
+    __padding_end: [u8; 3],
 }
+impl FSubmixEffectEQBand {}
 #[repr(C, align(8))]
 pub struct FSubmixEffectSubmixEQSettings {
     pub eq_bands: TArray<FSubmixEffectEQBand>,
 }
+impl FSubmixEffectSubmixEQSettings {}
 #[repr(C, align(4))]
 pub struct FSubmixEffectReverbSettings {
     pub b_bypass_early_reflections: bool,
@@ -76,83 +86,183 @@ pub struct FSubmixEffectReverbSettings {
     pub wet_level: f32,
     pub dry_level: f32,
     pub b_bypass: bool,
+    __padding_end: [u8; 3],
 }
-pub struct UAudioBusSubsystem {}
+impl FSubmixEffectReverbSettings {}
+#[repr(C, align(8))]
+pub struct UAudioBusSubsystem {
+    __padding_end: [u8; 272],
+}
+impl UAudioBusSubsystem {}
+#[repr(C, align(8))]
 pub struct UAudioDeviceNotificationSubsystem {
-    pub default_capture_device_changed: FAudioDeviceNotificationSubsystem_DefaultCaptureDeviceChanged,
-    pub default_render_device_changed: FAudioDeviceNotificationSubsystem_DefaultRenderDeviceChanged,
-    pub device_added: FAudioDeviceNotificationSubsystem_DeviceAdded,
-    pub device_removed: FAudioDeviceNotificationSubsystem_DeviceRemoved,
-    pub device_state_changed: FAudioDeviceNotificationSubsystem_DeviceStateChanged,
-    pub device_switched: FAudioDeviceNotificationSubsystem_DeviceSwitched,
+    __padding_end: [u8; 400],
 }
-pub struct UAudioMixerBlueprintLibrary {}
+impl UAudioDeviceNotificationSubsystem {}
+#[repr(C, align(8))]
+pub struct UAudioMixerBlueprintLibrary {
+    __padding_end: [u8; 48],
+}
+impl UAudioMixerBlueprintLibrary {}
+#[repr(C, align(16))]
 pub struct USynthSound {
-    pub owning_synth_component: TWeakObjectPtr<USynthComponent>,
+    __padding_end: [u8; 2192],
 }
+impl USynthSound {}
+#[repr(C, align(16))]
 pub struct USynthComponent {
+    #[doc(hidden)]
+    __padding_656: [u8; 656],
     pub flags_656: u8,
+    #[doc(hidden)]
+    __padding_660: [u8; 3],
     pub flags_660: u8,
     pub attenuation_settings: UPtr<crate::bindings::engine::USoundAttenuation>,
     pub attenuation_overrides: crate::bindings::engine::FSoundAttenuationSettings,
-    pub concurrency_settings_deprecated: UPtr<
-        crate::bindings::engine::USoundConcurrency,
-    >,
+    #[doc(hidden)]
+    __padding_1704: [u8; 8],
     pub concurrency_set: TSet<UPtr<crate::bindings::engine::USoundConcurrency>>,
     pub modulation_routing: crate::bindings::engine::FSoundModulationDefaultRoutingSettings,
-    pub sound_class: UPtr<crate::bindings::engine::USoundClass>,
-    pub source_effect_chain: UPtr<
-        crate::bindings::engine::USoundEffectSourcePresetChain,
-    >,
-    pub sound_submix: UPtr<crate::bindings::engine::USoundSubmixBase>,
+    #[doc(hidden)]
+    __padding_2200: [u8; 24],
     pub sound_submix_sends: TArray<crate::bindings::engine::FSoundSubmixSendInfo>,
     pub bus_sends: TArray<crate::bindings::engine::FSoundSourceBusSendInfo>,
     pub pre_effect_bus_sends: TArray<crate::bindings::engine::FSoundSourceBusSendInfo>,
     pub flags_2248: u8,
     pub envelope_follower_attack_time: i32,
     pub envelope_follower_release_time: i32,
-    pub on_audio_envelope_value: FSynthComponent_OnAudioEnvelopeValue,
-    pub synth: UPtr<USynthSound>,
-    pub audio_component: UPtr<crate::bindings::engine::UAudioComponent>,
+    __padding_end: [u8; 124],
 }
+impl USynthComponent {}
+#[repr(C, align(8))]
 pub struct USubmixEffectDynamicsProcessorPreset {
+    #[doc(hidden)]
+    __padding_248: [u8; 248],
     pub settings: FSubmixEffectDynamicsProcessorSettings,
 }
+impl USubmixEffectDynamicsProcessorPreset {}
+#[repr(C, align(8))]
 pub struct USubmixEffectSubmixEQPreset {
+    #[doc(hidden)]
+    __padding_168: [u8; 168],
     pub settings: FSubmixEffectSubmixEQSettings,
 }
+impl USubmixEffectSubmixEQPreset {}
+#[repr(C, align(8))]
 pub struct USubmixEffectReverbPreset {
+    #[doc(hidden)]
+    __padding_216: [u8; 216],
     pub settings: FSubmixEffectReverbSettings,
 }
-pub struct UAudioGenerator {}
-pub struct UScrubbedSound {
-    pub sound_wave_to_scrub: UPtr<crate::bindings::engine::USoundWave>,
+impl USubmixEffectReverbPreset {}
+#[repr(C, align(8))]
+pub struct UAudioGenerator {
+    __padding_end: [u8; 176],
 }
-pub struct UQuartzClockHandle {}
-pub struct UQuartzSubsystem {}
-pub struct FGetAvailableAudioOutputDevices_OnObtainDevicesEvent;
-pub struct FGetCurrentAudioOutputDeviceName_OnObtainCurrentDeviceEvent;
-pub struct FPrimeSoundForPlayback_OnLoadCompletion;
-pub struct FSwapAudioOutputDevice_OnCompletedDeviceSwap;
-pub struct FNotifyOnQuantizationBoundary_InDelegate;
-pub struct FResetTransport_InDelegate;
-pub struct FResetTransportQuantized_InDelegate;
-pub struct FSetBeatsPerMinute_Delegate;
-pub struct FSetMillisecondsPerTick_Delegate;
-pub struct FSetSecondsPerTick_Delegate;
-pub struct FSetThirtySecondNotesPerMinute_Delegate;
-pub struct FSetTicksPerSecond_Delegate;
-pub struct FStartOtherClock_InDelegate;
-pub struct FSubscribeToAllQuantizationEvents_OnQuantizationEvent;
-pub struct FSubscribeToQuantizationEvent_OnQuantizationEvent;
-pub struct FAudioDeviceNotificationSubsystem_DefaultCaptureDeviceChanged;
-pub struct FAudioDeviceNotificationSubsystem_DefaultRenderDeviceChanged;
-pub struct FAudioDeviceNotificationSubsystem_DeviceAdded;
-pub struct FAudioDeviceNotificationSubsystem_DeviceRemoved;
-pub struct FAudioDeviceNotificationSubsystem_DeviceStateChanged;
-pub struct FAudioDeviceNotificationSubsystem_DeviceSwitched;
-pub struct FSynthComponent_OnAudioEnvelopeValue;
-#[allow(non_camel_case_types)]
+impl UAudioGenerator {}
+#[repr(C, align(8))]
+pub struct UScrubbedSound {
+    __padding_end: [u8; 2136],
+}
+impl UScrubbedSound {}
+#[repr(C, align(8))]
+pub struct UQuartzClockHandle {
+    __padding_end: [u8; 688],
+}
+impl UQuartzClockHandle {}
+#[repr(C, align(8))]
+pub struct UQuartzSubsystem {
+    __padding_end: [u8; 120],
+}
+impl UQuartzSubsystem {}
+#[repr(transparent)]
+pub struct FGetAvailableAudioOutputDevices_OnObtainDevicesEvent {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FGetCurrentAudioOutputDeviceName_OnObtainCurrentDeviceEvent {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FPrimeSoundForPlayback_OnLoadCompletion {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FSwapAudioOutputDevice_OnCompletedDeviceSwap {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FNotifyOnQuantizationBoundary_InDelegate {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FResetTransport_InDelegate {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FResetTransportQuantized_InDelegate {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FSetBeatsPerMinute_Delegate {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FSetMillisecondsPerTick_Delegate {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FSetSecondsPerTick_Delegate {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FSetThirtySecondNotesPerMinute_Delegate {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FSetTicksPerSecond_Delegate {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FStartOtherClock_InDelegate {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FSubscribeToAllQuantizationEvents_OnQuantizationEvent {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FSubscribeToQuantizationEvent_OnQuantizationEvent {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FAudioDeviceNotificationSubsystem_DefaultCaptureDeviceChanged {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FAudioDeviceNotificationSubsystem_DefaultRenderDeviceChanged {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FAudioDeviceNotificationSubsystem_DeviceAdded {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FAudioDeviceNotificationSubsystem_DeviceRemoved {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FAudioDeviceNotificationSubsystem_DeviceStateChanged {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FAudioDeviceNotificationSubsystem_DeviceSwitched {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FSynthComponent_OnAudioEnvelopeValue {
+    _opague: u8,
+}
 #[repr(transparent)]
 pub struct EAudioMixerStreamDataFormatType(pub u8);
 impl EAudioMixerStreamDataFormatType {
@@ -169,7 +279,6 @@ impl EAudioMixerStreamDataFormatType {
         3,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EAudioMixerChannelType(pub u8);
 impl EAudioMixerChannelType {
@@ -195,7 +304,6 @@ impl EAudioMixerChannelType {
     pub const CHANNEL_TYPE_COUNT: EAudioMixerChannelType = EAudioMixerChannelType(19);
     pub const DEFAULT_CHANNEL: EAudioMixerChannelType = EAudioMixerChannelType(0);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ESwapAudioOutputDeviceResultState(pub u8);
 impl ESwapAudioOutputDeviceResultState {
@@ -209,7 +317,6 @@ impl ESwapAudioOutputDeviceResultState {
         2,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ESubmixEffectDynamicsProcessorType(pub u8);
 impl ESubmixEffectDynamicsProcessorType {
@@ -232,7 +339,6 @@ impl ESubmixEffectDynamicsProcessorType {
         5,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ESubmixEffectDynamicsPeakMode(pub u8);
 impl ESubmixEffectDynamicsPeakMode {
@@ -245,7 +351,6 @@ impl ESubmixEffectDynamicsPeakMode {
     pub const PEAK: ESubmixEffectDynamicsPeakMode = ESubmixEffectDynamicsPeakMode(2);
     pub const COUNT: ESubmixEffectDynamicsPeakMode = ESubmixEffectDynamicsPeakMode(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ESubmixEffectDynamicsChannelLinkMode(pub u8);
 impl ESubmixEffectDynamicsChannelLinkMode {
@@ -262,7 +367,6 @@ impl ESubmixEffectDynamicsChannelLinkMode {
         3,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ESubmixEffectDynamicsKeySource(pub u8);
 impl ESubmixEffectDynamicsKeySource {
@@ -275,7 +379,6 @@ impl ESubmixEffectDynamicsKeySource {
     pub const SUBMIX: ESubmixEffectDynamicsKeySource = ESubmixEffectDynamicsKeySource(2);
     pub const COUNT: ESubmixEffectDynamicsKeySource = ESubmixEffectDynamicsKeySource(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMusicalNoteName(pub u8);
 impl EMusicalNoteName {
@@ -292,7 +395,6 @@ impl EMusicalNoteName {
     pub const BB: EMusicalNoteName = EMusicalNoteName(10);
     pub const B: EMusicalNoteName = EMusicalNoteName(11);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EAudioDeviceChangedRole(pub u8);
 impl EAudioDeviceChangedRole {
@@ -302,7 +404,6 @@ impl EAudioDeviceChangedRole {
     pub const COMMUNICATIONS: EAudioDeviceChangedRole = EAudioDeviceChangedRole(3);
     pub const COUNT: EAudioDeviceChangedRole = EAudioDeviceChangedRole(4);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EAudioDeviceChangedState(pub u8);
 impl EAudioDeviceChangedState {

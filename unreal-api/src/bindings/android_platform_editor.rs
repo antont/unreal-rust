@@ -4,10 +4,8 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
+#[repr(C, align(8))]
 pub struct UAndroidSDKSettings {
-    pub sdk_path: crate::bindings::core_u_object::FDirectoryPath,
-    pub ndk_path: crate::bindings::core_u_object::FDirectoryPath,
-    pub java_path: crate::bindings::core_u_object::FDirectoryPath,
-    pub sdkapi_level: FString,
-    pub ndkapi_level: FString,
+    __padding_end: [u8; 144],
 }
+impl UAndroidSDKSettings {}

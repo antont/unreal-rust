@@ -4,27 +4,56 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
-#[repr(C, align(4))]
-pub struct FThreadingOptions {
-    pub b_use_global_thread_pool: bool,
-    pub intra_op_num_threads: i32,
-    pub inter_op_num_threads: i32,
-    pub execution_mode: EExecutionMode,
+#[repr(C, align(8))]
+pub struct UNNERuntimeORTCpu {
+    __padding_end: [u8; 80],
 }
-pub struct UNNERuntimeORTCpu {}
-pub struct UNNERuntimeORTDmlProxy {}
-pub struct UNNERuntimeORTDml_GPU_RDG_NPU {}
-pub struct UNNERuntimeORTDml_GPU_RDG {}
-pub struct UNNERuntimeORTDml_GPU_NPU {}
-pub struct UNNERuntimeORTDml_RDG_NPU {}
-pub struct UNNERuntimeORTDml_GPU {}
-pub struct UNNERuntimeORTDml_RDG {}
-pub struct UNNERuntimeORTDml_NPU {}
+impl UNNERuntimeORTCpu {}
+#[repr(C, align(8))]
+pub struct UNNERuntimeORTDmlProxy {
+    __padding_end: [u8; 64],
+}
+impl UNNERuntimeORTDmlProxy {}
+#[repr(C, align(8))]
+pub struct UNNERuntimeORTDml_GPU_RDG_NPU {
+    __padding_end: [u8; 88],
+}
+impl UNNERuntimeORTDml_GPU_RDG_NPU {}
+#[repr(C, align(8))]
+pub struct UNNERuntimeORTDml_GPU_RDG {
+    __padding_end: [u8; 80],
+}
+impl UNNERuntimeORTDml_GPU_RDG {}
+#[repr(C, align(8))]
+pub struct UNNERuntimeORTDml_GPU_NPU {
+    __padding_end: [u8; 80],
+}
+impl UNNERuntimeORTDml_GPU_NPU {}
+#[repr(C, align(8))]
+pub struct UNNERuntimeORTDml_RDG_NPU {
+    __padding_end: [u8; 80],
+}
+impl UNNERuntimeORTDml_RDG_NPU {}
+#[repr(C, align(8))]
+pub struct UNNERuntimeORTDml_GPU {
+    __padding_end: [u8; 72],
+}
+impl UNNERuntimeORTDml_GPU {}
+#[repr(C, align(8))]
+pub struct UNNERuntimeORTDml_RDG {
+    __padding_end: [u8; 72],
+}
+impl UNNERuntimeORTDml_RDG {}
+#[repr(C, align(8))]
+pub struct UNNERuntimeORTDml_NPU {
+    __padding_end: [u8; 72],
+}
+impl UNNERuntimeORTDml_NPU {}
+#[repr(C, align(8))]
 pub struct UNNERuntimeORTSettings {
-    pub editor_threading_options: FThreadingOptions,
-    pub game_threading_options: FThreadingOptions,
+    __padding_end: [u8; 136],
 }
-#[allow(non_camel_case_types)]
+impl UNNERuntimeORTSettings {}
 #[repr(transparent)]
 pub struct EExecutionMode(pub u8);
 impl EExecutionMode {

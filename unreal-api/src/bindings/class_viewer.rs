@@ -4,7 +4,8 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
+#[repr(C, align(8))]
 pub struct UClassViewerProjectSettings {
-    pub internal_only_paths: TArray<crate::bindings::core_u_object::FDirectoryPath>,
-    pub internal_only_classes: TArray<crate::bindings::core_u_object::FSoftClassPath>,
+    __padding_end: [u8; 80],
 }
+impl UClassViewerProjectSettings {}

@@ -4,96 +4,88 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
-#[repr(C, align(1))]
-pub struct FVirtualKeyboardOptions {
-    pub b_enable_autocorrect: bool,
-}
 #[repr(C, align(8))]
 pub struct FInputChord {
     pub key: crate::bindings::input_core::FKey,
     pub flags_32: u8,
+    __padding_end: [u8; 7],
 }
+impl FInputChord {}
 #[repr(C, align(8))]
 pub struct FAnchors {
     pub minimum: crate::bindings::core_u_object::FVector2D,
     pub maximum: crate::bindings::core_u_object::FVector2D,
 }
-#[repr(C, align(4))]
-pub struct FCustomizedToolMenuEntry {
-    pub visibility: ECustomizedToolMenuVisibility,
-}
-#[repr(C, align(4))]
-pub struct FCustomizedToolMenuSection {
-    pub visibility: ECustomizedToolMenuVisibility,
-}
+impl FAnchors {}
 #[repr(C, align(8))]
-pub struct FCustomizedToolMenuNameArray {
-    pub names: TArray<FName>,
+pub struct UToolMenuBase {
+    __padding_end: [u8; 48],
 }
+impl UToolMenuBase {}
 #[repr(C, align(8))]
-pub struct FToolMenuProfile {
-    pub name: FName,
-    pub entries: TMap<FName, FCustomizedToolMenuEntry>,
-    pub sections: TMap<FName, FCustomizedToolMenuSection>,
-    pub suppress_extenders: TArray<FName>,
-}
-#[repr(C, align(8))]
-pub struct FCustomizedToolMenu {
-    pub entry_order: TMap<FName, FCustomizedToolMenuNameArray>,
-    pub section_order: TArray<FName>,
-}
-#[repr(C, align(4))]
-pub struct FInputPreprocessorRegistrationKey {
-    pub ty: EInputPreProcessorType,
-    pub priority: i32,
-}
-#[repr(C, align(2))]
-pub struct FCharRange {
-    pub first: u16,
-    pub last: u16,
-}
-#[repr(C, align(8))]
-pub struct FCharRangeList {
-    pub ranges: TArray<FCharRange>,
-}
-pub struct UToolMenuBase {}
 pub struct USlateSettings {
-    pub b_explicit_canvas_child_z_order: bool,
+    __padding_end: [u8; 56],
 }
+impl USlateSettings {}
+#[repr(C, align(16))]
 pub struct UButtonWidgetStyle {
+    #[doc(hidden)]
+    __padding_64: [u8; 64],
     pub button_style: crate::bindings::slate_core::FButtonStyle,
 }
+impl UButtonWidgetStyle {}
+#[repr(C, align(16))]
 pub struct UCheckBoxWidgetStyle {
-    pub check_box_style: crate::bindings::slate_core::FCheckBoxStyle,
+    __padding_end: [u8; 2896],
 }
+impl UCheckBoxWidgetStyle {}
+#[repr(C, align(16))]
 pub struct UComboBoxWidgetStyle {
-    pub combo_box_style: crate::bindings::slate_core::FComboBoxStyle,
+    __padding_end: [u8; 1824],
 }
+impl UComboBoxWidgetStyle {}
+#[repr(C, align(16))]
 pub struct UComboButtonWidgetStyle {
-    pub combo_button_style: crate::bindings::slate_core::FComboButtonStyle,
+    __padding_end: [u8; 1680],
 }
+impl UComboButtonWidgetStyle {}
+#[repr(C, align(16))]
 pub struct UEditableTextBoxWidgetStyle {
-    pub editable_text_box_style: crate::bindings::slate_core::FEditableTextBoxStyle,
+    __padding_end: [u8; 3904],
 }
+impl UEditableTextBoxWidgetStyle {}
+#[repr(C, align(16))]
 pub struct UEditableTextWidgetStyle {
-    pub editable_text_style: crate::bindings::slate_core::FEditableTextStyle,
+    __padding_end: [u8; 832],
 }
+impl UEditableTextWidgetStyle {}
+#[repr(C, align(16))]
 pub struct UProgressWidgetStyle {
+    #[doc(hidden)]
+    __padding_64: [u8; 64],
     pub progress_bar_style: crate::bindings::slate_core::FProgressBarStyle,
 }
+impl UProgressWidgetStyle {}
+#[repr(C, align(16))]
 pub struct UScrollBarWidgetStyle {
-    pub scroll_bar_style: crate::bindings::slate_core::FScrollBarStyle,
+    __padding_end: [u8; 1968],
 }
+impl UScrollBarWidgetStyle {}
+#[repr(C, align(16))]
 pub struct UScrollBoxWidgetStyle {
-    pub scroll_box_style: crate::bindings::slate_core::FScrollBoxStyle,
+    __padding_end: [u8; 944],
 }
+impl UScrollBoxWidgetStyle {}
+#[repr(C, align(16))]
 pub struct USpinBoxWidgetStyle {
-    pub spin_box_style: crate::bindings::slate_core::FSpinBoxStyle,
+    __padding_end: [u8; 1600],
 }
+impl USpinBoxWidgetStyle {}
+#[repr(C, align(16))]
 pub struct UTextBlockWidgetStyle {
-    pub text_block_style: crate::bindings::slate_core::FTextBlockStyle,
+    __padding_end: [u8; 912],
 }
-#[allow(non_camel_case_types)]
+impl UTextBlockWidgetStyle {}
 #[repr(transparent)]
 pub struct ETextFlowDirection(pub u8);
 impl ETextFlowDirection {
@@ -102,7 +94,6 @@ impl ETextFlowDirection {
     pub const RIGHT_TO_LEFT: ETextFlowDirection = ETextFlowDirection(2);
     pub const CULTURE: ETextFlowDirection = ETextFlowDirection(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ECustomizedToolMenuVisibility(pub i32);
 impl ECustomizedToolMenuVisibility {
@@ -110,7 +101,6 @@ impl ECustomizedToolMenuVisibility {
     pub const VISIBLE: ECustomizedToolMenuVisibility = ECustomizedToolMenuVisibility(1);
     pub const HIDDEN: ECustomizedToolMenuVisibility = ECustomizedToolMenuVisibility(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EInputPreProcessorType(pub u8);
 impl EInputPreProcessorType {
@@ -123,7 +113,6 @@ impl EInputPreProcessorType {
     pub const GAME: EInputPreProcessorType = EInputPreProcessorType(6);
     pub const COUNT: EInputPreProcessorType = EInputPreProcessorType(7);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMultiBlockType(pub u8);
 impl EMultiBlockType {
@@ -137,7 +126,6 @@ impl EMultiBlockType {
     pub const TOOL_BAR_COMBO_BUTTON: EMultiBlockType = EMultiBlockType(7);
     pub const WIDGET: EMultiBlockType = EMultiBlockType(8);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EUserInterfaceActionType(pub u8);
 impl EUserInterfaceActionType {
@@ -148,7 +136,6 @@ impl EUserInterfaceActionType {
     pub const CHECK: EUserInterfaceActionType = EUserInterfaceActionType(4);
     pub const COLLAPSED_BUTTON: EUserInterfaceActionType = EUserInterfaceActionType(5);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ETextJustify(pub u8);
 impl ETextJustify {
@@ -158,7 +145,6 @@ impl ETextJustify {
     pub const INVARIANT_LEFT: ETextJustify = ETextJustify(3);
     pub const INVARIANT_RIGHT: ETextJustify = ETextJustify(4);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMultiBoxType(pub u8);
 impl EMultiBoxType {
@@ -172,7 +158,6 @@ impl EMultiBoxType {
     pub const SLIM_HORIZONTAL_UNIFORM_TOOL_BAR: EMultiBoxType = EMultiBoxType(7);
     pub const SLIM_WRAPPING_TOOL_BAR: EMultiBoxType = EMultiBoxType(8);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EScrollIntoViewAlignment(pub u8);
 impl EScrollIntoViewAlignment {
@@ -181,7 +166,6 @@ impl EScrollIntoViewAlignment {
     pub const CENTER_ALIGNED: EScrollIntoViewAlignment = EScrollIntoViewAlignment(2);
     pub const BOTTOM_OR_RIGHT: EScrollIntoViewAlignment = EScrollIntoViewAlignment(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ESelectionMode(pub u8);
 impl ESelectionMode {
@@ -190,7 +174,6 @@ impl ESelectionMode {
     pub const SINGLE_TOGGLE: ESelectionMode = ESelectionMode(2);
     pub const MULTI: ESelectionMode = ESelectionMode(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EDescendantScrollDestination(pub u8);
 impl EDescendantScrollDestination {
@@ -203,7 +186,6 @@ impl EDescendantScrollDestination {
         3,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EScrollWhenFocusChanges(pub u8);
 impl EScrollWhenFocusChanges {
@@ -211,7 +193,6 @@ impl EScrollWhenFocusChanges {
     pub const INSTANT_SCROLL: EScrollWhenFocusChanges = EScrollWhenFocusChanges(1);
     pub const ANIMATED_SCROLL: EScrollWhenFocusChanges = EScrollWhenFocusChanges(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EStretch(pub u8);
 impl EStretch {
@@ -225,7 +206,6 @@ impl EStretch {
     pub const USER_SPECIFIED: EStretch = EStretch(7);
     pub const USER_SPECIFIED_WITH_CLIPPING: EStretch = EStretch(8);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EStretchDirection(pub u8);
 impl EStretchDirection {
@@ -233,14 +213,12 @@ impl EStretchDirection {
     pub const DOWN_ONLY: EStretchDirection = EStretchDirection(1);
     pub const UP_ONLY: EStretchDirection = EStretchDirection(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EVirtualKeyboardTrigger(pub u8);
 impl EVirtualKeyboardTrigger {
     pub const ON_FOCUS_BY_POINTER: EVirtualKeyboardTrigger = EVirtualKeyboardTrigger(0);
     pub const ON_ALL_FOCUS_EVENTS: EVirtualKeyboardTrigger = EVirtualKeyboardTrigger(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EVirtualKeyboardDismissAction(pub u8);
 impl EVirtualKeyboardDismissAction {
@@ -254,14 +232,12 @@ impl EVirtualKeyboardDismissAction {
         2,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ETextWrappingPolicy(pub u8);
 impl ETextWrappingPolicy {
     pub const DEFAULT_WRAPPING: ETextWrappingPolicy = ETextWrappingPolicy(0);
     pub const ALLOW_PER_CHARACTER_WRAPPING: ETextWrappingPolicy = ETextWrappingPolicy(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EProgressBarFillType(pub u8);
 impl EProgressBarFillType {
@@ -275,14 +251,12 @@ impl EProgressBarFillType {
     pub const TOP_TO_BOTTOM: EProgressBarFillType = EProgressBarFillType(5);
     pub const BOTTOM_TO_TOP: EProgressBarFillType = EProgressBarFillType(6);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EProgressBarFillStyle(pub u8);
 impl EProgressBarFillStyle {
     pub const MASK: EProgressBarFillStyle = EProgressBarFillStyle(0);
     pub const SCALE: EProgressBarFillStyle = EProgressBarFillStyle(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EListItemAlignment(pub u8);
 impl EListItemAlignment {

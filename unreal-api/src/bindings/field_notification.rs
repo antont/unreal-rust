@@ -8,5 +8,6 @@ pub use crate::core_data::*;
 pub struct FFieldNotificationId {
     pub field_name: FName,
 }
+impl FFieldNotificationId {}
 pub struct UNotifyFieldValueChanged {}
 pub struct INotifyFieldValueChanged {}

@@ -4,5 +4,13 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
-pub struct UInterchangeEditorUtilities {}
-pub struct UInterchangeFilePickerGeneric {}
+#[repr(C, align(8))]
+pub struct UInterchangeEditorUtilities {
+    __padding_end: [u8; 48],
+}
+impl UInterchangeEditorUtilities {}
+#[repr(C, align(8))]
+pub struct UInterchangeFilePickerGeneric {
+    __padding_end: [u8; 48],
+}
+impl UInterchangeFilePickerGeneric {}

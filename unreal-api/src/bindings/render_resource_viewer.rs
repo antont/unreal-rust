@@ -5,10 +5,7 @@
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[repr(C, align(8))]
-pub struct FRenderResourceViewerTreemapFilter {
-    pub filter_string: FString,
-    pub display_name: FString,
-}
 pub struct URenderResourceViewerSettings {
-    pub filters: TArray<FRenderResourceViewerTreemapFilter>,
+    __padding_end: [u8; 120],
 }
+impl URenderResourceViewerSettings {}

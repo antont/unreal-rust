@@ -5,23 +5,27 @@
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[repr(C, align(4))]
-pub struct FGeometry {}
+pub struct FGeometry {
+    __padding_end: [u8; 56],
+}
+impl FGeometry {}
 #[repr(C, align(16))]
 pub struct FSlateBrush {
+    #[doc(hidden)]
+    __padding_8: [u8; 8],
     pub tint_color: FSlateColor,
     pub draw_as: ESlateBrushDrawType,
     pub tiling: ESlateBrushTileType,
     pub mirroring: ESlateBrushMirrorType,
-    pub image_type: ESlateBrushImageType,
     pub image_size: FDeprecateSlateVector2D,
     pub margin: FMargin,
-    pub tint_deprecated: crate::bindings::core_u_object::FLinearColor,
+    #[doc(hidden)]
+    __padding_72: [u8; 16],
     pub resource_object: UPtr<crate::bindings::core_u_object::UObject>,
     pub outline_settings: FSlateBrushOutlineSettings,
-    pub uv_region: crate::bindings::core_u_object::FBox2f,
-    pub flags_164: u8,
-    pub resource_name: FName,
+    __padding_end: [u8; 64],
 }
+impl FSlateBrush {}
 #[repr(C, align(16))]
 pub struct FSlateBrushOutlineSettings {
     pub corner_radii: crate::bindings::core_u_object::FVector4,
@@ -29,12 +33,16 @@ pub struct FSlateBrushOutlineSettings {
     pub width: f32,
     pub rounding_type: ESlateBrushRoundingType,
     pub b_use_brush_transparency: bool,
+    __padding_end: [u8; 6],
 }
+impl FSlateBrushOutlineSettings {}
 #[repr(C, align(4))]
 pub struct FSlateColor {
     pub specified_color: crate::bindings::core_u_object::FLinearColor,
     pub color_use_rule: ESlateColorStylingMode,
+    __padding_end: [u8; 3],
 }
+impl FSlateColor {}
 #[repr(C, align(4))]
 pub struct FMargin {
     pub left: f32,
@@ -42,16 +50,26 @@ pub struct FMargin {
     pub right: f32,
     pub bottom: f32,
 }
+impl FMargin {}
 #[repr(C, align(4))]
-pub struct FDeprecateSlateVector2D {}
+pub struct FDeprecateSlateVector2D {
+    __padding_end: [u8; 8],
+}
+impl FDeprecateSlateVector2D {}
 #[repr(C, align(8))]
-pub struct FInputEvent {}
+pub struct FInputEvent {
+    __padding_end: [u8; 40],
+}
+impl FInputEvent {}
 #[repr(C, align(8))]
-pub struct FPointerEvent {}
-#[repr(C, align(8))]
-pub struct FSlateWidgetStyle {}
+pub struct FPointerEvent {
+    __padding_end: [u8; 136],
+}
+impl FPointerEvent {}
 #[repr(C, align(16))]
 pub struct FScrollBarStyle {
+    #[doc(hidden)]
+    __padding_16: [u8; 16],
     pub horizontal_background_image: FSlateBrush,
     pub vertical_background_image: FSlateBrush,
     pub vertical_top_slot_image: FSlateBrush,
@@ -62,9 +80,13 @@ pub struct FScrollBarStyle {
     pub hovered_thumb_image: FSlateBrush,
     pub dragged_thumb_image: FSlateBrush,
     pub thickness: f32,
+    __padding_end: [u8; 12],
 }
+impl FScrollBarStyle {}
 #[repr(C, align(16))]
 pub struct FTableRowStyle {
+    #[doc(hidden)]
+    __padding_16: [u8; 16],
     pub selector_focused_brush: FSlateBrush,
     pub active_hovered_brush: FSlateBrush,
     pub active_brush: FSlateBrush,
@@ -85,22 +107,29 @@ pub struct FTableRowStyle {
     pub active_highlighted_brush: FSlateBrush,
     pub inactive_highlighted_brush: FSlateBrush,
 }
+impl FTableRowStyle {}
 #[repr(C, align(16))]
 pub struct FComboBoxStyle {
+    #[doc(hidden)]
+    __padding_16: [u8; 16],
     pub combo_button_style: FComboButtonStyle,
     pub pressed_slate_sound: FSlateSound,
     pub selection_change_slate_sound: FSlateSound,
     pub content_padding: FMargin,
     pub menu_row_padding: FMargin,
-    pub pressed_sound_deprecated: FName,
-    pub selection_change_sound_deprecated: FName,
+    __padding_end: [u8; 32],
 }
+impl FComboBoxStyle {}
 #[repr(C, align(8))]
 pub struct FSlateSound {
     pub resource_object: UPtr<crate::bindings::core_u_object::UObject>,
+    __padding_end: [u8; 24],
 }
+impl FSlateSound {}
 #[repr(C, align(16))]
 pub struct FComboButtonStyle {
+    #[doc(hidden)]
+    __padding_16: [u8; 16],
     pub button_style: FButtonStyle,
     pub down_arrow_image: FSlateBrush,
     pub shadow_offset: FDeprecateSlateVector2D,
@@ -110,9 +139,13 @@ pub struct FComboButtonStyle {
     pub content_padding: FMargin,
     pub down_arrow_padding: FMargin,
     pub down_arrow_align: EVerticalAlignment,
+    __padding_end: [u8; 15],
 }
+impl FComboButtonStyle {}
 #[repr(C, align(16))]
 pub struct FButtonStyle {
+    #[doc(hidden)]
+    __padding_16: [u8; 16],
     pub normal: FSlateBrush,
     pub hovered: FSlateBrush,
     pub pressed: FSlateBrush,
@@ -126,24 +159,28 @@ pub struct FButtonStyle {
     pub pressed_slate_sound: FSlateSound,
     pub clicked_slate_sound: FSlateSound,
     pub hovered_slate_sound: FSlateSound,
-    pub pressed_sound_deprecated: FName,
-    pub hovered_sound_deprecated: FName,
+    __padding_end: [u8; 32],
 }
+impl FButtonStyle {}
 #[repr(C, align(8))]
 pub struct FSlateFontInfo {
     pub font_object: UPtr<crate::bindings::core_u_object::UObject>,
     pub font_material: UPtr<crate::bindings::core_u_object::UObject>,
     pub outline_settings: FFontOutlineSettings,
+    #[doc(hidden)]
+    __padding_64: [u8; 16],
     pub typeface_font_name: FName,
     pub size: f32,
     pub letter_spacing: i32,
     pub skew_amount: f32,
+    #[doc(hidden)]
+    __padding_89: [u8; 1],
     pub b_force_monospaced: bool,
     pub b_material_is_stencil: bool,
     pub monospaced_width: f32,
-    pub font_name_deprecated: FName,
-    pub hinting_deprecated: EFontHinting,
+    __padding_end: [u8; 16],
 }
+impl FSlateFontInfo {}
 #[repr(C, align(8))]
 pub struct FFontOutlineSettings {
     pub outline_size: i32,
@@ -153,22 +190,29 @@ pub struct FFontOutlineSettings {
     pub outline_material: UPtr<crate::bindings::core_u_object::UObject>,
     pub outline_color: crate::bindings::core_u_object::FLinearColor,
 }
+impl FFontOutlineSettings {}
 #[repr(C, align(16))]
 pub struct FEditableTextStyle {
+    #[doc(hidden)]
+    __padding_8: [u8; 8],
     pub font: FSlateFontInfo,
     pub color_and_opacity: FSlateColor,
     pub background_image_selected: FSlateBrush,
     pub background_image_composing: FSlateBrush,
     pub caret_image: FSlateBrush,
 }
+impl FEditableTextStyle {}
 #[repr(C, align(16))]
 pub struct FEditableTextBoxStyle {
+    #[doc(hidden)]
+    __padding_16: [u8; 16],
     pub background_image_normal: FSlateBrush,
     pub background_image_hovered: FSlateBrush,
     pub background_image_focused: FSlateBrush,
     pub background_image_read_only: FSlateBrush,
     pub padding: FMargin,
-    pub font_deprecated: FSlateFontInfo,
+    #[doc(hidden)]
+    __padding_976: [u8; 112],
     pub text_style: FTextBlockStyle,
     pub foreground_color: FSlateColor,
     pub background_color: FSlateColor,
@@ -178,22 +222,30 @@ pub struct FEditableTextBoxStyle {
     pub v_scroll_bar_padding: FMargin,
     pub scroll_bar_style: FScrollBarStyle,
 }
+impl FEditableTextBoxStyle {}
 #[repr(C, align(16))]
 pub struct FTextBlockStyle {
+    #[doc(hidden)]
+    __padding_8: [u8; 8],
     pub font: FSlateFontInfo,
     pub color_and_opacity: FSlateColor,
     pub shadow_offset: FDeprecateSlateVector2D,
     pub shadow_color_and_opacity: crate::bindings::core_u_object::FLinearColor,
-    pub selected_background_color: FSlateColor,
+    #[doc(hidden)]
+    __padding_184: [u8; 20],
     pub highlight_color: FSlateColor,
     pub highlight_shape: FSlateBrush,
     pub strike_brush: FSlateBrush,
     pub underline_brush: FSlateBrush,
     pub transform_policy: ETextTransformPolicy,
     pub overflow_policy: ETextOverflowPolicy,
+    __padding_end: [u8; 14],
 }
+impl FTextBlockStyle {}
 #[repr(C, align(16))]
 pub struct FSpinBoxStyle {
+    #[doc(hidden)]
+    __padding_16: [u8; 16],
     pub background_brush: FSlateBrush,
     pub active_background_brush: FSlateBrush,
     pub hovered_background_brush: FSlateBrush,
@@ -201,85 +253,68 @@ pub struct FSpinBoxStyle {
     pub hovered_fill_brush: FSlateBrush,
     pub inactive_fill_brush: FSlateBrush,
     pub arrows_image: FSlateBrush,
-    pub foreground_color: FSlateColor,
+    #[doc(hidden)]
+    __padding_1492: [u8; 20],
     pub text_padding: FMargin,
     pub inset_padding: FMargin,
+    __padding_end: [u8; 12],
 }
+impl FSpinBoxStyle {}
 #[repr(C, align(8))]
-pub struct FCharacterEvent {}
+pub struct FCharacterEvent {
+    __padding_end: [u8; 48],
+}
+impl FCharacterEvent {}
 #[repr(C, align(8))]
-pub struct FKeyEvent {}
+pub struct FKeyEvent {
+    __padding_end: [u8; 80],
+}
+impl FKeyEvent {}
 #[repr(C, align(8))]
-pub struct FNavigationEvent {}
+pub struct FNavigationEvent {
+    __padding_end: [u8; 48],
+}
+impl FNavigationEvent {}
 #[repr(C, align(8))]
-pub struct FAnalogInputEvent {}
+pub struct FAnalogInputEvent {
+    __padding_end: [u8; 88],
+}
+impl FAnalogInputEvent {}
 #[repr(C, align(4))]
 pub struct FFontSdfSettings {
-    pub base_ppem: i32,
+    __padding_end: [u8; 4],
 }
-#[repr(C, align(8))]
-pub struct FFontData {
-    pub font_filename: FString,
-    pub hinting: EFontHinting,
-    pub loading_policy: EFontLoadingPolicy,
-    pub sub_face_index: i32,
-    pub font_face_asset: UPtr<crate::bindings::core_u_object::UObject>,
-    pub bulk_data_ptr_deprecated: UPtr<UFontBulkData>,
-    pub font_data_deprecated: TArray<u8>,
-}
-#[repr(C, align(8))]
-pub struct FTypefaceEntry {
-    pub name: FName,
-    pub font: FFontData,
-}
-#[repr(C, align(8))]
-pub struct FTypeface {
-    pub fonts: TArray<FTypefaceEntry>,
-}
-#[repr(C, align(8))]
-pub struct FCompositeFallbackFont {
-    pub typeface: FTypeface,
-    pub scaling_factor: f32,
-}
-#[repr(C, align(8))]
-pub struct FCompositeSubFont {
-    pub character_ranges: TArray<crate::bindings::core_u_object::FInt32Range>,
-    pub cultures: FString,
-    pub editor_name: FName,
-}
-#[repr(C, align(8))]
-pub struct FCompositeFont {
-    pub default_typeface: FTypeface,
-    pub fallback_typeface: FCompositeFallbackFont,
-    pub sub_typefaces: TArray<FCompositeSubFont>,
-    pub b_enable_ascent_descent_override: bool,
-}
+impl FFontSdfSettings {}
 #[repr(C, align(4))]
-pub struct FFocusEvent {}
-#[repr(C, align(4))]
-pub struct FCaptureLostEvent {}
-#[repr(C, align(8))]
-pub struct FMotionEvent {}
-#[repr(C, align(8))]
-pub struct FNavigationMethod {}
-#[repr(C, align(8))]
-pub struct FNavigationMethodOrthogonal {}
-#[repr(C, align(8))]
-pub struct FNavigationMethodProximity {
-    pub alignment_factor: f32,
-    pub search_angle_degrees: f32,
-    pub overlap_threshold: f32,
+pub struct FFocusEvent {
+    __padding_end: [u8; 8],
 }
+impl FFocusEvent {}
+#[repr(C, align(4))]
+pub struct FCaptureLostEvent {
+    __padding_end: [u8; 8],
+}
+impl FCaptureLostEvent {}
+#[repr(C, align(8))]
+pub struct FMotionEvent {
+    __padding_end: [u8; 136],
+}
+impl FMotionEvent {}
 #[repr(C, align(16))]
 pub struct FSegmentedControlStyle {
+    #[doc(hidden)]
+    __padding_16: [u8; 16],
     pub control_style: FCheckBoxStyle,
     pub first_control_style: FCheckBoxStyle,
     pub last_control_style: FCheckBoxStyle,
     pub background_brush: FSlateBrush,
     pub uniform_padding: FMargin,
 }
+impl FSegmentedControlStyle {}
 #[repr(C, align(16))]
 pub struct FCheckBoxStyle {
+    #[doc(hidden)]
+    __padding_8: [u8; 8],
     pub check_box_type: ESlateCheckBoxType,
     pub unchecked_image: FSlateBrush,
     pub unchecked_hovered_image: FSlateBrush,
@@ -305,50 +340,41 @@ pub struct FCheckBoxStyle {
     pub checked_slate_sound: FSlateSound,
     pub unchecked_slate_sound: FSlateSound,
     pub hovered_slate_sound: FSlateSound,
-    pub checked_sound_deprecated: FName,
-    pub unchecked_sound_deprecated: FName,
-    pub hovered_sound_deprecated: FName,
+    __padding_end: [u8; 48],
 }
+impl FCheckBoxStyle {}
 #[repr(C, align(16))]
 pub struct FHyperlinkStyle {
+    #[doc(hidden)]
+    __padding_16: [u8; 16],
     pub underline_style: FButtonStyle,
     pub text_style: FTextBlockStyle,
     pub padding: FMargin,
 }
+impl FHyperlinkStyle {}
 #[repr(C, align(16))]
 pub struct FInlineEditableTextBlockStyle {
+    #[doc(hidden)]
+    __padding_16: [u8; 16],
     pub editable_text_box_style: FEditableTextBoxStyle,
     pub text_style: FTextBlockStyle,
 }
+impl FInlineEditableTextBlockStyle {}
 #[repr(C, align(16))]
 pub struct FProgressBarStyle {
+    #[doc(hidden)]
+    __padding_16: [u8; 16],
     pub background_image: FSlateBrush,
     pub fill_image: FSlateBrush,
     pub marquee_image: FSlateBrush,
     pub enable_fill_animation: bool,
+    __padding_end: [u8; 15],
 }
-#[repr(C, align(16))]
-pub struct FExpandableAreaStyle {
-    pub collapsed_image: FSlateBrush,
-    pub expanded_image: FSlateBrush,
-    pub rollout_animation_seconds: f32,
-}
-#[repr(C, align(16))]
-pub struct FSearchBoxStyle {
-    pub text_box_style: FEditableTextBoxStyle,
-    pub active_font_info: FSlateFontInfo,
-    pub up_arrow_image: FSlateBrush,
-    pub down_arrow_image: FSlateBrush,
-    pub glass_image: FSlateBrush,
-    pub clear_image: FSlateBrush,
-    pub image_padding: FMargin,
-    pub image_size_override: TOptional<crate::bindings::core_u_object::FVector2D>,
-    pub b_left_align_buttons_deprecated: bool,
-    pub b_left_align_search_result_buttons: bool,
-    pub b_left_align_glass_image_and_clear_button: bool,
-}
+impl FProgressBarStyle {}
 #[repr(C, align(16))]
 pub struct FSliderStyle {
+    #[doc(hidden)]
+    __padding_16: [u8; 16],
     pub normal_bar_image: FSlateBrush,
     pub hovered_bar_image: FSlateBrush,
     pub disabled_bar_image: FSlateBrush,
@@ -356,76 +382,28 @@ pub struct FSliderStyle {
     pub hovered_thumb_image: FSlateBrush,
     pub disabled_thumb_image: FSlateBrush,
     pub bar_thickness: f32,
+    __padding_end: [u8; 12],
 }
-#[repr(C, align(16))]
-pub struct FVolumeControlStyle {
-    pub slider_style: FSliderStyle,
-    pub high_volume_image: FSlateBrush,
-    pub mid_volume_image: FSlateBrush,
-    pub low_volume_image: FSlateBrush,
-    pub no_volume_image: FSlateBrush,
-    pub muted_image: FSlateBrush,
-}
-#[repr(C, align(16))]
-pub struct FInlineTextImageStyle {
-    pub image: FSlateBrush,
-    pub baseline: i16,
-}
+impl FSliderStyle {}
 #[repr(C, align(16))]
 pub struct FSplitterStyle {
+    #[doc(hidden)]
+    __padding_16: [u8; 16],
     pub handle_normal_brush: FSlateBrush,
     pub handle_highlight_brush: FSlateBrush,
 }
+impl FSplitterStyle {}
 #[repr(C, align(16))]
 pub struct FTableViewStyle {
+    #[doc(hidden)]
+    __padding_16: [u8; 16],
     pub background_brush: FSlateBrush,
 }
-#[repr(C, align(16))]
-pub struct FTableColumnHeaderStyle {
-    pub sort_primary_ascending_image: FSlateBrush,
-    pub sort_primary_descending_image: FSlateBrush,
-    pub sort_secondary_ascending_image: FSlateBrush,
-    pub sort_secondary_descending_image: FSlateBrush,
-    pub normal_brush: FSlateBrush,
-    pub hovered_brush: FSlateBrush,
-    pub menu_dropdown_image: FSlateBrush,
-    pub menu_dropdown_normal_border_brush: FSlateBrush,
-    pub menu_dropdown_hovered_border_brush: FSlateBrush,
-}
-#[repr(C, align(16))]
-pub struct FHeaderRowStyle {
-    pub column_style: FTableColumnHeaderStyle,
-    pub last_column_style: FTableColumnHeaderStyle,
-    pub column_splitter_style: FSplitterStyle,
-    pub splitter_handle_size: f32,
-    pub background_brush: FSlateBrush,
-    pub foreground_color: FSlateColor,
-    pub horizontal_separator_brush: FSlateBrush,
-    pub horizontal_separator_thickness: f32,
-}
-#[repr(C, align(16))]
-pub struct FDockTabStyle {
-    pub close_button_style: FButtonStyle,
-    pub normal_brush: FSlateBrush,
-    pub color_overlay_tab_brush: FSlateBrush,
-    pub color_overlay_icon_brush: FSlateBrush,
-    pub foreground_brush: FSlateBrush,
-    pub hovered_brush: FSlateBrush,
-    pub content_area_brush: FSlateBrush,
-    pub tab_well_brush: FSlateBrush,
-    pub tab_text_style: FTextBlockStyle,
-    pub tab_padding: FMargin,
-    pub icon_size: FDeprecateSlateVector2D,
-    pub overlap_width: f32,
-    pub flash_color: FSlateColor,
-    pub normal_foreground_color: FSlateColor,
-    pub hovered_foreground_color: FSlateColor,
-    pub active_foreground_color: FSlateColor,
-    pub foreground_foreground_color: FSlateColor,
-    pub icon_border_padding: f32,
-}
+impl FTableViewStyle {}
 #[repr(C, align(16))]
 pub struct FScrollBoxStyle {
+    #[doc(hidden)]
+    __padding_8: [u8; 8],
     pub bar_thickness: f32,
     pub top_shadow_brush: FSlateBrush,
     pub bottom_shadow_brush: FSlateBrush,
@@ -434,13 +412,19 @@ pub struct FScrollBoxStyle {
     pub horizontal_scrolled_content_padding: FMargin,
     pub vertical_scrolled_content_padding: FMargin,
 }
+impl FScrollBoxStyle {}
 #[repr(C, align(16))]
 pub struct FScrollBorderStyle {
+    #[doc(hidden)]
+    __padding_16: [u8; 16],
     pub top_shadow_brush: FSlateBrush,
     pub bottom_shadow_brush: FSlateBrush,
 }
+impl FScrollBorderStyle {}
 #[repr(C, align(16))]
 pub struct FWindowStyle {
+    #[doc(hidden)]
+    __padding_16: [u8; 16],
     pub minimize_button_style: FButtonStyle,
     pub maximize_button_style: FButtonStyle,
     pub restore_button_style: FButtonStyle,
@@ -460,13 +444,9 @@ pub struct FWindowStyle {
     pub child_background_brush: FSlateBrush,
     pub window_corner_radius: i32,
     pub border_padding: FMargin,
+    __padding_end: [u8; 12],
 }
-#[repr(C, align(8))]
-pub struct FStyleColorList {
-    pub style_colors: crate::bindings::core_u_object::FLinearColor,
-}
-#[repr(C, align(8))]
-pub struct FStyleTheme {}
+impl FWindowStyle {}
 #[repr(C, align(16))]
 pub struct FWrapButtonStyle {
     pub padding: FMargin,
@@ -478,11 +458,16 @@ pub struct FWrapButtonStyle {
     pub separator_brush: TOptional<FSlateBrush>,
     pub separator_thickness: TOptional<f32>,
     pub separator_padding: TOptional<FMargin>,
+    __padding_end: [u8; 4],
 }
+impl FWrapButtonStyle {}
 #[repr(C, align(16))]
 pub struct FToolBarStyle {
+    #[doc(hidden)]
+    __padding_16: [u8; 16],
     pub background_brush: FSlateBrush,
-    pub expand_brush_deprecated: FSlateBrush,
+    #[doc(hidden)]
+    __padding_432: [u8; 208],
     pub separator_brush: FSlateBrush,
     pub label_style: FTextBlockStyle,
     pub editable_text_style: FEditableTextBoxStyle,
@@ -507,8 +492,8 @@ pub struct FToolBarStyle {
     pub block_hovered: FSlateBrush,
     pub background_padding: FMargin,
     pub wrap_button_style: FWrapButtonStyle,
-    pub wrap_button_padding_deprecated: FMargin,
-    pub wrap_button_index_deprecated: i32,
+    #[doc(hidden)]
+    __padding_18948: [u8; 20],
     pub b_allow_wrap_button: bool,
     pub b_allow_wrapping_default: bool,
     pub icon_size: FDeprecateSlateVector2D,
@@ -524,24 +509,40 @@ pub struct FToolBarStyle {
     pub icon_padding_with_collapsed_label: FMargin,
     pub vertical_alignment_override: TOptional<EVerticalAlignment>,
     pub raised_children_right_padding: f32,
+    __padding_end: [u8; 8],
 }
+impl FToolBarStyle {}
+#[repr(C, align(8))]
 pub struct USlateWidgetStyleAsset {
-    pub custom_style: UPtr<USlateWidgetStyleContainerBase>,
+    __padding_end: [u8; 56],
 }
-pub struct UFontBulkData {}
+impl USlateWidgetStyleAsset {}
+#[repr(C, align(8))]
+pub struct UFontBulkData {
+    __padding_end: [u8; 168],
+}
+impl UFontBulkData {}
 pub struct UFontFaceInterface {}
 pub struct IFontFaceInterface {}
 pub struct UFontProviderInterface {}
 pub struct IFontProviderInterface {}
-pub struct USlateTypes {}
-pub struct USlateWidgetStyleContainerBase {}
+#[repr(C, align(8))]
+pub struct USlateTypes {
+    __padding_end: [u8; 48],
+}
+impl USlateTypes {}
+#[repr(C, align(8))]
+pub struct USlateWidgetStyleContainerBase {
+    __padding_end: [u8; 56],
+}
+impl USlateWidgetStyleContainerBase {}
 pub struct USlateWidgetStyleContainerInterface {}
 pub struct ISlateWidgetStyleContainerInterface {}
+#[repr(C, align(8))]
 pub struct USlateThemeManager {
-    pub current_theme_id: crate::bindings::core_u_object::FGuid,
-    pub active_colors: FStyleColorList,
+    __padding_end: [u8; 3104],
 }
-#[allow(non_camel_case_types)]
+impl USlateThemeManager {}
 #[repr(transparent)]
 pub struct ESlateColorStylingMode(pub u8);
 impl ESlateColorStylingMode {
@@ -553,7 +554,6 @@ impl ESlateColorStylingMode {
     );
     pub const USE_COLOR_USE_STYLE: ESlateColorStylingMode = ESlateColorStylingMode(4);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ESlateBrushDrawType(pub u8);
 impl ESlateBrushDrawType {
@@ -563,7 +563,6 @@ impl ESlateBrushDrawType {
     pub const IMAGE: ESlateBrushDrawType = ESlateBrushDrawType(3);
     pub const ROUNDED_BOX: ESlateBrushDrawType = ESlateBrushDrawType(4);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ESlateBrushTileType(pub u8);
 impl ESlateBrushTileType {
@@ -572,7 +571,6 @@ impl ESlateBrushTileType {
     pub const VERTICAL: ESlateBrushTileType = ESlateBrushTileType(2);
     pub const BOTH: ESlateBrushTileType = ESlateBrushTileType(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ESlateBrushMirrorType(pub u8);
 impl ESlateBrushMirrorType {
@@ -581,7 +579,6 @@ impl ESlateBrushMirrorType {
     pub const VERTICAL: ESlateBrushMirrorType = ESlateBrushMirrorType(2);
     pub const BOTH: ESlateBrushMirrorType = ESlateBrushMirrorType(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ESlateBrushImageType(pub u8);
 impl ESlateBrushImageType {
@@ -590,14 +587,12 @@ impl ESlateBrushImageType {
     pub const LINEAR: ESlateBrushImageType = ESlateBrushImageType(2);
     pub const VECTOR: ESlateBrushImageType = ESlateBrushImageType(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ESlateBrushRoundingType(pub u8);
 impl ESlateBrushRoundingType {
     pub const FIXED_RADIUS: ESlateBrushRoundingType = ESlateBrushRoundingType(0);
     pub const HALF_HEIGHT_RADIUS: ESlateBrushRoundingType = ESlateBrushRoundingType(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EVerticalAlignment(pub u8);
 impl EVerticalAlignment {
@@ -606,7 +601,6 @@ impl EVerticalAlignment {
     pub const V_ALIGN_CENTER: EVerticalAlignment = EVerticalAlignment(2);
     pub const V_ALIGN_BOTTOM: EVerticalAlignment = EVerticalAlignment(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EFontHinting(pub u8);
 impl EFontHinting {
@@ -616,7 +610,6 @@ impl EFontHinting {
     pub const MONOCHROME: EFontHinting = EFontHinting(3);
     pub const NONE: EFontHinting = EFontHinting(4);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ETextShapingMethod(pub u8);
 impl ETextShapingMethod {
@@ -624,7 +617,6 @@ impl ETextShapingMethod {
     pub const KERNING_ONLY: ETextShapingMethod = ETextShapingMethod(1);
     pub const FULL_SHAPING: ETextShapingMethod = ETextShapingMethod(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ETextTransformPolicy(pub u8);
 impl ETextTransformPolicy {
@@ -632,7 +624,6 @@ impl ETextTransformPolicy {
     pub const TO_LOWER: ETextTransformPolicy = ETextTransformPolicy(1);
     pub const TO_UPPER: ETextTransformPolicy = ETextTransformPolicy(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ETextOverflowPolicy(pub u8);
 impl ETextOverflowPolicy {
@@ -641,7 +632,6 @@ impl ETextOverflowPolicy {
     pub const MULTILINE_ELLIPSIS: ETextOverflowPolicy = ETextOverflowPolicy(2);
     pub const MIDDLE_ELLIPSIS: ETextOverflowPolicy = ETextOverflowPolicy(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EFontLoadingPolicy(pub u8);
 impl EFontLoadingPolicy {
@@ -649,14 +639,12 @@ impl EFontLoadingPolicy {
     pub const STREAM: EFontLoadingPolicy = EFontLoadingPolicy(1);
     pub const INLINE: EFontLoadingPolicy = EFontLoadingPolicy(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ESlateCheckBoxType(pub u8);
 impl ESlateCheckBoxType {
     pub const CHECK_BOX: ESlateCheckBoxType = ESlateCheckBoxType(0);
     pub const TOGGLE_BUTTON: ESlateCheckBoxType = ESlateCheckBoxType(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EHorizontalAlignment(pub u8);
 impl EHorizontalAlignment {
@@ -665,7 +653,6 @@ impl EHorizontalAlignment {
     pub const H_ALIGN_CENTER: EHorizontalAlignment = EHorizontalAlignment(2);
     pub const H_ALIGN_RIGHT: EHorizontalAlignment = EHorizontalAlignment(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ECheckBoxState(pub u8);
 impl ECheckBoxState {
@@ -673,7 +660,6 @@ impl ECheckBoxState {
     pub const CHECKED: ECheckBoxState = ECheckBoxState(1);
     pub const UNDETERMINED: ECheckBoxState = ECheckBoxState(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ENavigationGenesis(pub u8);
 impl ENavigationGenesis {
@@ -681,7 +667,6 @@ impl ENavigationGenesis {
     pub const CONTROLLER: ENavigationGenesis = ENavigationGenesis(1);
     pub const USER: ENavigationGenesis = ENavigationGenesis(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EUINavigation(pub u8);
 impl EUINavigation {
@@ -694,7 +679,6 @@ impl EUINavigation {
     pub const NUM: EUINavigation = EUINavigation(6);
     pub const INVALID: EUINavigation = EUINavigation(7);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EUINavigationRule(pub u8);
 impl EUINavigationRule {
@@ -706,7 +690,6 @@ impl EUINavigationRule {
     pub const CUSTOM_BOUNDARY: EUINavigationRule = EUINavigationRule(5);
     pub const INVALID: EUINavigationRule = EUINavigationRule(6);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ESlatePostRT(pub u8);
 impl ESlatePostRT {
@@ -719,7 +702,6 @@ impl ESlatePostRT {
     pub const ALL: ESlatePostRT = ESlatePostRT(31);
     pub const NUM: ESlatePostRT = ESlatePostRT(5);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EFontRasterizationMode(pub u8);
 impl EFontRasterizationMode {
@@ -728,14 +710,12 @@ impl EFontRasterizationMode {
     pub const SDF: EFontRasterizationMode = EFontRasterizationMode(2);
     pub const SDF_APPROXIMATION: EFontRasterizationMode = EFontRasterizationMode(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EOrientation(pub u8);
 impl EOrientation {
     pub const ORIENT_HORIZONTAL: EOrientation = EOrientation(0);
     pub const ORIENT_VERTICAL: EOrientation = EOrientation(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EWidgetClipping(pub u8);
 impl EWidgetClipping {
@@ -745,7 +725,6 @@ impl EWidgetClipping {
     pub const CLIP_TO_BOUNDS_ALWAYS: EWidgetClipping = EWidgetClipping(3);
     pub const ON_DEMAND: EWidgetClipping = EWidgetClipping(4);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMenuPlacement(pub u8);
 impl EMenuPlacement {
@@ -763,7 +742,6 @@ impl EMenuPlacement {
     pub const MENU_PLACEMENT_RIGHT_LEFT_CENTER: EMenuPlacement = EMenuPlacement(11);
     pub const MENU_PLACEMENT_MATCH_BOTTOM_LEFT: EMenuPlacement = EMenuPlacement(12);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EColorVisionDeficiency(pub u8);
 impl EColorVisionDeficiency {
@@ -772,7 +750,6 @@ impl EColorVisionDeficiency {
     pub const PROTANOPE: EColorVisionDeficiency = EColorVisionDeficiency(2);
     pub const TRITANOPE: EColorVisionDeficiency = EColorVisionDeficiency(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EButtonClickMethod(pub u8);
 impl EButtonClickMethod {
@@ -781,7 +758,6 @@ impl EButtonClickMethod {
     pub const MOUSE_UP: EButtonClickMethod = EButtonClickMethod(2);
     pub const PRECISE_CLICK: EButtonClickMethod = EButtonClickMethod(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EButtonPressMethod(pub u8);
 impl EButtonPressMethod {
@@ -789,7 +765,6 @@ impl EButtonPressMethod {
     pub const BUTTON_PRESS: EButtonPressMethod = EButtonPressMethod(1);
     pub const BUTTON_RELEASE: EButtonPressMethod = EButtonPressMethod(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EButtonTouchMethod(pub u8);
 impl EButtonTouchMethod {
@@ -797,7 +772,6 @@ impl EButtonTouchMethod {
     pub const DOWN: EButtonTouchMethod = EButtonTouchMethod(1);
     pub const PRECISE_TAP: EButtonTouchMethod = EButtonTouchMethod(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EConsumeMouseWheel(pub u8);
 impl EConsumeMouseWheel {
@@ -805,7 +779,6 @@ impl EConsumeMouseWheel {
     pub const ALWAYS: EConsumeMouseWheel = EConsumeMouseWheel(1);
     pub const NEVER: EConsumeMouseWheel = EConsumeMouseWheel(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EUINavigationAction(pub u8);
 impl EUINavigationAction {
@@ -814,7 +787,6 @@ impl EUINavigationAction {
     pub const NUM: EUINavigationAction = EUINavigationAction(2);
     pub const INVALID: EUINavigationAction = EUINavigationAction(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EFlowDirectionPreference(pub u8);
 impl EFlowDirectionPreference {
@@ -823,7 +795,6 @@ impl EFlowDirectionPreference {
     pub const LEFT_TO_RIGHT: EFlowDirectionPreference = EFlowDirectionPreference(2);
     pub const RIGHT_TO_LEFT: EFlowDirectionPreference = EFlowDirectionPreference(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EWidgetPixelSnapping(pub u8);
 impl EWidgetPixelSnapping {
@@ -831,7 +802,6 @@ impl EWidgetPixelSnapping {
     pub const DISABLED: EWidgetPixelSnapping = EWidgetPixelSnapping(1);
     pub const SNAP_TO_PIXEL: EWidgetPixelSnapping = EWidgetPixelSnapping(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ESelectInfo(pub u8);
 impl ESelectInfo {
@@ -840,7 +810,6 @@ impl ESelectInfo {
     pub const ON_MOUSE_CLICK: ESelectInfo = ESelectInfo(2);
     pub const DIRECT: ESelectInfo = ESelectInfo(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ETextCommit(pub u8);
 impl ETextCommit {
@@ -849,7 +818,6 @@ impl ETextCommit {
     pub const ON_USER_MOVED_FOCUS: ETextCommit = ETextCommit(2);
     pub const ON_CLEARED: ETextCommit = ETextCommit(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EWidgetNavigationRoutingPolicy(pub u8);
 impl EWidgetNavigationRoutingPolicy {
@@ -885,7 +853,6 @@ impl EWidgetNavigationRoutingPolicy {
         0,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EFontLayoutMethod(pub u8);
 impl EFontLayoutMethod {

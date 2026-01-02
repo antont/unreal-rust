@@ -5,133 +5,184 @@
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[repr(C, align(8))]
-pub struct FAnimNode_PreviewRetargetPose {}
+pub struct FAnimNode_PreviewRetargetPose {
+    __padding_end: [u8; 224],
+}
+impl FAnimNode_PreviewRetargetPose {}
 #[repr(C, align(16))]
-pub struct FIKRetargetAnimInstanceProxy {}
+pub struct UIKRigStructViewer {
+    __padding_end: [u8; 208],
+}
+impl UIKRigStructViewer {}
 #[repr(C, align(16))]
-pub struct FIKRigAnimInstanceProxy {}
-#[repr(C, align(8))]
-pub struct FIKRigStructWrapperBucket {
-    pub items: TArray<UPtr<UIKRigStructWrapperBase>>,
+pub struct UIKRigStructWrapperBase {
+    __padding_end: [u8; 256],
 }
-#[repr(C, align(8))]
-pub struct FIKRigStructWrapperPool {
-    pub creation_outer: TWeakObjectPtr<crate::bindings::core_u_object::UObject>,
-    pub pool: TMap<TSubclassOf<UIKRigStructWrapperBase>, FIKRigStructWrapperBucket>,
-}
-#[repr(C, align(8))]
-pub struct FIKRigHierarchyImportSettings {
-    pub mesh: UPtr<crate::bindings::engine::USkeletalMesh>,
-}
-#[repr(C, align(4))]
-pub struct FIKRigRetargetChainSettings {
-    pub chain_name: FName,
-    pub start_bone: FName,
-    pub end_bone: FName,
-}
-pub struct UIKRigStructViewer {}
-pub struct UIKRigStructWrapperBase {}
+impl UIKRigStructWrapperBase {}
+#[repr(C, align(16))]
 pub struct UBodyMoverSettingsWrapper {
-    pub settings: crate::bindings::ik_rig::FIKRigBodyMoverSettings,
+    __padding_end: [u8; 320],
 }
+impl UBodyMoverSettingsWrapper {}
+#[repr(C, align(16))]
 pub struct UBodyMoverGoalSettingsWrapper {
-    pub settings: crate::bindings::ik_rig::FIKRigBodyMoverGoalSettings,
+    __padding_end: [u8; 288],
 }
+impl UBodyMoverGoalSettingsWrapper {}
+#[repr(C, align(16))]
 pub struct UFBIKSettingsWrapper {
-    pub settings: crate::bindings::ik_rig::FIKRigFBIKSettings,
+    __padding_end: [u8; 336],
 }
+impl UFBIKSettingsWrapper {}
+#[repr(C, align(16))]
 pub struct UFBIKGoalSettingsWrapper {
-    pub settings: crate::bindings::ik_rig::FIKRigFBIKGoalSettings,
+    __padding_end: [u8; 304],
 }
+impl UFBIKGoalSettingsWrapper {}
+#[repr(C, align(16))]
 pub struct UFBIKBoneSettingsWrapper {
-    pub settings: crate::bindings::ik_rig::FIKRigFBIKBoneSettings,
+    __padding_end: [u8; 352],
 }
+impl UFBIKBoneSettingsWrapper {}
+#[repr(C, align(16))]
 pub struct ULimbSolverSettingsWrapper {
-    pub settings: crate::bindings::ik_rig::FIKRigLimbSolverSettings,
+    __padding_end: [u8; 336],
 }
+impl ULimbSolverSettingsWrapper {}
+#[repr(C, align(16))]
 pub struct UPoleSolverSettingsWrapper {
-    pub settings: crate::bindings::ik_rig::FIKRigPoleSolverSettings,
+    __padding_end: [u8; 304],
 }
+impl UPoleSolverSettingsWrapper {}
+#[repr(C, align(16))]
 pub struct USetTransformSettingsWrapper {
-    pub settings: crate::bindings::ik_rig::FIKRigSetTransformSettings,
+    __padding_end: [u8; 304],
 }
+impl USetTransformSettingsWrapper {}
+#[repr(C, align(16))]
 pub struct UStretchLimbSettingsWrapper {
-    pub settings: crate::bindings::ik_rig::FIKRigStretchLimbSettings,
+    __padding_end: [u8; 352],
 }
+impl UStretchLimbSettingsWrapper {}
+#[repr(C, align(16))]
 pub struct UStretchLimbBoneSettingsWrapper {
-    pub settings: crate::bindings::ik_rig::FIKRigStretchLimbBoneSettings,
+    __padding_end: [u8; 304],
 }
+impl UStretchLimbBoneSettingsWrapper {}
+#[repr(C, align(16))]
 pub struct UIKRetargetAnimInstance {
-    pub preview_pose_node: FAnimNode_PreviewRetargetPose,
-    pub retarget_node: crate::bindings::ik_rig::FAnimNode_RetargetPoseFromMesh,
+    __padding_end: [u8; 2512],
 }
-pub struct UIKRetargetBatchOperation {}
+impl UIKRetargetAnimInstance {}
+#[repr(C, align(8))]
+pub struct UIKRetargetBatchOperation {
+    __padding_end: [u8; 320],
+}
+impl UIKRetargetBatchOperation {}
+#[repr(C, align(16))]
 pub struct UIKRetargetBoneDetails {
-    pub selected_bone: FName,
-    pub local_transform: crate::bindings::core_u_object::FTransform,
-    pub offset_transform: crate::bindings::core_u_object::FTransform,
-    pub current_transform: crate::bindings::core_u_object::FTransform,
-    pub reference_transform: crate::bindings::core_u_object::FTransform,
+    __padding_end: [u8; 480],
 }
+impl UIKRetargetBoneDetails {}
+#[repr(C, align(8))]
 pub struct UIKRetargeterController {
-    pub struct_viewer: UPtr<UIKRigStructViewer>,
+    __padding_end: [u8; 248],
 }
-pub struct UIKRetargeterThumbnailRenderer {}
+impl UIKRetargeterController {}
+#[repr(C, align(8))]
+pub struct UIKRetargeterThumbnailRenderer {
+    __padding_end: [u8; 136],
+}
+impl UIKRetargeterThumbnailRenderer {}
+#[repr(C, align(8))]
 pub struct UIKRetargetFactory {
-    pub source_ik_rig: TWeakObjectPtr<crate::bindings::ik_rig::UIKRigDefinition>,
+    __padding_end: [u8; 144],
 }
+impl UIKRetargetFactory {}
+#[repr(C, align(16))]
 pub struct URetargetFKChainSettingsWrapper {
-    pub settings: crate::bindings::ik_rig::FRetargetFKChainSettings,
+    __padding_end: [u8; 288],
 }
+impl URetargetFKChainSettingsWrapper {}
+#[repr(C, align(16))]
 pub struct URetargetIKChainSettingsWrapper {
-    pub settings: crate::bindings::ik_rig::FRetargetIKChainSettings,
+    __padding_end: [u8; 416],
 }
+impl URetargetIKChainSettingsWrapper {}
+#[repr(C, align(16))]
 pub struct URetargetStrideWarpSettingsWrapper {
-    pub settings: crate::bindings::ik_rig::FRetargetStrideWarpChainSettings,
+    __padding_end: [u8; 272],
 }
+impl URetargetStrideWarpSettingsWrapper {}
+#[repr(C, align(16))]
 pub struct URetargetSpeedPlantSettingsWrapper {
-    pub settings: crate::bindings::ik_rig::FRetargetSpeedPlantingSettings,
+    __padding_end: [u8; 272],
 }
+impl URetargetSpeedPlantSettingsWrapper {}
+#[repr(C, align(16))]
 pub struct UPoleVectorSettingsWrapper {
-    pub settings: crate::bindings::ik_rig::FRetargetPoleVectorSettings,
+    __padding_end: [u8; 288],
 }
+impl UPoleVectorSettingsWrapper {}
+#[repr(C, align(16))]
 pub struct URetargetPoseOpSettingsWrapper {
-    pub settings: crate::bindings::ik_rig::FIKRetargetAdditivePoseOpSettings,
+    __padding_end: [u8; 336],
 }
+impl URetargetPoseOpSettingsWrapper {}
+#[repr(C, align(16))]
 pub struct UStretchChainSettingsWrapper {
-    pub settings: crate::bindings::ik_rig::FRetargetStretchChainSettings,
+    __padding_end: [u8; 288],
 }
+impl UStretchChainSettingsWrapper {}
+#[repr(C, align(16))]
 pub struct UFloorConstraintSettingsWrapper {
-    pub settings: crate::bindings::ik_rig::FFloorConstraintChainSettings,
+    __padding_end: [u8; 288],
 }
+impl UFloorConstraintSettingsWrapper {}
+#[repr(C, align(8))]
 pub struct UBatchExportOptions {
-    pub b_overwrite_existing_files: bool,
+    #[doc(hidden)]
+    __padding_49: [u8; 49],
     pub b_include_referenced_assets: bool,
     pub b_retain_additive_flags: bool,
+    __padding_end: [u8; 5],
 }
+impl UBatchExportOptions {}
+#[repr(C, align(8))]
 pub struct UBatchRetargetSettings {
+    #[doc(hidden)]
+    __padding_48: [u8; 48],
     pub source_skeletal_mesh: UPtr<crate::bindings::engine::USkeletalMesh>,
     pub target_skeletal_mesh: UPtr<crate::bindings::engine::USkeletalMesh>,
     pub b_auto_generate_retargeter: bool,
     pub retarget_asset: UPtr<crate::bindings::ik_rig::UIKRetargeter>,
 }
+impl UBatchRetargetSettings {}
+#[repr(C, align(16))]
 pub struct UIKRigAnimInstance {
-    pub ik_rig_node: crate::bindings::ik_rig::FAnimNode_IKRig,
+    __padding_end: [u8; 2112],
 }
+impl UIKRigAnimInstance {}
+#[repr(C, align(8))]
 pub struct UIKRigController {
-    pub asset: UPtr<crate::bindings::ik_rig::UIKRigDefinition>,
-    pub struct_viewer_pool: FIKRigStructWrapperPool,
+    __padding_end: [u8; 296],
 }
-pub struct UIKRigDefinitionFactory {}
+impl UIKRigController {}
+#[repr(C, align(8))]
+pub struct UIKRigDefinitionFactory {
+    __padding_end: [u8; 136],
+}
+impl UIKRigDefinitionFactory {}
+#[repr(C, align(16))]
 pub struct UIKRigBoneDetails {
-    pub selected_bone: FName,
-    pub current_transform: crate::bindings::core_u_object::FTransform,
-    pub reference_transform: crate::bindings::core_u_object::FTransform,
-    pub anim_instance_ptr: TWeakObjectPtr<crate::bindings::engine::UAnimInstance>,
-    pub asset_ptr: TWeakObjectPtr<crate::bindings::ik_rig::UIKRigDefinition>,
+    __padding_end: [u8; 272],
 }
-pub struct UIKRigThumbnailRenderer {}
-#[allow(non_camel_case_types)]
+impl UIKRigBoneDetails {}
+#[repr(C, align(8))]
+pub struct UIKRigThumbnailRenderer {
+    __padding_end: [u8; 136],
+}
+impl UIKRigThumbnailRenderer {}
 #[repr(transparent)]
 pub struct ERetargetAutoAlignMethod(pub u8);
 impl ERetargetAutoAlignMethod {

@@ -4,16 +4,21 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
-pub struct USpeedTreeImportFactory {}
-pub struct UReimportSpeedTreeFactory {}
-pub struct USpeedTreeImportData {
-    pub tree_scale: f32,
-    pub import_geometry_type: EImportGeometryType,
-    pub lod_type: EImportLODType,
-    pub flags_104: u8,
-    pub flags_105: u8,
+#[repr(C, align(8))]
+pub struct USpeedTreeImportFactory {
+    __padding_end: [u8; 232],
 }
-#[allow(non_camel_case_types)]
+impl USpeedTreeImportFactory {}
+#[repr(C, align(8))]
+pub struct UReimportSpeedTreeFactory {
+    __padding_end: [u8; 272],
+}
+impl UReimportSpeedTreeFactory {}
+#[repr(C, align(8))]
+pub struct USpeedTreeImportData {
+    __padding_end: [u8; 112],
+}
+impl USpeedTreeImportData {}
 #[repr(transparent)]
 pub struct EImportGeometryType(pub u8);
 impl EImportGeometryType {
@@ -21,7 +26,6 @@ impl EImportGeometryType {
     pub const IGT_BILLBOARDS: EImportGeometryType = EImportGeometryType(1);
     pub const IGT_BOTH: EImportGeometryType = EImportGeometryType(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EImportLODType(pub u8);
 impl EImportLODType {

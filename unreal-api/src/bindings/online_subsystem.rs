@@ -5,22 +5,12 @@
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[repr(C, align(8))]
-pub struct FNamedInterface {
-    pub interface_name: FName,
-    pub interface_object: UPtr<crate::bindings::core_u_object::UObject>,
-}
-#[repr(C, align(8))]
-pub struct FNamedInterfaceDef {
-    pub interface_name: FName,
-    pub interface_class_name: FString,
-}
 pub struct UNamedInterfaces {
-    pub named_interfaces: TArray<FNamedInterface>,
-    pub named_interface_defs: TArray<FNamedInterfaceDef>,
+    __padding_end: [u8; 112],
 }
+impl UNamedInterfaces {}
 pub struct UTurnBasedMatchInterface {}
 pub struct ITurnBasedMatchInterface {}
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMPMatchOutcome(pub u8);
 impl EMPMatchOutcome {

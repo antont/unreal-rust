@@ -12,29 +12,42 @@ pub struct FTypedElementSelectionOptions {
     pub b_warn_if_locked: bool,
     pub b_allow_sub_root_selection: bool,
     pub child_element_inclusion_method: ETypedElementChildInclusionMethod,
+    __padding_end: [u8; 14],
 }
+impl FTypedElementSelectionOptions {}
 #[repr(C, align(8))]
 pub struct FTypedElementSelectionSetState {
-    pub created_from_selection_set: TWeakObjectPtr<UTypedElementSelectionSet>,
+    __padding_end: [u8; 24],
 }
+impl FTypedElementSelectionSetState {}
 #[repr(C, align(4))]
 pub struct FTypedElementIsSelectedOptions {
     pub b_allow_indirect: bool,
+    __padding_end: [u8; 15],
 }
+impl FTypedElementIsSelectedOptions {}
 #[repr(C, align(4))]
 pub struct FTypedElementSelectionNormalizationOptions {
     pub b_expand_groups: bool,
     pub b_follow_attachment: bool,
+    __padding_end: [u8; 14],
 }
+impl FTypedElementSelectionNormalizationOptions {}
 #[repr(C, align(1))]
 pub struct FTypedElementAssetDataReferencedOptions {
     pub b_only_top_level_asset: bool,
 }
-pub struct UTypedElementSelectionSetLibrary {}
-pub struct UTypedElementSelectionSet {
-    pub on_pre_selection_change: FTypedElementSelectionSet_OnPreSelectionChange,
-    pub on_selection_change: FTypedElementSelectionSet_OnSelectionChange,
+impl FTypedElementAssetDataReferencedOptions {}
+#[repr(C, align(8))]
+pub struct UTypedElementSelectionSetLibrary {
+    __padding_end: [u8; 48],
 }
+impl UTypedElementSelectionSetLibrary {}
+#[repr(C, align(8))]
+pub struct UTypedElementSelectionSet {
+    __padding_end: [u8; 2256],
+}
+impl UTypedElementSelectionSet {}
 pub struct UTypedElementAssetDataInterface {}
 pub struct ITypedElementAssetDataInterface {}
 pub struct UTypedElementHierarchyInterface {}
@@ -45,9 +58,14 @@ pub struct UTypedElementPrimitiveCustomDataInterface {}
 pub struct ITypedElementPrimitiveCustomDataInterface {}
 pub struct UTypedElementSelectionInterface {}
 pub struct ITypedElementSelectionInterface {}
-pub struct FTypedElementSelectionSet_OnPreSelectionChange;
-pub struct FTypedElementSelectionSet_OnSelectionChange;
-#[allow(non_camel_case_types)]
+#[repr(transparent)]
+pub struct FTypedElementSelectionSet_OnPreSelectionChange {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FTypedElementSelectionSet_OnSelectionChange {
+    _opague: u8,
+}
 #[repr(transparent)]
 pub struct ETypedElementChildInclusionMethod(pub u8);
 impl ETypedElementChildInclusionMethod {
@@ -61,7 +79,6 @@ impl ETypedElementChildInclusionMethod {
         2,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ETypedElementSelectionMethod(pub u8);
 impl ETypedElementSelectionMethod {

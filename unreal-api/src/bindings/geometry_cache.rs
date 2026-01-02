@@ -4,87 +4,84 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
-#[repr(C, align(16))]
-pub struct FTrackRenderData {}
-#[repr(C, align(4))]
-pub struct FGeometryCacheMeshBatchInfo {}
-#[repr(C, align(1))]
-pub struct FGeometryCacheVertexInfo {}
 #[repr(C, align(8))]
-pub struct FGeometryCacheMeshData {}
-#[repr(C, align(8))]
-pub struct FNiagaraGeometryCacheMICOverride {
-    pub original_material: UPtr<crate::bindings::engine::UMaterialInterface>,
-    pub replacement_material: UPtr<crate::bindings::engine::UMaterialInstanceConstant>,
-}
-#[repr(C, align(8))]
-pub struct FNiagaraGeometryCacheReference {
-    pub geometry_cache: UPtr<UGeometryCache>,
-    pub geometry_cache_user_param_binding: crate::bindings::niagara::FNiagaraUserParameterBinding,
-    pub override_materials: TArray<UPtr<crate::bindings::engine::UMaterialInterface>>,
-    pub mic_override_materials: TArray<FNiagaraGeometryCacheMICOverride>,
-}
 pub struct UGeometryCache {
-    pub asset_import_data: UPtr<crate::bindings::engine::UAssetImportData>,
-    pub thumbnail_info: UPtr<crate::bindings::engine::UThumbnailInfo>,
+    #[doc(hidden)]
+    __padding_72: [u8; 72],
     pub materials: TArray<UPtr<crate::bindings::engine::UMaterialInterface>>,
     pub material_slot_names: TArray<FName>,
-    pub tracks: TArray<UPtr<UGeometryCacheTrack>>,
-    pub asset_user_data: TArray<UPtr<crate::bindings::engine::UAssetUserData>>,
+    #[doc(hidden)]
+    __padding_168: [u8; 64],
     pub start_frame: i32,
     pub end_frame: i32,
-    pub hash: u64,
+    __padding_end: [u8; 8],
 }
+impl UGeometryCache {}
+#[repr(C, align(8))]
 pub struct AGeometryCacheActor {
+    #[doc(hidden)]
+    __padding_1136: [u8; 1136],
     pub geometry_cache_component: UPtr<UGeometryCacheComponent>,
 }
+impl AGeometryCacheActor {}
+#[repr(C, align(8))]
 pub struct UGeometryCacheCodecBase {
-    pub topology_ranges: TArray<i32>,
+    __padding_end: [u8; 72],
 }
+impl UGeometryCacheCodecBase {}
+#[repr(C, align(8))]
 pub struct UGeometryCacheCodecRaw {
-    pub dummy_property: i32,
+    __padding_end: [u8; 96],
 }
-pub struct UGeometryCacheCodecV1 {}
+impl UGeometryCacheCodecRaw {}
+#[repr(C, align(8))]
+pub struct UGeometryCacheCodecV1 {
+    __padding_end: [u8; 112],
+}
+impl UGeometryCacheCodecV1 {}
+#[repr(C, align(16))]
 pub struct UGeometryCacheComponent {
+    #[doc(hidden)]
+    __padding_1576: [u8; 1576],
     pub geometry_cache: UPtr<UGeometryCache>,
     pub b_running: bool,
     pub b_looping: bool,
-    pub b_extrapolate_frames: bool,
     pub start_time_offset: f32,
     pub playback_speed: f32,
     pub motion_vector_scale: f32,
-    pub num_tracks: i32,
-    pub elapsed_time: f32,
+    #[doc(hidden)]
+    __padding_1684: [u8; 84],
     pub duration: f32,
-    pub b_manual_tick: bool,
-    pub b_override_wireframe_color: bool,
-    pub wireframe_override_color: crate::bindings::core_u_object::FLinearColor,
+    __padding_end: [u8; 24],
 }
+impl UGeometryCacheComponent {}
+#[repr(C, align(8))]
 pub struct UGeometryCacheTrack {
-    pub duration: f32,
+    __padding_end: [u8; 96],
 }
+impl UGeometryCacheTrack {}
+#[repr(C, align(8))]
 pub struct UDEPRECATED_GeometryCacheTrack_FlipbookAnimation {
-    pub num_mesh_samples: u32,
+    __padding_end: [u8; 136],
 }
+impl UDEPRECATED_GeometryCacheTrack_FlipbookAnimation {}
+#[repr(C, align(8))]
 pub struct UGeometryCacheTrackStreamable {
-    pub codec: UPtr<UGeometryCacheCodecBase>,
-    pub start_sample_time: f32,
+    __padding_end: [u8; 256],
 }
-pub struct UDEPRECATED_GeometryCacheTrack_TransformAnimation {}
-pub struct UDEPRECATED_GeometryCacheTrack_TransformGroupAnimation {}
+impl UGeometryCacheTrackStreamable {}
+#[repr(C, align(8))]
+pub struct UDEPRECATED_GeometryCacheTrack_TransformAnimation {
+    __padding_end: [u8; 312],
+}
+impl UDEPRECATED_GeometryCacheTrack_TransformAnimation {}
+#[repr(C, align(8))]
+pub struct UDEPRECATED_GeometryCacheTrack_TransformGroupAnimation {
+    __padding_end: [u8; 312],
+}
+impl UDEPRECATED_GeometryCacheTrack_TransformGroupAnimation {}
+#[repr(C, align(8))]
 pub struct UNiagaraGeometryCacheRendererProperties {
-    pub geometry_caches: TArray<FNiagaraGeometryCacheReference>,
-    pub source_mode: crate::bindings::niagara::ENiagaraRendererSourceDataMode,
-    pub b_is_looping: bool,
-    pub component_count_limit: u32,
-    pub position_binding: crate::bindings::niagara::FNiagaraVariableAttributeBinding,
-    pub rotation_binding: crate::bindings::niagara::FNiagaraVariableAttributeBinding,
-    pub scale_binding: crate::bindings::niagara::FNiagaraVariableAttributeBinding,
-    pub elapsed_time_binding: crate::bindings::niagara::FNiagaraVariableAttributeBinding,
-    pub enabled_binding: crate::bindings::niagara::FNiagaraVariableAttributeBinding,
-    pub array_index_binding: crate::bindings::niagara::FNiagaraVariableAttributeBinding,
-    pub renderer_visibility_tag_binding: crate::bindings::niagara::FNiagaraVariableAttributeBinding,
-    pub renderer_visibility: i32,
-    pub b_assign_components_on_particle_id: bool,
-    pub material_parameters: crate::bindings::niagara::FNiagaraRendererMaterialParameters,
+    __padding_end: [u8; 3576],
 }
+impl UNiagaraGeometryCacheRendererProperties {}

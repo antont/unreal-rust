@@ -5,100 +5,120 @@
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[repr(C, align(8))]
-pub struct FPerTypeFavoriteUserAssetTags {
-    pub favorite_user_asset_tags: TSet<FName>,
+pub struct UAssetDefinition_TaggedAssetBrowserConfiguration {
+    __padding_end: [u8; 72],
 }
+impl UAssetDefinition_TaggedAssetBrowserConfiguration {}
 #[repr(C, align(8))]
-pub struct FPerTaggedAssetBrowserSavedState {
-    pub primary_filter_selection: TArray<FName>,
-}
-#[repr(C, align(1))]
-pub struct FTaggedAssetBrowserConfigurationDataBase {}
-#[repr(C, align(8))]
-pub struct FTaggedAssetBrowserConfigurationData_Standalone {
-    pub b_display_all_section: bool,
-    pub standalone_filter_classes: TArray<TSubclassOf<UTaggedAssetBrowserFilterBase>>,
-    pub extension_filter_classes: TArray<TSubclassOf<UTaggedAssetBrowserFilterBase>>,
-}
-#[repr(C, align(1))]
-pub struct FTaggedAssetBrowserConfigurationData_Extension {}
-#[repr(C, align(16))]
-pub struct FTaggedAssetBrowserSectionIconData {
-    pub b_use_texture_for_icon: bool,
-    pub style_name: FName,
-    pub icon: UPtr<crate::bindings::engine::UTexture2D>,
-}
-#[repr(C, align(4))]
-pub struct FPerUserAssetTagProviderViewOptions {
-    pub b_enabled: bool,
-    pub menu_type: EUserAssetTagProviderMenuType,
-}
-#[repr(C, align(8))]
-pub struct FUserAssetTagProviderViewOptions {
-    pub per_provider_view_options: TMap<FName, FPerUserAssetTagProviderViewOptions>,
-}
-pub struct UAssetDefinition_TaggedAssetBrowserConfiguration {}
 pub struct UAssetEditor_TaggedAssetBrowserConfiguration {
-    pub object_to_edit: UPtr<crate::bindings::core_u_object::UObject>,
+    __padding_end: [u8; 72],
 }
+impl UAssetEditor_TaggedAssetBrowserConfiguration {}
+#[repr(C, align(8))]
 pub struct ULocalFavoriteUserAssetTagsConfig {
-    pub favorite_user_asset_tags_per_class: TMap<
-        crate::bindings::core_u_object::FSoftClassPath,
-        FPerTypeFavoriteUserAssetTags,
-    >,
-    pub max_recent_user_asset_tags: i32,
+    __padding_end: [u8; 136],
 }
+impl ULocalFavoriteUserAssetTagsConfig {}
+#[repr(C, align(8))]
 pub struct UProjectUserAssetTagSettings {
-    pub user_asset_tags_per_type: TMap<
-        crate::bindings::core_u_object::FSoftClassPath,
-        FPerTypeFavoriteUserAssetTags,
-    >,
+    __padding_end: [u8; 184],
 }
+impl UProjectUserAssetTagSettings {}
+#[repr(C, align(8))]
 pub struct UTaggedAssetBrowserConfig {
-    pub per_tagged_asset_browser_settings: TMap<FName, FPerTaggedAssetBrowserSavedState>,
-    pub b_show_hidden_assets: bool,
-    pub b_show_deprecated_assets: bool,
+    __padding_end: [u8; 168],
 }
+impl UTaggedAssetBrowserConfig {}
+#[repr(C, align(8))]
 pub struct UTaggedAssetBrowserConfiguration {
-    pub profile_name: FName,
-    pub b_is_extension: bool,
-    pub standalone_data: FTaggedAssetBrowserConfigurationData_Standalone,
-    pub extension_data: FTaggedAssetBrowserConfigurationData_Extension,
-    pub filter_root: UPtr<UTaggedAssetBrowserFilterRoot>,
+    __padding_end: [u8; 120],
 }
-pub struct UTaggedAssetBrowserConfigurationFactory {}
-pub struct UTaggedAssetBrowserConfigurationHierarchyViewModel {}
-pub struct UTaggedAssetBrowserFilterBase {}
-pub struct UTaggedAssetBrowserFilterRoot {}
+impl UTaggedAssetBrowserConfiguration {}
+#[repr(C, align(8))]
+pub struct UTaggedAssetBrowserConfigurationFactory {
+    __padding_end: [u8; 136],
+}
+impl UTaggedAssetBrowserConfigurationFactory {}
+#[repr(C, align(8))]
+pub struct UTaggedAssetBrowserConfigurationHierarchyViewModel {
+    __padding_end: [u8; 512],
+}
+impl UTaggedAssetBrowserConfigurationHierarchyViewModel {}
+#[repr(C, align(8))]
+pub struct UTaggedAssetBrowserFilterBase {
+    __padding_end: [u8; 264],
+}
+impl UTaggedAssetBrowserFilterBase {}
+#[repr(C, align(8))]
+pub struct UTaggedAssetBrowserFilterRoot {
+    __padding_end: [u8; 208],
+}
+impl UTaggedAssetBrowserFilterRoot {}
+#[repr(C, align(16))]
 pub struct UTaggedAssetBrowserSection {
-    pub icon_data: FTaggedAssetBrowserSectionIconData,
-    pub filters: TArray<UPtr<UTaggedAssetBrowserFilterBase>>,
+    __padding_end: [u8; 480],
 }
-pub struct UTaggedAssetBrowserFilter_All {}
+impl UTaggedAssetBrowserSection {}
+#[repr(C, align(8))]
+pub struct UTaggedAssetBrowserFilter_All {
+    __padding_end: [u8; 264],
+}
+impl UTaggedAssetBrowserFilter_All {}
+#[repr(C, align(8))]
 pub struct UTaggedAssetBrowserFilter_UserAssetTag {
-    pub user_asset_tag: FName,
+    __padding_end: [u8; 280],
 }
+impl UTaggedAssetBrowserFilter_UserAssetTag {}
+#[repr(C, align(8))]
 pub struct UTaggedAssetBrowserFilter_UserAssetTagCollection {
-    pub name: FName,
-    pub description: FText,
+    __padding_end: [u8; 296],
 }
-pub struct UTaggedAssetBrowserFilter_Recent {}
+impl UTaggedAssetBrowserFilter_UserAssetTagCollection {}
+#[repr(C, align(8))]
+pub struct UTaggedAssetBrowserFilter_Recent {
+    __padding_end: [u8; 304],
+}
+impl UTaggedAssetBrowserFilter_Recent {}
+#[repr(C, align(8))]
 pub struct UTaggedAssetBrowserFilter_Directories {
-    pub directory_paths: TArray<crate::bindings::core_u_object::FDirectoryPath>,
+    __padding_end: [u8; 280],
 }
+impl UTaggedAssetBrowserFilter_Directories {}
+#[repr(C, align(8))]
 pub struct UTaggedAssetBrowserFilter_Class {
-    pub classes: TArray<TSubclassOf<crate::bindings::core_u_object::UObject>>,
+    __padding_end: [u8; 280],
 }
-pub struct UUserAssetTagEditorContext {}
-pub struct UTaggedAssetBrowserMenuContext {}
-pub struct UUserAssetTagProvider {}
-pub struct UUserAssetTagProvider_LocalAssetTypeFavorites {}
-pub struct UUserAssetTagProvider_Project {}
+impl UTaggedAssetBrowserFilter_Class {}
+#[repr(C, align(8))]
+pub struct UUserAssetTagEditorContext {
+    __padding_end: [u8; 64],
+}
+impl UUserAssetTagEditorContext {}
+#[repr(C, align(8))]
+pub struct UTaggedAssetBrowserMenuContext {
+    __padding_end: [u8; 64],
+}
+impl UTaggedAssetBrowserMenuContext {}
+#[repr(C, align(8))]
+pub struct UUserAssetTagProvider {
+    __padding_end: [u8; 48],
+}
+impl UUserAssetTagProvider {}
+#[repr(C, align(8))]
+pub struct UUserAssetTagProvider_LocalAssetTypeFavorites {
+    __padding_end: [u8; 48],
+}
+impl UUserAssetTagProvider_LocalAssetTypeFavorites {}
+#[repr(C, align(8))]
+pub struct UUserAssetTagProvider_Project {
+    __padding_end: [u8; 48],
+}
+impl UUserAssetTagProvider_Project {}
+#[repr(C, align(8))]
 pub struct UUserAssetTagsEditorConfig {
-    pub b_sort_by_alphabet: bool,
-    pub provider_view_options: FUserAssetTagProviderViewOptions,
+    __padding_end: [u8; 136],
 }
-#[allow(non_camel_case_types)]
+impl UUserAssetTagsEditorConfig {}
 #[repr(transparent)]
 pub struct EUserAssetTagProviderMenuType(pub i32);
 impl EUserAssetTagProviderMenuType {

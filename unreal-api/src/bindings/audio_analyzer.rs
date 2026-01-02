@@ -4,19 +4,41 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
-pub struct UAudioAnalyzerAssetBase {}
-pub struct UAudioAnalyzerSettings {}
-pub struct UAudioAnalyzer {
-    pub audio_bus: UPtr<crate::bindings::engine::UAudioBus>,
-    pub audio_analyzer_subsystem: UPtr<UAudioAnalyzerSubsystem>,
+#[repr(C, align(8))]
+pub struct UAudioAnalyzerAssetBase {
+    __padding_end: [u8; 48],
 }
-pub struct UAudioAnalyzerNRTSettings {}
+impl UAudioAnalyzerAssetBase {}
+#[repr(C, align(8))]
+pub struct UAudioAnalyzerSettings {
+    __padding_end: [u8; 48],
+}
+impl UAudioAnalyzerSettings {}
+#[repr(C, align(8))]
+pub struct UAudioAnalyzer {
+    __padding_end: [u8; 168],
+}
+impl UAudioAnalyzer {}
+#[repr(C, align(8))]
+pub struct UAudioAnalyzerNRTSettings {
+    __padding_end: [u8; 80],
+}
+impl UAudioAnalyzerNRTSettings {}
+#[repr(C, align(8))]
 pub struct UAudioAnalyzerNRT {
+    #[doc(hidden)]
+    __padding_48: [u8; 48],
     pub sound: UPtr<crate::bindings::engine::USoundWave>,
     pub duration_in_seconds: f32,
-    pub on_analysis_complete: FAudioAnalyzerNRT_OnAnalysisComplete,
+    __padding_end: [u8; 172],
 }
+impl UAudioAnalyzerNRT {}
+#[repr(C, align(8))]
 pub struct UAudioAnalyzerSubsystem {
-    pub audio_analyzers: TArray<UPtr<UAudioAnalyzer>>,
+    __padding_end: [u8; 88],
 }
-pub struct FAudioAnalyzerNRT_OnAnalysisComplete;
+impl UAudioAnalyzerSubsystem {}
+#[repr(transparent)]
+pub struct FAudioAnalyzerNRT_OnAnalysisComplete {
+    _opague: u8,
+}

@@ -4,27 +4,43 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
+#[repr(C, align(8))]
 pub struct UInterchangeResultMeshWarning {
-    pub mesh_name: FString,
+    __padding_end: [u8; 136],
 }
+impl UInterchangeResultMeshWarning {}
+#[repr(C, align(8))]
 pub struct UInterchangeResultTextureDisplay {
-    pub texture_name: FString,
+    __padding_end: [u8; 152],
 }
+impl UInterchangeResultTextureDisplay {}
+#[repr(C, align(8))]
 pub struct UInterchangeResultTextureWarning {
-    pub texture_name: FString,
+    __padding_end: [u8; 136],
 }
+impl UInterchangeResultTextureWarning {}
+#[repr(C, align(8))]
 pub struct UInterchangeResultMeshError {
-    pub mesh_name: FString,
+    __padding_end: [u8; 136],
 }
+impl UInterchangeResultMeshError {}
+#[repr(C, align(8))]
 pub struct UInterchangeResultMeshWarning_Generic {
-    pub text: FText,
+    __padding_end: [u8; 152],
 }
+impl UInterchangeResultMeshWarning_Generic {}
+#[repr(C, align(8))]
 pub struct UInterchangeResultMeshError_Generic {
-    pub text: FText,
+    __padding_end: [u8; 152],
 }
+impl UInterchangeResultMeshError_Generic {}
+#[repr(C, align(8))]
 pub struct UInterchangeResultMeshWarning_TooManyUVs {
-    pub excess_u_vs: i32,
+    __padding_end: [u8; 144],
 }
+impl UInterchangeResultMeshWarning_TooManyUVs {}
+#[repr(C, align(8))]
 pub struct UInterchangeResultTextureDisplay_TextureFileDoNotExist {
-    pub material_name: FString,
+    __padding_end: [u8; 168],
 }
+impl UInterchangeResultTextureDisplay_TextureFileDoNotExist {}

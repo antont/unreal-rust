@@ -4,5 +4,13 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
-pub struct UAssetDefinition_NamingTokens {}
-pub struct UNamingTokensFactory {}
+#[repr(C, align(8))]
+pub struct UAssetDefinition_NamingTokens {
+    __padding_end: [u8; 72],
+}
+impl UAssetDefinition_NamingTokens {}
+#[repr(C, align(8))]
+pub struct UNamingTokensFactory {
+    __padding_end: [u8; 136],
+}
+impl UNamingTokensFactory {}

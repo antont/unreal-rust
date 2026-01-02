@@ -8,10 +8,14 @@ pub use crate::core_data::*;
 pub struct FCameraLookatTrackingSettings {
     pub flags_0: u8,
     pub look_at_tracking_interp_speed: f32,
+    #[doc(hidden)]
+    __padding_40: [u8; 32],
     pub actor_to_track: TSoftObjectPtr<crate::bindings::engine::AActor>,
     pub relative_offset: crate::bindings::core_u_object::FVector,
     pub flags_112: u8,
+    __padding_end: [u8; 7],
 }
+impl FCameraLookatTrackingSettings {}
 #[repr(C, align(4))]
 pub struct FCameraFilmbackSettings {
     pub sensor_width: f32,
@@ -20,12 +24,15 @@ pub struct FCameraFilmbackSettings {
     pub sensor_vertical_offset: f32,
     pub sensor_aspect_ratio: f32,
 }
+impl FCameraFilmbackSettings {}
 #[repr(C, align(8))]
 pub struct FNamedFilmbackPreset {
     pub name: FString,
     pub display_name: FText,
     pub filmback_settings: FCameraFilmbackSettings,
+    __padding_end: [u8; 4],
 }
+impl FNamedFilmbackPreset {}
 #[repr(C, align(4))]
 pub struct FCameraLensSettings {
     pub min_focal_length: f32,
@@ -36,74 +43,80 @@ pub struct FCameraLensSettings {
     pub squeeze_factor: f32,
     pub diaphragm_blade_count: i32,
 }
+impl FCameraLensSettings {}
 #[repr(C, align(8))]
 pub struct FNamedLensPreset {
     pub name: FString,
     pub lens_settings: FCameraLensSettings,
+    __padding_end: [u8; 4],
 }
+impl FNamedLensPreset {}
 #[repr(C, align(4))]
 pub struct FPlateCropSettings {
     pub aspect_ratio: f32,
 }
+impl FPlateCropSettings {}
 #[repr(C, align(8))]
 pub struct FNamedPlateCropPreset {
     pub name: FString,
     pub crop_settings: FPlateCropSettings,
+    __padding_end: [u8; 4],
 }
+impl FNamedPlateCropPreset {}
 #[repr(C, align(8))]
 pub struct FCameraTrackingFocusSettings {
     pub actor_to_track: TSoftObjectPtr<crate::bindings::engine::AActor>,
     pub relative_offset: crate::bindings::core_u_object::FVector,
     pub flags_72: u8,
+    __padding_end: [u8; 7],
 }
+impl FCameraTrackingFocusSettings {}
 #[repr(C, align(8))]
 pub struct FCameraFocusSettings {
     pub focus_method: ECameraFocusMethod,
     pub manual_focus_distance: f32,
     pub tracking_focus_settings: FCameraTrackingFocusSettings,
-    pub flags_88: u8,
-    pub debug_focus_plane_color: crate::bindings::core_u_object::FColor,
+    #[doc(hidden)]
+    __padding_96: [u8; 8],
     pub flags_96: u8,
     pub focus_smoothing_interp_speed: f32,
     pub focus_offset: f32,
+    __padding_end: [u8; 4],
 }
+impl FCameraFocusSettings {}
+#[repr(C, align(8))]
 pub struct ACameraRig_Crane {
+    #[doc(hidden)]
+    __padding_1136: [u8; 1136],
     pub crane_pitch: f32,
     pub crane_yaw: f32,
     pub crane_arm_length: f32,
     pub b_lock_mount_pitch: bool,
     pub b_lock_mount_yaw: bool,
-    pub transform_component: UPtr<crate::bindings::engine::USceneComponent>,
-    pub crane_yaw_control: UPtr<crate::bindings::engine::USceneComponent>,
-    pub crane_pitch_control: UPtr<crate::bindings::engine::USceneComponent>,
-    pub crane_camera_mount: UPtr<crate::bindings::engine::USceneComponent>,
-    pub preview_mesh_crane_arm: UPtr<crate::bindings::engine::UStaticMeshComponent>,
-    pub preview_mesh_crane_base: UPtr<crate::bindings::engine::UStaticMeshComponent>,
-    pub preview_mesh_crane_mount: UPtr<crate::bindings::engine::UStaticMeshComponent>,
-    pub preview_mesh_crane_counter_weight: UPtr<
-        crate::bindings::engine::UStaticMeshComponent,
-    >,
+    __padding_end: [u8; 66],
 }
+impl ACameraRig_Crane {}
+#[repr(C, align(8))]
 pub struct ACameraRig_Rail {
+    #[doc(hidden)]
+    __padding_1136: [u8; 1136],
     pub current_position_on_rail: f32,
     pub b_lock_orientation_to_rail: bool,
-    pub b_show_rail_visualization: bool,
-    pub preview_mesh_scale: f32,
-    pub transform_component: UPtr<crate::bindings::engine::USceneComponent>,
-    pub rail_spline_component: UPtr<crate::bindings::engine::USplineComponent>,
-    pub rail_camera_mount: UPtr<crate::bindings::engine::USceneComponent>,
-    pub preview_mesh_rail: UPtr<crate::bindings::engine::USplineMeshComponent>,
-    pub preview_rail_mesh_segments: TArray<
-        UPtr<crate::bindings::engine::USplineMeshComponent>,
-    >,
-    pub preview_rail_static_mesh: UPtr<crate::bindings::engine::UStaticMesh>,
-    pub preview_mesh_mount: UPtr<crate::bindings::engine::UStaticMeshComponent>,
+    __padding_end: [u8; 75],
 }
+impl ACameraRig_Rail {}
+#[repr(C, align(16))]
 pub struct ACineCameraActor {
+    #[doc(hidden)]
+    __padding_3136: [u8; 3136],
     pub lookat_tracking_settings: FCameraLookatTrackingSettings,
+    __padding_end: [u8; 24],
 }
+impl ACineCameraActor {}
+#[repr(C, align(16))]
 pub struct UCineCameraComponent {
-    pub filmback_settings_deprecated: FCameraFilmbackSettings,
+    #[doc(hidden)]
+    __padding_2876: [u8; 2876],
     pub filmback: FCameraFilmbackSettings,
     pub lens_settings: FCameraLensSettings,
     pub focus_settings: FCameraFocusSettings,
@@ -112,22 +125,17 @@ pub struct UCineCameraComponent {
     pub current_aperture: f32,
     pub current_focus_distance: f32,
     pub exposure_method: ECameraExposureMethod,
+    #[doc(hidden)]
+    __padding_3060: [u8; 3],
     pub flags_3060: u8,
     pub custom_near_clipping_plane: f32,
-    pub current_horizontal_fov: f32,
-    pub focus_plane_visualization_mesh: UPtr<crate::bindings::engine::UStaticMesh>,
-    pub focus_plane_visualization_material: UPtr<crate::bindings::engine::UMaterial>,
-    pub debug_focus_plane_component: UPtr<crate::bindings::engine::UStaticMeshComponent>,
-    pub debug_focus_plane_mid: UPtr<crate::bindings::engine::UMaterialInstanceDynamic>,
-    pub filmback_presets: TArray<FNamedFilmbackPreset>,
-    pub lens_presets: TArray<FNamedLensPreset>,
-    pub default_filmback_preset_name_deprecated: FString,
-    pub default_filmback_preset: FString,
-    pub default_lens_preset_name: FString,
-    pub default_lens_focal_length: f32,
-    pub default_lens_f_stop: f32,
+    __padding_end: [u8; 132],
 }
+impl UCineCameraComponent {}
+#[repr(C, align(8))]
 pub struct UCineCameraSettings {
+    #[doc(hidden)]
+    __padding_104: [u8; 104],
     pub default_lens_preset_name: FString,
     pub default_lens_focal_length: f32,
     pub default_lens_f_stop: f32,
@@ -136,8 +144,9 @@ pub struct UCineCameraSettings {
     pub filmback_presets: TArray<FNamedFilmbackPreset>,
     pub default_crop_preset_name: FString,
     pub crop_presets: TArray<FNamedPlateCropPreset>,
+    __padding_end: [u8; 16],
 }
-#[allow(non_camel_case_types)]
+impl UCineCameraSettings {}
 #[repr(transparent)]
 pub struct ECameraFocusMethod(pub u8);
 impl ECameraFocusMethod {
@@ -147,7 +156,6 @@ impl ECameraFocusMethod {
     pub const DISABLE: ECameraFocusMethod = ECameraFocusMethod(3);
     pub const MAX: ECameraFocusMethod = ECameraFocusMethod(4);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ECameraExposureMethod(pub u8);
 impl ECameraExposureMethod {

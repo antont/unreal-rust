@@ -4,6 +4,8 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
+#[repr(C, align(8))]
 pub struct UK2Node_LatentGameplayTaskCall {
-    pub spawn_param_pins: TArray<FName>,
+    __padding_end: [u8; 256],
 }
+impl UK2Node_LatentGameplayTaskCall {}

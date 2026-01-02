@@ -10,34 +10,71 @@ pub struct FRigVMBlueprintLoadLogEntry {
     pub subject: UPtr<crate::bindings::core_u_object::UObject>,
     pub message: FString,
 }
-#[repr(C, align(8))]
-pub struct FRigVMBlueprintCompiledData {
-    pub intermediate_graphs: TArray<UPtr<crate::bindings::engine::UEdGraph>>,
-}
-#[repr(C, align(8))]
-pub struct FRigVMActionMenuItem {}
+impl FRigVMBlueprintLoadLogEntry {}
 #[repr(C, align(8))]
 pub struct FRigVMEditorGraphMenuContext {
     pub graph: UPtr<crate::bindings::rig_vm_developer::URigVMGraph>,
     pub node: UPtr<crate::bindings::rig_vm_developer::URigVMNode>,
     pub pin: UPtr<crate::bindings::rig_vm_developer::URigVMPin>,
 }
-pub struct URigVMEdGraphNodeBlueprintSpawner {}
-pub struct URigVMBlueprintCompilerExtension {}
-pub struct URigVMDetailsViewWrapperObject {
-    pub subject_ptr: TWeakObjectPtr<crate::bindings::core_u_object::UObject>,
+impl FRigVMEditorGraphMenuContext {}
+#[repr(C, align(8))]
+pub struct URigVMEdGraphNodeBlueprintSpawner {
+    __padding_end: [u8; 288],
 }
-pub struct URigVMEditorMenuContext {}
-pub struct URigVMEditorBlueprintLibrary {}
-pub struct FGetAssetsWithFilter_ForBlueprint_InAssetDataFilter;
-pub struct FLoadAssetsWithAssetDataAndBlueprintFilters_ForBlueprint_InAssetDataFilter;
-pub struct FLoadAssetsWithAssetDataAndBlueprintFilters_ForBlueprint_InBlueprintFilter;
-pub struct FLoadAssetsWithAssetDataAndNodeFilters_ForBlueprint_InAssetDataFilter;
-pub struct FLoadAssetsWithAssetDataAndNodeFilters_ForBlueprint_InNodeFilter;
-pub struct FLoadAssetsWithAssetDataFilter_ForBlueprint_InAssetDataFilter;
-pub struct FLoadAssetsWithBlueprintFilter_ForBlueprint_InBlueprintFilter;
-pub struct FLoadAssetsWithNodeFilter_ForBlueprint_InNodeFilter;
-#[allow(non_camel_case_types)]
+impl URigVMEdGraphNodeBlueprintSpawner {}
+#[repr(C, align(8))]
+pub struct URigVMBlueprintCompilerExtension {
+    __padding_end: [u8; 48],
+}
+impl URigVMBlueprintCompilerExtension {}
+#[repr(C, align(8))]
+pub struct URigVMDetailsViewWrapperObject {
+    __padding_end: [u8; 96],
+}
+impl URigVMDetailsViewWrapperObject {}
+#[repr(C, align(8))]
+pub struct URigVMEditorMenuContext {
+    __padding_end: [u8; 88],
+}
+impl URigVMEditorMenuContext {}
+#[repr(C, align(8))]
+pub struct URigVMEditorBlueprintLibrary {
+    __padding_end: [u8; 48],
+}
+impl URigVMEditorBlueprintLibrary {}
+#[repr(transparent)]
+pub struct FGetAssetsWithFilter_ForBlueprint_InAssetDataFilter {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FLoadAssetsWithAssetDataAndBlueprintFilters_ForBlueprint_InAssetDataFilter {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FLoadAssetsWithAssetDataAndBlueprintFilters_ForBlueprint_InBlueprintFilter {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FLoadAssetsWithAssetDataAndNodeFilters_ForBlueprint_InAssetDataFilter {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FLoadAssetsWithAssetDataAndNodeFilters_ForBlueprint_InNodeFilter {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FLoadAssetsWithAssetDataFilter_ForBlueprint_InAssetDataFilter {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FLoadAssetsWithBlueprintFilter_ForBlueprint_InBlueprintFilter {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FLoadAssetsWithNodeFilter_ForBlueprint_InNodeFilter {
+    _opague: u8,
+}
 #[repr(transparent)]
 pub struct ERigVMBlueprintLoadLogSeverity(pub u8);
 impl ERigVMBlueprintLoadLogSeverity {

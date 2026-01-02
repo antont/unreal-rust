@@ -4,4 +4,8 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
-pub struct USubobjectEditorMenuContext {}
+#[repr(C, align(8))]
+pub struct USubobjectEditorMenuContext {
+    __padding_end: [u8; 72],
+}
+impl USubobjectEditorMenuContext {}

@@ -6,70 +6,67 @@ pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 pub struct USkeletalMeshBackedDynamicMeshComponentProvider {}
 pub struct ISkeletalMeshBackedDynamicMeshComponentProvider {}
-pub struct USkeletalMeshBackedDynamicMeshComponent {}
+#[repr(C, align(16))]
+pub struct USkeletalMeshBackedDynamicMeshComponent {
+    __padding_end: [u8; 3168],
+}
+impl USkeletalMeshBackedDynamicMeshComponent {}
+#[repr(C, align(16))]
 pub struct USkeletalMeshEditingCache {
-    pub host_actor: UPtr<crate::bindings::engine::AActor>,
-    pub editing_mesh_component: UPtr<USkeletalMeshBackedDynamicMeshComponent>,
-    pub preview_mesh: UPtr<crate::bindings::modeling_components::UPreviewMesh>,
-    pub skeletal_mesh_component: TWeakObjectPtr<
-        crate::bindings::engine::USkeletalMeshComponent,
-    >,
-    pub ref_skeleton_poser: UPtr<
-        crate::bindings::mesh_modeling_tools_editor_only::URefSkeletonPoser,
-    >,
-    pub morph_target_overrides: TMap<FName, f32>,
+    __padding_end: [u8; 1104],
 }
+impl USkeletalMeshEditingCache {}
+#[repr(C, align(8))]
 pub struct USkeletalMeshEditorContextObject {
-    pub skeleton_draw_mode: crate::bindings::unreal_ed::ESkeletonDrawMode,
+    __padding_end: [u8; 280],
 }
+impl USkeletalMeshEditorContextObject {}
+#[repr(C, align(8))]
 pub struct USkeletalMeshGizmoWrapper {
-    pub transform_gizmo: UPtr<
-        crate::bindings::editor_interactive_tools_framework::UTransformGizmo,
-    >,
-    pub transform_proxy: UPtr<
-        crate::bindings::mesh_modeling_tools_editor_only::USkeletonTransformProxy,
-    >,
+    __padding_end: [u8; 72],
 }
-pub struct USkeletalMeshGizmoContextObject {}
+impl USkeletalMeshGizmoWrapper {}
+#[repr(C, align(8))]
+pub struct USkeletalMeshGizmoContextObject {
+    __padding_end: [u8; 56],
+}
+impl USkeletalMeshGizmoContextObject {}
+#[repr(C, align(16))]
 pub struct USkeletalMeshModelingToolsEditorMode {
-    pub current_editing_cache: UPtr<USkeletalMeshEditingCache>,
-    pub skeleton_reader: UPtr<
-        crate::bindings::skeletal_mesh_modifiers::USkeletonModifier,
-    >,
+    __padding_end: [u8; 992],
 }
+impl USkeletalMeshModelingToolsEditorMode {}
+#[repr(C, align(8))]
 pub struct USkeletonFromStaticMeshFactory {
-    pub static_mesh: UPtr<crate::bindings::engine::UStaticMesh>,
-    pub root_position: crate::bindings::core_u_object::FVector,
-    pub position_reference: ERootBonePositionReference,
+    __padding_end: [u8; 176],
 }
+impl USkeletonFromStaticMeshFactory {}
+#[repr(C, align(8))]
 pub struct USkeletalMeshFromStaticMeshFactory {
-    pub skeleton: UPtr<crate::bindings::engine::USkeleton>,
-    pub static_mesh: UPtr<crate::bindings::engine::UStaticMesh>,
-    pub bind_bone_name: FName,
+    __padding_end: [u8; 448],
 }
+impl USkeletalMeshFromStaticMeshFactory {}
+#[repr(C, align(8))]
 pub struct UStaticMeshToSkeletalMeshConvertOptions {
-    pub destination_path: crate::bindings::core_u_object::FDirectoryPath,
-    pub skeleton_import_option: EReferenceSkeletonImportOption,
-    pub root_bone_placement: ERootBonePlacementOptions,
-    pub skeleton: crate::bindings::core_u_object::FSoftObjectPath,
-    pub skeletal_mesh: crate::bindings::core_u_object::FSoftObjectPath,
-    pub binding_bone_name: crate::bindings::engine::FBoneReference,
-    pub prefix_to_remove: FString,
-    pub skeletal_mesh_prefix_to_add: FString,
-    pub skeletal_mesh_suffix_to_add: FString,
-    pub skeleton_prefix_to_add: FString,
-    pub skeleton_suffix_to_add: FString,
+    __padding_end: [u8; 264],
 }
-pub struct USkeletalMeshBackedDynamicMeshComponentToolTarget {}
-pub struct USkeletalMeshBackedDynamicMeshComponentToolTargetFactory {}
-#[allow(non_camel_case_types)]
+impl UStaticMeshToSkeletalMeshConvertOptions {}
+#[repr(C, align(8))]
+pub struct USkeletalMeshBackedDynamicMeshComponentToolTarget {
+    __padding_end: [u8; 176],
+}
+impl USkeletalMeshBackedDynamicMeshComponentToolTarget {}
+#[repr(C, align(8))]
+pub struct USkeletalMeshBackedDynamicMeshComponentToolTargetFactory {
+    __padding_end: [u8; 64],
+}
+impl USkeletalMeshBackedDynamicMeshComponentToolTargetFactory {}
 #[repr(transparent)]
 pub struct ERootBonePositionReference(pub i32);
 impl ERootBonePositionReference {
     pub const RELATIVE: ERootBonePositionReference = ERootBonePositionReference(0);
     pub const ABSOLUTE: ERootBonePositionReference = ERootBonePositionReference(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EReferenceSkeletonImportOption(pub i32);
 impl EReferenceSkeletonImportOption {
@@ -83,7 +80,6 @@ impl EReferenceSkeletonImportOption {
         2,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ERootBonePlacementOptions(pub i32);
 impl ERootBonePlacementOptions {

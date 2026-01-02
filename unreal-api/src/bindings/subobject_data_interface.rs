@@ -4,38 +4,41 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
-#[repr(C, align(1))]
-pub struct FSubobjectDataSubsystemContextDataBase {}
-#[repr(C, align(4))]
-pub struct FSubobjectDataSubsystemContextData_SingleUObjectContextObject {
-    pub object: TWeakObjectPtr<crate::bindings::core_u_object::UObject>,
-}
-#[repr(C, align(8))]
-pub struct FSubobjectDataSubsystemContextData_TedsRow {
-    pub row_handle: crate::bindings::typed_element_framework::FTedsRowHandle,
-}
 #[repr(C, align(8))]
 pub struct FSubobjectData {
-    pub weak_object_ptr: TWeakObjectPtr<crate::bindings::core_u_object::UObject>,
-    pub handle: FSubobjectDataHandle,
-    pub parent_object_handle: FSubobjectDataHandle,
-    pub children_handles: TArray<FSubobjectDataHandle>,
-    pub context_data: crate::bindings::core_u_object::FInstancedStruct,
+    __padding_end: [u8; 88],
 }
+impl FSubobjectData {}
 #[repr(C, align(8))]
-pub struct FSubobjectDataHandle {}
+pub struct FSubobjectDataHandle {
+    __padding_end: [u8; 16],
+}
+impl FSubobjectDataHandle {}
 #[repr(C, align(8))]
 pub struct FAddNewSubobjectParams {
     pub parent_handle: FSubobjectDataHandle,
     pub new_class: TSubclassOf<crate::bindings::core_u_object::UObject>,
+    #[doc(hidden)]
+    __padding_32: [u8; 8],
     pub blueprint_context: UPtr<crate::bindings::engine::UBlueprint>,
     pub flags_40: u8,
+    __padding_end: [u8; 7],
 }
+impl FAddNewSubobjectParams {}
 #[repr(C, align(8))]
 pub struct FReparentSubobjectParams {
     pub new_parent_handle: FSubobjectDataHandle,
     pub blueprint_context: UPtr<crate::bindings::engine::UBlueprint>,
     pub actor_preview_context: UPtr<crate::bindings::engine::AActor>,
 }
-pub struct USubobjectDataBlueprintFunctionLibrary {}
-pub struct USubobjectDataSubsystem {}
+impl FReparentSubobjectParams {}
+#[repr(C, align(8))]
+pub struct USubobjectDataBlueprintFunctionLibrary {
+    __padding_end: [u8; 48],
+}
+impl USubobjectDataBlueprintFunctionLibrary {}
+#[repr(C, align(8))]
+pub struct USubobjectDataSubsystem {
+    __padding_end: [u8; 136],
+}
+impl USubobjectDataSubsystem {}

@@ -5,33 +5,17 @@
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[repr(C, align(8))]
-pub struct FSettingsContainerReferenceColumn {
-    pub container_name: FName,
-}
-#[repr(C, align(8))]
-pub struct FSettingsCategoryReferenceColumn {
-    pub category_name: FName,
-}
-#[repr(C, align(4))]
-pub struct FSettingsNameColumn {
-    pub name: FName,
-}
-#[repr(C, align(1))]
-pub struct FSettingsContainerTag {}
-#[repr(C, align(1))]
-pub struct FSettingsCategoryTag {}
-#[repr(C, align(1))]
-pub struct FSettingsSectionTag {}
-#[repr(C, align(1))]
-pub struct FSettingsInactiveSectionTag {}
-#[repr(C, align(8))]
-pub struct FSettingsContainerReferenceWidgetConstructor {}
-#[repr(C, align(8))]
-pub struct FSettingsCategoryReferenceWidgetConstructor {}
-#[repr(C, align(8))]
-pub struct FSettingsSectionWidgetConstructor {}
 pub struct UTestSettings {
-    pub test_int32: i32,
+    __padding_end: [u8; 56],
 }
-pub struct UTedsSettingsEditorSubsystem {}
-pub struct UTedsSettingsFactory {}
+impl UTestSettings {}
+#[repr(C, align(8))]
+pub struct UTedsSettingsEditorSubsystem {
+    __padding_end: [u8; 104],
+}
+impl UTedsSettingsEditorSubsystem {}
+#[repr(C, align(8))]
+pub struct UTedsSettingsFactory {
+    __padding_end: [u8; 48],
+}
+impl UTedsSettingsFactory {}

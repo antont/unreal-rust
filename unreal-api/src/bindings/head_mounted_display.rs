@@ -13,6 +13,7 @@ pub struct FXRHMDData {
     pub position: crate::bindings::core_u_object::FVector,
     pub rotation: crate::bindings::core_u_object::FQuat,
 }
+impl FXRHMDData {}
 #[repr(C, align(16))]
 pub struct FXRMotionControllerState {
     pub b_valid: bool,
@@ -24,9 +25,9 @@ pub struct FXRMotionControllerState {
     pub xr_controller_pose_type: EXRControllerPoseType,
     pub controller_location: crate::bindings::core_u_object::FVector,
     pub controller_rotation: crate::bindings::core_u_object::FQuat,
-    pub grip_unreal_space_location: crate::bindings::core_u_object::FVector,
-    pub grip_unreal_space_rotation: crate::bindings::core_u_object::FQuat,
+    __padding_end: [u8; 64],
 }
+impl FXRMotionControllerState {}
 #[repr(C, align(8))]
 pub struct FXRHandTrackingState {
     pub b_valid: bool,
@@ -39,19 +40,31 @@ pub struct FXRHandTrackingState {
     pub hand_key_rotations: TArray<crate::bindings::core_u_object::FQuat>,
     pub hand_key_radii: TArray<f32>,
 }
+impl FXRHandTrackingState {}
 #[repr(C, align(4))]
 pub struct FXRDeviceId {
     pub system_name: FName,
     pub device_id: i32,
 }
-pub struct UHandKeypointConversion {}
+impl FXRDeviceId {}
+#[repr(C, align(8))]
+pub struct UHandKeypointConversion {
+    __padding_end: [u8; 48],
+}
+impl UHandKeypointConversion {}
+#[repr(C, align(16))]
 pub struct UMotionControllerComponent {
+    #[doc(hidden)]
+    __padding_1504: [u8; 1504],
     pub player_index: i32,
     pub motion_source: FName,
     pub flags_1520: u8,
+    #[doc(hidden)]
+    __padding_1524: [u8; 3],
     pub current_tracking_status: ETrackingStatus,
+    __padding_end: [u8; 299],
 }
-#[allow(non_camel_case_types)]
+impl UMotionControllerComponent {}
 #[repr(transparent)]
 pub struct ETrackingStatus(pub u8);
 impl ETrackingStatus {
@@ -59,14 +72,12 @@ impl ETrackingStatus {
     pub const INERTIAL_ONLY: ETrackingStatus = ETrackingStatus(1);
     pub const TRACKED: ETrackingStatus = ETrackingStatus(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EXRSpaceType(pub u8);
 impl EXRSpaceType {
     pub const UNREAL_WORLD_SPACE: EXRSpaceType = EXRSpaceType(0);
     pub const XR_TRACKING_SPACE: EXRSpaceType = EXRSpaceType(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EXRControllerPoseType(pub u8);
 impl EXRControllerPoseType {
@@ -74,7 +85,6 @@ impl EXRControllerPoseType {
     pub const GRIP: EXRControllerPoseType = EXRControllerPoseType(1);
     pub const PALM: EXRControllerPoseType = EXRControllerPoseType(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EHandKeypoint(pub u8);
 impl EHandKeypoint {

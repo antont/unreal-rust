@@ -4,11 +4,8 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
+#[repr(C, align(8))]
 pub struct UTcpMessagingSettings {
-    pub enable_transport: bool,
-    pub listen_endpoint: FString,
-    pub connect_to_endpoints: TArray<FString>,
-    pub connection_retry_delay: i32,
-    pub connection_retry_period: i32,
-    pub b_stop_service_when_app_deactivates: bool,
+    __padding_end: [u8; 104],
 }
+impl UTcpMessagingSettings {}

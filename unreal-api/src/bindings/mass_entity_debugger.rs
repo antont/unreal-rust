@@ -4,6 +4,8 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
+#[repr(C, align(8))]
 pub struct UMassDebuggerSettings {
-    pub b_strip_mass_prefix: bool,
+    __padding_end: [u8; 56],
 }
+impl UMassDebuggerSettings {}

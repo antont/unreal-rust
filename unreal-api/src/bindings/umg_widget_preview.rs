@@ -7,20 +7,32 @@ pub use crate::core_data::*;
 #[repr(C, align(8))]
 pub struct FPreviewableWidgetVariant {
     pub object_path: crate::bindings::core_u_object::FSoftObjectPath,
-    pub cached_widget_cdo: UPtr<crate::bindings::umg::UUserWidget>,
-    pub cached_widget_preview: TWeakObjectPtr<UWidgetPreview>,
+    __padding_end: [u8; 16],
 }
-pub struct UAssetDefinition_WidgetPreview {}
+impl FPreviewableWidgetVariant {}
+#[repr(C, align(8))]
+pub struct UAssetDefinition_WidgetPreview {
+    __padding_end: [u8; 72],
+}
+impl UAssetDefinition_WidgetPreview {}
+#[repr(C, align(8))]
 pub struct UWidgetPreview {
+    #[doc(hidden)]
+    __padding_48: [u8; 48],
     pub widget_type: FPreviewableWidgetVariant,
     pub slot_widget_types: TMap<FName, FPreviewableWidgetVariant>,
     pub b_should_override_widget_size: bool,
     pub overridden_widget_size: crate::bindings::core_u_object::FVector2D,
-    pub widget_instance: UPtr<crate::bindings::umg::UUserWidget>,
-    pub slot_name_cache: TArray<FName>,
-    pub widget_reference_cache: TArray<
-        TWeakObjectPtr<crate::bindings::umg::UUserWidget>,
-    >,
+    __padding_end: [u8; 88],
 }
-pub struct UWidgetPreviewEditor {}
-pub struct UWidgetPreviewFactory {}
+impl UWidgetPreview {}
+#[repr(C, align(8))]
+pub struct UWidgetPreviewEditor {
+    __padding_end: [u8; 72],
+}
+impl UWidgetPreviewEditor {}
+#[repr(C, align(8))]
+pub struct UWidgetPreviewFactory {
+    __padding_end: [u8; 136],
+}
+impl UWidgetPreviewFactory {}

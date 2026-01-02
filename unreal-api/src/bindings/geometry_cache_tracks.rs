@@ -12,24 +12,24 @@ pub struct FMovieSceneGeometryCacheParams {
     pub end_frame_offset: crate::bindings::core_u_object::FFrameNumber,
     pub play_rate: f32,
     pub flags_24: u8,
-    pub start_offset_deprecated: f32,
-    pub end_offset_deprecated: f32,
-    pub geometry_cache_deprecated: crate::bindings::core_u_object::FSoftObjectPath,
+    __padding_end: [u8; 55],
 }
+impl FMovieSceneGeometryCacheParams {}
 #[repr(C, align(8))]
 pub struct FMovieSceneGeometryCacheSectionTemplateParameters {
-    pub section_start_time: crate::bindings::core_u_object::FFrameNumber,
-    pub section_end_time: crate::bindings::core_u_object::FFrameNumber,
+    __padding_end: [u8; 88],
 }
+impl FMovieSceneGeometryCacheSectionTemplateParameters {}
 #[repr(C, align(8))]
-pub struct FMovieSceneGeometryCacheSectionTemplate {
-    pub params: FMovieSceneGeometryCacheSectionTemplateParameters,
-}
 pub struct UMovieSceneGeometryCacheSection {
+    #[doc(hidden)]
+    __padding_360: [u8; 360],
     pub params: FMovieSceneGeometryCacheParams,
+    __padding_end: [u8; 8],
 }
+impl UMovieSceneGeometryCacheSection {}
+#[repr(C, align(8))]
 pub struct UMovieSceneGeometryCacheTrack {
-    pub animation_sections: TArray<
-        UPtr<crate::bindings::movie_scene::UMovieSceneSection>,
-    >,
+    __padding_end: [u8; 408],
 }
+impl UMovieSceneGeometryCacheTrack {}

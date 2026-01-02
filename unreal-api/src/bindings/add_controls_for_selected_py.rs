@@ -4,7 +4,6 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ControlOutputFormat(pub u8);
 impl ControlOutputFormat {

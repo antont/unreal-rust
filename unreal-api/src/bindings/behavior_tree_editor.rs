@@ -5,56 +5,110 @@
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[repr(C, align(8))]
-pub struct FBehaviorTreeSchemaAction_AutoArrange {}
+pub struct UAssetDefinition_BehaviorTree {
+    __padding_end: [u8; 72],
+}
+impl UAssetDefinition_BehaviorTree {}
 #[repr(C, align(8))]
-pub struct FDecoratorSchemaAction_NewNode {
-    pub node_template: UPtr<UBehaviorTreeDecoratorGraphNode>,
+pub struct UAssetDefinition_Blackboard {
+    __padding_end: [u8; 72],
 }
-pub struct UAssetDefinition_BehaviorTree {}
-pub struct UAssetDefinition_Blackboard {}
-pub struct UBehaviorTreeDecoratorGraph {}
-pub struct UBehaviorTreeDecoratorGraphNode {}
+impl UAssetDefinition_Blackboard {}
+#[repr(C, align(8))]
+pub struct UBehaviorTreeDecoratorGraph {
+    __padding_end: [u8; 192],
+}
+impl UBehaviorTreeDecoratorGraph {}
+#[repr(C, align(8))]
+pub struct UBehaviorTreeDecoratorGraphNode {
+    __padding_end: [u8; 200],
+}
+impl UBehaviorTreeDecoratorGraphNode {}
+#[repr(C, align(8))]
 pub struct UBehaviorTreeDecoratorGraphNode_Decorator {
-    pub node_instance: UPtr<crate::bindings::core_u_object::UObject>,
-    pub class_data: crate::bindings::ai_graph::FGraphNodeClassData,
+    __padding_end: [u8; 304],
 }
+impl UBehaviorTreeDecoratorGraphNode_Decorator {}
+#[repr(C, align(8))]
 pub struct UBehaviorTreeDecoratorGraphNode_Logic {
-    pub logic_mode: EDecoratorLogicMode,
+    __padding_end: [u8; 208],
 }
-pub struct UBehaviorTreeEditorTypes {}
-pub struct UBehaviorTreeFactory {}
+impl UBehaviorTreeDecoratorGraphNode_Logic {}
+#[repr(C, align(8))]
+pub struct UBehaviorTreeEditorTypes {
+    __padding_end: [u8; 48],
+}
+impl UBehaviorTreeEditorTypes {}
+#[repr(C, align(8))]
+pub struct UBehaviorTreeFactory {
+    __padding_end: [u8; 136],
+}
+impl UBehaviorTreeFactory {}
+#[repr(C, align(8))]
 pub struct UBehaviorTreeGraph {
-    pub mod_counter: i32,
-    pub b_is_using_mod_counter: bool,
-    pub root_node_class: TSubclassOf<UBehaviorTreeGraphNode_Root>,
+    __padding_end: [u8; 216],
 }
+impl UBehaviorTreeGraph {}
+#[repr(C, align(8))]
 pub struct UBehaviorTreeGraphNode {
-    pub decorators: TArray<UPtr<UBehaviorTreeGraphNode>>,
-    pub services: TArray<UPtr<UBehaviorTreeGraphNode>>,
-    pub flags_376: u8,
+    __padding_end: [u8; 408],
 }
-pub struct UBehaviorTreeGraphNode_Composite {}
+impl UBehaviorTreeGraphNode {}
+#[repr(C, align(8))]
+pub struct UBehaviorTreeGraphNode_Composite {
+    __padding_end: [u8; 408],
+}
+impl UBehaviorTreeGraphNode_Composite {}
+#[repr(C, align(8))]
 pub struct UBehaviorTreeGraphNode_CompositeDecorator {
-    pub bound_graph: UPtr<crate::bindings::engine::UEdGraph>,
-    pub composite_name: FString,
-    pub flags_432: u8,
-    pub parent_node_instance: UPtr<crate::bindings::ai_module::UBTCompositeNode>,
-    pub cached_description: FString,
+    __padding_end: [u8; 488],
 }
-pub struct UBehaviorTreeGraphNode_Decorator {}
+impl UBehaviorTreeGraphNode_CompositeDecorator {}
+#[repr(C, align(8))]
+pub struct UBehaviorTreeGraphNode_Decorator {
+    __padding_end: [u8; 408],
+}
+impl UBehaviorTreeGraphNode_Decorator {}
+#[repr(C, align(8))]
 pub struct UBehaviorTreeGraphNode_Root {
-    pub blackboard_asset: UPtr<crate::bindings::ai_module::UBlackboardData>,
+    __padding_end: [u8; 416],
 }
-pub struct UBehaviorTreeGraphNode_Service {}
-pub struct UBehaviorTreeGraphNode_SimpleParallel {}
-pub struct UBehaviorTreeGraphNode_Task {}
-pub struct UBehaviorTreeGraphNode_SubtreeTask {}
-pub struct UBlackboardDataFactory {}
-pub struct UEdGraphSchema_BehaviorTree {}
+impl UBehaviorTreeGraphNode_Root {}
+#[repr(C, align(8))]
+pub struct UBehaviorTreeGraphNode_Service {
+    __padding_end: [u8; 408],
+}
+impl UBehaviorTreeGraphNode_Service {}
+#[repr(C, align(8))]
+pub struct UBehaviorTreeGraphNode_SimpleParallel {
+    __padding_end: [u8; 408],
+}
+impl UBehaviorTreeGraphNode_SimpleParallel {}
+#[repr(C, align(8))]
+pub struct UBehaviorTreeGraphNode_Task {
+    __padding_end: [u8; 408],
+}
+impl UBehaviorTreeGraphNode_Task {}
+#[repr(C, align(8))]
+pub struct UBehaviorTreeGraphNode_SubtreeTask {
+    __padding_end: [u8; 432],
+}
+impl UBehaviorTreeGraphNode_SubtreeTask {}
+#[repr(C, align(8))]
+pub struct UBlackboardDataFactory {
+    __padding_end: [u8; 136],
+}
+impl UBlackboardDataFactory {}
+#[repr(C, align(8))]
+pub struct UEdGraphSchema_BehaviorTree {
+    __padding_end: [u8; 80],
+}
+impl UEdGraphSchema_BehaviorTree {}
+#[repr(C, align(8))]
 pub struct UEdGraphSchema_BehaviorTreeDecorator {
-    pub pc_boolean: FString,
+    __padding_end: [u8; 64],
 }
-#[allow(non_camel_case_types)]
+impl UEdGraphSchema_BehaviorTreeDecorator {}
 #[repr(transparent)]
 pub struct EDecoratorLogicMode(pub u8);
 impl EDecoratorLogicMode {

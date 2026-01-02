@@ -29,14 +29,22 @@ pub struct FSourceControlState {
     pub b_is_modified_in_other_branch: bool,
     pub previous_user: FString,
 }
-pub struct USourceControlHelpers {}
-pub struct USourceControlPreferences {
-    pub b_enable_validation_tag: bool,
-    pub b_should_delete_new_files_on_revert: bool,
-    pub b_enable_uncontrolled_changelists: bool,
-    pub collection_changelist_tags: TArray<FString>,
-    pub specific_collection_changelist_tags: TMap<FName, FString>,
-    pub b_requires_revision_control_to_rename_localizable_assets: bool,
+impl FSourceControlState {}
+#[repr(C, align(8))]
+pub struct USourceControlHelpers {
+    __padding_end: [u8; 48],
 }
-pub struct FAsyncQueryFileState_FileStateCallback;
-pub struct FAsyncQueryFileStates_FileStateCallback;
+impl USourceControlHelpers {}
+#[repr(C, align(8))]
+pub struct USourceControlPreferences {
+    __padding_end: [u8; 216],
+}
+impl USourceControlPreferences {}
+#[repr(transparent)]
+pub struct FAsyncQueryFileState_FileStateCallback {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FAsyncQueryFileStates_FileStateCallback {
+    _opague: u8,
+}

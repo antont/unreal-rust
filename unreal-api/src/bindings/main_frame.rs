@@ -4,12 +4,21 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
-pub struct UHomeScreenContext {}
-pub struct UHomeScreenSettings {
-    pub load_at_startup: EAutoLoadProject,
+#[repr(C, align(8))]
+pub struct UHomeScreenContext {
+    __padding_end: [u8; 64],
 }
-pub struct UHomeScreenWeb {}
-#[allow(non_camel_case_types)]
+impl UHomeScreenContext {}
+#[repr(C, align(8))]
+pub struct UHomeScreenSettings {
+    __padding_end: [u8; 88],
+}
+impl UHomeScreenSettings {}
+#[repr(C, align(8))]
+pub struct UHomeScreenWeb {
+    __padding_end: [u8; 120],
+}
+impl UHomeScreenWeb {}
 #[repr(transparent)]
 pub struct EMainSectionMenu(pub u8);
 impl EMainSectionMenu {
@@ -19,7 +28,6 @@ impl EMainSectionMenu {
     pub const GETTING_STARTED: EMainSectionMenu = EMainSectionMenu(3);
     pub const SAMPLE_PROJECTS: EMainSectionMenu = EMainSectionMenu(4);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EAutoLoadProject(pub i32);
 impl EAutoLoadProject {

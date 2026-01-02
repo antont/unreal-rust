@@ -4,33 +4,67 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
-pub struct UHLODBuilderCustomHLODActorSettings {}
-pub struct UHLODBuilderCustomHLODActor {}
+#[repr(C, align(8))]
+pub struct UHLODBuilderCustomHLODActorSettings {
+    __padding_end: [u8; 48],
+}
+impl UHLODBuilderCustomHLODActorSettings {}
+#[repr(C, align(8))]
+pub struct UHLODBuilderCustomHLODActor {
+    __padding_end: [u8; 72],
+}
+impl UHLODBuilderCustomHLODActor {}
+#[repr(C, align(8))]
 pub struct UHLODBuilderInstancingSettings {
+    #[doc(hidden)]
+    __padding_48: [u8; 48],
     pub b_disallow_nanite: bool,
     pub instance_filtering_type: EInstanceFilteringType,
     pub minimum_extent: f64,
     pub minimum_area: f64,
     pub minimum_volume: f64,
 }
-pub struct UHLODBuilderInstancing {}
+impl UHLODBuilderInstancingSettings {}
+#[repr(C, align(8))]
+pub struct UHLODBuilderInstancing {
+    __padding_end: [u8; 72],
+}
+impl UHLODBuilderInstancing {}
+#[repr(C, align(8))]
 pub struct UHLODBuilderMeshApproximateSettings {
-    pub mesh_approximation_settings: crate::bindings::engine::FMeshApproximationSettings,
-    pub hlod_material: UPtr<crate::bindings::engine::UMaterialInterface>,
+    __padding_end: [u8; 360],
 }
-pub struct UHLODBuilderMeshApproximate {}
+impl UHLODBuilderMeshApproximateSettings {}
+#[repr(C, align(8))]
+pub struct UHLODBuilderMeshApproximate {
+    __padding_end: [u8; 72],
+}
+impl UHLODBuilderMeshApproximate {}
+#[repr(C, align(8))]
 pub struct UHLODBuilderMeshMergeSettings {
-    pub mesh_merge_settings: crate::bindings::engine::FMeshMergingSettings,
-    pub hlod_material: UPtr<crate::bindings::engine::UMaterialInterface>,
+    __padding_end: [u8; 384],
 }
-pub struct UHLODBuilderMeshMerge {}
+impl UHLODBuilderMeshMergeSettings {}
+#[repr(C, align(8))]
+pub struct UHLODBuilderMeshMerge {
+    __padding_end: [u8; 72],
+}
+impl UHLODBuilderMeshMerge {}
+#[repr(C, align(8))]
 pub struct UHLODBuilderMeshSimplifySettings {
-    pub mesh_simplify_settings: crate::bindings::engine::FMeshProxySettings,
-    pub hlod_material: UPtr<crate::bindings::engine::UMaterialInterface>,
+    __padding_end: [u8; 376],
 }
-pub struct UHLODBuilderMeshSimplify {}
-pub struct UWorldPartitionHLODModifierMeshDestruction {}
-#[allow(non_camel_case_types)]
+impl UHLODBuilderMeshSimplifySettings {}
+#[repr(C, align(8))]
+pub struct UHLODBuilderMeshSimplify {
+    __padding_end: [u8; 72],
+}
+impl UHLODBuilderMeshSimplify {}
+#[repr(C, align(8))]
+pub struct UWorldPartitionHLODModifierMeshDestruction {
+    __padding_end: [u8; 80],
+}
+impl UWorldPartitionHLODModifierMeshDestruction {}
 #[repr(transparent)]
 pub struct EInstanceFilteringType(pub u8);
 impl EInstanceFilteringType {

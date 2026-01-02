@@ -4,102 +4,91 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
-#[repr(C, align(4))]
-pub struct FUDIMSpecifier {
-    pub udim: i32,
-    pub u_coord: i32,
-    pub v_coord: i32,
-    pub texture_resolution: i32,
+#[repr(C, align(8))]
+pub struct UUVEditorInitializationContext {
+    __padding_end: [u8; 72],
 }
-pub struct UUVEditorInitializationContext {}
+impl UUVEditorInitializationContext {}
+#[repr(C, align(8))]
 pub struct UUVEditorUnwrappedUXProperties {
-    pub boundary_line_colors: TArray<crate::bindings::core_u_object::FColor>,
-    pub boundary_line_thickness: f32,
-    pub wireframe_thickness: f32,
+    __padding_end: [u8; 208],
 }
+impl UUVEditorUnwrappedUXProperties {}
+#[repr(C, align(8))]
 pub struct UUVEditorLivePreviewUXProperties {
-    pub selection_color: crate::bindings::core_u_object::FColor,
-    pub selection_line_thickness: f32,
-    pub selection_point_size: f32,
+    __padding_end: [u8; 200],
 }
-pub struct UUnsetUVsAction {}
+impl UUVEditorLivePreviewUXProperties {}
+#[repr(C, align(8))]
+pub struct UUnsetUVsAction {
+    __padding_end: [u8; 72],
+}
+impl UUnsetUVsAction {}
+#[repr(C, align(8))]
 pub struct UUVEditor {
-    pub original_objects_to_edit: TArray<UPtr<crate::bindings::core_u_object::UObject>>,
-    pub object_worldspace_offsets: TArray<crate::bindings::core_u_object::FTransform3d>,
+    __padding_end: [u8; 96],
 }
-pub struct UUVEditor2DViewportContext {}
-pub struct UUVEditor3DViewportMode {}
+impl UUVEditor {}
+#[repr(C, align(8))]
+pub struct UUVEditor2DViewportContext {
+    __padding_end: [u8; 192],
+}
+impl UUVEditor2DViewportContext {}
+#[repr(C, align(8))]
+pub struct UUVEditor3DViewportMode {
+    __padding_end: [u8; 312],
+}
+impl UUVEditor3DViewportMode {}
+#[repr(C, align(8))]
 pub struct UUVEditorBackgroundPreviewProperties {
-    pub b_visible: bool,
-    pub source_type: EUVEditorBackgroundSourceType,
-    pub source_texture: UPtr<crate::bindings::engine::UTexture2D>,
-    pub source_material: UPtr<crate::bindings::engine::UMaterial>,
-    pub udim_blocks: TArray<i32>,
-    pub b_udi_ms_enabled: bool,
+    __padding_end: [u8; 232],
 }
+impl UUVEditorBackgroundPreviewProperties {}
+#[repr(C, align(8))]
 pub struct UUVEditorBackgroundPreview {
-    pub settings: UPtr<UUVEditorBackgroundPreviewProperties>,
-    pub background_component: UPtr<
-        crate::bindings::modeling_components::UTriangleSetComponent,
-    >,
-    pub background_material: UPtr<crate::bindings::engine::UMaterialInstanceDynamic>,
+    __padding_end: [u8; 360],
 }
+impl UUVEditorBackgroundPreview {}
+#[repr(C, align(8))]
 pub struct UUVEditorDistortionVisualizationProperties {
-    pub b_visible: bool,
-    pub metric: EDistortionMetric,
-    pub b_compare_to_average_density: bool,
-    pub b_respect_udim_texture_resolutions: bool,
-    pub map_size: i32,
-    pub target_texel_density: f32,
-    pub per_udim_texture_resolution: TMap<i32, i32>,
+    __padding_end: [u8; 280],
 }
+impl UUVEditorDistortionVisualizationProperties {}
+#[repr(C, align(8))]
 pub struct UUVEditorDistortionVisualization {
-    pub settings: UPtr<UUVEditorDistortionVisualizationProperties>,
-    pub targets: TArray<UPtr<crate::bindings::uv_editor_tools::UUVEditorToolMeshInput>>,
+    __padding_end: [u8; 104],
 }
+impl UUVEditorDistortionVisualization {}
+#[repr(C, align(8))]
 pub struct UUVEditorGridProperties {
-    pub b_draw_grid: bool,
-    pub b_draw_rulers: bool,
+    __padding_end: [u8; 192],
 }
+impl UUVEditorGridProperties {}
+#[repr(C, align(8))]
 pub struct UUVEditorUDIMProperties {
-    pub udim_source_asset: FString,
-    pub udim_source_texture: UPtr<crate::bindings::engine::UTexture2D>,
-    pub active_udi_ms: TArray<FUDIMSpecifier>,
+    __padding_end: [u8; 248],
 }
+impl UUVEditorUDIMProperties {}
+#[repr(C, align(8))]
 pub struct UUVEditorMode {
-    pub background_visualization: UPtr<UUVEditorBackgroundPreview>,
-    pub distortion_visualization: UPtr<UUVEditorDistortionVisualization>,
-    pub uv_editor_grid_properties: UPtr<UUVEditorGridProperties>,
-    pub uv_editor_udim_properties: UPtr<UUVEditorUDIMProperties>,
-    pub registered_actions: TArray<
-        UPtr<crate::bindings::uv_editor_tools::UUVToolAction>,
-    >,
-    pub original_objects_to_edit: TArray<UPtr<crate::bindings::core_u_object::UObject>>,
-    pub tool_targets: TArray<
-        UPtr<crate::bindings::interactive_tools_framework::UToolTarget>,
-    >,
-    pub tool_input_objects: TArray<
-        UPtr<crate::bindings::uv_editor_tools::UUVEditorToolMeshInput>,
-    >,
-    pub live_preview_world: UPtr<crate::bindings::engine::UWorld>,
-    pub selection_api: UPtr<crate::bindings::uv_editor_tools::UUVToolSelectionAPI>,
-    pub property_objects_to_tick: TArray<
-        UPtr<crate::bindings::interactive_tools_framework::UInteractiveToolPropertySet>,
-    >,
-    pub uv_editor_unwrapped_ux_properties: UPtr<UUVEditorUnwrappedUXProperties>,
-    pub uv_editor_live_preview_ux_properties: UPtr<UUVEditorLivePreviewUXProperties>,
+    __padding_end: [u8; 776],
 }
+impl UUVEditorMode {}
+#[repr(C, align(8))]
 pub struct UUVEditorUVChannelProperties {
-    pub asset: FString,
-    pub uv_channel: FString,
+    __padding_end: [u8; 264],
 }
-pub struct UUVEditorUISubsystem {}
+impl UUVEditorUVChannelProperties {}
+#[repr(C, align(8))]
+pub struct UUVEditorUISubsystem {
+    __padding_end: [u8; 56],
+}
+impl UUVEditorUISubsystem {}
+#[repr(C, align(8))]
 pub struct UUVEditorSubsystem {
-    pub tool_target_manager: UPtr<
-        crate::bindings::interactive_tools_framework::UToolTargetManager,
-    >,
+    __padding_end: [u8; 144],
 }
-#[allow(non_camel_case_types)]
+impl UUVEditorSubsystem {}
 #[repr(transparent)]
 pub struct EUVEditorBackgroundSourceType(pub i32);
 impl EUVEditorBackgroundSourceType {
@@ -109,7 +98,6 @@ impl EUVEditorBackgroundSourceType {
     pub const TEXTURE: EUVEditorBackgroundSourceType = EUVEditorBackgroundSourceType(1);
     pub const MATERIAL: EUVEditorBackgroundSourceType = EUVEditorBackgroundSourceType(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EDistortionMetric(pub u8);
 impl EDistortionMetric {

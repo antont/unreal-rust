@@ -5,28 +5,19 @@
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[repr(C, align(8))]
-pub struct FTakeMovieSceneHitchTimecodeCurves {
-    pub hours_curve: crate::bindings::movie_scene::FMovieSceneIntegerChannel,
-    pub minutes_curve: crate::bindings::movie_scene::FMovieSceneIntegerChannel,
-    pub seconds_curve: crate::bindings::movie_scene::FMovieSceneIntegerChannel,
-    pub frames_curve: crate::bindings::movie_scene::FMovieSceneIntegerChannel,
-}
 pub struct UFrameHitchSceneDecoration {
-    pub target_timecode: FTakeMovieSceneHitchTimecodeCurves,
-    pub actual_timecode: FTakeMovieSceneHitchTimecodeCurves,
-    pub timecode_provider_frame_rate: crate::bindings::core_u_object::FFrameRate,
-    pub record_frame_rate: crate::bindings::core_u_object::FFrameRate,
+    __padding_end: [u8; 2368],
 }
+impl UFrameHitchSceneDecoration {}
+#[repr(C, align(8))]
 pub struct UMovieSceneTakeSection {
-    pub hours_curve: crate::bindings::movie_scene::FMovieSceneIntegerChannel,
-    pub minutes_curve: crate::bindings::movie_scene::FMovieSceneIntegerChannel,
-    pub seconds_curve: crate::bindings::movie_scene::FMovieSceneIntegerChannel,
-    pub frames_curve: crate::bindings::movie_scene::FMovieSceneIntegerChannel,
-    pub sub_frames_curve: crate::bindings::movie_scene::FMovieSceneFloatChannel,
-    pub rate_curve: crate::bindings::movie_scene::FMovieSceneFloatChannel,
-    pub slate: crate::bindings::movie_scene_tracks::FMovieSceneStringChannel,
+    __padding_end: [u8; 2416],
 }
+impl UMovieSceneTakeSection {}
+#[repr(C, align(8))]
 pub struct UMovieSceneTakeSettings {
+    #[doc(hidden)]
+    __padding_48: [u8; 48],
     pub hours_name: FString,
     pub minutes_name: FString,
     pub seconds_name: FString,
@@ -35,6 +26,9 @@ pub struct UMovieSceneTakeSettings {
     pub rate_name: FString,
     pub slate_name: FString,
 }
+impl UMovieSceneTakeSettings {}
+#[repr(C, align(8))]
 pub struct UMovieSceneTakeTrack {
-    pub sections: TArray<UPtr<crate::bindings::movie_scene::UMovieSceneSection>>,
+    __padding_end: [u8; 400],
 }
+impl UMovieSceneTakeTrack {}

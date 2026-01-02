@@ -5,91 +5,100 @@
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[repr(C, align(8))]
-pub struct FContentSourceColumn {}
+pub struct UContentBrowserFrontEndFilterExtension {
+    __padding_end: [u8; 48],
+}
+impl UContentBrowserFrontEndFilterExtension {}
 #[repr(C, align(8))]
-pub struct FAssetViewInstanceConfig {
-    pub thumbnail_size: u8,
-    pub view_type: u8,
-    pub hidden_columns: TArray<FName>,
-    pub list_hidden_columns: TArray<FName>,
+pub struct UContentBrowserPathViewContextMenuContext {
+    __padding_end: [u8; 80],
 }
+impl UContentBrowserPathViewContextMenuContext {}
 #[repr(C, align(8))]
-pub struct FPathViewConfig {
-    pub b_expanded: bool,
-    pub plugin_filters: TArray<FString>,
+pub struct UTextFilterKeyValueHandler {
+    __padding_end: [u8; 48],
 }
+impl UTextFilterKeyValueHandler {}
 #[repr(C, align(8))]
-pub struct FContentBrowserInstanceConfig {
-    pub path_view: FPathViewConfig,
-    pub b_show_favorites: bool,
-    pub b_favorites_expanded: bool,
-    pub b_sources_expanded: bool,
-    pub b_filter_recursively: bool,
-    pub b_show_folders: bool,
-    pub b_show_empty_folders: bool,
-    pub b_show_engine_content: bool,
-    pub b_show_developer_content: bool,
-    pub b_show_localized_content: bool,
-    pub b_show_plugin_content: bool,
-    pub b_show_cpp_folders: bool,
-    pub b_search_classes: bool,
-    pub b_search_asset_paths: bool,
-    pub b_search_collections: bool,
-    pub b_show_asset_access_specifier: bool,
+pub struct UTextFilterValueHandler {
+    __padding_end: [u8; 48],
 }
-#[repr(C, align(4))]
-pub struct FContentBrowserPluginSettings {
-    pub plugin_name: FName,
-    pub root_folder_sort_priority: f32,
-}
+impl UTextFilterValueHandler {}
 #[repr(C, align(8))]
-pub struct FTextFilterKeyValueHandlerEntry {
-    pub key: FName,
-    pub handler_class: TSoftObjectPtr<crate::bindings::core_u_object::UClass>,
-}
-pub struct UContentBrowserFrontEndFilterExtension {}
-pub struct UContentBrowserPathViewContextMenuContext {}
-pub struct UTextFilterKeyValueHandler {}
-pub struct UTextFilterValueHandler {}
 pub struct UAssetViewConfig {
-    pub instances: TMap<FName, FAssetViewInstanceConfig>,
+    __padding_end: [u8; 128],
 }
+impl UAssetViewConfig {}
+#[repr(C, align(8))]
 pub struct UContentBrowserConfig {
-    pub favorites: TSet<FString>,
-    pub instances: TMap<FName, FContentBrowserInstanceConfig>,
+    __padding_end: [u8; 208],
 }
+impl UContentBrowserConfig {}
+#[repr(C, align(8))]
 pub struct UContentBrowserCollectionProjectSettings {
-    pub excluded_collections_from_view: TArray<FName>,
+    __padding_end: [u8; 120],
 }
+impl UContentBrowserCollectionProjectSettings {}
+#[repr(C, align(8))]
 pub struct UContentBrowserAssetContextMenuContext {
-    pub common_asset_definition: UPtr<
-        crate::bindings::asset_definition::UAssetDefinition,
-    >,
+    #[doc(hidden)]
+    __padding_88: [u8; 88],
     pub selected_assets: TArray<crate::bindings::core_u_object::FAssetData>,
-    pub common_class: TSubclassOf<crate::bindings::core_u_object::UObject>,
-    pub b_can_be_modified: bool,
-    pub b_can_view: bool,
-    pub b_has_cooked_packages: bool,
+    #[doc(hidden)]
+    __padding_115: [u8; 11],
     pub b_contains_unsupported_assets: bool,
+    __padding_end: [u8; 4],
 }
-pub struct UContentBrowserAssetViewContextMenuContext {}
-pub struct UContentBrowserAssetSortingContextMenuContext {}
-pub struct UContentBrowserMenuContext {}
+impl UContentBrowserAssetContextMenuContext {}
+#[repr(C, align(8))]
+pub struct UContentBrowserAssetViewContextMenuContext {
+    __padding_end: [u8; 80],
+}
+impl UContentBrowserAssetViewContextMenuContext {}
+#[repr(C, align(8))]
+pub struct UContentBrowserAssetSortingContextMenuContext {
+    __padding_end: [u8; 96],
+}
+impl UContentBrowserAssetSortingContextMenuContext {}
+#[repr(C, align(8))]
+pub struct UContentBrowserMenuContext {
+    __padding_end: [u8; 64],
+}
+impl UContentBrowserMenuContext {}
+#[repr(C, align(8))]
 pub struct UContentBrowserFolderContext {
+    #[doc(hidden)]
+    __padding_64: [u8; 64],
     pub b_can_be_modified: bool,
     pub b_no_folder_on_disk: bool,
     pub num_asset_paths: i32,
     pub num_class_paths: i32,
     pub selected_package_paths: TArray<FString>,
+    __padding_end: [u8; 24],
 }
-pub struct UContentBrowserAddNewContextMenuContext {}
-pub struct UContentBrowserToolbarMenuContext {}
-pub struct UContentSourcesViewMenuContext {}
+impl UContentBrowserFolderContext {}
+#[repr(C, align(8))]
+pub struct UContentBrowserAddNewContextMenuContext {
+    __padding_end: [u8; 64],
+}
+impl UContentBrowserAddNewContextMenuContext {}
+#[repr(C, align(8))]
+pub struct UContentBrowserToolbarMenuContext {
+    __padding_end: [u8; 88],
+}
+impl UContentBrowserToolbarMenuContext {}
+#[repr(C, align(8))]
+pub struct UContentSourcesViewMenuContext {
+    __padding_end: [u8; 64],
+}
+impl UContentSourcesViewMenuContext {}
+#[repr(C, align(8))]
 pub struct UTextFilterKeyValueHandlers {
-    pub text_filter_key_value_handlers: TArray<FTextFilterKeyValueHandlerEntry>,
+    __padding_end: [u8; 64],
 }
+impl UTextFilterKeyValueHandlers {}
+#[repr(C, align(8))]
 pub struct UTextFilterValueHandlers {
-    pub text_filter_value_handlers: TArray<
-        TSoftObjectPtr<crate::bindings::core_u_object::UClass>,
-    >,
+    __padding_end: [u8; 64],
 }
+impl UTextFilterValueHandlers {}

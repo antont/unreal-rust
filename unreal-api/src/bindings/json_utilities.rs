@@ -6,6 +6,11 @@ pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[repr(C, align(8))]
 pub struct FJsonObjectWrapper {
-    pub json_string: FString,
+    __padding_end: [u8; 32],
 }
-pub struct UJsonUtilitiesDummyObject {}
+impl FJsonObjectWrapper {}
+#[repr(C, align(8))]
+pub struct UJsonUtilitiesDummyObject {
+    __padding_end: [u8; 48],
+}
+impl UJsonUtilitiesDummyObject {}

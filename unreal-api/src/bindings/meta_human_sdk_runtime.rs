@@ -5,31 +5,15 @@
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[repr(C, align(8))]
-pub struct FMetaHumanCustomizableBodyPart {
-    pub control_rig_class: TSubclassOf<crate::bindings::control_rig::UControlRig>,
-    pub control_rig_lod_threshold: i32,
-    pub physics_asset: UPtr<crate::bindings::engine::UPhysicsAsset>,
-    pub rigid_body_lod_threshold: i32,
-    pub component_name: FString,
-}
 pub struct UMetaHumanComponentBase {
-    pub body_component_name: FString,
-    pub body_type: EMetaHumanBodyType,
-    pub b_enable_body_correctives: bool,
-    pub face_component_name: FString,
-    pub rig_logic_lod_threshold: i32,
-    pub b_enable_neck_correctives: bool,
-    pub neck_correctives_lod_threshold: i32,
-    pub b_enable_neck_proc_control_rig: bool,
-    pub neck_proc_control_rig_lod_threshold: i32,
-    pub torso: FMetaHumanCustomizableBodyPart,
-    pub legs: FMetaHumanCustomizableBodyPart,
-    pub feet: FMetaHumanCustomizableBodyPart,
+    __padding_end: [u8; 448],
 }
+impl UMetaHumanComponentBase {}
+#[repr(C, align(8))]
 pub struct UMetaHumanComponentUE {
-    pub post_process_anim_bp: TSoftObjectPtr<crate::bindings::core_u_object::UClass>,
+    __padding_end: [u8; 496],
 }
-#[allow(non_camel_case_types)]
+impl UMetaHumanComponentUE {}
 #[repr(transparent)]
 pub struct EMetaHumanQualityLevel(pub u8);
 impl EMetaHumanQualityLevel {
@@ -39,7 +23,6 @@ impl EMetaHumanQualityLevel {
     pub const CINEMATIC: EMetaHumanQualityLevel = EMetaHumanQualityLevel(3);
     pub const COUNT: EMetaHumanQualityLevel = EMetaHumanQualityLevel(4);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMetaHumanBodyType(pub u8);
 impl EMetaHumanBodyType {

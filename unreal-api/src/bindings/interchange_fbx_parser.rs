@@ -4,9 +4,8 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
+#[repr(C, align(8))]
 pub struct UInterchangeFbxSettings {
-    pub custom_property_tracks: TMap<
-        FString,
-        crate::bindings::interchange_nodes::EInterchangePropertyTracks,
-    >,
+    __padding_end: [u8; 264],
 }
+impl UInterchangeFbxSettings {}

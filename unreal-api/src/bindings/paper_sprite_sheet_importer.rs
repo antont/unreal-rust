@@ -4,14 +4,18 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
+#[repr(C, align(8))]
 pub struct UPaperSpriteSheet {
-    pub sprite_names: TArray<FString>,
-    pub sprites: TArray<TSoftObjectPtr<crate::bindings::paper2_d::UPaperSprite>>,
-    pub texture_name: FString,
-    pub texture: UPtr<crate::bindings::engine::UTexture2D>,
-    pub normal_map_texture_name: FString,
-    pub normal_map_texture: UPtr<crate::bindings::engine::UTexture2D>,
-    pub asset_import_data: UPtr<crate::bindings::engine::UAssetImportData>,
+    __padding_end: [u8; 136],
 }
-pub struct UPaperSpriteSheetImportFactory {}
-pub struct UPaperSpriteSheetReimportFactory {}
+impl UPaperSpriteSheet {}
+#[repr(C, align(8))]
+pub struct UPaperSpriteSheetImportFactory {
+    __padding_end: [u8; 336],
+}
+impl UPaperSpriteSheetImportFactory {}
+#[repr(C, align(8))]
+pub struct UPaperSpriteSheetReimportFactory {
+    __padding_end: [u8; 368],
+}
+impl UPaperSpriteSheetReimportFactory {}

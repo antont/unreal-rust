@@ -4,12 +4,13 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
+#[repr(C, align(8))]
 pub struct UToolPresetUserSettings {
-    pub enabled_preset_collections: TSet<
-        crate::bindings::core_u_object::FSoftObjectPath,
-    >,
-    pub b_default_collection_enabled: bool,
+    __padding_end: [u8; 136],
 }
+impl UToolPresetUserSettings {}
+#[repr(C, align(8))]
 pub struct UToolPresetProjectSettings {
-    pub loaded_preset_collections: TSet<crate::bindings::core_u_object::FSoftObjectPath>,
+    __padding_end: [u8; 184],
 }
+impl UToolPresetProjectSettings {}

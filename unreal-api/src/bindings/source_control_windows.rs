@@ -4,13 +4,23 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
+#[repr(C, align(8))]
 pub struct USourceControlMenuContext {
-    pub selected_files: TArray<FString>,
+    __padding_end: [u8; 80],
 }
+impl USourceControlMenuContext {}
+#[repr(C, align(8))]
 pub struct USourceControlSettings {
-    pub b_show_asset_type_column: bool,
-    pub b_show_asset_last_modified_time_column: bool,
-    pub b_show_asset_checked_out_by_column: bool,
+    __padding_end: [u8; 56],
 }
-pub struct USourceControlHistoryWidgetContext {}
-pub struct USourceControlSubmitWidgetContext {}
+impl USourceControlSettings {}
+#[repr(C, align(8))]
+pub struct USourceControlHistoryWidgetContext {
+    __padding_end: [u8; 80],
+}
+impl USourceControlHistoryWidgetContext {}
+#[repr(C, align(8))]
+pub struct USourceControlSubmitWidgetContext {
+    __padding_end: [u8; 80],
+}
+impl USourceControlSubmitWidgetContext {}

@@ -5,17 +5,19 @@
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[repr(C, align(8))]
-pub struct FAssetFilterData {}
-#[repr(C, align(8))]
 pub struct FRevisionInfo {
     pub revision: FString,
     pub changelist: i32,
     pub date: crate::bindings::core_u_object::FDateTime,
 }
-pub struct UAssetDefinition {}
-pub struct UAssetDefinitionRegistry {
-    pub asset_definitions: TMap<
-        TSoftObjectPtr<crate::bindings::core_u_object::UClass>,
-        UPtr<UAssetDefinition>,
-    >,
+impl FRevisionInfo {}
+#[repr(C, align(8))]
+pub struct UAssetDefinition {
+    __padding_end: [u8; 72],
 }
+impl UAssetDefinition {}
+#[repr(C, align(8))]
+pub struct UAssetDefinitionRegistry {
+    __padding_end: [u8; 208],
+}
+impl UAssetDefinitionRegistry {}

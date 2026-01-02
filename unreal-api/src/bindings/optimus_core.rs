@@ -5,467 +5,170 @@
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[repr(C, align(8))]
-pub struct FOptimus_ShaderBinding {
-    pub name: FName,
-    pub data_type: FOptimusDataTypeRef,
-}
-#[repr(C, align(8))]
 pub struct FOptimusDataTypeRef {
-    pub type_name: FName,
-    pub type_object: TSoftObjectPtr<crate::bindings::core_u_object::UObject>,
+    __padding_end: [u8; 64],
 }
-#[repr(C, align(8))]
-pub struct FOptimusParameterBinding {
-    pub name: FOptimusValidatedName,
-    pub data_type: FOptimusDataTypeRef,
-    pub data_domain: FOptimusDataDomain,
-    pub b_support_atomic_if_compatible_data_type: bool,
-    pub b_support_read: bool,
-}
-#[repr(C, align(8))]
-pub struct FOptimusDataDomain {
-    pub ty: EOptimusDataDomainType,
-    pub dimension_names: TArray<FName>,
-    pub multiplier: i32,
-    pub expression: FString,
-    pub level_names_deprecated: TArray<FName>,
-}
-#[repr(C, align(4))]
-pub struct FOptimusValidatedName {
-    pub name: FName,
-}
-#[repr(C, align(8))]
-pub struct FOptimusParameterBindingArray {
-    pub inner_array: TArray<FOptimusParameterBinding>,
-}
-#[repr(C, align(4))]
-pub struct FOptimusFunctionNodeGraphHeaderWithGuid {
-    pub function_graph_guid: crate::bindings::core_u_object::FGuid,
-    pub function_name: FName,
-    pub category: FName,
-}
-#[repr(C, align(8))]
-pub struct FOptimusFunctionNodeGraphHeaderWithGuidArray {
-    pub headers: TArray<FOptimusFunctionNodeGraphHeaderWithGuid>,
-}
-#[repr(C, align(8))]
-pub struct FOptimusShaderText {
-    pub declarations: FString,
-    pub shader_text: FString,
-}
-#[repr(C, align(4))]
-pub struct FOptimusValueIdentifier {
-    pub ty: EOptimusValueType,
-    pub name: FName,
-}
-#[repr(C, align(8))]
-pub struct FOptimusValueDescription {
-    pub data_type: FOptimusDataTypeRef,
-    pub value_usage: EOptimusValueUsage,
-    pub value: FOptimusValueContainerStruct,
-    pub shader_value: crate::bindings::compute_framework::FShaderValueContainer,
-}
-#[repr(C, align(8))]
-pub struct FOptimusValueContainerStruct {
-    pub value: crate::bindings::core_u_object::FInstancedPropertyBag,
-}
-#[repr(C, align(8))]
-pub struct FOptimusDataInterfacePropertyOverrideInfo {
-    pub pin_name_to_value_id_map: TMap<FName, FOptimusValueIdentifier>,
-}
-#[repr(C, align(8))]
-pub struct FOptimusAction {}
-#[repr(C, align(8))]
-pub struct FOptimusCompoundAction {}
-#[repr(C, align(8))]
-pub struct FOptimusComponentBindingAction_AddBinding {}
-#[repr(C, align(8))]
-pub struct FOptimusComponentBindingAction_RemoveBinding {}
-#[repr(C, align(8))]
-pub struct FOptimusComponentBindingAction_RenameBinding {}
-#[repr(C, align(8))]
-pub struct FOptimusComponentBindingAction_SetComponentSource {}
-#[repr(C, align(8))]
-pub struct FOptimusNodeAction_RenameNode {}
-#[repr(C, align(8))]
-pub struct FOptimusNodeAction_MoveNode {}
-#[repr(C, align(8))]
-pub struct FOptimusCommentNodeAction_ResizeNode {}
-#[repr(C, align(8))]
-pub struct FOptimusNodeAction_SetPinValue {}
-#[repr(C, align(8))]
-pub struct FOptimusNodeAction_SetPinName {}
-#[repr(C, align(8))]
-pub struct FOptimusNodeAction_SetPinType {}
-#[repr(C, align(8))]
-pub struct FOptimusNodeAction_SetPinDataDomain {}
-#[repr(C, align(8))]
-pub struct FOptimusNodeAction_AddRemovePin {}
-#[repr(C, align(8))]
-pub struct FOptimusNodeAction_AddPin {}
-#[repr(C, align(8))]
-pub struct FOptimusNodeAction_AddGroupingPin {}
-#[repr(C, align(8))]
-pub struct FOptimusNodeAction_RemovePin {}
-#[repr(C, align(8))]
-pub struct FOptimusNodeAction_MovePin {}
-#[repr(C, align(16))]
-pub struct FOptimusNodeGraphAction_AddGraph {}
-#[repr(C, align(8))]
-pub struct FOptimusNodeGraphAction_RemoveGraph {}
-#[repr(C, align(8))]
-pub struct FOptimusNodeGraphAction_RenameGraph {}
-#[repr(C, align(16))]
-pub struct FOptimusNodeGraphAction_AddNode {}
-#[repr(C, align(16))]
-pub struct FOptimusNodeGraphAction_DuplicateNode {}
-#[repr(C, align(8))]
-pub struct FOptimusNodeGraphAction_RemoveNode {}
-#[repr(C, align(8))]
-pub struct FOptimusNodeGraphAction_AddRemoveNodePair {}
-#[repr(C, align(8))]
-pub struct FOptimusNodeGraphAction_AddNodePair {}
-#[repr(C, align(8))]
-pub struct FOptimusNodeGraphAction_RemoveNodePair {}
-#[repr(C, align(8))]
-pub struct FOptimusNodeGraphAction_AddRemoveLink {}
-#[repr(C, align(8))]
-pub struct FOptimusNodeGraphAction_AddLink {}
-#[repr(C, align(8))]
-pub struct FOptimusNodeGraphAction_RemoveLink {}
-#[repr(C, align(8))]
-pub struct FOptimusNodeGraphAction_ConnectAdderPin {}
-#[repr(C, align(8))]
-pub struct FOptimusNodeGraphAction_PackageKernelFunction {}
-#[repr(C, align(8))]
-pub struct FOptimusNodeGraphAction_UnpackageKernelFunction {}
-#[repr(C, align(8))]
-pub struct FOptimusResourceAction_AddResource {}
-#[repr(C, align(8))]
-pub struct FOptimusResourceAction_RemoveResource {}
-#[repr(C, align(8))]
-pub struct FOptimusResourceAction_RenameResource {}
-#[repr(C, align(8))]
-pub struct FOptimusResourceAction_SetDataType {}
-#[repr(C, align(8))]
-pub struct FOptimusResourceAction_SetDataDomain {}
-#[repr(C, align(8))]
-pub struct FOptimusVariableAction_AddVariable {}
-#[repr(C, align(8))]
-pub struct FOptimusVariableAction_RemoveVariable {}
-#[repr(C, align(8))]
-pub struct FOptimusVariableAction_RenameVariable {}
-#[repr(C, align(8))]
-pub struct FOptimusVariableAction_SetDataType {}
-#[repr(C, align(8))]
-pub struct FRigVMTrait_OptimusDeformer {
-    pub deformer_graph: TSoftObjectPtr<UOptimusDeformer>,
-}
+impl FOptimusDataTypeRef {}
 #[repr(C, align(8))]
 pub struct FRigVMTrait_OptimusDeformerSettings {
+    #[doc(hidden)]
+    __padding_24: [u8; 24],
     pub execution_phase: EOptimusDeformerExecutionPhase,
     pub execution_group: i32,
     pub deform_child_components: bool,
     pub exclude_child_components_with_tag: FName,
 }
+impl FRigVMTrait_OptimusDeformerSettings {}
 #[repr(C, align(8))]
 pub struct FRigUnit_AddOptimusDeformer {
-    pub deformer_instance_guid: crate::bindings::core_u_object::FGuid,
+    __padding_end: [u8; 32],
 }
-#[repr(C, align(8))]
-pub struct FRigVMTrait_OptimusVariableBase {}
+impl FRigUnit_AddOptimusDeformer {}
 #[repr(C, align(8))]
 pub struct FRigVMTrait_SetDeformerIntVariable {
-    pub value: i32,
+    __padding_end: [u8; 32],
 }
+impl FRigVMTrait_SetDeformerIntVariable {}
 #[repr(C, align(8))]
 pub struct FRigVMTrait_SetDeformerIntArrayVariable {
-    pub value: TArray<i32>,
+    __padding_end: [u8; 40],
 }
+impl FRigVMTrait_SetDeformerIntArrayVariable {}
 #[repr(C, align(8))]
 pub struct FRigVMTrait_SetDeformerInt2Variable {
-    pub value: crate::bindings::core_u_object::FIntPoint,
+    __padding_end: [u8; 32],
 }
+impl FRigVMTrait_SetDeformerInt2Variable {}
 #[repr(C, align(8))]
 pub struct FRigVMTrait_SetDeformerInt2ArrayVariable {
-    pub value: TArray<crate::bindings::core_u_object::FIntPoint>,
+    __padding_end: [u8; 40],
 }
+impl FRigVMTrait_SetDeformerInt2ArrayVariable {}
 #[repr(C, align(8))]
 pub struct FRigVMTrait_SetDeformerInt3Variable {
-    pub value: crate::bindings::core_u_object::FIntVector,
+    __padding_end: [u8; 40],
 }
+impl FRigVMTrait_SetDeformerInt3Variable {}
 #[repr(C, align(8))]
 pub struct FRigVMTrait_SetDeformerInt3ArrayVariable {
-    pub value: TArray<crate::bindings::core_u_object::FIntVector>,
+    __padding_end: [u8; 40],
 }
+impl FRigVMTrait_SetDeformerInt3ArrayVariable {}
 #[repr(C, align(8))]
 pub struct FRigVMTrait_SetDeformerInt4Variable {
-    pub value: crate::bindings::core_u_object::FIntVector4,
+    __padding_end: [u8; 40],
 }
+impl FRigVMTrait_SetDeformerInt4Variable {}
 #[repr(C, align(8))]
 pub struct FRigVMTrait_SetDeformerInt4ArrayVariable {
-    pub value: TArray<crate::bindings::core_u_object::FIntVector4>,
+    __padding_end: [u8; 40],
 }
+impl FRigVMTrait_SetDeformerInt4ArrayVariable {}
 #[repr(C, align(8))]
 pub struct FRigVMTrait_SetDeformerFloatVariable {
-    pub value: f64,
+    __padding_end: [u8; 32],
 }
+impl FRigVMTrait_SetDeformerFloatVariable {}
 #[repr(C, align(8))]
 pub struct FRigVMTrait_SetDeformerFloatArrayVariable {
-    pub value: TArray<f64>,
+    __padding_end: [u8; 40],
 }
+impl FRigVMTrait_SetDeformerFloatArrayVariable {}
 #[repr(C, align(8))]
 pub struct FRigVMTrait_SetDeformerVector2Variable {
-    pub value: crate::bindings::core_u_object::FVector2D,
+    __padding_end: [u8; 40],
 }
+impl FRigVMTrait_SetDeformerVector2Variable {}
 #[repr(C, align(8))]
 pub struct FRigVMTrait_SetDeformerVector2ArrayVariable {
-    pub value: TArray<crate::bindings::core_u_object::FVector2D>,
+    __padding_end: [u8; 40],
 }
+impl FRigVMTrait_SetDeformerVector2ArrayVariable {}
 #[repr(C, align(8))]
 pub struct FRigVMTrait_SetDeformerVectorVariable {
-    pub value: crate::bindings::core_u_object::FVector,
+    __padding_end: [u8; 48],
 }
+impl FRigVMTrait_SetDeformerVectorVariable {}
 #[repr(C, align(8))]
 pub struct FRigVMTrait_SetDeformerVectorArrayVariable {
-    pub value: TArray<crate::bindings::core_u_object::FVector>,
+    __padding_end: [u8; 40],
 }
+impl FRigVMTrait_SetDeformerVectorArrayVariable {}
 #[repr(C, align(16))]
 pub struct FRigVMTrait_SetDeformerVector4Variable {
-    pub value: crate::bindings::core_u_object::FVector4,
+    __padding_end: [u8; 64],
 }
+impl FRigVMTrait_SetDeformerVector4Variable {}
 #[repr(C, align(8))]
 pub struct FRigVMTrait_SetDeformerVector4ArrayVariable {
-    pub value: TArray<crate::bindings::core_u_object::FVector4>,
+    __padding_end: [u8; 40],
 }
+impl FRigVMTrait_SetDeformerVector4ArrayVariable {}
 #[repr(C, align(8))]
 pub struct FRigVMTrait_SetDeformerLinearColorVariable {
-    pub value: crate::bindings::core_u_object::FLinearColor,
+    __padding_end: [u8; 40],
 }
+impl FRigVMTrait_SetDeformerLinearColorVariable {}
 #[repr(C, align(8))]
 pub struct FRigVMTrait_SetDeformerLinearColorArrayVariable {
-    pub value: TArray<crate::bindings::core_u_object::FLinearColor>,
+    __padding_end: [u8; 40],
 }
+impl FRigVMTrait_SetDeformerLinearColorArrayVariable {}
 #[repr(C, align(16))]
 pub struct FRigVMTrait_SetDeformerQuatVariable {
-    pub value: crate::bindings::core_u_object::FQuat,
+    __padding_end: [u8; 64],
 }
+impl FRigVMTrait_SetDeformerQuatVariable {}
 #[repr(C, align(8))]
 pub struct FRigVMTrait_SetDeformerQuatArrayVariable {
-    pub value: TArray<crate::bindings::core_u_object::FQuat>,
+    __padding_end: [u8; 40],
 }
+impl FRigVMTrait_SetDeformerQuatArrayVariable {}
 #[repr(C, align(8))]
 pub struct FRigVMTrait_SetDeformerRotatorVariable {
-    pub value: crate::bindings::core_u_object::FRotator,
+    __padding_end: [u8; 48],
 }
+impl FRigVMTrait_SetDeformerRotatorVariable {}
 #[repr(C, align(8))]
 pub struct FRigVMTrait_SetDeformerRotatorArrayVariable {
-    pub value: TArray<crate::bindings::core_u_object::FRotator>,
+    __padding_end: [u8; 40],
 }
+impl FRigVMTrait_SetDeformerRotatorArrayVariable {}
 #[repr(C, align(16))]
 pub struct FRigVMTrait_SetDeformerTransformVariable {
-    pub value: crate::bindings::core_u_object::FTransform,
+    __padding_end: [u8; 128],
 }
+impl FRigVMTrait_SetDeformerTransformVariable {}
 #[repr(C, align(8))]
 pub struct FRigVMTrait_SetDeformerTransformArrayVariable {
-    pub value: TArray<crate::bindings::core_u_object::FTransform>,
+    __padding_end: [u8; 40],
 }
+impl FRigVMTrait_SetDeformerTransformArrayVariable {}
 #[repr(C, align(8))]
 pub struct FRigVMTrait_SetDeformerNameVariable {
-    pub value: FName,
+    __padding_end: [u8; 40],
 }
+impl FRigVMTrait_SetDeformerNameVariable {}
 #[repr(C, align(8))]
 pub struct FRigVMTrait_SetDeformerNameArrayVariable {
-    pub value: TArray<FName>,
+    __padding_end: [u8; 40],
 }
+impl FRigVMTrait_SetDeformerNameArrayVariable {}
 #[repr(C, align(8))]
 pub struct FRigVMTrait_SetDeformerBoolVariable {
-    pub value: bool,
+    __padding_end: [u8; 32],
 }
+impl FRigVMTrait_SetDeformerBoolVariable {}
 #[repr(C, align(8))]
 pub struct FRigVMTrait_SetDeformerBoolArrayVariable {
-    pub value: TArray<bool>,
+    __padding_end: [u8; 40],
 }
-#[repr(C, align(8))]
-pub struct FOptimusAnimAttributeBufferDescription {
-    pub name: FString,
-    pub data_type: FOptimusDataTypeRef,
-    pub default_value_struct: FOptimusValueContainerStruct,
-    pub hlsl_id: FString,
-    pub pin_name: FName,
-}
-#[repr(C, align(8))]
-pub struct FOptimusAnimAttributeBufferArray {
-    pub inner_array: TArray<FOptimusAnimAttributeBufferDescription>,
-}
-#[repr(C, align(8))]
-pub struct FOptimusAnimAttributeDescription {
-    pub name: FString,
-    pub bone_name: FName,
-    pub data_type: FOptimusDataTypeRef,
-    pub default_value_struct: FOptimusValueContainerStruct,
-    pub hlsl_id: FString,
-    pub pin_name: FName,
-    pub default_value_deprecated: UPtr<UOptimusValueContainer>,
-}
-#[repr(C, align(8))]
-pub struct FOptimusAnimAttributeArray {
-    pub inner_array: TArray<FOptimusAnimAttributeDescription>,
-}
-#[repr(C, align(4))]
-pub struct FOptimusDebugDrawParameters {
-    pub b_force_enable: bool,
-    pub max_line_count: i32,
-    pub max_triangle_count: i32,
-    pub max_character_count: i32,
-    pub font_size: i32,
-}
-#[repr(C, align(8))]
-pub struct FOptimusGraphVariableDescription {
-    pub name: FString,
-    pub value_type: crate::bindings::compute_framework::FShaderValueTypeHandle,
-    pub value_id: FOptimusValueIdentifier,
-    pub offset: i32,
-    pub value_deprecated: TArray<u8>,
-    pub shader_value_deprecated: crate::bindings::compute_framework::FShaderValueContainer,
-    pub source_object_deprecated: TSoftObjectPtr<
-        crate::bindings::core_u_object::UObject,
-    >,
-}
-#[repr(C, align(8))]
-pub struct FOptimusNode_ComponentSource_DuplicationInfo {
-    pub binding_name: FName,
-    pub component_type: TSubclassOf<UOptimusComponentSource>,
-}
-#[repr(C, align(8))]
-pub struct FOptimusSecondaryInputBindingsGroup {
-    pub group_name: FOptimusValidatedName,
-    pub binding_array: FOptimusParameterBindingArray,
-}
-#[repr(C, align(8))]
-pub struct FOptimusNode_GetVariable_DuplicationInfo {
-    pub variable_name: FName,
-    pub data_type: FOptimusDataTypeRef,
-    pub default_value: FString,
-}
-#[repr(C, align(8))]
-pub struct FOptimusPinPairInfo {
-    pub input_pin_path: TArray<FName>,
-    pub output_pin_path: TArray<FName>,
-}
-#[repr(C, align(8))]
-pub struct FOptimusLoopTerminalInfo {
-    pub count: i32,
-    pub bindings: FOptimusParameterBindingArray,
-}
-#[repr(C, align(8))]
-pub struct FOptimusNode_ResourceAccessorBase_DuplicationInfo {
-    pub resource_name: FName,
-    pub data_type: FOptimusDataTypeRef,
-    pub data_domain: FOptimusDataDomain,
-}
-#[repr(C, align(4))]
-pub struct FOptimusConstantIdentifier {
-    pub node_path: FName,
-    pub group_name: FName,
-    pub constant_name: FName,
-}
-#[repr(C, align(8))]
-pub struct FOptimusConstantDefinition {
-    pub referenced_constant: FOptimusConstantIdentifier,
-    pub expression: FString,
-}
-#[repr(C, align(8))]
-pub struct FOptimusConstant {
-    pub identifier: FOptimusConstantIdentifier,
-    pub definition: FOptimusConstantDefinition,
-    pub component_binding_index: i32,
-    pub ty: EOptimusConstantType,
-}
-#[repr(C, align(4))]
-pub struct FOptimusConstantIndex {
-    pub kernel_index: i32,
-    pub ty: EOptimusConstantType,
-    pub constant_index: i32,
-}
-#[repr(C, align(8))]
-pub struct FOptimusKernelConstantContainer {
-    pub input_constants: TArray<FOptimusConstant>,
-    pub output_constants: TArray<FOptimusConstant>,
-    pub group_name_to_binding_index: TMap<FName, i32>,
-}
-#[repr(C, align(8))]
-pub struct FOptimusConstantContainer {
-    pub kernel_containers: TArray<FOptimusKernelConstantContainer>,
-}
-#[repr(C, align(8))]
-pub struct FOptimusDataType {
-    pub type_name: FName,
-    pub display_name: FText,
-    pub shader_value_type: crate::bindings::compute_framework::FShaderValueTypeHandle,
-    pub shader_value_size: i32,
-    pub type_category: FName,
-    pub type_object: TWeakObjectPtr<crate::bindings::core_u_object::UObject>,
-    pub b_has_custom_pin_color: bool,
-    pub custom_pin_color: crate::bindings::core_u_object::FLinearColor,
-    pub usage_flags: EOptimusDataTypeUsageFlags,
-    pub type_flags: EOptimusDataTypeFlags,
-}
-#[repr(C, align(8))]
-pub struct FOptimusComputeGraphInfo {
-    pub graph_type: EOptimusNodeGraphType,
-    pub graph_name: FName,
-    pub compute_graph: UPtr<UOptimusComputeGraph>,
-}
-#[repr(C, align(8))]
-pub struct FOptimusDeformerInstanceExecInfo {
-    pub graph_name: FName,
-    pub graph_type: EOptimusNodeGraphType,
-    pub compute_graph: UPtr<crate::bindings::compute_framework::UComputeGraph>,
-    pub compute_graph_instance: crate::bindings::compute_framework::FComputeGraphInstance,
-}
+impl FRigVMTrait_SetDeformerBoolArrayVariable {}
 #[repr(C, align(4))]
 pub struct FOptimusDeformerInstanceComponentBinding {
-    pub provider_name: FName,
-    pub component_name: FName,
+    __padding_end: [u8; 24],
 }
-#[repr(C, align(8))]
-pub struct FOptimusExecutionDomain {
-    pub ty: EOptimusExecutionDomainType,
-    pub name: FName,
-    pub expression: FString,
-}
-#[repr(C, align(8))]
-pub struct FOptimusFunctionGraphIdentifier {
-    pub asset: UPtr<UOptimusDeformer>,
-    pub guid: crate::bindings::core_u_object::FGuid,
-}
-#[repr(C, align(8))]
-pub struct FOptimusFunctionNodeGraphHeader {
-    pub graph_path: TSoftObjectPtr<UOptimusFunctionNodeGraph>,
-    pub function_name: FName,
-    pub category: FName,
-}
-#[repr(C, align(8))]
-pub struct FOptimusFunctionNodeGraphHeaderArray {
-    pub headers: TArray<FOptimusFunctionNodeGraphHeader>,
-}
-#[repr(C, align(8))]
-pub struct FOptimusFunctionReferenceNodeSet {
-    pub nodes: TSet<TSoftObjectPtr<UOptimusNode_FunctionReference>>,
-}
-#[repr(C, align(8))]
-pub struct FOptimusFunctionReferenceData {
-    pub function_references: TMap<
-        crate::bindings::core_u_object::FSoftObjectPath,
-        FOptimusFunctionReferenceNodeSet,
-    >,
-}
-#[repr(C, align(8))]
-pub struct FOptimusVariableMetaDataEntry {
-    pub key: FName,
-    pub value: FString,
-}
+impl FOptimusDeformerInstanceComponentBinding {}
 pub struct UOptimusAlternativeSelectedObjectProvider {}
 pub struct IOptimusAlternativeSelectedObjectProvider {}
 pub struct UOptimusComponentBindingProvider {}
@@ -526,321 +229,492 @@ pub struct UOptimusUnnamedNodePinProvider {}
 pub struct IOptimusUnnamedNodePinProvider {}
 pub struct UOptimusValueProvider {}
 pub struct IOptimusValueProvider {}
+#[repr(C, align(8))]
 pub struct UOptimusKernelSource {
-    pub source: FString,
+    __padding_end: [u8; 176],
 }
-pub struct UOptimusComponentSource {}
-pub struct UOptimusSceneComponentSource {}
-pub struct UOptimusSkinnedMeshComponentSource {}
-pub struct UOptimusSkeletalMeshComponentSource {}
-pub struct UOptimusComputeDataInterface {}
+impl UOptimusKernelSource {}
+#[repr(C, align(8))]
+pub struct UOptimusComponentSource {
+    __padding_end: [u8; 48],
+}
+impl UOptimusComponentSource {}
+#[repr(C, align(8))]
+pub struct UOptimusSceneComponentSource {
+    __padding_end: [u8; 48],
+}
+impl UOptimusSceneComponentSource {}
+#[repr(C, align(8))]
+pub struct UOptimusSkinnedMeshComponentSource {
+    __padding_end: [u8; 48],
+}
+impl UOptimusSkinnedMeshComponentSource {}
+#[repr(C, align(8))]
+pub struct UOptimusSkeletalMeshComponentSource {
+    __padding_end: [u8; 48],
+}
+impl UOptimusSkeletalMeshComponentSource {}
+#[repr(C, align(8))]
+pub struct UOptimusComputeDataInterface {
+    __padding_end: [u8; 48],
+}
+impl UOptimusComputeDataInterface {}
+#[repr(C, align(8))]
 pub struct UOptimusAdvancedSkeletonDataInterface {
-    pub skin_weight_profile: FName,
-    pub b_enable_layered_skinning: bool,
-    pub attribute_buffer_array: FOptimusAnimAttributeBufferArray,
+    __padding_end: [u8; 152],
 }
-pub struct UOptimusAdvancedSkeletonDataProvider {}
+impl UOptimusAdvancedSkeletonDataInterface {}
+#[repr(C, align(8))]
+pub struct UOptimusAdvancedSkeletonDataProvider {
+    __padding_end: [u8; 232],
+}
+impl UOptimusAdvancedSkeletonDataProvider {}
+#[repr(C, align(8))]
 pub struct UOptimusAnimAttributeDataInterface {
-    pub attribute_array: FOptimusAnimAttributeArray,
+    __padding_end: [u8; 112],
 }
-pub struct UOptimusAnimAttributeDataProvider {}
-pub struct UOptimusClothDataInterface {}
-pub struct UOptimusClothDataProvider {}
-pub struct UOptimusConnectivityDataInterface {}
-pub struct UOptimusConnectivityDataProvider {}
+impl UOptimusAnimAttributeDataInterface {}
+#[repr(C, align(8))]
+pub struct UOptimusAnimAttributeDataProvider {
+    __padding_end: [u8; 80],
+}
+impl UOptimusAnimAttributeDataProvider {}
+#[repr(C, align(8))]
+pub struct UOptimusClothDataInterface {
+    __padding_end: [u8; 48],
+}
+impl UOptimusClothDataInterface {}
+#[repr(C, align(8))]
+pub struct UOptimusClothDataProvider {
+    __padding_end: [u8; 56],
+}
+impl UOptimusClothDataProvider {}
+#[repr(C, align(8))]
+pub struct UOptimusConnectivityDataInterface {
+    __padding_end: [u8; 48],
+}
+impl UOptimusConnectivityDataInterface {}
+#[repr(C, align(8))]
+pub struct UOptimusConnectivityDataProvider {
+    __padding_end: [u8; 72],
+}
+impl UOptimusConnectivityDataProvider {}
+#[repr(C, align(8))]
 pub struct UOptimusCopyKernelDataInterface {
-    pub component_source_binding: TWeakObjectPtr<UOptimusComponentSourceBinding>,
-    pub num_threads_expression: FString,
+    __padding_end: [u8; 80],
 }
-pub struct UOptimusCopyKernelDataProvider {}
+impl UOptimusCopyKernelDataInterface {}
+#[repr(C, align(8))]
+pub struct UOptimusCopyKernelDataProvider {
+    __padding_end: [u8; 216],
+}
+impl UOptimusCopyKernelDataProvider {}
+#[repr(C, align(8))]
 pub struct UOptimusCustomComputeKernelDataInterface {
-    pub component_source_binding: TWeakObjectPtr<UOptimusComponentSourceBinding>,
-    pub num_threads_expression: FString,
-    pub execution_domain_constant_identifier_deprecated: FOptimusConstantIdentifier,
+    __padding_end: [u8; 120],
 }
-pub struct UOptimusCustomComputeKernelDataProvider {}
+impl UOptimusCustomComputeKernelDataInterface {}
+#[repr(C, align(8))]
+pub struct UOptimusCustomComputeKernelDataProvider {
+    __padding_end: [u8; 216],
+}
+impl UOptimusCustomComputeKernelDataProvider {}
+#[repr(C, align(8))]
 pub struct UOptimusDebugDrawDataInterface {
-    pub b_is_supported: bool,
-    pub debug_draw_parameters: FOptimusDebugDrawParameters,
+    __padding_end: [u8; 72],
 }
-pub struct UOptimusDebugDrawDataProvider {}
-pub struct UOptimusDuplicateVerticesDataInterface {}
-pub struct UOptimusDuplicateVerticesDataProvider {}
+impl UOptimusDebugDrawDataInterface {}
+#[repr(C, align(8))]
+pub struct UOptimusDebugDrawDataProvider {
+    __padding_end: [u8; 80],
+}
+impl UOptimusDebugDrawDataProvider {}
+#[repr(C, align(8))]
+pub struct UOptimusDuplicateVerticesDataInterface {
+    __padding_end: [u8; 48],
+}
+impl UOptimusDuplicateVerticesDataInterface {}
+#[repr(C, align(8))]
+pub struct UOptimusDuplicateVerticesDataProvider {
+    __padding_end: [u8; 56],
+}
+impl UOptimusDuplicateVerticesDataProvider {}
+#[repr(C, align(8))]
 pub struct UOptimusGraphDataInterface {
-    pub variables: TArray<FOptimusGraphVariableDescription>,
-    pub parameter_buffer_size: i32,
+    __padding_end: [u8; 72],
 }
+impl UOptimusGraphDataInterface {}
+#[repr(C, align(8))]
 pub struct UOptimusGraphDataProvider {
-    pub variables: TArray<FOptimusGraphVariableDescription>,
+    __padding_end: [u8; 104],
 }
-pub struct UOptimusHalfEdgeDataInterface {}
-pub struct UOptimusHalfEdgeDataProvider {}
+impl UOptimusGraphDataProvider {}
+#[repr(C, align(8))]
+pub struct UOptimusHalfEdgeDataInterface {
+    __padding_end: [u8; 48],
+}
+impl UOptimusHalfEdgeDataInterface {}
+#[repr(C, align(8))]
+pub struct UOptimusHalfEdgeDataProvider {
+    __padding_end: [u8; 192],
+}
+impl UOptimusHalfEdgeDataProvider {}
+#[repr(C, align(8))]
 pub struct UOptimusLoopTerminalDataInterface {
-    pub index: u32,
-    pub count: u32,
+    __padding_end: [u8; 56],
 }
-pub struct UOptimusLoopTerminalDataProvider {}
-pub struct UOptimusMorphTargetDataInterface {}
-pub struct UOptimusMorphTargetDataProvider {}
+impl UOptimusLoopTerminalDataInterface {}
+#[repr(C, align(8))]
+pub struct UOptimusLoopTerminalDataProvider {
+    __padding_end: [u8; 56],
+}
+impl UOptimusLoopTerminalDataProvider {}
+#[repr(C, align(8))]
+pub struct UOptimusMorphTargetDataInterface {
+    __padding_end: [u8; 48],
+}
+impl UOptimusMorphTargetDataInterface {}
+#[repr(C, align(8))]
+pub struct UOptimusMorphTargetDataProvider {
+    __padding_end: [u8; 56],
+}
+impl UOptimusMorphTargetDataProvider {}
+#[repr(C, align(8))]
 pub struct UOptimusRawBufferDataInterface {
-    pub value_type: crate::bindings::compute_framework::FShaderValueTypeHandle,
-    pub data_domain: FOptimusDataDomain,
-    pub component_source_binding: TWeakObjectPtr<UOptimusComponentSourceBinding>,
-    pub domain_constant_identifier_deprecated: FOptimusConstantIdentifier,
+    __padding_end: [u8; 168],
 }
+impl UOptimusRawBufferDataInterface {}
+#[repr(C, align(8))]
 pub struct UOptimusTransientBufferDataInterface {
-    pub b_zero_init_for_atomic_writes: bool,
+    __padding_end: [u8; 176],
 }
+impl UOptimusTransientBufferDataInterface {}
+#[repr(C, align(8))]
 pub struct UOptimusImplicitPersistentBufferDataInterface {
-    pub b_zero_init_for_atomic_writes: bool,
+    __padding_end: [u8; 176],
 }
+impl UOptimusImplicitPersistentBufferDataInterface {}
+#[repr(C, align(8))]
 pub struct UOptimusPersistentBufferDataInterface {
-    pub resource_name: FName,
+    __padding_end: [u8; 184],
 }
-pub struct UOptimusRawBufferDataProvider {}
-pub struct UOptimusTransientBufferDataProvider {}
-pub struct UOptimusImplicitPersistentBufferDataProvider {}
-pub struct UOptimusPersistentBufferDataProvider {}
-pub struct UOptimusSceneDataInterface {}
-pub struct UOptimusSceneDataProvider {}
-pub struct UOptimusSkeletonDataInterface {}
-pub struct UOptimusSkeletonDataProvider {}
-pub struct UOptimusSkinnedMeshDataInterface {}
-pub struct UOptimusSkinnedMeshDataProvider {}
+impl UOptimusPersistentBufferDataInterface {}
+#[repr(C, align(8))]
+pub struct UOptimusRawBufferDataProvider {
+    __padding_end: [u8; 224],
+}
+impl UOptimusRawBufferDataProvider {}
+#[repr(C, align(8))]
+pub struct UOptimusTransientBufferDataProvider {
+    __padding_end: [u8; 232],
+}
+impl UOptimusTransientBufferDataProvider {}
+#[repr(C, align(8))]
+pub struct UOptimusImplicitPersistentBufferDataProvider {
+    __padding_end: [u8; 264],
+}
+impl UOptimusImplicitPersistentBufferDataProvider {}
+#[repr(C, align(8))]
+pub struct UOptimusPersistentBufferDataProvider {
+    __padding_end: [u8; 264],
+}
+impl UOptimusPersistentBufferDataProvider {}
+#[repr(C, align(8))]
+pub struct UOptimusSceneDataInterface {
+    __padding_end: [u8; 48],
+}
+impl UOptimusSceneDataInterface {}
+#[repr(C, align(8))]
+pub struct UOptimusSceneDataProvider {
+    __padding_end: [u8; 56],
+}
+impl UOptimusSceneDataProvider {}
+#[repr(C, align(8))]
+pub struct UOptimusSkeletonDataInterface {
+    __padding_end: [u8; 48],
+}
+impl UOptimusSkeletonDataInterface {}
+#[repr(C, align(8))]
+pub struct UOptimusSkeletonDataProvider {
+    __padding_end: [u8; 56],
+}
+impl UOptimusSkeletonDataProvider {}
+#[repr(C, align(8))]
+pub struct UOptimusSkinnedMeshDataInterface {
+    __padding_end: [u8; 48],
+}
+impl UOptimusSkinnedMeshDataInterface {}
+#[repr(C, align(8))]
+pub struct UOptimusSkinnedMeshDataProvider {
+    __padding_end: [u8; 56],
+}
+impl UOptimusSkinnedMeshDataProvider {}
+#[repr(C, align(8))]
 pub struct UDEPRECATED_OptimusSkinnedMeshExecDataInterface {
-    pub domain: EOptimusSkinnedMeshExecDomain,
+    __padding_end: [u8; 64],
 }
-pub struct UOptimusSkinnedMeshReadDataInterface {}
-pub struct UOptimusSkinnedMeshReadDataProvider {}
+impl UDEPRECATED_OptimusSkinnedMeshExecDataInterface {}
+#[repr(C, align(8))]
+pub struct UOptimusSkinnedMeshReadDataInterface {
+    __padding_end: [u8; 48],
+}
+impl UOptimusSkinnedMeshReadDataInterface {}
+#[repr(C, align(8))]
+pub struct UOptimusSkinnedMeshReadDataProvider {
+    __padding_end: [u8; 88],
+}
+impl UOptimusSkinnedMeshReadDataProvider {}
+#[repr(C, align(8))]
 pub struct UOptimusSkinnedMeshVertexAttributeDataInterface {
-    pub attribute_name: FName,
-    pub default_value: f32,
+    __padding_end: [u8; 64],
 }
+impl UOptimusSkinnedMeshVertexAttributeDataInterface {}
+#[repr(C, align(8))]
 pub struct UOptimusSkinnedMeshVertexAttributeDataProvider {
+    #[doc(hidden)]
+    __padding_64: [u8; 64],
     pub attribute_name: FName,
     pub default_value: f32,
+    __padding_end: [u8; 16],
 }
-pub struct UOptimusSkinnedMeshWriteDataInterface {}
-pub struct UOptimusSkinnedMeshWriteDataProvider {}
+impl UOptimusSkinnedMeshVertexAttributeDataProvider {}
+#[repr(C, align(8))]
+pub struct UOptimusSkinnedMeshWriteDataInterface {
+    __padding_end: [u8; 56],
+}
+impl UOptimusSkinnedMeshWriteDataInterface {}
+#[repr(C, align(8))]
+pub struct UOptimusSkinnedMeshWriteDataProvider {
+    __padding_end: [u8; 96],
+}
+impl UOptimusSkinnedMeshWriteDataProvider {}
+#[repr(C, align(8))]
 pub struct UOptimusSkinWeightsAsVertexMaskDataInterface {
-    pub skin_weight_profile: FName,
-    pub bone_names: TArray<FName>,
-    pub expand_towards_root: i32,
-    pub expand_towards_leaf: i32,
-    pub b_debug_draw_included_bones: bool,
-    pub debug_draw_color: crate::bindings::core_u_object::FColor,
+    __padding_end: [u8; 168],
 }
-pub struct UOptimusSkinWeightsAsVertexMaskDataProvider {}
+impl UOptimusSkinWeightsAsVertexMaskDataInterface {}
+#[repr(C, align(8))]
+pub struct UOptimusSkinWeightsAsVertexMaskDataProvider {
+    __padding_end: [u8; 232],
+}
+impl UOptimusSkinWeightsAsVertexMaskDataProvider {}
+#[repr(C, align(8))]
 pub struct UOptimusNode {
-    pub display_name: FText,
-    pub graph_position: crate::bindings::core_u_object::FVector2D,
-    pub pins: TArray<UPtr<UOptimusNodePin>>,
-    pub expanded_pins: TSet<FName>,
-    pub diagnostic_level: EOptimusDiagnosticLevel,
+    __padding_end: [u8; 272],
 }
+impl UOptimusNode {}
+#[repr(C, align(8))]
 pub struct UOptimusNode_DataInterface {
-    pub data_interface_class: TSubclassOf<crate::bindings::core_u_object::UObject>,
-    pub data_interface_data: UPtr<UOptimusComputeDataInterface>,
+    __padding_end: [u8; 320],
 }
-pub struct UOptimusNode_AnimAttributeDataInterface {}
+impl UOptimusNode_DataInterface {}
+#[repr(C, align(8))]
+pub struct UOptimusNode_AnimAttributeDataInterface {
+    __padding_end: [u8; 320],
+}
+impl UOptimusNode_AnimAttributeDataInterface {}
+#[repr(C, align(8))]
 pub struct UOptimusNode_ComponentSource {
-    pub binding: UPtr<UOptimusComponentSourceBinding>,
-    pub duplication_info: FOptimusNode_ComponentSource_DuplicationInfo,
+    __padding_end: [u8; 320],
 }
-pub struct UOptimusNode_ComputeKernelBase {}
+impl UOptimusNode_ComponentSource {}
+#[repr(C, align(8))]
+pub struct UOptimusNode_ComputeKernelBase {
+    __padding_end: [u8; 280],
+}
+impl UOptimusNode_ComputeKernelBase {}
+#[repr(C, align(8))]
 pub struct UOptimusNode_ComputeKernelFunctionGeneratorClass {
-    pub category: FName,
-    pub kernel_name: FName,
-    pub execution_domain: FOptimusExecutionDomain,
-    pub group_size: crate::bindings::core_u_object::FIntVector,
-    pub input_bindings: TArray<FOptimusParameterBinding>,
-    pub output_bindings: TArray<FOptimusParameterBinding>,
-    pub shader_source: FString,
+    __padding_end: [u8; 744],
 }
-pub struct UOptimusNode_ComputeKernelFunction {}
+impl UOptimusNode_ComputeKernelFunctionGeneratorClass {}
+#[repr(C, align(8))]
+pub struct UOptimusNode_ComputeKernelFunction {
+    __padding_end: [u8; 280],
+}
+impl UOptimusNode_ComputeKernelFunction {}
+#[repr(C, align(8))]
 pub struct UOptimusNode_ConstantValueGeneratorClass {
-    pub data_type: FOptimusDataTypeRef,
+    __padding_end: [u8; 688],
 }
-pub struct UOptimusNode_ConstantValue {}
+impl UOptimusNode_ConstantValueGeneratorClass {}
+#[repr(C, align(8))]
+pub struct UOptimusNode_ConstantValue {
+    __padding_end: [u8; 296],
+}
+impl UOptimusNode_ConstantValue {}
+#[repr(C, align(8))]
 pub struct UOptimusNode_CustomComputeKernel {
-    pub category: FName,
-    pub kernel_name: FOptimusValidatedName,
-    pub execution_domain: FOptimusExecutionDomain,
-    pub group_size: crate::bindings::core_u_object::FIntVector,
-    pub parameters_deprecated: TArray<FOptimus_ShaderBinding>,
-    pub input_bindings_deprecated: TArray<FOptimusParameterBinding>,
-    pub output_bindings_deprecated: TArray<FOptimusParameterBinding>,
-    pub input_binding_array: FOptimusParameterBindingArray,
-    pub output_binding_array: FOptimusParameterBindingArray,
-    pub secondary_input_binding_groups: TArray<FOptimusSecondaryInputBindingsGroup>,
-    pub additional_sources: TArray<
-        UPtr<crate::bindings::compute_framework::UComputeSource>,
-    >,
-    pub shader_source: FOptimusShaderText,
+    __padding_end: [u8; 528],
 }
+impl UOptimusNode_CustomComputeKernel {}
+#[repr(C, align(8))]
 pub struct UOptimusNode_FunctionReference {
-    pub function_graph_identifier: FOptimusFunctionGraphIdentifier,
-    pub default_component_pin: TWeakObjectPtr<UOptimusNodePin>,
-    pub resolved_function_graph: TWeakObjectPtr<UOptimusFunctionNodeGraph>,
-    pub function_graph_deprecated: TSoftObjectPtr<UOptimusFunctionNodeGraph>,
+    __padding_end: [u8; 392],
 }
+impl UOptimusNode_FunctionReference {}
+#[repr(C, align(8))]
 pub struct UOptimusNode_ResourceAccessorBase {
-    pub resource_desc: TWeakObjectPtr<UOptimusResourceDescription>,
-    pub write_type_deprecated: EOptimusBufferWriteType,
-    pub duplication_info: FOptimusNode_ResourceAccessorBase_DuplicationInfo,
+    __padding_end: [u8; 464],
 }
-pub struct UOptimusNode_GetResource {}
+impl UOptimusNode_ResourceAccessorBase {}
+#[repr(C, align(8))]
+pub struct UOptimusNode_GetResource {
+    __padding_end: [u8; 464],
+}
+impl UOptimusNode_GetResource {}
+#[repr(C, align(8))]
 pub struct UOptimusNode_GetVariable {
-    pub variable_desc: TWeakObjectPtr<UOptimusVariableDescription>,
-    pub duplication_info: FOptimusNode_GetVariable_DuplicationInfo,
+    __padding_end: [u8; 400],
 }
+impl UOptimusNode_GetVariable {}
+#[repr(C, align(8))]
 pub struct UOptimusNode_GraphTerminal {
-    pub terminal_type: EOptimusTerminalType,
-    pub default_component_pin: TWeakObjectPtr<UOptimusNodePin>,
+    __padding_end: [u8; 328],
 }
+impl UOptimusNode_GraphTerminal {}
+#[repr(C, align(8))]
 pub struct UOptimusNode_LoopTerminal {
-    pub terminal_type: EOptimusTerminalType,
-    pub loop_info: FOptimusLoopTerminalInfo,
-    pub index_pin: UPtr<UOptimusNodePin>,
-    pub count_pin: UPtr<UOptimusNodePin>,
-    pub pin_pair_infos: TArray<FOptimusPinPairInfo>,
+    __padding_end: [u8; 376],
 }
-pub struct UOptimusNode_Resource {}
-pub struct UOptimusNode_SetResource {}
+impl UOptimusNode_LoopTerminal {}
+#[repr(C, align(8))]
+pub struct UOptimusNode_Resource {
+    __padding_end: [u8; 464],
+}
+impl UOptimusNode_Resource {}
+#[repr(C, align(8))]
+pub struct UOptimusNode_SetResource {
+    __padding_end: [u8; 464],
+}
+impl UOptimusNode_SetResource {}
+#[repr(C, align(8))]
 pub struct UOptimusNode_SubGraphReference {
-    pub sub_graph_name: FName,
-    pub default_component_pin: TWeakObjectPtr<UOptimusNodePin>,
+    __padding_end: [u8; 328],
 }
+impl UOptimusNode_SubGraphReference {}
+#[repr(C, align(16))]
 pub struct UOptimusActionStack {
-    pub transacted_action_index: i32,
+    __padding_end: [u8; 192],
 }
+impl UOptimusActionStack {}
+#[repr(C, align(8))]
 pub struct UOptimusComponentSourceBinding {
-    pub binding_name: FName,
-    pub component_type: TSubclassOf<UOptimusComponentSource>,
-    pub component_tags: TArray<FName>,
-    pub b_is_primary_binding: bool,
+    __padding_end: [u8; 104],
 }
+impl UOptimusComponentSourceBinding {}
+#[repr(C, align(8))]
 pub struct UOptimusComputeGraph {
-    pub kernel_to_node: TArray<TSoftObjectPtr<UOptimusNode>>,
+    __padding_end: [u8; 248],
 }
+impl UOptimusComputeGraph {}
+#[repr(C, align(8))]
 pub struct UOptimusComponentSourceBindingContainer {
-    pub bindings: TArray<UPtr<UOptimusComponentSourceBinding>>,
+    __padding_end: [u8; 64],
 }
+impl UOptimusComponentSourceBindingContainer {}
+#[repr(C, align(8))]
 pub struct UOptimusVariableContainer {
-    pub descriptions: TArray<UPtr<UOptimusVariableDescription>>,
+    __padding_end: [u8; 64],
 }
+impl UOptimusVariableContainer {}
+#[repr(C, align(8))]
 pub struct UOptimusResourceContainer {
-    pub descriptions: TArray<UPtr<UOptimusResourceDescription>>,
+    __padding_end: [u8; 64],
 }
+impl UOptimusResourceContainer {}
+#[repr(C, align(8))]
 pub struct UOptimusDeformer {
-    pub mesh: UPtr<crate::bindings::engine::USkeletalMesh>,
-    pub compute_graphs: TArray<FOptimusComputeGraphInfo>,
-    pub data_interface_property_override_map: TMap<
-        TWeakObjectPtr<crate::bindings::compute_framework::UComputeDataInterface>,
-        FOptimusDataInterfacePropertyOverrideInfo,
-    >,
-    pub value_map: TMap<FOptimusValueIdentifier, FOptimusValueDescription>,
-    pub action_stack: UPtr<UOptimusActionStack>,
-    pub status: EOptimusDeformerStatus,
-    pub graphs: TArray<UPtr<UOptimusNodeGraph>>,
-    pub bindings: UPtr<UOptimusComponentSourceBindingContainer>,
-    pub variables: UPtr<UOptimusVariableContainer>,
-    pub resources: UPtr<UOptimusResourceContainer>,
+    __padding_end: [u8; 520],
 }
+impl UOptimusDeformer {}
+#[repr(C, align(8))]
 pub struct UOptimusDeformerDynamicInstanceManager {
-    pub default_instance: UPtr<UOptimusDeformerInstance>,
-    pub guid_to_rig_deformer_instance_map: TMap<
-        crate::bindings::core_u_object::FGuid,
-        UPtr<UOptimusDeformerInstance>,
-    >,
-    pub guid_to_instance_map: TMap<
-        crate::bindings::core_u_object::FGuid,
-        UPtr<UOptimusDeformerInstance>,
-    >,
+    __padding_end: [u8; 448],
 }
+impl UOptimusDeformerDynamicInstanceManager {}
+#[repr(C, align(8))]
 pub struct UOptimusDeformerInstanceSettings {
-    pub deformer: TWeakObjectPtr<UOptimusDeformer>,
-    pub bindings: TArray<FOptimusDeformerInstanceComponentBinding>,
+    __padding_end: [u8; 72],
 }
+impl UOptimusDeformerInstanceSettings {}
+#[repr(C, align(8))]
 pub struct UOptimusDeformerInstance {
-    pub mesh_component: TWeakObjectPtr<crate::bindings::engine::UMeshComponent>,
-    pub instance_settings: TWeakObjectPtr<UOptimusDeformerInstanceSettings>,
-    pub compute_graph_exec_infos: TArray<FOptimusDeformerInstanceExecInfo>,
+    __padding_end: [u8; 448],
 }
+impl UOptimusDeformerInstance {}
+#[repr(C, align(8))]
 pub struct UOptimusNodeGraph {
+    #[doc(hidden)]
+    __padding_56: [u8; 56],
     pub graph_type: EOptimusNodeGraphType,
-    pub b_view_location_set: bool,
-    pub view_location: crate::bindings::core_u_object::FVector2D,
-    pub view_zoom: f32,
-    pub nodes: TArray<UPtr<UOptimusNode>>,
-    pub links: TArray<UPtr<UOptimusNodeLink>>,
-    pub node_pairs: TArray<UPtr<UOptimusNodePair>>,
-    pub sub_graphs: TArray<UPtr<UOptimusNodeGraph>>,
+    __padding_end: [u8; 124],
 }
+impl UOptimusNodeGraph {}
+#[repr(C, align(8))]
 pub struct UOptimusNodeSubGraph {
-    pub input_bindings: FOptimusParameterBindingArray,
-    pub output_bindings: FOptimusParameterBindingArray,
+    __padding_end: [u8; 416],
 }
+impl UOptimusNodeSubGraph {}
+#[repr(C, align(8))]
 pub struct UOptimusFunctionNodeGraph {
-    pub category: FName,
-    pub access_specifier: FName,
-    pub guid: crate::bindings::core_u_object::FGuid,
+    __padding_end: [u8; 456],
 }
+impl UOptimusFunctionNodeGraph {}
+#[repr(C, align(8))]
 pub struct UOptimusNodeLink {
-    pub node_output_pin: UPtr<UOptimusNodePin>,
-    pub node_input_pin: UPtr<UOptimusNodePin>,
+    __padding_end: [u8; 64],
 }
+impl UOptimusNodeLink {}
+#[repr(C, align(8))]
 pub struct UOptimusNodePair {
-    pub first: UPtr<UOptimusNode>,
-    pub second: UPtr<UOptimusNode>,
+    __padding_end: [u8; 64],
 }
+impl UOptimusNodePair {}
+#[repr(C, align(8))]
 pub struct UOptimusNodePin {
-    pub b_is_grouping_pin: bool,
-    pub direction: EOptimusNodePinDirection,
-    pub storage_type_deprecated: EOptimusNodePinStorageType,
-    pub data_domain: FOptimusDataDomain,
-    pub data_type: FOptimusDataTypeRef,
-    pub sub_pins: TArray<UPtr<UOptimusNodePin>>,
+    __padding_end: [u8; 216],
 }
+impl UOptimusNodePin {}
+#[repr(C, align(8))]
 pub struct UOptimusNode_Comment {
-    pub comment_color: crate::bindings::core_u_object::FLinearColor,
-    pub font_size: i32,
-    pub comment: FString,
-    pub b_bubble_visible: bool,
-    pub b_color_bubble: bool,
-    pub size: crate::bindings::slate_core::FDeprecateSlateVector2D,
+    __padding_end: [u8; 352],
 }
+impl UOptimusNode_Comment {}
+#[repr(C, align(8))]
 pub struct UOptimusResourceDescription {
+    #[doc(hidden)]
+    __padding_48: [u8; 48],
     pub resource_name: FName,
-    pub data_type: FOptimusDataTypeRef,
-    pub component_binding: TWeakObjectPtr<UOptimusComponentSourceBinding>,
-    pub data_domain: FOptimusDataDomain,
-    pub data_interface: UPtr<UOptimusPersistentBufferDataInterface>,
+    __padding_end: [u8; 164],
 }
+impl UOptimusResourceDescription {}
+#[repr(C, align(8))]
 pub struct UOptimusSource {
-    pub source_text: FString,
+    __padding_end: [u8; 88],
 }
+impl UOptimusSource {}
+#[repr(C, align(8))]
 pub struct UOptimusValueContainerGeneratorClass {
-    pub data_type: FOptimusDataTypeRef,
+    __padding_end: [u8; 688],
 }
-pub struct UOptimusValueContainer {}
+impl UOptimusValueContainerGeneratorClass {}
+#[repr(C, align(8))]
+pub struct UOptimusValueContainer {
+    __padding_end: [u8; 48],
+}
+impl UOptimusValueContainer {}
+#[repr(C, align(8))]
 pub struct UOptimusVariableDescription {
-    pub guid: crate::bindings::core_u_object::FGuid,
-    pub variable_name: FName,
-    pub data_type: FOptimusDataTypeRef,
-    pub default_value_struct: FOptimusValueContainerStruct,
-    pub cached_shader_value: crate::bindings::compute_framework::FShaderValueContainer,
-    pub value_data_deprecated: TArray<u8>,
-    pub default_value_deprecated: UPtr<UOptimusValueContainer>,
+    __padding_end: [u8; 232],
 }
-#[allow(non_camel_case_types)]
+impl UOptimusVariableDescription {}
 #[repr(transparent)]
 pub struct EOptimusDataDomainType(pub i32);
 impl EOptimusDataDomainType {
     pub const DIMENSIONAL: EOptimusDataDomainType = EOptimusDataDomainType(0);
     pub const EXPRESSION: EOptimusDataDomainType = EOptimusDataDomainType(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EOptimusValueType(pub u8);
 impl EOptimusValueType {
@@ -848,7 +722,6 @@ impl EOptimusValueType {
     pub const CONSTANT: EOptimusValueType = EOptimusValueType(1);
     pub const VARIABLE: EOptimusValueType = EOptimusValueType(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EOptimusValueUsage(pub u8);
 impl EOptimusValueUsage {
@@ -856,7 +729,6 @@ impl EOptimusValueUsage {
     pub const CPU: EOptimusValueUsage = EOptimusValueUsage(1);
     pub const GPU: EOptimusValueUsage = EOptimusValueUsage(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EOptimusDeformerExecutionPhase(pub u8);
 impl EOptimusDeformerExecutionPhase {
@@ -870,14 +742,12 @@ impl EOptimusDeformerExecutionPhase {
         2,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EOptimusConstantType(pub i32);
 impl EOptimusConstantType {
     pub const INPUT: EOptimusConstantType = EOptimusConstantType(0);
     pub const OUTPUT: EOptimusConstantType = EOptimusConstantType(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EOptimusDataTypeUsageFlags(pub u8);
 impl EOptimusDataTypeUsageFlags {
@@ -896,7 +766,6 @@ impl EOptimusDataTypeUsageFlags {
     );
     pub const PROPERTY: EOptimusDataTypeUsageFlags = EOptimusDataTypeUsageFlags(64);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EOptimusDataTypeFlags(pub u8);
 impl EOptimusDataTypeFlags {
@@ -904,7 +773,6 @@ impl EOptimusDataTypeFlags {
     pub const IS_STRUCT_TYPE: EOptimusDataTypeFlags = EOptimusDataTypeFlags(1);
     pub const SHOW_ELEMENTS: EOptimusDataTypeFlags = EOptimusDataTypeFlags(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EOptimusNodeGraphType(pub i32);
 impl EOptimusNodeGraphType {
@@ -915,14 +783,12 @@ impl EOptimusNodeGraphType {
     pub const SUB_GRAPH: EOptimusNodeGraphType = EOptimusNodeGraphType(4);
     pub const TRANSIENT: EOptimusNodeGraphType = EOptimusNodeGraphType(5);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EOptimusExecutionDomainType(pub i32);
 impl EOptimusExecutionDomainType {
     pub const DOMAIN_NAME: EOptimusExecutionDomainType = EOptimusExecutionDomainType(0);
     pub const EXPRESSION: EOptimusExecutionDomainType = EOptimusExecutionDomainType(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EOptimusSkinnedMeshExecDomain(pub u8);
 impl EOptimusSkinnedMeshExecDomain {
@@ -930,7 +796,6 @@ impl EOptimusSkinnedMeshExecDomain {
     pub const VERTEX: EOptimusSkinnedMeshExecDomain = EOptimusSkinnedMeshExecDomain(1);
     pub const TRIANGLE: EOptimusSkinnedMeshExecDomain = EOptimusSkinnedMeshExecDomain(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EOptimusDiagnosticLevel(pub u8);
 impl EOptimusDiagnosticLevel {
@@ -939,7 +804,6 @@ impl EOptimusDiagnosticLevel {
     pub const WARNING: EOptimusDiagnosticLevel = EOptimusDiagnosticLevel(2);
     pub const ERROR: EOptimusDiagnosticLevel = EOptimusDiagnosticLevel(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EOptimusBufferWriteType(pub u8);
 impl EOptimusBufferWriteType {
@@ -949,7 +813,6 @@ impl EOptimusBufferWriteType {
     pub const WRITE_ATOMIC_MAX: EOptimusBufferWriteType = EOptimusBufferWriteType(3);
     pub const COUNT: EOptimusBufferWriteType = EOptimusBufferWriteType(4);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EOptimusTerminalType(pub i32);
 impl EOptimusTerminalType {
@@ -957,7 +820,6 @@ impl EOptimusTerminalType {
     pub const ENTRY: EOptimusTerminalType = EOptimusTerminalType(1);
     pub const RETURN: EOptimusTerminalType = EOptimusTerminalType(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EOptimusDeformerStatus(pub i32);
 impl EOptimusDeformerStatus {
@@ -966,7 +828,6 @@ impl EOptimusDeformerStatus {
     pub const MODIFIED: EOptimusDeformerStatus = EOptimusDeformerStatus(2);
     pub const HAS_ERRORS: EOptimusDeformerStatus = EOptimusDeformerStatus(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EOptimusNodePinDirection(pub u8);
 impl EOptimusNodePinDirection {
@@ -974,7 +835,6 @@ impl EOptimusNodePinDirection {
     pub const INPUT: EOptimusNodePinDirection = EOptimusNodePinDirection(1);
     pub const OUTPUT: EOptimusNodePinDirection = EOptimusNodePinDirection(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EOptimusNodePinStorageType(pub u8);
 impl EOptimusNodePinStorageType {

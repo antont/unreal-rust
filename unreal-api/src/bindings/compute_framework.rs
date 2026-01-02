@@ -5,123 +5,76 @@
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[repr(C, align(8))]
-pub struct FComputeGraphEdge {
-    pub kernel_index: i32,
-    pub kernel_binding_index: i32,
-    pub data_interface_index: i32,
-    pub data_interface_binding_index: i32,
-    pub b_kernel_input: bool,
-    pub binding_function_name_override: FString,
-    pub binding_function_namespace: FString,
+pub struct UComputeDataInterface {
+    __padding_end: [u8; 48],
 }
+impl UComputeDataInterface {}
 #[repr(C, align(8))]
-pub struct FComputeGraphInstance {
-    pub data_providers: TArray<UPtr<UComputeDataProvider>>,
-}
-#[repr(C, align(8))]
-pub struct FComputeKernelPermutationBool {
-    pub name: FString,
-    pub value: bool,
-}
-#[repr(C, align(8))]
-pub struct FComputeKernelPermutationSet {
-    pub boolean_options: TArray<FComputeKernelPermutationBool>,
-}
-#[repr(C, align(8))]
-pub struct FComputeKernelDefinition {
-    pub symbol: FString,
-    pub define: FString,
-}
-#[repr(C, align(8))]
-pub struct FComputeKernelDefinitionSet {
-    pub defines: TArray<FComputeKernelDefinition>,
-}
-#[repr(C, align(8))]
-pub struct FComputeKernelPermutationVector {
-    pub permutations: TMap<FString, u32>,
-    pub bit_count: u32,
-}
-#[repr(C, align(8))]
-pub struct FShaderValueTypeHandle {}
-#[repr(C, align(8))]
-pub struct FArrayShaderValue {
-    pub array_of_values: TArray<u8>,
-}
-#[repr(C, align(8))]
-pub struct FShaderValueContainer {
-    pub shader_value: TArray<u8>,
-    pub array_list: TArray<FArrayShaderValue>,
-}
-#[repr(C, align(8))]
-pub struct FShaderValueType {
-    pub ty: EShaderFundamentalType,
-    pub dimension_type: EShaderFundamentalDimensionType,
-    pub name: FName,
-    pub b_is_dynamic_array: bool,
-}
-#[repr(C, align(8))]
-pub struct FShaderParamTypeDefinition {
-    pub type_declaration: FString,
-    pub name: FString,
-    pub value_type: FShaderValueTypeHandle,
-    pub array_element_count: u16,
-    pub binding_type: EShaderParamBindingType,
-    pub resource_type: EShaderResourceType,
-    pub modifier: EShaderParamModifier,
-}
-#[repr(C, align(8))]
-pub struct FShaderFunctionDefinition {
-    pub name: FString,
-    pub param_types: TArray<FShaderParamTypeDefinition>,
-    pub b_has_return_type: bool,
-}
-pub struct UComputeDataInterface {}
 pub struct UComputeKernelSource {
-    pub entry_point: FString,
-    pub group_size: crate::bindings::core_u_object::FIntVector,
-    pub permutation_set: FComputeKernelPermutationSet,
-    pub definitions_set: FComputeKernelDefinitionSet,
-    pub additional_sources: TArray<UPtr<UComputeSource>>,
-    pub external_inputs: TArray<FShaderFunctionDefinition>,
-    pub external_outputs: TArray<FShaderFunctionDefinition>,
+    __padding_end: [u8; 160],
 }
+impl UComputeKernelSource {}
+#[repr(C, align(8))]
 pub struct UComputeKernelSourceWithText {
-    pub source_text: FString,
+    __padding_end: [u8; 176],
 }
+impl UComputeKernelSourceWithText {}
+#[repr(C, align(8))]
 pub struct UComputeSource {
-    pub additional_sources: TArray<UPtr<UComputeSource>>,
+    __padding_end: [u8; 64],
 }
+impl UComputeSource {}
+#[repr(C, align(8))]
 pub struct UComputeDataInterfaceBuffer {
-    pub value_type: FShaderValueTypeHandle,
-    pub element_count: i32,
-    pub b_allow_read_write: bool,
-    pub b_clear_before_use: bool,
+    __padding_end: [u8; 64],
 }
-pub struct UComputeDataProvider {}
-pub struct UBufferDataProvider {}
+impl UComputeDataInterfaceBuffer {}
+#[repr(C, align(8))]
+pub struct UComputeDataProvider {
+    __padding_end: [u8; 48],
+}
+impl UComputeDataProvider {}
+#[repr(C, align(8))]
+pub struct UBufferDataProvider {
+    __padding_end: [u8; 64],
+}
+impl UBufferDataProvider {}
+#[repr(C, align(8))]
 pub struct UComputeDataInterfaceDispatch {
-    pub thread_count: crate::bindings::core_u_object::FUintVector,
+    __padding_end: [u8; 64],
 }
-pub struct UDispatchDataProvider {}
+impl UComputeDataInterfaceDispatch {}
+#[repr(C, align(8))]
+pub struct UDispatchDataProvider {
+    __padding_end: [u8; 64],
+}
+impl UDispatchDataProvider {}
+#[repr(C, align(8))]
 pub struct UComputeGraph {
-    pub kernel_invocations: TArray<UPtr<UComputeKernel>>,
-    pub data_interfaces: TArray<UPtr<UComputeDataInterface>>,
-    pub graph_edges: TArray<FComputeGraphEdge>,
-    pub bindings: TArray<TSubclassOf<crate::bindings::core_u_object::UObject>>,
-    pub data_interface_to_binding: TArray<i32>,
+    __padding_end: [u8; 232],
 }
+impl UComputeGraph {}
+#[repr(C, align(8))]
 pub struct UComputeGraphComponent {
+    #[doc(hidden)]
+    __padding_240: [u8; 240],
     pub compute_graph: UPtr<UComputeGraph>,
-    pub compute_graph_instance: FComputeGraphInstance,
+    __padding_end: [u8; 24],
 }
+impl UComputeGraphComponent {}
+#[repr(C, align(8))]
 pub struct UComputeGraphFromText {
-    pub graph_source_text: FString,
+    __padding_end: [u8; 248],
 }
+impl UComputeGraphFromText {}
+#[repr(C, align(8))]
 pub struct UComputeKernel {
-    pub kernel_source: UPtr<UComputeKernelSource>,
+    #[doc(hidden)]
+    __padding_56: [u8; 56],
     pub kernel_flags: i32,
+    __padding_end: [u8; 4],
 }
-#[allow(non_camel_case_types)]
+impl UComputeKernel {}
 #[repr(transparent)]
 pub struct EShaderFundamentalType(pub u8);
 impl EShaderFundamentalType {
@@ -132,7 +85,6 @@ impl EShaderFundamentalType {
     pub const STRUCT: EShaderFundamentalType = EShaderFundamentalType(4);
     pub const NONE: EShaderFundamentalType = EShaderFundamentalType(255);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EShaderFundamentalDimensionType(pub u8);
 impl EShaderFundamentalDimensionType {
@@ -146,7 +98,6 @@ impl EShaderFundamentalDimensionType {
         2,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EShaderParamBindingType(pub u8);
 impl EShaderParamBindingType {
@@ -155,7 +106,6 @@ impl EShaderParamBindingType {
     pub const READ_ONLY_RESOURCE: EShaderParamBindingType = EShaderParamBindingType(2);
     pub const READ_WRITE_RESOURCE: EShaderParamBindingType = EShaderParamBindingType(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EShaderResourceType(pub u8);
 impl EShaderResourceType {
@@ -168,7 +118,6 @@ impl EShaderResourceType {
     pub const STRUCTURED_BUFFER: EShaderResourceType = EShaderResourceType(6);
     pub const BYTE_ADDRESS_BUFFER: EShaderResourceType = EShaderResourceType(7);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EShaderParamModifier(pub u8);
 impl EShaderParamModifier {

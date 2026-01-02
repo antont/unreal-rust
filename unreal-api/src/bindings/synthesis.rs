@@ -8,19 +8,27 @@ pub use crate::core_data::*;
 pub struct FSynth1PatchCable {
     pub depth: f32,
     pub destination: ESynth1PatchDestination,
+    __padding_end: [u8; 3],
 }
+impl FSynth1PatchCable {}
 #[repr(C, align(4))]
 pub struct FPatchId {
-    pub id: i32,
+    __padding_end: [u8; 4],
 }
+impl FPatchId {}
 #[repr(C, align(8))]
 pub struct FEpicSynth1Patch {
     pub patch_source: ESynth1PatchSource,
     pub patch_cables: TArray<FSynth1PatchCable>,
 }
+impl FEpicSynth1Patch {}
 #[repr(C, align(8))]
 pub struct FModularSynthPreset {
+    #[doc(hidden)]
+    __padding_8: [u8; 8],
     pub flags_8: u8,
+    #[doc(hidden)]
+    __padding_12: [u8; 3],
     pub osc1_type: ESynth1OscType,
     pub osc1_gain: f32,
     pub osc1_octave: f32,
@@ -54,6 +62,8 @@ pub struct FModularSynthPreset {
     pub release_time: f32,
     pub mod_env_patch_type: ESynthModEnvPatch,
     pub mod_env_bias_patch_type: ESynthModEnvBiasPatch,
+    #[doc(hidden)]
+    __padding_124: [u8; 2],
     pub flags_124: u8,
     pub modulation_envelope_depth: f32,
     pub modulation_envelope_attack_time: f32,
@@ -65,7 +75,11 @@ pub struct FModularSynthPreset {
     pub filter_q: f32,
     pub filter_type: ESynthFilterType,
     pub filter_algorithm: ESynthFilterAlgorithm,
+    #[doc(hidden)]
+    __padding_164: [u8; 2],
     pub flags_164: u8,
+    #[doc(hidden)]
+    __padding_168: [u8; 3],
     pub stereo_delay_mode: ESynthStereoDelayMode,
     pub stereo_delay_time: f32,
     pub stereo_delay_feedback: f32,
@@ -77,21 +91,25 @@ pub struct FModularSynthPreset {
     pub chorus_frequency: f32,
     pub patches: TArray<FEpicSynth1Patch>,
 }
+impl FModularSynthPreset {}
 #[repr(C, align(8))]
 pub struct FModularSynthPresetBankEntry {
     pub preset_name: FString,
     pub preset: FModularSynthPreset,
 }
+impl FModularSynthPresetBankEntry {}
 #[repr(C, align(4))]
 pub struct FSourceEffectBitCrusherBaseSettings {
     pub sample_rate: f32,
     pub bit_depth: f32,
 }
+impl FSourceEffectBitCrusherBaseSettings {}
 #[repr(C, align(8))]
 pub struct FSourceEffectBitCrusherSettings {
     pub sample_rate_modulation: crate::bindings::engine::FSoundModulationDestinationSettings,
     pub bit_modulation: crate::bindings::engine::FSoundModulationDestinationSettings,
 }
+impl FSourceEffectBitCrusherSettings {}
 #[repr(C, align(4))]
 pub struct FSourceEffectChorusBaseSettings {
     pub depth: f32,
@@ -101,14 +119,11 @@ pub struct FSourceEffectChorusBaseSettings {
     pub dry_level: f32,
     pub spread: f32,
 }
+impl FSourceEffectChorusBaseSettings {}
 #[repr(C, align(8))]
 pub struct FSourceEffectChorusSettings {
-    pub depth: f32,
-    pub frequency: f32,
-    pub feedback: f32,
-    pub wet_level: f32,
-    pub dry_level: f32,
-    pub spread: f32,
+    #[doc(hidden)]
+    __padding_24: [u8; 24],
     pub depth_modulation: crate::bindings::engine::FSoundModulationDestinationSettings,
     pub frequency_modulation: crate::bindings::engine::FSoundModulationDestinationSettings,
     pub feedback_modulation: crate::bindings::engine::FSoundModulationDestinationSettings,
@@ -116,13 +131,17 @@ pub struct FSourceEffectChorusSettings {
     pub dry_modulation: crate::bindings::engine::FSoundModulationDestinationSettings,
     pub spread_modulation: crate::bindings::engine::FSoundModulationDestinationSettings,
 }
+impl FSourceEffectChorusSettings {}
 #[repr(C, align(4))]
 pub struct FSourceEffectConvolutionReverbSettings {
-    pub normalization_volume_db: f32,
+    #[doc(hidden)]
+    __padding_4: [u8; 4],
     pub wet_volume_db: f32,
     pub dry_volume_db: f32,
     pub b_bypass: bool,
+    __padding_end: [u8; 3],
 }
+impl FSourceEffectConvolutionReverbSettings {}
 #[repr(C, align(4))]
 pub struct FSourceEffectDynamicsProcessorSettings {
     pub dynamics_processor_type: ESourceEffectDynamicsProcessorType,
@@ -136,38 +155,49 @@ pub struct FSourceEffectDynamicsProcessorSettings {
     pub input_gain_db: f32,
     pub output_gain_db: f32,
     pub flags_36: u8,
+    #[doc(hidden)]
+    __padding_40: [u8; 3],
     pub flags_40: u8,
+    __padding_end: [u8; 3],
 }
+impl FSourceEffectDynamicsProcessorSettings {}
 #[repr(C, align(4))]
 pub struct FSourceEffectEnvelopeFollowerSettings {
     pub attack_time: f32,
     pub release_time: f32,
     pub peak_mode: EEnvelopeFollowerPeakMode,
     pub b_is_analog_mode: bool,
+    __padding_end: [u8; 2],
 }
+impl FSourceEffectEnvelopeFollowerSettings {}
 #[repr(C, align(4))]
 pub struct FSourceEffectEQBand {
     pub frequency: f32,
     pub bandwidth: f32,
     pub gain_db: f32,
     pub flags_12: u8,
+    __padding_end: [u8; 3],
 }
+impl FSourceEffectEQBand {}
 #[repr(C, align(8))]
 pub struct FSourceEffectEQSettings {
     pub eq_bands: TArray<FSourceEffectEQBand>,
 }
+impl FSourceEffectEQSettings {}
 #[repr(C, align(8))]
 pub struct FSourceEffectFilterAudioBusModulationSettings {
     pub audio_bus: UPtr<crate::bindings::engine::UAudioBus>,
     pub envelope_follower_attack_time_msec: i32,
     pub envelope_follower_release_time_msec: i32,
     pub envelope_gain_multiplier: f32,
-    pub filter_param: ESourceEffectFilterParam,
+    #[doc(hidden)]
+    __padding_24: [u8; 4],
     pub min_frequency_modulation: f32,
     pub max_frequency_modulation: f32,
     pub min_resonance_modulation: f32,
     pub max_resonance_modulation: f32,
 }
+impl FSourceEffectFilterAudioBusModulationSettings {}
 #[repr(C, align(8))]
 pub struct FSourceEffectFilterSettings {
     pub filter_circuit: ESourceEffectFilterCircuit,
@@ -176,19 +206,23 @@ pub struct FSourceEffectFilterSettings {
     pub filter_q: f32,
     pub audio_bus_modulation: TArray<FSourceEffectFilterAudioBusModulationSettings>,
 }
+impl FSourceEffectFilterSettings {}
 #[repr(C, align(4))]
 pub struct FSourceEffectFoldbackDistortionSettings {
     pub input_gain_db: f32,
     pub threshold_db: f32,
     pub output_gain_db: f32,
 }
+impl FSourceEffectFoldbackDistortionSettings {}
 #[repr(C, align(4))]
 pub struct FSourceEffectMidSideSpreaderSettings {
     pub spread_amount: f32,
     pub input_mode: EStereoChannelMode,
     pub output_mode: EStereoChannelMode,
     pub b_equal_power: bool,
+    __padding_end: [u8; 1],
 }
+impl FSourceEffectMidSideSpreaderSettings {}
 #[repr(C, align(4))]
 pub struct FSourceEffectIndividualFilterSettings {
     pub filter_circuit: ESourceEffectMotionFilterCircuit,
@@ -196,6 +230,7 @@ pub struct FSourceEffectIndividualFilterSettings {
     pub cutoff_frequency: f32,
     pub filter_q: f32,
 }
+impl FSourceEffectIndividualFilterSettings {}
 #[repr(C, align(8))]
 pub struct FSourceEffectMotionFilterModulationSettings {
     pub modulation_source: ESourceEffectMotionFilterModSource,
@@ -203,7 +238,9 @@ pub struct FSourceEffectMotionFilterModulationSettings {
     pub modulation_output_minimum_range: crate::bindings::core_u_object::FVector2D,
     pub modulation_output_maximum_range: crate::bindings::core_u_object::FVector2D,
     pub update_ease_ms: f32,
+    __padding_end: [u8; 4],
 }
+impl FSourceEffectMotionFilterModulationSettings {}
 #[repr(C, align(8))]
 pub struct FSourceEffectMotionFilterSettings {
     pub motion_filter_topology: ESourceEffectMotionFilterTopology,
@@ -215,12 +252,15 @@ pub struct FSourceEffectMotionFilterSettings {
         FSourceEffectMotionFilterModulationSettings,
     >,
     pub dry_volume_db: f32,
+    __padding_end: [u8; 4],
 }
+impl FSourceEffectMotionFilterSettings {}
 #[repr(C, align(4))]
 pub struct FSourceEffectPannerSettings {
     pub spread: f32,
     pub pan: f32,
 }
+impl FSourceEffectPannerSettings {}
 #[repr(C, align(4))]
 pub struct FSourceEffectPhaserSettings {
     pub wet_level: f32,
@@ -228,7 +268,9 @@ pub struct FSourceEffectPhaserSettings {
     pub feedback: f32,
     pub lfo_type: EPhaserLFOType,
     pub use_quadrature_phase: bool,
+    __padding_end: [u8; 2],
 }
+impl FSourceEffectPhaserSettings {}
 #[repr(C, align(8))]
 pub struct FSourceEffectRingModulationSettings {
     pub modulator_type: ERingModulatorTypeSourceEffect,
@@ -238,6 +280,7 @@ pub struct FSourceEffectRingModulationSettings {
     pub wet_level: f32,
     pub audio_bus_modulator: UPtr<crate::bindings::engine::UAudioBus>,
 }
+impl FSourceEffectRingModulationSettings {}
 #[repr(C, align(4))]
 pub struct FSourceEffectSimpleDelaySettings {
     pub speed_of_sound: f32,
@@ -246,7 +289,9 @@ pub struct FSourceEffectSimpleDelaySettings {
     pub wet_amount: f32,
     pub feedback: f32,
     pub flags_20: u8,
+    __padding_end: [u8; 3],
 }
+impl FSourceEffectSimpleDelaySettings {}
 #[repr(C, align(4))]
 pub struct FSourceEffectStereoDelaySettings {
     pub delay_mode: EStereoDelaySourceEffect,
@@ -260,14 +305,17 @@ pub struct FSourceEffectStereoDelaySettings {
     pub filter_frequency: f32,
     pub filter_q: f32,
 }
+impl FSourceEffectStereoDelaySettings {}
 #[repr(C, align(4))]
 pub struct FSourceEffectWaveShaperSettings {
     pub amount: f32,
     pub output_gain_db: f32,
 }
+impl FSourceEffectWaveShaperSettings {}
 #[repr(C, align(8))]
 pub struct FSubmixEffectConvolutionReverbSettings {
-    pub normalization_volume_db: f32,
+    #[doc(hidden)]
+    __padding_4: [u8; 4],
     pub wet_volume_db: f32,
     pub dry_volume_db: f32,
     pub b_bypass: bool,
@@ -276,16 +324,16 @@ pub struct FSubmixEffectConvolutionReverbSettings {
     pub surround_rear_channel_bleed_db: f32,
     pub b_invert_rear_channel_bleed_phase: bool,
     pub b_surround_rear_channel_flip: bool,
-    pub surround_rear_channel_bleed_amount_deprecated: f32,
-    pub impulse_response_deprecated: UPtr<UAudioImpulseResponse>,
-    pub allow_hardware_acceleration_deprecated: bool,
+    __padding_end: [u8; 26],
 }
+impl FSubmixEffectConvolutionReverbSettings {}
 #[repr(C, align(4))]
 pub struct FSubmixEffectDelaySettings {
     pub maximum_delay_length: f32,
     pub interpolation_time: f32,
     pub delay_length: f32,
 }
+impl FSubmixEffectDelaySettings {}
 #[repr(C, align(4))]
 pub struct FSubmixEffectFilterSettings {
     pub filter_type: ESubmixFilterType,
@@ -293,6 +341,7 @@ pub struct FSubmixEffectFilterSettings {
     pub filter_frequency: f32,
     pub filter_q: f32,
 }
+impl FSubmixEffectFilterSettings {}
 #[repr(C, align(4))]
 pub struct FSubmixEffectFlexiverbSettings {
     pub pre_delay: f32,
@@ -300,6 +349,7 @@ pub struct FSubmixEffectFlexiverbSettings {
     pub room_dampening: f32,
     pub complexity: i32,
 }
+impl FSubmixEffectFlexiverbSettings {}
 #[repr(C, align(4))]
 pub struct FDynamicsBandSettings {
     pub crossover_top_frequency: f32,
@@ -311,6 +361,7 @@ pub struct FDynamicsBandSettings {
     pub input_gain_db: f32,
     pub output_gain_db: f32,
 }
+impl FDynamicsBandSettings {}
 #[repr(C, align(8))]
 pub struct FSubmixEffectMultibandCompressorSettings {
     pub dynamics_processor_type: crate::bindings::audio_mixer::ESubmixEffectDynamicsProcessorType,
@@ -327,6 +378,7 @@ pub struct FSubmixEffectMultibandCompressorSettings {
     pub b_key_audition: bool,
     pub bands: TArray<FDynamicsBandSettings>,
 }
+impl FSubmixEffectMultibandCompressorSettings {}
 #[repr(C, align(4))]
 pub struct FSubmixEffectStereoDelaySettings {
     pub delay_mode: EStereoDelaySourceEffect,
@@ -340,11 +392,13 @@ pub struct FSubmixEffectStereoDelaySettings {
     pub filter_frequency: f32,
     pub filter_q: f32,
 }
+impl FSubmixEffectStereoDelaySettings {}
 #[repr(C, align(4))]
 pub struct FSubmixEffectStereoToQuadSettings {
     pub b_flip_channels: bool,
     pub rear_channel_gain: f32,
 }
+impl FSubmixEffectStereoToQuadSettings {}
 #[repr(C, align(4))]
 pub struct FTapDelayInfo {
     pub tap_line_mode: ETapLineMode,
@@ -352,25 +406,33 @@ pub struct FTapDelayInfo {
     pub gain: f32,
     pub output_channel: i32,
     pub pan_in_degrees: f32,
-    pub tap_id: i32,
+    __padding_end: [u8; 4],
 }
+impl FTapDelayInfo {}
 #[repr(C, align(8))]
 pub struct FSubmixEffectTapDelaySettings {
     pub maximum_delay_length: f32,
     pub interpolation_time: f32,
     pub taps: TArray<FTapDelayInfo>,
 }
+impl FSubmixEffectTapDelaySettings {}
 #[repr(C, align(16))]
 pub struct FSynth2DSliderStyle {
+    #[doc(hidden)]
+    __padding_16: [u8; 16],
     pub normal_thumb_image: crate::bindings::slate_core::FSlateBrush,
     pub disabled_thumb_image: crate::bindings::slate_core::FSlateBrush,
     pub normal_bar_image: crate::bindings::slate_core::FSlateBrush,
     pub disabled_bar_image: crate::bindings::slate_core::FSlateBrush,
     pub background_image: crate::bindings::slate_core::FSlateBrush,
     pub bar_thickness: f32,
+    __padding_end: [u8; 12],
 }
+impl FSynth2DSliderStyle {}
 #[repr(C, align(16))]
 pub struct FSynthKnobStyle {
+    #[doc(hidden)]
+    __padding_16: [u8; 16],
     pub large_knob: crate::bindings::slate_core::FSlateBrush,
     pub large_knob_overlay: crate::bindings::slate_core::FSlateBrush,
     pub medium_knob: crate::bindings::slate_core::FSlateBrush,
@@ -378,196 +440,390 @@ pub struct FSynthKnobStyle {
     pub min_value_angle: f32,
     pub max_value_angle: f32,
     pub knob_size: ESynthKnobSize,
+    __padding_end: [u8; 7],
 }
+impl FSynthKnobStyle {}
 #[repr(C, align(8))]
 pub struct FSynthSlateStyle {
+    #[doc(hidden)]
+    __padding_8: [u8; 8],
     pub size_type: ESynthSlateSizeType,
     pub color_style: ESynthSlateColorStyle,
+    __padding_end: [u8; 6],
 }
+impl FSynthSlateStyle {}
+#[repr(C, align(8))]
 pub struct UAudioImpulseResponse {
-    pub impulse_response: TArray<f32>,
-    pub num_channels: i32,
-    pub sample_rate: i32,
+    #[doc(hidden)]
+    __padding_72: [u8; 72],
     pub normalization_volume_db: f32,
     pub b_true_stereo: bool,
-    pub ir_data_deprecated: TArray<f32>,
-    pub b_is_even_channel_count: bool,
+    __padding_end: [u8; 59],
 }
+impl UAudioImpulseResponse {}
+#[repr(C, align(8))]
 pub struct UModularSynthPresetBank {
+    #[doc(hidden)]
+    __padding_48: [u8; 48],
     pub presets: TArray<FModularSynthPresetBankEntry>,
 }
-pub struct UModularSynthLibrary {}
-pub struct UModularSynthComponent {
-    pub voice_count: i32,
+impl UModularSynthPresetBank {}
+#[repr(C, align(8))]
+pub struct UModularSynthLibrary {
+    __padding_end: [u8; 48],
 }
+impl UModularSynthLibrary {}
+#[repr(C, align(16))]
+pub struct UModularSynthComponent {
+    #[doc(hidden)]
+    __padding_2384: [u8; 2384],
+    pub voice_count: i32,
+    __padding_end: [u8; 1788],
+}
+impl UModularSynthComponent {}
+#[repr(C, align(8))]
 pub struct USourceEffectBitCrusherPreset {
+    #[doc(hidden)]
+    __padding_344: [u8; 344],
     pub settings: FSourceEffectBitCrusherSettings,
 }
+impl USourceEffectBitCrusherPreset {}
+#[repr(C, align(8))]
 pub struct USourceEffectChorusPreset {
+    #[doc(hidden)]
+    __padding_752: [u8; 752],
     pub settings: FSourceEffectChorusSettings,
 }
+impl USourceEffectChorusPreset {}
+#[repr(C, align(8))]
 pub struct USourceEffectConvolutionReverbPreset {
+    #[doc(hidden)]
+    __padding_112: [u8; 112],
     pub impulse_response: UPtr<UAudioImpulseResponse>,
     pub settings: FSourceEffectConvolutionReverbSettings,
     pub block_size: ESubmixEffectConvolutionReverbBlockSize,
     pub b_enable_hardware_acceleration: bool,
+    __padding_end: [u8; 142],
 }
+impl USourceEffectConvolutionReverbPreset {}
+#[repr(C, align(8))]
 pub struct USourceEffectDynamicsProcessorPreset {
+    #[doc(hidden)]
+    __padding_196: [u8; 196],
     pub settings: FSourceEffectDynamicsProcessorSettings,
 }
+impl USourceEffectDynamicsProcessorPreset {}
+#[repr(C, align(8))]
 pub struct UEnvelopeFollowerListener {
-    pub on_envelope_follower_update: FEnvelopeFollowerListener_OnEnvelopeFollowerUpdate,
+    __padding_end: [u8; 280],
 }
+impl UEnvelopeFollowerListener {}
+#[repr(C, align(8))]
 pub struct USourceEffectEnvelopeFollowerPreset {
+    #[doc(hidden)]
+    __padding_164: [u8; 164],
     pub settings: FSourceEffectEnvelopeFollowerSettings,
 }
+impl USourceEffectEnvelopeFollowerPreset {}
+#[repr(C, align(8))]
 pub struct USourceEffectEQPreset {
+    #[doc(hidden)]
+    __padding_168: [u8; 168],
     pub settings: FSourceEffectEQSettings,
 }
+impl USourceEffectEQPreset {}
+#[repr(C, align(8))]
 pub struct USourceEffectFilterPreset {
+    #[doc(hidden)]
+    __padding_184: [u8; 184],
     pub settings: FSourceEffectFilterSettings,
 }
+impl USourceEffectFilterPreset {}
+#[repr(C, align(8))]
 pub struct USourceEffectFoldbackDistortionPreset {
+    #[doc(hidden)]
+    __padding_164: [u8; 164],
     pub settings: FSourceEffectFoldbackDistortionSettings,
 }
+impl USourceEffectFoldbackDistortionPreset {}
+#[repr(C, align(8))]
 pub struct USourceEffectMidSideSpreaderPreset {
+    #[doc(hidden)]
+    __padding_160: [u8; 160],
     pub settings: FSourceEffectMidSideSpreaderSettings,
 }
+impl USourceEffectMidSideSpreaderPreset {}
+#[repr(C, align(8))]
 pub struct USourceEffectMotionFilterPreset {
+    #[doc(hidden)]
+    __padding_272: [u8; 272],
     pub settings: FSourceEffectMotionFilterSettings,
 }
+impl USourceEffectMotionFilterPreset {}
+#[repr(C, align(8))]
 pub struct USourceEffectPannerPreset {
+    #[doc(hidden)]
+    __padding_160: [u8; 160],
     pub settings: FSourceEffectPannerSettings,
 }
+impl USourceEffectPannerPreset {}
+#[repr(C, align(8))]
 pub struct USourceEffectPhaserPreset {
+    #[doc(hidden)]
+    __padding_168: [u8; 168],
     pub settings: FSourceEffectPhaserSettings,
 }
+impl USourceEffectPhaserPreset {}
+#[repr(C, align(8))]
 pub struct USourceEffectRingModulationPreset {
+    #[doc(hidden)]
+    __padding_184: [u8; 184],
     pub settings: FSourceEffectRingModulationSettings,
 }
+impl USourceEffectRingModulationPreset {}
+#[repr(C, align(8))]
 pub struct USourceEffectSimpleDelayPreset {
+    #[doc(hidden)]
+    __padding_176: [u8; 176],
     pub settings: FSourceEffectSimpleDelaySettings,
 }
+impl USourceEffectSimpleDelayPreset {}
+#[repr(C, align(8))]
 pub struct USourceEffectStereoDelayPreset {
+    #[doc(hidden)]
+    __padding_188: [u8; 188],
     pub settings: FSourceEffectStereoDelaySettings,
 }
+impl USourceEffectStereoDelayPreset {}
+#[repr(C, align(8))]
 pub struct USourceEffectWaveShaperPreset {
+    #[doc(hidden)]
+    __padding_160: [u8; 160],
     pub settings: FSourceEffectWaveShaperSettings,
 }
+impl USourceEffectWaveShaperPreset {}
+#[repr(C, align(8))]
 pub struct USubmixEffectConvolutionReverbPreset {
+    #[doc(hidden)]
+    __padding_112: [u8; 112],
     pub impulse_response: UPtr<UAudioImpulseResponse>,
     pub settings: FSubmixEffectConvolutionReverbSettings,
     pub block_size: ESubmixEffectConvolutionReverbBlockSize,
     pub b_enable_hardware_acceleration: bool,
+    __padding_end: [u8; 174],
 }
-pub struct USubmixEffectDelayStatics {}
+impl USubmixEffectConvolutionReverbPreset {}
+#[repr(C, align(8))]
+pub struct USubmixEffectDelayStatics {
+    __padding_end: [u8; 48],
+}
+impl USubmixEffectDelayStatics {}
+#[repr(C, align(8))]
 pub struct USubmixEffectDelayPreset {
+    #[doc(hidden)]
+    __padding_164: [u8; 164],
     pub settings: FSubmixEffectDelaySettings,
-    pub dynamic_settings: FSubmixEffectDelaySettings,
+    __padding_end: [u8; 16],
 }
+impl USubmixEffectDelayPreset {}
+#[repr(C, align(8))]
 pub struct USubmixEffectFilterPreset {
+    #[doc(hidden)]
+    __padding_164: [u8; 164],
     pub settings: FSubmixEffectFilterSettings,
 }
+impl USubmixEffectFilterPreset {}
+#[repr(C, align(8))]
 pub struct USubmixEffectFlexiverbPreset {
+    #[doc(hidden)]
+    __padding_168: [u8; 168],
     pub settings: FSubmixEffectFlexiverbSettings,
 }
+impl USubmixEffectFlexiverbPreset {}
+#[repr(C, align(8))]
 pub struct USubmixEffectMultibandCompressorPreset {
+    #[doc(hidden)]
+    __padding_208: [u8; 208],
     pub settings: FSubmixEffectMultibandCompressorSettings,
 }
+impl USubmixEffectMultibandCompressorPreset {}
+#[repr(C, align(8))]
 pub struct USubmixEffectStereoDelayPreset {
+    #[doc(hidden)]
+    __padding_188: [u8; 188],
     pub settings: FSubmixEffectStereoDelaySettings,
 }
+impl USubmixEffectStereoDelayPreset {}
+#[repr(C, align(8))]
 pub struct USubmixEffectStereoToQuadPreset {
+    #[doc(hidden)]
+    __padding_160: [u8; 160],
     pub settings: FSubmixEffectStereoToQuadSettings,
 }
+impl USubmixEffectStereoToQuadPreset {}
+#[repr(C, align(8))]
 pub struct USubmixEffectTapDelayPreset {
+    #[doc(hidden)]
+    __padding_176: [u8; 176],
     pub settings: FSubmixEffectTapDelaySettings,
+    __padding_end: [u8; 24],
 }
+impl USubmixEffectTapDelayPreset {}
+#[repr(C, align(16))]
 pub struct UGranularSynth {
-    pub granulated_sound_wave: UPtr<crate::bindings::engine::USoundWave>,
+    __padding_end: [u8; 3392],
 }
+impl UGranularSynth {}
+#[repr(C, align(8))]
 pub struct UMonoWaveTableSynthPreset {
+    #[doc(hidden)]
+    __padding_48: [u8; 48],
     pub preset_name: FString,
     pub flags_64: u8,
     pub lock_keyframes_to_grid: i32,
     pub wave_table_resolution: i32,
     pub wave_table: TArray<crate::bindings::engine::FRuntimeFloatCurve>,
     pub flags_96: u8,
+    __padding_end: [u8; 279],
 }
+impl UMonoWaveTableSynthPreset {}
+#[repr(C, align(16))]
 pub struct USynthComponentMonoWaveTable {
-    pub on_table_altered: FSynthComponentMonoWaveTable_OnTableAltered,
-    pub on_num_tables_changed: FSynthComponentMonoWaveTable_OnNumTablesChanged,
-    pub current_preset: UPtr<UMonoWaveTableSynthPreset>,
+    __padding_end: [u8; 4272],
 }
+impl USynthComponentMonoWaveTable {}
+#[repr(C, align(16))]
 pub struct USynthComponentToneGenerator {
+    #[doc(hidden)]
+    __padding_2384: [u8; 2384],
     pub frequency: f32,
     pub volume: f32,
     pub distance_attenuation_curve: crate::bindings::engine::FRuntimeFloatCurve,
     pub distance_range: crate::bindings::core_u_object::FVector2D,
     pub attenuation_db_at_max_range: f32,
+    __padding_end: [u8; 76],
 }
+impl USynthComponentToneGenerator {}
+#[repr(C, align(16))]
 pub struct USynthSamplePlayer {
+    #[doc(hidden)]
+    __padding_2384: [u8; 2384],
     pub sound_wave: UPtr<crate::bindings::engine::USoundWave>,
-    pub on_sample_loaded: FSynthSamplePlayer_OnSampleLoaded,
-    pub on_sample_playback_progress: FSynthSamplePlayer_OnSamplePlaybackProgress,
+    __padding_end: [u8; 312],
 }
-pub struct USynthesisUtilitiesBlueprintFunctionLibrary {}
+impl USynthSamplePlayer {}
+#[repr(C, align(8))]
+pub struct USynthesisUtilitiesBlueprintFunctionLibrary {
+    __padding_end: [u8; 48],
+}
+impl USynthesisUtilitiesBlueprintFunctionLibrary {}
+#[repr(C, align(16))]
 pub struct USynth2DSlider {
-    pub value_x: f32,
-    pub value_y: f32,
-    pub value_x_delegate: FSynth2DSlider_ValueXDelegate,
-    pub value_y_delegate: FSynth2DSlider_ValueYDelegate,
+    #[doc(hidden)]
+    __padding_768: [u8; 768],
     pub widget_style: FSynth2DSliderStyle,
     pub slider_handle_color: crate::bindings::core_u_object::FLinearColor,
     pub indent_handle: bool,
     pub locked: bool,
     pub step_size: f32,
     pub is_focusable: bool,
-    pub on_mouse_capture_begin: FSynth2DSlider_OnMouseCaptureBegin,
-    pub on_mouse_capture_end: FSynth2DSlider_OnMouseCaptureEnd,
-    pub on_controller_capture_begin: FSynth2DSlider_OnControllerCaptureBegin,
-    pub on_controller_capture_end: FSynth2DSlider_OnControllerCaptureEnd,
-    pub on_value_changed_x: FSynth2DSlider_OnValueChangedX,
-    pub on_value_changed_y: FSynth2DSlider_OnValueChangedY,
+    __padding_end: [u8; 183],
 }
+impl USynth2DSlider {}
+#[repr(C, align(16))]
 pub struct USynthKnob {
-    pub value: f32,
+    #[doc(hidden)]
+    __padding_700: [u8; 700],
     pub step_size: f32,
     pub mouse_speed: f32,
     pub mouse_fine_tune_speed: f32,
     pub flags_712: u8,
     pub parameter_name: FText,
     pub parameter_units: FText,
-    pub value_delegate: FSynthKnob_ValueDelegate,
+    #[doc(hidden)]
+    __padding_784: [u8; 32],
     pub widget_style: FSynthKnobStyle,
     pub locked: bool,
     pub is_focusable: bool,
-    pub on_mouse_capture_begin: FSynthKnob_OnMouseCaptureBegin,
-    pub on_mouse_capture_end: FSynthKnob_OnMouseCaptureEnd,
-    pub on_controller_capture_begin: FSynthKnob_OnControllerCaptureBegin,
-    pub on_controller_capture_end: FSynthKnob_OnControllerCaptureEnd,
-    pub on_value_changed: FSynthKnob_OnValueChanged,
+    __padding_end: [u8; 158],
 }
-pub struct FEnvelopeFollowerListener_OnEnvelopeFollowerUpdate;
-pub struct FSynthComponentMonoWaveTable_OnTableAltered;
-pub struct FSynthComponentMonoWaveTable_OnNumTablesChanged;
-pub struct FSynthSamplePlayer_OnSampleLoaded;
-pub struct FSynthSamplePlayer_OnSamplePlaybackProgress;
-pub struct FSynth2DSlider_ValueXDelegate;
-pub struct FSynth2DSlider_ValueYDelegate;
-pub struct FSynth2DSlider_OnMouseCaptureBegin;
-pub struct FSynth2DSlider_OnMouseCaptureEnd;
-pub struct FSynth2DSlider_OnControllerCaptureBegin;
-pub struct FSynth2DSlider_OnControllerCaptureEnd;
-pub struct FSynth2DSlider_OnValueChangedX;
-pub struct FSynth2DSlider_OnValueChangedY;
-pub struct FSynthKnob_ValueDelegate;
-pub struct FSynthKnob_OnMouseCaptureBegin;
-pub struct FSynthKnob_OnMouseCaptureEnd;
-pub struct FSynthKnob_OnControllerCaptureBegin;
-pub struct FSynthKnob_OnControllerCaptureEnd;
-pub struct FSynthKnob_OnValueChanged;
-#[allow(non_camel_case_types)]
+impl USynthKnob {}
+#[repr(transparent)]
+pub struct FEnvelopeFollowerListener_OnEnvelopeFollowerUpdate {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FSynthComponentMonoWaveTable_OnTableAltered {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FSynthComponentMonoWaveTable_OnNumTablesChanged {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FSynthSamplePlayer_OnSampleLoaded {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FSynthSamplePlayer_OnSamplePlaybackProgress {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FSynth2DSlider_ValueXDelegate {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FSynth2DSlider_ValueYDelegate {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FSynth2DSlider_OnMouseCaptureBegin {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FSynth2DSlider_OnMouseCaptureEnd {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FSynth2DSlider_OnControllerCaptureBegin {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FSynth2DSlider_OnControllerCaptureEnd {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FSynth2DSlider_OnValueChangedX {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FSynth2DSlider_OnValueChangedY {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FSynthKnob_ValueDelegate {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FSynthKnob_OnMouseCaptureBegin {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FSynthKnob_OnMouseCaptureEnd {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FSynthKnob_OnControllerCaptureBegin {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FSynthKnob_OnControllerCaptureEnd {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FSynthKnob_OnValueChanged {
+    _opague: u8,
+}
 #[repr(transparent)]
 pub struct ESynth1PatchDestination(pub u8);
 impl ESynth1PatchDestination {
@@ -587,7 +843,6 @@ impl ESynth1PatchDestination {
     pub const LFO2_GAIN: ESynth1PatchDestination = ESynth1PatchDestination(13);
     pub const COUNT: ESynth1PatchDestination = ESynth1PatchDestination(14);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ESynth1PatchSource(pub u8);
 impl ESynth1PatchSource {
@@ -597,7 +852,6 @@ impl ESynth1PatchSource {
     pub const BIAS_ENVELOPE: ESynth1PatchSource = ESynth1PatchSource(3);
     pub const COUNT: ESynth1PatchSource = ESynth1PatchSource(4);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ESynth1OscType(pub u8);
 impl ESynth1OscType {
@@ -608,7 +862,6 @@ impl ESynth1OscType {
     pub const NOISE: ESynth1OscType = ESynth1OscType(4);
     pub const COUNT: ESynth1OscType = ESynth1OscType(5);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ESynthLFOType(pub u8);
 impl ESynthLFOType {
@@ -621,7 +874,6 @@ impl ESynthLFOType {
     pub const RANDOM_SAMPLE_HOLD: ESynthLFOType = ESynthLFOType(6);
     pub const COUNT: ESynthLFOType = ESynthLFOType(7);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ESynthLFOMode(pub u8);
 impl ESynthLFOMode {
@@ -630,7 +882,6 @@ impl ESynthLFOMode {
     pub const FREE: ESynthLFOMode = ESynthLFOMode(2);
     pub const COUNT: ESynthLFOMode = ESynthLFOMode(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ESynthLFOPatchType(pub u8);
 impl ESynthLFOPatchType {
@@ -645,7 +896,6 @@ impl ESynthLFOPatchType {
     pub const PATCH_LFO1_TO_LFO2_GAIN: ESynthLFOPatchType = ESynthLFOPatchType(8);
     pub const COUNT: ESynthLFOPatchType = ESynthLFOPatchType(9);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ESynthModEnvPatch(pub u8);
 impl ESynthModEnvPatch {
@@ -659,7 +909,6 @@ impl ESynthModEnvPatch {
     pub const PATCH_TO_LFO2_FREQ: ESynthModEnvPatch = ESynthModEnvPatch(7);
     pub const COUNT: ESynthModEnvPatch = ESynthModEnvPatch(8);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ESynthModEnvBiasPatch(pub u8);
 impl ESynthModEnvBiasPatch {
@@ -673,7 +922,6 @@ impl ESynthModEnvBiasPatch {
     pub const PATCH_TO_LFO2_FREQ: ESynthModEnvBiasPatch = ESynthModEnvBiasPatch(7);
     pub const COUNT: ESynthModEnvBiasPatch = ESynthModEnvBiasPatch(8);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ESynthFilterType(pub u8);
 impl ESynthFilterType {
@@ -683,7 +931,6 @@ impl ESynthFilterType {
     pub const BAND_STOP: ESynthFilterType = ESynthFilterType(3);
     pub const COUNT: ESynthFilterType = ESynthFilterType(4);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ESynthFilterAlgorithm(pub u8);
 impl ESynthFilterAlgorithm {
@@ -692,7 +939,6 @@ impl ESynthFilterAlgorithm {
     pub const LADDER: ESynthFilterAlgorithm = ESynthFilterAlgorithm(2);
     pub const COUNT: ESynthFilterAlgorithm = ESynthFilterAlgorithm(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ESynthStereoDelayMode(pub u8);
 impl ESynthStereoDelayMode {
@@ -701,7 +947,6 @@ impl ESynthStereoDelayMode {
     pub const PING_PONG: ESynthStereoDelayMode = ESynthStereoDelayMode(2);
     pub const COUNT: ESynthStereoDelayMode = ESynthStereoDelayMode(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ESourceEffectDynamicsProcessorType(pub u8);
 impl ESourceEffectDynamicsProcessorType {
@@ -724,7 +969,6 @@ impl ESourceEffectDynamicsProcessorType {
         5,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ESourceEffectDynamicsPeakMode(pub u8);
 impl ESourceEffectDynamicsPeakMode {
@@ -737,7 +981,6 @@ impl ESourceEffectDynamicsPeakMode {
     pub const PEAK: ESourceEffectDynamicsPeakMode = ESourceEffectDynamicsPeakMode(2);
     pub const COUNT: ESourceEffectDynamicsPeakMode = ESourceEffectDynamicsPeakMode(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EEnvelopeFollowerPeakMode(pub u8);
 impl EEnvelopeFollowerPeakMode {
@@ -748,7 +991,6 @@ impl EEnvelopeFollowerPeakMode {
     pub const PEAK: EEnvelopeFollowerPeakMode = EEnvelopeFollowerPeakMode(2);
     pub const COUNT: EEnvelopeFollowerPeakMode = EEnvelopeFollowerPeakMode(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ESourceEffectFilterParam(pub u8);
 impl ESourceEffectFilterParam {
@@ -756,7 +998,6 @@ impl ESourceEffectFilterParam {
     pub const FILTER_RESONANCE: ESourceEffectFilterParam = ESourceEffectFilterParam(1);
     pub const COUNT: ESourceEffectFilterParam = ESourceEffectFilterParam(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ESourceEffectFilterCircuit(pub u8);
 impl ESourceEffectFilterCircuit {
@@ -765,7 +1006,6 @@ impl ESourceEffectFilterCircuit {
     pub const LADDER: ESourceEffectFilterCircuit = ESourceEffectFilterCircuit(2);
     pub const COUNT: ESourceEffectFilterCircuit = ESourceEffectFilterCircuit(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ESourceEffectFilterType(pub u8);
 impl ESourceEffectFilterType {
@@ -775,7 +1015,6 @@ impl ESourceEffectFilterType {
     pub const BAND_STOP: ESourceEffectFilterType = ESourceEffectFilterType(3);
     pub const COUNT: ESourceEffectFilterType = ESourceEffectFilterType(4);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EStereoChannelMode(pub u8);
 impl EStereoChannelMode {
@@ -783,7 +1022,6 @@ impl EStereoChannelMode {
     pub const LEFT_RIGHT: EStereoChannelMode = EStereoChannelMode(1);
     pub const COUNT: EStereoChannelMode = EStereoChannelMode(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ESourceEffectMotionFilterCircuit(pub u8);
 impl ESourceEffectMotionFilterCircuit {
@@ -800,7 +1038,6 @@ impl ESourceEffectMotionFilterCircuit {
         3,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ESourceEffectMotionFilterType(pub u8);
 impl ESourceEffectMotionFilterType {
@@ -816,7 +1053,6 @@ impl ESourceEffectMotionFilterType {
     );
     pub const COUNT: ESourceEffectMotionFilterType = ESourceEffectMotionFilterType(4);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ESourceEffectMotionFilterModSource(pub u8);
 impl ESourceEffectMotionFilterModSource {
@@ -839,7 +1075,6 @@ impl ESourceEffectMotionFilterModSource {
         5,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ESourceEffectMotionFilterTopology(pub u8);
 impl ESourceEffectMotionFilterTopology {
@@ -853,7 +1088,6 @@ impl ESourceEffectMotionFilterTopology {
         2,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ESourceEffectMotionFilterModDestination(pub u8);
 impl ESourceEffectMotionFilterModDestination {
@@ -882,7 +1116,6 @@ impl ESourceEffectMotionFilterModDestination {
         7,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EPhaserLFOType(pub u8);
 impl EPhaserLFOType {
@@ -895,7 +1128,6 @@ impl EPhaserLFOType {
     pub const RANDOM_SAMPLE_HOLD: EPhaserLFOType = EPhaserLFOType(6);
     pub const COUNT: EPhaserLFOType = EPhaserLFOType(7);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ERingModulatorTypeSourceEffect(pub u8);
 impl ERingModulatorTypeSourceEffect {
@@ -907,7 +1139,6 @@ impl ERingModulatorTypeSourceEffect {
     pub const SQUARE: ERingModulatorTypeSourceEffect = ERingModulatorTypeSourceEffect(3);
     pub const COUNT: ERingModulatorTypeSourceEffect = ERingModulatorTypeSourceEffect(4);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EStereoDelaySourceEffect(pub u8);
 impl EStereoDelaySourceEffect {
@@ -916,7 +1147,6 @@ impl EStereoDelaySourceEffect {
     pub const PING_PONG: EStereoDelaySourceEffect = EStereoDelaySourceEffect(2);
     pub const COUNT: EStereoDelaySourceEffect = EStereoDelaySourceEffect(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EStereoDelayFiltertype(pub u8);
 impl EStereoDelayFiltertype {
@@ -926,7 +1156,6 @@ impl EStereoDelayFiltertype {
     pub const NOTCH: EStereoDelayFiltertype = EStereoDelayFiltertype(3);
     pub const COUNT: EStereoDelayFiltertype = EStereoDelayFiltertype(4);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ESubmixFilterType(pub u8);
 impl ESubmixFilterType {
@@ -936,7 +1165,6 @@ impl ESubmixFilterType {
     pub const BAND_STOP: ESubmixFilterType = ESubmixFilterType(3);
     pub const COUNT: ESubmixFilterType = ESubmixFilterType(4);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ESubmixFilterAlgorithm(pub u8);
 impl ESubmixFilterAlgorithm {
@@ -945,7 +1173,6 @@ impl ESubmixFilterAlgorithm {
     pub const LADDER: ESubmixFilterAlgorithm = ESubmixFilterAlgorithm(2);
     pub const COUNT: ESubmixFilterAlgorithm = ESubmixFilterAlgorithm(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ETapLineMode(pub u8);
 impl ETapLineMode {
@@ -953,7 +1180,6 @@ impl ETapLineMode {
     pub const PANNING: ETapLineMode = ETapLineMode(1);
     pub const DISABLED: ETapLineMode = ETapLineMode(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ESynthKnobSize(pub u8);
 impl ESynthKnobSize {
@@ -961,7 +1187,6 @@ impl ESynthKnobSize {
     pub const LARGE: ESynthKnobSize = ESynthKnobSize(1);
     pub const COUNT: ESynthKnobSize = ESynthKnobSize(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ESynthSlateSizeType(pub u8);
 impl ESynthSlateSizeType {
@@ -970,7 +1195,6 @@ impl ESynthSlateSizeType {
     pub const LARGE: ESynthSlateSizeType = ESynthSlateSizeType(2);
     pub const COUNT: ESynthSlateSizeType = ESynthSlateSizeType(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ESynthSlateColorStyle(pub u8);
 impl ESynthSlateColorStyle {
@@ -978,7 +1202,6 @@ impl ESynthSlateColorStyle {
     pub const DARK: ESynthSlateColorStyle = ESynthSlateColorStyle(1);
     pub const COUNT: ESynthSlateColorStyle = ESynthSlateColorStyle(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EGranularSynthEnvelopeType(pub u8);
 impl EGranularSynthEnvelopeType {
@@ -1010,7 +1233,6 @@ impl EGranularSynthEnvelopeType {
     );
     pub const COUNT: EGranularSynthEnvelopeType = EGranularSynthEnvelopeType(14);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EGranularSynthSeekType(pub u8);
 impl EGranularSynthSeekType {
@@ -1018,7 +1240,6 @@ impl EGranularSynthSeekType {
     pub const FROM_CURRENT_POSITION: EGranularSynthSeekType = EGranularSynthSeekType(1);
     pub const COUNT: EGranularSynthSeekType = EGranularSynthSeekType(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct CurveInterpolationType(pub u8);
 impl CurveInterpolationType {
@@ -1026,7 +1247,6 @@ impl CurveInterpolationType {
     pub const LINEAR: CurveInterpolationType = CurveInterpolationType(1);
     pub const CONSTANT: CurveInterpolationType = CurveInterpolationType(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ESamplePlayerSeekType(pub u8);
 impl ESamplePlayerSeekType {
@@ -1035,7 +1255,6 @@ impl ESamplePlayerSeekType {
     pub const FROM_END: ESamplePlayerSeekType = ESamplePlayerSeekType(2);
     pub const COUNT: ESamplePlayerSeekType = ESamplePlayerSeekType(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ESubmixEffectConvolutionReverbBlockSize(pub u8);
 impl ESubmixEffectConvolutionReverbBlockSize {

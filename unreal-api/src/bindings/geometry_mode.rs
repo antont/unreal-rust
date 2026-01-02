@@ -4,42 +4,78 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
+#[repr(C, align(8))]
 pub struct UGeomModifier {
-    pub description: FText,
-    pub tooltip: FText,
-    pub toolbar_icon_name: FName,
-    pub flags_92: u8,
-    pub cached_polys: UPtr<crate::bindings::engine::UPolys>,
+    __padding_end: [u8; 104],
 }
-pub struct UGeomModifier_Edit {}
+impl UGeomModifier {}
+#[repr(C, align(8))]
+pub struct UGeomModifier_Edit {
+    __padding_end: [u8; 104],
+}
+impl UGeomModifier_Edit {}
+#[repr(C, align(8))]
 pub struct UGeomModifier_Clip {
-    pub flags_104: u8,
-    pub clip_markers: TArray<crate::bindings::core_u_object::FVector>,
-    pub snapped_mouse_world_space_pos: crate::bindings::core_u_object::FVector,
+    __padding_end: [u8; 152],
 }
-pub struct UGeomModifier_Create {}
-pub struct UGeomModifier_Delete {}
+impl UGeomModifier_Clip {}
+#[repr(C, align(8))]
+pub struct UGeomModifier_Create {
+    __padding_end: [u8; 104],
+}
+impl UGeomModifier_Create {}
+#[repr(C, align(8))]
+pub struct UGeomModifier_Delete {
+    __padding_end: [u8; 104],
+}
+impl UGeomModifier_Delete {}
+#[repr(C, align(8))]
 pub struct UGeomModifier_Extrude {
-    pub length: i32,
-    pub segments: i32,
-    pub save_coord_system: i32,
+    __padding_end: [u8; 120],
 }
-pub struct UGeomModifier_Flip {}
+impl UGeomModifier_Extrude {}
+#[repr(C, align(8))]
+pub struct UGeomModifier_Flip {
+    __padding_end: [u8; 104],
+}
+impl UGeomModifier_Flip {}
+#[repr(C, align(8))]
 pub struct UGeomModifier_Lathe {
-    pub total_segments: i32,
-    pub segments: i32,
-    pub flags_112: u8,
-    pub axis: crate::bindings::core_u_object::EAxis,
+    __padding_end: [u8; 120],
 }
-pub struct UGeomModifier_Triangulate {}
-pub struct UGeomModifier_Optimize {}
+impl UGeomModifier_Lathe {}
+#[repr(C, align(8))]
+pub struct UGeomModifier_Triangulate {
+    __padding_end: [u8; 104],
+}
+impl UGeomModifier_Triangulate {}
+#[repr(C, align(8))]
+pub struct UGeomModifier_Optimize {
+    __padding_end: [u8; 104],
+}
+impl UGeomModifier_Optimize {}
+#[repr(C, align(8))]
 pub struct UGeomModifier_Pen {
-    pub flags_104: u8,
-    pub extrude_depth: i32,
-    pub shape_vertices: TArray<crate::bindings::core_u_object::FVector>,
-    pub mouse_world_space_pos: crate::bindings::core_u_object::FVector,
+    __padding_end: [u8; 160],
 }
-pub struct UGeomModifier_Split {}
-pub struct UGeomModifier_Turn {}
-pub struct UGeomModifier_Weld {}
-pub struct UBrushEditingSubsystemImpl {}
+impl UGeomModifier_Pen {}
+#[repr(C, align(8))]
+pub struct UGeomModifier_Split {
+    __padding_end: [u8; 104],
+}
+impl UGeomModifier_Split {}
+#[repr(C, align(8))]
+pub struct UGeomModifier_Turn {
+    __padding_end: [u8; 104],
+}
+impl UGeomModifier_Turn {}
+#[repr(C, align(8))]
+pub struct UGeomModifier_Weld {
+    __padding_end: [u8; 104],
+}
+impl UGeomModifier_Weld {}
+#[repr(C, align(8))]
+pub struct UBrushEditingSubsystemImpl {
+    __padding_end: [u8; 56],
+}
+impl UBrushEditingSubsystemImpl {}

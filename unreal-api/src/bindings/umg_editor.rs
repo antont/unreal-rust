@@ -18,166 +18,155 @@ pub struct FAssetThumbnailWidgetSettings {
     pub padding: crate::bindings::slate_core::FMargin,
     pub generic_thumbnail_size: i32,
     pub color_strip_orientation: EThumbnailColorStripOrientation_BlueprintType,
+    __padding_end: [u8; 7],
 }
-#[repr(C, align(4))]
-pub struct FNavigationSimulationArguments {
-    pub user_index: i32,
-    pub navigation_genesis: crate::bindings::slate_core::ENavigationGenesis,
-    pub ui_navigation: crate::bindings::slate_core::EUINavigation,
-    pub b_override_ui_navigation: bool,
-    pub b_show_preview: bool,
-}
+impl FAssetThumbnailWidgetSettings {}
 #[repr(C, align(8))]
-pub struct FDebugResolution {
-    pub width: i32,
-    pub height: i32,
-    pub description: FString,
-    pub color: crate::bindings::core_u_object::FLinearColor,
-}
-#[repr(C, align(8))]
-pub struct FWidgetCompilerOptions {
-    pub b_allow_blueprint_tick: bool,
-    pub b_allow_blueprint_paint: bool,
-    pub property_binding_rule: EPropertyBindingPermissionLevel,
-    pub rules: TArray<TSoftObjectPtr<crate::bindings::core_u_object::UClass>>,
-}
-#[repr(C, align(8))]
-pub struct FDirectoryWidgetCompilerOptions {
-    pub directory: crate::bindings::core_u_object::FDirectoryPath,
-    pub ignored_widgets: TArray<TSoftObjectPtr<UWidgetBlueprint>>,
-    pub options: FWidgetCompilerOptions,
-}
-#[repr(C, align(8))]
-pub struct FEditorPropertyPathSegment {
-    pub _struct: UPtr<crate::bindings::core_u_object::UStruct>,
-    pub member_name: FName,
-    pub member_guid: crate::bindings::core_u_object::FGuid,
-    pub is_property: bool,
-}
-#[repr(C, align(8))]
-pub struct FEditorPropertyPath {
-    pub segments: TArray<FEditorPropertyPathSegment>,
-}
-#[repr(C, align(8))]
-pub struct FDelegateEditorBinding {
-    pub object_name: FString,
-    pub property_name: FName,
-    pub function_name: FName,
-    pub source_property: FName,
-    pub source_path: FEditorPropertyPath,
-    pub member_guid: crate::bindings::core_u_object::FGuid,
-    pub kind: crate::bindings::umg::EBindingKind,
-}
 pub struct UWidgetBlueprint {
-    pub bindings: TArray<FDelegateEditorBinding>,
-    pub animations: TArray<UPtr<crate::bindings::umg::UWidgetAnimation>>,
-    pub widget_variable_name_to_guid_map: TMap<
-        FName,
-        crate::bindings::core_u_object::FGuid,
-    >,
-    pub palette_category: FString,
-    pub b_can_call_initialized_without_player_context: bool,
-    pub tick_frequency: crate::bindings::umg::EWidgetTickFrequency,
-    pub tick_prediction: EWidgetCompileTimeTickPrediction,
-    pub tick_prediction_reason: FString,
-    pub property_bindings: i32,
-    pub thumbnail_size_mode: EThumbnailPreviewSizeMode,
-    pub thumbnail_custom_size: crate::bindings::core_u_object::FVector2D,
-    pub thumbnail_image: UPtr<crate::bindings::engine::UTexture2D>,
+    __padding_end: [u8; 1624],
 }
+impl UWidgetBlueprint {}
+#[repr(C, align(8))]
 pub struct UWidgetEditingProjectSettings {
-    pub default_compiler_options: FWidgetCompilerOptions,
-    pub directory_compiler_options: TArray<FDirectoryWidgetCompilerOptions>,
-    pub b_show_widgets_from_engine_content: bool,
-    pub b_show_widgets_from_developer_content: bool,
-    pub categories_to_hide: TArray<FString>,
-    pub widget_classes_to_hide: TArray<crate::bindings::core_u_object::FSoftClassPath>,
-    pub b_use_widget_template_selector: bool,
-    pub common_root_widget_classes: TArray<
-        TSoftObjectPtr<crate::bindings::core_u_object::UClass>,
-    >,
-    pub default_root_widget: TSubclassOf<crate::bindings::umg::UPanelWidget>,
-    pub b_use_editor_config_palette_filtering: bool,
-    pub b_use_user_widget_parent_class_viewer_selector: bool,
-    pub b_use_user_widget_parent_default_class_viewer_selector: bool,
-    pub b_enable_make_variable: bool,
-    pub b_enable_widget_animation_editor: bool,
-    pub b_enable_palette_window: bool,
-    pub b_enable_library_window: bool,
-    pub b_enable_hierarchy_window: bool,
-    pub b_enable_bind_widget_window: bool,
-    pub b_enable_navigation_simulation_window: bool,
-    pub b_can_call_initialized_without_player_context: bool,
-    pub b_enable_ui_components_property: bool,
-    pub favorite_widget_parent_classes: TArray<
-        TSoftObjectPtr<crate::bindings::core_u_object::UClass>,
-    >,
-    pub debug_resolutions: TArray<FDebugResolution>,
-    pub version: i32,
+    __padding_end: [u8; 688],
 }
+impl UWidgetEditingProjectSettings {}
+#[repr(C, align(8))]
 pub struct UUIComponentWidgetPair {
-    pub widget_name: FName,
-    pub component: UPtr<crate::bindings::umg::UUIComponent>,
+    __padding_end: [u8; 72],
 }
-pub struct UWidgetBlueprintToolMenuContext {}
+impl UUIComponentWidgetPair {}
+#[repr(C, align(8))]
+pub struct UWidgetBlueprintToolMenuContext {
+    __padding_end: [u8; 64],
+}
+impl UWidgetBlueprintToolMenuContext {}
+#[repr(C, align(8))]
 pub struct UWidgetPaletteFavorites {
-    pub favorites: TArray<FString>,
+    __padding_end: [u8; 96],
 }
-pub struct UAssetDefinition_WidgetBlueprint {}
-pub struct UAssetDefinition_WidgetBlueprintGeneratedClass {}
+impl UWidgetPaletteFavorites {}
+#[repr(C, align(8))]
+pub struct UAssetDefinition_WidgetBlueprint {
+    __padding_end: [u8; 72],
+}
+impl UAssetDefinition_WidgetBlueprint {}
+#[repr(C, align(8))]
+pub struct UAssetDefinition_WidgetBlueprintGeneratedClass {
+    __padding_end: [u8; 72],
+}
+impl UAssetDefinition_WidgetBlueprintGeneratedClass {}
+#[repr(C, align(8))]
 pub struct UAssetThumbnailWidget {
-    pub asset_to_show: crate::bindings::core_u_object::FAssetData,
+    #[doc(hidden)]
+    __padding_848: [u8; 848],
     pub resolution: crate::bindings::core_u_object::FIntPoint,
     pub thumbnail_settings: FAssetThumbnailWidgetSettings,
+    __padding_end: [u8; 32],
 }
+impl UAssetThumbnailWidget {}
+#[repr(C, align(8))]
 pub struct UK2Node_WidgetAnimationEvent {
-    pub action: crate::bindings::umg::EWidgetAnimationEvent,
-    pub animation_property_name: FName,
-    pub user_tag: FName,
-    pub source_widget_blueprint: UPtr<UWidgetBlueprint>,
+    __padding_end: [u8; 440],
 }
-pub struct UK2Node_CreateDragDropOperation {}
-pub struct UK2Node_CreateWidget {}
-pub struct UK2Node_PlayAnimation {}
-pub struct UK2Node_PlayAnimationTimeRange {}
-pub struct UK2Node_PlayAnimation2 {}
-pub struct UK2Node_PlayAnimationTimeRange2 {}
-pub struct UUMGEditorProjectSettings {}
+impl UK2Node_WidgetAnimationEvent {}
+#[repr(C, align(8))]
+pub struct UK2Node_CreateDragDropOperation {
+    __padding_end: [u8; 232],
+}
+impl UK2Node_CreateDragDropOperation {}
+#[repr(C, align(8))]
+pub struct UK2Node_CreateWidget {
+    __padding_end: [u8; 232],
+}
+impl UK2Node_CreateWidget {}
+#[repr(C, align(8))]
+pub struct UK2Node_PlayAnimation {
+    __padding_end: [u8; 240],
+}
+impl UK2Node_PlayAnimation {}
+#[repr(C, align(8))]
+pub struct UK2Node_PlayAnimationTimeRange {
+    __padding_end: [u8; 240],
+}
+impl UK2Node_PlayAnimationTimeRange {}
+#[repr(C, align(8))]
+pub struct UK2Node_PlayAnimation2 {
+    __padding_end: [u8; 240],
+}
+impl UK2Node_PlayAnimation2 {}
+#[repr(C, align(8))]
+pub struct UK2Node_PlayAnimationTimeRange2 {
+    __padding_end: [u8; 240],
+}
+impl UK2Node_PlayAnimationTimeRange2 {}
+#[repr(C, align(8))]
+pub struct UUMGEditorProjectSettings {
+    __padding_end: [u8; 688],
+}
+impl UUMGEditorProjectSettings {}
+#[repr(C, align(8))]
 pub struct UWidgetDesignerSettings {
-    pub flags_104: u8,
-    pub grid_snap_size: i32,
-    pub b_lock_to_panel_on_drag_by_default: bool,
-    pub default_preview_resolution: crate::bindings::core_u_object::FUintVector2,
-    pub b_show_outlines: bool,
-    pub b_execute_pre_construct_event: bool,
-    pub b_respect_locks: bool,
-    pub create_on_compile: EDisplayOnCompile,
-    pub dismiss_on_compile: EDisplayOnCompile,
-    pub favorites: UPtr<UWidgetPaletteFavorites>,
+    __padding_end: [u8; 144],
 }
-pub struct USlateVectorArtDataFactory {}
-pub struct UWidgetEditorModeUISubsystem {}
-pub struct UWidgetBlueprintExtension {}
+impl UWidgetDesignerSettings {}
+#[repr(C, align(8))]
+pub struct USlateVectorArtDataFactory {
+    __padding_end: [u8; 136],
+}
+impl USlateVectorArtDataFactory {}
+#[repr(C, align(8))]
+pub struct UWidgetEditorModeUISubsystem {
+    __padding_end: [u8; 56],
+}
+impl UWidgetEditorModeUISubsystem {}
+#[repr(C, align(8))]
+pub struct UWidgetBlueprintExtension {
+    __padding_end: [u8; 48],
+}
+impl UWidgetBlueprintExtension {}
+#[repr(C, align(8))]
 pub struct UUIComponentWidgetBlueprintExtension {
-    pub component_container: UPtr<crate::bindings::umg::UUIComponentContainer>,
+    __padding_end: [u8; 64],
 }
+impl UUIComponentWidgetBlueprintExtension {}
+#[repr(C, align(8))]
 pub struct UWidgetSlotPair {
-    pub widget_name: FName,
-    pub slot_property_names: TArray<FName>,
-    pub slot_property_values: TArray<FString>,
+    __padding_end: [u8; 96],
 }
+impl UWidgetSlotPair {}
+#[repr(C, align(8))]
 pub struct UWidgetBlueprintFactory {
-    pub blueprint_type: crate::bindings::engine::EBlueprintType,
-    pub parent_class: TSubclassOf<crate::bindings::umg::UUserWidget>,
-    pub root_widget_class: TSubclassOf<crate::bindings::core_u_object::UObject>,
+    __padding_end: [u8; 160],
 }
-pub struct UWidgetBlueprintThumbnailRenderer {}
-pub struct UWidgetCompilerRule {}
-pub struct UWidgetGraphSchema {}
-pub struct FAssetThumbnailWidgetSettings_HighlightedTextDelegate;
-pub struct FSetThumbnailSettings_HighlightedTextDelegate;
-pub struct FAssetThumbnailWidget_HighlightedTextDelegate;
-#[allow(non_camel_case_types)]
+impl UWidgetBlueprintFactory {}
+#[repr(C, align(8))]
+pub struct UWidgetBlueprintThumbnailRenderer {
+    __padding_end: [u8; 64],
+}
+impl UWidgetBlueprintThumbnailRenderer {}
+#[repr(C, align(8))]
+pub struct UWidgetCompilerRule {
+    __padding_end: [u8; 48],
+}
+impl UWidgetCompilerRule {}
+#[repr(C, align(8))]
+pub struct UWidgetGraphSchema {
+    __padding_end: [u8; 152],
+}
+impl UWidgetGraphSchema {}
+#[repr(transparent)]
+pub struct FAssetThumbnailWidgetSettings_HighlightedTextDelegate {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FSetThumbnailSettings_HighlightedTextDelegate {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FAssetThumbnailWidget_HighlightedTextDelegate {
+    _opague: u8,
+}
 #[repr(transparent)]
 pub struct EThumbnailLabelType_BlueprintType(pub u8);
 impl EThumbnailLabelType_BlueprintType {
@@ -191,7 +180,6 @@ impl EThumbnailLabelType_BlueprintType {
         2,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EThumbnailColorStripOrientation_BlueprintType(pub u8);
 impl EThumbnailColorStripOrientation_BlueprintType {
@@ -202,7 +190,6 @@ impl EThumbnailColorStripOrientation_BlueprintType {
         1,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EPropertyBindingPermissionLevel(pub u8);
 impl EPropertyBindingPermissionLevel {
@@ -219,7 +206,6 @@ impl EPropertyBindingPermissionLevel {
         3,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EWidgetCompileTimeTickPrediction(pub u8);
 impl EWidgetCompileTimeTickPrediction {
@@ -233,7 +219,6 @@ impl EWidgetCompileTimeTickPrediction {
         2,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EThumbnailPreviewSizeMode(pub u8);
 impl EThumbnailPreviewSizeMode {
@@ -244,7 +229,6 @@ impl EThumbnailPreviewSizeMode {
     pub const CUSTOM: EThumbnailPreviewSizeMode = EThumbnailPreviewSizeMode(2);
     pub const DESIRED: EThumbnailPreviewSizeMode = EThumbnailPreviewSizeMode(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EDisplayOnCompile(pub u8);
 impl EDisplayOnCompile {

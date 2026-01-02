@@ -4,8 +4,13 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
+#[repr(C, align(8))]
 pub struct URewindDebuggerVLogSettings {
-    pub display_verbosity: u8,
-    pub display_categories: TSet<FName>,
+    __padding_end: [u8; 192],
 }
-pub struct AVLogRenderingActor {}
+impl URewindDebuggerVLogSettings {}
+#[repr(C, align(8))]
+pub struct AVLogRenderingActor {
+    __padding_end: [u8; 1336],
+}
+impl AVLogRenderingActor {}

@@ -13,38 +13,35 @@ pub struct FBakingAnimationKeySettings {
     pub b_reduce_keys: bool,
     pub tolerance: f32,
     pub b_time_warp: bool,
+    __padding_end: [u8; 3],
 }
-#[repr(C, align(1))]
-pub struct FSequencerCreationOptions {
-    pub creation_time: ECreationTime,
-}
-#[repr(C, align(8))]
-pub struct FMovieSceneToolsPropertyTrackSettings {
-    pub component_name: FString,
-    pub property_name: FString,
-}
-#[repr(C, align(8))]
-pub struct FMovieSceneToolsFbxSettings {
-    pub fbx_property_name: FString,
-    pub property_path: FMovieSceneToolsPropertyTrackSettings,
-    pub property_type: EMovieSceneToolsPropertyTrackType,
-}
+impl FBakingAnimationKeySettings {}
 #[repr(C, align(1))]
 pub struct FControlToTransformMappings {
-    pub control_channel: FControlRigChannelEnum,
-    pub fbx_channel: FTransformChannelEnum,
-    pub b_negate: bool,
+    __padding_end: [u8; 3],
 }
+impl FControlToTransformMappings {}
 #[repr(C, align(8))]
 pub struct FControlFindReplaceString {
-    pub find: FString,
-    pub replace: FString,
+    __padding_end: [u8; 32],
 }
-pub struct UMovieSceneTextKeyStruct {}
+impl FControlFindReplaceString {}
+#[repr(C, align(8))]
+pub struct UMovieSceneTextKeyStruct {
+    __padding_end: [u8; 416],
+}
+impl UMovieSceneTextKeyStruct {}
+#[repr(C, align(8))]
 pub struct USequencerExportTask {
+    #[doc(hidden)]
+    __padding_128: [u8; 128],
     pub sequencer_context: UPtr<crate::bindings::core_u_object::UObject>,
 }
+impl USequencerExportTask {}
+#[repr(C, align(8))]
 pub struct UAutomatedLevelSequenceCapture {
+    #[doc(hidden)]
+    __padding_600: [u8; 600],
     pub level_sequence_asset: crate::bindings::core_u_object::FSoftObjectPath,
     pub shot_name: FString,
     pub b_use_custom_start_frame: bool,
@@ -60,127 +57,109 @@ pub struct UAutomatedLevelSequenceCapture {
     >,
     pub b_write_edit_decision_list: bool,
     pub b_write_final_cut_pro_xml: bool,
-    pub level_sequence_actor: TWeakObjectPtr<
-        crate::bindings::level_sequence::ALevelSequenceActor,
-    >,
+    __padding_end: [u8; 326],
 }
+impl UAutomatedLevelSequenceCapture {}
+#[repr(C, align(8))]
 pub struct UBoolChannelKeyProxy {
-    pub time: crate::bindings::core_u_object::FFrameNumber,
-    pub b_value: bool,
+    __padding_end: [u8; 120],
 }
+impl UBoolChannelKeyProxy {}
+#[repr(C, align(8))]
 pub struct UByteChannelKeyProxy {
-    pub time: crate::bindings::core_u_object::FFrameNumber,
-    pub value: u8,
+    __padding_end: [u8; 120],
 }
+impl UByteChannelKeyProxy {}
+#[repr(C, align(8))]
 pub struct UDoubleChannelKeyProxy {
-    pub time: crate::bindings::core_u_object::FFrameNumber,
-    pub value: crate::bindings::movie_scene::FMovieSceneDoubleValue,
+    __padding_end: [u8; 152],
 }
+impl UDoubleChannelKeyProxy {}
+#[repr(C, align(8))]
 pub struct UFloatChannelKeyProxy {
-    pub time: crate::bindings::core_u_object::FFrameNumber,
-    pub value: crate::bindings::movie_scene::FMovieSceneFloatValue,
+    __padding_end: [u8; 144],
 }
+impl UFloatChannelKeyProxy {}
+#[repr(C, align(8))]
 pub struct UIntegerChannelKeyProxy {
-    pub time: crate::bindings::core_u_object::FFrameNumber,
-    pub value: i32,
+    __padding_end: [u8; 120],
 }
+impl UIntegerChannelKeyProxy {}
+#[repr(C, align(8))]
 pub struct UMovieSceneTrackRowMetadataHelper {
-    pub track_row_metadata: crate::bindings::movie_scene::FMovieSceneTrackRowMetadata,
-    pub owner_track: TWeakObjectPtr<crate::bindings::movie_scene::UMovieSceneTrack>,
+    __padding_end: [u8; 64],
 }
+impl UMovieSceneTrackRowMetadataHelper {}
+#[repr(C, align(8))]
 pub struct UMovieSceneDirectorBlueprintConditionExtension {
-    pub weak_movie_scene_sequences: TArray<
-        TWeakObjectPtr<crate::bindings::movie_scene::UMovieSceneSequence>,
-    >,
+    __padding_end: [u8; 64],
 }
-pub struct UMovieSceneDirectorBlueprintConditionEndpointUtil {}
+impl UMovieSceneDirectorBlueprintConditionExtension {}
+#[repr(C, align(8))]
+pub struct UMovieSceneDirectorBlueprintConditionEndpointUtil {
+    __padding_end: [u8; 48],
+}
+impl UMovieSceneDirectorBlueprintConditionEndpointUtil {}
+#[repr(C, align(8))]
 pub struct UK2Node_GetSequenceBinding {
-    pub source_sequence_deprecated: crate::bindings::core_u_object::FSoftObjectPath,
-    pub binding: crate::bindings::movie_scene::FMovieSceneObjectBindingID,
-    pub source_movie_sequence: UPtr<crate::bindings::movie_scene::UMovieSceneSequence>,
+    __padding_end: [u8; 672],
 }
+impl UK2Node_GetSequenceBinding {}
+#[repr(C, align(8))]
 pub struct UMovieSceneDynamicBindingBlueprintExtension {
-    pub weak_movie_scene_sequences: TArray<
-        TWeakObjectPtr<crate::bindings::movie_scene::UMovieSceneSequence>,
-    >,
-    pub weak_movie_scene_sequence_deprecated: TWeakObjectPtr<
-        crate::bindings::movie_scene::UMovieSceneSequence,
-    >,
+    __padding_end: [u8; 72],
 }
-pub struct UMovieSceneDynamicBindingEndpointUtil {}
+impl UMovieSceneDynamicBindingBlueprintExtension {}
+#[repr(C, align(8))]
+pub struct UMovieSceneDynamicBindingEndpointUtil {
+    __padding_end: [u8; 48],
+}
+impl UMovieSceneDynamicBindingEndpointUtil {}
+#[repr(C, align(8))]
 pub struct UMovieSceneEventBlueprintExtension {
-    pub event_sections: TArray<
-        TWeakObjectPtr<crate::bindings::movie_scene_tracks::UMovieSceneEventSectionBase>,
-    >,
+    __padding_end: [u8; 64],
 }
+impl UMovieSceneEventBlueprintExtension {}
+#[repr(C, align(8))]
 pub struct UMovieSceneToolsProjectSettings {
-    pub default_start_time: f32,
-    pub default_duration: f32,
-    pub subsequence_directory: FString,
-    pub shot_directory: FString,
-    pub subsequence_prefix: FString,
-    pub shot_prefix: FString,
-    pub first_shot_number: u32,
-    pub shot_increment: u32,
-    pub shot_num_digits: u32,
-    pub take_num_digits: u32,
-    pub first_take_number: u32,
-    pub take_separator: FString,
-    pub fbx_settings: TArray<FMovieSceneToolsFbxSettings>,
+    __padding_end: [u8; 176],
 }
+impl UMovieSceneToolsProjectSettings {}
+#[repr(C, align(8))]
 pub struct UMovieSceneUserThumbnailSettings {
-    pub b_draw_thumbnails: bool,
-    pub b_draw_single_thumbnails: bool,
-    pub thumbnail_size: crate::bindings::core_u_object::FIntPoint,
-    pub quality: EThumbnailQuality,
+    __padding_end: [u8; 152],
 }
+impl UMovieSceneUserThumbnailSettings {}
+#[repr(C, align(8))]
 pub struct UMovieSceneUserImportFBXSettings {
-    pub b_match_by_name_only: bool,
-    pub b_force_front_x_axis: bool,
-    pub b_convert_scene_unit: bool,
-    pub import_uniform_scale: f32,
-    pub b_create_cameras: bool,
-    pub b_replace_transform_track: bool,
-    pub b_correct_for_transform_origin: bool,
-    pub b_reduce_keys: bool,
-    pub reduce_keys_tolerance: f32,
+    __padding_end: [u8; 64],
 }
+impl UMovieSceneUserImportFBXSettings {}
+#[repr(C, align(8))]
 pub struct UMovieSceneUserImportFBXControlRigSettings {
-    pub imported_file_name: FString,
-    pub imported_start_time: crate::bindings::core_u_object::FFrameNumber,
-    pub imported_end_time: crate::bindings::core_u_object::FFrameNumber,
-    pub imported_node_names: TArray<FString>,
-    pub imported_frame_rate: FString,
-    pub find_and_replace_strings: TArray<FControlFindReplaceString>,
-    pub b_strip_namespace: bool,
-    pub b_force_front_x_axis: bool,
-    pub b_convert_scene_unit: bool,
-    pub import_uniform_scale: f32,
-    pub b_import_onto_selected_controls: bool,
-    pub time_to_insert_or_replace_animation: crate::bindings::core_u_object::FFrameNumber,
-    pub b_insert_animation: bool,
-    pub b_specify_time_range: bool,
-    pub start_time_range: crate::bindings::core_u_object::FFrameNumber,
-    pub end_time_range: crate::bindings::core_u_object::FFrameNumber,
-    pub control_channel_mappings: TArray<FControlToTransformMappings>,
+    __padding_end: [u8; 168],
 }
+impl UMovieSceneUserImportFBXControlRigSettings {}
+#[repr(C, align(8))]
 pub struct UMovieSceneUserExportFBXControlRigSettings {
-    pub export_file_name: FString,
+    #[doc(hidden)]
+    __padding_64: [u8; 64],
     pub fbx_export_compatibility: crate::bindings::unreal_ed::EFbxExportCompatibility,
+    #[doc(hidden)]
+    __padding_68: [u8; 3],
     pub flags_68: u8,
-    pub b_force_front_x_axis: bool,
-    pub b_export_only_selected_controls: bool,
-    pub control_channel_mappings: TArray<FControlToTransformMappings>,
+    #[doc(hidden)]
+    __padding_96: [u8; 27],
     pub flags_96: u8,
+    __padding_end: [u8; 7],
 }
-#[allow(non_camel_case_types)]
+impl UMovieSceneUserExportFBXControlRigSettings {}
 #[repr(transparent)]
 pub struct EBakingKeySettings(pub u8);
 impl EBakingKeySettings {
     pub const KEYS_ONLY: EBakingKeySettings = EBakingKeySettings(0);
     pub const ALL_FRAMES: EBakingKeySettings = EBakingKeySettings(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ECreationTime(pub u8);
 impl ECreationTime {
@@ -188,7 +167,6 @@ impl ECreationTime {
     pub const FROM_START: ECreationTime = ECreationTime(1);
     pub const INFINITE: ECreationTime = ECreationTime(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMovieSceneToolsPropertyTrackType(pub i32);
 impl EMovieSceneToolsPropertyTrackType {
@@ -199,7 +177,6 @@ impl EMovieSceneToolsPropertyTrackType {
         1,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct FControlRigChannelEnum(pub u8);
 impl FControlRigChannelEnum {
@@ -219,7 +196,6 @@ impl FControlRigChannelEnum {
     pub const SCALE_Y: FControlRigChannelEnum = FControlRigChannelEnum(13);
     pub const SCALE_Z: FControlRigChannelEnum = FControlRigChannelEnum(14);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct FTransformChannelEnum(pub u8);
 impl FTransformChannelEnum {
@@ -233,7 +209,6 @@ impl FTransformChannelEnum {
     pub const SCALE_Y: FTransformChannelEnum = FTransformChannelEnum(7);
     pub const SCALE_Z: FTransformChannelEnum = FTransformChannelEnum(8);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EThumbnailQuality(pub u8);
 impl EThumbnailQuality {

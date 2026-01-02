@@ -5,43 +5,66 @@
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[repr(C, align(8))]
-pub struct FTimedDataChannelSampleTime {}
+pub struct FTimedDataChannelSampleTime {
+    __padding_end: [u8; 24],
+}
+impl FTimedDataChannelSampleTime {}
 #[repr(C, align(4))]
 pub struct FTimedDataInputEvaluationData {
     pub distance_to_newest_sample_seconds: f32,
     pub distance_to_oldest_sample_seconds: f32,
 }
+impl FTimedDataInputEvaluationData {}
 pub struct UClockedTimeStep {}
 pub struct IClockedTimeStep {}
-pub struct UFixedFrameRateCustomTimeStep {}
+#[repr(C, align(8))]
+pub struct UFixedFrameRateCustomTimeStep {
+    __padding_end: [u8; 48],
+}
+impl UFixedFrameRateCustomTimeStep {}
+#[repr(C, align(8))]
 pub struct UCatchupFixedRateCustomTimeStep {
-    pub frame_rate: crate::bindings::core_u_object::FFrameRate,
-    pub max_catchup_seconds: f64,
+    __padding_end: [u8; 80],
 }
+impl UCatchupFixedRateCustomTimeStep {}
+#[repr(C, align(8))]
 pub struct UTimecodeRegressionProvider {
+    #[doc(hidden)]
+    __padding_56: [u8; 56],
     pub num_sampled_frames: i32,
-    pub owning_engine: UPtr<crate::bindings::engine::UEngine>,
-    pub timecode_impl: UPtr<crate::bindings::engine::UTimecodeProvider>,
+    __padding_end: [u8; 180],
 }
+impl UTimecodeRegressionProvider {}
+#[repr(C, align(8))]
 pub struct UGenlockedCustomTimeStep {
-    pub b_auto_detect_format: bool,
-    pub b_wait_for_both_fields: bool,
+    __padding_end: [u8; 56],
 }
+impl UGenlockedCustomTimeStep {}
+#[repr(C, align(8))]
 pub struct UGenlockedFixedRateCustomTimeStep {
-    pub frame_rate: crate::bindings::core_u_object::FFrameRate,
-    pub b_should_block: bool,
-    pub b_force_single_frame_delta_time: bool,
+    __padding_end: [u8; 88],
 }
+impl UGenlockedFixedRateCustomTimeStep {}
+#[repr(C, align(8))]
 pub struct UGenlockedTimecodeProvider {
-    pub b_use_genlock_to_count: bool,
+    __padding_end: [u8; 96],
 }
-pub struct UMusicalTimeFunctionLibrary {}
-pub struct UTimeManagementBlueprintLibrary {}
+impl UGenlockedTimecodeProvider {}
+#[repr(C, align(8))]
+pub struct UMusicalTimeFunctionLibrary {
+    __padding_end: [u8; 48],
+}
+impl UMusicalTimeFunctionLibrary {}
+#[repr(C, align(8))]
+pub struct UTimeManagementBlueprintLibrary {
+    __padding_end: [u8; 48],
+}
+impl UTimeManagementBlueprintLibrary {}
+#[repr(C, align(8))]
 pub struct UTimeSynchronizationSource {
-    pub b_use_for_synchronization: bool,
-    pub frame_offset: i32,
+    __padding_end: [u8; 56],
 }
-#[allow(non_camel_case_types)]
+impl UTimeSynchronizationSource {}
 #[repr(transparent)]
 pub struct EFrameNumberDisplayFormats(pub u8);
 impl EFrameNumberDisplayFormats {

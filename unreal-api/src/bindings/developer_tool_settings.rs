@@ -5,161 +5,20 @@
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[repr(C, align(8))]
-pub struct FPakOrderFileSpec {
-    pub pattern: FString,
-    pub priority: i32,
-}
-#[repr(C, align(8))]
-pub struct FProjectBuildSettings {
-    pub name: FString,
-    pub help_text: FString,
-    pub specific_platforms: TArray<FString>,
-    pub build_cook_run_params: FString,
-}
 pub struct UCookerSettings {
-    pub b_enable_cook_on_the_side: bool,
-    pub b_enable_build_ddc_in_background: bool,
-    pub b_iterative_cooking_for_launch_on: bool,
-    pub b_iterative_cooking_for_file_cook_content: bool,
-    pub b_cook_on_the_fly_for_launch_on: bool,
-    pub cook_progress_display_mode: ECookProgressDisplayMode,
-    pub b_ignore_ini_settings_out_of_date_for_iteration: bool,
-    pub b_ignore_script_packages_out_of_date_for_iteration: bool,
-    pub b_compile_blueprints_in_development_mode: bool,
-    pub blueprint_component_data_cooking_method: EBlueprintComponentDataCookingMethod,
-    pub blueprint_property_guids_cooking_method: EBlueprintPropertyGuidsCookingMethod,
-    pub classes_excluded_on_dedicated_server: TArray<FString>,
-    pub modules_excluded_on_dedicated_server: TArray<FString>,
-    pub classes_excluded_on_dedicated_client: TArray<FString>,
-    pub modules_excluded_on_dedicated_client: TArray<FString>,
-    pub versioned_int_r_values: TArray<FString>,
-    pub default_astc_quality_by_speed: i32,
-    pub default_astc_quality_by_size: i32,
-    pub default_astc_quality_by_size_hq: i32,
-    pub default_astc_compressor: ETextureFormatASTCCompressor,
-    pub flags_224: u8,
-    pub b_cook_blueprint_component_template_data: bool,
+    __padding_end: [u8; 232],
 }
+impl UCookerSettings {}
+#[repr(C, align(8))]
 pub struct UPlatformsMenuSettings {
-    pub staging_directory: crate::bindings::core_u_object::FDirectoryPath,
-    pub launch_on_target: FString,
-    pub cook_platform: FName,
-    pub cook_build_target: FString,
-    pub package_platform: FName,
-    pub package_build_target: FString,
-    pub prepare_for_debugging_platform: FName,
-    pub prepare_for_debugging_build_target: FString,
-    pub per_platform_target_flavor_name: TMap<FName, FName>,
-    pub per_platform_architecture: TMap<FName, FString>,
-    pub per_engine_custom_build_platform_name: TMap<FString, FName>,
-    pub per_project_custom_build_platform_name: TMap<FString, FName>,
-    pub per_engine_custom_build_device_id: TMap<FString, FString>,
-    pub per_project_custom_build_device_id: TMap<FString, FString>,
-    pub per_engine_custom_build_build_configuration: TMap<
-        FString,
-        EProjectPackagingBuildConfigurations,
-    >,
-    pub per_project_custom_build_build_configuration: TMap<
-        FString,
-        EProjectPackagingBuildConfigurations,
-    >,
-    pub per_engine_custom_build_build_target_name: TMap<FString, FString>,
-    pub per_project_custom_build_build_target_name: TMap<FString, FString>,
-    pub launch_on_build_configuration: TOptional<EProjectPackagingBuildConfigurations>,
-    pub package_build_configuration: TOptional<EProjectPackagingBuildConfigurations>,
+    __padding_end: [u8; 984],
 }
+impl UPlatformsMenuSettings {}
+#[repr(C, align(8))]
 pub struct UProjectPackagingSettings {
-    pub build: EProjectPackagingBuild,
-    pub build_configuration: EProjectPackagingBuildConfigurations,
-    pub build_target: FString,
-    pub full_rebuild: bool,
-    pub for_distribution: bool,
-    pub include_debug_files: bool,
-    pub blueprint_nativization_method: EProjectPackagingBlueprintNativizationMethod,
-    pub nativize_blueprint_assets: TArray<crate::bindings::core_u_object::FFilePath>,
-    pub b_include_nativized_assets_in_project_generation: bool,
-    pub b_exclude_monolithic_engine_headers_in_nativized_code: bool,
-    pub use_pak_file: bool,
-    pub b_use_io_store: bool,
-    pub b_use_zen_store: bool,
-    pub b_make_binary_config: bool,
-    pub b_generate_chunks: bool,
-    pub b_generate_no_chunks: bool,
-    pub b_chunk_hard_references_only: bool,
-    pub b_force_one_chunk_per_file: bool,
-    pub max_chunk_size: i64,
-    pub b_build_http_chunk_install_data: bool,
-    pub http_chunk_install_data_directory: crate::bindings::core_u_object::FDirectoryPath,
-    pub write_back_metadata_to_asset_registry: EAssetRegistryWritebackMethod,
-    pub b_write_plugin_size_summary_jsons: bool,
-    pub b_compressed: bool,
-    pub package_compression_format: FString,
-    pub b_force_use_project_compression_format_ignore_hardware_override: bool,
-    pub package_additional_compression_options: FString,
-    pub package_compression_method: FString,
-    pub package_compression_level_debug_development: i32,
-    pub package_compression_level_test_shipping: i32,
-    pub package_compression_level_distribution: i32,
-    pub package_compression_min_bytes_saved: i32,
-    pub package_compression_min_percent_saved: i32,
-    pub b_package_compression_enable_ddc: bool,
-    pub package_compression_min_size_to_consider_ddc: i32,
-    pub http_chunk_install_data_version: FString,
-    pub include_prerequisites: bool,
-    pub include_app_local_prerequisites: bool,
-    pub b_share_material_shader_code: bool,
-    pub b_deterministic_shader_code_order: bool,
-    pub b_shared_material_native_libraries: bool,
-    pub applocal_prerequisites_directory: crate::bindings::core_u_object::FDirectoryPath,
-    pub include_crash_reporter: bool,
-    pub internationalization_preset: EProjectPackagingInternationalizationPresets,
-    pub cultures_to_stage: TArray<FString>,
-    pub localization_targets_to_chunk: TArray<FString>,
-    pub localization_target_catch_all_chunk_id: i32,
-    pub b_cook_all: bool,
-    pub b_cook_maps_only: bool,
-    pub b_treat_warnings_as_errors_on_cook: bool,
-    pub b_encrypt_ini_files_deprecated: bool,
-    pub b_encrypt_pak_index_deprecated: bool,
-    pub generate_early_downloader_pak_file_deprecated: bool,
-    pub b_skip_editor_content: bool,
-    pub b_skip_movies: bool,
-    pub ufs_movies: TArray<FString>,
-    pub non_ufs_movies: TArray<FString>,
-    pub compressed_chunk_wildcard: TArray<FString>,
-    pub ini_key_blacklist: TArray<FString>,
-    pub ini_key_denylist: TArray<FString>,
-    pub ini_section_blacklist: TArray<FString>,
-    pub ini_section_denylist: TArray<FString>,
-    pub early_downloader_pak_file_files_deprecated: TArray<FString>,
-    pub maps_to_cook: TArray<crate::bindings::core_u_object::FFilePath>,
-    pub directories_to_always_cook: TArray<
-        crate::bindings::core_u_object::FDirectoryPath,
-    >,
-    pub directories_to_never_cook: TArray<
-        crate::bindings::core_u_object::FDirectoryPath,
-    >,
-    pub test_directories_to_not_search: TArray<
-        crate::bindings::core_u_object::FDirectoryPath,
-    >,
-    pub directories_to_always_stage_as_ufs: TArray<
-        crate::bindings::core_u_object::FDirectoryPath,
-    >,
-    pub directories_to_always_stage_as_non_ufs: TArray<
-        crate::bindings::core_u_object::FDirectoryPath,
-    >,
-    pub directories_to_always_stage_as_ufs_server: TArray<
-        crate::bindings::core_u_object::FDirectoryPath,
-    >,
-    pub directories_to_always_stage_as_non_ufs_server: TArray<
-        crate::bindings::core_u_object::FDirectoryPath,
-    >,
-    pub project_custom_builds: TArray<FProjectBuildSettings>,
-    pub b_retain_staged_directory: bool,
-    pub engine_custom_builds: TArray<FProjectBuildSettings>,
-    pub custom_stage_copy_handler: FString,
+    __padding_end: [u8; 680],
 }
-#[allow(non_camel_case_types)]
+impl UProjectPackagingSettings {}
 #[repr(transparent)]
 pub struct ECookProgressDisplayMode(pub i32);
 impl ECookProgressDisplayMode {
@@ -181,7 +40,6 @@ impl ECookProgressDisplayMode {
     );
     pub const MAX: ECookProgressDisplayMode = ECookProgressDisplayMode(8);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EBlueprintComponentDataCookingMethod(pub i32);
 impl EBlueprintComponentDataCookingMethod {
@@ -195,7 +53,6 @@ impl EBlueprintComponentDataCookingMethod {
         2,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EBlueprintPropertyGuidsCookingMethod(pub i32);
 impl EBlueprintPropertyGuidsCookingMethod {
@@ -209,7 +66,6 @@ impl EBlueprintPropertyGuidsCookingMethod {
         2,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ETextureFormatASTCCompressor(pub i32);
 impl ETextureFormatASTCCompressor {
@@ -217,7 +73,6 @@ impl ETextureFormatASTCCompressor {
     pub const ARM: ETextureFormatASTCCompressor = ETextureFormatASTCCompressor(1);
     pub const MAX: ETextureFormatASTCCompressor = ETextureFormatASTCCompressor(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EProjectPackagingBuildConfigurations(pub u8);
 impl EProjectPackagingBuildConfigurations {
@@ -237,7 +92,6 @@ impl EProjectPackagingBuildConfigurations {
         4,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EProjectPackagingBuild(pub i32);
 impl EProjectPackagingBuild {
@@ -248,7 +102,6 @@ impl EProjectPackagingBuild {
         3,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EProjectPackagingBlueprintNativizationMethod(pub u8);
 impl EProjectPackagingBlueprintNativizationMethod {
@@ -262,7 +115,6 @@ impl EProjectPackagingBlueprintNativizationMethod {
         2,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EAssetRegistryWritebackMethod(pub u8);
 impl EAssetRegistryWritebackMethod {
@@ -274,7 +126,6 @@ impl EAssetRegistryWritebackMethod {
         2,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EProjectPackagingInternationalizationPresets(pub u8);
 impl EProjectPackagingInternationalizationPresets {

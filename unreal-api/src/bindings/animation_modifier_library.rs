@@ -6,58 +6,52 @@ pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[repr(C, align(4))]
 pub struct FBoneReferencePair {
-    pub source_bone: crate::bindings::engine::FBoneReference,
-    pub target_bone: crate::bindings::engine::FBoneReference,
+    __padding_end: [u8; 40],
 }
-#[repr(C, align(4))]
-pub struct FEncodeRootBoneWeightedBone {
-    pub bone: crate::bindings::engine::FBoneReference,
-    pub weight: f32,
-}
-#[repr(C, align(4))]
-pub struct FEncodeRootBoneWeightedBoneAxis {
-    pub bone_axis: EEncodeRootBoneAxis,
-}
+impl FBoneReferencePair {}
 #[repr(C, align(8))]
 pub struct FFootDefinition {
-    pub foot_bone_name: FName,
+    #[doc(hidden)]
+    __padding_12: [u8; 12],
     pub reference_bone_name: FName,
-    pub b_should_generate_sync_markers: bool,
-    pub sync_marker_track_name: FName,
-    pub sync_marker_name: FName,
-    pub sync_marker_detection_technique: EDetectionTechnique,
-    pub b_should_skip_sync_marker_if_foot_bone_speed_starts_below_threshold: bool,
-    pub b_should_generate_notifies: bool,
-    pub footstep_notify_track_name: FName,
-    pub footstep_notify: TSubclassOf<crate::bindings::engine::UAnimNotify>,
-    pub footstep_notify_detection_technique: EDetectionTechnique,
-    pub b_should_skip_notify_if_foot_bone_speed_starts_below_threshold: bool,
+    __padding_end: [u8; 64],
 }
+impl FFootDefinition {}
+#[repr(C, align(8))]
 pub struct UCopyBonesModifier {
+    #[doc(hidden)]
+    __padding_120: [u8; 120],
     pub bone_pairs: TArray<FBoneReferencePair>,
     pub bone_pose_space: crate::bindings::animation_blueprint_library::EAnimPoseSpaces,
+    __padding_end: [u8; 7],
 }
+impl UCopyBonesModifier {}
+#[repr(C, align(8))]
 pub struct UEncodeRootBoneModifier {
-    pub weighted_bone_to_compute_root_position: TArray<FEncodeRootBoneWeightedBone>,
-    pub weighted_bone_to_compute_root_orientation: TArray<
-        FEncodeRootBoneWeightedBoneAxis,
-    >,
+    __padding_end: [u8; 152],
 }
+impl UEncodeRootBoneModifier {}
+#[repr(C, align(8))]
 pub struct UFootstepAnimEventsModifier {
+    #[doc(hidden)]
+    __padding_120: [u8; 120],
     pub sample_rate: i32,
     pub ground_threshold: f32,
     pub speed_threshold: f32,
     pub foot_definitions: TArray<FFootDefinition>,
     pub b_should_remove_pre_existing_notifies_or_sync_markers: bool,
-    pub generated_notify_tracks: TSet<FName>,
-    pub processed_notify_tracks: TSet<FName>,
+    __padding_end: [u8; 167],
 }
+impl UFootstepAnimEventsModifier {}
+#[repr(C, align(8))]
 pub struct UMirrorModifier {
-    pub mirror_data_table: UPtr<crate::bindings::engine::UMirrorDataTable>,
-    pub b_update_sync_markers: bool,
-    pub b_update_notifies: bool,
+    __padding_end: [u8; 136],
 }
+impl UMirrorModifier {}
+#[repr(C, align(8))]
 pub struct UMotionExtractorModifier {
+    #[doc(hidden)]
+    __padding_120: [u8; 120],
     pub bone_name: FName,
     pub relative_to_bone_name: FName,
     pub motion_type: EMotionExtractor_MotionType,
@@ -65,24 +59,40 @@ pub struct UMotionExtractorModifier {
     pub b_remove_curve_on_revert: bool,
     pub b_relative_to_first_frame: bool,
     pub space: EMotionExtractor_Space,
-    pub b_component_space_deprecated: bool,
+    #[doc(hidden)]
+    __padding_150: [u8; 1],
     pub b_absolute_value: bool,
     pub math_operation: EMotionExtractor_MathOperation,
     pub modifier: f32,
     pub b_normalize: bool,
-    pub sample_rate: i32,
+    #[doc(hidden)]
+    __padding_164: [u8; 7],
     pub b_use_custom_curve_name: bool,
     pub custom_curve_name: FName,
+    __padding_end: [u8; 4],
 }
-pub struct UMotionExtractorUtilityLibrary {}
+impl UMotionExtractorModifier {}
+#[repr(C, align(8))]
+pub struct UMotionExtractorUtilityLibrary {
+    __padding_end: [u8; 48],
+}
+impl UMotionExtractorUtilityLibrary {}
+#[repr(C, align(8))]
 pub struct UReOrientRootBoneModifier {
+    #[doc(hidden)]
+    __padding_120: [u8; 120],
     pub rotator: crate::bindings::core_u_object::FRotator,
 }
+impl UReOrientRootBoneModifier {}
+#[repr(C, align(8))]
 pub struct UZeroOutRootBoneModifier {
+    #[doc(hidden)]
+    __padding_120: [u8; 120],
     pub b_clip_start_frames_with_no_motion: bool,
     pub b_clip_end_frames_with_no_motion: bool,
+    __padding_end: [u8; 6],
 }
-#[allow(non_camel_case_types)]
+impl UZeroOutRootBoneModifier {}
 #[repr(transparent)]
 pub struct EEncodeRootBoneAxis(pub u8);
 impl EEncodeRootBoneAxis {
@@ -90,7 +100,6 @@ impl EEncodeRootBoneAxis {
     pub const Y: EEncodeRootBoneAxis = EEncodeRootBoneAxis(1);
     pub const Z: EEncodeRootBoneAxis = EEncodeRootBoneAxis(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EDetectionTechnique(pub u8);
 impl EDetectionTechnique {
@@ -98,7 +107,6 @@ impl EDetectionTechnique {
     pub const FOOT_BONE_REACHES_GROUND: EDetectionTechnique = EDetectionTechnique(1);
     pub const FOOT_BONE_SPEED: EDetectionTechnique = EDetectionTechnique(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMotionExtractor_MotionType(pub u8);
 impl EMotionExtractor_MotionType {
@@ -113,7 +121,6 @@ impl EMotionExtractor_MotionType {
         16,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMotionExtractor_Axis(pub u8);
 impl EMotionExtractor_Axis {
@@ -125,7 +132,6 @@ impl EMotionExtractor_Axis {
     pub const YZ: EMotionExtractor_Axis = EMotionExtractor_Axis(5);
     pub const XYZ: EMotionExtractor_Axis = EMotionExtractor_Axis(6);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMotionExtractor_Space(pub u8);
 impl EMotionExtractor_Space {
@@ -133,7 +139,6 @@ impl EMotionExtractor_Space {
     pub const LOCAL_SPACE: EMotionExtractor_Space = EMotionExtractor_Space(1);
     pub const RELATIVE_TO_BONE: EMotionExtractor_Space = EMotionExtractor_Space(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMotionExtractor_MathOperation(pub u8);
 impl EMotionExtractor_MathOperation {

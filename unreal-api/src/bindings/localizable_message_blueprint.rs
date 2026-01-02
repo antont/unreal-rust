@@ -4,4 +4,8 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
-pub struct ULocalizableMessageLibrary {}
+#[repr(C, align(8))]
+pub struct ULocalizableMessageLibrary {
+    __padding_end: [u8; 48],
+}
+impl ULocalizableMessageLibrary {}

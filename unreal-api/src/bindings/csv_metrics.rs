@@ -4,9 +4,13 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
-pub struct UCsvActorCountMetric {}
-pub struct UCsvMetricsSubsystem {
-    pub metric_classes: TArray<
-        TSubclassOf<crate::bindings::world_metrics_core::UWorldMetricInterface>,
-    >,
+#[repr(C, align(8))]
+pub struct UCsvActorCountMetric {
+    __padding_end: [u8; 144],
 }
+impl UCsvActorCountMetric {}
+#[repr(C, align(8))]
+pub struct UCsvMetricsSubsystem {
+    __padding_end: [u8; 112],
+}
+impl UCsvMetricsSubsystem {}

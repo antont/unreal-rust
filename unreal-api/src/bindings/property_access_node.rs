@@ -4,10 +4,8 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
+#[repr(C, align(8))]
 pub struct UK2Node_PropertyAccess {
-    pub path: TArray<FString>,
-    pub text_path: FText,
-    pub resolved_pin_type: crate::bindings::engine::FEdGraphPinType,
-    pub generated_property_name: FName,
-    pub context_id: FName,
+    __padding_end: [u8; 464],
 }
+impl UK2Node_PropertyAccess {}

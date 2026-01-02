@@ -4,27 +4,28 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
-pub struct ULevelInstanceActorFactory {}
+#[repr(C, align(8))]
+pub struct ULevelInstanceActorFactory {
+    __padding_end: [u8; 144],
+}
+impl ULevelInstanceActorFactory {}
+#[repr(C, align(8))]
 pub struct ULevelInstanceEditorBehaviorSource {
-    pub input_behavior_set: UPtr<
-        crate::bindings::interactive_tools_framework::UInputBehaviorSet,
-    >,
+    __padding_end: [u8; 72],
 }
+impl ULevelInstanceEditorBehaviorSource {}
+#[repr(C, align(8))]
 pub struct ULevelInstanceEditorMode {
-    pub mode_behavior_source: TScriptInterface<
-        crate::bindings::interactive_tools_framework::IInputBehaviorSource,
-    >,
+    __padding_end: [u8; 336],
 }
+impl ULevelInstanceEditorMode {}
+#[repr(C, align(8))]
 pub struct ULevelInstanceEditorSettings {
-    pub template_map_infos: TArray<crate::bindings::unreal_ed::FTemplateMapInfo>,
-    pub level_instance_class_name: FString,
-    pub b_enable_streaming: bool,
-    pub b_is_edit_in_place_streaming_enabled: bool,
+    __padding_end: [u8; 144],
 }
+impl ULevelInstanceEditorSettings {}
+#[repr(C, align(8))]
 pub struct ULevelInstanceEditorPerProjectUserSettings {
-    pub b_always_show_dialog: bool,
-    pub pivot_type: crate::bindings::engine::ELevelInstancePivotType,
-    pub b_is_sub_selection_enabled: bool,
-    pub b_is_viewport_sub_selection_enabled: bool,
-    pub b_keep_folders_during_break: bool,
+    __padding_end: [u8; 112],
 }
+impl ULevelInstanceEditorPerProjectUserSettings {}

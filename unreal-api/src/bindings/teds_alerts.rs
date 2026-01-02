@@ -5,33 +5,15 @@
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[repr(C, align(8))]
-pub struct FTedsAlertColumn {
-    pub message: FText,
-    pub name: FName,
-    pub alert_type: FTedsAlertColumnType,
-    pub priority: u8,
+pub struct UTedsAlertsFactory {
+    __padding_end: [u8; 104],
 }
+impl UTedsAlertsFactory {}
 #[repr(C, align(8))]
-pub struct FTedsChildAlertColumn {}
-#[repr(C, align(16))]
-pub struct FTedsAlertActionColumn {}
-#[repr(C, align(1))]
-pub struct FTedsAlertChainTag {}
-#[repr(C, align(1))]
-pub struct FTedsUnsortedAlertChainTag {}
-#[repr(C, align(8))]
-pub struct FAlertWidgetConstructor {}
-#[repr(C, align(1))]
-pub struct FAlertWidgetTag {}
-#[repr(C, align(8))]
-pub struct FAlertHeaderWidgetConstructor {}
-#[repr(C, align(1))]
-pub struct FAlertHeaderWidgetTag {}
-#[repr(C, align(1))]
-pub struct FAlertHeaderActiveWidgetTag {}
-pub struct UTedsAlertsFactory {}
-pub struct UAlertWidgetFactory {}
-#[allow(non_camel_case_types)]
+pub struct UAlertWidgetFactory {
+    __padding_end: [u8; 48],
+}
+impl UAlertWidgetFactory {}
 #[repr(transparent)]
 pub struct FTedsAlertColumnType(pub u8);
 impl FTedsAlertColumnType {

@@ -4,33 +4,18 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
-#[repr(C, align(4))]
-pub struct FPropertyBindingUtilsTest_PropertyStructB {
-    pub b: i32,
-}
-#[repr(C, align(4))]
-pub struct FPropertyBindingUtilsTest_PropertyStruct {
-    pub a: i32,
-    pub b: i32,
-    pub struct_b: FPropertyBindingUtilsTest_PropertyStructB,
-}
+#[repr(C, align(8))]
 pub struct UPropertyBindingUtilsTest_PropertyObjectInstanced {
-    pub a: i32,
-    pub instanced_struct: crate::bindings::core_u_object::FInstancedStruct,
+    __padding_end: [u8; 72],
 }
+impl UPropertyBindingUtilsTest_PropertyObjectInstanced {}
+#[repr(C, align(8))]
 pub struct UPropertyBindingUtilsTest_PropertyObjectInstancedWithB {
-    pub b: i32,
+    __padding_end: [u8; 80],
 }
+impl UPropertyBindingUtilsTest_PropertyObjectInstancedWithB {}
+#[repr(C, align(8))]
 pub struct UPropertyBindingUtilsTest_PropertyObject {
-    pub instanced_object: UPtr<UPropertyBindingUtilsTest_PropertyObjectInstanced>,
-    pub array_of_instanced_objects: TArray<
-        UPtr<UPropertyBindingUtilsTest_PropertyObjectInstanced>,
-    >,
-    pub array_of_ints: TArray<i32>,
-    pub instanced_struct: crate::bindings::core_u_object::FInstancedStruct,
-    pub array_of_instanced_structs: TArray<
-        crate::bindings::core_u_object::FInstancedStruct,
-    >,
-    pub _struct: FPropertyBindingUtilsTest_PropertyStruct,
-    pub array_of_struct: TArray<FPropertyBindingUtilsTest_PropertyStruct>,
+    __padding_end: [u8; 152],
 }
+impl UPropertyBindingUtilsTest_PropertyObject {}

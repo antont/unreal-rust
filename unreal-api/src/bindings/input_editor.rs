@@ -5,59 +5,52 @@
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[repr(C, align(8))]
-pub struct FBindingTargets {
-    pub started: UPtr<UInputBindingTarget>,
-    pub ongoing: UPtr<UInputBindingTarget>,
-    pub canceled: UPtr<UInputBindingTarget>,
-    pub completed: UPtr<UInputBindingTarget>,
-    pub triggered: UPtr<UInputBindingTarget>,
-}
 pub struct UEnhancedInputEditorProjectSettings {
-    pub default_editor_input_class: TSoftObjectPtr<
-        crate::bindings::core_u_object::UClass,
-    >,
-    pub default_mapping_contexts: TArray<
-        crate::bindings::enhanced_input::FDefaultContextSetting,
-    >,
+    __padding_end: [u8; 168],
 }
+impl UEnhancedInputEditorProjectSettings {}
+#[repr(C, align(8))]
 pub struct UEnhancedInputEditorSettings {
-    pub flags_104: u8,
-    pub visible_event_pins_by_default: u8,
+    __padding_end: [u8; 112],
 }
+impl UEnhancedInputEditorSettings {}
+#[repr(C, align(8))]
 pub struct UEnhancedInputEditorSubsystem {
-    pub player_input: UPtr<crate::bindings::enhanced_input::UEnhancedPlayerInput>,
-    pub current_input_stack: TArray<
-        TWeakObjectPtr<crate::bindings::engine::UInputComponent>,
-    >,
-    pub continuously_injected_inputs: TMap<
-        UPtr<crate::bindings::enhanced_input::UInputAction>,
-        crate::bindings::enhanced_input::FInjectedInput,
-    >,
+    __padding_end: [u8; 528],
 }
+impl UEnhancedInputEditorSubsystem {}
+#[repr(C, align(8))]
 pub struct UInputMappingContext_Factory {
-    pub input_mapping_context_class: TSubclassOf<
-        crate::bindings::enhanced_input::UInputMappingContext,
-    >,
+    __padding_end: [u8; 160],
 }
+impl UInputMappingContext_Factory {}
+#[repr(C, align(8))]
 pub struct UInputAction_Factory {
-    pub input_action_class: TSubclassOf<crate::bindings::enhanced_input::UInputAction>,
+    __padding_end: [u8; 144],
 }
-pub struct UInputBindingTarget {}
+impl UInputAction_Factory {}
+#[repr(C, align(8))]
+pub struct UInputBindingTarget {
+    __padding_end: [u8; 96],
+}
+impl UInputBindingTarget {}
+#[repr(C, align(8))]
 pub struct UMockedEnhancedInputSubsystem {
-    pub continuously_injected_inputs: TMap<
-        UPtr<crate::bindings::enhanced_input::UInputAction>,
-        crate::bindings::enhanced_input::FInjectedInput,
-    >,
+    __padding_end: [u8; 480],
 }
-pub struct UMockInputUserSettings {}
+impl UMockedEnhancedInputSubsystem {}
+#[repr(C, align(8))]
+pub struct UMockInputUserSettings {
+    __padding_end: [u8; 432],
+}
+impl UMockInputUserSettings {}
+#[repr(C, align(8))]
 pub struct UControllablePlayer {
-    pub player: UPtr<crate::bindings::engine::APlayerController>,
-    pub binding_targets: TMap<FName, FBindingTargets>,
-    pub input_context: TMap<
-        FName,
-        UPtr<crate::bindings::enhanced_input::UInputMappingContext>,
-    >,
-    pub input_action: TMap<FName, UPtr<crate::bindings::enhanced_input::UInputAction>>,
-    pub user_settings: UPtr<crate::bindings::enhanced_input::UEnhancedInputUserSettings>,
+    __padding_end: [u8; 408],
 }
-pub struct UTestMappableKeysAction {}
+impl UControllablePlayer {}
+#[repr(C, align(8))]
+pub struct UTestMappableKeysAction {
+    __padding_end: [u8; 192],
+}
+impl UTestMappableKeysAction {}

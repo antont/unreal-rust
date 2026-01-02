@@ -1,3 +1,5 @@
+use std::collections::HashMap;
+
 use serde::{Deserialize, Serialize};
 
 // ---------------------------------------------------------
@@ -64,18 +66,24 @@ pub enum Type {
         type_name: String,
         #[serde(rename = "UsageHint")]
         usage_hint: Option<TypeUsageHint>,
+        #[serde(rename = "ArrayDim")]
+        array_dim: usize,
     },
     Container {
         #[serde(rename = "ContainerTypeName")]
         container_type_name: String,
         #[serde(rename = "InnerType")]
         inner_type: Box<Type>,
+        #[serde(rename = "ArrayDim")]
+        array_dim: usize,
     },
     Map {
         #[serde(rename = "KeyType")]
         key_type: Box<Type>,
         #[serde(rename = "ValueType")]
         value_type: Box<Type>,
+        #[serde(rename = "ArrayDim")]
+        array_dim: usize,
     },
     Bitfield {
         #[serde(rename = "Offset")]
@@ -98,6 +106,12 @@ pub struct Property {
 
     #[serde(rename = "Offset")]
     pub offset: u32,
+
+    #[serde(rename = "Alignment")]
+    pub alignment: u32,
+
+    #[serde(rename = "Size")]
+    pub size: u32,
 
     #[serde(rename = "Documentation", default)]
     pub documentation: Option<String>,
@@ -195,9 +209,14 @@ pub struct StructDefinition {
     #[serde(rename = "StructName")]
     pub struct_name: String,
 
+    #[serde(rename = "SuperStruct")]
+    pub super_struct: Option<String>,
+
     #[serde(rename = "Package")]
     pub package: String,
 
+    #[serde(rename = "Metadata", default)]
+    pub meta: HashMap<String, String>,
     #[serde(rename = "Flags", default)]
     pub flags: Vec<StructFlag>,
 
@@ -206,6 +225,9 @@ pub struct StructDefinition {
 
     #[serde(rename = "PropertySizes")]
     pub property_sizes: u32,
+
+    #[serde(rename = "Size")]
+    pub size: u32,
 
     #[serde(rename = "IsPlainOldData")]
     pub is_plain_old_data: bool,
@@ -225,13 +247,14 @@ pub struct ClassDefinition {
     #[serde(rename = "Package")]
     pub package: String,
 
-    // NEW: Classes often have a Super Class
-    #[serde(rename = "SuperClass", default)]
+    #[serde(rename = "SuperClass")]
     pub super_class: Option<String>,
 
     #[serde(rename = "IsInterface")]
     pub is_interface: bool,
 
+    #[serde(rename = "Metadata", default)]
+    pub meta: HashMap<String, String>,
     #[serde(rename = "Flags", default)]
     pub flags: Vec<ClassFlag>,
 
@@ -275,4 +298,54 @@ pub struct Api {
     pub opague_defs: Vec<OpagueDefinition>,
     #[serde(rename = "DelegateDefinitions", default)]
     pub delegate_defs: Vec<DelegateDefinition>,
+}
+
+impl Api {
+    pub fn is_struct_blueprint_type(&self, struct_def: &StructDefinition) -> bool {
+        if struct_def.meta.contains_key("BlueprintType") {
+            return true;
+        }
+
+        // TODO: Might be a bit slow, we should switch to a hashmap for lookup
+        if let Some(super_struct) = struct_def.super_struct.as_ref()
+            && let Some(super_struct_def) = self
+                .structs
+                .iter()
+                .find(|def| &def.struct_name == super_struct)
+        {
+            println!("{}", struct_def.struct_name);
+            return self.is_struct_blueprint_type(super_struct_def);
+        }
+
+        false
+    }
+    pub fn is_class_blueprint_type(&self, class: &ClassDefinition) -> bool {
+        if class.meta.contains_key("BlueprintType") {
+            return true;
+        }
+
+        // TODO: Might be a bit slow, we should switch to a hashmap for lookup
+        if let Some(super_class) = class.super_class.as_ref()
+            && let Some(super_class_def) = self
+                .classes
+                .iter()
+                .find(|def| &def.class_name == super_class)
+        {
+            return self.is_class_blueprint_type(super_class_def);
+        }
+
+        false
+    }
+    pub fn iter_structs(&self) -> impl Iterator<Item = &StructDefinition> {
+        self.structs
+            .iter()
+            .filter(|def| self.is_struct_blueprint_type(def))
+    }
+
+    pub fn iter_classes(&self) -> impl Iterator<Item = &ClassDefinition> {
+        self.classes.iter()
+        // self.classes
+        //     .iter()
+        //     .filter(|def| self.is_class_blueprint_type(def))
+    }
 }

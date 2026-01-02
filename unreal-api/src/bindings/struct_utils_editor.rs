@@ -8,4 +8,8 @@ pub struct UPropertyBagEdGraphDragAndDrop {}
 pub struct IPropertyBagEdGraphDragAndDrop {}
 pub struct UPropertyBagEdGraph {}
 pub struct IPropertyBagEdGraph {}
-pub struct UPropertyBagSchema {}
+#[repr(C, align(8))]
+pub struct UPropertyBagSchema {
+    __padding_end: [u8; 152],
+}
+impl UPropertyBagSchema {}

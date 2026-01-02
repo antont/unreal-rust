@@ -5,37 +5,37 @@
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[repr(C, align(8))]
-pub struct FEaseCurvePreset {
-    pub category: FText,
-    pub name: FText,
-    pub tangents: FEaseCurveTangents,
+pub struct UEaseCurveSerializer {
+    __padding_end: [u8; 48],
 }
+impl UEaseCurveSerializer {}
 #[repr(C, align(8))]
-pub struct FEaseCurveTangents {
-    pub start: f64,
-    pub start_weight: f64,
-    pub end: f64,
-    pub end_weight: f64,
+pub struct UCubicBezierCurveSerializer {
+    __padding_end: [u8; 48],
 }
-pub struct UEaseCurveSerializer {}
-pub struct UCubicBezierCurveSerializer {}
-pub struct UEaseCurve {}
+impl UCubicBezierCurveSerializer {}
+#[repr(C, align(8))]
+pub struct UEaseCurve {
+    __padding_end: [u8; 264],
+}
+impl UEaseCurve {}
+#[repr(C, align(8))]
 pub struct UEaseCurveLibrary {
-    pub presets: TArray<FEaseCurvePreset>,
-    pub empty_categories: TArray<FText>,
+    __padding_end: [u8; 120],
 }
-pub struct UEaseCurveLibraryFactory {}
-pub struct UEaseCurveToolMenuContext {}
+impl UEaseCurveLibrary {}
+#[repr(C, align(8))]
+pub struct UEaseCurveLibraryFactory {
+    __padding_end: [u8; 136],
+}
+impl UEaseCurveLibraryFactory {}
+#[repr(C, align(8))]
+pub struct UEaseCurveToolMenuContext {
+    __padding_end: [u8; 88],
+}
+impl UEaseCurveToolMenuContext {}
+#[repr(C, align(8))]
 pub struct UEaseCurveToolSettings {
-    pub b_show_in_sidebar: bool,
-    pub b_show_curve_editor_toolbar_button: bool,
-    pub b_tool_tab_visible: bool,
-    pub default_preset_library: TSoftObjectPtr<UEaseCurveLibrary>,
-    pub new_preset_category: FText,
-    pub quick_ease_tangents: FString,
-    pub graph_size: i32,
-    pub b_grid_snap: bool,
-    pub grid_size: i32,
-    pub b_auto_zoom_to_fit: bool,
-    pub b_auto_flip_tangents: bool,
+    __padding_end: [u8; 208],
 }
+impl UEaseCurveToolSettings {}

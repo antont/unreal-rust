@@ -4,18 +4,48 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
-pub struct UActorFactoryEnvironmentQuery {}
-pub struct UAssetDefinition_EnvironmentQuery {}
-pub struct UEdGraphSchema_EnvironmentQuery {}
-pub struct UEnvironmentQueryFactory {}
-pub struct UEnvironmentQueryGraph {}
-pub struct UEnvironmentQueryGraphNode {}
-pub struct UEnvironmentQueryGraphNode_Option {}
+#[repr(C, align(8))]
+pub struct UActorFactoryEnvironmentQuery {
+    __padding_end: [u8; 144],
+}
+impl UActorFactoryEnvironmentQuery {}
+#[repr(C, align(8))]
+pub struct UAssetDefinition_EnvironmentQuery {
+    __padding_end: [u8; 72],
+}
+impl UAssetDefinition_EnvironmentQuery {}
+#[repr(C, align(8))]
+pub struct UEdGraphSchema_EnvironmentQuery {
+    __padding_end: [u8; 48],
+}
+impl UEdGraphSchema_EnvironmentQuery {}
+#[repr(C, align(8))]
+pub struct UEnvironmentQueryFactory {
+    __padding_end: [u8; 136],
+}
+impl UEnvironmentQueryFactory {}
+#[repr(C, align(8))]
+pub struct UEnvironmentQueryGraph {
+    __padding_end: [u8; 200],
+}
+impl UEnvironmentQueryGraph {}
+#[repr(C, align(8))]
+pub struct UEnvironmentQueryGraphNode {
+    __padding_end: [u8; 344],
+}
+impl UEnvironmentQueryGraphNode {}
+#[repr(C, align(8))]
+pub struct UEnvironmentQueryGraphNode_Option {
+    __padding_end: [u8; 376],
+}
+impl UEnvironmentQueryGraphNode_Option {}
+#[repr(C, align(8))]
 pub struct UEnvironmentQueryGraphNode_Root {
-    pub debug_messages: TArray<FString>,
-    pub b_has_debug_error: bool,
+    __padding_end: [u8; 368],
 }
+impl UEnvironmentQueryGraphNode_Root {}
+#[repr(C, align(8))]
 pub struct UEnvironmentQueryGraphNode_Test {
-    pub test_weight_pct: f32,
-    pub flags_348: u8,
+    __padding_end: [u8; 368],
 }
+impl UEnvironmentQueryGraphNode_Test {}

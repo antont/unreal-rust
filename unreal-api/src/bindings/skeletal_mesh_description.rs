@@ -5,7 +5,17 @@
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[repr(C, align(4))]
-pub struct FBoneID {}
+pub struct FBoneID {
+    __padding_end: [u8; 4],
+}
+impl FBoneID {}
 #[repr(C, align(4))]
-pub struct FSourceGeometryPartID {}
-pub struct USkeletalMeshDescription {}
+pub struct FSourceGeometryPartID {
+    __padding_end: [u8; 4],
+}
+impl FSourceGeometryPartID {}
+#[repr(C, align(8))]
+pub struct USkeletalMeshDescription {
+    __padding_end: [u8; 760],
+}
+impl USkeletalMeshDescription {}

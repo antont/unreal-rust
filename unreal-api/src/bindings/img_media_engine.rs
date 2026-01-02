@@ -4,6 +4,8 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
+#[repr(C, align(8))]
 pub struct UDEPRECATED_ImgMediaPlaybackComponent {
-    pub lod_bias: f32,
+    __padding_end: [u8; 280],
 }
+impl UDEPRECATED_ImgMediaPlaybackComponent {}

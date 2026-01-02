@@ -4,20 +4,21 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
-pub struct UCachedMotionAnalysisProperties {}
+#[repr(C, align(16))]
+pub struct UCachedMotionAnalysisProperties {
+    __padding_end: [u8; 592],
+}
+impl UCachedMotionAnalysisProperties {}
+#[repr(C, align(16))]
 pub struct ULocomotionAnalysisProperties {
-    pub function_axis: EAnalysisLocomotionAxis,
-    pub primary_bone_socket: crate::bindings::engine::FBoneSocketTarget,
-    pub secondary_bone_socket: crate::bindings::engine::FBoneSocketTarget,
-    pub character_facing_axis: crate::bindings::persona::EAnalysisLinearAxis,
-    pub character_up_axis: crate::bindings::persona::EAnalysisLinearAxis,
+    __padding_end: [u8; 416],
 }
+impl ULocomotionAnalysisProperties {}
+#[repr(C, align(16))]
 pub struct URootMotionAnalysisProperties {
-    pub function_axis: EAnalysisRootMotionAxis,
-    pub character_facing_axis: crate::bindings::persona::EAnalysisLinearAxis,
-    pub character_up_axis: crate::bindings::persona::EAnalysisLinearAxis,
+    __padding_end: [u8; 416],
 }
-#[allow(non_camel_case_types)]
+impl URootMotionAnalysisProperties {}
 #[repr(transparent)]
 pub struct EAnalysisLocomotionAxis(pub u8);
 impl EAnalysisLocomotionAxis {
@@ -29,7 +30,6 @@ impl EAnalysisLocomotionAxis {
     pub const FORWARD_SLOPE: EAnalysisLocomotionAxis = EAnalysisLocomotionAxis(5);
     pub const RIGHTWARD_SLOPE: EAnalysisLocomotionAxis = EAnalysisLocomotionAxis(6);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EAnalysisRootMotionAxis(pub u8);
 impl EAnalysisRootMotionAxis {

@@ -5,53 +5,47 @@
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[repr(C, align(8))]
-pub struct FHierarchyElementIdentity {
-    pub guids: TArray<crate::bindings::core_u_object::FGuid>,
-    pub names: TArray<FName>,
+pub struct UDataHierarchyEditorMenuContext {
+    __padding_end: [u8; 64],
 }
-#[repr(C, align(1))]
-pub struct FDataHierarchyElementMetaData {}
-#[repr(C, align(4))]
-pub struct FDataHierarchyElementMetaData_SectionAssociation {
-    pub section: TWeakObjectPtr<UHierarchySection>,
+impl UDataHierarchyEditorMenuContext {}
+#[repr(C, align(8))]
+pub struct UHierarchyDataRefreshContext {
+    __padding_end: [u8; 48],
 }
-#[repr(C, align(1))]
-pub struct FHierarchyElementChangedPayload {}
+impl UHierarchyDataRefreshContext {}
 #[repr(C, align(8))]
-pub struct FHierarchyElementChangedPayload_AddedElement {}
-#[repr(C, align(8))]
-pub struct FHierarchyElementChangedPayload_DeletedElement {}
-#[repr(C, align(8))]
-pub struct FHierarchyElementChangedPayload_ElementPropertyChanged {}
-pub struct UDataHierarchyEditorMenuContext {}
-pub struct UHierarchyDataRefreshContext {}
 pub struct UHierarchyElement {
-    pub children: TArray<UPtr<UHierarchyElement>>,
-    pub identity: FHierarchyElementIdentity,
-    pub meta_data: TMap<
-        UPtr<crate::bindings::core_u_object::UStruct>,
-        crate::bindings::core_u_object::FInstancedStruct,
-    >,
-    pub guid_deprecated: crate::bindings::core_u_object::FGuid,
+    __padding_end: [u8; 192],
 }
+impl UHierarchyElement {}
+#[repr(C, align(8))]
 pub struct UHierarchySection {
-    pub section: FName,
-    pub tooltip: FText,
+    __padding_end: [u8; 224],
 }
+impl UHierarchySection {}
+#[repr(C, align(8))]
 pub struct UHierarchyRoot {
-    pub sections: TArray<UPtr<UHierarchySection>>,
+    __padding_end: [u8; 208],
 }
-pub struct UHierarchyItem {}
+impl UHierarchyRoot {}
+#[repr(C, align(8))]
+pub struct UHierarchyItem {
+    __padding_end: [u8; 192],
+}
+impl UHierarchyItem {}
+#[repr(C, align(8))]
 pub struct UHierarchyCategory {
-    pub category: FName,
-    pub tooltip: FText,
-    pub section_deprecated: UPtr<UHierarchySection>,
+    __padding_end: [u8; 232],
 }
-pub struct UHierarchyMenuContext {}
+impl UHierarchyCategory {}
+#[repr(C, align(8))]
+pub struct UHierarchyMenuContext {
+    __padding_end: [u8; 72],
+}
+impl UHierarchyMenuContext {}
+#[repr(C, align(8))]
 pub struct UDataHierarchyViewModelBase {
-    pub hierarchy_root: UPtr<UHierarchyRoot>,
-    pub refresh_context: UPtr<UHierarchyDataRefreshContext>,
-    pub b_is_initialized: bool,
-    pub b_is_finalized: bool,
-    pub all_section: UPtr<UHierarchySection>,
+    __padding_end: [u8; 488],
 }
+impl UDataHierarchyViewModelBase {}

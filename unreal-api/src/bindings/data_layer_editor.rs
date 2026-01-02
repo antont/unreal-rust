@@ -9,19 +9,31 @@ pub struct FDataLayerCreationParameters {
     pub data_layer_asset: UPtr<crate::bindings::engine::UDataLayerAsset>,
     pub world_data_layers: UPtr<crate::bindings::engine::AWorldDataLayers>,
     pub b_is_private: bool,
+    __padding_end: [u8; 7],
 }
+impl FDataLayerCreationParameters {}
+#[repr(C, align(8))]
 pub struct UDataLayerEditorState {
-    pub not_loaded_data_layers: TArray<UPtr<crate::bindings::engine::UDataLayerAsset>>,
-    pub loaded_data_layers: TArray<UPtr<crate::bindings::engine::UDataLayerAsset>>,
+    __padding_end: [u8; 80],
 }
+impl UDataLayerEditorState {}
+#[repr(C, align(8))]
 pub struct UActorEditorContextDataLayerState {
-    pub external_data_layer_asset: UPtr<
-        crate::bindings::engine::UExternalDataLayerAsset,
-    >,
-    pub data_layer_assets: TArray<
-        TSoftObjectPtr<crate::bindings::engine::UDataLayerAsset>,
-    >,
+    __padding_end: [u8; 72],
 }
-pub struct UDataLayerEditorSubsystem {}
-pub struct UDataLayerFactory {}
-pub struct UExternalDataLayerFactory {}
+impl UActorEditorContextDataLayerState {}
+#[repr(C, align(8))]
+pub struct UDataLayerEditorSubsystem {
+    __padding_end: [u8; 344],
+}
+impl UDataLayerEditorSubsystem {}
+#[repr(C, align(8))]
+pub struct UDataLayerFactory {
+    __padding_end: [u8; 136],
+}
+impl UDataLayerFactory {}
+#[repr(C, align(8))]
+pub struct UExternalDataLayerFactory {
+    __padding_end: [u8; 136],
+}
+impl UExternalDataLayerFactory {}

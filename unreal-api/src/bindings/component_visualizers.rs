@@ -4,64 +4,51 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
+#[repr(C, align(8))]
 pub struct AManipulator {
-    pub associated_component: UPtr<crate::bindings::engine::USceneComponent>,
-    pub static_mesh_component: UPtr<crate::bindings::engine::UStaticMeshComponent>,
+    __padding_end: [u8; 1160],
 }
+impl AManipulator {}
+#[repr(C, align(16))]
 pub struct USplineComponentVisualizerSelectionState {
-    pub spline_property_path: crate::bindings::unreal_ed::FComponentPropertyPath,
-    pub selected_keys: TSet<i32>,
-    pub last_key_index_selected: i32,
-    pub selected_segment_index: i32,
-    pub selected_tangent_handle: i32,
-    pub selected_tangent_handle_type: ESelectedTangentHandle,
-    pub selected_attribute_index: i32,
-    pub selected_attribute_name: FName,
-    pub selected_spline_position: crate::bindings::core_u_object::FVector,
-    pub cached_rotation: crate::bindings::core_u_object::FQuat,
+    __padding_end: [u8; 256],
 }
+impl USplineComponentVisualizerSelectionState {}
+#[repr(C, align(8))]
 pub struct USplineGeneratorBase {
-    pub shape_add_mode: EShapeAddMode,
+    __padding_end: [u8; 192],
 }
+impl USplineGeneratorBase {}
+#[repr(C, align(8))]
 pub struct UCircleSplineGenerator {
-    pub number_of_points: i32,
-    pub radius: f32,
-    pub b_reverse_dir: bool,
-    pub b_keep_first_key_tangent: bool,
-    pub b_branch_right: bool,
+    __padding_end: [u8; 208],
 }
+impl UCircleSplineGenerator {}
+#[repr(C, align(8))]
 pub struct UArcSplineGenerator {
-    pub number_of_points: i32,
-    pub radius: f32,
-    pub degrees: f32,
-    pub b_reverse_dir: bool,
-    pub b_keep_first_key_tangent: bool,
-    pub b_branch_right: bool,
+    __padding_end: [u8; 208],
 }
+impl UArcSplineGenerator {}
+#[repr(C, align(8))]
 pub struct USquareSplineGenerator {
-    pub length: f32,
-    pub b_branch_right: bool,
+    __padding_end: [u8; 200],
 }
+impl USquareSplineGenerator {}
+#[repr(C, align(8))]
 pub struct UEllipseSplineGenerator {
-    pub number_of_points: i32,
-    pub length: f32,
-    pub width: f32,
-    pub b_reverse_dir: bool,
-    pub b_keep_first_key_tangent: bool,
-    pub b_branch_right: bool,
+    __padding_end: [u8; 208],
 }
+impl UEllipseSplineGenerator {}
+#[repr(C, align(8))]
 pub struct URectangleSplineGenerator {
-    pub length: f32,
-    pub width: f32,
-    pub b_branch_right: bool,
+    __padding_end: [u8; 208],
 }
+impl URectangleSplineGenerator {}
+#[repr(C, align(8))]
 pub struct ULineSplineGenerator {
-    pub number_of_points: i32,
-    pub length: f64,
-    pub b_enable_up_to_next_point: bool,
-    pub b_up_to_next_point: bool,
+    __padding_end: [u8; 216],
 }
-#[allow(non_camel_case_types)]
+impl ULineSplineGenerator {}
 #[repr(transparent)]
 pub struct ESelectedTangentHandle(pub i32);
 impl ESelectedTangentHandle {
@@ -69,7 +56,6 @@ impl ESelectedTangentHandle {
     pub const LEAVE: ESelectedTangentHandle = ESelectedTangentHandle(1);
     pub const ARRIVE: ESelectedTangentHandle = ESelectedTangentHandle(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EShapeAddMode(pub u8);
 impl EShapeAddMode {

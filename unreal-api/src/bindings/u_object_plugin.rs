@@ -5,9 +5,7 @@
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[repr(C, align(8))]
-pub struct FMyPluginStruct {
-    pub test_string: FString,
-}
 pub struct UMyPluginObject {
-    pub my_struct: FMyPluginStruct,
+    __padding_end: [u8; 64],
 }
+impl UMyPluginObject {}

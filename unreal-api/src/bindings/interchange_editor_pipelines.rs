@@ -4,24 +4,48 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
+#[repr(C, align(8))]
 pub struct UInterchangeCardsPipeline {
-    pub factory_node_classes_to_disabled: TArray<
-        TSubclassOf<crate::bindings::core_u_object::UObject>,
-    >,
+    __padding_end: [u8; 360],
 }
-pub struct UInterchangeEditorPipelineBase {}
-pub struct UInterchangeEditorBlueprintPipelineBase {}
-pub struct UInterchangeGraphInspectorPipeline {}
-pub struct UInterchangePipelineConfigurationGeneric {}
+impl UInterchangeCardsPipeline {}
+#[repr(C, align(8))]
+pub struct UInterchangeEditorPipelineBase {
+    __padding_end: [u8; 344],
+}
+impl UInterchangeEditorPipelineBase {}
+#[repr(C, align(8))]
+pub struct UInterchangeEditorBlueprintPipelineBase {
+    __padding_end: [u8; 1432],
+}
+impl UInterchangeEditorBlueprintPipelineBase {}
+#[repr(C, align(8))]
+pub struct UInterchangeGraphInspectorPipeline {
+    __padding_end: [u8; 344],
+}
+impl UInterchangeGraphInspectorPipeline {}
+#[repr(C, align(8))]
+pub struct UInterchangePipelineConfigurationGeneric {
+    __padding_end: [u8; 48],
+}
+impl UInterchangePipelineConfigurationGeneric {}
+#[repr(C, align(8))]
 pub struct UInterchangeBlueprintPipelineBaseFactory {
-    pub blueprint_type: crate::bindings::engine::EBlueprintType,
-    pub parent_class: TSubclassOf<
-        crate::bindings::interchange_core::UInterchangePipelineBase,
-    >,
+    __padding_end: [u8; 152],
 }
+impl UInterchangeBlueprintPipelineBaseFactory {}
+#[repr(C, align(8))]
 pub struct UInterchangeEditorBlueprintPipelineBaseFactory {
-    pub blueprint_type: crate::bindings::engine::EBlueprintType,
-    pub parent_class: TSubclassOf<UInterchangeEditorPipelineBase>,
+    __padding_end: [u8; 152],
 }
-pub struct UInterchangePipelineBaseFactory {}
-pub struct UInterchangePythonPipelineAssetFactory {}
+impl UInterchangeEditorBlueprintPipelineBaseFactory {}
+#[repr(C, align(8))]
+pub struct UInterchangePipelineBaseFactory {
+    __padding_end: [u8; 144],
+}
+impl UInterchangePipelineBaseFactory {}
+#[repr(C, align(8))]
+pub struct UInterchangePythonPipelineAssetFactory {
+    __padding_end: [u8; 144],
+}
+impl UInterchangePythonPipelineAssetFactory {}

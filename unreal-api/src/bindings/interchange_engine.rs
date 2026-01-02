@@ -6,12 +6,9 @@ pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[repr(C, align(8))]
 pub struct FInterchangeFilePickerParameters {
-    pub b_allow_multiple_files: bool,
-    pub title: FText,
-    pub default_path: FString,
-    pub b_show_all_factories_extension: bool,
-    pub extra_formats: TArray<FString>,
+    __padding_end: [u8; 64],
 }
+impl FInterchangeFilePickerParameters {}
 #[repr(C, align(8))]
 pub struct FInterchangeStackInfo {
     pub stack_name: FName,
@@ -19,6 +16,7 @@ pub struct FInterchangeStackInfo {
         UPtr<crate::bindings::interchange_core::UInterchangePipelineBase>,
     >,
 }
+impl FInterchangeStackInfo {}
 #[repr(C, align(8))]
 pub struct FImportAssetParameters {
     pub reimport_asset: UPtr<crate::bindings::core_u_object::UObject>,
@@ -31,26 +29,39 @@ pub struct FImportAssetParameters {
     pub b_replace_existing: bool,
     pub b_force_show_dialog: bool,
     pub on_asset_done: FImportAssetParameters_OnAssetDone,
+    #[doc(hidden)]
+    __padding_120: [u8; 24],
     pub on_assets_import_done: FImportAssetParameters_OnAssetsImportDone,
+    #[doc(hidden)]
+    __padding_176: [u8; 24],
     pub on_scene_object_done: FImportAssetParameters_OnSceneObjectDone,
+    #[doc(hidden)]
+    __padding_232: [u8; 24],
     pub on_scene_import_done: FImportAssetParameters_OnSceneImportDone,
+    __padding_end: [u8; 32],
 }
+impl FImportAssetParameters {}
 #[repr(C, align(8))]
 pub struct FInterchangeTranslatorPipelines {
     pub translator: TSoftObjectPtr<crate::bindings::core_u_object::UClass>,
     pub pipelines: TArray<crate::bindings::core_u_object::FSoftObjectPath>,
 }
+impl FInterchangeTranslatorPipelines {}
 #[repr(C, align(8))]
 pub struct FInterchangePipelineStack {
-    pub pipelines: TArray<crate::bindings::core_u_object::FSoftObjectPath>,
+    #[doc(hidden)]
+    __padding_16: [u8; 16],
     pub per_translator_pipelines: TArray<FInterchangeTranslatorPipelines>,
 }
+impl FInterchangePipelineStack {}
 #[repr(C, align(8))]
 pub struct FInterchangePerTranslatorDialogOverride {
     pub translator: TSoftObjectPtr<crate::bindings::core_u_object::UClass>,
     pub b_show_import_dialog: bool,
     pub b_show_reimport_dialog: bool,
+    __padding_end: [u8; 6],
 }
+impl FInterchangePerTranslatorDialogOverride {}
 #[repr(C, align(8))]
 pub struct FInterchangeDialogOverride {
     pub b_show_import_dialog: bool,
@@ -59,6 +70,7 @@ pub struct FInterchangeDialogOverride {
         FInterchangePerTranslatorDialogOverride,
     >,
 }
+impl FInterchangeDialogOverride {}
 #[repr(C, align(8))]
 pub struct FInterchangeImportSettings {
     pub pipeline_stacks: TMap<FName, FInterchangePipelineStack>,
@@ -66,13 +78,20 @@ pub struct FInterchangeImportSettings {
     pub import_dialog_class: TSoftObjectPtr<crate::bindings::core_u_object::UClass>,
     pub b_show_import_dialog: bool,
     pub b_show_reimport_dialog: bool,
+    __padding_end: [u8; 6],
 }
+impl FInterchangeImportSettings {}
 #[repr(C, align(8))]
 pub struct FInterchangeSceneImportSettings {
+    #[doc(hidden)]
+    __padding_152: [u8; 152],
     pub per_translator_dialog_override: TArray<FInterchangePerTranslatorDialogOverride>,
 }
+impl FInterchangeSceneImportSettings {}
 #[repr(C, align(8))]
 pub struct FInterchangeContentImportSettings {
+    #[doc(hidden)]
+    __padding_152: [u8; 152],
     pub default_pipeline_stack_override: TMap<
         crate::bindings::interchange_core::EInterchangeTranslatorAssetType,
         FName,
@@ -82,6 +101,7 @@ pub struct FInterchangeContentImportSettings {
         FInterchangeDialogOverride,
     >,
 }
+impl FInterchangeContentImportSettings {}
 #[repr(C, align(8))]
 pub struct FInterchangeGroup {
     pub display_name: FName,
@@ -98,50 +118,58 @@ pub struct FInterchangeGroup {
         FInterchangeDialogOverride,
     >,
 }
+impl FInterchangeGroup {}
 #[repr(C, align(8))]
-pub struct FPropertyData {}
-pub struct UInterchangeBlueprintPipelineBase {}
-pub struct UInterchangeEditorUtilitiesBase {}
-pub struct UInterchangeFilePickerBase {}
-pub struct UInterchangePipelineConfigurationBase {}
-pub struct UInterchangeAssetImportData {
-    pub scene_import_asset: crate::bindings::core_u_object::FSoftObjectPath,
-    pub node_unique_id: FString,
-    pub node_container_deprecated: UPtr<
-        crate::bindings::interchange_core::UInterchangeBaseNodeContainer,
-    >,
-    pub pipelines_deprecated: TArray<UPtr<crate::bindings::core_u_object::UObject>>,
-    pub transient_node_container: UPtr<
-        crate::bindings::interchange_core::UInterchangeBaseNodeContainer,
-    >,
-    pub transient_pipelines: TArray<UPtr<crate::bindings::core_u_object::UObject>>,
-    pub transient_translator_settings: UPtr<
-        crate::bindings::interchange_core::UInterchangeTranslatorSettings,
-    >,
+pub struct UInterchangeBlueprintPipelineBase {
+    __padding_end: [u8; 1432],
 }
-pub struct UInterchangeAssetImportDataConverterBase {}
+impl UInterchangeBlueprintPipelineBase {}
+#[repr(C, align(8))]
+pub struct UInterchangeEditorUtilitiesBase {
+    __padding_end: [u8; 48],
+}
+impl UInterchangeEditorUtilitiesBase {}
+#[repr(C, align(8))]
+pub struct UInterchangeFilePickerBase {
+    __padding_end: [u8; 48],
+}
+impl UInterchangeFilePickerBase {}
+#[repr(C, align(8))]
+pub struct UInterchangePipelineConfigurationBase {
+    __padding_end: [u8; 48],
+}
+impl UInterchangePipelineConfigurationBase {}
+#[repr(C, align(8))]
+pub struct UInterchangeAssetImportData {
+    __padding_end: [u8; 312],
+}
+impl UInterchangeAssetImportData {}
+#[repr(C, align(8))]
+pub struct UInterchangeAssetImportDataConverterBase {
+    __padding_end: [u8; 48],
+}
+impl UInterchangeAssetImportDataConverterBase {}
+#[repr(C, align(8))]
 pub struct UInterchangePipelineStackOverride {
+    #[doc(hidden)]
+    __padding_48: [u8; 48],
     pub override_pipelines: TArray<crate::bindings::core_u_object::FSoftObjectPath>,
 }
+impl UInterchangePipelineStackOverride {}
+#[repr(C, align(16))]
 pub struct UInterchangeManager {
-    pub registered_translators_class: TSet<
-        TSubclassOf<crate::bindings::core_u_object::UObject>,
-    >,
-    pub registered_factory_classes: TMap<
-        TSubclassOf<crate::bindings::core_u_object::UObject>,
-        TSubclassOf<crate::bindings::core_u_object::UObject>,
-    >,
-    pub registered_writers: TMap<
-        TSubclassOf<crate::bindings::core_u_object::UObject>,
-        UPtr<crate::bindings::interchange_core::UInterchangeWriterBase>,
-    >,
-    pub registered_converters: TMap<
-        TSubclassOf<crate::bindings::core_u_object::UObject>,
-        UPtr<UInterchangeAssetImportDataConverterBase>,
-    >,
+    __padding_end: [u8; 1072],
 }
-pub struct UInterchangeMeshUtilities {}
+impl UInterchangeManager {}
+#[repr(C, align(8))]
+pub struct UInterchangeMeshUtilities {
+    __padding_end: [u8; 48],
+}
+impl UInterchangeMeshUtilities {}
+#[repr(C, align(8))]
 pub struct UInterchangeProjectSettings {
+    #[doc(hidden)]
+    __padding_104: [u8; 104],
     pub content_import_settings: FInterchangeContentImportSettings,
     pub scene_import_settings: FInterchangeSceneImportSettings,
     pub file_picker_class: TSoftObjectPtr<crate::bindings::core_u_object::UClass>,
@@ -150,33 +178,75 @@ pub struct UInterchangeProjectSettings {
     pub converter_default_pipeline: crate::bindings::core_u_object::FSoftObjectPath,
     pub interchange_groups: TArray<FInterchangeGroup>,
 }
-pub struct UInterchangeProjectSettingsScript {}
+impl UInterchangeProjectSettings {}
+#[repr(C, align(8))]
+pub struct UInterchangeProjectSettingsScript {
+    __padding_end: [u8; 48],
+}
+impl UInterchangeProjectSettingsScript {}
+#[repr(C, align(8))]
 pub struct UInterchangeEditorSettings {
+    #[doc(hidden)]
+    __padding_104: [u8; 104],
     pub b_show_import_dialog_at_reimport: bool,
-    pub used_group_name: FName,
-    pub used_group_uid: crate::bindings::core_u_object::FGuid,
+    __padding_end: [u8; 31],
 }
-pub struct UInterchangePythonPipelineBase {}
+impl UInterchangeEditorSettings {}
+#[repr(C, align(8))]
+pub struct UInterchangePythonPipelineBase {
+    __padding_end: [u8; 344],
+}
+impl UInterchangePythonPipelineBase {}
+#[repr(C, align(8))]
 pub struct UInterchangePythonPipelineAsset {
-    pub python_class: TSoftObjectPtr<crate::bindings::core_u_object::UClass>,
-    pub generated_pipeline: UPtr<UInterchangePythonPipelineBase>,
-    pub json_default_properties: FString,
+    __padding_end: [u8; 120],
 }
+impl UInterchangePythonPipelineAsset {}
+#[repr(C, align(8))]
 pub struct UInterchangeSceneImportAsset {
-    pub asset_import_data: UPtr<UInterchangeAssetImportData>,
-    pub asset_user_data: TArray<UPtr<crate::bindings::engine::UAssetUserData>>,
+    __padding_end: [u8; 216],
 }
-pub struct FImportAssetParameters_OnAssetDone;
-pub struct FImportAssetParameters_OnAssetsImportDone;
-pub struct FImportAssetParameters_OnSceneObjectDone;
-pub struct FImportAssetParameters_OnSceneImportDone;
-pub struct FImportAsset_OnAssetDone;
-pub struct FImportScene_OnAssetDone;
-pub struct FReimportAsset_OnAssetDone;
-pub struct FScriptedImportAssetAsync_OnAssetDone;
-pub struct FScriptedImportSceneAsync_OnAssetDone;
-pub struct FScriptedReimportAssetAsync_OnAssetDone;
-#[allow(non_camel_case_types)]
+impl UInterchangeSceneImportAsset {}
+#[repr(transparent)]
+pub struct FImportAssetParameters_OnAssetDone {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FImportAssetParameters_OnAssetsImportDone {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FImportAssetParameters_OnSceneObjectDone {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FImportAssetParameters_OnSceneImportDone {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FImportAsset_OnAssetDone {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FImportScene_OnAssetDone {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FReimportAsset_OnAssetDone {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FScriptedImportAssetAsync_OnAssetDone {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FScriptedImportSceneAsync_OnAssetDone {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FScriptedReimportAssetAsync_OnAssetDone {
+    _opague: u8,
+}
 #[repr(transparent)]
 pub struct EInterchangePipelineConfigurationDialogResult(pub u8);
 impl EInterchangePipelineConfigurationDialogResult {

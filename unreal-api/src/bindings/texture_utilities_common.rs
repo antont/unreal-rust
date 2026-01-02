@@ -4,19 +4,16 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
+#[repr(C, align(8))]
 pub struct UTextureImportSettings {
-    pub auto_vt_size: i32,
-    pub auto_limit_dimension: i32,
-    pub b_enable_normalize_normals: bool,
-    pub b_enable_fast_mip_filter: bool,
-    pub compressed_format_for_float_textures: ETextureImportFloatingPointFormat,
-    pub png_infill: ETextureImportPNGInfill,
-    pub b_do_automatic_texture_settings_for_non_pow2_textures: bool,
+    __padding_end: [u8; 120],
 }
+impl UTextureImportSettings {}
+#[repr(C, align(8))]
 pub struct UTextureImportUserSettings {
-    pub png_infill: ETextureImportPNGInfill,
+    __padding_end: [u8; 112],
 }
-#[allow(non_camel_case_types)]
+impl UTextureImportUserSettings {}
 #[repr(transparent)]
 pub struct ETextureImportFloatingPointFormat(pub u8);
 impl ETextureImportFloatingPointFormat {
@@ -33,7 +30,6 @@ impl ETextureImportFloatingPointFormat {
         0,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ETextureImportPNGInfill(pub u8);
 impl ETextureImportPNGInfill {

@@ -4,28 +4,22 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
+#[repr(C, align(8))]
 pub struct UPropertyViewBase {
-    pub object: TSoftObjectPtr<crate::bindings::core_u_object::UObject>,
-    pub soft_object_path_deprecated: crate::bindings::core_u_object::FSoftObjectPath,
-    pub b_auto_load_asset: bool,
-    pub on_property_changed: FPropertyViewBase_OnPropertyChanged,
+    __padding_end: [u8; 832],
 }
+impl UPropertyViewBase {}
+#[repr(C, align(8))]
 pub struct UDetailsView {
-    pub b_allow_filtering: bool,
-    pub b_allow_favorite_system: bool,
-    pub b_show_modified_properties_option: bool,
-    pub b_show_keyable_properties_option: bool,
-    pub b_show_animated_properties_option: bool,
-    pub column_width: f32,
-    pub b_show_scroll_bar: bool,
-    pub b_force_hidden_property_visibility: bool,
-    pub view_identifier: FName,
-    pub categories_to_show: TArray<FName>,
-    pub properties_to_show: TArray<FName>,
-    pub b_show_only_allowed: bool,
+    __padding_end: [u8; 928],
 }
+impl UDetailsView {}
+#[repr(C, align(8))]
 pub struct USinglePropertyView {
-    pub property_name: FName,
-    pub name_override: FText,
+    __padding_end: [u8; 880],
 }
-pub struct FPropertyViewBase_OnPropertyChanged;
+impl USinglePropertyView {}
+#[repr(transparent)]
+pub struct FPropertyViewBase_OnPropertyChanged {
+    _opague: u8,
+}

@@ -6,28 +6,19 @@ pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[repr(C, align(8))]
 pub struct FInterchangeLodSceneNodeContainer {
-    pub base_nodes: TArray<
-        UPtr<crate::bindings::interchange_core::UInterchangeBaseNode>,
-    >,
+    __padding_end: [u8; 16],
 }
+impl FInterchangeLodSceneNodeContainer {}
 #[repr(C, align(8))]
 pub struct FInterchangeMeshInstance {
-    pub mesh_instance_uid: FString,
-    pub lod_group_node: UPtr<crate::bindings::interchange_core::UInterchangeBaseNode>,
-    pub b_reference_skinned_mesh: bool,
-    pub b_reference_morph_target: bool,
-    pub b_has_morph_targets: bool,
-    pub b_is_animated: bool,
-    pub scene_node_per_lod_index: TMap<i32, FInterchangeLodSceneNodeContainer>,
-    pub referencing_mesh_geometry_uids: TArray<FString>,
+    __padding_end: [u8; 128],
 }
+impl FInterchangeMeshInstance {}
 #[repr(C, align(8))]
 pub struct FInterchangeMeshGeometry {
-    pub mesh_uid: FString,
-    pub mesh_node: UPtr<crate::bindings::interchange_nodes::UInterchangeMeshNode>,
-    pub referencing_mesh_instance_uids: TArray<FString>,
-    pub attached_socket_uids: TArray<FString>,
+    __padding_end: [u8; 56],
 }
+impl FInterchangeMeshGeometry {}
 #[repr(C, align(1))]
 pub struct FInterchangePipelineMeshesUtilitiesContext {
     pub b_convert_static_mesh_to_skeletal_mesh: bool,
@@ -38,7 +29,11 @@ pub struct FInterchangePipelineMeshesUtilitiesContext {
     pub b_ignore_static_meshes: bool,
     pub b_ignore_geometry_caches: bool,
 }
+impl FInterchangePipelineMeshesUtilitiesContext {}
+#[repr(C, align(8))]
 pub struct UInterchangeGenericCommonMeshesProperties {
+    #[doc(hidden)]
+    __padding_344: [u8; 344],
     pub force_all_mesh_as_type: EInterchangeForceMeshType,
     pub b_single_bone_skeleton: bool,
     pub b_auto_detect_mesh_type: bool,
@@ -57,8 +52,13 @@ pub struct UInterchangeGenericCommonMeshesProperties {
     pub b_use_full_precision_u_vs: bool,
     pub b_use_backwards_compatible_f16_trunc_u_vs: bool,
     pub b_remove_degenerates: bool,
+    __padding_end: [u8; 3],
 }
+impl UInterchangeGenericCommonMeshesProperties {}
+#[repr(C, align(8))]
 pub struct UInterchangeGenericCommonSkeletalMeshesAndAnimationsProperties {
+    #[doc(hidden)]
+    __padding_344: [u8; 344],
     pub b_import_only_animations: bool,
     pub skeleton: TWeakObjectPtr<crate::bindings::engine::USkeleton>,
     pub b_import_meshes_in_bone_hierarchy: bool,
@@ -66,13 +66,11 @@ pub struct UInterchangeGenericCommonSkeletalMeshesAndAnimationsProperties {
     pub b_add_curve_metadata_to_skeleton: bool,
     pub b_convert_statics_with_morph_targets_to_skeletals: bool,
 }
+impl UInterchangeGenericCommonSkeletalMeshesAndAnimationsProperties {}
+#[repr(C, align(8))]
 pub struct UInterchangeGenericAnimationPipeline {
-    pub common_skeletal_meshes_and_animations_properties: TWeakObjectPtr<
-        UInterchangeGenericCommonSkeletalMeshesAndAnimationsProperties,
-    >,
-    pub common_meshes_properties: TWeakObjectPtr<
-        UInterchangeGenericCommonMeshesProperties,
-    >,
+    #[doc(hidden)]
+    __padding_360: [u8; 360],
     pub b_import_animations: bool,
     pub b_import_bone_tracks: bool,
     pub animation_range: EInterchangeAnimationRange,
@@ -81,7 +79,8 @@ pub struct UInterchangeGenericAnimationPipeline {
     pub custom_bone_animation_sample_rate: i32,
     pub b_snap_to_closest_frame_boundary: bool,
     pub b_import_custom_attribute: bool,
-    pub b_add_curve_metadata_to_skeleton_deprecated: bool,
+    #[doc(hidden)]
+    __padding_383: [u8; 1],
     pub b_set_material_drive_parameter_on_custom_attribute: bool,
     pub material_curve_suffixes: TArray<FString>,
     pub b_remove_curve_redundant_keys: bool,
@@ -89,10 +88,13 @@ pub struct UInterchangeGenericAnimationPipeline {
     pub b_delete_existing_non_curve_custom_attributes: bool,
     pub b_delete_existing_custom_attribute_curves: bool,
     pub b_delete_existing_morph_target_curves: bool,
-    pub source_animation_name: FString,
-    pub b_scene_import: bool,
+    __padding_end: [u8; 51],
 }
+impl UInterchangeGenericAnimationPipeline {}
+#[repr(C, align(8))]
 pub struct UInterchangeGenericAssetsPipeline {
+    #[doc(hidden)]
+    __padding_344: [u8; 344],
     pub pipeline_display_name: FString,
     pub reimport_strategy: crate::bindings::interchange_core::EReimportStrategyFlags,
     pub b_use_source_name_for_asset: bool,
@@ -110,29 +112,22 @@ pub struct UInterchangeGenericAssetsPipeline {
     pub animation_pipeline: UPtr<UInterchangeGenericAnimationPipeline>,
     pub material_pipeline: UPtr<UInterchangeGenericMaterialPipeline>,
     pub groom_pipeline: UPtr<UInterchangeGenericGroomPipeline>,
-    pub scene_name_folder_prefix: FString,
-    pub content_path_existing_skeleton: crate::bindings::core_u_object::FSoftObjectPath,
-    pub b_import_only_animation_adjusted: bool,
+    __padding_end: [u8; 280],
 }
+impl UInterchangeGenericAssetsPipeline {}
+#[repr(C, align(8))]
 pub struct UInterchangeGenericAudioPipeline {
+    #[doc(hidden)]
+    __padding_344: [u8; 344],
     pub pipeline_display_name: FString,
     pub b_import_sounds: bool,
-    pub base_node_container: UPtr<
-        crate::bindings::interchange_core::UInterchangeBaseNodeContainer,
-    >,
-    pub source_datas: TArray<
-        UPtr<crate::bindings::interchange_core::UInterchangeSourceData>,
-    >,
-    pub sound_wave_nodes: TArray<
-        UPtr<crate::bindings::interchange_nodes::UInterchangeAudioSoundWaveNode>,
-    >,
-    pub sound_wave_factory_nodes: TArray<
-        UPtr<
-            crate::bindings::interchange_factory_nodes::UInterchangeAudioSoundWaveFactoryNode,
-        >,
-    >,
+    __padding_end: [u8; 63],
 }
+impl UInterchangeGenericAudioPipeline {}
+#[repr(C, align(8))]
 pub struct UInterchangeGenericGroomPipeline {
+    #[doc(hidden)]
+    __padding_344: [u8; 344],
     pub pipeline_display_name: FString,
     pub b_enable_groom_types_import: bool,
     pub b_import_grooms: bool,
@@ -143,8 +138,13 @@ pub struct UInterchangeGenericGroomPipeline {
     pub b_override_time_range: bool,
     pub frame_start: i32,
     pub frame_end: i32,
+    __padding_end: [u8; 4],
 }
+impl UInterchangeGenericGroomPipeline {}
+#[repr(C, align(8))]
 pub struct UInterchangeGenericMaterialPipeline {
+    #[doc(hidden)]
+    __padding_344: [u8; 344],
     pub pipeline_display_name: FString,
     pub b_import_materials: bool,
     pub search_location: EInterchangeMaterialSearchLocation,
@@ -157,23 +157,20 @@ pub struct UInterchangeGenericMaterialPipeline {
     pub sparse_volume_texture_pipeline: UPtr<UInterchangeSparseVolumeTexturePipeline>,
     pub b_override_displacement: bool,
     pub override_displacement_center: f32,
-    pub base_node_container: UPtr<
-        crate::bindings::interchange_core::UInterchangeBaseNodeContainer,
-    >,
+    __padding_end: [u8; 56],
 }
+impl UInterchangeGenericMaterialPipeline {}
+#[repr(C, align(8))]
 pub struct UInterchangeGenericMeshPipeline {
-    pub common_meshes_properties: TWeakObjectPtr<
-        UInterchangeGenericCommonMeshesProperties,
-    >,
-    pub common_skeletal_meshes_and_animations_properties: TWeakObjectPtr<
-        UInterchangeGenericCommonSkeletalMeshesAndAnimationsProperties,
-    >,
+    #[doc(hidden)]
+    __padding_360: [u8; 360],
     pub b_import_static_meshes: bool,
     pub b_combine_static_meshes: bool,
     pub lod_group: FName,
     pub b_auto_compute_lod_screen_sizes: bool,
     pub lod_screen_sizes: TArray<f32>,
-    pub b_import_collision_deprecated: bool,
+    #[doc(hidden)]
+    __padding_401: [u8; 1],
     pub b_collision: bool,
     pub b_import_collision_according_to_mesh_name: bool,
     pub b_one_convex_hull_per_ucx: bool,
@@ -196,7 +193,8 @@ pub struct UInterchangeGenericMeshPipeline {
     pub max_lumen_mesh_cards: i32,
     pub b_import_skeletal_meshes: bool,
     pub skeletal_mesh_import_content_type: crate::bindings::interchange_factory_nodes::EInterchangeSkeletalMeshContentType,
-    pub last_skeletal_mesh_import_content_type: crate::bindings::interchange_factory_nodes::EInterchangeSkeletalMeshContentType,
+    #[doc(hidden)]
+    __padding_475: [u8; 1],
     pub b_combine_skeletal_meshes_deprecated: bool,
     pub b_import_morph_targets: bool,
     pub b_merge_morph_targets_with_same_name: bool,
@@ -221,8 +219,13 @@ pub struct UInterchangeGenericMeshPipeline {
     pub b_apply_constant_topology_optimizations: bool,
     pub b_store_imported_vertex_numbers: bool,
     pub b_optimize_index_buffers: bool,
+    __padding_end: [u8; 176],
 }
+impl UInterchangeGenericMeshPipeline {}
+#[repr(C, align(8))]
 pub struct UInterchangeGenericLevelPipeline {
+    #[doc(hidden)]
+    __padding_344: [u8; 344],
     pub pipeline_display_name: FString,
     pub reimport_property_strategy: crate::bindings::interchange_core::EReimportStrategyFlags,
     pub scene_hierarchy_type: EInterchangeSceneHierarchyType,
@@ -232,8 +235,13 @@ pub struct UInterchangeGenericLevelPipeline {
     pub b_delete_missing_assets: bool,
     pub b_use_hierarchical_ism_components: bool,
     pub b_use_physical_instead_of_standard_perspective_camera: bool,
+    __padding_end: [u8; 216],
 }
+impl UInterchangeGenericLevelPipeline {}
+#[repr(C, align(8))]
 pub struct UInterchangeGenericTexturePipeline {
+    #[doc(hidden)]
+    __padding_344: [u8; 344],
     pub pipeline_display_name: FString,
     pub b_import_textures: bool,
     pub asset_name: FString,
@@ -243,48 +251,48 @@ pub struct UInterchangeGenericTexturePipeline {
     pub file_extensions_to_import_as_long_lat_cubemap: TSet<FString>,
     pub b_prefer_compressed_source_data: bool,
     pub b_allow_non_power_of_two: bool,
-    pub base_node_container: UPtr<
-        crate::bindings::interchange_core::UInterchangeBaseNodeContainer,
-    >,
+    __padding_end: [u8; 62],
 }
+impl UInterchangeGenericTexturePipeline {}
+#[repr(C, align(8))]
 pub struct UGLTFPipelineSettings {
-    pub material_parents: TMap<FString, crate::bindings::core_u_object::FSoftObjectPath>,
+    __padding_end: [u8; 192],
 }
+impl UGLTFPipelineSettings {}
+#[repr(C, align(8))]
 pub struct UInterchangeGLTFPipeline {
+    #[doc(hidden)]
+    __padding_344: [u8; 344],
     pub pipeline_display_name: FString,
+    __padding_end: [u8; 8],
 }
+impl UInterchangeGLTFPipeline {}
+#[repr(C, align(8))]
 pub struct UMaterialXPipelineSettings {
-    pub predefined_surface_shaders: TMap<
-        crate::bindings::interchange_common::EInterchangeMaterialXShaders,
-        crate::bindings::core_u_object::FSoftObjectPath,
-    >,
-    pub predefined_bsdf: TMap<
-        crate::bindings::interchange_common::EInterchangeMaterialXBSDF,
-        crate::bindings::core_u_object::FSoftObjectPath,
-    >,
-    pub predefined_edf: TMap<
-        crate::bindings::interchange_common::EInterchangeMaterialXEDF,
-        crate::bindings::core_u_object::FSoftObjectPath,
-    >,
-    pub predefined_vdf: TMap<
-        crate::bindings::interchange_common::EInterchangeMaterialXVDF,
-        crate::bindings::core_u_object::FSoftObjectPath,
-    >,
+    __padding_end: [u8; 432],
 }
+impl UMaterialXPipelineSettings {}
+#[repr(C, align(8))]
 pub struct UInterchangeMaterialXPipeline {
-    pub b_volumetric_material: bool,
+    __padding_end: [u8; 360],
 }
-pub struct UInterchangePipelineMeshesUtilities {}
+impl UInterchangeMaterialXPipeline {}
+#[repr(C, align(8))]
+pub struct UInterchangePipelineMeshesUtilities {
+    __padding_end: [u8; 384],
+}
+impl UInterchangePipelineMeshesUtilities {}
+#[repr(C, align(8))]
 pub struct UInterchangeSparseVolumeTexturePipeline {
+    #[doc(hidden)]
+    __padding_344: [u8; 344],
     pub pipeline_display_name: FString,
     pub b_import_sparse_volume_textures: bool,
     pub b_import_animated_sparse_volume_textures: bool,
     pub asset_name: FString,
-    pub base_node_container: UPtr<
-        crate::bindings::interchange_core::UInterchangeBaseNodeContainer,
-    >,
+    __padding_end: [u8; 8],
 }
-#[allow(non_camel_case_types)]
+impl UInterchangeSparseVolumeTexturePipeline {}
 #[repr(transparent)]
 pub struct EInterchangeForceMeshType(pub u8);
 impl EInterchangeForceMeshType {
@@ -294,7 +302,6 @@ impl EInterchangeForceMeshType {
         2,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EInterchangeVertexColorImportOption(pub u8);
 impl EInterchangeVertexColorImportOption {
@@ -308,7 +315,6 @@ impl EInterchangeVertexColorImportOption {
         2,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EInterchangeAnimationRange(pub u8);
 impl EInterchangeAnimationRange {
@@ -317,7 +323,6 @@ impl EInterchangeAnimationRange {
     pub const SET_RANGE: EInterchangeAnimationRange = EInterchangeAnimationRange(2);
     pub const MAX: EInterchangeAnimationRange = EInterchangeAnimationRange(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EInterchangeMaterialSearchLocation(pub u8);
 impl EInterchangeMaterialSearchLocation {
@@ -337,7 +342,6 @@ impl EInterchangeMaterialSearchLocation {
         4,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EInterchangeMaterialImportOption(pub u8);
 impl EInterchangeMaterialImportOption {
@@ -348,7 +352,6 @@ impl EInterchangeMaterialImportOption {
         1,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EInterchangeSceneHierarchyType(pub u8);
 impl EInterchangeSceneHierarchyType {

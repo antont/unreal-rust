@@ -7,7 +7,6 @@ pub use crate::core_data::*;
 #[repr(C, align(16))]
 pub struct FResonanceAudioReverbPluginSettings {
     pub b_enable_room_effects: bool,
-    pub b_get_transform_from_audio_volume: bool,
     pub room_position: crate::bindings::core_u_object::FVector,
     pub room_rotation: crate::bindings::core_u_object::FQuat,
     pub room_dimensions: crate::bindings::core_u_object::FVector,
@@ -22,35 +21,40 @@ pub struct FResonanceAudioReverbPluginSettings {
     pub reverb_time_modifier: f32,
     pub reverb_brightness: f32,
 }
+impl FResonanceAudioReverbPluginSettings {}
+#[repr(C, align(8))]
 pub struct UResonanceAudioSoundfieldSettings {
+    #[doc(hidden)]
+    __padding_48: [u8; 48],
     pub render_mode: EResonanceRenderMode,
+    __padding_end: [u8; 7],
 }
-pub struct UResonanceAudioBlueprintFunctionLibrary {}
+impl UResonanceAudioSoundfieldSettings {}
+#[repr(C, align(8))]
+pub struct UResonanceAudioBlueprintFunctionLibrary {
+    __padding_end: [u8; 48],
+}
+impl UResonanceAudioBlueprintFunctionLibrary {}
+#[repr(C, align(8))]
 pub struct AResonanceAudioDirectivityVisualizer {
-    pub material: UPtr<crate::bindings::engine::UMaterial>,
-    pub settings: UPtr<UResonanceAudioSpatializationSourceSettings>,
+    __padding_end: [u8; 1264],
 }
+impl AResonanceAudioDirectivityVisualizer {}
+#[repr(C, align(16))]
 pub struct UResonanceAudioReverbPluginPreset {
-    pub settings: FResonanceAudioReverbPluginSettings,
+    __padding_end: [u8; 384],
 }
+impl UResonanceAudioReverbPluginPreset {}
+#[repr(C, align(8))]
 pub struct UResonanceAudioSettings {
-    pub output_submix: crate::bindings::core_u_object::FSoftObjectPath,
-    pub quality_mode: ERaQualityMode,
-    pub global_reverb_preset: crate::bindings::core_u_object::FSoftObjectPath,
-    pub global_source_preset: crate::bindings::core_u_object::FSoftObjectPath,
+    __padding_end: [u8; 176],
 }
+impl UResonanceAudioSettings {}
+#[repr(C, align(8))]
 pub struct UResonanceAudioSpatializationSourceSettings {
-    pub spatialization_method: ERaSpatializationMethod,
-    pub pattern: f32,
-    pub sharpness: f32,
-    pub b_toggle_visualization: bool,
-    pub scale: f32,
-    pub spread: f32,
-    pub rolloff: ERaDistanceRolloffModel,
-    pub min_distance: f32,
-    pub max_distance: f32,
+    __padding_end: [u8; 88],
 }
-#[allow(non_camel_case_types)]
+impl UResonanceAudioSpatializationSourceSettings {}
 #[repr(transparent)]
 pub struct ERaMaterialName(pub u8);
 impl ERaMaterialName {
@@ -79,7 +83,6 @@ impl ERaMaterialName {
     pub const WOOD_PANEL: ERaMaterialName = ERaMaterialName(22);
     pub const UNIFORM: ERaMaterialName = ERaMaterialName(23);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EResonanceRenderMode(pub u8);
 impl EResonanceRenderMode {
@@ -89,7 +92,6 @@ impl EResonanceRenderMode {
     pub const BINAURAL_HIGH_QUALITY: EResonanceRenderMode = EResonanceRenderMode(3);
     pub const ROOM_EFFECTS_ONLY: EResonanceRenderMode = EResonanceRenderMode(4);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ERaQualityMode(pub u8);
 impl ERaQualityMode {
@@ -98,14 +100,12 @@ impl ERaQualityMode {
     pub const BINAURAL_MEDIUM: ERaQualityMode = ERaQualityMode(2);
     pub const BINAURAL_HIGH: ERaQualityMode = ERaQualityMode(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ERaSpatializationMethod(pub u8);
 impl ERaSpatializationMethod {
     pub const STEREO_PANNING: ERaSpatializationMethod = ERaSpatializationMethod(0);
     pub const HRTF: ERaSpatializationMethod = ERaSpatializationMethod(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ERaDistanceRolloffModel(pub u8);
 impl ERaDistanceRolloffModel {

@@ -11,181 +11,123 @@ pub struct FIntMargin {
     pub right: i32,
     pub bottom: i32,
 }
-#[repr(C, align(16))]
-pub struct FSpriteDrawCallRecord {
-    pub destination: crate::bindings::core_u_object::FVector,
-    pub base_texture: UPtr<crate::bindings::engine::UTexture>,
-    pub color: crate::bindings::core_u_object::FColor,
-}
-#[repr(C, align(8))]
-pub struct FSpriteGeometryShape {
-    pub shape_type: ESpriteShapeType,
-    pub vertices: TArray<crate::bindings::core_u_object::FVector2D>,
-    pub box_size: crate::bindings::core_u_object::FVector2D,
-    pub box_position: crate::bindings::core_u_object::FVector2D,
-    pub rotation: f32,
-    pub b_negative_winding: bool,
-}
-#[repr(C, align(8))]
-pub struct FSpriteGeometryCollection {
-    pub shapes: TArray<FSpriteGeometryShape>,
-    pub geometry_type: ESpritePolygonMode,
-    pub pixels_per_subdivision_x: i32,
-    pub pixels_per_subdivision_y: i32,
-    pub b_avoid_vertex_merging: bool,
-    pub alpha_threshold: f32,
-    pub detail_amount: f32,
-    pub simplify_epsilon: f32,
-}
-#[repr(C, align(8))]
-pub struct FSpriteAssetInitParameters {}
-#[repr(C, align(8))]
-pub struct FPaperFlipbookKeyFrame {
-    pub sprite: UPtr<UPaperSprite>,
-    pub frame_run: i32,
-}
-#[repr(C, align(16))]
-pub struct FSpriteInstanceData {
-    pub transform: crate::bindings::core_u_object::FMatrix,
-    pub source_sprite: UPtr<UPaperSprite>,
-    pub vertex_color: crate::bindings::core_u_object::FColor,
-    pub material_index: i32,
-}
+impl FIntMargin {}
 #[repr(C, align(16))]
 pub struct FPaperSpriteSocket {
     pub local_transform: crate::bindings::core_u_object::FTransform,
     pub socket_name: FName,
+    __padding_end: [u8; 4],
 }
-#[repr(C, align(8))]
-pub struct FPaperSpriteAtlasSlot {
-    pub sprite_ref: TSoftObjectPtr<UPaperSprite>,
-    pub atlas_index: i32,
-    pub x: i32,
-    pub y: i32,
-    pub width: i32,
-    pub height: i32,
-}
+impl FPaperSpriteSocket {}
 #[repr(C, align(8))]
 pub struct FPaperTileInfo {
-    pub tile_set: UPtr<UPaperTileSet>,
-    pub packed_tile_index: i32,
+    __padding_end: [u8; 16],
 }
+impl FPaperTileInfo {}
 #[repr(C, align(8))]
 pub struct FPaperTileMetadata {
     pub user_data_name: FName,
-    pub collision_data: FSpriteGeometryCollection,
-    pub terrain_membership: u8,
+    __padding_end: [u8; 60],
 }
-#[repr(C, align(8))]
-pub struct FPaperTileSetTerrain {
-    pub terrain_name: FString,
-    pub center_tile_index: i32,
-}
+impl FPaperTileMetadata {}
 #[repr(C, align(8))]
 pub struct FPaperTerrainMaterialRule {
-    pub start_cap: UPtr<UPaperSprite>,
-    pub body: TArray<UPtr<UPaperSprite>>,
-    pub end_cap: UPtr<UPaperSprite>,
-    pub minimum_angle: f32,
-    pub maximum_angle: f32,
-    pub b_enable_collision: bool,
-    pub collision_offset: f32,
-    pub draw_order: i32,
-    pub description: FText,
+    __padding_end: [u8; 72],
 }
+impl FPaperTerrainMaterialRule {}
+#[repr(C, align(16))]
 pub struct APaperCharacter {
+    #[doc(hidden)]
+    __padding_2112: [u8; 2112],
     pub sprite: UPtr<UPaperFlipbookComponent>,
+    __padding_end: [u8; 8],
 }
+impl APaperCharacter {}
+#[repr(C, align(8))]
 pub struct UPaperFlipbook {
+    #[doc(hidden)]
+    __padding_48: [u8; 48],
     pub frames_per_second: f32,
-    pub key_frames: TArray<FPaperFlipbookKeyFrame>,
+    #[doc(hidden)]
+    __padding_72: [u8; 16],
     pub default_material: UPtr<crate::bindings::engine::UMaterialInterface>,
     pub collision_source: EFlipbookCollisionMode,
+    __padding_end: [u8; 7],
 }
+impl UPaperFlipbook {}
+#[repr(C, align(8))]
 pub struct APaperFlipbookActor {
+    #[doc(hidden)]
+    __padding_1136: [u8; 1136],
     pub render_component: UPtr<UPaperFlipbookComponent>,
 }
+impl APaperFlipbookActor {}
+#[repr(C, align(16))]
 pub struct UPaperFlipbookComponent {
-    pub source_flipbook: UPtr<UPaperFlipbook>,
-    pub material_deprecated: UPtr<crate::bindings::engine::UMaterialInterface>,
-    pub play_rate: f32,
-    pub flags_1596: u8,
-    pub accumulated_time: f32,
-    pub cached_frame_index: i32,
+    #[doc(hidden)]
+    __padding_1608: [u8; 1608],
     pub sprite_color: crate::bindings::core_u_object::FLinearColor,
-    pub cached_body_setup: UPtr<crate::bindings::engine::UBodySetup>,
-    pub on_finished_playing: FPaperFlipbookComponent_OnFinishedPlaying,
+    __padding_end: [u8; 40],
 }
+impl UPaperFlipbookComponent {}
+#[repr(C, align(8))]
 pub struct APaperGroupedSpriteActor {
+    #[doc(hidden)]
+    __padding_1136: [u8; 1136],
     pub render_component: UPtr<UPaperGroupedSpriteComponent>,
 }
+impl APaperGroupedSpriteActor {}
+#[repr(C, align(16))]
 pub struct UPaperGroupedSpriteComponent {
-    pub instance_materials: TArray<UPtr<crate::bindings::engine::UMaterialInterface>>,
-    pub per_instance_sprite_data: TArray<FSpriteInstanceData>,
+    __padding_end: [u8; 1632],
 }
+impl UPaperGroupedSpriteComponent {}
+#[repr(C, align(8))]
 pub struct UPaperRuntimeSettings {
-    pub b_enable_sprite_atlas_groups: bool,
-    pub b_enable_terrain_spline_editing: bool,
-    pub b_resize_sprite_data_to_match_textures: bool,
+    __padding_end: [u8; 56],
 }
+impl UPaperRuntimeSettings {}
+#[repr(C, align(8))]
 pub struct UPaperSprite {
-    pub origin_in_source_image_before_trimming: crate::bindings::core_u_object::FVector2D,
-    pub source_image_dimension_before_trimming: crate::bindings::core_u_object::FVector2D,
-    pub b_trimmed_in_source_image: bool,
-    pub b_rotated_in_source_image: bool,
-    pub source_texture_dimension: crate::bindings::core_u_object::FVector2D,
-    pub source_uv: crate::bindings::core_u_object::FVector2D,
-    pub source_dimension: crate::bindings::core_u_object::FVector2D,
-    pub source_texture: TSoftObjectPtr<crate::bindings::engine::UTexture2D>,
-    pub source_texture_cache_never_serialized: UPtr<crate::bindings::engine::UTexture2D>,
-    pub additional_source_textures: TArray<UPtr<crate::bindings::engine::UTexture>>,
-    pub baked_source_uv: crate::bindings::core_u_object::FVector2D,
-    pub baked_source_dimension: crate::bindings::core_u_object::FVector2D,
-    pub baked_source_texture: UPtr<crate::bindings::engine::UTexture2D>,
+    #[doc(hidden)]
+    __padding_264: [u8; 264],
     pub default_material: UPtr<crate::bindings::engine::UMaterialInterface>,
     pub alternate_material: UPtr<crate::bindings::engine::UMaterialInterface>,
-    pub sockets: TArray<FPaperSpriteSocket>,
-    pub sprite_collision_domain: ESpriteCollisionMode,
-    pub pixels_per_unreal_unit: f32,
-    pub body_setup: UPtr<crate::bindings::engine::UBodySetup>,
-    pub pivot_mode: ESpritePivotMode,
-    pub custom_pivot_point: crate::bindings::core_u_object::FVector2D,
-    pub b_snap_pivot_to_pixel_grid: bool,
-    pub collision_geometry: FSpriteGeometryCollection,
-    pub collision_thickness: f32,
-    pub render_geometry: FSpriteGeometryCollection,
-    pub atlas_group: UPtr<UPaperSpriteAtlas>,
-    pub alternate_material_split_index: i32,
-    pub baked_render_data: TArray<crate::bindings::core_u_object::FVector4>,
+    __padding_end: [u8; 248],
 }
+impl UPaperSprite {}
+#[repr(C, align(8))]
 pub struct APaperSpriteActor {
+    #[doc(hidden)]
+    __padding_1136: [u8; 1136],
     pub render_component: UPtr<UPaperSpriteComponent>,
 }
+impl APaperSpriteActor {}
+#[repr(C, align(8))]
 pub struct UPaperSpriteAtlas {
-    pub atlas_description: FString,
-    pub max_width: i32,
-    pub max_height: i32,
-    pub mip_count: i32,
-    pub padding_type: EPaperSpriteAtlasPadding,
-    pub padding: i32,
-    pub compression_settings: crate::bindings::engine::TextureCompressionSettings,
-    pub filter: crate::bindings::engine::TextureFilter,
-    pub generated_textures: TArray<UPtr<crate::bindings::engine::UTexture>>,
-    pub atlas_guid: crate::bindings::core_u_object::FGuid,
-    pub b_rebuild_atlas: bool,
-    pub atlas_slots: TArray<FPaperSpriteAtlasSlot>,
-    pub num_incremental_builds: i32,
-    pub built_width: i32,
-    pub built_height: i32,
-    pub built_padding: i32,
+    __padding_end: [u8; 160],
 }
-pub struct UPaperSpriteBlueprintLibrary {}
+impl UPaperSpriteAtlas {}
+#[repr(C, align(8))]
+pub struct UPaperSpriteBlueprintLibrary {
+    __padding_end: [u8; 48],
+}
+impl UPaperSpriteBlueprintLibrary {}
+#[repr(C, align(16))]
 pub struct UPaperSpriteComponent {
+    #[doc(hidden)]
+    __padding_1576: [u8; 1576],
     pub source_sprite: UPtr<UPaperSprite>,
-    pub material_override_deprecated: UPtr<crate::bindings::engine::UMaterialInterface>,
+    #[doc(hidden)]
+    __padding_1592: [u8; 8],
     pub sprite_color: crate::bindings::core_u_object::FLinearColor,
+    __padding_end: [u8; 8],
 }
+impl UPaperSpriteComponent {}
+#[repr(C, align(8))]
 pub struct UPaperTileLayer {
+    #[doc(hidden)]
+    __padding_48: [u8; 48],
     pub layer_name: FText,
     pub layer_width: i32,
     pub layer_height: i32,
@@ -193,112 +135,103 @@ pub struct UPaperTileLayer {
     pub collision_thickness_override: f32,
     pub collision_offset_override: f32,
     pub layer_color: crate::bindings::core_u_object::FLinearColor,
-    pub allocated_width: i32,
-    pub allocated_height: i32,
-    pub allocated_cells: TArray<FPaperTileInfo>,
-    pub tile_set_deprecated: UPtr<UPaperTileSet>,
-    pub allocated_grid_deprecated: TArray<i32>,
+    __padding_end: [u8; 52],
 }
+impl UPaperTileLayer {}
+#[repr(C, align(8))]
 pub struct UPaperTileMap {
+    #[doc(hidden)]
+    __padding_48: [u8; 48],
     pub map_width: i32,
     pub map_height: i32,
     pub tile_width: i32,
     pub tile_height: i32,
-    pub pixels_per_unreal_unit: f32,
-    pub separation_per_tile_x: f32,
-    pub separation_per_tile_y: f32,
+    #[doc(hidden)]
+    __padding_76: [u8; 12],
     pub separation_per_layer: f32,
-    pub selected_tile_set: TSoftObjectPtr<UPaperTileSet>,
+    #[doc(hidden)]
+    __padding_128: [u8; 48],
     pub material: UPtr<crate::bindings::engine::UMaterialInterface>,
     pub tile_layers: TArray<UPtr<UPaperTileLayer>>,
     pub collision_thickness: f32,
     pub sprite_collision_domain: ESpriteCollisionMode,
     pub projection_mode: ETileMapProjectionMode,
-    pub hex_side_length: i32,
-    pub body_setup: UPtr<crate::bindings::engine::UBodySetup>,
-    pub asset_import_data: UPtr<crate::bindings::engine::UAssetImportData>,
-    pub selected_layer_index: i32,
-    pub background_color: crate::bindings::core_u_object::FLinearColor,
-    pub tile_grid_color: crate::bindings::core_u_object::FLinearColor,
-    pub multi_tile_grid_color: crate::bindings::core_u_object::FLinearColor,
-    pub multi_tile_grid_width: i32,
-    pub multi_tile_grid_height: i32,
-    pub multi_tile_grid_offset_x: i32,
-    pub multi_tile_grid_offset_y: i32,
-    pub layer_grid_color: crate::bindings::core_u_object::FLinearColor,
-    pub layer_name_index: i32,
+    __padding_end: [u8; 114],
 }
+impl UPaperTileMap {}
+#[repr(C, align(8))]
 pub struct APaperTileMapActor {
+    #[doc(hidden)]
+    __padding_1136: [u8; 1136],
     pub render_component: UPtr<UPaperTileMapComponent>,
 }
+impl APaperTileMapActor {}
+#[repr(C, align(16))]
 pub struct UPaperTileMapComponent {
-    pub map_width_deprecated: i32,
-    pub map_height_deprecated: i32,
-    pub tile_width_deprecated: i32,
-    pub tile_height_deprecated: i32,
-    pub default_layer_tile_set_deprecated: UPtr<UPaperTileSet>,
-    pub material_deprecated: UPtr<crate::bindings::engine::UMaterialInterface>,
-    pub tile_layers_deprecated: TArray<UPtr<UPaperTileLayer>>,
-    pub tile_map_color: crate::bindings::core_u_object::FLinearColor,
-    pub use_single_layer_index: i32,
-    pub b_use_single_layer: bool,
+    #[doc(hidden)]
+    __padding_1656: [u8; 1656],
     pub tile_map: UPtr<UPaperTileMap>,
-    pub b_show_per_tile_grid_when_selected: bool,
-    pub b_show_per_layer_grid_when_selected: bool,
-    pub b_show_outline_when_unselected: bool,
-    pub b_show_per_tile_grid_when_unselected: bool,
-    pub b_show_per_layer_grid_when_unselected: bool,
+    __padding_end: [u8; 16],
 }
+impl UPaperTileMapComponent {}
+#[repr(C, align(8))]
 pub struct UPaperTileSet {
+    #[doc(hidden)]
+    __padding_48: [u8; 48],
     pub tile_size: crate::bindings::core_u_object::FIntPoint,
     pub tile_sheet: UPtr<crate::bindings::engine::UTexture2D>,
-    pub additional_source_textures: TArray<UPtr<crate::bindings::engine::UTexture>>,
+    #[doc(hidden)]
+    __padding_80: [u8; 16],
     pub border_margin: FIntMargin,
     pub per_tile_spacing: crate::bindings::core_u_object::FIntPoint,
     pub drawing_offset: crate::bindings::core_u_object::FIntPoint,
-    pub background_color: crate::bindings::core_u_object::FLinearColor,
-    pub width_in_tiles: i32,
-    pub height_in_tiles: i32,
-    pub allocated_width: i32,
-    pub allocated_height: i32,
-    pub per_tile_data: TArray<FPaperTileMetadata>,
-    pub terrains: TArray<FPaperTileSetTerrain>,
-    pub tile_width_deprecated: i32,
-    pub tile_height_deprecated: i32,
-    pub margin_deprecated: i32,
-    pub spacing_deprecated: i32,
+    __padding_end: [u8; 80],
 }
+impl UPaperTileSet {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionSpriteTextureSampler {
-    pub b_sample_additional_textures: bool,
-    pub additional_slot_index: i32,
-    pub slot_display_name: FText,
+    __padding_end: [u8; 656],
 }
+impl UMaterialExpressionSpriteTextureSampler {}
+#[repr(C, align(8))]
 pub struct APaperTerrainActor {
-    pub dummy_root: UPtr<crate::bindings::engine::USceneComponent>,
-    pub spline_component: UPtr<UPaperTerrainSplineComponent>,
+    #[doc(hidden)]
+    __padding_1152: [u8; 1152],
     pub render_component: UPtr<UPaperTerrainComponent>,
 }
+impl APaperTerrainActor {}
+#[repr(C, align(16))]
 pub struct UPaperTerrainComponent {
+    #[doc(hidden)]
+    __padding_1504: [u8; 1504],
     pub terrain_material: UPtr<UPaperTerrainMaterial>,
     pub b_closed_spline: bool,
     pub b_filled_spline: bool,
-    pub associated_spline: UPtr<UPaperTerrainSplineComponent>,
-    pub random_seed: i32,
-    pub segment_overlap_amount: f32,
+    #[doc(hidden)]
+    __padding_1536: [u8; 20],
     pub terrain_color: crate::bindings::core_u_object::FLinearColor,
-    pub reparam_steps_per_segment: i32,
-    pub sprite_collision_domain: ESpriteCollisionMode,
-    pub collision_thickness: f32,
-    pub cached_body_setup: UPtr<crate::bindings::engine::UBodySetup>,
+    __padding_end: [u8; 48],
 }
+impl UPaperTerrainComponent {}
+#[repr(C, align(8))]
 pub struct UPaperTerrainMaterial {
-    pub rules: TArray<FPaperTerrainMaterialRule>,
-    pub interior_fill: UPtr<UPaperSprite>,
+    __padding_end: [u8; 80],
 }
-pub struct UPaperTerrainSplineComponent {}
-pub struct UTileMapBlueprintLibrary {}
-pub struct FPaperFlipbookComponent_OnFinishedPlaying;
-#[allow(non_camel_case_types)]
+impl UPaperTerrainMaterial {}
+#[repr(C, align(16))]
+pub struct UPaperTerrainSplineComponent {
+    __padding_end: [u8; 2192],
+}
+impl UPaperTerrainSplineComponent {}
+#[repr(C, align(8))]
+pub struct UTileMapBlueprintLibrary {
+    __padding_end: [u8; 48],
+}
+impl UTileMapBlueprintLibrary {}
+#[repr(transparent)]
+pub struct FPaperFlipbookComponent_OnFinishedPlaying {
+    _opague: u8,
+}
 #[repr(transparent)]
 pub struct ESpriteShapeType(pub u8);
 impl ESpriteShapeType {
@@ -306,7 +239,6 @@ impl ESpriteShapeType {
     pub const CIRCLE: ESpriteShapeType = ESpriteShapeType(1);
     pub const POLYGON: ESpriteShapeType = ESpriteShapeType(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ESpritePolygonMode(pub u8);
 impl ESpritePolygonMode {
@@ -316,7 +248,6 @@ impl ESpritePolygonMode {
     pub const FULLY_CUSTOM: ESpritePolygonMode = ESpritePolygonMode(3);
     pub const DICED: ESpritePolygonMode = ESpritePolygonMode(4);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EFlipbookCollisionMode(pub u8);
 impl EFlipbookCollisionMode {
@@ -324,7 +255,6 @@ impl EFlipbookCollisionMode {
     pub const FIRST_FRAME_COLLISION: EFlipbookCollisionMode = EFlipbookCollisionMode(1);
     pub const EACH_FRAME_COLLISION: EFlipbookCollisionMode = EFlipbookCollisionMode(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ESpriteCollisionMode(pub u8);
 impl ESpriteCollisionMode {
@@ -332,7 +262,6 @@ impl ESpriteCollisionMode {
     pub const USE2_D_PHYSICS: ESpriteCollisionMode = ESpriteCollisionMode(1);
     pub const USE3_D_PHYSICS: ESpriteCollisionMode = ESpriteCollisionMode(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ESpritePivotMode(pub u8);
 impl ESpritePivotMode {
@@ -347,14 +276,12 @@ impl ESpritePivotMode {
     pub const BOTTOM_RIGHT: ESpritePivotMode = ESpritePivotMode(8);
     pub const CUSTOM: ESpritePivotMode = ESpritePivotMode(9);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EPaperSpriteAtlasPadding(pub u8);
 impl EPaperSpriteAtlasPadding {
     pub const DILATE_BORDER: EPaperSpriteAtlasPadding = EPaperSpriteAtlasPadding(0);
     pub const PAD_WITH_ZERO: EPaperSpriteAtlasPadding = EPaperSpriteAtlasPadding(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ETileMapProjectionMode(pub u8);
 impl ETileMapProjectionMode {

@@ -5,1050 +5,1039 @@
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[repr(C, align(8))]
-pub struct FNiagaraStackNoteData {
-    pub message_header: FText,
-    pub color: crate::bindings::core_u_object::FLinearColor,
-    pub message: FText,
-    pub b_inline_note: bool,
+pub struct UActorFactoryNiagara {
+    __padding_end: [u8; 144],
 }
+impl UActorFactoryNiagara {}
 #[repr(C, align(8))]
-pub struct FNiagaraSpawnShortcut {
-    pub name: FString,
-    pub input: crate::bindings::slate::FInputChord,
+pub struct UNiagaraScriptFactoryNew {
+    __padding_end: [u8; 136],
 }
+impl UNiagaraScriptFactoryNew {}
 #[repr(C, align(8))]
-pub struct FNiagaraDistributionArray {
-    pub float_data: TArray<f32>,
-    pub vector2_data: TArray<crate::bindings::core_u_object::FVector2f>,
-    pub vector3_data: TArray<crate::bindings::core_u_object::FVector3f>,
-    pub vector4_data: TArray<crate::bindings::core_u_object::FVector4f>,
+pub struct UNiagaraModuleScriptFactory {
+    __padding_end: [u8; 136],
 }
+impl UNiagaraModuleScriptFactory {}
 #[repr(C, align(8))]
-pub struct FNiagaraActionIdentifier {
-    pub names: TArray<FName>,
-    pub guids: TArray<crate::bindings::core_u_object::FGuid>,
+pub struct UNiagaraFunctionScriptFactory {
+    __padding_end: [u8; 136],
 }
+impl UNiagaraFunctionScriptFactory {}
 #[repr(C, align(8))]
-pub struct FNiagaraFavoriteActionsProfile {
-    pub favorite_actions: TSet<FNiagaraActionIdentifier>,
-    pub unfavorite_actions: TSet<FNiagaraActionIdentifier>,
+pub struct UNiagaraDynamicInputScriptFactory {
+    __padding_end: [u8; 136],
 }
+impl UNiagaraDynamicInputScriptFactory {}
 #[repr(C, align(8))]
-pub struct FNiagaraBakerTextureSourceAction {}
-#[repr(C, align(1))]
-pub struct FNiagaraEnumToByteHelper {
-    pub value: u8,
+pub struct UAssetDefinition_NiagaraDataChannel {
+    __padding_end: [u8; 72],
 }
+impl UAssetDefinition_NiagaraDataChannel {}
 #[repr(C, align(8))]
-pub struct FNiagaraStackAssetAction_EventSource {}
+pub struct UAssetDefinition_NiagaraEffectType {
+    __padding_end: [u8; 72],
+}
+impl UAssetDefinition_NiagaraEffectType {}
 #[repr(C, align(8))]
-pub struct FNiagaraOutlinerWorldDataCustomizationWrapper {
-    pub data: crate::bindings::niagara::FNiagaraOutlinerWorldData,
+pub struct UAssetDefinition_NiagaraEmitter {
+    __padding_end: [u8; 72],
 }
+impl UAssetDefinition_NiagaraEmitter {}
 #[repr(C, align(8))]
-pub struct FNiagaraOutlinerSystemDataCustomizationWrapper {
-    pub data: crate::bindings::niagara::FNiagaraOutlinerSystemData,
+pub struct UAssetDefinition_NiagaraParameterCollection {
+    __padding_end: [u8; 72],
 }
+impl UAssetDefinition_NiagaraParameterCollection {}
 #[repr(C, align(8))]
-pub struct FNiagaraOutlinerSystemInstanceDataCustomizationWrapper {
-    pub data: crate::bindings::niagara::FNiagaraOutlinerSystemInstanceData,
+pub struct UAssetDefinition_NiagaraParameterCollectionInstance {
+    __padding_end: [u8; 72],
 }
+impl UAssetDefinition_NiagaraParameterCollectionInstance {}
 #[repr(C, align(8))]
-pub struct FNiagaraOutlinerEmitterInstanceDataCustomizationWrapper {
-    pub data: crate::bindings::niagara::FNiagaraOutlinerEmitterInstanceData,
+pub struct UAssetDefinition_NiagaraParameterDefinitions {
+    __padding_end: [u8; 72],
 }
+impl UAssetDefinition_NiagaraParameterDefinitions {}
 #[repr(C, align(8))]
-pub struct FNiagaraStackAssetAction_VarBind {}
+pub struct UAssetDefinition_NiagaraScript {
+    __padding_end: [u8; 72],
+}
+impl UAssetDefinition_NiagaraScript {}
 #[repr(C, align(8))]
-pub struct FNiagaraSchemaAction_NewNode {
-    pub node_template: UPtr<crate::bindings::engine::UEdGraphNode>,
-    pub internal_name: FName,
+pub struct UAssetDefinition_NiagaraSimCache {
+    __padding_end: [u8; 72],
 }
+impl UAssetDefinition_NiagaraSimCache {}
 #[repr(C, align(8))]
-pub struct FNiagaraSchemaAction_NewComment {}
+pub struct UAssetDefinition_NiagaraStatelessEmitterTemplate {
+    __padding_end: [u8; 72],
+}
+impl UAssetDefinition_NiagaraStatelessEmitterTemplate {}
 #[repr(C, align(8))]
-pub struct FNiagaraActionSourceData {}
+pub struct UAssetDefinition_NiagaraSystem {
+    __padding_end: [u8; 72],
+}
+impl UAssetDefinition_NiagaraSystem {}
 #[repr(C, align(8))]
-pub struct FNiagaraMenuAction {}
+pub struct UAssetDefinition_NiagaraValidationRuleSet {
+    __padding_end: [u8; 72],
+}
+impl UAssetDefinition_NiagaraValidationRuleSet {}
 #[repr(C, align(8))]
-pub struct FNiagaraMenuAction_Base {}
+pub struct UNiagaraDumpByteCodeCommandlet {
+    __padding_end: [u8; 208],
+}
+impl UNiagaraDumpByteCodeCommandlet {}
 #[repr(C, align(8))]
-pub struct FNiagaraMenuAction_Generic {}
+pub struct UNiagaraDumpModuleInfoCommandlet {
+    __padding_end: [u8; 184],
+}
+impl UNiagaraDumpModuleInfoCommandlet {}
 #[repr(C, align(8))]
-pub struct FNiagaraAction_NewNode {
-    pub weak_node_template: TWeakObjectPtr<crate::bindings::engine::UEdGraphNode>,
+pub struct UNiagaraScriptValidationCommandlet {
+    __padding_end: [u8; 184],
 }
+impl UNiagaraScriptValidationCommandlet {}
 #[repr(C, align(8))]
-pub struct FNiagaraClipboardScriptVariable {
-    pub script_variable: UPtr<UNiagaraScriptVariable>,
-    pub original_change_id: crate::bindings::core_u_object::FGuid,
+pub struct UNiagaraStatelessAuditCommandlet {
+    __padding_end: [u8; 240],
 }
+impl UNiagaraStatelessAuditCommandlet {}
 #[repr(C, align(8))]
-pub struct FNiagaraClipboardCurveCollection {
-    pub curves: TArray<crate::bindings::engine::FRichCurve>,
-}
-#[repr(C, align(8))]
-pub struct FNiagaraClipboardPortableValue {
-    pub value_string: FString,
-}
-#[repr(C, align(4))]
-pub struct FFunctionInputSummaryViewKey {
-    pub function_guid: crate::bindings::core_u_object::FGuid,
-    pub input_guid: crate::bindings::core_u_object::FGuid,
-    pub input_name: FName,
-}
-#[repr(C, align(4))]
-pub struct FFunctionInputSummaryViewMetadata {
-    pub b_visible: bool,
-    pub display_name: FName,
-    pub category: FName,
-    pub sort_index: i32,
-}
-#[repr(C, align(8))]
-pub struct FReservedParameter {
-    pub parameter: crate::bindings::niagara::FNiagaraVariableBase,
-    pub reserving_definitions_asset: UPtr<UNiagaraParameterDefinitions>,
-}
-#[repr(C, align(8))]
-pub struct FNiagaraRendererCreationInfo {
-    pub display_name: FText,
-    pub description: FText,
-    pub renderer_class_path: crate::bindings::core_u_object::FTopLevelAssetPath,
-}
-#[repr(C, align(8))]
-pub struct FNiagaraNamespaceMetadata {
-    pub namespaces: TArray<FName>,
-    pub required_namespace_modifier: FName,
-    pub display_name: FText,
-    pub display_name_long: FText,
-    pub description: FText,
-    pub background_color: crate::bindings::core_u_object::FLinearColor,
-    pub foreground_style: FName,
-    pub sort_id: i32,
-    pub optional_namespace_modifiers: TArray<FName>,
-    pub options: TArray<ENiagaraNamespaceMetadataOptions>,
-    pub guid: crate::bindings::core_u_object::FGuid,
-}
-#[repr(C, align(8))]
-pub struct FNiagaraCurveTemplate {
-    pub display_name_override: FString,
-    pub curve_asset: crate::bindings::core_u_object::FSoftObjectPath,
-}
-#[repr(C, align(4))]
-pub struct FNiagaraActionColors {
-    pub niagara_color: crate::bindings::core_u_object::FLinearColor,
-    pub game_color: crate::bindings::core_u_object::FLinearColor,
-    pub plugin_color: crate::bindings::core_u_object::FLinearColor,
-    pub developer_color: crate::bindings::core_u_object::FLinearColor,
-}
-#[repr(C, align(8))]
-pub struct FNiagaraParameterPanelSectionStorage {
-    pub param_storage_id: crate::bindings::core_u_object::FGuid,
-    pub expanded_categories: TArray<crate::bindings::core_u_object::FGuid>,
-}
-#[repr(C, align(8))]
-pub struct FNiagaraViewportSharedSettings {
-    pub viewport_type: crate::bindings::unreal_ed::ELevelViewportType,
-    pub persp_view_mode_index: crate::bindings::engine::EViewModeIndex,
-    pub ortho_view_mode_index: crate::bindings::engine::EViewModeIndex,
-    pub editor_show_flags_string: FString,
-    pub game_show_flags_string: FString,
-    pub exposure_settings: crate::bindings::engine::FExposureSettings,
-    pub fov_angle: f32,
-    pub b_is_realtime: bool,
-    pub b_show_on_screen_stats: bool,
-    pub b_show_grid_in_viewport: bool,
-    pub b_show_instructions_count: bool,
-    pub b_show_particle_counts_in_viewport: bool,
-    pub b_show_emitter_execution_order: bool,
-    pub b_show_gpu_tick_information: bool,
-    pub b_show_memory_info: bool,
-    pub b_show_stateless_info: bool,
-}
-#[repr(C, align(1))]
-pub struct FNiagaraCurveEditorSharedSettings {
-    pub b_curve_input_snap_enabled: bool,
-    pub b_curve_output_snap_enabled: bool,
-}
-#[repr(C, align(4))]
-pub struct FNiagaraGraphParameterReference {
-    pub key: crate::bindings::core_u_object::FGuid,
-    pub value: TWeakObjectPtr<crate::bindings::core_u_object::UObject>,
-    pub b_is_user_facing: bool,
-}
-#[repr(C, align(8))]
-pub struct FNiagaraGraphParameterReferenceCollection {
-    pub parameter_references: TArray<FNiagaraGraphParameterReference>,
-    pub b_created_by_user: bool,
-}
-#[repr(C, align(8))]
-pub struct FNiagaraGraphScriptUsageInfo {
-    pub base_id: crate::bindings::core_u_object::FGuid,
-    pub usage_type: crate::bindings::niagara::ENiagaraScriptUsage,
-    pub usage_id: crate::bindings::core_u_object::FGuid,
-    pub compile_hash: crate::bindings::niagara_core::FNiagaraCompileHash,
-    pub compile_hash_from_graph: crate::bindings::niagara_core::FNiagaraCompileHash,
-    pub reference_hash_from_graph: crate::bindings::niagara_core::FNiagaraCompileHash,
-    pub compile_last_objects: TArray<
-        crate::bindings::niagara::FNiagaraCompileHashVisitorDebugInfo,
-    >,
-    pub traversal: TArray<UPtr<UNiagaraNode>>,
-    pub data_hash_deprecated: TArray<u8>,
-    pub generated_compile_id_deprecated: crate::bindings::core_u_object::FGuid,
-}
-#[repr(C, align(1))]
-pub struct FNiagaraParametersChangedData {}
-#[repr(C, align(4))]
-pub struct FNiagaraParameterCreatedData {}
-#[repr(C, align(4))]
-pub struct FNiagaraParameterRenamedData {}
-#[repr(C, align(8))]
-pub struct FNiagaraStackMessage {
-    pub message_text: FText,
-    pub short_description: FText,
-    pub message_severity: ENiagaraMessageSeverity,
-    pub b_allow_dismissal: bool,
-    pub guid: crate::bindings::core_u_object::FGuid,
-}
-#[repr(C, align(8))]
-pub struct FNiagaraConvertPinRecord {
-    pub pin_id: crate::bindings::core_u_object::FGuid,
-    pub path: TArray<FName>,
-}
-#[repr(C, align(8))]
-pub struct FNiagaraConvertConnection {
-    pub source_pin_id: crate::bindings::core_u_object::FGuid,
-    pub source_path: TArray<FName>,
-    pub destination_pin_id: crate::bindings::core_u_object::FGuid,
-    pub destination_path: TArray<FName>,
-    pub source_property_id: crate::bindings::core_u_object::FGuid,
-    pub destination_property_id: crate::bindings::core_u_object::FGuid,
-}
-#[repr(C, align(8))]
-pub struct FNiagaraPropagatedVariable {
-    pub switch_parameter: crate::bindings::niagara::FNiagaraVariable,
-    pub propagated_name: FString,
-}
-#[repr(C, align(4))]
-pub struct FPinGuidsForPath {
-    pub output_pin_guid: crate::bindings::core_u_object::FGuid,
-    pub input_true_pin_guid: crate::bindings::core_u_object::FGuid,
-    pub input_false_pin_guid: crate::bindings::core_u_object::FGuid,
-}
-#[repr(C, align(4))]
-pub struct FNiagaraInputExposureOptions {
-    pub flags_0: u8,
-}
-#[repr(C, align(8))]
-pub struct FAddedPinData {
-    pub pin_type: crate::bindings::engine::FEdGraphPinType,
-    pub pin_name: FName,
-}
-#[repr(C, align(8))]
-pub struct FStaticSwitchTypeData {
-    pub switch_type: ENiagaraStaticSwitchType,
-    pub enum_: UPtr<crate::bindings::core_u_object::UEnum>,
-    pub switch_constant: FName,
-    pub b_auto_refresh_enabled: bool,
-    pub b_expose_as_pin: bool,
-}
-#[repr(C, align(4))]
-pub struct FNiagaraOutlinerFilterSettings {
-    pub flags_0: u8,
-    pub system_execution_state: crate::bindings::niagara::ENiagaraExecutionState,
-    pub emitter_execution_state: crate::bindings::niagara::ENiagaraExecutionState,
-    pub emitter_sim_target: crate::bindings::niagara::ENiagaraSimTarget,
-    pub b_system_cull_state: bool,
-}
-#[repr(C, align(4))]
-pub struct FNiagaraOutlinerViewSettings {
-    pub view_mode: ENiagaraOutlinerViewModes,
-    pub filter_settings: FNiagaraOutlinerFilterSettings,
-    pub b_sort_descending: bool,
-    pub sort_mode: ENiagaraOutlinerSortMode,
-    pub time_units: ENiagaraOutlinerTimeUnits,
-}
-#[repr(C, align(8))]
-pub struct FScriptVarBindingNameSubscription {
-    pub external_script_var_id: crate::bindings::core_u_object::FGuid,
-    pub internal_script_var_ids: TArray<crate::bindings::core_u_object::FGuid>,
-}
-#[repr(C, align(8))]
-pub struct FParameterDefinitionsBindingNameSubscription {
-    pub subscribed_parameter_definitions: UPtr<UNiagaraParameterDefinitions>,
-    pub binding_name_subscriptions: TArray<FScriptVarBindingNameSubscription>,
-}
-#[repr(C, align(8))]
-pub struct FNiagaraScriptVariableData {
-    pub default_mode: crate::bindings::niagara::ENiagaraDefaultMode,
-    pub default_binding: crate::bindings::niagara::FNiagaraScriptVariableBinding,
-    pub variable: crate::bindings::niagara::FNiagaraVariable,
-    pub metadata: crate::bindings::niagara::FNiagaraVariableMetaData,
-    pub default_value_variant: crate::bindings::niagara::FNiagaraVariant,
-    pub static_switch_default_value: i32,
-    pub b_is_static_switch: bool,
-    pub b_subscribed_to_parameter_definitions: bool,
-    pub change_id: crate::bindings::core_u_object::FGuid,
-    pub b_override_parameter_definitions_default_value: bool,
-}
-#[repr(C, align(1))]
-pub struct FNiagaraStatelessModuleEditorData {
-    pub b_show_when_disabled: bool,
-}
-#[repr(C, align(8))]
-pub struct FNiagaraPerAssetViewportSettings {
-    pub view_location: crate::bindings::core_u_object::FVector,
-    pub view_rotation: crate::bindings::core_u_object::FRotator,
-    pub b_use_orbit_mode: bool,
-}
-#[repr(C, align(8))]
-pub struct FNiagaraValidationRule_EmitterCountAndPlatformSet {
-    pub rule_name: FString,
-    pub platforms: crate::bindings::niagara::FNiagaraPlatformSet,
-    pub b_include_stateful: bool,
-    pub b_include_stateless: bool,
-    pub emitter_count_limit: i32,
-}
-#[repr(C, align(8))]
-pub struct FNiagaraValidationRule_RendererCountAndPlatformSet {
-    pub rule_name: FString,
-    pub platforms: crate::bindings::niagara::FNiagaraPlatformSet,
-    pub renderer_count_limit: i32,
-}
-#[repr(C, align(8))]
-pub struct FNiagaraEmitterSectionKey {
-    pub module_id: crate::bindings::core_u_object::FGuid,
-    pub value: crate::bindings::niagara::FNiagaraVariable,
-}
-#[repr(C, align(8))]
-pub struct FMovieSceneNiagaraEmitterChannel {}
-#[repr(C, align(8))]
-pub struct FNiagaraDebuggerSpawnData {
-    pub systems_to_spawn: TArray<
-        TSoftObjectPtr<crate::bindings::niagara::UNiagaraSystem>,
-    >,
-    pub b_spawn_all_at_once: bool,
-    pub time_between_spawns: f32,
-    pub b_kill_before_spawn: bool,
-    pub b_world_location: bool,
-    pub location: crate::bindings::core_u_object::FVector,
-    pub b_attach_to_player: bool,
-    pub b_auto_activate: bool,
-    pub b_auto_destroy: bool,
-    pub b_do_pre_cull_check: bool,
-}
-pub struct UActorFactoryNiagara {}
-pub struct UNiagaraScriptFactoryNew {}
-pub struct UNiagaraModuleScriptFactory {}
-pub struct UNiagaraFunctionScriptFactory {}
-pub struct UNiagaraDynamicInputScriptFactory {}
-pub struct UAssetDefinition_NiagaraDataChannel {}
-pub struct UAssetDefinition_NiagaraEffectType {}
-pub struct UAssetDefinition_NiagaraEmitter {}
-pub struct UAssetDefinition_NiagaraParameterCollection {}
-pub struct UAssetDefinition_NiagaraParameterCollectionInstance {}
-pub struct UAssetDefinition_NiagaraParameterDefinitions {}
-pub struct UAssetDefinition_NiagaraScript {}
-pub struct UAssetDefinition_NiagaraSimCache {}
-pub struct UAssetDefinition_NiagaraStatelessEmitterTemplate {}
-pub struct UAssetDefinition_NiagaraSystem {}
-pub struct UAssetDefinition_NiagaraValidationRuleSet {}
-pub struct UNiagaraDumpByteCodeCommandlet {}
-pub struct UNiagaraDumpModuleInfoCommandlet {}
-pub struct UNiagaraScriptValidationCommandlet {}
-pub struct UNiagaraStatelessAuditCommandlet {}
 pub struct UNiagaraSystemAuditCommandlet {
-    pub packages_to_save: TArray<UPtr<crate::bindings::core_u_object::UPackage>>,
+    __padding_end: [u8; 1440],
 }
-pub struct UNiagaraTraversalCacheAuditCommandlet {}
+impl UNiagaraSystemAuditCommandlet {}
+#[repr(C, align(8))]
+pub struct UNiagaraTraversalCacheAuditCommandlet {
+    __padding_end: [u8; 160],
+}
+impl UNiagaraTraversalCacheAuditCommandlet {}
+#[repr(C, align(8))]
 pub struct UNiagaraFavoriteActionsConfig {
-    pub profiles: TMap<FName, FNiagaraFavoriteActionsProfile>,
+    __padding_end: [u8; 128],
 }
+impl UNiagaraFavoriteActionsConfig {}
+#[repr(C, align(8))]
 pub struct UNiagaraObjectAssetHelper {
-    pub path: crate::bindings::core_u_object::FSoftObjectPath,
+    __padding_end: [u8; 88],
 }
+impl UNiagaraObjectAssetHelper {}
+#[repr(C, align(8))]
 pub struct UFNiagaraMemoryBufferSimCacheVisualizerSettings {
-    pub display_sim_target: crate::bindings::niagara::ENiagaraSimTarget,
-    pub display_as_type: ENDIMemoryBufferViewType,
-    pub display_columns: i32,
+    __padding_end: [u8; 64],
 }
-pub struct UEdGraphSchema_Niagara {}
-pub struct UEdGraphSchema_NiagaraSystemOverview {}
-pub struct UNiagaraBakerFunctionLibrary {}
-pub struct UNiagaraBakerStaticMeshFactoryNew {}
+impl UFNiagaraMemoryBufferSimCacheVisualizerSettings {}
+#[repr(C, align(8))]
+pub struct UEdGraphSchema_Niagara {
+    __padding_end: [u8; 48],
+}
+impl UEdGraphSchema_Niagara {}
+#[repr(C, align(8))]
+pub struct UEdGraphSchema_NiagaraSystemOverview {
+    __padding_end: [u8; 48],
+}
+impl UEdGraphSchema_NiagaraSystemOverview {}
+#[repr(C, align(8))]
+pub struct UNiagaraBakerFunctionLibrary {
+    __padding_end: [u8; 48],
+}
+impl UNiagaraBakerFunctionLibrary {}
+#[repr(C, align(8))]
+pub struct UNiagaraBakerStaticMeshFactoryNew {
+    __padding_end: [u8; 136],
+}
+impl UNiagaraBakerStaticMeshFactoryNew {}
+#[repr(C, align(8))]
 pub struct UNiagaraClipboardFunctionInput {
-    pub input_name: FName,
-    pub input_type: crate::bindings::niagara::FNiagaraTypeDefinition,
-    pub b_has_edit_condition: bool,
-    pub b_edit_condition_value: bool,
-    pub value_mode: ENiagaraClipboardFunctionInputValueMode,
-    pub local: TArray<u8>,
-    pub linked: crate::bindings::niagara::FNiagaraVariableBase,
-    pub data: UPtr<crate::bindings::niagara::UNiagaraDataInterface>,
-    pub object_asset: UPtr<crate::bindings::core_u_object::UObject>,
-    pub expression: FString,
-    pub dynamic: UPtr<UNiagaraClipboardFunction>,
-    pub children_inputs: TArray<UPtr<UNiagaraClipboardFunctionInput>>,
+    __padding_end: [u8; 240],
 }
+impl UNiagaraClipboardFunctionInput {}
+#[repr(C, align(8))]
 pub struct UNiagaraClipboardRenderer {
-    pub renderer_properties: UPtr<crate::bindings::niagara::UNiagaraRendererProperties>,
-    pub stack_note_data: FNiagaraStackNoteData,
+    __padding_end: [u8; 112],
 }
+impl UNiagaraClipboardRenderer {}
+#[repr(C, align(8))]
 pub struct UNiagaraClipboardFunction {
-    pub function_name: FString,
-    pub display_name: FText,
-    pub script_mode: ENiagaraClipboardFunctionScriptMode,
-    pub script: TSoftObjectPtr<crate::bindings::niagara::UNiagaraScript>,
-    pub assignment_targets: TArray<crate::bindings::niagara::FNiagaraVariable>,
-    pub assignment_defaults: TArray<FString>,
-    pub inputs: TArray<UPtr<UNiagaraClipboardFunctionInput>>,
-    pub on_pasted_function_call_node_delegate: FNiagaraClipboardFunction_OnPastedFunctionCallNodeDelegate,
-    pub script_version: crate::bindings::core_u_object::FGuid,
-    pub stack_note_data: FNiagaraStackNoteData,
+    __padding_end: [u8; 288],
 }
+impl UNiagaraClipboardFunction {}
+#[repr(C, align(8))]
 pub struct UNiagaraClipboardContent {
-    pub functions: TArray<UPtr<UNiagaraClipboardFunction>>,
-    pub function_inputs: TArray<UPtr<UNiagaraClipboardFunctionInput>>,
-    pub renderers: TArray<UPtr<UNiagaraClipboardRenderer>>,
-    pub scripts: TArray<UPtr<crate::bindings::niagara::UNiagaraScript>>,
-    pub script_variables: TArray<FNiagaraClipboardScriptVariable>,
-    pub stateless_modules: TArray<UPtr<crate::bindings::core_u_object::UObject>>,
-    pub exported_nodes: FString,
-    pub b_fixup_paste_index_for_script_dependencies_in_stack: bool,
-    pub stack_note: FNiagaraStackNoteData,
-    pub portable_values: TArray<FNiagaraClipboardPortableValue>,
+    __padding_end: [u8; 240],
 }
-pub struct UNiagaraClipboardEditorScriptingUtilities {}
-pub struct UNiagaraConvertInPlaceEmitterAndSystemState {}
-pub struct UNiagaraDataChannelAssetFactoryNew {}
+impl UNiagaraClipboardContent {}
+#[repr(C, align(8))]
+pub struct UNiagaraClipboardEditorScriptingUtilities {
+    __padding_end: [u8; 48],
+}
+impl UNiagaraClipboardEditorScriptingUtilities {}
+#[repr(C, align(8))]
+pub struct UNiagaraConvertInPlaceEmitterAndSystemState {
+    __padding_end: [u8; 48],
+}
+impl UNiagaraConvertInPlaceEmitterAndSystemState {}
+#[repr(C, align(8))]
+pub struct UNiagaraDataChannelAssetFactoryNew {
+    __padding_end: [u8; 136],
+}
+impl UNiagaraDataChannelAssetFactoryNew {}
+#[repr(C, align(8))]
 pub struct UNiagaraEditorParametersAdapter {
-    pub editor_only_script_vars: TArray<UPtr<UNiagaraScriptVariable>>,
+    __padding_end: [u8; 64],
 }
+impl UNiagaraEditorParametersAdapter {}
+#[repr(C, align(8))]
 pub struct UNiagaraEditorSettings {
-    pub default_script: crate::bindings::core_u_object::FSoftObjectPath,
-    pub default_dynamic_input_script: crate::bindings::core_u_object::FSoftObjectPath,
-    pub default_function_script: crate::bindings::core_u_object::FSoftObjectPath,
-    pub default_module_script: crate::bindings::core_u_object::FSoftObjectPath,
-    pub default_empty_emitter: crate::bindings::core_u_object::FSoftObjectPath,
-    pub emitter_asset_wizard_configuration: crate::bindings::core_u_object::FSoftObjectPath,
-    pub system_asset_wizard_configuration: crate::bindings::core_u_object::FSoftObjectPath,
-    pub default_decal_renderer_material: crate::bindings::core_u_object::FSoftObjectPath,
-    pub default_mesh_renderer_mesh: crate::bindings::core_u_object::FSoftObjectPath,
-    pub default_ribbon_renderer_material: crate::bindings::core_u_object::FSoftObjectPath,
-    pub default_sprite_renderer_material: crate::bindings::core_u_object::FSoftObjectPath,
-    pub b_display_preview_movies_in_tooltips: bool,
-    pub tooltip_preview_movie_size: crate::bindings::core_u_object::FVector2f,
-    pub required_system_update_script: crate::bindings::core_u_object::FSoftObjectPath,
-    pub default_validation_rule_sets: TArray<
-        TSoftObjectPtr<crate::bindings::niagara::UNiagaraValidationRuleSet>,
-    >,
-    pub graph_creation_shortcuts: TArray<FNiagaraSpawnShortcut>,
-    pub b_simplify_stack_nodes_at_low_resolution: bool,
-    pub low_resolution_node_max_name_chars: i32,
-    pub b_always_zoom_to_fit_system_graph: bool,
-    pub renderer_category_expand_state: ENiagaraCategoryExpandState,
-    pub defaults_sequencer_subtracks: ENiagaraAddDefaultsTrackMode,
-    pub script_graph_zoom_limit_handling: crate::bindings::graph_editor::EGraphZoomLimitHandling,
-    pub b_expand_module_notes_by_default: bool,
-    pub b_auto_compile: bool,
-    pub b_auto_play: bool,
-    pub b_reset_simulation_on_change: bool,
-    pub b_resimulate_on_change_while_paused: bool,
-    pub b_reset_dependent_systems_when_editing_emitters: bool,
-    pub b_display_advanced_parameter_panel_categories: bool,
-    pub b_display_affected_asset_stats: bool,
-    pub affected_asset_search_limit: i32,
-    pub b_update_stack_values_on_commit_only: bool,
-    pub playback_speeds: TArray<f32>,
-    pub action_colors: FNiagaraActionColors,
-    pub default_note_color: crate::bindings::core_u_object::FLinearColor,
-    pub hlsl_keyword_replacements: TMap<FString, FString>,
-    pub namespace_metadata: TArray<FNiagaraNamespaceMetadata>,
-    pub namespace_modifier_metadata: TArray<FNiagaraNamespaceMetadata>,
-    pub default_namespace_metadata: FNiagaraNamespaceMetadata,
-    pub default_namespace_modifier_metadata: FNiagaraNamespaceMetadata,
-    pub curve_templates: TArray<FNiagaraCurveTemplate>,
-    pub curve_editor_shared_settings: FNiagaraCurveEditorSharedSettings,
-    pub viewport_settings: FNiagaraViewportSharedSettings,
-    pub system_parameter_panel_section_data: TArray<
-        FNiagaraParameterPanelSectionStorage,
-    >,
-    pub b_force_silent_loading_of_cached_assets: bool,
+    __padding_end: [u8; 1488],
 }
-pub struct UNiagaraEffectTypeFactoryNew {}
+impl UNiagaraEditorSettings {}
+#[repr(C, align(8))]
+pub struct UNiagaraEffectTypeFactoryNew {
+    __padding_end: [u8; 136],
+}
+impl UNiagaraEffectTypeFactoryNew {}
+#[repr(C, align(8))]
 pub struct UNiagaraEmitterEditorData {
-    pub stack_editor_data: UPtr<UNiagaraStackEditorData>,
-    pub playback_range_min: f32,
-    pub playback_range_max: f32,
-    pub flags_96: u8,
-    pub summary_view_function_input_metadata_deprecated: TMap<
-        FFunctionInputSummaryViewKey,
-        FFunctionInputSummaryViewMetadata,
-    >,
-    pub summary_sections_deprecated: TArray<
-        crate::bindings::niagara::FNiagaraStackSection,
-    >,
-    pub summary_view_root: UPtr<crate::bindings::data_hierarchy_editor::UHierarchyRoot>,
-    pub emitter_thumbnail: UPtr<crate::bindings::engine::UTexture2D>,
+    __padding_end: [u8; 248],
 }
-pub struct UNiagaraEmitterFactoryNew {}
+impl UNiagaraEmitterEditorData {}
+#[repr(C, align(8))]
+pub struct UNiagaraEmitterFactoryNew {
+    __padding_end: [u8; 152],
+}
+impl UNiagaraEmitterFactoryNew {}
+#[repr(C, align(8))]
 pub struct UNiagaraGraph {
-    pub change_id: crate::bindings::core_u_object::FGuid,
-    pub force_rebuild_id: crate::bindings::core_u_object::FGuid,
-    pub last_built_traversal_data_change_id: crate::bindings::core_u_object::FGuid,
-    pub last_built_script_version_id: crate::bindings::core_u_object::FGuid,
-    pub cached_usage_info: TArray<FNiagaraGraphScriptUsageInfo>,
-    pub variable_to_meta_data_deprecated: TMap<
-        crate::bindings::niagara::FNiagaraVariable,
-        crate::bindings::niagara::FNiagaraVariableMetaData,
-    >,
-    pub variable_to_script_variable: TMap<
-        crate::bindings::niagara::FNiagaraVariable,
-        UPtr<UNiagaraScriptVariable>,
-    >,
-    pub parameter_hierarchy_root: UPtr<
-        crate::bindings::data_hierarchy_editor::UHierarchyRoot,
-    >,
-    pub parameter_to_references_map: TMap<
-        crate::bindings::niagara::FNiagaraVariable,
-        FNiagaraGraphParameterReferenceCollection,
-    >,
-    pub compilation_script_variables: TArray<FNiagaraScriptVariableData>,
-    pub b_has_valid_last_built_script_version_id: bool,
+    __padding_end: [u8; 792],
 }
-pub struct UNiagaraMessageData {}
+impl UNiagaraGraph {}
+#[repr(C, align(8))]
+pub struct UNiagaraMessageData {
+    __padding_end: [u8; 48],
+}
+impl UNiagaraMessageData {}
+#[repr(C, align(8))]
 pub struct UNiagaraMessageDataText {
-    pub message_text: FText,
-    pub short_description: FText,
-    pub message_severity: ENiagaraMessageSeverity,
-    pub b_allow_dismissal: bool,
-    pub topic_name: FName,
+    __padding_end: [u8; 96],
 }
+impl UNiagaraMessageDataText {}
+#[repr(C, align(8))]
 pub struct UNiagaraNode {
-    pub change_id: crate::bindings::core_u_object::FGuid,
+    __padding_end: [u8; 256],
 }
-pub struct UNiagaraNodeWithDynamicPins {}
+impl UNiagaraNode {}
+#[repr(C, align(8))]
+pub struct UNiagaraNodeWithDynamicPins {
+    __padding_end: [u8; 256],
+}
+impl UNiagaraNodeWithDynamicPins {}
+#[repr(C, align(8))]
 pub struct UNiagaraNodeFunctionCall {
-    pub function_script: UPtr<crate::bindings::niagara::UNiagaraScript>,
-    pub selected_script_version: crate::bindings::core_u_object::FGuid,
-    pub function_script_asset_object_path: FName,
-    pub signature: crate::bindings::niagara::FNiagaraFunctionSignature,
-    pub function_specifiers: TMap<FName, FName>,
-    pub propagated_static_switch_parameters: TArray<FNiagaraPropagatedVariable>,
-    pub previous_script_version: crate::bindings::core_u_object::FGuid,
-    pub python_upgrade_script_warnings: FString,
-    pub debug_state: crate::bindings::niagara::ENiagaraFunctionDebugState,
-    pub b_inherit_debug_status: bool,
-    pub cached_change_id: crate::bindings::core_u_object::FGuid,
-    pub invalid_script_version_reference: crate::bindings::core_u_object::FGuid,
-    pub function_display_name: FString,
-    pub message_key_to_message_map_deprecated: TMap<
-        crate::bindings::core_u_object::FGuid,
-        UPtr<UNiagaraMessageData>,
-    >,
-    pub message_store: crate::bindings::niagara::FNiagaraMessageStore,
-    pub stack_messages: TArray<FNiagaraStackMessage>,
-    pub bound_pin_names: TMap<crate::bindings::core_u_object::FGuid, FName>,
+    __padding_end: [u8; 1192],
 }
+impl UNiagaraNodeFunctionCall {}
+#[repr(C, align(8))]
 pub struct UNiagaraNodeAssignment {
-    pub assignment_target_deprecated: crate::bindings::niagara::FNiagaraVariable,
-    pub assignment_default_value_deprecated: FString,
-    pub assignment_targets: TArray<crate::bindings::niagara::FNiagaraVariable>,
-    pub assignment_default_values: TArray<FString>,
-    pub old_function_call_name: FString,
+    __padding_end: [u8; 1376],
 }
+impl UNiagaraNodeAssignment {}
+#[repr(C, align(8))]
 pub struct UNiagaraNodeConvert {
-    pub autowire_swizzle: FString,
-    pub autowire_make_type: crate::bindings::niagara::FNiagaraTypeDefinition,
-    pub autowire_break_type: crate::bindings::niagara::FNiagaraTypeDefinition,
-    pub connections: TArray<FNiagaraConvertConnection>,
-    pub b_is_wiring_shown: bool,
-    pub expanded_items: TArray<FNiagaraConvertPinRecord>,
+    __padding_end: [u8; 392],
 }
+impl UNiagaraNodeConvert {}
+#[repr(C, align(8))]
 pub struct UNiagaraNodeCustomHlsl {
-    pub script_usage: crate::bindings::niagara::ENiagaraScriptUsage,
-    pub custom_hlsl: FString,
-    pub absolute_include_file_paths: TArray<crate::bindings::core_u_object::FFilePath>,
-    pub virtual_include_file_paths: TArray<FString>,
-    pub b_is_shader_code_shown: bool,
+    __padding_end: [u8; 1264],
 }
+impl UNiagaraNodeCustomHlsl {}
+#[repr(C, align(8))]
 pub struct UNiagaraNodeDataSetBase {
-    pub data_set: crate::bindings::niagara::FNiagaraDataSetID,
-    pub variables: TArray<crate::bindings::niagara::FNiagaraVariable>,
-    pub variable_friendly_names: TArray<FString>,
-    pub external_struct_asset: UPtr<crate::bindings::core_u_object::UStruct>,
+    __padding_end: [u8; 312],
 }
+impl UNiagaraNodeDataSetBase {}
+#[repr(C, align(8))]
 pub struct UNiagaraNodeEmitter {
-    pub owner_system: UPtr<crate::bindings::niagara::UNiagaraSystem>,
-    pub emitter_handle_id: crate::bindings::core_u_object::FGuid,
-    pub display_name: FText,
-    pub script_type: crate::bindings::niagara::ENiagaraScriptUsage,
+    __padding_end: [u8; 344],
 }
+impl UNiagaraNodeEmitter {}
+#[repr(C, align(8))]
 pub struct UNiagaraNodeIf {
-    pub output_vars: TArray<crate::bindings::niagara::FNiagaraVariable>,
-    pub path_associated_pin_guids: TArray<FPinGuidsForPath>,
-    pub condition_pin_guid: crate::bindings::core_u_object::FGuid,
+    __padding_end: [u8; 304],
 }
+impl UNiagaraNodeIf {}
+#[repr(C, align(8))]
 pub struct UNiagaraNodeInput {
-    pub input: crate::bindings::niagara::FNiagaraVariable,
-    pub usage: crate::bindings::niagara::ENiagaraInputNodeUsage,
-    pub call_sort_priority: i32,
-    pub exposure_options: FNiagaraInputExposureOptions,
-    pub data_interface: UPtr<crate::bindings::niagara::UNiagaraDataInterface>,
-    pub object_asset: UPtr<crate::bindings::core_u_object::UObject>,
+    __padding_end: [u8; 360],
 }
+impl UNiagaraNodeInput {}
+#[repr(C, align(8))]
 pub struct UNiagaraNodeOp {
-    pub op_name: FName,
-    pub added_pins: TArray<FAddedPinData>,
-    pub b_all_static: bool,
+    __padding_end: [u8; 296],
 }
+impl UNiagaraNodeOp {}
+#[repr(C, align(8))]
 pub struct UNiagaraNodeOutput {
-    pub outputs: TArray<crate::bindings::niagara::FNiagaraVariable>,
-    pub script_type: crate::bindings::niagara::ENiagaraScriptUsage,
-    pub script_type_id: crate::bindings::core_u_object::FGuid,
-    pub script_type_index_deprecated: i32,
+    __padding_end: [u8; 296],
 }
+impl UNiagaraNodeOutput {}
+#[repr(C, align(8))]
 pub struct UNiagaraNodeOutputTag {
-    pub b_editor_only: bool,
-    pub b_emit_message_on_failure: bool,
-    pub failure_severity: crate::bindings::niagara_shader::FNiagaraCompileEventSeverity,
+    __padding_end: [u8; 272],
 }
-pub struct UNiagaraNodeParameterMapBase {}
-pub struct UNiagaraNodeParameterMapSet {}
-pub struct UNiagaraNodeParameterMapFor {}
-pub struct UNiagaraNodeParameterMapForWithContinue {}
-pub struct UNiagaraNodeParameterMapForIndex {}
+impl UNiagaraNodeOutputTag {}
+#[repr(C, align(8))]
+pub struct UNiagaraNodeParameterMapBase {
+    __padding_end: [u8; 280],
+}
+impl UNiagaraNodeParameterMapBase {}
+#[repr(C, align(8))]
+pub struct UNiagaraNodeParameterMapSet {
+    __padding_end: [u8; 280],
+}
+impl UNiagaraNodeParameterMapSet {}
+#[repr(C, align(8))]
+pub struct UNiagaraNodeParameterMapFor {
+    __padding_end: [u8; 280],
+}
+impl UNiagaraNodeParameterMapFor {}
+#[repr(C, align(8))]
+pub struct UNiagaraNodeParameterMapForWithContinue {
+    __padding_end: [u8; 280],
+}
+impl UNiagaraNodeParameterMapForWithContinue {}
+#[repr(C, align(8))]
+pub struct UNiagaraNodeParameterMapForIndex {
+    __padding_end: [u8; 256],
+}
+impl UNiagaraNodeParameterMapForIndex {}
+#[repr(C, align(8))]
 pub struct UNiagaraNodeParameterMapGet {
-    pub pin_output_to_pin_default_persistent_id: TMap<
-        crate::bindings::core_u_object::FGuid,
-        crate::bindings::core_u_object::FGuid,
-    >,
+    __padding_end: [u8; 360],
 }
-pub struct UNiagaraNodeReadDataSet {}
-pub struct UNiagaraNodeReroute {}
+impl UNiagaraNodeParameterMapGet {}
+#[repr(C, align(8))]
+pub struct UNiagaraNodeReadDataSet {
+    __padding_end: [u8; 312],
+}
+impl UNiagaraNodeReadDataSet {}
+#[repr(C, align(8))]
+pub struct UNiagaraNodeReroute {
+    __padding_end: [u8; 264],
+}
+impl UNiagaraNodeReroute {}
+#[repr(C, align(8))]
 pub struct UNiagaraNodeUsageSelector {
-    pub output_vars: TArray<crate::bindings::niagara::FNiagaraVariable>,
-    pub output_var_guids: TArray<crate::bindings::core_u_object::FGuid>,
-    pub selector_guid: crate::bindings::core_u_object::FGuid,
-    pub num_options_per_variable: i32,
+    __padding_end: [u8; 312],
 }
+impl UNiagaraNodeUsageSelector {}
+#[repr(C, align(8))]
 pub struct UNiagaraNodeSelect {
-    pub selector_pin_type: crate::bindings::niagara::FNiagaraTypeDefinition,
-    pub selector_pin_guid: crate::bindings::core_u_object::FGuid,
+    __padding_end: [u8; 376],
 }
-pub struct UNiagaraNodeSimTargetSelector {}
+impl UNiagaraNodeSelect {}
+#[repr(C, align(8))]
+pub struct UNiagaraNodeSimTargetSelector {
+    __padding_end: [u8; 312],
+}
+impl UNiagaraNodeSimTargetSelector {}
+#[repr(C, align(8))]
 pub struct UNiagaraNodeStaticSwitch {
-    pub input_parameter_name: FName,
-    pub switch_type_data: FStaticSwitchTypeData,
+    __padding_end: [u8; 384],
 }
+impl UNiagaraNodeStaticSwitch {}
+#[repr(C, align(8))]
 pub struct UNiagaraNodeWriteDataSet {
-    pub event_name: FName,
+    __padding_end: [u8; 328],
 }
+impl UNiagaraNodeWriteDataSet {}
+#[repr(C, align(8))]
 pub struct UNiagaraOutliner {
-    pub capture_settings: crate::bindings::niagara::FNiagaraOutlinerCaptureSettings,
-    pub view_settings: FNiagaraOutlinerViewSettings,
-    pub data: crate::bindings::niagara::FNiagaraOutlinerData,
-    pub system_sim_caches: TMap<FName, UPtr<crate::bindings::niagara::UNiagaraSimCache>>,
+    __padding_end: [u8; 288],
 }
+impl UNiagaraOutliner {}
+#[repr(C, align(8))]
 pub struct UNiagaraOverviewNode {
-    pub owning_system: UPtr<crate::bindings::niagara::UNiagaraSystem>,
-    pub emitter_handle_guid: crate::bindings::core_u_object::FGuid,
+    __padding_end: [u8; 224],
 }
-pub struct UNiagaraParameterCollectionFactoryNew {}
-pub struct UNiagaraParameterCollectionInstanceFactoryNew {}
+impl UNiagaraOverviewNode {}
+#[repr(C, align(8))]
+pub struct UNiagaraParameterCollectionFactoryNew {
+    __padding_end: [u8; 136],
+}
+impl UNiagaraParameterCollectionFactoryNew {}
+#[repr(C, align(8))]
+pub struct UNiagaraParameterCollectionInstanceFactoryNew {
+    __padding_end: [u8; 144],
+}
+impl UNiagaraParameterCollectionInstanceFactoryNew {}
+#[repr(C, align(8))]
 pub struct UNiagaraParameterDefinitions {
-    pub b_promote_to_top_in_add_menus: bool,
-    pub menu_sort_order: i32,
-    pub script_variables: TArray<UPtr<UNiagaraScriptVariable>>,
-    pub external_parameter_definitions_subscriptions: TArray<
-        FParameterDefinitionsBindingNameSubscription,
-    >,
+    __padding_end: [u8; 136],
 }
-pub struct UNiagaraParameterDefinitionsFactory {}
+impl UNiagaraParameterDefinitions {}
+#[repr(C, align(8))]
+pub struct UNiagaraParameterDefinitionsFactory {
+    __padding_end: [u8; 136],
+}
+impl UNiagaraParameterDefinitionsFactory {}
+#[repr(C, align(8))]
 pub struct UNiagaraScriptSource {
-    pub node_graph: UPtr<UNiagaraGraph>,
+    __padding_end: [u8; 128],
 }
+impl UNiagaraScriptSource {}
+#[repr(C, align(8))]
 pub struct UNiagaraScriptVariable {
-    pub default_mode: crate::bindings::niagara::ENiagaraDefaultMode,
-    pub default_binding: crate::bindings::niagara::FNiagaraScriptVariableBinding,
-    pub variable: crate::bindings::niagara::FNiagaraVariable,
-    pub metadata: crate::bindings::niagara::FNiagaraVariableMetaData,
-    pub default_value_variant: crate::bindings::niagara::FNiagaraVariant,
-    pub static_switch_default_value: i32,
-    pub b_is_static_switch: bool,
-    pub b_subscribed_to_parameter_definitions: bool,
-    pub change_id: crate::bindings::core_u_object::FGuid,
-    pub b_override_parameter_definitions_default_value: bool,
+    __padding_end: [u8; 640],
 }
-pub struct UNiagaraSimCacheFactoryNew {}
+impl UNiagaraScriptVariable {}
+#[repr(C, align(8))]
+pub struct UNiagaraSimCacheFactoryNew {
+    __padding_end: [u8; 136],
+}
+impl UNiagaraSimCacheFactoryNew {}
+#[repr(C, align(8))]
 pub struct UNiagaraStackEditorData {
-    pub b_hide_disabled_modules: bool,
-    pub stack_entry_key_to_expanded_map: TMap<FString, bool>,
-    pub stack_entry_key_to_inline_display_mode_map: TMap<
-        FString,
-        ENiagaraStackEntryInlineDisplayMode,
-    >,
-    pub stack_entry_key_to_expanded_overview_map: TMap<FString, bool>,
-    pub stack_notes: TMap<FString, FNiagaraStackNoteData>,
-    pub stack_entry_key_to_stateless_module_editor_data: TMap<
-        FString,
-        FNiagaraStatelessModuleEditorData,
-    >,
-    pub stack_entry_key_to_display_name: TMap<FString, FText>,
-    pub dismissed_stack_issue_ids: TArray<FString>,
+    __padding_end: [u8; 920],
 }
-pub struct UNiagaraStatelessEmitterTemplateFactoryNew {}
+impl UNiagaraStackEditorData {}
+#[repr(C, align(8))]
+pub struct UNiagaraStatelessEmitterTemplateFactoryNew {
+    __padding_end: [u8; 136],
+}
+impl UNiagaraStatelessEmitterTemplateFactoryNew {}
+#[repr(C, align(8))]
 pub struct UNiagaraSystemEditorFolder {
-    pub folder_name: FName,
-    pub child_folders: TArray<UPtr<UNiagaraSystemEditorFolder>>,
-    pub child_emitter_handle_ids: TArray<crate::bindings::core_u_object::FGuid>,
+    __padding_end: [u8; 96],
 }
+impl UNiagaraSystemEditorFolder {}
+#[repr(C, align(16))]
 pub struct UNiagaraSystemEditorData {
-    pub user_parameter_hierarchy: UPtr<
-        crate::bindings::data_hierarchy_editor::UHierarchyRoot,
-    >,
-    pub root_folder: UPtr<UNiagaraSystemEditorFolder>,
-    pub stack_editor_data: UPtr<UNiagaraStackEditorData>,
-    pub owner_transform: crate::bindings::core_u_object::FTransform,
-    pub playback_range_min: f32,
-    pub playback_range_max: f32,
-    pub playback_frame_rate: crate::bindings::core_u_object::FFrameRate,
-    pub b_lock_playback_frame_rate: bool,
-    pub system_overview_graph: UPtr<crate::bindings::engine::UEdGraph>,
-    pub overview_graph_view_settings: crate::bindings::niagara::FNiagaraGraphViewSettings,
-    pub asset_viewport_settings: FNiagaraPerAssetViewportSettings,
-    pub b_system_is_placeholder: bool,
-    pub user_parameter_meta_data: TArray<UPtr<UNiagaraScriptVariable>>,
+    __padding_end: [u8; 368],
 }
-pub struct UNiagaraSystemFactoryNew {}
-pub struct UNiagaraThumbnailRendererBase {}
-pub struct UNiagaraEmitterThumbnailRenderer {}
-pub struct UNiagaraSystemThumbnailRenderer {}
-pub struct UNiagaraValidationRule_NoWarmupTime {}
+impl UNiagaraSystemEditorData {}
+#[repr(C, align(8))]
+pub struct UNiagaraSystemFactoryNew {
+    __padding_end: [u8; 160],
+}
+impl UNiagaraSystemFactoryNew {}
+#[repr(C, align(8))]
+pub struct UNiagaraThumbnailRendererBase {
+    __padding_end: [u8; 48],
+}
+impl UNiagaraThumbnailRendererBase {}
+#[repr(C, align(8))]
+pub struct UNiagaraEmitterThumbnailRenderer {
+    __padding_end: [u8; 48],
+}
+impl UNiagaraEmitterThumbnailRenderer {}
+#[repr(C, align(8))]
+pub struct UNiagaraSystemThumbnailRenderer {
+    __padding_end: [u8; 48],
+}
+impl UNiagaraSystemThumbnailRenderer {}
+#[repr(C, align(8))]
+pub struct UNiagaraValidationRule_NoWarmupTime {
+    __padding_end: [u8; 56],
+}
+impl UNiagaraValidationRule_NoWarmupTime {}
+#[repr(C, align(8))]
 pub struct UNiagaraValidationRule_NoEvents {
-    pub severity: crate::bindings::niagara::ENiagaraValidationSeverity,
-    pub platforms: crate::bindings::niagara::FNiagaraPlatformSet,
+    __padding_end: [u8; 160],
 }
-pub struct UNiagaraValidationRule_FixedGPUBoundsSet {}
+impl UNiagaraValidationRule_NoEvents {}
+#[repr(C, align(8))]
+pub struct UNiagaraValidationRule_FixedGPUBoundsSet {
+    __padding_end: [u8; 56],
+}
+impl UNiagaraValidationRule_FixedGPUBoundsSet {}
+#[repr(C, align(8))]
 pub struct UNiagaraValidationRule_EmitterCount {
-    pub severity: crate::bindings::niagara::ENiagaraValidationSeverity,
-    pub emitter_count_limits: TArray<FNiagaraValidationRule_EmitterCountAndPlatformSet>,
+    __padding_end: [u8; 80],
 }
+impl UNiagaraValidationRule_EmitterCount {}
+#[repr(C, align(8))]
 pub struct UNiagaraValidationRule_RendererCount {
-    pub severity: crate::bindings::niagara::ENiagaraValidationSeverity,
-    pub renderer_count_limits: TArray<
-        FNiagaraValidationRule_RendererCountAndPlatformSet,
-    >,
+    __padding_end: [u8; 80],
 }
+impl UNiagaraValidationRule_RendererCount {}
+#[repr(C, align(8))]
 pub struct UNiagaraValidationRule_BannedRenderers {
-    pub platforms: crate::bindings::niagara::FNiagaraPlatformSet,
-    pub severity: crate::bindings::niagara::ENiagaraValidationSeverity,
-    pub banned_renderers: TArray<
-        TSubclassOf<crate::bindings::niagara::UNiagaraRendererProperties>,
-    >,
+    __padding_end: [u8; 176],
 }
+impl UNiagaraValidationRule_BannedRenderers {}
+#[repr(C, align(8))]
 pub struct UNiagaraValidationRule_Lightweight {
-    pub platforms: crate::bindings::niagara::FNiagaraPlatformSet,
-    pub used_with_emitter: TOptional<
-        crate::bindings::niagara::ENiagaraValidationSeverity,
-    >,
-    pub using_experimental_module: TOptional<
-        crate::bindings::niagara::ENiagaraValidationSeverity,
-    >,
+    __padding_end: [u8; 168],
 }
+impl UNiagaraValidationRule_Lightweight {}
+#[repr(C, align(8))]
 pub struct UNiagaraValidationRule_BannedModules {
-    pub platforms: crate::bindings::niagara::FNiagaraPlatformSet,
-    pub b_ban_on_gpu: bool,
-    pub b_ban_on_cpu: bool,
-    pub severity: crate::bindings::niagara::ENiagaraValidationSeverity,
-    pub banned_modules: TArray<UPtr<crate::bindings::niagara::UNiagaraScript>>,
+    __padding_end: [u8; 176],
 }
+impl UNiagaraValidationRule_BannedModules {}
+#[repr(C, align(8))]
 pub struct UNiagaraValidationRule_BannedDataInterfaces {
-    pub severity: crate::bindings::niagara::ENiagaraValidationSeverity,
-    pub b_ban_on_gpu: bool,
-    pub b_ban_on_cpu: bool,
-    pub platforms: crate::bindings::niagara::FNiagaraPlatformSet,
-    pub banned_data_interfaces: TArray<
-        TSubclassOf<crate::bindings::niagara::UNiagaraDataInterface>,
-    >,
+    __padding_end: [u8; 176],
 }
+impl UNiagaraValidationRule_BannedDataInterfaces {}
+#[repr(C, align(8))]
 pub struct UNiagaraValidationRule_RendererSortingEnabled {
-    pub severity: crate::bindings::niagara::ENiagaraValidationSeverity,
-    pub platforms: crate::bindings::niagara::FNiagaraPlatformSet,
+    __padding_end: [u8; 160],
 }
+impl UNiagaraValidationRule_RendererSortingEnabled {}
+#[repr(C, align(8))]
 pub struct UNiagaraValidationRule_GpuUsage {
-    pub severity: crate::bindings::niagara::ENiagaraValidationSeverity,
-    pub platforms: crate::bindings::niagara::FNiagaraPlatformSet,
+    __padding_end: [u8; 160],
 }
+impl UNiagaraValidationRule_GpuUsage {}
+#[repr(C, align(8))]
 pub struct UNiagaraValidationRule_RibbonRenderer {
-    pub severity: crate::bindings::niagara::ENiagaraValidationSeverity,
-    pub b_fail_if_used_by_gpu_simulation: bool,
-    pub b_fail_if_used_by_gpu_init: bool,
-    pub platforms: crate::bindings::niagara::FNiagaraPlatformSet,
+    __padding_end: [u8; 160],
 }
-pub struct UNiagaraValidationRule_InvalidEffectType {}
+impl UNiagaraValidationRule_RibbonRenderer {}
+#[repr(C, align(8))]
+pub struct UNiagaraValidationRule_InvalidEffectType {
+    __padding_end: [u8; 56],
+}
+impl UNiagaraValidationRule_InvalidEffectType {}
+#[repr(C, align(8))]
 pub struct UNiagaraValidationRule_HasEffectType {
-    pub severity: crate::bindings::niagara::ENiagaraValidationSeverity,
+    __padding_end: [u8; 64],
 }
+impl UNiagaraValidationRule_HasEffectType {}
+#[repr(C, align(8))]
 pub struct UDEPRECATED_NiagaraValidationRule_CheckDeprecatedEmitters {
-    pub severity: crate::bindings::niagara::ENiagaraValidationSeverity,
+    __padding_end: [u8; 64],
 }
-pub struct UNiagaraValidationRule_LWC {}
-pub struct UNiagaraValidationRule_NoOpaqueRenderMaterial {}
-pub struct UNiagaraValidationRule_NoFixedDeltaTime {}
+impl UDEPRECATED_NiagaraValidationRule_CheckDeprecatedEmitters {}
+#[repr(C, align(8))]
+pub struct UNiagaraValidationRule_LWC {
+    __padding_end: [u8; 56],
+}
+impl UNiagaraValidationRule_LWC {}
+#[repr(C, align(8))]
+pub struct UNiagaraValidationRule_NoOpaqueRenderMaterial {
+    __padding_end: [u8; 56],
+}
+impl UNiagaraValidationRule_NoOpaqueRenderMaterial {}
+#[repr(C, align(8))]
+pub struct UNiagaraValidationRule_NoFixedDeltaTime {
+    __padding_end: [u8; 56],
+}
+impl UNiagaraValidationRule_NoFixedDeltaTime {}
+#[repr(C, align(8))]
 pub struct UNiagaraValidationRule_SimulationStageBudget {
-    pub b_max_simulation_stages_enabled: bool,
-    pub b_max_iterations_per_stage_enabled: bool,
-    pub b_max_total_iterations_enabled: bool,
-    pub severity: crate::bindings::niagara::ENiagaraValidationSeverity,
-    pub max_simulation_stages: i32,
-    pub max_iterations_per_stage: i32,
-    pub max_total_iterations: i32,
+    __padding_end: [u8; 80],
 }
+impl UNiagaraValidationRule_SimulationStageBudget {}
+#[repr(C, align(8))]
 pub struct UNiagaraValidationRule_TickDependencyCheck {
-    pub severity: crate::bindings::niagara::ENiagaraValidationSeverity,
-    pub b_check_actor_component_interface: bool,
-    pub b_check_camera_data_interface: bool,
-    pub b_check_skeletal_mesh_interface: bool,
-    pub effect_types_to_exclude: TArray<
-        TSoftObjectPtr<crate::bindings::niagara::UNiagaraEffectType>,
-    >,
+    __padding_end: [u8; 80],
 }
+impl UNiagaraValidationRule_TickDependencyCheck {}
+#[repr(C, align(8))]
 pub struct UNiagaraValidationRule_UserDataInterfaces {
-    pub b_only_include_exposed_u_objects: bool,
-    pub banned_data_interfaces: TArray<
-        TSubclassOf<crate::bindings::niagara::UNiagaraDataInterface>,
-    >,
-    pub allow_data_interfaces: TArray<
-        TSubclassOf<crate::bindings::niagara::UNiagaraDataInterface>,
-    >,
-    pub severity: crate::bindings::niagara::ENiagaraValidationSeverity,
+    __padding_end: [u8; 104],
 }
+impl UNiagaraValidationRule_UserDataInterfaces {}
+#[repr(C, align(8))]
 pub struct UNiagaraValidationRule_SingletonModule {
-    pub severity: crate::bindings::niagara::ENiagaraValidationSeverity,
-    pub b_check_detailed_usage_context: bool,
+    __padding_end: [u8; 64],
 }
+impl UNiagaraValidationRule_SingletonModule {}
+#[repr(C, align(8))]
 pub struct UNiagaraValidationRule_NoMapForOnCpu {
-    pub severity: crate::bindings::niagara::ENiagaraValidationSeverity,
+    __padding_end: [u8; 144],
 }
+impl UNiagaraValidationRule_NoMapForOnCpu {}
+#[repr(C, align(8))]
 pub struct UNiagaraValidationRule_ModuleSimTargetRestriction {
-    pub severity: crate::bindings::niagara::ENiagaraValidationSeverity,
-    pub supported_sim_target: crate::bindings::niagara::ENiagaraSimTarget,
+    __padding_end: [u8; 64],
 }
+impl UNiagaraValidationRule_ModuleSimTargetRestriction {}
+#[repr(C, align(8))]
 pub struct UNiagaraValidationRule_MaterialUsage {
-    pub failed_usage_severity: crate::bindings::niagara::ENiagaraValidationSeverity,
+    __padding_end: [u8; 64],
 }
-pub struct UNiagaraValidationRuleSetFactoryNew {}
+impl UNiagaraValidationRule_MaterialUsage {}
+#[repr(C, align(8))]
+pub struct UNiagaraValidationRuleSetFactoryNew {
+    __padding_end: [u8; 136],
+}
+impl UNiagaraValidationRuleSetFactoryNew {}
+#[repr(C, align(8))]
 pub struct UNiagaraVersionMetaData {
-    pub b_is_exposed_version: bool,
-    pub change_description: FText,
-    pub b_is_visible_in_version_selector: bool,
-    pub b_deprecated: bool,
-    pub deprecation_message: FText,
-    pub version_guid: crate::bindings::core_u_object::FGuid,
-    pub update_script_execution: crate::bindings::niagara::ENiagaraPythonUpdateScriptReference,
-    pub python_update_script: FString,
-    pub script_asset: crate::bindings::core_u_object::FFilePath,
+    __padding_end: [u8; 152],
 }
-pub struct UMovieSceneNiagaraEmitterSectionBase {}
+impl UNiagaraVersionMetaData {}
+#[repr(C, align(8))]
+pub struct UMovieSceneNiagaraEmitterSectionBase {
+    __padding_end: [u8; 400],
+}
+impl UMovieSceneNiagaraEmitterSectionBase {}
+#[repr(C, align(8))]
 pub struct UMovieSceneNiagaraEmitterTrack {
-    pub sections: TArray<UPtr<crate::bindings::movie_scene::UMovieSceneSection>>,
-    pub b_sections_were_modified: bool,
-    pub emitter_handle_id: crate::bindings::core_u_object::FGuid,
-    pub system_path: FString,
+    __padding_end: [u8; 496],
 }
+impl UMovieSceneNiagaraEmitterTrack {}
+#[repr(C, align(8))]
 pub struct UNiagaraSequence {
-    pub movie_scene: UPtr<crate::bindings::movie_scene::UMovieScene>,
+    __padding_end: [u8; 144],
 }
-pub struct UNiagaraSequencerTrackFilter {}
+impl UNiagaraSequence {}
+#[repr(C, align(8))]
+pub struct UNiagaraSequencerTrackFilter {
+    __padding_end: [u8; 48],
+}
+impl UNiagaraSequencerTrackFilter {}
+#[repr(C, align(8))]
 pub struct UMovieSceneNiagaraEmitterSection {
-    pub num_loops: i32,
-    pub b_start_time_included_in_first_loop_only: bool,
+    __padding_end: [u8; 1832],
 }
+impl UMovieSceneNiagaraEmitterSection {}
+#[repr(C, align(8))]
 pub struct UNiagaraPythonScriptModuleInput {
-    pub input: UPtr<UNiagaraClipboardFunctionInput>,
+    __padding_end: [u8; 56],
 }
+impl UNiagaraPythonScriptModuleInput {}
+#[repr(C, align(8))]
 pub struct UUpgradeNiagaraScriptResults {
+    #[doc(hidden)]
+    __padding_48: [u8; 48],
     pub b_cancelled_by_python_error: bool,
     pub old_inputs: TArray<UPtr<UNiagaraPythonScriptModuleInput>>,
     pub new_inputs: TArray<UPtr<UNiagaraPythonScriptModuleInput>>,
-    pub dummy_input: UPtr<UNiagaraPythonScriptModuleInput>,
+    __padding_end: [u8; 8],
 }
+impl UUpgradeNiagaraScriptResults {}
+#[repr(C, align(8))]
 pub struct UNiagaraPythonModule {
-    pub module_item: UPtr<UNiagaraStackModuleItem>,
+    __padding_end: [u8; 56],
 }
-pub struct UNiagaraPythonEmitter {}
+impl UNiagaraPythonModule {}
+#[repr(C, align(8))]
+pub struct UNiagaraPythonEmitter {
+    __padding_end: [u8; 64],
+}
+impl UNiagaraPythonEmitter {}
+#[repr(C, align(8))]
 pub struct UUpgradeNiagaraEmitterContext {
+    #[doc(hidden)]
+    __padding_48: [u8; 48],
     pub b_cancelled_by_python_error: bool,
     pub old_emitter: UPtr<UNiagaraPythonEmitter>,
     pub new_emitter: UPtr<UNiagaraPythonEmitter>,
+    __padding_end: [u8; 16],
 }
+impl UUpgradeNiagaraEmitterContext {}
+#[repr(C, align(8))]
 pub struct UNiagaraHierarchyScriptParameterRefreshContext {
-    pub niagara_graph: UPtr<UNiagaraGraph>,
+    __padding_end: [u8; 56],
 }
-pub struct UNiagaraHierarchyScriptParameter {}
-pub struct UNiagaraHierarchyScriptCategory {}
-pub struct UNiagaraScriptParametersHierarchyViewModel {}
+impl UNiagaraHierarchyScriptParameterRefreshContext {}
+#[repr(C, align(8))]
+pub struct UNiagaraHierarchyScriptParameter {
+    __padding_end: [u8; 192],
+}
+impl UNiagaraHierarchyScriptParameter {}
+#[repr(C, align(8))]
+pub struct UNiagaraHierarchyScriptCategory {
+    __padding_end: [u8; 232],
+}
+impl UNiagaraHierarchyScriptCategory {}
+#[repr(C, align(8))]
+pub struct UNiagaraScriptParametersHierarchyViewModel {
+    __padding_end: [u8; 504],
+}
+impl UNiagaraScriptParametersHierarchyViewModel {}
+#[repr(C, align(8))]
 pub struct UNiagaraHierarchySummaryDataRefreshContext {
-    pub renderers: TArray<UPtr<crate::bindings::niagara::UNiagaraRendererProperties>>,
+    __padding_end: [u8; 80],
 }
-pub struct UNiagaraHierarchyModule {}
+impl UNiagaraHierarchySummaryDataRefreshContext {}
+#[repr(C, align(8))]
+pub struct UNiagaraHierarchyModule {
+    __padding_end: [u8; 192],
+}
+impl UNiagaraHierarchyModule {}
+#[repr(C, align(8))]
 pub struct UNiagaraHierarchyModuleInput {
-    pub display_name_override: FText,
-    pub tooltip_override: FText,
+    __padding_end: [u8; 224],
 }
+impl UNiagaraHierarchyModuleInput {}
+#[repr(C, align(8))]
 pub struct UNiagaraHierarchyAssignmentInput {
-    pub tooltip_override: FText,
+    __padding_end: [u8; 208],
 }
-pub struct UNiagaraHierarchyEmitterProperties {}
-pub struct UNiagaraHierarchyRenderer {}
-pub struct UNiagaraHierarchyEventHandler {}
-pub struct UNiagaraHierarchyEventHandlerProperties {}
-pub struct UNiagaraHierarchySimStage {}
-pub struct UNiagaraHierarchySimStageProperties {}
-pub struct UNiagaraHierarchyObjectProperty {}
-pub struct UNiagaraSummaryViewViewModel {}
+impl UNiagaraHierarchyAssignmentInput {}
+#[repr(C, align(8))]
+pub struct UNiagaraHierarchyEmitterProperties {
+    __padding_end: [u8; 192],
+}
+impl UNiagaraHierarchyEmitterProperties {}
+#[repr(C, align(8))]
+pub struct UNiagaraHierarchyRenderer {
+    __padding_end: [u8; 192],
+}
+impl UNiagaraHierarchyRenderer {}
+#[repr(C, align(8))]
+pub struct UNiagaraHierarchyEventHandler {
+    __padding_end: [u8; 192],
+}
+impl UNiagaraHierarchyEventHandler {}
+#[repr(C, align(8))]
+pub struct UNiagaraHierarchyEventHandlerProperties {
+    __padding_end: [u8; 192],
+}
+impl UNiagaraHierarchyEventHandlerProperties {}
+#[repr(C, align(8))]
+pub struct UNiagaraHierarchySimStage {
+    __padding_end: [u8; 192],
+}
+impl UNiagaraHierarchySimStage {}
+#[repr(C, align(8))]
+pub struct UNiagaraHierarchySimStageProperties {
+    __padding_end: [u8; 192],
+}
+impl UNiagaraHierarchySimStageProperties {}
+#[repr(C, align(8))]
+pub struct UNiagaraHierarchyObjectProperty {
+    __padding_end: [u8; 192],
+}
+impl UNiagaraHierarchyObjectProperty {}
+#[repr(C, align(8))]
+pub struct UNiagaraSummaryViewViewModel {
+    __padding_end: [u8; 584],
+}
+impl UNiagaraSummaryViewViewModel {}
+#[repr(C, align(8))]
 pub struct UNiagaraHierarchyUserParameterRefreshContext {
-    pub system: UPtr<crate::bindings::niagara::UNiagaraSystem>,
+    __padding_end: [u8; 56],
 }
+impl UNiagaraHierarchyUserParameterRefreshContext {}
+#[repr(C, align(8))]
 pub struct UNiagaraHierarchyUserParameter {
-    pub user_parameter_script_variable: UPtr<UNiagaraScriptVariable>,
+    __padding_end: [u8; 200],
 }
-pub struct UNiagaraUserParametersHierarchyViewModel {}
-pub struct UNiagaraCurveSelectionViewModel {}
-pub struct UNiagaraScratchPadViewModel {}
+impl UNiagaraHierarchyUserParameter {}
+#[repr(C, align(8))]
+pub struct UNiagaraUserParametersHierarchyViewModel {
+    __padding_end: [u8; 504],
+}
+impl UNiagaraUserParametersHierarchyViewModel {}
+#[repr(C, align(8))]
+pub struct UNiagaraCurveSelectionViewModel {
+    __padding_end: [u8; 152],
+}
+impl UNiagaraCurveSelectionViewModel {}
+#[repr(C, align(8))]
+pub struct UNiagaraScratchPadViewModel {
+    __padding_end: [u8; 328],
+}
+impl UNiagaraScratchPadViewModel {}
+#[repr(C, align(8))]
 pub struct UNiagaraScripStatsViewModelSettings {
-    pub enabled_platforms: TArray<i32>,
+    __padding_end: [u8; 64],
 }
-pub struct UNiagaraSystemEditorDocumentsViewModel {}
-pub struct UNiagaraSystemScalabilityViewModel {}
+impl UNiagaraScripStatsViewModelSettings {}
+#[repr(C, align(8))]
+pub struct UNiagaraSystemEditorDocumentsViewModel {
+    __padding_end: [u8; 208],
+}
+impl UNiagaraSystemEditorDocumentsViewModel {}
+#[repr(C, align(8))]
+pub struct UNiagaraSystemScalabilityViewModel {
+    __padding_end: [u8; 160],
+}
+impl UNiagaraSystemScalabilityViewModel {}
+#[repr(C, align(8))]
 pub struct UNiagaraSystemSelectionViewModel {
-    pub stack_selection: UPtr<UNiagaraStackSelection>,
-    pub selection_stack_view_model: UPtr<UNiagaraStackViewModel>,
+    __padding_end: [u8; 256],
 }
+impl UNiagaraSystemSelectionViewModel {}
+#[repr(C, align(8))]
 pub struct UNiagaraStackEntry {
-    pub stack_editor_data: UPtr<UNiagaraStackEditorData>,
-    pub children: TArray<UPtr<UNiagaraStackEntry>>,
-    pub stack_note: UPtr<UNiagaraStackNote>,
-    pub error_children: TArray<UPtr<UNiagaraStackErrorItem>>,
+    __padding_end: [u8; 616],
 }
-pub struct UNiagaraStackCommentCollection {}
+impl UNiagaraStackEntry {}
+#[repr(C, align(8))]
+pub struct UNiagaraStackCommentCollection {
+    __padding_end: [u8; 616],
+}
+impl UNiagaraStackCommentCollection {}
+#[repr(C, align(8))]
 pub struct UNiagaraStackItemGroup {
-    pub group_footer: UPtr<UNiagaraStackItemGroupFooter>,
+    __padding_end: [u8; 696],
 }
+impl UNiagaraStackItemGroup {}
+#[repr(C, align(8))]
 pub struct UNiagaraStackEmitterPropertiesGroup {
-    pub properties_item: UPtr<UNiagaraStackEmitterPropertiesItem>,
+    __padding_end: [u8; 720],
 }
+impl UNiagaraStackEmitterPropertiesGroup {}
+#[repr(C, align(8))]
 pub struct UNiagaraStackItem {
-    pub item_footer: UPtr<UNiagaraStackItemFooter>,
+    __padding_end: [u8; 704],
 }
+impl UNiagaraStackItem {}
+#[repr(C, align(8))]
 pub struct UNiagaraStackEmitterPropertiesItem {
-    pub emitter_object: UPtr<UNiagaraStackObject>,
+    __padding_end: [u8; 744],
 }
+impl UNiagaraStackEmitterPropertiesItem {}
+#[repr(C, align(8))]
 pub struct UNiagaraStackEmitterSummaryItem {
-    pub summary_view_collection: UPtr<UNiagaraStackSummaryViewCollection>,
+    __padding_end: [u8; 736],
 }
+impl UNiagaraStackEmitterSummaryItem {}
+#[repr(C, align(8))]
 pub struct UNiagaraStackEmitterSummaryGroup {
-    pub summary_item: UPtr<UNiagaraStackEmitterSummaryItem>,
+    __padding_end: [u8; 704],
 }
-pub struct UNiagaraStackSpacer {}
-pub struct UNiagaraStackErrorItem {}
-pub struct UNiagaraStackErrorItemLongDescription {}
-pub struct UNiagaraStackErrorItemFix {}
-pub struct UNiagaraStackErrorItemDismiss {}
+impl UNiagaraStackEmitterSummaryGroup {}
+#[repr(C, align(8))]
+pub struct UNiagaraStackSpacer {
+    __padding_end: [u8; 656],
+}
+impl UNiagaraStackSpacer {}
+#[repr(C, align(8))]
+pub struct UNiagaraStackErrorItem {
+    __padding_end: [u8; 776],
+}
+impl UNiagaraStackErrorItem {}
+#[repr(C, align(8))]
+pub struct UNiagaraStackErrorItemLongDescription {
+    __padding_end: [u8; 720],
+}
+impl UNiagaraStackErrorItemLongDescription {}
+#[repr(C, align(8))]
+pub struct UNiagaraStackErrorItemFix {
+    __padding_end: [u8; 816],
+}
+impl UNiagaraStackErrorItemFix {}
+#[repr(C, align(8))]
+pub struct UNiagaraStackErrorItemDismiss {
+    __padding_end: [u8; 816],
+}
+impl UNiagaraStackErrorItemDismiss {}
+#[repr(C, align(8))]
 pub struct UNiagaraStackEventWrapper {
-    pub event_handler_script_props: TArray<
-        crate::bindings::niagara::FNiagaraEventScriptProperties,
-    >,
+    __padding_end: [u8; 88],
 }
+impl UNiagaraStackEventWrapper {}
+#[repr(C, align(8))]
 pub struct UNiagaraStackEventHandlerPropertiesItem {
-    pub emitter_object: UPtr<UNiagaraStackObject>,
-    pub event_wrapper: UPtr<UNiagaraStackEventWrapper>,
+    __padding_end: [u8; 768],
 }
-pub struct UNiagaraStackScriptItemGroup {}
+impl UNiagaraStackEventHandlerPropertiesItem {}
+#[repr(C, align(8))]
+pub struct UNiagaraStackScriptItemGroup {
+    __padding_end: [u8; 784],
+}
+impl UNiagaraStackScriptItemGroup {}
+#[repr(C, align(8))]
 pub struct UNiagaraStackEventScriptItemGroup {
-    pub event_handler_properties: UPtr<UNiagaraStackEventHandlerPropertiesItem>,
+    __padding_end: [u8; 840],
 }
-pub struct UNiagaraStackItemContent {}
-pub struct UNiagaraStackFunctionInput {}
+impl UNiagaraStackEventScriptItemGroup {}
+#[repr(C, align(8))]
+pub struct UNiagaraStackItemContent {
+    __padding_end: [u8; 640],
+}
+impl UNiagaraStackItemContent {}
+#[repr(C, align(8))]
+pub struct UNiagaraStackFunctionInput {
+    __padding_end: [u8; 3008],
+}
+impl UNiagaraStackFunctionInput {}
+#[repr(C, align(8))]
 pub struct UNiagaraStackCategory {
-    pub category_spacer: UPtr<UNiagaraStackSpacer>,
+    __padding_end: [u8; 656],
 }
-pub struct UNiagaraStackScriptHierarchyCategory {}
-pub struct UNiagaraStackSummaryCategory {}
-pub struct UNiagaraStackItemTextContent {}
-pub struct UNiagaraStackItemFooter {}
-pub struct UNiagaraStackItemGroupFooter {}
+impl UNiagaraStackCategory {}
+#[repr(C, align(8))]
+pub struct UNiagaraStackScriptHierarchyCategory {
+    __padding_end: [u8; 840],
+}
+impl UNiagaraStackScriptHierarchyCategory {}
+#[repr(C, align(8))]
+pub struct UNiagaraStackSummaryCategory {
+    __padding_end: [u8; 672],
+}
+impl UNiagaraStackSummaryCategory {}
+#[repr(C, align(8))]
+pub struct UNiagaraStackItemTextContent {
+    __padding_end: [u8; 656],
+}
+impl UNiagaraStackItemTextContent {}
+#[repr(C, align(8))]
+pub struct UNiagaraStackItemFooter {
+    __padding_end: [u8; 664],
+}
+impl UNiagaraStackItemFooter {}
+#[repr(C, align(8))]
+pub struct UNiagaraStackItemGroupFooter {
+    __padding_end: [u8; 616],
+}
+impl UNiagaraStackItemGroupFooter {}
+#[repr(C, align(8))]
 pub struct UNiagaraStackModuleItem {
-    pub linked_input_collection: UPtr<UNiagaraStackModuleItemLinkedInputCollection>,
-    pub input_root: UPtr<UNiagaraStackScriptHierarchyRoot>,
-    pub output_collection: UPtr<UNiagaraStackModuleItemOutputCollection>,
+    __padding_end: [u8; 896],
 }
-pub struct UNiagaraStackModuleItemLinkedInputCollection {}
-pub struct UNiagaraStackModuleItemOutput {}
-pub struct UNiagaraStackModuleItemOutputCollection {}
-pub struct UNiagaraStackNote {}
-pub struct UNiagaraStackObject {}
+impl UNiagaraStackModuleItem {}
+#[repr(C, align(8))]
+pub struct UNiagaraStackModuleItemLinkedInputCollection {
+    __padding_end: [u8; 664],
+}
+impl UNiagaraStackModuleItemLinkedInputCollection {}
+#[repr(C, align(8))]
+pub struct UNiagaraStackModuleItemOutput {
+    __padding_end: [u8; 736],
+}
+impl UNiagaraStackModuleItemOutput {}
+#[repr(C, align(8))]
+pub struct UNiagaraStackModuleItemOutputCollection {
+    __padding_end: [u8; 664],
+}
+impl UNiagaraStackModuleItemOutputCollection {}
+#[repr(C, align(8))]
+pub struct UNiagaraStackNote {
+    __padding_end: [u8; 680],
+}
+impl UNiagaraStackNote {}
+#[repr(C, align(8))]
+pub struct UNiagaraStackObject {
+    __padding_end: [u8; 848],
+}
+impl UNiagaraStackObject {}
+#[repr(C, align(8))]
 pub struct UNiagaraStackPropertyRow {
-    pub category_spacer: UPtr<UNiagaraStackSpacer>,
+    __padding_end: [u8; 744],
 }
+impl UNiagaraStackPropertyRow {}
+#[repr(C, align(8))]
 pub struct UNiagaraStackRendererItem {
-    pub renderer_object: UPtr<UNiagaraStackObject>,
+    __padding_end: [u8; 776],
 }
-pub struct UNiagaraStackRenderItemGroup {}
-pub struct UNiagaraStackRoot {}
-pub struct UNiagaraStackScriptHierarchyRoot {}
-pub struct UNiagaraStackSelection {}
+impl UNiagaraStackRendererItem {}
+#[repr(C, align(8))]
+pub struct UNiagaraStackRenderItemGroup {
+    __padding_end: [u8; 728],
+}
+impl UNiagaraStackRenderItemGroup {}
+#[repr(C, align(8))]
+pub struct UNiagaraStackRoot {
+    __padding_end: [u8; 624],
+}
+impl UNiagaraStackRoot {}
+#[repr(C, align(8))]
+pub struct UNiagaraStackScriptHierarchyRoot {
+    __padding_end: [u8; 832],
+}
+impl UNiagaraStackScriptHierarchyRoot {}
+#[repr(C, align(8))]
+pub struct UNiagaraStackSelection {
+    __padding_end: [u8; 632],
+}
+impl UNiagaraStackSelection {}
+#[repr(C, align(8))]
 pub struct UNiagaraStackSimulationStagePropertiesItem {
-    pub simulation_stage_object: UPtr<UNiagaraStackObject>,
+    __padding_end: [u8; 728],
 }
+impl UNiagaraStackSimulationStagePropertiesItem {}
+#[repr(C, align(8))]
 pub struct UNiagaraStackSimulationStageGroup {
-    pub simulation_stage_properties: UPtr<UNiagaraStackSimulationStagePropertiesItem>,
+    __padding_end: [u8; 848],
 }
-pub struct UNiagaraStackStatelessEmitterGroup {}
-pub struct UNiagaraStackStatelessEmitterObjectItem {}
-pub struct UNiagaraStackStatelessEmitterSimulateGroup {}
-pub struct UNiagaraStackStatelessModuleItem {}
-pub struct UNiagaraStackStatelessEmitterSpawnGroup {}
-pub struct UNiagaraStackStatelessEmitterSpawnItem {}
-pub struct UNiagaraStackValueCollection {}
-pub struct UNiagaraStackSummaryViewCollection {}
+impl UNiagaraStackSimulationStageGroup {}
+#[repr(C, align(8))]
+pub struct UNiagaraStackStatelessEmitterGroup {
+    __padding_end: [u8; 720],
+}
+impl UNiagaraStackStatelessEmitterGroup {}
+#[repr(C, align(8))]
+pub struct UNiagaraStackStatelessEmitterObjectItem {
+    __padding_end: [u8; 768],
+}
+impl UNiagaraStackStatelessEmitterObjectItem {}
+#[repr(C, align(8))]
+pub struct UNiagaraStackStatelessEmitterSimulateGroup {
+    __padding_end: [u8; 720],
+}
+impl UNiagaraStackStatelessEmitterSimulateGroup {}
+#[repr(C, align(8))]
+pub struct UNiagaraStackStatelessModuleItem {
+    __padding_end: [u8; 760],
+}
+impl UNiagaraStackStatelessModuleItem {}
+#[repr(C, align(8))]
+pub struct UNiagaraStackStatelessEmitterSpawnGroup {
+    __padding_end: [u8; 720],
+}
+impl UNiagaraStackStatelessEmitterSpawnGroup {}
+#[repr(C, align(8))]
+pub struct UNiagaraStackStatelessEmitterSpawnItem {
+    __padding_end: [u8; 808],
+}
+impl UNiagaraStackStatelessEmitterSpawnItem {}
+#[repr(C, align(8))]
+pub struct UNiagaraStackValueCollection {
+    __padding_end: [u8; 856],
+}
+impl UNiagaraStackValueCollection {}
+#[repr(C, align(8))]
+pub struct UNiagaraStackSummaryViewCollection {
+    __padding_end: [u8; 880],
+}
+impl UNiagaraStackSummaryViewCollection {}
+#[repr(C, align(8))]
 pub struct UNiagaraStackSystemPropertiesItem {
-    pub system_object: UPtr<UNiagaraStackObject>,
+    __padding_end: [u8; 728],
 }
-pub struct UNiagaraStackSystemPropertiesGroup {}
-pub struct UNiagaraStackSystemUserParametersGroup {}
+impl UNiagaraStackSystemPropertiesItem {}
+#[repr(C, align(8))]
+pub struct UNiagaraStackSystemPropertiesGroup {
+    __padding_end: [u8; 696],
+}
+impl UNiagaraStackSystemPropertiesGroup {}
+#[repr(C, align(8))]
+pub struct UNiagaraStackSystemUserParametersGroup {
+    __padding_end: [u8; 712],
+}
+impl UNiagaraStackSystemUserParametersGroup {}
+#[repr(C, align(8))]
 pub struct UNiagaraStackViewModel {
-    pub root_entry: UPtr<UNiagaraStackEntry>,
+    __padding_end: [u8; 488],
 }
-pub struct UVolumeCacheFactory {}
+impl UNiagaraStackViewModel {}
+#[repr(C, align(8))]
+pub struct UVolumeCacheFactory {
+    __padding_end: [u8; 136],
+}
+impl UVolumeCacheFactory {}
+#[repr(C, align(8))]
 pub struct UNiagaraDataChannelReadModuleData {
-    pub data_channel: UPtr<crate::bindings::niagara::UNiagaraDataChannelAsset>,
-    pub b_read_current_frame: bool,
-    pub b_update_source_data_every_tick: bool,
-    pub b_auto_transform_position_data: bool,
+    __padding_end: [u8; 64],
 }
+impl UNiagaraDataChannelReadModuleData {}
+#[repr(C, align(8))]
 pub struct UNiagaraDataChannelSpawnModuleData {
-    pub data_channel: UPtr<crate::bindings::niagara::UNiagaraDataChannelAsset>,
-    pub spawn_mode: ENiagaraDataChanneSpawnModuleMode,
-    pub b_read_current_frame: bool,
-    pub b_update_source_data_every_tick: bool,
-    pub b_auto_transform_position_data: bool,
-    pub b_modify_spawn_count_by_scalability: bool,
+    __padding_end: [u8; 64],
 }
+impl UNiagaraDataChannelSpawnModuleData {}
+#[repr(C, align(8))]
 pub struct UNiagaraDataChannelWriteModuleData {
-    pub data_channel: UPtr<crate::bindings::niagara::UNiagaraDataChannelAsset>,
-    pub write_mode: ENiagaraDataChanneWriteModuleMode,
-    pub b_publish_to_game: bool,
-    pub b_publish_to_cpu: bool,
-    pub b_publish_to_gpu: bool,
-    pub allocation_mode: crate::bindings::niagara::ENiagaraDataChannelAllocationMode,
-    pub allocation_count: u32,
-    pub b_update_destination_data_every_tick: bool,
-    pub b_auto_transform_position_data: bool,
+    __padding_end: [u8; 72],
 }
-pub struct FNiagaraClipboardFunction_OnPastedFunctionCallNodeDelegate;
-#[allow(non_camel_case_types)]
+impl UNiagaraDataChannelWriteModuleData {}
+#[repr(transparent)]
+pub struct FNiagaraClipboardFunction_OnPastedFunctionCallNodeDelegate {
+    _opague: u8,
+}
 #[repr(transparent)]
 pub struct ENiagaraNamespaceMetadataOptions(pub i32);
 impl ENiagaraNamespaceMetadataOptions {
@@ -1080,7 +1069,6 @@ impl ENiagaraNamespaceMetadataOptions {
         8,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ENiagaraMessageSeverity(pub u8);
 impl ENiagaraMessageSeverity {
@@ -1090,7 +1078,6 @@ impl ENiagaraMessageSeverity {
     pub const WARNING: ENiagaraMessageSeverity = ENiagaraMessageSeverity(3);
     pub const INFO: ENiagaraMessageSeverity = ENiagaraMessageSeverity(4);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ENiagaraStaticSwitchType(pub u8);
 impl ENiagaraStaticSwitchType {
@@ -1098,7 +1085,6 @@ impl ENiagaraStaticSwitchType {
     pub const INTEGER: ENiagaraStaticSwitchType = ENiagaraStaticSwitchType(1);
     pub const ENUM: ENiagaraStaticSwitchType = ENiagaraStaticSwitchType(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ENiagaraOutlinerViewModes(pub u8);
 impl ENiagaraOutlinerViewModes {
@@ -1106,7 +1092,6 @@ impl ENiagaraOutlinerViewModes {
     pub const PERFORMANCE: ENiagaraOutlinerViewModes = ENiagaraOutlinerViewModes(1);
     pub const DEBUG: ENiagaraOutlinerViewModes = ENiagaraOutlinerViewModes(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ENiagaraOutlinerSortMode(pub u8);
 impl ENiagaraOutlinerSortMode {
@@ -1115,7 +1100,6 @@ impl ENiagaraOutlinerSortMode {
     pub const AVERAGE_TIME: ENiagaraOutlinerSortMode = ENiagaraOutlinerSortMode(2);
     pub const MAX_TIME: ENiagaraOutlinerSortMode = ENiagaraOutlinerSortMode(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ENiagaraOutlinerTimeUnits(pub u8);
 impl ENiagaraOutlinerTimeUnits {
@@ -1123,7 +1107,6 @@ impl ENiagaraOutlinerTimeUnits {
     pub const MILLISECONDS: ENiagaraOutlinerTimeUnits = ENiagaraOutlinerTimeUnits(1);
     pub const SECONDS: ENiagaraOutlinerTimeUnits = ENiagaraOutlinerTimeUnits(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ENDIMemoryBufferViewType(pub i32);
 impl ENDIMemoryBufferViewType {
@@ -1132,7 +1115,6 @@ impl ENDIMemoryBufferViewType {
     pub const UNSIGNED_INTEGER: ENDIMemoryBufferViewType = ENDIMemoryBufferViewType(2);
     pub const HEX: ENDIMemoryBufferViewType = ENDIMemoryBufferViewType(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ENiagaraClipboardFunctionInputValueMode(pub i32);
 impl ENiagaraClipboardFunctionInputValueMode {
@@ -1158,7 +1140,6 @@ impl ENiagaraClipboardFunctionInputValueMode {
         6,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ENiagaraClipboardFunctionScriptMode(pub i32);
 impl ENiagaraClipboardFunctionScriptMode {
@@ -1169,7 +1150,6 @@ impl ENiagaraClipboardFunctionScriptMode {
         1,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ENiagaraCategoryExpandState(pub u8);
 impl ENiagaraCategoryExpandState {
@@ -1180,7 +1160,6 @@ impl ENiagaraCategoryExpandState {
     pub const COLLAPSE_ALL: ENiagaraCategoryExpandState = ENiagaraCategoryExpandState(2);
     pub const EXPAND_ALL: ENiagaraCategoryExpandState = ENiagaraCategoryExpandState(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ENiagaraAddDefaultsTrackMode(pub u8);
 impl ENiagaraAddDefaultsTrackMode {
@@ -1194,7 +1173,6 @@ impl ENiagaraAddDefaultsTrackMode {
         2,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ENiagaraStackEntryInlineDisplayMode(pub i32);
 impl ENiagaraStackEntryInlineDisplayMode {
@@ -1214,7 +1192,6 @@ impl ENiagaraStackEntryInlineDisplayMode {
         4,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ENiagaraDataChanneSpawnModuleMode(pub u8);
 impl ENiagaraDataChanneSpawnModuleMode {
@@ -1225,7 +1202,6 @@ impl ENiagaraDataChanneSpawnModuleMode {
         1,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ENiagaraDataChanneWriteModuleMode(pub u8);
 impl ENiagaraDataChanneWriteModuleMode {

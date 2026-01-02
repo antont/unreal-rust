@@ -4,11 +4,30 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
-pub struct UAssetDefinition_LevelVariantSets {}
-pub struct ULevelVariantSetsActorFactory {}
-pub struct USwitchActorFactory {}
-pub struct UVariantManagerFactoryNew {}
+#[repr(C, align(8))]
+pub struct UAssetDefinition_LevelVariantSets {
+    __padding_end: [u8; 72],
+}
+impl UAssetDefinition_LevelVariantSets {}
+#[repr(C, align(8))]
+pub struct ULevelVariantSetsActorFactory {
+    __padding_end: [u8; 144],
+}
+impl ULevelVariantSetsActorFactory {}
+#[repr(C, align(8))]
+pub struct USwitchActorFactory {
+    __padding_end: [u8; 144],
+}
+impl USwitchActorFactory {}
+#[repr(C, align(8))]
+pub struct UVariantManagerFactoryNew {
+    __padding_end: [u8; 136],
+}
+impl UVariantManagerFactoryNew {}
+#[repr(C, align(16))]
 pub struct AVariantManagerTestActor {
+    #[doc(hidden)]
+    __padding_1136: [u8; 1136],
     pub enum_with_no_default: EVariantManagerTestEnum,
     pub enum_with_second_default: EVariantManagerTestEnum,
     pub captured_byte_property: u8,
@@ -32,8 +51,9 @@ pub struct AVariantManagerTestActor {
         UPtr<crate::bindings::core_u_object::UObject>,
     >,
     pub captured_vector_array_property: TArray<crate::bindings::core_u_object::FVector>,
+    __padding_end: [u8; 8],
 }
-#[allow(non_camel_case_types)]
+impl AVariantManagerTestActor {}
 #[repr(transparent)]
 pub struct EVariantManagerTestEnum(pub u8);
 impl EVariantManagerTestEnum {

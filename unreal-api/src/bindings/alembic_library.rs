@@ -13,6 +13,7 @@ pub struct FAbcCompressionSettings {
     pub max_number_of_bases: i32,
     pub minimum_number_of_vertex_influence_percentage: f32,
 }
+impl FAbcCompressionSettings {}
 #[repr(C, align(4))]
 pub struct FAbcSamplingSettings {
     pub sampling_type: EAlembicSamplingType,
@@ -21,7 +22,9 @@ pub struct FAbcSamplingSettings {
     pub frame_start: i32,
     pub frame_end: i32,
     pub b_skip_empty: bool,
+    __padding_end: [u8; 3],
 }
+impl FAbcSamplingSettings {}
 #[repr(C, align(4))]
 pub struct FAbcNormalGenerationSettings {
     pub b_force_one_smoothing_group_per_object: bool,
@@ -29,18 +32,22 @@ pub struct FAbcNormalGenerationSettings {
     pub b_recompute_normals: bool,
     pub b_ignore_degenerate_triangles: bool,
     pub b_skip_computing_tangents: bool,
+    __padding_end: [u8; 1],
 }
+impl FAbcNormalGenerationSettings {}
 #[repr(C, align(1))]
 pub struct FAbcMaterialSettings {
     pub b_create_materials: bool,
     pub b_find_materials: bool,
 }
+impl FAbcMaterialSettings {}
 #[repr(C, align(1))]
 pub struct FAbcStaticMeshSettings {
     pub b_merge_meshes: bool,
     pub b_propagate_matrix_transformations: bool,
     pub b_generate_lightmap_u_vs: bool,
 }
+impl FAbcStaticMeshSettings {}
 #[repr(C, align(8))]
 pub struct FAbcConversionSettings {
     pub preset: EAbcConversionPreset,
@@ -49,28 +56,29 @@ pub struct FAbcConversionSettings {
     pub scale: crate::bindings::core_u_object::FVector,
     pub rotation: crate::bindings::core_u_object::FVector,
 }
+impl FAbcConversionSettings {}
 #[repr(C, align(4))]
 pub struct FAbcGeometryCacheSettings {
     pub b_flatten_tracks: bool,
     pub b_store_imported_vertex_numbers: bool,
     pub b_apply_constant_topology_optimizations: bool,
-    pub b_calculate_motion_vectors_during_import_deprecated: bool,
+    #[doc(hidden)]
+    __padding_4: [u8; 1],
     pub motion_vectors: EAbcGeometryCacheMotionVectorsImport,
     pub b_optimize_index_buffers: bool,
     pub compressed_position_precision: f32,
     pub compressed_texture_coordinates_number_of_bits: i32,
 }
+impl FAbcGeometryCacheSettings {}
+#[repr(C, align(8))]
 pub struct UAbcAssetImportData {
-    pub track_names: TArray<FString>,
-    pub sampling_settings: FAbcSamplingSettings,
-    pub normal_generation_settings: FAbcNormalGenerationSettings,
-    pub material_settings: FAbcMaterialSettings,
-    pub compression_settings: FAbcCompressionSettings,
-    pub static_mesh_settings: FAbcStaticMeshSettings,
-    pub geometry_cache_settings: FAbcGeometryCacheSettings,
-    pub conversion_settings: FAbcConversionSettings,
+    __padding_end: [u8; 248],
 }
+impl UAbcAssetImportData {}
+#[repr(C, align(8))]
 pub struct UAbcImportSettings {
+    #[doc(hidden)]
+    __padding_48: [u8; 48],
     pub import_type: EAlembicImportType,
     pub sampling_settings: FAbcSamplingSettings,
     pub normal_generation_settings: FAbcNormalGenerationSettings,
@@ -79,9 +87,14 @@ pub struct UAbcImportSettings {
     pub static_mesh_settings: FAbcStaticMeshSettings,
     pub geometry_cache_settings: FAbcGeometryCacheSettings,
     pub conversion_settings: FAbcConversionSettings,
+    __padding_end: [u8; 8],
 }
-pub struct UAlembicTestCommandlet {}
-#[allow(non_camel_case_types)]
+impl UAbcImportSettings {}
+#[repr(C, align(8))]
+pub struct UAlembicTestCommandlet {
+    __padding_end: [u8; 168],
+}
+impl UAlembicTestCommandlet {}
 #[repr(transparent)]
 pub struct EBaseCalculationType(pub u8);
 impl EBaseCalculationType {
@@ -90,7 +103,6 @@ impl EBaseCalculationType {
     pub const FIXED_NUMBER: EBaseCalculationType = EBaseCalculationType(2);
     pub const NO_COMPRESSION: EBaseCalculationType = EBaseCalculationType(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EAlembicSamplingType(pub u8);
 impl EAlembicSamplingType {
@@ -98,7 +110,6 @@ impl EAlembicSamplingType {
     pub const PER_X_FRAMES: EAlembicSamplingType = EAlembicSamplingType(1);
     pub const PER_TIME_STEP: EAlembicSamplingType = EAlembicSamplingType(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EAbcConversionPreset(pub u8);
 impl EAbcConversionPreset {
@@ -106,7 +117,6 @@ impl EAbcConversionPreset {
     pub const MAX: EAbcConversionPreset = EAbcConversionPreset(1);
     pub const CUSTOM: EAbcConversionPreset = EAbcConversionPreset(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EAbcGeometryCacheMotionVectorsImport(pub u8);
 impl EAbcGeometryCacheMotionVectorsImport {
@@ -120,7 +130,6 @@ impl EAbcGeometryCacheMotionVectorsImport {
         2,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EAlembicImportType(pub u8);
 impl EAlembicImportType {

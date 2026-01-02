@@ -5,38 +5,32 @@
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[repr(C, align(8))]
-pub struct FOptimusGraphSchemaAction_NewNode {
-    pub node_class: TSubclassOf<crate::bindings::optimus_core::UOptimusNode>,
+pub struct UOptimusDeformerFactory {
+    __padding_end: [u8; 136],
 }
+impl UOptimusDeformerFactory {}
 #[repr(C, align(8))]
-pub struct FOptimusGraphSchemaAction_NewConstantValueNode {
-    pub data_type: crate::bindings::optimus_core::FOptimusDataTypeRef,
+pub struct UOptimusEditorGraph {
+    __padding_end: [u8; 456],
 }
+impl UOptimusEditorGraph {}
 #[repr(C, align(8))]
-pub struct FOptimusGraphSchemaAction_NewDataInterfaceNode {
-    pub data_interface_class: TSubclassOf<
-        crate::bindings::optimus_core::UOptimusComputeDataInterface,
-    >,
-}
-#[repr(C, align(8))]
-pub struct FOptimusGraphSchemaAction_NewLoopTerminalNodes {}
-#[repr(C, align(8))]
-pub struct FOptimusGraphSchemaAction_NewCommentNode {}
-#[repr(C, align(8))]
-pub struct FOptimusGraphSchemaAction_NewFunctionReferenceNode {}
-#[repr(C, align(8))]
-pub struct FOptimusSchemaAction_Graph {}
-#[repr(C, align(8))]
-pub struct FOptimusSchemaAction_Binding {}
-#[repr(C, align(8))]
-pub struct FOptimusSchemaAction_Resource {}
-#[repr(C, align(8))]
-pub struct FOptimusSchemaAction_Variable {}
-pub struct UOptimusDeformerFactory {}
-pub struct UOptimusEditorGraph {}
 pub struct UOptimusEditorGraphNode {
-    pub model_node: UPtr<crate::bindings::optimus_core::UOptimusNode>,
+    __padding_end: [u8; 464],
 }
-pub struct UOptimusEditorGraphNode_Comment {}
-pub struct UOptimusEditorGraphSchema {}
-pub struct UOptimusSourceFactory {}
+impl UOptimusEditorGraphNode {}
+#[repr(C, align(8))]
+pub struct UOptimusEditorGraphNode_Comment {
+    __padding_end: [u8; 344],
+}
+impl UOptimusEditorGraphNode_Comment {}
+#[repr(C, align(8))]
+pub struct UOptimusEditorGraphSchema {
+    __padding_end: [u8; 48],
+}
+impl UOptimusEditorGraphSchema {}
+#[repr(C, align(8))]
+pub struct UOptimusSourceFactory {
+    __padding_end: [u8; 136],
+}
+impl UOptimusSourceFactory {}

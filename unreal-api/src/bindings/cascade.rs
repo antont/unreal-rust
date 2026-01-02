@@ -5,13 +5,12 @@
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[repr(C, align(8))]
-pub struct FModuleMenuMapper {
-    pub obj_name: FString,
-    pub invalid_obj_names: TArray<FString>,
-}
 pub struct UCascadeConfiguration {
-    pub module_menu_type_data_to_base_module_rejections: TArray<FModuleMenuMapper>,
-    pub module_menu_type_data_to_specific_module_rejections: TArray<FModuleMenuMapper>,
-    pub module_menu_module_rejections: TArray<FString>,
+    __padding_end: [u8; 256],
 }
-pub struct UCascadeParticleSystemComponent {}
+impl UCascadeConfiguration {}
+#[repr(C, align(16))]
+pub struct UCascadeParticleSystemComponent {
+    __padding_end: [u8; 2352],
+}
+impl UCascadeParticleSystemComponent {}

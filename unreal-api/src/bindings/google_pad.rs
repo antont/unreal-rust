@@ -4,8 +4,11 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
-pub struct UGooglePADFunctionLibrary {}
-#[allow(non_camel_case_types)]
+#[repr(C, align(8))]
+pub struct UGooglePADFunctionLibrary {
+    __padding_end: [u8; 48],
+}
+impl UGooglePADFunctionLibrary {}
 #[repr(transparent)]
 pub struct EGooglePADErrorCode(pub u8);
 impl EGooglePADErrorCode {
@@ -43,7 +46,6 @@ impl EGooglePADErrorCode {
         16,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EGooglePADDownloadStatus(pub u8);
 impl EGooglePADDownloadStatus {
@@ -88,7 +90,6 @@ impl EGooglePADDownloadStatus {
         13,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EGooglePADCellularDataConfirmStatus(pub u8);
 impl EGooglePADCellularDataConfirmStatus {
@@ -105,7 +106,6 @@ impl EGooglePADCellularDataConfirmStatus {
         3,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EGooglePADConfirmationDialogStatus(pub u8);
 impl EGooglePADConfirmationDialogStatus {
@@ -122,7 +122,6 @@ impl EGooglePADConfirmationDialogStatus {
         3,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EGooglePADStorageMethod(pub u8);
 impl EGooglePADStorageMethod {

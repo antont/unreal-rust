@@ -4,32 +4,48 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
-pub struct UEnhancedInputUserWidgetValidator {}
+#[repr(C, align(8))]
+pub struct UEnhancedInputUserWidgetValidator {
+    __padding_end: [u8; 120],
+}
+impl UEnhancedInputUserWidgetValidator {}
+#[repr(C, align(8))]
 pub struct UInputActionEventNodeSpawner {
-    pub weak_action_ptr: TWeakObjectPtr<crate::bindings::enhanced_input::UInputAction>,
+    __padding_end: [u8; 280],
 }
+impl UInputActionEventNodeSpawner {}
+#[repr(C, align(8))]
 pub struct UK2Node_EnhancedInputAction {
-    pub input_action: UPtr<crate::bindings::enhanced_input::UInputAction>,
+    __padding_end: [u8; 256],
 }
+impl UK2Node_EnhancedInputAction {}
+#[repr(C, align(8))]
 pub struct UK2Node_EnhancedInputActionEvent {
-    pub input_action: UPtr<crate::bindings::enhanced_input::UInputAction>,
-    pub trigger_event: crate::bindings::enhanced_input::ETriggerEvent,
+    __padding_end: [u8; 368],
 }
+impl UK2Node_EnhancedInputActionEvent {}
+#[repr(C, align(8))]
 pub struct UK2Node_GetInputActionValue {
-    pub input_action: UPtr<crate::bindings::enhanced_input::UInputAction>,
+    __padding_end: [u8; 248],
 }
+impl UK2Node_GetInputActionValue {}
+#[repr(C, align(8))]
 pub struct UK2Node_InputActionValueAccessor {
-    pub input_action: UPtr<crate::bindings::enhanced_input::UInputAction>,
+    __padding_end: [u8; 344],
 }
+impl UK2Node_InputActionValueAccessor {}
+#[repr(C, align(8))]
 pub struct UInputDebugKeyEventNodeSpawner {
-    pub debug_key: crate::bindings::input_core::FKey,
+    __padding_end: [u8; 304],
 }
+impl UInputDebugKeyEventNodeSpawner {}
+#[repr(C, align(8))]
 pub struct UK2Node_InputDebugKey {
-    pub input_key: crate::bindings::input_core::FKey,
-    pub flags_232: u8,
+    __padding_end: [u8; 288],
 }
+impl UK2Node_InputDebugKey {}
+#[repr(C, align(8))]
 pub struct UK2Node_InputDebugKeyEvent {
-    pub input_chord: crate::bindings::slate::FInputChord,
-    pub input_key_event: crate::bindings::engine::EInputEvent,
-    pub b_execute_when_paused: bool,
+    __padding_end: [u8; 400],
 }
+impl UK2Node_InputDebugKeyEvent {}

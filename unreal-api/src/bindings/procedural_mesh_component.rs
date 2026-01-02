@@ -8,7 +8,9 @@ pub use crate::core_data::*;
 pub struct FProcMeshTangent {
     pub tangent_x: crate::bindings::core_u_object::FVector,
     pub b_flip_tangent_y: bool,
+    __padding_end: [u8; 7],
 }
+impl FProcMeshTangent {}
 #[repr(C, align(8))]
 pub struct FProcMeshVertex {
     pub position: crate::bindings::core_u_object::FVector,
@@ -20,25 +22,21 @@ pub struct FProcMeshVertex {
     pub uv2: crate::bindings::core_u_object::FVector2D,
     pub uv3: crate::bindings::core_u_object::FVector2D,
 }
+impl FProcMeshVertex {}
 #[repr(C, align(8))]
-pub struct FProcMeshSection {
-    pub proc_vertex_buffer: TArray<FProcMeshVertex>,
-    pub proc_index_buffer: TArray<u32>,
-    pub section_local_box: crate::bindings::core_u_object::FBox,
-    pub b_enable_collision: bool,
-    pub b_section_visible: bool,
+pub struct UKismetProceduralMeshLibrary {
+    __padding_end: [u8; 48],
 }
-pub struct UKismetProceduralMeshLibrary {}
+impl UKismetProceduralMeshLibrary {}
+#[repr(C, align(16))]
 pub struct UProceduralMeshComponent {
+    #[doc(hidden)]
+    __padding_1584: [u8; 1584],
     pub b_use_complex_as_simple_collision: bool,
     pub b_use_async_cooking: bool,
-    pub proc_mesh_body_setup: UPtr<crate::bindings::engine::UBodySetup>,
-    pub proc_mesh_sections: TArray<FProcMeshSection>,
-    pub collision_convex_elems: TArray<crate::bindings::engine::FKConvexElem>,
-    pub local_bounds: crate::bindings::core_u_object::FBoxSphereBounds,
-    pub async_body_setup_queue: TArray<UPtr<crate::bindings::engine::UBodySetup>>,
+    __padding_end: [u8; 126],
 }
-#[allow(non_camel_case_types)]
+impl UProceduralMeshComponent {}
 #[repr(transparent)]
 pub struct EProcMeshSliceCapOption(pub u8);
 impl EProcMeshSliceCapOption {

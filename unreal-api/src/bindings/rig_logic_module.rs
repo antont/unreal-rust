@@ -10,28 +10,35 @@ pub struct FCoordinateSystem {
     pub y_axis: EDirection,
     pub z_axis: EDirection,
 }
+impl FCoordinateSystem {}
 #[repr(C, align(4))]
 pub struct FMeshBlendShapeChannelMapping {
     pub mesh_index: i32,
     pub blend_shape_channel_index: i32,
 }
+impl FMeshBlendShapeChannelMapping {}
 #[repr(C, align(4))]
 pub struct FTextureCoordinate {
     pub u: f32,
     pub v: f32,
 }
+impl FTextureCoordinate {}
 #[repr(C, align(4))]
 pub struct FVertexLayout {
     pub position: i32,
     pub texture_coordinate: i32,
     pub normal: i32,
 }
+impl FVertexLayout {}
 #[repr(C, align(8))]
 pub struct FAnimNode_RigLogic {
+    #[doc(hidden)]
+    __padding_136: [u8; 136],
     pub anim_sequence: crate::bindings::engine::FPoseLink,
     pub cache_anim_curve_names: bool,
-    pub lod_threshold: i32,
+    __padding_end: [u8; 79],
 }
+impl FAnimNode_RigLogic {}
 #[repr(C, align(4))]
 pub struct FRigLogicConfiguration {
     pub calculation_type: ERigLogicCalculationType,
@@ -49,44 +56,31 @@ pub struct FRigLogicConfiguration {
     pub rotation_pruning_threshold: f32,
     pub scale_pruning_threshold: f32,
 }
-#[repr(C, align(4))]
-pub struct FBoneIndexControlAttributeMapping {}
-#[repr(C, align(8))]
-pub struct FRigUnit_RigLogic_IntArray {
-    pub values: TArray<i32>,
-}
-#[repr(C, align(8))]
-pub struct FRigUnit_RigLogic_Data {
-    pub skel_mesh_component: TWeakObjectPtr<
-        crate::bindings::engine::USkeletalMeshComponent,
-    >,
-    pub input_curve_indices: TArray<i32>,
-    pub neural_net_mask_curve_indices: TArray<i32>,
-    pub hierarchy_bone_indices: TArray<i32>,
-    pub driver_joints_to_control_attributes_map: TArray<
-        FBoneIndexControlAttributeMapping,
-    >,
-    pub morph_target_curve_indices: TArray<FRigUnit_RigLogic_IntArray>,
-    pub blend_shape_indices: TArray<FRigUnit_RigLogic_IntArray>,
-    pub curve_element_indices_for_anim_maps: TArray<FRigUnit_RigLogic_IntArray>,
-    pub rig_logic_indices_for_anim_maps: TArray<FRigUnit_RigLogic_IntArray>,
-    pub current_lod: u32,
-}
+impl FRigLogicConfiguration {}
 #[repr(C, align(8))]
 pub struct FRigUnit_RigLogic {
-    pub data: FRigUnit_RigLogic_Data,
-    pub b_is_initialized: bool,
+    __padding_end: [u8; 192],
 }
-pub struct UDEPRECATED_DNAIndexMapping {}
+impl FRigUnit_RigLogic {}
+#[repr(C, align(8))]
+pub struct UDEPRECATED_DNAIndexMapping {
+    __padding_end: [u8; 48],
+}
+impl UDEPRECATED_DNAIndexMapping {}
+#[repr(C, align(8))]
 pub struct UDNAAsset {
-    pub asset_import_data: UPtr<crate::bindings::engine::UAssetImportData>,
-    pub dna_file_name: FString,
-    pub b_keep_dna_after_initialization: bool,
+    #[doc(hidden)]
+    __padding_80: [u8; 80],
     pub meta_data: TMap<FString, FString>,
     pub rig_logic_configuration: FRigLogicConfiguration,
+    __padding_end: [u8; 152],
 }
-pub struct USkelMeshDNAUtils {}
-#[allow(non_camel_case_types)]
+impl UDNAAsset {}
+#[repr(C, align(8))]
+pub struct USkelMeshDNAUtils {
+    __padding_end: [u8; 48],
+}
+impl USkelMeshDNAUtils {}
 #[repr(transparent)]
 pub struct EDirection(pub u8);
 impl EDirection {
@@ -97,7 +91,6 @@ impl EDirection {
     pub const FRONT: EDirection = EDirection(4);
     pub const BACK: EDirection = EDirection(5);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ERigLogicCalculationType(pub u8);
 impl ERigLogicCalculationType {
@@ -107,14 +100,12 @@ impl ERigLogicCalculationType {
     pub const NEON: ERigLogicCalculationType = ERigLogicCalculationType(3);
     pub const ANY_VECTOR: ERigLogicCalculationType = ERigLogicCalculationType(4);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ERigLogicTranslationType(pub u8);
 impl ERigLogicTranslationType {
     pub const NONE: ERigLogicTranslationType = ERigLogicTranslationType(0);
     pub const VECTOR: ERigLogicTranslationType = ERigLogicTranslationType(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ERigLogicRotationType(pub u8);
 impl ERigLogicRotationType {
@@ -122,7 +113,6 @@ impl ERigLogicRotationType {
     pub const EULER_ANGLES: ERigLogicRotationType = ERigLogicRotationType(3);
     pub const QUATERNIONS: ERigLogicRotationType = ERigLogicRotationType(4);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ERigLogicRotationOrder(pub u8);
 impl ERigLogicRotationOrder {
@@ -133,7 +123,6 @@ impl ERigLogicRotationOrder {
     pub const ZXY: ERigLogicRotationOrder = ERigLogicRotationOrder(4);
     pub const ZYX: ERigLogicRotationOrder = ERigLogicRotationOrder(5);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ERigLogicScaleType(pub u8);
 impl ERigLogicScaleType {

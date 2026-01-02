@@ -4,5 +4,13 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
-pub struct UActorFactoryMediaPlate {}
-pub struct UAssetDefinition_MediaPlate {}
+#[repr(C, align(8))]
+pub struct UActorFactoryMediaPlate {
+    __padding_end: [u8; 144],
+}
+impl UActorFactoryMediaPlate {}
+#[repr(C, align(8))]
+pub struct UAssetDefinition_MediaPlate {
+    __padding_end: [u8; 72],
+}
+impl UAssetDefinition_MediaPlate {}

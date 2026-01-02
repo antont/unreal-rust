@@ -6,12 +6,20 @@ pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 pub struct UInterchangeAnimationPayloadInterface {}
 pub struct IInterchangeAnimationPayloadInterface {}
+#[repr(C, align(8))]
 pub struct UInterchangeAssetUserData {
+    #[doc(hidden)]
+    __padding_48: [u8; 48],
     pub meta_data: TMap<FString, FString>,
 }
+impl UInterchangeAssetUserData {}
+#[repr(C, align(8))]
 pub struct UInterchangeLevelAssetUserData {
+    #[doc(hidden)]
+    __padding_48: [u8; 48],
     pub scene_import_paths: TArray<FString>,
 }
+impl UInterchangeLevelAssetUserData {}
 pub struct UInterchangeAudioPayloadInterface {}
 pub struct IInterchangeAudioPayloadInterface {}
 pub struct UInterchangeBlockedTexturePayloadInterface {}
@@ -30,285 +38,406 @@ pub struct UInterchangeVariantSetPayloadInterface {}
 pub struct IInterchangeVariantSetPayloadInterface {}
 pub struct UInterchangeVolumePayloadInterface {}
 pub struct IInterchangeVolumePayloadInterface {}
+#[repr(C, align(8))]
 pub struct UInterchangeVolumeTranslatorSettings {
-    pub b_translate_adjacent_numbered_files: bool,
-    pub animation_id: FString,
+    __padding_end: [u8; 72],
 }
-pub struct UInterchangeAnimSequenceFactory {}
-pub struct UInterchangeLevelSequenceFactory {}
-pub struct UInterchangeAudioTranslatorBase {}
-pub struct UInterchangeAudioTranslator_AIF {}
-pub struct UInterchangeAudioTranslator_AIFF {}
-pub struct UInterchangeAudioTranslator_FLAC {}
-pub struct UInterchangeAudioTranslator_MP3 {}
-pub struct UInterchangeAudioTranslator_OGG {}
-pub struct UInterchangeAudioTranslator_OPUS {}
-pub struct UInterchangeAudioTranslator_WAV {}
+impl UInterchangeVolumeTranslatorSettings {}
+#[repr(C, align(8))]
+pub struct UInterchangeAnimSequenceFactory {
+    __padding_end: [u8; 480],
+}
+impl UInterchangeAnimSequenceFactory {}
+#[repr(C, align(8))]
+pub struct UInterchangeLevelSequenceFactory {
+    __padding_end: [u8; 64],
+}
+impl UInterchangeLevelSequenceFactory {}
+#[repr(C, align(8))]
+pub struct UInterchangeAudioTranslatorBase {
+    __padding_end: [u8; 88],
+}
+impl UInterchangeAudioTranslatorBase {}
+#[repr(C, align(8))]
+pub struct UInterchangeAudioTranslator_AIF {
+    __padding_end: [u8; 88],
+}
+impl UInterchangeAudioTranslator_AIF {}
+#[repr(C, align(8))]
+pub struct UInterchangeAudioTranslator_AIFF {
+    __padding_end: [u8; 88],
+}
+impl UInterchangeAudioTranslator_AIFF {}
+#[repr(C, align(8))]
+pub struct UInterchangeAudioTranslator_FLAC {
+    __padding_end: [u8; 88],
+}
+impl UInterchangeAudioTranslator_FLAC {}
+#[repr(C, align(8))]
+pub struct UInterchangeAudioTranslator_MP3 {
+    __padding_end: [u8; 88],
+}
+impl UInterchangeAudioTranslator_MP3 {}
+#[repr(C, align(8))]
+pub struct UInterchangeAudioTranslator_OGG {
+    __padding_end: [u8; 88],
+}
+impl UInterchangeAudioTranslator_OGG {}
+#[repr(C, align(8))]
+pub struct UInterchangeAudioTranslator_OPUS {
+    __padding_end: [u8; 88],
+}
+impl UInterchangeAudioTranslator_OPUS {}
+#[repr(C, align(8))]
+pub struct UInterchangeAudioTranslator_WAV {
+    __padding_end: [u8; 88],
+}
+impl UInterchangeAudioTranslator_WAV {}
+#[repr(C, align(8))]
 pub struct UInterchangeAudioSoundWaveFactory {
-    pub components_to_restart: TArray<UPtr<crate::bindings::engine::UAudioComponent>>,
+    __padding_end: [u8; 72],
 }
+impl UInterchangeAudioSoundWaveFactory {}
+#[repr(C, align(8))]
 pub struct UInterchangeFbxTranslatorSettings {
-    pub coordinate_system_policy: EInterchangeCoordinateSystemPolicy,
-    pub b_convert_scene: bool,
-    pub b_force_front_x_axis: bool,
-    pub b_convert_scene_unit: bool,
-    pub b_keep_fbx_namespace: bool,
-    pub b_use_ufbx_parser: bool,
-    pub b_using_luf_coordinate_system: bool,
-    pub b_display_ufbx_parser: bool,
+    __padding_end: [u8; 56],
 }
+impl UInterchangeFbxTranslatorSettings {}
+#[repr(C, align(8))]
 pub struct UInterchangeFbxTranslator {
-    pub cache_fbx_translator_settings: UPtr<UInterchangeFbxTranslatorSettings>,
+    __padding_end: [u8; 392],
 }
-pub struct UInterchangeGLTFTranslator {}
-pub struct UInterchangeGroomCacheFactory {}
-pub struct UInterchangeGroomFactory {}
-pub struct UInterchangeMaterialXTranslator {}
+impl UInterchangeFbxTranslator {}
+#[repr(C, align(8))]
+pub struct UInterchangeGLTFTranslator {
+    __padding_end: [u8; 704],
+}
+impl UInterchangeGLTFTranslator {}
+#[repr(C, align(8))]
+pub struct UInterchangeGroomCacheFactory {
+    __padding_end: [u8; 56],
+}
+impl UInterchangeGroomCacheFactory {}
+#[repr(C, align(8))]
+pub struct UInterchangeGroomFactory {
+    __padding_end: [u8; 336],
+}
+impl UInterchangeGroomFactory {}
+#[repr(C, align(8))]
+pub struct UInterchangeMaterialXTranslator {
+    __padding_end: [u8; 96],
+}
+impl UInterchangeMaterialXTranslator {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionMaterialXAppend3Vector {
-    pub a: crate::bindings::engine::FExpressionInput,
-    pub b: crate::bindings::engine::FExpressionInput,
-    pub c: crate::bindings::engine::FExpressionInput,
+    __padding_end: [u8; 344],
 }
+impl UMaterialExpressionMaterialXAppend3Vector {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionMaterialXAppend4Vector {
-    pub a: crate::bindings::engine::FExpressionInput,
-    pub b: crate::bindings::engine::FExpressionInput,
-    pub c: crate::bindings::engine::FExpressionInput,
-    pub d: crate::bindings::engine::FExpressionInput,
+    __padding_end: [u8; 392],
 }
+impl UMaterialExpressionMaterialXAppend4Vector {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionMaterialXBurn {
-    pub a: crate::bindings::engine::FExpressionInput,
-    pub b: crate::bindings::engine::FExpressionInput,
-    pub alpha: crate::bindings::engine::FExpressionInput,
-    pub const_alpha: f32,
+    __padding_end: [u8; 352],
 }
+impl UMaterialExpressionMaterialXBurn {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionMaterialXContrast {
-    pub input: crate::bindings::engine::FExpressionInput,
-    pub amount: crate::bindings::engine::FExpressionInput,
-    pub pivot: crate::bindings::engine::FExpressionInput,
-    pub const_amount: f32,
-    pub const_pivot: f32,
+    __padding_end: [u8; 352],
 }
+impl UMaterialExpressionMaterialXContrast {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionMaterialXDifference {
-    pub a: crate::bindings::engine::FExpressionInput,
-    pub b: crate::bindings::engine::FExpressionInput,
-    pub alpha: crate::bindings::engine::FExpressionInput,
-    pub const_alpha: f32,
+    __padding_end: [u8; 352],
 }
+impl UMaterialExpressionMaterialXDifference {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionMaterialXDisjointOver {
-    pub a: crate::bindings::engine::FExpressionInput,
-    pub b: crate::bindings::engine::FExpressionInput,
-    pub alpha: crate::bindings::engine::FExpressionInput,
-    pub const_alpha: f32,
+    __padding_end: [u8; 352],
 }
+impl UMaterialExpressionMaterialXDisjointOver {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionMaterialXDodge {
-    pub a: crate::bindings::engine::FExpressionInput,
-    pub b: crate::bindings::engine::FExpressionInput,
-    pub alpha: crate::bindings::engine::FExpressionInput,
-    pub const_alpha: f32,
+    __padding_end: [u8; 352],
 }
+impl UMaterialExpressionMaterialXDodge {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionMaterialXFractal3D {
-    pub position: crate::bindings::engine::FExpressionInput,
-    pub amplitude: crate::bindings::engine::FExpressionInput,
-    pub const_amplitude: f32,
-    pub octaves: crate::bindings::engine::FExpressionInput,
-    pub const_octaves: i32,
-    pub lacunarity: crate::bindings::engine::FExpressionInput,
-    pub const_lacunarity: f32,
-    pub diminish: crate::bindings::engine::FExpressionInput,
-    pub const_diminish: f32,
-    pub scale_deprecated: f32,
-    pub b_turbulence_deprecated: bool,
-    pub levels_deprecated: i32,
-    pub output_min_deprecated: f32,
-    pub output_max_deprecated: f32,
+    __padding_end: [u8; 488],
 }
+impl UMaterialExpressionMaterialXFractal3D {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionMaterialXIn {
-    pub a: crate::bindings::engine::FExpressionInput,
-    pub b: crate::bindings::engine::FExpressionInput,
-    pub alpha: crate::bindings::engine::FExpressionInput,
-    pub const_alpha: f32,
+    __padding_end: [u8; 352],
 }
+impl UMaterialExpressionMaterialXIn {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionMaterialXLuminance {
-    pub input: crate::bindings::engine::FExpressionInput,
-    pub luminance_factors: crate::bindings::core_u_object::FLinearColor,
-    pub luminance_mode: EMaterialXLuminanceMode,
+    __padding_end: [u8; 272],
 }
+impl UMaterialExpressionMaterialXLuminance {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionMaterialXMask {
-    pub a: crate::bindings::engine::FExpressionInput,
-    pub b: crate::bindings::engine::FExpressionInput,
-    pub alpha: crate::bindings::engine::FExpressionInput,
-    pub const_alpha: f32,
+    __padding_end: [u8; 352],
 }
+impl UMaterialExpressionMaterialXMask {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionMaterialXMatte {
-    pub a: crate::bindings::engine::FExpressionInput,
-    pub b: crate::bindings::engine::FExpressionInput,
-    pub alpha: crate::bindings::engine::FExpressionInput,
-    pub const_alpha: f32,
+    __padding_end: [u8; 352],
 }
+impl UMaterialExpressionMaterialXMatte {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionMaterialXMinus {
-    pub a: crate::bindings::engine::FExpressionInput,
-    pub b: crate::bindings::engine::FExpressionInput,
-    pub alpha: crate::bindings::engine::FExpressionInput,
-    pub const_alpha: f32,
+    __padding_end: [u8; 352],
 }
+impl UMaterialExpressionMaterialXMinus {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionMaterialXMod {
-    pub a: crate::bindings::engine::FExpressionInput,
-    pub b: crate::bindings::engine::FExpressionInput,
-    pub const_b: f32,
+    __padding_end: [u8; 304],
 }
+impl UMaterialExpressionMaterialXMod {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionMaterialXOut {
-    pub a: crate::bindings::engine::FExpressionInput,
-    pub b: crate::bindings::engine::FExpressionInput,
-    pub alpha: crate::bindings::engine::FExpressionInput,
-    pub const_alpha: f32,
+    __padding_end: [u8; 352],
 }
+impl UMaterialExpressionMaterialXOut {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionMaterialXOver {
-    pub a: crate::bindings::engine::FExpressionInput,
-    pub b: crate::bindings::engine::FExpressionInput,
-    pub alpha: crate::bindings::engine::FExpressionInput,
-    pub const_alpha: f32,
+    __padding_end: [u8; 352],
 }
+impl UMaterialExpressionMaterialXOver {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionMaterialXOverlay {
-    pub a: crate::bindings::engine::FExpressionInput,
-    pub b: crate::bindings::engine::FExpressionInput,
-    pub alpha: crate::bindings::engine::FExpressionInput,
-    pub const_alpha: f32,
+    __padding_end: [u8; 352],
 }
+impl UMaterialExpressionMaterialXOverlay {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionMaterialXPlace2D {
-    pub coordinates: crate::bindings::engine::FExpressionInput,
-    pub pivot: crate::bindings::engine::FExpressionInput,
-    pub scale: crate::bindings::engine::FExpressionInput,
-    pub offset: crate::bindings::engine::FExpressionInput,
-    pub rotation_angle: crate::bindings::engine::FExpressionInput,
-    pub const_rotation_angle: f32,
-    pub const_coordinate: u8,
+    __padding_end: [u8; 448],
 }
+impl UMaterialExpressionMaterialXPlace2D {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionMaterialXPlus {
-    pub a: crate::bindings::engine::FExpressionInput,
-    pub b: crate::bindings::engine::FExpressionInput,
-    pub alpha: crate::bindings::engine::FExpressionInput,
-    pub const_alpha: f32,
+    __padding_end: [u8; 352],
 }
+impl UMaterialExpressionMaterialXPlus {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionMaterialXPremult {
-    pub input: crate::bindings::engine::FExpressionInput,
+    __padding_end: [u8; 248],
 }
+impl UMaterialExpressionMaterialXPremult {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionMaterialXRamp4 {
-    pub coordinates: crate::bindings::engine::FExpressionInput,
-    pub a: crate::bindings::engine::FExpressionInput,
-    pub b: crate::bindings::engine::FExpressionInput,
-    pub c: crate::bindings::engine::FExpressionInput,
-    pub d: crate::bindings::engine::FExpressionInput,
-    pub const_coordinate: u8,
+    __padding_end: [u8; 448],
 }
+impl UMaterialExpressionMaterialXRamp4 {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionMaterialXRampLeftRight {
-    pub coordinates: crate::bindings::engine::FExpressionInput,
-    pub a: crate::bindings::engine::FExpressionInput,
-    pub b: crate::bindings::engine::FExpressionInput,
-    pub const_coordinate: u8,
+    __padding_end: [u8; 352],
 }
+impl UMaterialExpressionMaterialXRampLeftRight {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionMaterialXRampTopBottom {
-    pub coordinates: crate::bindings::engine::FExpressionInput,
-    pub a: crate::bindings::engine::FExpressionInput,
-    pub b: crate::bindings::engine::FExpressionInput,
-    pub const_coordinate: u8,
+    __padding_end: [u8; 352],
 }
+impl UMaterialExpressionMaterialXRampTopBottom {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionMaterialXRange {
-    pub input: crate::bindings::engine::FExpressionInput,
-    pub input_low: crate::bindings::engine::FExpressionInput,
-    pub input_high: crate::bindings::engine::FExpressionInput,
-    pub target_low: crate::bindings::engine::FExpressionInput,
-    pub target_high: crate::bindings::engine::FExpressionInput,
-    pub gamma: crate::bindings::engine::FExpressionInput,
-    pub clamp: crate::bindings::engine::FExpressionInput,
-    pub const_input_low: f32,
-    pub const_input_high: f32,
-    pub const_target_low: f32,
-    pub const_target_high: f32,
-    pub const_gamma: f32,
-    pub b_const_clamp: bool,
+    __padding_end: [u8; 560],
 }
+impl UMaterialExpressionMaterialXRange {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionMaterialXRemap {
-    pub input: crate::bindings::engine::FExpressionInput,
-    pub input_low: crate::bindings::engine::FExpressionInput,
-    pub input_high: crate::bindings::engine::FExpressionInput,
-    pub target_low: crate::bindings::engine::FExpressionInput,
-    pub target_high: crate::bindings::engine::FExpressionInput,
-    pub input_low_default: f32,
-    pub input_high_default: f32,
-    pub target_low_default: f32,
-    pub target_high_default: f32,
+    __padding_end: [u8; 456],
 }
+impl UMaterialExpressionMaterialXRemap {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionMaterialXRotate2D {
-    pub input: crate::bindings::engine::FExpressionInput,
-    pub rotation_angle: crate::bindings::engine::FExpressionInput,
-    pub const_rotation_angle: f32,
+    __padding_end: [u8; 304],
 }
+impl UMaterialExpressionMaterialXRotate2D {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionMaterialXScreen {
-    pub a: crate::bindings::engine::FExpressionInput,
-    pub b: crate::bindings::engine::FExpressionInput,
-    pub alpha: crate::bindings::engine::FExpressionInput,
-    pub const_alpha: f32,
+    __padding_end: [u8; 352],
 }
+impl UMaterialExpressionMaterialXScreen {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionMaterialXSplitLeftRight {
-    pub coordinates: crate::bindings::engine::FExpressionInput,
-    pub a: crate::bindings::engine::FExpressionInput,
-    pub b: crate::bindings::engine::FExpressionInput,
-    pub center: crate::bindings::engine::FExpressionInput,
-    pub const_center: f32,
-    pub const_coordinate: u8,
+    __padding_end: [u8; 400],
 }
+impl UMaterialExpressionMaterialXSplitLeftRight {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionMaterialXSplitTopBottom {
-    pub coordinates: crate::bindings::engine::FExpressionInput,
-    pub a: crate::bindings::engine::FExpressionInput,
-    pub b: crate::bindings::engine::FExpressionInput,
-    pub center: crate::bindings::engine::FExpressionInput,
-    pub const_center: f32,
-    pub const_coordinate: u8,
+    __padding_end: [u8; 400],
 }
+impl UMaterialExpressionMaterialXSplitTopBottom {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionMaterialXSwizzle {
-    pub input: crate::bindings::engine::FExpressionInput,
-    pub channels: FString,
+    __padding_end: [u8; 264],
 }
+impl UMaterialExpressionMaterialXSwizzle {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionMaterialXTextureSampleParameterBlur {
-    pub kernel_size: EMAterialXTextureSampleBlurKernel,
-    pub filter_size: f32,
-    pub filter_offset: f32,
-    pub filter: EMaterialXTextureSampleBlurFilter,
+    __padding_end: [u8; 648],
 }
+impl UMaterialExpressionMaterialXTextureSampleParameterBlur {}
+#[repr(C, align(8))]
 pub struct UMaterialExpressionMaterialXUnpremult {
-    pub input: crate::bindings::engine::FExpressionInput,
+    __padding_end: [u8; 248],
 }
-pub struct UInterchangeMaterialFactory {}
-pub struct UInterchangeMaterialFunctionFactory {}
-pub struct UInterchangeGeometryCacheFactory {}
-pub struct UInterchangeOBJTranslator {}
-pub struct UInterchangePhysicsAssetFactory {}
-pub struct UInterchangeSkeletalMeshFactory {}
-pub struct UInterchangeSkeletonFactory {}
-pub struct UInterchangeStaticMeshFactory {}
-pub struct UInterchangeActorFactory {}
-pub struct UInterchangeCineCameraActorFactory {}
-pub struct UInterchangeCameraActorFactory {}
-pub struct UInterchangeDecalActorFactory {}
-pub struct UInterchangeHeterogeneousVolumeActorFactory {}
-pub struct UInterchangeLevelFactory {}
-pub struct UInterchangeLevelInstanceActorFactory {}
-pub struct UInterchangeLightActorFactory {}
-pub struct UInterchangeSceneImportAssetFactory {}
-pub struct UInterchangeSceneVariantSetsFactory {}
-pub struct UInterchangeSkeletalMeshActorFactory {}
-pub struct UInterchangeSkyLightActorFactory {}
-pub struct UInterchangeStaticMeshActorFactory {}
-pub struct UInterchangeSpecularProfileFactory {}
-pub struct UInterchangeDDSTranslator {}
-pub struct UInterchangeIESTranslator {}
-pub struct UInterchangeImageWrapperTranslator {}
-pub struct UInterchangeJPGTranslator {}
-pub struct UInterchangePSDTranslator {}
-pub struct UInterchangeTextureFactory {}
-pub struct UInterchangeUEJPEGTranslator {}
-pub struct UInterchangeSparseVolumeTextureFactory {}
-#[allow(non_camel_case_types)]
+impl UMaterialExpressionMaterialXUnpremult {}
+#[repr(C, align(8))]
+pub struct UInterchangeMaterialFactory {
+    __padding_end: [u8; 64],
+}
+impl UInterchangeMaterialFactory {}
+#[repr(C, align(8))]
+pub struct UInterchangeMaterialFunctionFactory {
+    __padding_end: [u8; 64],
+}
+impl UInterchangeMaterialFunctionFactory {}
+#[repr(C, align(8))]
+pub struct UInterchangeGeometryCacheFactory {
+    __padding_end: [u8; 160],
+}
+impl UInterchangeGeometryCacheFactory {}
+#[repr(C, align(8))]
+pub struct UInterchangeOBJTranslator {
+    __padding_end: [u8; 104],
+}
+impl UInterchangeOBJTranslator {}
+#[repr(C, align(8))]
+pub struct UInterchangePhysicsAssetFactory {
+    __padding_end: [u8; 56],
+}
+impl UInterchangePhysicsAssetFactory {}
+#[repr(C, align(8))]
+pub struct UInterchangeSkeletalMeshFactory {
+    __padding_end: [u8; 248],
+}
+impl UInterchangeSkeletalMeshFactory {}
+#[repr(C, align(8))]
+pub struct UInterchangeSkeletonFactory {
+    __padding_end: [u8; 56],
+}
+impl UInterchangeSkeletonFactory {}
+#[repr(C, align(8))]
+pub struct UInterchangeStaticMeshFactory {
+    __padding_end: [u8; 328],
+}
+impl UInterchangeStaticMeshFactory {}
+#[repr(C, align(8))]
+pub struct UInterchangeActorFactory {
+    __padding_end: [u8; 56],
+}
+impl UInterchangeActorFactory {}
+#[repr(C, align(8))]
+pub struct UInterchangeCineCameraActorFactory {
+    __padding_end: [u8; 56],
+}
+impl UInterchangeCineCameraActorFactory {}
+#[repr(C, align(8))]
+pub struct UInterchangeCameraActorFactory {
+    __padding_end: [u8; 56],
+}
+impl UInterchangeCameraActorFactory {}
+#[repr(C, align(8))]
+pub struct UInterchangeDecalActorFactory {
+    __padding_end: [u8; 56],
+}
+impl UInterchangeDecalActorFactory {}
+#[repr(C, align(8))]
+pub struct UInterchangeHeterogeneousVolumeActorFactory {
+    __padding_end: [u8; 56],
+}
+impl UInterchangeHeterogeneousVolumeActorFactory {}
+#[repr(C, align(8))]
+pub struct UInterchangeLevelFactory {
+    __padding_end: [u8; 56],
+}
+impl UInterchangeLevelFactory {}
+#[repr(C, align(8))]
+pub struct UInterchangeLevelInstanceActorFactory {
+    __padding_end: [u8; 56],
+}
+impl UInterchangeLevelInstanceActorFactory {}
+#[repr(C, align(8))]
+pub struct UInterchangeLightActorFactory {
+    __padding_end: [u8; 56],
+}
+impl UInterchangeLightActorFactory {}
+#[repr(C, align(8))]
+pub struct UInterchangeSceneImportAssetFactory {
+    __padding_end: [u8; 56],
+}
+impl UInterchangeSceneImportAssetFactory {}
+#[repr(C, align(8))]
+pub struct UInterchangeSceneVariantSetsFactory {
+    __padding_end: [u8; 64],
+}
+impl UInterchangeSceneVariantSetsFactory {}
+#[repr(C, align(8))]
+pub struct UInterchangeSkeletalMeshActorFactory {
+    __padding_end: [u8; 56],
+}
+impl UInterchangeSkeletalMeshActorFactory {}
+#[repr(C, align(8))]
+pub struct UInterchangeSkyLightActorFactory {
+    __padding_end: [u8; 56],
+}
+impl UInterchangeSkyLightActorFactory {}
+#[repr(C, align(8))]
+pub struct UInterchangeStaticMeshActorFactory {
+    __padding_end: [u8; 56],
+}
+impl UInterchangeStaticMeshActorFactory {}
+#[repr(C, align(8))]
+pub struct UInterchangeSpecularProfileFactory {
+    __padding_end: [u8; 56],
+}
+impl UInterchangeSpecularProfileFactory {}
+#[repr(C, align(8))]
+pub struct UInterchangeDDSTranslator {
+    __padding_end: [u8; 96],
+}
+impl UInterchangeDDSTranslator {}
+#[repr(C, align(8))]
+pub struct UInterchangeIESTranslator {
+    __padding_end: [u8; 88],
+}
+impl UInterchangeIESTranslator {}
+#[repr(C, align(8))]
+pub struct UInterchangeImageWrapperTranslator {
+    __padding_end: [u8; 96],
+}
+impl UInterchangeImageWrapperTranslator {}
+#[repr(C, align(8))]
+pub struct UInterchangeJPGTranslator {
+    __padding_end: [u8; 88],
+}
+impl UInterchangeJPGTranslator {}
+#[repr(C, align(8))]
+pub struct UInterchangePSDTranslator {
+    __padding_end: [u8; 88],
+}
+impl UInterchangePSDTranslator {}
+#[repr(C, align(8))]
+pub struct UInterchangeTextureFactory {
+    __padding_end: [u8; 288],
+}
+impl UInterchangeTextureFactory {}
+#[repr(C, align(8))]
+pub struct UInterchangeUEJPEGTranslator {
+    __padding_end: [u8; 88],
+}
+impl UInterchangeUEJPEGTranslator {}
+#[repr(C, align(8))]
+pub struct UInterchangeSparseVolumeTextureFactory {
+    __padding_end: [u8; 96],
+}
+impl UInterchangeSparseVolumeTextureFactory {}
 #[repr(transparent)]
 pub struct EInterchangeCoordinateSystemPolicy(pub u8);
 impl EInterchangeCoordinateSystemPolicy {
@@ -322,7 +451,6 @@ impl EInterchangeCoordinateSystemPolicy {
         2,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMaterialXLuminanceMode(pub u8);
 impl EMaterialXLuminanceMode {
@@ -332,7 +460,6 @@ impl EMaterialXLuminanceMode {
     pub const REC2100: EMaterialXLuminanceMode = EMaterialXLuminanceMode(2);
     pub const CUSTOM: EMaterialXLuminanceMode = EMaterialXLuminanceMode(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMAterialXTextureSampleBlurKernel(pub i32);
 impl EMAterialXTextureSampleBlurKernel {
@@ -349,7 +476,6 @@ impl EMAterialXTextureSampleBlurKernel {
         3,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMaterialXTextureSampleBlurFilter(pub u8);
 impl EMaterialXTextureSampleBlurFilter {

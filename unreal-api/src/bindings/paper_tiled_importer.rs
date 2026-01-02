@@ -4,4 +4,8 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
-pub struct UPaperTiledImporterFactory {}
+#[repr(C, align(8))]
+pub struct UPaperTiledImporterFactory {
+    __padding_end: [u8; 168],
+}
+impl UPaperTiledImporterFactory {}

@@ -12,7 +12,11 @@ pub struct FPropertyEntry {
     pub b_use_constant_value: bool,
     pub constant_value: f32,
 }
+impl FPropertyEntry {}
+#[repr(C, align(8))]
 pub struct UMaterialOptions {
+    #[doc(hidden)]
+    __padding_48: [u8; 48],
     pub properties: TArray<FPropertyEntry>,
     pub texture_size: crate::bindings::core_u_object::FIntPoint,
     pub lod_indices: TArray<i32>,
@@ -20,12 +24,20 @@ pub struct UMaterialOptions {
     pub b_use_specific_uv_index: bool,
     pub texture_coordinate_index: i32,
 }
-pub struct UAssetBakeOptions {}
-pub struct UMaterialMergeOptions {
-    pub method: EMaterialBakeMethod,
-    pub blend_mode: crate::bindings::engine::EBlendMode,
+impl UMaterialOptions {}
+#[repr(C, align(8))]
+pub struct UAssetBakeOptions {
+    __padding_end: [u8; 48],
 }
-#[allow(non_camel_case_types)]
+impl UAssetBakeOptions {}
+#[repr(C, align(8))]
+pub struct UMaterialMergeOptions {
+    #[doc(hidden)]
+    __padding_49: [u8; 49],
+    pub blend_mode: crate::bindings::engine::EBlendMode,
+    __padding_end: [u8; 6],
+}
+impl UMaterialMergeOptions {}
 #[repr(transparent)]
 pub struct EMaterialBakeMethod(pub u8);
 impl EMaterialBakeMethod {

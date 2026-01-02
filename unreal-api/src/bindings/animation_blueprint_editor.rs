@@ -4,8 +4,13 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
-pub struct UAnimationBlueprintToolMenuContext {}
-pub struct UAnimationBlueprintEditorSettings {
-    pub b_pose_watch_selected_nodes: bool,
-    pub b_show_graph_corner_text: bool,
+#[repr(C, align(8))]
+pub struct UAnimationBlueprintToolMenuContext {
+    __padding_end: [u8; 64],
 }
+impl UAnimationBlueprintToolMenuContext {}
+#[repr(C, align(8))]
+pub struct UAnimationBlueprintEditorSettings {
+    __padding_end: [u8; 88],
+}
+impl UAnimationBlueprintEditorSettings {}

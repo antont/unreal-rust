@@ -6,22 +6,31 @@ pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[repr(C, align(8))]
 pub struct FInteractiveToolPresetDefinition {
-    pub stored_properties: FString,
-    pub label: FString,
-    pub tooltip: FString,
+    __padding_end: [u8; 48],
 }
+impl FInteractiveToolPresetDefinition {}
 #[repr(C, align(16))]
 pub struct FInteractiveToolPresetStore {
-    pub named_presets: TArray<FInteractiveToolPresetDefinition>,
-    pub tool_label: FText,
-    pub tool_icon: crate::bindings::slate_core::FSlateBrush,
+    __padding_end: [u8; 240],
 }
-pub struct UAssetDefinition_InteractiveToolsPresetCollectionAsset {}
+impl FInteractiveToolPresetStore {}
+#[repr(C, align(8))]
+pub struct UAssetDefinition_InteractiveToolsPresetCollectionAsset {
+    __padding_end: [u8; 72],
+}
+impl UAssetDefinition_InteractiveToolsPresetCollectionAsset {}
+#[repr(C, align(8))]
 pub struct UInteractiveToolsPresetCollectionAsset {
-    pub per_tool_presets: TMap<FString, FInteractiveToolPresetStore>,
-    pub collection_label: FText,
+    __padding_end: [u8; 144],
 }
-pub struct UInteractiveToolsPresetCollectionAssetFactory {}
+impl UInteractiveToolsPresetCollectionAsset {}
+#[repr(C, align(8))]
+pub struct UInteractiveToolsPresetCollectionAssetFactory {
+    __padding_end: [u8; 136],
+}
+impl UInteractiveToolsPresetCollectionAssetFactory {}
+#[repr(C, align(8))]
 pub struct UToolPresetAssetSubsystem {
-    pub default_collection: UPtr<UInteractiveToolsPresetCollectionAsset>,
+    __padding_end: [u8; 64],
 }
+impl UToolPresetAssetSubsystem {}

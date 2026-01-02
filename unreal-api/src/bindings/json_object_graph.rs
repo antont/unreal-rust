@@ -8,7 +8,7 @@ pub use crate::core_data::*;
 pub struct FJsonStringifyOptions {
     pub flags: EJsonStringifyFlags,
 }
-#[allow(non_camel_case_types)]
+impl FJsonStringifyOptions {}
 #[repr(transparent)]
 pub struct EJsonStringifyFlags(pub u8);
 impl EJsonStringifyFlags {

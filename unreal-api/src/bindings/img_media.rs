@@ -4,8 +4,6 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
-#[repr(C, align(1))]
-pub struct FImgMediaSourceCustomizationSequenceProxy {}
 #[repr(C, align(8))]
 pub struct FMediaSourceColorSettings {
     pub encoding_override: EMediaSourceEncoding,
@@ -15,18 +13,22 @@ pub struct FMediaSourceColorSettings {
     pub blue_chromaticity_coordinate: crate::bindings::core_u_object::FVector2D,
     pub white_chromaticity_coordinate: crate::bindings::core_u_object::FVector2D,
     pub chromatic_adaptation_method: crate::bindings::engine::ETextureChromaticAdaptationMethod,
+    __padding_end: [u8; 7],
 }
+impl FMediaSourceColorSettings {}
+#[repr(C, align(8))]
 pub struct UImgMediaSource {
-    pub is_path_relative_to_project_root_deprecated: bool,
+    #[doc(hidden)]
+    __padding_332: [u8; 332],
     pub frame_rate_override: crate::bindings::core_u_object::FFrameRate,
     pub proxy_override: FString,
     pub b_fill_gaps_in_sequence: bool,
-    pub sequence_proxy: FImgMediaSourceCustomizationSequenceProxy,
     pub start_timecode: crate::bindings::core_u_object::FTimecode,
     pub source_color_settings: FMediaSourceColorSettings,
     pub sequence_path: crate::bindings::core_u_object::FDirectoryPath,
+    __padding_end: [u8; 32],
 }
-#[allow(non_camel_case_types)]
+impl UImgMediaSource {}
 #[repr(transparent)]
 pub struct EMediaSourceEncoding(pub u8);
 impl EMediaSourceEncoding {

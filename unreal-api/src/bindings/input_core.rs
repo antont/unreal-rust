@@ -6,10 +6,14 @@ pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[repr(C, align(8))]
 pub struct FKey {
-    pub key_name: FName,
+    __padding_end: [u8; 32],
 }
-pub struct UInputCoreTypes {}
-#[allow(non_camel_case_types)]
+impl FKey {}
+#[repr(C, align(8))]
+pub struct UInputCoreTypes {
+    __padding_end: [u8; 48],
+}
+impl UInputCoreTypes {}
 #[repr(transparent)]
 pub struct EControllerHand(pub u8);
 impl EControllerHand {
@@ -33,7 +37,6 @@ impl EControllerHand {
     pub const SPECIAL: EControllerHand = EControllerHand(17);
     pub const CONTROLLER_HAND_COUNT: EControllerHand = EControllerHand(18);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ETouchIndex(pub u8);
 impl ETouchIndex {
@@ -50,7 +53,6 @@ impl ETouchIndex {
     pub const CURSOR_POINTER_INDEX: ETouchIndex = ETouchIndex(10);
     pub const MAX_TOUCHES: ETouchIndex = ETouchIndex(11);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EConsoleForGamepadLabels(pub u8);
 impl EConsoleForGamepadLabels {

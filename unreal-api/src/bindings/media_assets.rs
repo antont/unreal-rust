@@ -11,124 +11,188 @@ pub struct FMediaMetadataItemBPT {
     pub string_data: FString,
     pub binary_data: TArray<u8>,
 }
+impl FMediaMetadataItemBPT {}
 #[repr(C, align(8))]
 pub struct FMediaMetadataItemsBPT {
     pub items: TArray<FMediaMetadataItemBPT>,
 }
+impl FMediaMetadataItemsBPT {}
 #[repr(C, align(4))]
 pub struct FMediaSoundComponentSpectralData {
     pub frequency_hz: f32,
     pub magnitude: f32,
 }
+impl FMediaSoundComponentSpectralData {}
 #[repr(C, align(4))]
 pub struct FMediaSourceCacheSettings {
-    pub b_override: bool,
-    pub time_to_look_ahead: f32,
+    __padding_end: [u8; 8],
 }
+impl FMediaSourceCacheSettings {}
 #[repr(C, align(8))]
 pub struct FMediaCaptureDevice {
     pub display_name: FText,
     pub url: FString,
 }
+impl FMediaCaptureDevice {}
 pub struct UMediaSourceRendererInterface {}
 pub struct IMediaSourceRendererInterface {}
+#[repr(C, align(8))]
 pub struct UMediaSource {
-    pub thumbnail_image: UPtr<crate::bindings::engine::UTexture>,
-    pub media_source_renderer: UPtr<crate::bindings::core_u_object::UObject>,
+    __padding_end: [u8; 152],
 }
+impl UMediaSource {}
+#[repr(C, align(8))]
 pub struct UBaseMediaSource {
+    #[doc(hidden)]
+    __padding_152: [u8; 152],
     pub platform_player_names: TMap<FString, FName>,
-    pub player_name: FName,
+    __padding_end: [u8; 96],
 }
+impl UBaseMediaSource {}
+#[repr(C, align(8))]
 pub struct UFileMediaSource {
+    #[doc(hidden)]
+    __padding_328: [u8; 328],
     pub file_path: FString,
     pub precache_file: bool,
+    __padding_end: [u8; 23],
 }
+impl UFileMediaSource {}
+#[repr(C, align(8))]
 pub struct UMediaComponent {
+    #[doc(hidden)]
+    __padding_240: [u8; 240],
     pub media_texture: UPtr<UMediaTexture>,
     pub media_player: UPtr<UMediaPlayer>,
 }
+impl UMediaComponent {}
+#[repr(C, align(8))]
 pub struct UMediaTimeStampInfo {
+    #[doc(hidden)]
+    __padding_48: [u8; 48],
     pub time: crate::bindings::core_u_object::FTimespan,
     pub sequence_index: i64,
 }
+impl UMediaTimeStampInfo {}
+#[repr(C, align(8))]
 pub struct UMediaPlayer {
-    pub on_end_reached: FMediaPlayer_OnEndReached,
-    pub on_media_closed: FMediaPlayer_OnMediaClosed,
-    pub on_media_opened: FMediaPlayer_OnMediaOpened,
-    pub on_media_open_failed: FMediaPlayer_OnMediaOpenFailed,
-    pub on_playback_resumed: FMediaPlayer_OnPlaybackResumed,
-    pub on_playback_suspended: FMediaPlayer_OnPlaybackSuspended,
-    pub on_seek_completed: FMediaPlayer_OnSeekCompleted,
-    pub on_tracks_changed: FMediaPlayer_OnTracksChanged,
-    pub on_metadata_changed: FMediaPlayer_OnMetadataChanged,
-    pub on_buffering_start: FMediaPlayer_OnBufferingStart,
-    pub on_buffering_completed: FMediaPlayer_OnBufferingCompleted,
+    #[doc(hidden)]
+    __padding_320: [u8; 320],
     pub cache_ahead: crate::bindings::core_u_object::FTimespan,
     pub cache_behind: crate::bindings::core_u_object::FTimespan,
     pub cache_behind_game: crate::bindings::core_u_object::FTimespan,
     pub native_audio_out: bool,
     pub play_on_open: bool,
+    #[doc(hidden)]
+    __padding_348: [u8; 2],
     pub flags_348: u8,
     pub playlist: UPtr<UMediaPlaylist>,
     pub playlist_index: i32,
     pub time_delay: crate::bindings::core_u_object::FTimespan,
-    pub horizontal_field_of_view: f32,
-    pub vertical_field_of_view: f32,
-    pub view_rotation: crate::bindings::core_u_object::FRotator,
-    pub player_guid: crate::bindings::core_u_object::FGuid,
+    #[doc(hidden)]
+    __padding_496: [u8; 120],
     pub affected_by_pie_handling: bool,
+    __padding_end: [u8; 7],
 }
+impl UMediaPlayer {}
 pub struct UMediaPlayerProxyInterface {}
 pub struct IMediaPlayerProxyInterface {}
+#[repr(C, align(8))]
 pub struct UMediaPlaylist {
-    pub items: TArray<UPtr<UMediaSource>>,
+    __padding_end: [u8; 64],
 }
+impl UMediaPlaylist {}
+#[repr(C, align(16))]
 pub struct UMediaSoundComponent {
-    pub channels: EMediaSoundChannels,
-    pub dynamic_rate_adjustment: bool,
-    pub rate_adjustment_factor: f32,
-    pub rate_adjustment_range: crate::bindings::core_u_object::FFloatRange,
-    pub media_player: UPtr<UMediaPlayer>,
+    __padding_end: [u8; 2608],
 }
+impl UMediaSoundComponent {}
+#[repr(C, align(16))]
 pub struct UMediaTexture {
+    #[doc(hidden)]
+    __padding_1240: [u8; 1240],
     pub address_x: crate::bindings::engine::TextureAddress,
     pub address_y: crate::bindings::engine::TextureAddress,
     pub auto_clear: bool,
     pub clear_color: crate::bindings::core_u_object::FLinearColor,
     pub enable_gen_mips: bool,
-    pub num_mips_deprecated: u8,
+    #[doc(hidden)]
+    __padding_1262: [u8; 1],
     pub new_style_output: bool,
     pub current_aspect_ratio: f32,
     pub current_orientation: MediaTextureOrientation,
-    pub media_player: UPtr<UMediaPlayer>,
+    __padding_end: [u8; 203],
 }
+impl UMediaTexture {}
+#[repr(C, align(8))]
 pub struct UPlatformMediaSource {
-    pub platform_media_sources: TMap<FString, UPtr<UMediaSource>>,
-    pub media_source: UPtr<UMediaSource>,
+    __padding_end: [u8; 320],
 }
+impl UPlatformMediaSource {}
+#[repr(C, align(8))]
 pub struct UStreamMediaSource {
+    #[doc(hidden)]
+    __padding_328: [u8; 328],
     pub stream_url: FString,
 }
+impl UStreamMediaSource {}
+#[repr(C, align(8))]
 pub struct UTimeSynchronizableMediaSource {
+    #[doc(hidden)]
+    __padding_328: [u8; 328],
     pub b_use_time_synchronization: bool,
-    pub frame_delay: i32,
-    pub time_delay: f64,
-    pub b_auto_detect_input: bool,
+    __padding_end: [u8; 23],
 }
-pub struct UMediaBlueprintFunctionLibrary {}
-pub struct FMediaPlayer_OnEndReached;
-pub struct FMediaPlayer_OnMediaClosed;
-pub struct FMediaPlayer_OnMediaOpened;
-pub struct FMediaPlayer_OnMediaOpenFailed;
-pub struct FMediaPlayer_OnPlaybackResumed;
-pub struct FMediaPlayer_OnPlaybackSuspended;
-pub struct FMediaPlayer_OnSeekCompleted;
-pub struct FMediaPlayer_OnTracksChanged;
-pub struct FMediaPlayer_OnMetadataChanged;
-pub struct FMediaPlayer_OnBufferingStart;
-pub struct FMediaPlayer_OnBufferingCompleted;
-#[allow(non_camel_case_types)]
+impl UTimeSynchronizableMediaSource {}
+#[repr(C, align(8))]
+pub struct UMediaBlueprintFunctionLibrary {
+    __padding_end: [u8; 48],
+}
+impl UMediaBlueprintFunctionLibrary {}
+#[repr(transparent)]
+pub struct FMediaPlayer_OnEndReached {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FMediaPlayer_OnMediaClosed {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FMediaPlayer_OnMediaOpened {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FMediaPlayer_OnMediaOpenFailed {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FMediaPlayer_OnPlaybackResumed {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FMediaPlayer_OnPlaybackSuspended {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FMediaPlayer_OnSeekCompleted {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FMediaPlayer_OnTracksChanged {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FMediaPlayer_OnMetadataChanged {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FMediaPlayer_OnBufferingStart {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FMediaPlayer_OnBufferingCompleted {
+    _opague: u8,
+}
 #[repr(transparent)]
 pub struct EMediaPlayerTrack(pub u8);
 impl EMediaPlayerTrack {
@@ -140,14 +204,12 @@ impl EMediaPlayerTrack {
     pub const TEXT: EMediaPlayerTrack = EMediaPlayerTrack(5);
     pub const VIDEO: EMediaPlayerTrack = EMediaPlayerTrack(6);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMediaTimeRangeBPType(pub u8);
 impl EMediaTimeRangeBPType {
     pub const ABSOLUTE: EMediaTimeRangeBPType = EMediaTimeRangeBPType(0);
     pub const CURRENT: EMediaTimeRangeBPType = EMediaTimeRangeBPType(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMediaSoundComponentFFTSize(pub u8);
 impl EMediaSoundComponentFFTSize {
@@ -156,7 +218,6 @@ impl EMediaSoundComponentFFTSize {
     pub const MEDIUM_512: EMediaSoundComponentFFTSize = EMediaSoundComponentFFTSize(2);
     pub const LARGE_1024: EMediaSoundComponentFFTSize = EMediaSoundComponentFFTSize(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMediaSoundChannels(pub i32);
 impl EMediaSoundChannels {
@@ -164,7 +225,6 @@ impl EMediaSoundChannels {
     pub const STEREO: EMediaSoundChannels = EMediaSoundChannels(1);
     pub const SURROUND: EMediaSoundChannels = EMediaSoundChannels(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct MediaTextureOrientation(pub u8);
 impl MediaTextureOrientation {
@@ -173,7 +233,6 @@ impl MediaTextureOrientation {
     pub const MTORI_CW180: MediaTextureOrientation = MediaTextureOrientation(2);
     pub const MTORI_CW270: MediaTextureOrientation = MediaTextureOrientation(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMediaTextureVisibleMipsTiles(pub u8);
 impl EMediaTextureVisibleMipsTiles {

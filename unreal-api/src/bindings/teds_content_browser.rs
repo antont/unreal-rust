@@ -5,8 +5,12 @@
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[repr(C, align(8))]
-pub struct FContentBrowserTileViewWidgetConstructor {}
+pub struct UContentBrowserTileViewWidgetFactory {
+    __padding_end: [u8; 48],
+}
+impl UContentBrowserTileViewWidgetFactory {}
 #[repr(C, align(8))]
-pub struct FContentBrowserAssetViewWidgetConstructor {}
-pub struct UContentBrowserTileViewWidgetFactory {}
-pub struct UContentBrowserAssetViewWidgetFactory {}
+pub struct UContentBrowserAssetViewWidgetFactory {
+    __padding_end: [u8; 48],
+}
+impl UContentBrowserAssetViewWidgetFactory {}

@@ -9,18 +9,9 @@ pub struct FAssetRenameData {
     pub asset: TWeakObjectPtr<crate::bindings::core_u_object::UObject>,
     pub new_package_path: FString,
     pub new_name: FString,
-    pub old_object_path: crate::bindings::core_u_object::FSoftObjectPath,
-    pub new_object_path: crate::bindings::core_u_object::FSoftObjectPath,
-    pub b_only_fix_soft_references: bool,
-    pub b_also_rename_localized_variants: bool,
+    __padding_end: [u8; 88],
 }
-#[repr(C, align(8))]
-pub struct FAdvancedCopyMap {
-    pub class_to_copy: crate::bindings::core_u_object::FSoftClassPath,
-    pub advanced_copy_customization: crate::bindings::core_u_object::FSoftClassPath,
-}
-#[repr(C, align(8))]
-pub struct FAdvancedCopyParams {}
+impl FAssetRenameData {}
 #[repr(C, align(8))]
 pub struct FMigrationOptions {
     pub b_prompt: bool,
@@ -28,21 +19,54 @@ pub struct FMigrationOptions {
     pub asset_conflict: EAssetMigrationConflict,
     pub orphan_folder: FString,
 }
+impl FMigrationOptions {}
+#[repr(C, align(8))]
 pub struct UAssetToolsSettings {
-    pub advanced_copy_customizations: TArray<FAdvancedCopyMap>,
+    __padding_end: [u8; 120],
 }
+impl UAssetToolsSettings {}
 pub struct UAssetTools {}
 pub struct IAssetTools {}
-pub struct UAssetToolsHelpers {}
-pub struct UAdvancedCopyCustomization {}
-pub struct UAssetDefinition_AssetTypeActionsProxy {}
-pub struct UAssetToolsImpl {}
-pub struct FBeginAdvancedCopyPackages_OnCopyComplete;
-pub struct FCreateAssetAsync_OnComplete;
-pub struct FCreateAssetAsync_OnCancelled;
-pub struct FCreateAssetWithDialogAsync_OnComplete;
-pub struct FCreateAssetWithDialogAsync_OnCancelled;
-#[allow(non_camel_case_types)]
+#[repr(C, align(8))]
+pub struct UAssetToolsHelpers {
+    __padding_end: [u8; 48],
+}
+impl UAssetToolsHelpers {}
+#[repr(C, align(8))]
+pub struct UAdvancedCopyCustomization {
+    __padding_end: [u8; 424],
+}
+impl UAdvancedCopyCustomization {}
+#[repr(C, align(8))]
+pub struct UAssetDefinition_AssetTypeActionsProxy {
+    __padding_end: [u8; 112],
+}
+impl UAssetDefinition_AssetTypeActionsProxy {}
+#[repr(C, align(8))]
+pub struct UAssetToolsImpl {
+    __padding_end: [u8; 1064],
+}
+impl UAssetToolsImpl {}
+#[repr(transparent)]
+pub struct FBeginAdvancedCopyPackages_OnCopyComplete {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FCreateAssetAsync_OnComplete {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FCreateAssetAsync_OnCancelled {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FCreateAssetWithDialogAsync_OnComplete {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FCreateAssetWithDialogAsync_OnCancelled {
+    _opague: u8,
+}
 #[repr(transparent)]
 pub struct EAssetMigrationConflict(pub u8);
 impl EAssetMigrationConflict {
@@ -50,7 +74,6 @@ impl EAssetMigrationConflict {
     pub const OVERWRITE: EAssetMigrationConflict = EAssetMigrationConflict(1);
     pub const CANCEL: EAssetMigrationConflict = EAssetMigrationConflict(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EAssetRenameResult(pub u8);
 impl EAssetRenameResult {
@@ -58,7 +81,6 @@ impl EAssetRenameResult {
     pub const SUCCESS: EAssetRenameResult = EAssetRenameResult(1);
     pub const PENDING: EAssetRenameResult = EAssetRenameResult(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EAssetTypeActivationOpenedMethod(pub u8);
 impl EAssetTypeActivationOpenedMethod {

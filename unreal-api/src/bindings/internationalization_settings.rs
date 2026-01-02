@@ -4,10 +4,11 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
+#[repr(C, align(8))]
 pub struct UInternationalizationSettingsModel {
-    pub display_timezone: ETimezoneSetting,
+    __padding_end: [u8; 56],
 }
-#[allow(non_camel_case_types)]
+impl UInternationalizationSettingsModel {}
 #[repr(transparent)]
 pub struct ETimezoneSetting(pub u8);
 impl ETimezoneSetting {

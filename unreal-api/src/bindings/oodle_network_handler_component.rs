@@ -4,13 +4,8 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
+#[repr(C, align(8))]
 pub struct UOodleNetworkTrainerCommandlet {
-    pub b_compression_test: bool,
-    pub b_write_v5_dictionaries: bool,
-    pub hash_table_size: i32,
-    pub dictionary_size: i32,
-    pub dictionary_trials: i32,
-    pub trial_randomness: i32,
-    pub trial_generations: i32,
-    pub b_no_trials: bool,
+    __padding_end: [u8; 168],
 }
+impl UOodleNetworkTrainerCommandlet {}

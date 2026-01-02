@@ -8,4 +8,9 @@ pub use crate::core_data::*;
 pub struct FActorLayer {
     pub name: FName,
 }
-pub struct ULayersBlueprintLibrary {}
+impl FActorLayer {}
+#[repr(C, align(8))]
+pub struct ULayersBlueprintLibrary {
+    __padding_end: [u8; 48],
+}
+impl ULayersBlueprintLibrary {}

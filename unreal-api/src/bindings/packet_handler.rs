@@ -4,7 +4,13 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
-pub struct UHandlerComponentFactory {}
-pub struct UPacketHandlerProfileConfig {
-    pub components: TArray<FString>,
+#[repr(C, align(8))]
+pub struct UHandlerComponentFactory {
+    __padding_end: [u8; 48],
 }
+impl UHandlerComponentFactory {}
+#[repr(C, align(8))]
+pub struct UPacketHandlerProfileConfig {
+    __padding_end: [u8; 64],
+}
+impl UPacketHandlerProfileConfig {}

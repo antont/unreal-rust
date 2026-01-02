@@ -4,8 +4,8 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
+#[repr(C, align(8))]
 pub struct UFacialAnimationBulkImporterSettings {
-    pub source_import_path: crate::bindings::core_u_object::FDirectoryPath,
-    pub target_import_path: crate::bindings::core_u_object::FDirectoryPath,
-    pub curve_node_name: FString,
+    __padding_end: [u8; 96],
 }
+impl UFacialAnimationBulkImporterSettings {}

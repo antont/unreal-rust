@@ -17,6 +17,7 @@ struct RustReflection_Type
 {
 	virtual ~RustReflection_Type() = default;
 	virtual TSharedPtr<FJsonObject> ToJson() = 0;
+	int ArrayDim = 0;
 };
 
 struct FRustReflection_Property
@@ -30,6 +31,8 @@ struct FRustReflection_Property
 	TOptional<FText> Documentation;
 
 	int32 Offset;
+	uint32 Size;
+	int32 Alignment;
 
 	static FRustReflection_Property FromProperty(FProperty* Property);
 	TSharedPtr<FJsonObject> ToJson();
@@ -41,6 +44,7 @@ struct RustReflection_ConcreteType : public RustReflection_Type
 	TOptional<FString> Hint;
 	virtual TSharedPtr<FJsonObject> ToJson() override;
 };
+
 struct RustReflection_Bitfield : public RustReflection_Type
 {
 	uint8 Offset;
@@ -66,11 +70,12 @@ struct RustReflection_MapType : public RustReflection_Type
 };
 
 static TUniquePtr<RustReflection_ConcreteType> MakeConcreteType(FString Name,
+                                                                int32 ArrayDim,
                                                                 TOptional<FString> Hint = TOptional<FString>());
 static TUniquePtr<RustReflection_ContainerType> MakeContainerType(FString ContainerTypeName,
-                                                                  TUniquePtr<RustReflection_Type> InnerType);
+                                                                  TUniquePtr<RustReflection_Type> InnerType,
+                                                                  int32 ArrayDim);
 static TUniquePtr<RustReflection_Type> FromProperty(FProperty* Property);
-static TUniquePtr<RustReflection_Type> FromUClass(UClass* Class);
 
 struct FRustReflection_Param
 {
@@ -110,8 +115,9 @@ struct FRustReflection_UStruct
 {
 	FString StructName;
 
-	TOptional<FString> SuperClassName;
+	TOptional<FString> SuperStuctName;
 
+	TMap<FString, FString> Metadata;
 	TArray<FString> StructFlags;
 
 	FString Package;
@@ -122,6 +128,7 @@ struct FRustReflection_UStruct
 
 	int16 MinAlignment = 0;
 	int32 PropertySizes = 0;
+	int32 Size = 0;
 
 	bool bIsPlainOldData = false;
 
@@ -135,6 +142,7 @@ struct FRustReflection_UClass
 
 	TOptional<FString> SuperClassName;
 
+	TMap<FString, FString> Metadata;
 	TArray<FString> ClassFlags;
 	bool bIsInterface = false;
 

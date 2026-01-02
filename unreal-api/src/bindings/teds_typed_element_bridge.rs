@@ -4,5 +4,13 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
-pub struct UTypedElementActorHandleDataStorageFactory {}
-pub struct UTypedElementBridgeDataStorageFactory {}
+#[repr(C, align(8))]
+pub struct UTypedElementActorHandleDataStorageFactory {
+    __padding_end: [u8; 72],
+}
+impl UTypedElementActorHandleDataStorageFactory {}
+#[repr(C, align(8))]
+pub struct UTypedElementBridgeDataStorageFactory {
+    __padding_end: [u8; 64],
+}
+impl UTypedElementBridgeDataStorageFactory {}

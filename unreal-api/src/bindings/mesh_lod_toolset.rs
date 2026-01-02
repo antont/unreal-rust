@@ -4,172 +4,93 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
-#[repr(C, align(4))]
-pub struct FGenerateStaticMeshLODProcessSettings {
-    pub mesh_generator: EGenerateStaticMeshLODProcess_MeshGeneratorModes,
-    pub solidify_voxel_resolution: i32,
-    pub winding_threshold: f32,
-    pub closure_distance: f32,
-    pub b_prefilter_vertices: bool,
-    pub prefilter_grid_resolution: i32,
-}
-#[repr(C, align(4))]
-pub struct FGenerateStaticMeshLODProcess_PreprocessSettings {
-    pub filter_group_layer: FName,
-    pub thicken_weight_map_name: FName,
-    pub thicken_amount: f32,
-    pub b_is_thicken_amount_enabled: bool,
-}
-#[repr(C, align(4))]
-pub struct FGenerateStaticMeshLODProcess_SimplifySettings {
-    pub method: EGenerateStaticMeshLODProcess_SimplifyMethod,
-    pub target_count: i32,
-    pub target_percentage: f32,
-    pub tolerance: f32,
-}
-#[repr(C, align(4))]
-pub struct FGenerateStaticMeshLODProcess_NormalsSettings {
-    pub method: EGenerateStaticMeshLODProcess_NormalsMethod,
-    pub angle: f32,
-}
-#[repr(C, align(4))]
-pub struct FGenerateStaticMeshLODProcess_UVSettings_PatchBuilder {
-    pub curvature_alignment: f32,
-    pub smoothing_steps: i32,
-    pub smoothing_alpha: f32,
-}
-#[repr(C, align(4))]
-pub struct FGenerateStaticMeshLODProcess_UVSettings {
-    pub uv_method: EGenerateStaticMeshLODProcess_AutoUVMethod,
-    pub num_uv_atlas_charts: i32,
-    pub num_initial_patches: i32,
-    pub merging_threshold: f32,
-    pub max_angle_deviation: f32,
-    pub patch_builder: FGenerateStaticMeshLODProcess_UVSettings_PatchBuilder,
-}
-#[repr(C, align(4))]
-pub struct FGenerateStaticMeshLODProcess_TextureSettings {
-    pub bake_resolution: EGenerateStaticMeshLODBakeResolution,
-    pub bake_thickness: f32,
-    pub b_combine_textures: bool,
-}
-#[repr(C, align(4))]
-pub struct FGenerateStaticMeshLODProcess_CollisionSettings {
-    pub collision_group_layer_name: FName,
-    pub collision_type: EGenerateStaticMeshLODSimpleCollisionGeometryType,
-    pub convex_triangle_count: i32,
-    pub b_prefilter_vertices: bool,
-    pub prefilter_grid_resolution: i32,
-    pub b_simplify_polygons: bool,
-    pub hull_tolerance: f32,
-    pub sweep_axis: EGenerateStaticMeshLODProjectedHullAxisMode,
-}
 #[repr(C, align(8))]
-pub struct FGenerateStaticMeshLOD_TextureConfig {
-    pub texture: UPtr<crate::bindings::engine::UTexture2D>,
-    pub constraint: EGenerateStaticMeshLOD_BakeConstraint,
+pub struct UAssetDefinition_StaticMeshLODGenerationSettings {
+    __padding_end: [u8; 72],
 }
+impl UAssetDefinition_StaticMeshLODGenerationSettings {}
 #[repr(C, align(8))]
-pub struct FGenerateStaticMeshLOD_MaterialConfig {
-    pub material: UPtr<crate::bindings::engine::UMaterialInterface>,
-    pub constraint: EGenerateStaticMeshLOD_BakeConstraint,
-}
-#[repr(C, align(4))]
-pub struct FLODManagerLODInfo {
-    pub vertex_count: i32,
-    pub triangle_count: i32,
-}
-pub struct UAssetDefinition_StaticMeshLODGenerationSettings {}
 pub struct UGenerateStaticMeshLODProcess {
-    pub source_static_mesh: UPtr<crate::bindings::engine::UStaticMesh>,
-    pub all_derived_textures: TSet<UPtr<crate::bindings::engine::UTexture2D>>,
-    pub derived_normal_map_tex: UPtr<crate::bindings::engine::UTexture2D>,
-    pub derived_multi_texture_bake_result: UPtr<crate::bindings::engine::UTexture2D>,
+    __padding_end: [u8; 2096],
 }
-pub struct UGenerateStaticMeshLODAssetToolBuilder {}
+impl UGenerateStaticMeshLODProcess {}
+#[repr(C, align(8))]
+pub struct UGenerateStaticMeshLODAssetToolBuilder {
+    __padding_end: [u8; 56],
+}
+impl UGenerateStaticMeshLODAssetToolBuilder {}
+#[repr(C, align(8))]
 pub struct UGenerateStaticMeshLODAssetToolOutputProperties {
-    pub output_mode: EGenerateLODAssetOutputMode,
-    pub new_asset_name: FString,
-    pub b_save_input_as_hi_res_source: bool,
-    pub generated_suffix: FString,
-    pub b_show_output_mode: bool,
+    __padding_end: [u8; 240],
 }
+impl UGenerateStaticMeshLODAssetToolOutputProperties {}
+#[repr(C, align(8))]
 pub struct UGenerateStaticMeshLODAssetToolPresetProperties {
-    pub preset: TWeakObjectPtr<UStaticMeshLODGenerationSettings>,
+    __padding_end: [u8; 200],
 }
+impl UGenerateStaticMeshLODAssetToolPresetProperties {}
+#[repr(C, align(8))]
 pub struct UGenerateStaticMeshLODAssetToolProperties {
-    pub preprocessing: FGenerateStaticMeshLODProcess_PreprocessSettings,
-    pub mesh_generation: FGenerateStaticMeshLODProcessSettings,
-    pub simplification: FGenerateStaticMeshLODProcess_SimplifySettings,
-    pub normals: FGenerateStaticMeshLODProcess_NormalsSettings,
-    pub texture_baking: FGenerateStaticMeshLODProcess_TextureSettings,
-    pub uv_generation: FGenerateStaticMeshLODProcess_UVSettings,
-    pub simple_collision: FGenerateStaticMeshLODProcess_CollisionSettings,
-    pub collision_group_layer_name: FName,
-    pub group_layers_list: TArray<FString>,
+    __padding_end: [u8; 376],
 }
+impl UGenerateStaticMeshLODAssetToolProperties {}
+#[repr(C, align(8))]
 pub struct UGenerateStaticMeshLODAssetToolTextureProperties {
-    pub materials: TArray<FGenerateStaticMeshLOD_MaterialConfig>,
-    pub textures: TArray<FGenerateStaticMeshLOD_TextureConfig>,
-    pub preview_textures: TArray<UPtr<crate::bindings::engine::UTexture2D>>,
+    __padding_end: [u8; 232],
 }
+impl UGenerateStaticMeshLODAssetToolTextureProperties {}
+#[repr(C, align(8))]
 pub struct UGenerateStaticMeshLODAssetTool {
-    pub output_properties: UPtr<UGenerateStaticMeshLODAssetToolOutputProperties>,
-    pub basic_properties: UPtr<UGenerateStaticMeshLODAssetToolProperties>,
-    pub preset_properties: UPtr<UGenerateStaticMeshLODAssetToolPresetProperties>,
-    pub texture_properties: UPtr<UGenerateStaticMeshLODAssetToolTextureProperties>,
-    pub collision_viz_settings: UPtr<
-        crate::bindings::mesh_modeling_tools_exp::UCollisionGeometryVisualizationProperties,
-    >,
-    pub preview_with_background_compute: UPtr<
-        crate::bindings::modeling_components::UMeshOpPreviewWithBackgroundCompute,
-    >,
-    pub preview_textures: TArray<UPtr<crate::bindings::engine::UTexture2D>>,
-    pub preview_materials: TArray<UPtr<crate::bindings::engine::UMaterialInterface>>,
-    pub object_data: UPtr<
-        crate::bindings::mesh_modeling_tools_exp::UPhysicsObjectToolPropertySet,
-    >,
-    pub collision_preview: UPtr<crate::bindings::modeling_components::UPreviewGeometry>,
-    pub generate_process: UPtr<UGenerateStaticMeshLODProcess>,
+    __padding_end: [u8; 352],
 }
+impl UGenerateStaticMeshLODAssetTool {}
+#[repr(C, align(8))]
 pub struct UStaticMeshLODGenerationSettings {
-    pub preprocessing: FGenerateStaticMeshLODProcess_PreprocessSettings,
-    pub mesh_generation: FGenerateStaticMeshLODProcessSettings,
-    pub simplification: FGenerateStaticMeshLODProcess_SimplifySettings,
-    pub normals: FGenerateStaticMeshLODProcess_NormalsSettings,
-    pub texture_baking: FGenerateStaticMeshLODProcess_TextureSettings,
-    pub uv_generation: FGenerateStaticMeshLODProcess_UVSettings,
-    pub simple_collision: FGenerateStaticMeshLODProcess_CollisionSettings,
+    __padding_end: [u8; 216],
 }
-pub struct UStaticMeshLODGenerationSettingsFactory {}
-pub struct ULODManagerToolBuilder {}
+impl UStaticMeshLODGenerationSettings {}
+#[repr(C, align(8))]
+pub struct UStaticMeshLODGenerationSettingsFactory {
+    __padding_end: [u8; 136],
+}
+impl UStaticMeshLODGenerationSettingsFactory {}
+#[repr(C, align(8))]
+pub struct ULODManagerToolBuilder {
+    __padding_end: [u8; 48],
+}
+impl ULODManagerToolBuilder {}
+#[repr(C, align(8))]
 pub struct ULODManagerLODProperties {
-    pub source_lo_ds: TArray<FLODManagerLODInfo>,
-    pub hi_res_source: TArray<FLODManagerLODInfo>,
-    pub render_lo_ds: TArray<FLODManagerLODInfo>,
-    pub b_nanite_enabled: bool,
-    pub keep_triangle_percent: f32,
-    pub materials: TArray<crate::bindings::engine::FStaticMaterial>,
+    __padding_end: [u8; 256],
 }
+impl ULODManagerLODProperties {}
+#[repr(C, align(8))]
 pub struct ULODManagerPreviewLODProperties {
-    pub visible_lod: FString,
-    pub lod_names_list: TArray<FString>,
-    pub b_show_seams: bool,
+    __padding_end: [u8; 224],
 }
-pub struct ULODManagerActionPropertySet {}
-pub struct ULODManagerHiResSourceModelActions {}
-pub struct ULODManagerMaterialActions {}
+impl ULODManagerPreviewLODProperties {}
+#[repr(C, align(8))]
+pub struct ULODManagerActionPropertySet {
+    __padding_end: [u8; 192],
+}
+impl ULODManagerActionPropertySet {}
+#[repr(C, align(8))]
+pub struct ULODManagerHiResSourceModelActions {
+    __padding_end: [u8; 192],
+}
+impl ULODManagerHiResSourceModelActions {}
+#[repr(C, align(8))]
+pub struct ULODManagerMaterialActions {
+    __padding_end: [u8; 192],
+}
+impl ULODManagerMaterialActions {}
 pub struct ULODManagerToolChangeTarget {}
 pub struct ILODManagerToolChangeTarget {}
+#[repr(C, align(8))]
 pub struct ULODManagerTool {
-    pub lod_info_properties: UPtr<ULODManagerLODProperties>,
-    pub lod_preview_properties: UPtr<ULODManagerPreviewLODProperties>,
-    pub hi_res_source_model_actions: UPtr<ULODManagerHiResSourceModelActions>,
-    pub material_actions: UPtr<ULODManagerMaterialActions>,
-    pub lod_preview: UPtr<crate::bindings::modeling_components::UPreviewMesh>,
-    pub lod_preview_lines: UPtr<crate::bindings::modeling_components::UPreviewGeometry>,
+    __padding_end: [u8; 408],
 }
-#[allow(non_camel_case_types)]
+impl ULODManagerTool {}
 #[repr(transparent)]
 pub struct EGenerateStaticMeshLODProcess_MeshGeneratorModes(pub u8);
 impl EGenerateStaticMeshLODProcess_MeshGeneratorModes {
@@ -186,7 +107,6 @@ impl EGenerateStaticMeshLODProcess_MeshGeneratorModes {
         3,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EGenerateStaticMeshLODProcess_SimplifyMethod(pub u8);
 impl EGenerateStaticMeshLODProcess_SimplifyMethod {
@@ -203,7 +123,6 @@ impl EGenerateStaticMeshLODProcess_SimplifyMethod {
         3,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EGenerateStaticMeshLODProcess_NormalsMethod(pub u8);
 impl EGenerateStaticMeshLODProcess_NormalsMethod {
@@ -217,7 +136,6 @@ impl EGenerateStaticMeshLODProcess_NormalsMethod {
         2,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EGenerateStaticMeshLODProcess_AutoUVMethod(pub u8);
 impl EGenerateStaticMeshLODProcess_AutoUVMethod {
@@ -231,7 +149,6 @@ impl EGenerateStaticMeshLODProcess_AutoUVMethod {
         2,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EGenerateStaticMeshLODBakeResolution(pub i32);
 impl EGenerateStaticMeshLODBakeResolution {
@@ -266,7 +183,6 @@ impl EGenerateStaticMeshLODBakeResolution {
         8192,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EGenerateStaticMeshLODSimpleCollisionGeometryType(pub u8);
 impl EGenerateStaticMeshLODSimpleCollisionGeometryType {
@@ -295,7 +211,6 @@ impl EGenerateStaticMeshLODSimpleCollisionGeometryType {
         7,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EGenerateStaticMeshLODProjectedHullAxisMode(pub u8);
 impl EGenerateStaticMeshLODProjectedHullAxisMode {
@@ -315,7 +230,6 @@ impl EGenerateStaticMeshLODProjectedHullAxisMode {
         4,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EGenerateStaticMeshLOD_BakeConstraint(pub i32);
 impl EGenerateStaticMeshLOD_BakeConstraint {
@@ -326,7 +240,6 @@ impl EGenerateStaticMeshLOD_BakeConstraint {
         1,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EGenerateLODAssetOutputMode(pub u8);
 impl EGenerateLODAssetOutputMode {

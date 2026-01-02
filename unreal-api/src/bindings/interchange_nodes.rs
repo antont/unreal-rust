@@ -8,64 +8,243 @@ pub use crate::core_data::*;
 pub struct FInterchangeAnimationPayLoadKey {
     pub unique_id: FString,
     pub ty: EInterchangeAnimationPayLoadType,
+    __padding_end: [u8; 7],
 }
+impl FInterchangeAnimationPayLoadKey {}
 #[repr(C, align(8))]
 pub struct FInterchangeGroomPayloadKey {
     pub unique_id: FString,
     pub ty: EInterchangeGroomPayLoadType,
     pub frame_number: i32,
 }
+impl FInterchangeGroomPayloadKey {}
 #[repr(C, align(8))]
 pub struct FInterchangeMeshPayLoadKey {
     pub unique_id: FString,
     pub ty: EInterchangeMeshPayLoadType,
     pub frame_number: i32,
 }
-pub struct UInterchangePhysicalCameraNode {}
-pub struct UInterchangeStandardCameraNode {}
-pub struct UInterchangeShaderNode {}
-pub struct UInterchangeDecalMaterialNode {}
-pub struct UInterchangeDecalNode {}
-pub struct UInterchangeTextureNode {}
-pub struct UInterchangeTexture2DArrayNode {}
-pub struct UInterchangeTextureCubeArrayNode {}
-pub struct UInterchangeTextureCubeNode {}
-pub struct UInterchangeTextureLightProfileNode {}
-pub struct UInterchangeVolumeTextureNode {}
-pub struct UInterchangeAnimationTrackSetNode {}
-pub struct UInterchangeAnimationTrackBaseNode {}
-pub struct UInterchangeAnimationTrackSetInstanceNode {}
-pub struct UInterchangeAnimationTrackNode {}
-pub struct UInterchangeTransformAnimationTrackNode {}
-pub struct UInterchangeSkeletalAnimationTrackNode {}
-pub struct UInterchangeAudioSoundWaveNode {}
-pub struct UInterchangeGroomNode {}
-pub struct UInterchangeBaseLightNode {}
-pub struct UInterchangeLightNode {}
-pub struct UInterchangePointLightNode {}
-pub struct UInterchangeSpotLightNode {}
-pub struct UInterchangeRectLightNode {}
-pub struct UInterchangeDirectionalLightNode {}
-pub struct UInterchangeSkyLightNode {}
-pub struct UInterchangeMaterialInstanceNode {}
-pub struct UInterchangeMaterialReferenceNode {}
-pub struct UInterchangeMeshLODContainerNode {}
-pub struct UInterchangeMeshNode {}
-pub struct UInterchangeGeometryCacheNode {}
-pub struct UInterchangeSceneComponentNode {}
-pub struct UInterchangeInstancedStaticMeshComponentNode {}
-pub struct UInterchangeSceneNode {}
-pub struct UInterchangeShaderPortsAPI {}
-pub struct UInterchangeFunctionCallShaderNode {}
-pub struct UInterchangeShaderGraphNode {}
-pub struct UInterchangeSpecularProfileNode {}
-pub struct UInterchangeTexture2DNode {}
-pub struct UInterchangeTextureBlurNode {}
-pub struct UInterchangeVariantSetNode {}
-pub struct UInterchangeSceneVariantSetsNode {}
-pub struct UInterchangeVolumeNode {}
-pub struct UInterchangeVolumeGridNode {}
-#[allow(non_camel_case_types)]
+impl FInterchangeMeshPayLoadKey {}
+#[repr(C, align(8))]
+pub struct UInterchangePhysicalCameraNode {
+    __padding_end: [u8; 176],
+}
+impl UInterchangePhysicalCameraNode {}
+#[repr(C, align(8))]
+pub struct UInterchangeStandardCameraNode {
+    __padding_end: [u8; 208],
+}
+impl UInterchangeStandardCameraNode {}
+#[repr(C, align(8))]
+pub struct UInterchangeShaderNode {
+    __padding_end: [u8; 128],
+}
+impl UInterchangeShaderNode {}
+#[repr(C, align(8))]
+pub struct UInterchangeDecalMaterialNode {
+    __padding_end: [u8; 160],
+}
+impl UInterchangeDecalMaterialNode {}
+#[repr(C, align(8))]
+pub struct UInterchangeDecalNode {
+    __padding_end: [u8; 160],
+}
+impl UInterchangeDecalNode {}
+#[repr(C, align(8))]
+pub struct UInterchangeTextureNode {
+    __padding_end: [u8; 176],
+}
+impl UInterchangeTextureNode {}
+#[repr(C, align(8))]
+pub struct UInterchangeTexture2DArrayNode {
+    __padding_end: [u8; 176],
+}
+impl UInterchangeTexture2DArrayNode {}
+#[repr(C, align(8))]
+pub struct UInterchangeTextureCubeArrayNode {
+    __padding_end: [u8; 176],
+}
+impl UInterchangeTextureCubeArrayNode {}
+#[repr(C, align(8))]
+pub struct UInterchangeTextureCubeNode {
+    __padding_end: [u8; 176],
+}
+impl UInterchangeTextureCubeNode {}
+#[repr(C, align(8))]
+pub struct UInterchangeTextureLightProfileNode {
+    __padding_end: [u8; 176],
+}
+impl UInterchangeTextureLightProfileNode {}
+#[repr(C, align(8))]
+pub struct UInterchangeVolumeTextureNode {
+    __padding_end: [u8; 176],
+}
+impl UInterchangeVolumeTextureNode {}
+#[repr(C, align(8))]
+pub struct UInterchangeAnimationTrackSetNode {
+    __padding_end: [u8; 160],
+}
+impl UInterchangeAnimationTrackSetNode {}
+#[repr(C, align(8))]
+pub struct UInterchangeAnimationTrackBaseNode {
+    __padding_end: [u8; 128],
+}
+impl UInterchangeAnimationTrackBaseNode {}
+#[repr(C, align(8))]
+pub struct UInterchangeAnimationTrackSetInstanceNode {
+    __padding_end: [u8; 192],
+}
+impl UInterchangeAnimationTrackSetInstanceNode {}
+#[repr(C, align(8))]
+pub struct UInterchangeAnimationTrackNode {
+    __padding_end: [u8; 224],
+}
+impl UInterchangeAnimationTrackNode {}
+#[repr(C, align(8))]
+pub struct UInterchangeTransformAnimationTrackNode {
+    __padding_end: [u8; 240],
+}
+impl UInterchangeTransformAnimationTrackNode {}
+#[repr(C, align(8))]
+pub struct UInterchangeSkeletalAnimationTrackNode {
+    __padding_end: [u8; 704],
+}
+impl UInterchangeSkeletalAnimationTrackNode {}
+#[repr(C, align(8))]
+pub struct UInterchangeAudioSoundWaveNode {
+    __padding_end: [u8; 112],
+}
+impl UInterchangeAudioSoundWaveNode {}
+#[repr(C, align(8))]
+pub struct UInterchangeGroomNode {
+    __padding_end: [u8; 192],
+}
+impl UInterchangeGroomNode {}
+#[repr(C, align(8))]
+pub struct UInterchangeBaseLightNode {
+    __padding_end: [u8; 176],
+}
+impl UInterchangeBaseLightNode {}
+#[repr(C, align(8))]
+pub struct UInterchangeLightNode {
+    __padding_end: [u8; 272],
+}
+impl UInterchangeLightNode {}
+#[repr(C, align(8))]
+pub struct UInterchangePointLightNode {
+    __padding_end: [u8; 304],
+}
+impl UInterchangePointLightNode {}
+#[repr(C, align(8))]
+pub struct UInterchangeSpotLightNode {
+    __padding_end: [u8; 336],
+}
+impl UInterchangeSpotLightNode {}
+#[repr(C, align(8))]
+pub struct UInterchangeRectLightNode {
+    __padding_end: [u8; 304],
+}
+impl UInterchangeRectLightNode {}
+#[repr(C, align(8))]
+pub struct UInterchangeDirectionalLightNode {
+    __padding_end: [u8; 176],
+}
+impl UInterchangeDirectionalLightNode {}
+#[repr(C, align(8))]
+pub struct UInterchangeSkyLightNode {
+    __padding_end: [u8; 208],
+}
+impl UInterchangeSkyLightNode {}
+#[repr(C, align(8))]
+pub struct UInterchangeMaterialInstanceNode {
+    __padding_end: [u8; 144],
+}
+impl UInterchangeMaterialInstanceNode {}
+#[repr(C, align(8))]
+pub struct UInterchangeMaterialReferenceNode {
+    __padding_end: [u8; 128],
+}
+impl UInterchangeMaterialReferenceNode {}
+#[repr(C, align(8))]
+pub struct UInterchangeMeshLODContainerNode {
+    __padding_end: [u8; 144],
+}
+impl UInterchangeMeshLODContainerNode {}
+#[repr(C, align(8))]
+pub struct UInterchangeMeshNode {
+    __padding_end: [u8; 552],
+}
+impl UInterchangeMeshNode {}
+#[repr(C, align(8))]
+pub struct UInterchangeGeometryCacheNode {
+    __padding_end: [u8; 616],
+}
+impl UInterchangeGeometryCacheNode {}
+#[repr(C, align(16))]
+pub struct UInterchangeSceneComponentNode {
+    __padding_end: [u8; 304],
+}
+impl UInterchangeSceneComponentNode {}
+#[repr(C, align(16))]
+pub struct UInterchangeInstancedStaticMeshComponentNode {
+    __padding_end: [u8; 352],
+}
+impl UInterchangeInstancedStaticMeshComponentNode {}
+#[repr(C, align(16))]
+pub struct UInterchangeSceneNode {
+    __padding_end: [u8; 1248],
+}
+impl UInterchangeSceneNode {}
+#[repr(C, align(8))]
+pub struct UInterchangeShaderPortsAPI {
+    __padding_end: [u8; 48],
+}
+impl UInterchangeShaderPortsAPI {}
+#[repr(C, align(8))]
+pub struct UInterchangeFunctionCallShaderNode {
+    __padding_end: [u8; 144],
+}
+impl UInterchangeFunctionCallShaderNode {}
+#[repr(C, align(8))]
+pub struct UInterchangeShaderGraphNode {
+    __padding_end: [u8; 240],
+}
+impl UInterchangeShaderGraphNode {}
+#[repr(C, align(8))]
+pub struct UInterchangeSpecularProfileNode {
+    __padding_end: [u8; 144],
+}
+impl UInterchangeSpecularProfileNode {}
+#[repr(C, align(8))]
+pub struct UInterchangeTexture2DNode {
+    __padding_end: [u8; 344],
+}
+impl UInterchangeTexture2DNode {}
+#[repr(C, align(8))]
+pub struct UInterchangeTextureBlurNode {
+    __padding_end: [u8; 344],
+}
+impl UInterchangeTextureBlurNode {}
+#[repr(C, align(8))]
+pub struct UInterchangeVariantSetNode {
+    __padding_end: [u8; 176],
+}
+impl UInterchangeVariantSetNode {}
+#[repr(C, align(8))]
+pub struct UInterchangeSceneVariantSetsNode {
+    __padding_end: [u8; 144],
+}
+impl UInterchangeSceneVariantSetsNode {}
+#[repr(C, align(8))]
+pub struct UInterchangeVolumeNode {
+    __padding_end: [u8; 208],
+}
+impl UInterchangeVolumeNode {}
+#[repr(C, align(8))]
+pub struct UInterchangeVolumeGridNode {
+    __padding_end: [u8; 208],
+}
+impl UInterchangeVolumeGridNode {}
 #[repr(transparent)]
 pub struct EInterchangeAnimationPayLoadType(pub u8);
 impl EInterchangeAnimationPayLoadType {
@@ -91,14 +270,12 @@ impl EInterchangeAnimationPayLoadType {
         6,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EInterchangeGroomPayLoadType(pub u8);
 impl EInterchangeGroomPayLoadType {
     pub const STATIC: EInterchangeGroomPayLoadType = EInterchangeGroomPayLoadType(0);
     pub const ANIMATED: EInterchangeGroomPayLoadType = EInterchangeGroomPayLoadType(1);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EInterchangeMeshPayLoadType(pub u8);
 impl EInterchangeMeshPayLoadType {
@@ -108,7 +285,6 @@ impl EInterchangeMeshPayLoadType {
     pub const MORPHTARGET: EInterchangeMeshPayLoadType = EInterchangeMeshPayLoadType(3);
     pub const ANIMATED: EInterchangeMeshPayLoadType = EInterchangeMeshPayLoadType(4);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EInterchangeCameraProjectionType(pub u8);
 impl EInterchangeCameraProjectionType {
@@ -119,7 +295,6 @@ impl EInterchangeCameraProjectionType {
         1,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EInterchangeTextureColorSpace(pub u8);
 impl EInterchangeTextureColorSpace {
@@ -167,7 +342,6 @@ impl EInterchangeTextureColorSpace {
         99,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EInterchangeTextureFilterMode(pub u8);
 impl EInterchangeTextureFilterMode {
@@ -178,7 +352,6 @@ impl EInterchangeTextureFilterMode {
     );
     pub const DEFAULT: EInterchangeTextureFilterMode = EInterchangeTextureFilterMode(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EInterchangePropertyTracks(pub i32);
 impl EInterchangePropertyTracks {
@@ -1124,7 +1297,6 @@ impl EInterchangePropertyTracks {
     pub const NONE: EInterchangePropertyTracks = EInterchangePropertyTracks(-1);
     pub const VISIBILITY: EInterchangePropertyTracks = EInterchangePropertyTracks(38);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EInterchangeGroomCacheAttributes(pub u8);
 impl EInterchangeGroomCacheAttributes {
@@ -1153,7 +1325,6 @@ impl EInterchangeGroomCacheAttributes {
         7,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EInterchangeLightUnits(pub u8);
 impl EInterchangeLightUnits {
@@ -1162,7 +1333,6 @@ impl EInterchangeLightUnits {
     pub const LUMENS: EInterchangeLightUnits = EInterchangeLightUnits(2);
     pub const EV: EInterchangeLightUnits = EInterchangeLightUnits(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EInterchangeSkyLightSourceType(pub u8);
 impl EInterchangeSkyLightSourceType {
@@ -1173,7 +1343,6 @@ impl EInterchangeSkyLightSourceType {
         1,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EInterchangeMeshCollision(pub u8);
 impl EInterchangeMeshCollision {
@@ -1187,7 +1356,6 @@ impl EInterchangeMeshCollision {
     pub const CONVEX26_DOP: EInterchangeMeshCollision = EInterchangeMeshCollision(7);
     pub const NONE: EInterchangeMeshCollision = EInterchangeMeshCollision(255);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EInterchangeTextureWrapMode(pub u8);
 impl EInterchangeTextureWrapMode {
@@ -1195,7 +1363,6 @@ impl EInterchangeTextureWrapMode {
     pub const CLAMP: EInterchangeTextureWrapMode = EInterchangeTextureWrapMode(1);
     pub const MIRROR: EInterchangeTextureWrapMode = EInterchangeTextureWrapMode(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EVolumeGridElementType(pub u8);
 impl EVolumeGridElementType {
@@ -1204,7 +1371,6 @@ impl EVolumeGridElementType {
     pub const FLOAT: EVolumeGridElementType = EVolumeGridElementType(2);
     pub const DOUBLE: EVolumeGridElementType = EVolumeGridElementType(3);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EInterchangeMotionVectorsHandling(pub u8);
 impl EInterchangeMotionVectorsHandling {

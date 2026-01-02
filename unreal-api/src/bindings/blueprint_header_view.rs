@@ -4,22 +4,11 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
-#[repr(C, align(4))]
-pub struct FHeaderViewSyntaxColors {
-    pub comment: crate::bindings::core_u_object::FLinearColor,
-    pub error: crate::bindings::core_u_object::FLinearColor,
-    pub macro_: crate::bindings::core_u_object::FLinearColor,
-    pub typename: crate::bindings::core_u_object::FLinearColor,
-    pub identifier: crate::bindings::core_u_object::FLinearColor,
-    pub keyword: crate::bindings::core_u_object::FLinearColor,
-}
+#[repr(C, align(8))]
 pub struct UBlueprintHeaderViewSettings {
-    pub syntax_colors: FHeaderViewSyntaxColors,
-    pub selection_color: crate::bindings::core_u_object::FLinearColor,
-    pub font_size: i32,
-    pub sort_method: EHeaderViewSortMethod,
+    __padding_end: [u8; 224],
 }
-#[allow(non_camel_case_types)]
+impl UBlueprintHeaderViewSettings {}
 #[repr(transparent)]
 pub struct EHeaderViewSortMethod(pub u8);
 impl EHeaderViewSortMethod {

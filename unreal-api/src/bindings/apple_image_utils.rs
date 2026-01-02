@@ -9,16 +9,25 @@ pub struct FAppleImageUtilsImageConversionResult {
     pub error: FString,
     pub image_data: TArray<u8>,
 }
+impl FAppleImageUtilsImageConversionResult {}
 pub struct UAppleImageInterface {}
 pub struct IAppleImageInterface {}
+#[repr(C, align(8))]
 pub struct UAppleImageUtilsBaseAsyncTaskBlueprintProxy {
-    pub on_success: FAppleImageUtilsBaseAsyncTaskBlueprintProxy_OnSuccess,
-    pub on_failure: FAppleImageUtilsBaseAsyncTaskBlueprintProxy_OnFailure,
+    #[doc(hidden)]
+    __padding_120: [u8; 120],
     pub conversion_result: FAppleImageUtilsImageConversionResult,
+    __padding_end: [u8; 8],
 }
-pub struct FAppleImageUtilsBaseAsyncTaskBlueprintProxy_OnSuccess;
-pub struct FAppleImageUtilsBaseAsyncTaskBlueprintProxy_OnFailure;
-#[allow(non_camel_case_types)]
+impl UAppleImageUtilsBaseAsyncTaskBlueprintProxy {}
+#[repr(transparent)]
+pub struct FAppleImageUtilsBaseAsyncTaskBlueprintProxy_OnSuccess {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FAppleImageUtilsBaseAsyncTaskBlueprintProxy_OnFailure {
+    _opague: u8,
+}
 #[repr(transparent)]
 pub struct ETextureRotationDirection(pub u8);
 impl ETextureRotationDirection {

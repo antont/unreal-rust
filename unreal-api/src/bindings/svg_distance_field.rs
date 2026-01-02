@@ -18,8 +18,12 @@ pub struct FSvgDistanceFieldConfiguration {
     pub placement_mode: ESvgDistanceFieldPlacementMode,
     pub miter_limit: f32,
 }
-pub struct USvgDistanceFieldGenerator {}
-#[allow(non_camel_case_types)]
+impl FSvgDistanceFieldConfiguration {}
+#[repr(C, align(8))]
+pub struct USvgDistanceFieldGenerator {
+    __padding_end: [u8; 48],
+}
+impl USvgDistanceFieldGenerator {}
 #[repr(transparent)]
 pub struct ESvgDistanceFieldType(pub u8);
 impl ESvgDistanceFieldType {
@@ -27,7 +31,6 @@ impl ESvgDistanceFieldType {
     pub const PERPENDICULAR: ESvgDistanceFieldType = ESvgDistanceFieldType(1);
     pub const MULTI_CHANNEL_AND_SIMPLE: ESvgDistanceFieldType = ESvgDistanceFieldType(2);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ESvgDistanceFieldUnits(pub u8);
 impl ESvgDistanceFieldUnits {
@@ -37,7 +40,6 @@ impl ESvgDistanceFieldUnits {
         2,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ESvgDistanceFieldScaleMode(pub u8);
 impl ESvgDistanceFieldScaleMode {
@@ -50,7 +52,6 @@ impl ESvgDistanceFieldScaleMode {
         3,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ESvgDistanceFieldPlacementMode(pub u8);
 impl ESvgDistanceFieldPlacementMode {

@@ -9,6 +9,7 @@ pub struct FConstantQResults {
     pub time_seconds: f32,
     pub spectrum_values: TArray<f32>,
 }
+impl FConstantQResults {}
 #[repr(C, align(4))]
 pub struct FLoudnessResults {
     pub loudness: f32,
@@ -16,6 +17,7 @@ pub struct FLoudnessResults {
     pub perceptual_energy: f32,
     pub time_seconds: f32,
 }
+impl FLoudnessResults {}
 #[repr(C, align(4))]
 pub struct FMeterResults {
     pub time_seconds: f32,
@@ -24,15 +26,32 @@ pub struct FMeterResults {
     pub num_samples_clipping: i32,
     pub clipping_value: f32,
 }
+impl FMeterResults {}
 #[repr(C, align(8))]
 pub struct FSynesthesiaSpectrumResults {
     pub time_seconds: f32,
     pub spectrum_values: TArray<f32>,
 }
-pub struct UAudioSynesthesiaSettings {}
-pub struct UAudioSynesthesiaNRTSettings {}
-pub struct UAudioSynesthesiaNRT {}
+impl FSynesthesiaSpectrumResults {}
+#[repr(C, align(8))]
+pub struct UAudioSynesthesiaSettings {
+    __padding_end: [u8; 48],
+}
+impl UAudioSynesthesiaSettings {}
+#[repr(C, align(8))]
+pub struct UAudioSynesthesiaNRTSettings {
+    __padding_end: [u8; 80],
+}
+impl UAudioSynesthesiaNRTSettings {}
+#[repr(C, align(8))]
+pub struct UAudioSynesthesiaNRT {
+    __padding_end: [u8; 232],
+}
+impl UAudioSynesthesiaNRT {}
+#[repr(C, align(8))]
 pub struct UConstantQSettings {
+    #[doc(hidden)]
+    __padding_48: [u8; 48],
     pub starting_frequency_hz: f32,
     pub num_bands: i32,
     pub num_bands_per_octave: f32,
@@ -45,12 +64,19 @@ pub struct UConstantQSettings {
     pub cqt_normalization: EConstantQNormalizationEnum,
     pub noise_floor_db: f32,
 }
+impl UConstantQSettings {}
+#[repr(C, align(8))]
 pub struct UConstantQAnalyzer {
+    #[doc(hidden)]
+    __padding_168: [u8; 168],
     pub settings: UPtr<UConstantQSettings>,
-    pub on_constant_q_results: FConstantQAnalyzer_OnConstantQResults,
-    pub on_latest_constant_q_results: FConstantQAnalyzer_OnLatestConstantQResults,
+    __padding_end: [u8; 112],
 }
+impl UConstantQAnalyzer {}
+#[repr(C, align(8))]
 pub struct UConstantQNRTSettings {
+    #[doc(hidden)]
+    __padding_80: [u8; 80],
     pub starting_frequency: f32,
     pub num_bands: i32,
     pub num_bands_per_octave: f32,
@@ -63,32 +89,55 @@ pub struct UConstantQNRTSettings {
     pub cqt_normalization: EConstantQNormalizationEnum,
     pub noise_floor_db: f32,
 }
+impl UConstantQNRTSettings {}
+#[repr(C, align(8))]
 pub struct UConstantQNRT {
+    #[doc(hidden)]
+    __padding_232: [u8; 232],
     pub settings: UPtr<UConstantQNRTSettings>,
 }
+impl UConstantQNRT {}
+#[repr(C, align(8))]
 pub struct ULKFSSettings {
+    #[doc(hidden)]
+    __padding_48: [u8; 48],
     pub analysis_period: f32,
     pub analysis_window_duration: f32,
     pub short_term_loudness_duration: f32,
     pub integrated_loudness_analysis_period: f32,
     pub integrated_loudness_duration: f32,
+    __padding_end: [u8; 4],
 }
+impl ULKFSSettings {}
+#[repr(C, align(8))]
 pub struct ULKFSAnalyzer {
+    #[doc(hidden)]
+    __padding_168: [u8; 168],
     pub settings: UPtr<ULKFSSettings>,
-    pub on_overall_lkfs_results: FLKFSAnalyzer_OnOverallLKFSResults,
-    pub on_per_channel_lkfs_results: FLKFSAnalyzer_OnPerChannelLKFSResults,
-    pub on_latest_overall_lkfs_results: FLKFSAnalyzer_OnLatestOverallLKFSResults,
-    pub on_latest_per_channel_lkfs_results: FLKFSAnalyzer_OnLatestPerChannelLKFSResults,
+    __padding_end: [u8; 224],
 }
+impl ULKFSAnalyzer {}
+#[repr(C, align(8))]
 pub struct ULKFSNRTSettings {
+    #[doc(hidden)]
+    __padding_80: [u8; 80],
     pub analysis_period: f32,
     pub analysis_window_duration: f32,
     pub short_term_loudness_duration: f32,
+    __padding_end: [u8; 4],
 }
+impl ULKFSNRTSettings {}
+#[repr(C, align(8))]
 pub struct ULKFSNRT {
+    #[doc(hidden)]
+    __padding_232: [u8; 232],
     pub settings: UPtr<ULKFSNRTSettings>,
 }
+impl ULKFSNRT {}
+#[repr(C, align(8))]
 pub struct ULoudnessSettings {
+    #[doc(hidden)]
+    __padding_48: [u8; 48],
     pub analysis_period: f32,
     pub minimum_frequency: f32,
     pub maximum_frequency: f32,
@@ -96,24 +145,38 @@ pub struct ULoudnessSettings {
     pub noise_floor_db: f32,
     pub expected_max_loudness: f32,
 }
+impl ULoudnessSettings {}
+#[repr(C, align(8))]
 pub struct ULoudnessAnalyzer {
+    #[doc(hidden)]
+    __padding_168: [u8; 168],
     pub settings: UPtr<ULoudnessSettings>,
-    pub on_overall_loudness_results: FLoudnessAnalyzer_OnOverallLoudnessResults,
-    pub on_per_channel_loudness_results: FLoudnessAnalyzer_OnPerChannelLoudnessResults,
-    pub on_latest_overall_loudness_results: FLoudnessAnalyzer_OnLatestOverallLoudnessResults,
-    pub on_latest_per_channel_loudness_results: FLoudnessAnalyzer_OnLatestPerChannelLoudnessResults,
+    __padding_end: [u8; 96],
 }
+impl ULoudnessAnalyzer {}
+#[repr(C, align(8))]
 pub struct ULoudnessNRTSettings {
+    #[doc(hidden)]
+    __padding_80: [u8; 80],
     pub analysis_period: f32,
     pub minimum_frequency: f32,
     pub maximum_frequency: f32,
     pub curve_type: ELoudnessNRTCurveTypeEnum,
     pub noise_floor_db: f32,
+    __padding_end: [u8; 4],
 }
+impl ULoudnessNRTSettings {}
+#[repr(C, align(8))]
 pub struct ULoudnessNRT {
+    #[doc(hidden)]
+    __padding_232: [u8; 232],
     pub settings: UPtr<ULoudnessNRTSettings>,
 }
+impl ULoudnessNRT {}
+#[repr(C, align(8))]
 pub struct UMeterSettings {
+    #[doc(hidden)]
+    __padding_48: [u8; 48],
     pub analysis_period: f32,
     pub peak_mode: EMeterPeakType,
     pub meter_attack_time: i32,
@@ -121,52 +184,117 @@ pub struct UMeterSettings {
     pub peak_hold_time: i32,
     pub clipping_threshold: f32,
 }
+impl UMeterSettings {}
+#[repr(C, align(8))]
 pub struct UMeterAnalyzer {
+    #[doc(hidden)]
+    __padding_168: [u8; 168],
     pub settings: UPtr<UMeterSettings>,
-    pub on_overall_meter_results: FMeterAnalyzer_OnOverallMeterResults,
-    pub on_per_channel_meter_results: FMeterAnalyzer_OnPerChannelMeterResults,
-    pub on_latest_overall_meter_results: FMeterAnalyzer_OnLatestOverallMeterResults,
-    pub on_latest_per_channel_meter_results: FMeterAnalyzer_OnLatestPerChannelMeterResults,
+    __padding_end: [u8; 224],
 }
+impl UMeterAnalyzer {}
+#[repr(C, align(8))]
 pub struct UOnsetNRTSettings {
+    #[doc(hidden)]
+    __padding_80: [u8; 80],
     pub b_downmix_to_mono: bool,
     pub granularity_in_seconds: f32,
     pub sensitivity: f32,
     pub minimum_frequency: f32,
     pub maximum_frequency: f32,
+    __padding_end: [u8; 4],
 }
+impl UOnsetNRTSettings {}
+#[repr(C, align(8))]
 pub struct UOnsetNRT {
+    #[doc(hidden)]
+    __padding_232: [u8; 232],
     pub settings: UPtr<UOnsetNRTSettings>,
 }
+impl UOnsetNRT {}
+#[repr(C, align(8))]
 pub struct USynesthesiaSpectrumAnalysisSettings {
+    #[doc(hidden)]
+    __padding_48: [u8; 48],
     pub analysis_period: f32,
     pub fft_size: crate::bindings::engine::EFFTSize,
     pub spectrum_type: crate::bindings::engine::EAudioSpectrumType,
     pub window_type: crate::bindings::engine::EFFTWindowType,
     pub b_downmix_to_mono: bool,
 }
+impl USynesthesiaSpectrumAnalysisSettings {}
+#[repr(C, align(8))]
 pub struct USynesthesiaSpectrumAnalyzer {
+    #[doc(hidden)]
+    __padding_168: [u8; 168],
     pub settings: UPtr<USynesthesiaSpectrumAnalysisSettings>,
-    pub on_spectrum_results: FSynesthesiaSpectrumAnalyzer_OnSpectrumResults,
-    pub on_latest_spectrum_results: FSynesthesiaSpectrumAnalyzer_OnLatestSpectrumResults,
+    __padding_end: [u8; 112],
 }
-pub struct FConstantQAnalyzer_OnConstantQResults;
-pub struct FConstantQAnalyzer_OnLatestConstantQResults;
-pub struct FLKFSAnalyzer_OnOverallLKFSResults;
-pub struct FLKFSAnalyzer_OnPerChannelLKFSResults;
-pub struct FLKFSAnalyzer_OnLatestOverallLKFSResults;
-pub struct FLKFSAnalyzer_OnLatestPerChannelLKFSResults;
-pub struct FLoudnessAnalyzer_OnOverallLoudnessResults;
-pub struct FLoudnessAnalyzer_OnPerChannelLoudnessResults;
-pub struct FLoudnessAnalyzer_OnLatestOverallLoudnessResults;
-pub struct FLoudnessAnalyzer_OnLatestPerChannelLoudnessResults;
-pub struct FMeterAnalyzer_OnOverallMeterResults;
-pub struct FMeterAnalyzer_OnPerChannelMeterResults;
-pub struct FMeterAnalyzer_OnLatestOverallMeterResults;
-pub struct FMeterAnalyzer_OnLatestPerChannelMeterResults;
-pub struct FSynesthesiaSpectrumAnalyzer_OnSpectrumResults;
-pub struct FSynesthesiaSpectrumAnalyzer_OnLatestSpectrumResults;
-#[allow(non_camel_case_types)]
+impl USynesthesiaSpectrumAnalyzer {}
+#[repr(transparent)]
+pub struct FConstantQAnalyzer_OnConstantQResults {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FConstantQAnalyzer_OnLatestConstantQResults {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FLKFSAnalyzer_OnOverallLKFSResults {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FLKFSAnalyzer_OnPerChannelLKFSResults {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FLKFSAnalyzer_OnLatestOverallLKFSResults {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FLKFSAnalyzer_OnLatestPerChannelLKFSResults {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FLoudnessAnalyzer_OnOverallLoudnessResults {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FLoudnessAnalyzer_OnPerChannelLoudnessResults {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FLoudnessAnalyzer_OnLatestOverallLoudnessResults {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FLoudnessAnalyzer_OnLatestPerChannelLoudnessResults {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FMeterAnalyzer_OnOverallMeterResults {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FMeterAnalyzer_OnPerChannelMeterResults {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FMeterAnalyzer_OnLatestOverallMeterResults {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FMeterAnalyzer_OnLatestPerChannelMeterResults {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FSynesthesiaSpectrumAnalyzer_OnSpectrumResults {
+    _opague: u8,
+}
+#[repr(transparent)]
+pub struct FSynesthesiaSpectrumAnalyzer_OnLatestSpectrumResults {
+    _opague: u8,
+}
 #[repr(transparent)]
 pub struct EConstantQFFTSizeEnum(pub u8);
 impl EConstantQFFTSizeEnum {
@@ -180,7 +308,6 @@ impl EConstantQFFTSizeEnum {
     pub const XX_LARGE: EConstantQFFTSizeEnum = EConstantQFFTSizeEnum(7);
     pub const MAX: EConstantQFFTSizeEnum = EConstantQFFTSizeEnum(8);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EConstantQNormalizationEnum(pub u8);
 impl EConstantQNormalizationEnum {
@@ -192,7 +319,6 @@ impl EConstantQNormalizationEnum {
         2,
     );
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ELoudnessCurveTypeEnum(pub u8);
 impl ELoudnessCurveTypeEnum {
@@ -203,7 +329,6 @@ impl ELoudnessCurveTypeEnum {
     pub const K: ELoudnessCurveTypeEnum = ELoudnessCurveTypeEnum(4);
     pub const NONE: ELoudnessCurveTypeEnum = ELoudnessCurveTypeEnum(5);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct ELoudnessNRTCurveTypeEnum(pub u8);
 impl ELoudnessNRTCurveTypeEnum {
@@ -214,7 +339,6 @@ impl ELoudnessNRTCurveTypeEnum {
     pub const K: ELoudnessNRTCurveTypeEnum = ELoudnessNRTCurveTypeEnum(4);
     pub const NONE: ELoudnessNRTCurveTypeEnum = ELoudnessNRTCurveTypeEnum(5);
 }
-#[allow(non_camel_case_types)]
 #[repr(transparent)]
 pub struct EMeterPeakType(pub u8);
 impl EMeterPeakType {

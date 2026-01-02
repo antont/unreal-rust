@@ -5,18 +5,24 @@
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[repr(C, align(8))]
-pub struct FWorldMetricCollection {
-    pub metrics: TArray<UPtr<UWorldMetricInterface>>,
-    pub subsystem: TWeakObjectPtr<UWorldMetricsSubsystem>,
-    pub b_is_enabled: bool,
-}
 pub struct UWorldMetricsSubsystem {
-    pub metrics: TArray<UPtr<UWorldMetricInterface>>,
-    pub update_rate_in_seconds: f32,
-    pub warm_up_frames: i32,
+    __padding_end: [u8; 10832],
 }
-pub struct UWorldMetricInterface {}
+impl UWorldMetricsSubsystem {}
+#[repr(C, align(8))]
+pub struct UWorldMetricInterface {
+    __padding_end: [u8; 48],
+}
+impl UWorldMetricInterface {}
 pub struct UWorldMetricsActorTrackerSubscriber {}
 pub struct IWorldMetricsActorTrackerSubscriber {}
-pub struct UWorldMetricsExtension {}
-pub struct UWorldMetricsActorTracker {}
+#[repr(C, align(8))]
+pub struct UWorldMetricsExtension {
+    __padding_end: [u8; 48],
+}
+impl UWorldMetricsExtension {}
+#[repr(C, align(8))]
+pub struct UWorldMetricsActorTracker {
+    __padding_end: [u8; 216],
+}
+impl UWorldMetricsActorTracker {}
