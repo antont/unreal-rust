@@ -214,19 +214,35 @@ pub struct FCameraFramingZone {
     pub bottom: f64,
 }
 impl FCameraFramingZone {}
-pub struct UHasCameraBuildStatus {}
 pub struct IHasCameraBuildStatus {}
+#[repr(C, align(8))]
+pub struct UHasCameraBuildStatus {
+    __padding_end: [u8; 48],
+}
+impl UHasCameraBuildStatus {}
 #[repr(C, align(8))]
 pub struct UCameraRigInstanceFunctions {
     __padding_end: [u8; 48],
 }
 impl UCameraRigInstanceFunctions {}
-pub struct UAssetReferenceCameraNode {}
 pub struct IAssetReferenceCameraNode {}
-pub struct UObjectTreeGraphObject {}
+#[repr(C, align(8))]
+pub struct UAssetReferenceCameraNode {
+    __padding_end: [u8; 48],
+}
+impl UAssetReferenceCameraNode {}
 pub struct IObjectTreeGraphObject {}
-pub struct UObjectTreeGraphRootObject {}
+#[repr(C, align(8))]
+pub struct UObjectTreeGraphObject {
+    __padding_end: [u8; 48],
+}
+impl UObjectTreeGraphObject {}
 pub struct IObjectTreeGraphRootObject {}
+#[repr(C, align(8))]
+pub struct UObjectTreeGraphRootObject {
+    __padding_end: [u8; 48],
+}
+impl UObjectTreeGraphRootObject {}
 #[repr(C, align(8))]
 pub struct UBaseCameraObject {
     __padding_end: [u8; 176],
@@ -412,8 +428,12 @@ pub struct UDefaultRootCameraNode {
     __padding_end: [u8; 136],
 }
 impl UDefaultRootCameraNode {}
-pub struct UCustomCameraNodeParameterProvider {}
 pub struct ICustomCameraNodeParameterProvider {}
+#[repr(C, align(8))]
+pub struct UCustomCameraNodeParameterProvider {
+    __padding_end: [u8; 48],
+}
+impl UCustomCameraNodeParameterProvider {}
 #[repr(C, align(8))]
 pub struct UObjectTreeGraphComment {
     __padding_end: [u8; 104],
@@ -588,8 +608,12 @@ pub struct UGameplayControlRotationComponent {
     __padding_end: [u8; 47],
 }
 impl UGameplayControlRotationComponent {}
-pub struct UGameplayCameraSystemHost {}
 pub struct IGameplayCameraSystemHost {}
+#[repr(C, align(8))]
+pub struct UGameplayCameraSystemHost {
+    __padding_end: [u8; 48],
+}
+impl UGameplayCameraSystemHost {}
 #[repr(C, align(8))]
 pub struct USimpleBlendCameraNode {
     __padding_end: [u8; 104],

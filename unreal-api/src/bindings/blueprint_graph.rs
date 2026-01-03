@@ -54,10 +54,18 @@ pub struct UK2Node_ClearDelegate {
     __padding_end: [u8; 272],
 }
 impl UK2Node_ClearDelegate {}
-pub struct UK2Node_EventNodeInterface {}
 pub struct IK2Node_EventNodeInterface {}
-pub struct UK2Node_ExternalGraphInterface {}
+#[repr(C, align(8))]
+pub struct UK2Node_EventNodeInterface {
+    __padding_end: [u8; 48],
+}
+impl UK2Node_EventNodeInterface {}
 pub struct IK2Node_ExternalGraphInterface {}
+#[repr(C, align(8))]
+pub struct UK2Node_ExternalGraphInterface {
+    __padding_end: [u8; 48],
+}
+impl UK2Node_ExternalGraphInterface {}
 #[repr(C, align(8))]
 pub struct UK2Node_RemoveDelegate {
     __padding_end: [u8; 272],
@@ -143,8 +151,12 @@ pub struct UK2Node_AddComponentByClass {
     __padding_end: [u8; 232],
 }
 impl UK2Node_AddComponentByClass {}
-pub struct UK2Node_AddPinInterface {}
 pub struct IK2Node_AddPinInterface {}
+#[repr(C, align(8))]
+pub struct UK2Node_AddPinInterface {
+    __padding_end: [u8; 48],
+}
+impl UK2Node_AddPinInterface {}
 #[repr(C, align(8))]
 pub struct UK2Node_AssignDelegate {
     __padding_end: [u8; 296],
@@ -670,8 +682,12 @@ pub struct UK2Node_VariableSetRef {
     __padding_end: [u8; 216],
 }
 impl UK2Node_VariableSetRef {}
-pub struct UNodeDependingOnEnumInterface {}
 pub struct INodeDependingOnEnumInterface {}
+#[repr(C, align(8))]
+pub struct UNodeDependingOnEnumInterface {
+    __padding_end: [u8; 48],
+}
+impl UNodeDependingOnEnumInterface {}
 #[repr(transparent)]
 pub struct ESaveOnCompile(pub u8);
 impl ESaveOnCompile {

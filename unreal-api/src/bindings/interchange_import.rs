@@ -4,8 +4,12 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
-pub struct UInterchangeAnimationPayloadInterface {}
 pub struct IInterchangeAnimationPayloadInterface {}
+#[repr(C, align(8))]
+pub struct UInterchangeAnimationPayloadInterface {
+    __padding_end: [u8; 48],
+}
+impl UInterchangeAnimationPayloadInterface {}
 #[repr(C, align(8))]
 pub struct UInterchangeAssetUserData {
     #[doc(hidden)]
@@ -20,24 +24,60 @@ pub struct UInterchangeLevelAssetUserData {
     pub scene_import_paths: TArray<FString>,
 }
 impl UInterchangeLevelAssetUserData {}
-pub struct UInterchangeAudioPayloadInterface {}
 pub struct IInterchangeAudioPayloadInterface {}
-pub struct UInterchangeBlockedTexturePayloadInterface {}
+#[repr(C, align(8))]
+pub struct UInterchangeAudioPayloadInterface {
+    __padding_end: [u8; 48],
+}
+impl UInterchangeAudioPayloadInterface {}
 pub struct IInterchangeBlockedTexturePayloadInterface {}
-pub struct UInterchangeGroomPayloadInterface {}
+#[repr(C, align(8))]
+pub struct UInterchangeBlockedTexturePayloadInterface {
+    __padding_end: [u8; 48],
+}
+impl UInterchangeBlockedTexturePayloadInterface {}
 pub struct IInterchangeGroomPayloadInterface {}
-pub struct UInterchangeMeshPayloadInterface {}
+#[repr(C, align(8))]
+pub struct UInterchangeGroomPayloadInterface {
+    __padding_end: [u8; 48],
+}
+impl UInterchangeGroomPayloadInterface {}
 pub struct IInterchangeMeshPayloadInterface {}
-pub struct UInterchangeSlicedTexturePayloadInterface {}
+#[repr(C, align(8))]
+pub struct UInterchangeMeshPayloadInterface {
+    __padding_end: [u8; 48],
+}
+impl UInterchangeMeshPayloadInterface {}
 pub struct IInterchangeSlicedTexturePayloadInterface {}
-pub struct UInterchangeTextureLightProfilePayloadInterface {}
+#[repr(C, align(8))]
+pub struct UInterchangeSlicedTexturePayloadInterface {
+    __padding_end: [u8; 48],
+}
+impl UInterchangeSlicedTexturePayloadInterface {}
 pub struct IInterchangeTextureLightProfilePayloadInterface {}
-pub struct UInterchangeTexturePayloadInterface {}
+#[repr(C, align(8))]
+pub struct UInterchangeTextureLightProfilePayloadInterface {
+    __padding_end: [u8; 48],
+}
+impl UInterchangeTextureLightProfilePayloadInterface {}
 pub struct IInterchangeTexturePayloadInterface {}
-pub struct UInterchangeVariantSetPayloadInterface {}
+#[repr(C, align(8))]
+pub struct UInterchangeTexturePayloadInterface {
+    __padding_end: [u8; 48],
+}
+impl UInterchangeTexturePayloadInterface {}
 pub struct IInterchangeVariantSetPayloadInterface {}
-pub struct UInterchangeVolumePayloadInterface {}
+#[repr(C, align(8))]
+pub struct UInterchangeVariantSetPayloadInterface {
+    __padding_end: [u8; 48],
+}
+impl UInterchangeVariantSetPayloadInterface {}
 pub struct IInterchangeVolumePayloadInterface {}
+#[repr(C, align(8))]
+pub struct UInterchangeVolumePayloadInterface {
+    __padding_end: [u8; 48],
+}
+impl UInterchangeVolumePayloadInterface {}
 #[repr(C, align(8))]
 pub struct UInterchangeVolumeTranslatorSettings {
     __padding_end: [u8; 72],

@@ -522,10 +522,18 @@ pub struct UFontBulkData {
     __padding_end: [u8; 168],
 }
 impl UFontBulkData {}
-pub struct UFontFaceInterface {}
 pub struct IFontFaceInterface {}
-pub struct UFontProviderInterface {}
+#[repr(C, align(8))]
+pub struct UFontFaceInterface {
+    __padding_end: [u8; 48],
+}
+impl UFontFaceInterface {}
 pub struct IFontProviderInterface {}
+#[repr(C, align(8))]
+pub struct UFontProviderInterface {
+    __padding_end: [u8; 48],
+}
+impl UFontProviderInterface {}
 #[repr(C, align(8))]
 pub struct USlateTypes {
     __padding_end: [u8; 48],
@@ -536,8 +544,12 @@ pub struct USlateWidgetStyleContainerBase {
     __padding_end: [u8; 56],
 }
 impl USlateWidgetStyleContainerBase {}
-pub struct USlateWidgetStyleContainerInterface {}
 pub struct ISlateWidgetStyleContainerInterface {}
+#[repr(C, align(8))]
+pub struct USlateWidgetStyleContainerInterface {
+    __padding_end: [u8; 48],
+}
+impl USlateWidgetStyleContainerInterface {}
 #[repr(C, align(8))]
 pub struct USlateThemeManager {
     __padding_end: [u8; 3104],

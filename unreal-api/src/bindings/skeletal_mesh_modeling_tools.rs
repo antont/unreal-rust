@@ -4,8 +4,12 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
-pub struct USkeletalMeshBackedDynamicMeshComponentProvider {}
 pub struct ISkeletalMeshBackedDynamicMeshComponentProvider {}
+#[repr(C, align(8))]
+pub struct USkeletalMeshBackedDynamicMeshComponentProvider {
+    __padding_end: [u8; 48],
+}
+impl USkeletalMeshBackedDynamicMeshComponentProvider {}
 #[repr(C, align(16))]
 pub struct USkeletalMeshBackedDynamicMeshComponent {
     __padding_end: [u8; 3168],

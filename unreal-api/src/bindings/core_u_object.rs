@@ -883,8 +883,12 @@ pub struct UInterface {
     __padding_end: [u8; 48],
 }
 impl UInterface {}
-pub struct UEditorPathObjectInterface {}
 pub struct IEditorPathObjectInterface {}
+#[repr(C, align(8))]
+pub struct UEditorPathObjectInterface {
+    __padding_end: [u8; 48],
+}
+impl UEditorPathObjectInterface {}
 #[repr(C, align(8))]
 pub struct UTextBuffer {
     __padding_end: [u8; 88],

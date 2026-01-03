@@ -25,8 +25,12 @@ pub struct UAssetToolsSettings {
     __padding_end: [u8; 120],
 }
 impl UAssetToolsSettings {}
-pub struct UAssetTools {}
 pub struct IAssetTools {}
+#[repr(C, align(8))]
+pub struct UAssetTools {
+    __padding_end: [u8; 48],
+}
+impl UAssetTools {}
 #[repr(C, align(8))]
 pub struct UAssetToolsHelpers {
     __padding_end: [u8; 48],

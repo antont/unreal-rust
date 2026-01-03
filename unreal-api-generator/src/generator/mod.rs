@@ -110,12 +110,12 @@ pub fn generate_layout_tests(ctx: &Context, api: &Api) -> TokenStream {
 
     let class_tests = api
         .iter_classes()
-        .map(|def| generate_layout_test(ctx, &def.class_name, &def.properties));
+        .map(|def| generate_layout_test(ctx, &def.class_name, def.property_sizes, &def.properties));
     tokens.extend(class_tests);
 
-    let struct_tests = api
-        .iter_structs()
-        .map(|def| generate_layout_test(ctx, &def.struct_name, &def.properties));
+    let struct_tests = api.iter_structs().map(|def| {
+        generate_layout_test(ctx, &def.struct_name, def.property_sizes, &def.properties)
+    });
     tokens.extend(struct_tests);
 
     quote! {
@@ -139,8 +139,14 @@ pub fn generate_classes(
     Ok(all_classes)
 }
 
-pub fn generate_layout_test(ctx: &Context, name: &str, properties: &[Property]) -> TokenStream {
+pub fn generate_layout_test(
+    ctx: &Context,
+    name: &str,
+    size: u32,
+    properties: &[Property],
+) -> TokenStream {
     let ty_ident = ctx.name_resolver.get_type_ident(None, name);
+    let size_lit = Literal::u32_unsuffixed(size);
     let property_tokens: Vec<TokenStream> = iter_properties(properties)
         .filter_map(|property| {
             // TODO: Verify bitfields
@@ -164,6 +170,8 @@ pub fn generate_layout_test(ctx: &Context, name: &str, properties: &[Property]) 
         #[allow(non_snake_case)]
         fn #fn_ident()
         {
+            assert_eq!(std::mem::size_of::<#ty_ident>(), #size_lit);
+
             #(
                 #property_tokens
             )*
@@ -222,67 +230,68 @@ pub fn generate_class(
         .unwrap()
         .to_snake_case();
 
-    let tokens = if class_def.is_interface {
+    let interface_tokens = if class_def.is_interface {
         let interface_name = format_ident!("I{}", class_def.class_name.trim_start_matches("U"));
-        quote! {
-            pub struct #class_name {
-            }
+        Some(quote! {
             pub struct #interface_name {
             }
-        }
+        })
     } else {
-        let alignment = Literal::u32_unsuffixed(class_def.min_alignment);
+        None
+    };
 
-        let PropertyInfo { tokens, offset } =
-            generate_properties(&module_name, ctx, &class_def.properties);
+    let alignment = Literal::u32_unsuffixed(class_def.min_alignment);
 
-        let end_padding = if offset < class_def.property_sizes as usize {
-            let padding_size =
-                Literal::usize_unsuffixed(class_def.property_sizes as usize - offset);
-            Some(quote! {
-                __padding_end: [u8; #padding_size]
-            })
-        } else {
-            None
-        };
+    let PropertyInfo { tokens, offset } =
+        generate_properties(&module_name, ctx, &class_def.properties);
 
-        let class_def_tokens = quote! {
-            #[repr(C, align(#alignment))]
-            pub struct #class_name {
-                #(
-                    #tokens,
-                )*
-                #end_padding
-            }
-        };
+    let end_padding = if offset < class_def.property_sizes as usize {
+        let padding_size = Literal::usize_unsuffixed(class_def.property_sizes as usize - offset);
+        Some(quote! {
+            __padding_end: [u8; #padding_size]
+        })
+    } else {
+        None
+    };
 
-        let allow_list = [
-            "AActor",
-            "UCharacterMovementComponent",
-            "USceneComponent",
-            "UWorldPartition",
-            "UStaticMesh",
-            "UWidget",
-            "UVolumetricCloudComponent"
-        ];
-        let layout_check_tokens = if allow_list.contains(&class_def.class_name.as_str()) {
-            Some(generate_layout_check(
-                &class_def.class_name,
-                &class_def.properties,
-            ))
-        } else {
-            None
-        };
-
-        quote! {
-            #class_def_tokens
-            impl #class_name
-            {
-                #layout_check_tokens
-            }
+    let class_def_tokens = quote! {
+        #[repr(C, align(#alignment))]
+        pub struct #class_name {
+            #(
+                #tokens,
+            )*
+            #end_padding
         }
     };
-    Ok((module_name, tokens))
+
+    let allow_list = [
+        "AActor",
+        "UCharacterMovementComponent",
+        "USceneComponent",
+        "UWorldPartition",
+        "UStaticMesh",
+        "UWidget",
+        "UVolumetricCloudComponent",
+    ];
+    let layout_check_tokens = if allow_list.contains(&class_def.class_name.as_str()) {
+        Some(generate_layout_check(
+            &class_def.class_name,
+            &class_def.properties,
+        ))
+    } else {
+        None
+    };
+
+    let class_tokens = quote! {
+        #interface_tokens
+        #class_def_tokens
+        impl #class_name
+        {
+            #layout_check_tokens
+        }
+    };
+
+    Ok((module_name, class_tokens))
 }
 
 pub fn generate_type(
@@ -761,7 +770,7 @@ pub fn generate_crate(api: &Api, out_path: &Path) -> Result<(), Box<dyn Error>> 
 
         #[cfg(test)]
         mod tests;
-        
+
     };
 
     save_file(&mod_tests, &out_path.join("tests.rs"));

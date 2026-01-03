@@ -15,22 +15,50 @@ pub struct FDataflowSimulationProperty {
     __padding_end: [u8; 8],
 }
 impl FDataflowSimulationProperty {}
-pub struct UDataflowGeometryCachable {}
 pub struct IDataflowGeometryCachable {}
-pub struct UDataflowSimulationInterface {}
+#[repr(C, align(8))]
+pub struct UDataflowGeometryCachable {
+    __padding_end: [u8; 48],
+}
+impl UDataflowGeometryCachable {}
 pub struct IDataflowSimulationInterface {}
+#[repr(C, align(8))]
+pub struct UDataflowSimulationInterface {
+    __padding_end: [u8; 48],
+}
+impl UDataflowSimulationInterface {}
 #[repr(C, align(8))]
 pub struct UDataflowSimulationManager {
     __padding_end: [u8; 184],
 }
 impl UDataflowSimulationManager {}
-pub struct UDataflowSimulationActor {}
 pub struct IDataflowSimulationActor {}
-pub struct UDataflowCollisionObjectInterface {}
+#[repr(C, align(8))]
+pub struct UDataflowSimulationActor {
+    __padding_end: [u8; 48],
+}
+impl UDataflowSimulationActor {}
 pub struct IDataflowCollisionObjectInterface {}
-pub struct UDataflowConstraintObjectInterface {}
+#[repr(C, align(8))]
+pub struct UDataflowCollisionObjectInterface {
+    __padding_end: [u8; 48],
+}
+impl UDataflowCollisionObjectInterface {}
 pub struct IDataflowConstraintObjectInterface {}
-pub struct UDataflowPhysicsObjectInterface {}
+#[repr(C, align(8))]
+pub struct UDataflowConstraintObjectInterface {
+    __padding_end: [u8; 48],
+}
+impl UDataflowConstraintObjectInterface {}
 pub struct IDataflowPhysicsObjectInterface {}
-pub struct UDataflowPhysicsSolverInterface {}
+#[repr(C, align(8))]
+pub struct UDataflowPhysicsObjectInterface {
+    __padding_end: [u8; 48],
+}
+impl UDataflowPhysicsObjectInterface {}
 pub struct IDataflowPhysicsSolverInterface {}
+#[repr(C, align(8))]
+pub struct UDataflowPhysicsSolverInterface {
+    __padding_end: [u8; 48],
+}
+impl UDataflowPhysicsSolverInterface {}

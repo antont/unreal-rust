@@ -3934,8 +3934,12 @@ pub struct UDataAssetLink {
     __padding_end: [u8; 8],
 }
 impl UDataAssetLink {}
-pub struct URigVMGraphFunctionHost {}
 pub struct IRigVMGraphFunctionHost {}
+#[repr(C, align(8))]
+pub struct URigVMGraphFunctionHost {
+    __padding_end: [u8; 48],
+}
+impl URigVMGraphFunctionHost {}
 #[repr(C, align(8))]
 pub struct URigVMMemoryStorageGeneratorClass {
     __padding_end: [u8; 688],

@@ -4,8 +4,12 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
-pub struct UMetaSoundPresetWidgetInterface {}
 pub struct IMetaSoundPresetWidgetInterface {}
+#[repr(C, align(8))]
+pub struct UMetaSoundPresetWidgetInterface {
+    __padding_end: [u8; 48],
+}
+impl UMetaSoundPresetWidgetInterface {}
 #[repr(C, align(8))]
 pub struct UAssetDefinition_MetaSoundPatch {
     __padding_end: [u8; 72],

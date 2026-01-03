@@ -14,8 +14,12 @@ pub struct UWorldMetricInterface {
     __padding_end: [u8; 48],
 }
 impl UWorldMetricInterface {}
-pub struct UWorldMetricsActorTrackerSubscriber {}
 pub struct IWorldMetricsActorTrackerSubscriber {}
+#[repr(C, align(8))]
+pub struct UWorldMetricsActorTrackerSubscriber {
+    __padding_end: [u8; 48],
+}
+impl UWorldMetricsActorTrackerSubscriber {}
 #[repr(C, align(8))]
 pub struct UWorldMetricsExtension {
     __padding_end: [u8; 48],

@@ -77,8 +77,12 @@ pub struct URigVMEdGraphSchema {
     __padding_end: [u8; 168],
 }
 impl URigVMEdGraphSchema {}
-pub struct URigVMAssetInterface {}
 pub struct IRigVMAssetInterface {}
+#[repr(C, align(8))]
+pub struct URigVMAssetInterface {
+    __padding_end: [u8; 48],
+}
+impl URigVMAssetInterface {}
 #[repr(C, align(8))]
 pub struct URigVMBlueprint {
     #[doc(hidden)]
@@ -202,19 +206,35 @@ pub struct URigVMBuildData {
     __padding_end: [u8; 216],
 }
 impl URigVMBuildData {}
-pub struct URigVMClientHost {}
 pub struct IRigVMClientHost {}
-pub struct URigVMEditorSideObject {}
+#[repr(C, align(8))]
+pub struct URigVMClientHost {
+    __padding_end: [u8; 48],
+}
+impl URigVMClientHost {}
 pub struct IRigVMEditorSideObject {}
-pub struct URigVMClientExternalModelHost {}
+#[repr(C, align(8))]
+pub struct URigVMEditorSideObject {
+    __padding_end: [u8; 48],
+}
+impl URigVMEditorSideObject {}
 pub struct IRigVMClientExternalModelHost {}
+#[repr(C, align(8))]
+pub struct URigVMClientExternalModelHost {
+    __padding_end: [u8; 48],
+}
+impl URigVMClientExternalModelHost {}
 #[repr(C, align(8))]
 pub struct URigVMActionStack {
     __padding_end: [u8; 152],
 }
 impl URigVMActionStack {}
-pub struct URigVMExternalDependencyManager {}
 pub struct IRigVMExternalDependencyManager {}
+#[repr(C, align(8))]
+pub struct URigVMExternalDependencyManager {
+    __padding_end: [u8; 48],
+}
+impl URigVMExternalDependencyManager {}
 #[repr(C, align(8))]
 pub struct URigVMGraph {
     __padding_end: [u8; 296],

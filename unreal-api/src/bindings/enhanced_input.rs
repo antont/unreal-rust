@@ -158,8 +158,12 @@ pub struct UEnhancedInputPlatformSettings {
     __padding_end: [u8; 120],
 }
 impl UEnhancedInputPlatformSettings {}
-pub struct UEnhancedInputSubsystemInterface {}
 pub struct IEnhancedInputSubsystemInterface {}
+#[repr(C, align(8))]
+pub struct UEnhancedInputSubsystemInterface {
+    __padding_end: [u8; 48],
+}
+impl UEnhancedInputSubsystemInterface {}
 #[repr(C, align(8))]
 pub struct UEnhancedInputLocalPlayerSubsystem {
     __padding_end: [u8; 576],

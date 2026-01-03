@@ -95,8 +95,12 @@ pub struct FStateTreeIndex8 {
     __padding_end: [u8; 1],
 }
 impl FStateTreeIndex8 {}
-pub struct UStateTreeSchemaProvider {}
 pub struct IStateTreeSchemaProvider {}
+#[repr(C, align(8))]
+pub struct UStateTreeSchemaProvider {
+    __padding_end: [u8; 48],
+}
+impl UStateTreeSchemaProvider {}
 #[repr(C, align(8))]
 pub struct UStateTreeSettings {
     __padding_end: [u8; 112],

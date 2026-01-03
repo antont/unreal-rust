@@ -35,8 +35,12 @@ pub struct AChaosCachePlayer {
     __padding_end: [u8; 1328],
 }
 impl AChaosCachePlayer {}
-pub struct UChaosCacheData {}
 pub struct IChaosCacheData {}
+#[repr(C, align(8))]
+pub struct UChaosCacheData {
+    __padding_end: [u8; 48],
+}
+impl UChaosCacheData {}
 #[repr(C, align(16))]
 pub struct UChaosCache {
     __padding_end: [u8; 912],

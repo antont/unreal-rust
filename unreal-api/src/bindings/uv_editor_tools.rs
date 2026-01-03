@@ -24,8 +24,12 @@ pub struct UUVToolViewportButtonsAPI {
     __padding_end: [u8; 176],
 }
 impl UUVToolViewportButtonsAPI {}
-pub struct UUVUnwrapDynamicMesh {}
 pub struct IVUnwrapDynamicMesh {}
+#[repr(C, align(8))]
+pub struct UUVUnwrapDynamicMesh {
+    __padding_end: [u8; 48],
+}
+impl UUVUnwrapDynamicMesh {}
 #[repr(C, align(8))]
 pub struct UUVToolAction {
     __padding_end: [u8; 72],
@@ -161,8 +165,12 @@ pub struct UUVToolSelectionAPI {
     __padding_end: [u8; 288],
 }
 impl UUVToolSelectionAPI {}
-pub struct UUVToolSupportsSelection {}
 pub struct IVToolSupportsSelection {}
+#[repr(C, align(8))]
+pub struct UUVToolSupportsSelection {
+    __padding_end: [u8; 48],
+}
+impl UUVToolSupportsSelection {}
 #[repr(C, align(8))]
 pub struct UUVToolSelectionHighlightMechanic {
     __padding_end: [u8; 184],
@@ -278,8 +286,12 @@ pub struct UUVEditorTexelDensityTool {
     __padding_end: [u8; 672],
 }
 impl UUVEditorTexelDensityTool {}
-pub struct UUVEditorGenericBuildableTool {}
 pub struct IVEditorGenericBuildableTool {}
+#[repr(C, align(8))]
+pub struct UUVEditorGenericBuildableTool {
+    __padding_end: [u8; 48],
+}
+impl UUVEditorGenericBuildableTool {}
 #[repr(C, align(8))]
 pub struct UGenericUVEditorToolBuilder {
     __padding_end: [u8; 64],

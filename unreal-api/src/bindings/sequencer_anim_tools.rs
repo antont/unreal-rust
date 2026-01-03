@@ -4,8 +4,12 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
-pub struct UBaseSequencerAnimTool {}
 pub struct IBaseSequencerAnimTool {}
+#[repr(C, align(8))]
+pub struct UBaseSequencerAnimTool {
+    __padding_end: [u8; 48],
+}
+impl UBaseSequencerAnimTool {}
 #[repr(C, align(8))]
 pub struct UMotionTrailToolBuilder {
     __padding_end: [u8; 48],

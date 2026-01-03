@@ -9,8 +9,12 @@ pub struct UNamedInterfaces {
     __padding_end: [u8; 112],
 }
 impl UNamedInterfaces {}
-pub struct UTurnBasedMatchInterface {}
 pub struct ITurnBasedMatchInterface {}
+#[repr(C, align(8))]
+pub struct UTurnBasedMatchInterface {
+    __padding_end: [u8; 48],
+}
+impl UTurnBasedMatchInterface {}
 #[repr(transparent)]
 pub struct EMPMatchOutcome(pub u8);
 impl EMPMatchOutcome {

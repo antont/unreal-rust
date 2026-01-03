@@ -111,8 +111,12 @@ pub struct UViewportDragOperationComponent {
     __padding_end: [u8; 256],
 }
 impl UViewportDragOperationComponent {}
-pub struct UViewportInteractableInterface {}
 pub struct IViewportInteractableInterface {}
+#[repr(C, align(8))]
+pub struct UViewportInteractableInterface {
+    __padding_end: [u8; 48],
+}
+impl UViewportInteractableInterface {}
 #[repr(C, align(8))]
 pub struct UTranslationDragOperation {
     __padding_end: [u8; 56],

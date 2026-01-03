@@ -85,10 +85,18 @@ pub struct UMovieSceneMaterialTrack {
     __padding_end: [u8; 408],
 }
 impl UMovieSceneMaterialTrack {}
-pub struct UMovieSceneTransformOrigin {}
 pub struct IMovieSceneTransformOrigin {}
-pub struct UMovieSceneConsoleVariableTrackInterface {}
+#[repr(C, align(8))]
+pub struct UMovieSceneTransformOrigin {
+    __padding_end: [u8; 48],
+}
+impl UMovieSceneTransformOrigin {}
 pub struct IMovieSceneConsoleVariableTrackInterface {}
+#[repr(C, align(8))]
+pub struct UMovieSceneConsoleVariableTrackInterface {
+    __padding_end: [u8; 48],
+}
+impl UMovieSceneConsoleVariableTrackInterface {}
 #[repr(C, align(8))]
 pub struct UMovieSceneReplaceableActorBinding {
     __padding_end: [u8; 56],
@@ -270,8 +278,12 @@ pub struct UMovieSceneComponentMaterialParameterSection {
     __padding_end: [u8; 400],
 }
 impl UMovieSceneComponentMaterialParameterSection {}
-pub struct UMovieSceneConstrainedSection {}
 pub struct IMovieSceneConstrainedSection {}
+#[repr(C, align(8))]
+pub struct UMovieSceneConstrainedSection {
+    __padding_end: [u8; 48],
+}
+impl UMovieSceneConstrainedSection {}
 #[repr(C, align(8))]
 pub struct UMovieSceneParameterSection {
     __padding_end: [u8; 464],
@@ -347,8 +359,12 @@ pub struct UMovieSceneObjectPropertySection {
     __padding_end: [u8; 704],
 }
 impl UMovieSceneObjectPropertySection {}
-pub struct UMovieSceneParameterSectionExtender {}
 pub struct IMovieSceneParameterSectionExtender {}
+#[repr(C, align(8))]
+pub struct UMovieSceneParameterSectionExtender {
+    __padding_end: [u8; 48],
+}
+impl UMovieSceneParameterSectionExtender {}
 #[repr(C, align(8))]
 pub struct UMovieSceneParticleSection {
     __padding_end: [u8; 656],
@@ -781,8 +797,12 @@ pub struct UMovieSceneCVarTrackInstance {
     __padding_end: [u8; 168],
 }
 impl UMovieSceneCVarTrackInstance {}
-pub struct UMovieSceneSectionsToKey {}
 pub struct IMovieSceneSectionsToKey {}
+#[repr(C, align(8))]
+pub struct UMovieSceneSectionsToKey {
+    __padding_end: [u8; 48],
+}
+impl UMovieSceneSectionsToKey {}
 #[repr(C, align(8))]
 pub struct UMovieScene3DConstraintTrack {
     __padding_end: [u8; 368],

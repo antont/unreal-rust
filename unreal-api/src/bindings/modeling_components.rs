@@ -64,25 +64,53 @@ pub struct FCreateComponentResult {
     __padding_end: [u8; 16],
 }
 impl FCreateComponentResult {}
-pub struct UDynamicMeshProvider {}
 pub struct IDynamicMeshProvider {}
-pub struct UDynamicMeshCommitter {}
+#[repr(C, align(8))]
+pub struct UDynamicMeshProvider {
+    __padding_end: [u8; 48],
+}
+impl UDynamicMeshProvider {}
 pub struct IDynamicMeshCommitter {}
-pub struct UPersistentDynamicMeshSource {}
+#[repr(C, align(8))]
+pub struct UDynamicMeshCommitter {
+    __padding_end: [u8; 48],
+}
+impl UDynamicMeshCommitter {}
 pub struct IPersistentDynamicMeshSource {}
+#[repr(C, align(8))]
+pub struct UPersistentDynamicMeshSource {
+    __padding_end: [u8; 48],
+}
+impl UPersistentDynamicMeshSource {}
 #[repr(C, align(8))]
 pub struct UInteractiveToolActivity {
     __padding_end: [u8; 56],
 }
 impl UInteractiveToolActivity {}
-pub struct UToolActivityHost {}
 pub struct IToolActivityHost {}
-pub struct ULatticeStateStorage {}
+#[repr(C, align(8))]
+pub struct UToolActivityHost {
+    __padding_end: [u8; 48],
+}
+impl UToolActivityHost {}
 pub struct ILatticeStateStorage {}
-pub struct UMeshSculptLayersManager {}
+#[repr(C, align(8))]
+pub struct ULatticeStateStorage {
+    __padding_end: [u8; 48],
+}
+impl ULatticeStateStorage {}
 pub struct IMeshSculptLayersManager {}
-pub struct UModelingToolExternalDynamicMeshUpdateAPI {}
+#[repr(C, align(8))]
+pub struct UMeshSculptLayersManager {
+    __padding_end: [u8; 48],
+}
+impl UMeshSculptLayersManager {}
 pub struct IModelingToolExternalDynamicMeshUpdateAPI {}
+#[repr(C, align(8))]
+pub struct UModelingToolExternalDynamicMeshUpdateAPI {
+    __padding_end: [u8; 48],
+}
+impl UModelingToolExternalDynamicMeshUpdateAPI {}
 #[repr(C, align(8))]
 pub struct UGeometrySelectionEditCommandArguments {
     __padding_end: [u8; 96],
@@ -433,8 +461,12 @@ pub struct UModelingSceneSnappingManager {
     __padding_end: [u8; 344],
 }
 impl UModelingSceneSnappingManager {}
-pub struct UToolHostCustomizationAPI {}
 pub struct IToolHostCustomizationAPI {}
+#[repr(C, align(8))]
+pub struct UToolHostCustomizationAPI {
+    __padding_end: [u8; 48],
+}
+impl UToolHostCustomizationAPI {}
 #[repr(C, align(16))]
 pub struct UMultiTransformer {
     __padding_end: [u8; 432],

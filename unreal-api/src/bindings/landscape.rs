@@ -54,12 +54,24 @@ pub struct UControlPointMeshComponent {
     __padding_end: [u8; 1904],
 }
 impl UControlPointMeshComponent {}
-pub struct ULandscapeBrushRenderCallAdapter_GlobalMergeLegacySupport_DEPRECATED {}
 pub struct ILandscapeBrushRenderCallAdapter_GlobalMergeLegacySupport_DEPRECATED {}
-pub struct ULandscapeSplineInterface {}
+#[repr(C, align(8))]
+pub struct ULandscapeBrushRenderCallAdapter_GlobalMergeLegacySupport_DEPRECATED {
+    __padding_end: [u8; 48],
+}
+impl ULandscapeBrushRenderCallAdapter_GlobalMergeLegacySupport_DEPRECATED {}
 pub struct ILandscapeSplineInterface {}
-pub struct ULandscapeEditLayerRenderer {}
+#[repr(C, align(8))]
+pub struct ULandscapeSplineInterface {
+    __padding_end: [u8; 48],
+}
+impl ULandscapeSplineInterface {}
 pub struct ILandscapeEditLayerRenderer {}
+#[repr(C, align(8))]
+pub struct ULandscapeEditLayerRenderer {
+    __padding_end: [u8; 48],
+}
+impl ULandscapeEditLayerRenderer {}
 #[repr(C, align(8))]
 pub struct ALandscapeGizmoActor {
     __padding_end: [u8; 1176],

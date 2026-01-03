@@ -15,8 +15,12 @@ pub struct UDataflowBlueprintLibrary {
     __padding_end: [u8; 48],
 }
 impl UDataflowBlueprintLibrary {}
-pub struct UDataflowContentOwner {}
 pub struct IDataflowContentOwner {}
+#[repr(C, align(8))]
+pub struct UDataflowContentOwner {
+    __padding_end: [u8; 48],
+}
+impl UDataflowContentOwner {}
 #[repr(C, align(8))]
 pub struct UDataflowContextObject {
     __padding_end: [u8; 128],
@@ -42,8 +46,12 @@ pub struct UDataflowEdNode {
     __padding_end: [u8; 256],
 }
 impl UDataflowEdNode {}
-pub struct UDataflowInstanceInterface {}
 pub struct IDataflowInstanceInterface {}
+#[repr(C, align(8))]
+pub struct UDataflowInstanceInterface {
+    __padding_end: [u8; 48],
+}
+impl UDataflowInstanceInterface {}
 #[repr(C, align(8))]
 pub struct UDataflowMesh {
     __padding_end: [u8; 72],

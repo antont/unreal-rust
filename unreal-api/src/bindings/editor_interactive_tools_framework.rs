@@ -4,17 +4,29 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
-pub struct UEditorInteractiveGizmoConditionalBuilder {}
 pub struct IEditorInteractiveGizmoConditionalBuilder {}
+#[repr(C, align(8))]
+pub struct UEditorInteractiveGizmoConditionalBuilder {
+    __padding_end: [u8; 48],
+}
+impl UEditorInteractiveGizmoConditionalBuilder {}
 #[repr(C, align(8))]
 pub struct UEditorSceneSnappingManager {
     __padding_end: [u8; 56],
 }
 impl UEditorSceneSnappingManager {}
-pub struct UGizmoEdModeInterface {}
 pub struct IGizmoEdModeInterface {}
-pub struct UTransformGizmoSource {}
+#[repr(C, align(8))]
+pub struct UGizmoEdModeInterface {
+    __padding_end: [u8; 48],
+}
+impl UGizmoEdModeInterface {}
 pub struct ITransformGizmoSource {}
+#[repr(C, align(8))]
+pub struct UTransformGizmoSource {
+    __padding_end: [u8; 48],
+}
+impl UTransformGizmoSource {}
 #[repr(C, align(8))]
 pub struct UViewportInteraction {
     __padding_end: [u8; 112],
@@ -170,8 +182,12 @@ pub struct UEditorInteractiveGizmoRegistry {
     __padding_end: [u8; 128],
 }
 impl UEditorInteractiveGizmoRegistry {}
-pub struct UEditorInteractiveGizmoSelectionBuilder {}
 pub struct IEditorInteractiveGizmoSelectionBuilder {}
+#[repr(C, align(8))]
+pub struct UEditorInteractiveGizmoSelectionBuilder {
+    __padding_end: [u8; 48],
+}
+impl UEditorInteractiveGizmoSelectionBuilder {}
 #[repr(C, align(8))]
 pub struct UEditorInteractiveGizmoSubsystem {
     __padding_end: [u8; 136],

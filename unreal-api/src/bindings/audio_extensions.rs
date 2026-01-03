@@ -36,8 +36,12 @@ pub struct FSoundWaveCuePoint {
     __padding_end: [u8; 7],
 }
 impl FSoundWaveCuePoint {}
-pub struct UAudioPropertiesSheetAssetUserInterface {}
 pub struct IAudioPropertiesSheetAssetUserInterface {}
+#[repr(C, align(8))]
+pub struct UAudioPropertiesSheetAssetUserInterface {
+    __padding_end: [u8; 48],
+}
+impl UAudioPropertiesSheetAssetUserInterface {}
 #[repr(C, align(8))]
 pub struct UAudioPropertiesSheetAssetBase {
     __padding_end: [u8; 48],
@@ -63,8 +67,12 @@ pub struct UReverbPluginSourceSettingsBase {
     __padding_end: [u8; 48],
 }
 impl UReverbPluginSourceSettingsBase {}
-pub struct UAudioParameterControllerInterface {}
 pub struct IAudioParameterControllerInterface {}
+#[repr(C, align(8))]
+pub struct UAudioParameterControllerInterface {
+    __padding_end: [u8; 48],
+}
+impl UAudioParameterControllerInterface {}
 #[repr(C, align(8))]
 pub struct UAudioEndpointSettingsBase {
     __padding_end: [u8; 48],

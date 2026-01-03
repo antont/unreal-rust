@@ -685,16 +685,36 @@ pub struct ULandscapeGrassTypeCommandlet {
     __padding_end: [u8; 136],
 }
 impl ULandscapeGrassTypeCommandlet {}
-pub struct ULegacyEdModeSelectInterface {}
 pub struct ILegacyEdModeSelectInterface {}
-pub struct ULegacyEdModeWidgetInterface {}
+#[repr(C, align(8))]
+pub struct ULegacyEdModeSelectInterface {
+    __padding_end: [u8; 48],
+}
+impl ULegacyEdModeSelectInterface {}
 pub struct ILegacyEdModeWidgetInterface {}
-pub struct ULegacyEdModeToolInterface {}
+#[repr(C, align(8))]
+pub struct ULegacyEdModeWidgetInterface {
+    __padding_end: [u8; 48],
+}
+impl ULegacyEdModeWidgetInterface {}
 pub struct ILegacyEdModeToolInterface {}
-pub struct ULegacyEdModeDrawHelperInterface {}
+#[repr(C, align(8))]
+pub struct ULegacyEdModeToolInterface {
+    __padding_end: [u8; 48],
+}
+impl ULegacyEdModeToolInterface {}
 pub struct ILegacyEdModeDrawHelperInterface {}
-pub struct ULegacyEdModeViewportInterface {}
+#[repr(C, align(8))]
+pub struct ULegacyEdModeDrawHelperInterface {
+    __padding_end: [u8; 48],
+}
+impl ULegacyEdModeDrawHelperInterface {}
 pub struct ILegacyEdModeViewportInterface {}
+#[repr(C, align(8))]
+pub struct ULegacyEdModeViewportInterface {
+    __padding_end: [u8; 48],
+}
+impl ULegacyEdModeViewportInterface {}
 #[repr(C, align(8))]
 pub struct ULevelEditorMiscSettings {
     __padding_end: [u8; 176],

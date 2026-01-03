@@ -19,8 +19,12 @@ pub struct UEditorUtilityToolMenuSection {
     __padding_end: [u8; 64],
 }
 impl UEditorUtilityToolMenuSection {}
-pub struct UEditorUtilityExtension {}
 pub struct IEditorUtilityExtension {}
+#[repr(C, align(8))]
+pub struct UEditorUtilityExtension {
+    __padding_end: [u8; 48],
+}
+impl UEditorUtilityExtension {}
 #[repr(C, align(8))]
 pub struct UEditorUtilityObject {
     __padding_end: [u8; 64],

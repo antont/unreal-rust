@@ -34,8 +34,12 @@ pub struct FMediaCaptureDevice {
     pub url: FString,
 }
 impl FMediaCaptureDevice {}
-pub struct UMediaSourceRendererInterface {}
 pub struct IMediaSourceRendererInterface {}
+#[repr(C, align(8))]
+pub struct UMediaSourceRendererInterface {
+    __padding_end: [u8; 48],
+}
+impl UMediaSourceRendererInterface {}
 #[repr(C, align(8))]
 pub struct UMediaSource {
     __padding_end: [u8; 152],
@@ -95,8 +99,12 @@ pub struct UMediaPlayer {
     __padding_end: [u8; 7],
 }
 impl UMediaPlayer {}
-pub struct UMediaPlayerProxyInterface {}
 pub struct IMediaPlayerProxyInterface {}
+#[repr(C, align(8))]
+pub struct UMediaPlayerProxyInterface {
+    __padding_end: [u8; 48],
+}
+impl UMediaPlayerProxyInterface {}
 #[repr(C, align(8))]
 pub struct UMediaPlaylist {
     __padding_end: [u8; 64],

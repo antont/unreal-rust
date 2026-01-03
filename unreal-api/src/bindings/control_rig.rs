@@ -5185,8 +5185,12 @@ pub struct URigHierarchy {
     __padding_end: [u8; 1656],
 }
 impl URigHierarchy {}
-pub struct URigHierarchyProvider {}
 pub struct IRigHierarchyProvider {}
+#[repr(C, align(8))]
+pub struct URigHierarchyProvider {
+    __padding_end: [u8; 48],
+}
+impl URigHierarchyProvider {}
 #[repr(C, align(16))]
 pub struct URigHierarchyController {
     __padding_end: [u8; 144],

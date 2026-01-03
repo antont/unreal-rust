@@ -41,8 +41,12 @@ pub struct UBlueprintGameplayTagLibrary {
     __padding_end: [u8; 48],
 }
 impl UBlueprintGameplayTagLibrary {}
-pub struct UGameplayTagAssetInterface {}
 pub struct IGameplayTagAssetInterface {}
+#[repr(C, align(8))]
+pub struct UGameplayTagAssetInterface {
+    __padding_end: [u8; 48],
+}
+impl UGameplayTagAssetInterface {}
 #[repr(C, align(8))]
 pub struct UEditableGameplayTagQuery {
     __padding_end: [u8; 160],

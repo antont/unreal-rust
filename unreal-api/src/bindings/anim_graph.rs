@@ -34,10 +34,18 @@ pub struct UAnimGraphNodeBinding {
     __padding_end: [u8; 48],
 }
 impl UAnimGraphNodeBinding {}
-pub struct UAnimGraphNodeCustomizationInterface {}
 pub struct IAnimGraphNodeCustomizationInterface {}
-pub struct UClassVariableCreator {}
+#[repr(C, align(8))]
+pub struct UAnimGraphNodeCustomizationInterface {
+    __padding_end: [u8; 48],
+}
+impl UAnimGraphNodeCustomizationInterface {}
 pub struct IClassVariableCreator {}
+#[repr(C, align(8))]
+pub struct UClassVariableCreator {
+    __padding_end: [u8; 48],
+}
+impl UClassVariableCreator {}
 #[repr(C, align(8))]
 pub struct UAnimationConduitGraphSchema {
     __padding_end: [u8; 152],

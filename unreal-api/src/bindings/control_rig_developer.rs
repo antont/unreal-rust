@@ -9,8 +9,12 @@ pub struct UAnimGraphNode_ControlRig {
     __padding_end: [u8; 2104],
 }
 impl UAnimGraphNode_ControlRig {}
-pub struct UControlRigAssetInterface {}
 pub struct IControlRigAssetInterface {}
+#[repr(C, align(8))]
+pub struct UControlRigAssetInterface {
+    __padding_end: [u8; 48],
+}
+impl UControlRigAssetInterface {}
 #[repr(C, align(8))]
 pub struct UControlRigBlueprint {
     #[doc(hidden)]

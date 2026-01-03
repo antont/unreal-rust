@@ -29,19 +29,35 @@ pub struct UTypedElementListLibrary {
     __padding_end: [u8; 48],
 }
 impl UTypedElementListLibrary {}
-pub struct UTypedElementCounterInterface {}
 pub struct ITypedElementCounterInterface {}
+#[repr(C, align(8))]
+pub struct UTypedElementCounterInterface {
+    __padding_end: [u8; 48],
+}
+impl UTypedElementCounterInterface {}
 #[repr(C, align(8))]
 pub struct UTypedElementRegistry {
     __padding_end: [u8; 2408],
 }
 impl UTypedElementRegistry {}
-pub struct UTestTypedElementInterfaceA {}
 pub struct ITestTypedElementInterfaceA {}
-pub struct UTestTypedElementInterfaceB {}
+#[repr(C, align(8))]
+pub struct UTestTypedElementInterfaceA {
+    __padding_end: [u8; 48],
+}
+impl UTestTypedElementInterfaceA {}
 pub struct ITestTypedElementInterfaceB {}
-pub struct UTestTypedElementInterfaceC {}
+#[repr(C, align(8))]
+pub struct UTestTypedElementInterfaceB {
+    __padding_end: [u8; 48],
+}
+impl UTestTypedElementInterfaceB {}
 pub struct ITestTypedElementInterfaceC {}
+#[repr(C, align(8))]
+pub struct UTestTypedElementInterfaceC {
+    __padding_end: [u8; 48],
+}
+impl UTestTypedElementInterfaceC {}
 #[repr(C, align(8))]
 pub struct UTestTypedElementInterfaceA_ImplTyped {
     __padding_end: [u8; 56],

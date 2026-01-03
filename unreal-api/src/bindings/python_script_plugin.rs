@@ -40,12 +40,24 @@ pub struct FPyTestClassSparseData {
     pub int_from_sparse_data: i32,
 }
 impl FPyTestClassSparseData {}
-pub struct UPyTestInterface {}
 pub struct IPyTestInterface {}
-pub struct UPyTestChildInterface {}
+#[repr(C, align(8))]
+pub struct UPyTestInterface {
+    __padding_end: [u8; 48],
+}
+impl UPyTestInterface {}
 pub struct IPyTestChildInterface {}
-pub struct UPyTestOtherInterface {}
+#[repr(C, align(8))]
+pub struct UPyTestChildInterface {
+    __padding_end: [u8; 48],
+}
+impl UPyTestChildInterface {}
 pub struct IPyTestOtherInterface {}
+#[repr(C, align(8))]
+pub struct UPyTestOtherInterface {
+    __padding_end: [u8; 48],
+}
+impl UPyTestOtherInterface {}
 #[repr(C, align(8))]
 pub struct UEditorPythonScriptingLibrary {
     __padding_end: [u8; 48],
@@ -162,8 +174,12 @@ pub struct UPythonScriptPluginUserSettings {
     __padding_end: [u8; 112],
 }
 impl UPythonScriptPluginUserSettings {}
-pub struct UPythonResourceOwner {}
 pub struct IPythonResourceOwner {}
+#[repr(C, align(8))]
+pub struct UPythonResourceOwner {
+    __padding_end: [u8; 48],
+}
+impl UPythonResourceOwner {}
 #[repr(C, align(8))]
 pub struct UPythonObjectHandle {
     __padding_end: [u8; 64],

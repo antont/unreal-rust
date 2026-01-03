@@ -84,8 +84,12 @@ pub struct ULODManagerMaterialActions {
     __padding_end: [u8; 192],
 }
 impl ULODManagerMaterialActions {}
-pub struct ULODManagerToolChangeTarget {}
 pub struct ILODManagerToolChangeTarget {}
+#[repr(C, align(8))]
+pub struct ULODManagerToolChangeTarget {
+    __padding_end: [u8; 48],
+}
+impl ULODManagerToolChangeTarget {}
 #[repr(C, align(8))]
 pub struct ULODManagerTool {
     __padding_end: [u8; 408],

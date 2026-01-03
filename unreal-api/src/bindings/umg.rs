@@ -810,15 +810,23 @@ pub struct UGameViewportSubsystem {
     __padding_end: [u8; 200],
 }
 impl UGameViewportSubsystem {}
-pub struct UUserListEntry {}
 pub struct IserListEntry {}
+#[repr(C, align(8))]
+pub struct UUserListEntry {
+    __padding_end: [u8; 48],
+}
+impl UUserListEntry {}
 #[repr(C, align(8))]
 pub struct UUserListEntryLibrary {
     __padding_end: [u8; 48],
 }
 impl UUserListEntryLibrary {}
-pub struct UUserObjectListEntry {}
 pub struct IserObjectListEntry {}
+#[repr(C, align(8))]
+pub struct UUserObjectListEntry {
+    __padding_end: [u8; 48],
+}
+impl UUserObjectListEntry {}
 #[repr(C, align(8))]
 pub struct UUserObjectListEntryLibrary {
     __padding_end: [u8; 48],
@@ -1048,8 +1056,12 @@ pub struct UNamedSlot {
     __padding_end: [u8; 760],
 }
 impl UNamedSlot {}
-pub struct UNamedSlotInterface {}
 pub struct INamedSlotInterface {}
+#[repr(C, align(8))]
+pub struct UNamedSlotInterface {
+    __padding_end: [u8; 48],
+}
+impl UNamedSlotInterface {}
 #[repr(C, align(8))]
 pub struct UNativeWidgetHost {
     __padding_end: [u8; 712],

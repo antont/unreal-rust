@@ -738,8 +738,12 @@ pub struct FSkeletalControlReference {
     __padding_end: [u8; 16],
 }
 impl FSkeletalControlReference {}
-pub struct USequencerAnimationOverride {}
 pub struct ISequencerAnimationOverride {}
+#[repr(C, align(8))]
+pub struct USequencerAnimationOverride {
+    __padding_end: [u8; 48],
+}
+impl USequencerAnimationOverride {}
 #[repr(C, align(8))]
 pub struct UAnimationStateMachineLibrary {
     __padding_end: [u8; 48],
@@ -831,8 +835,12 @@ pub struct USequencePlayerLibrary {
     __padding_end: [u8; 48],
 }
 impl USequencePlayerLibrary {}
-pub struct USequencerAnimationSupport {}
 pub struct ISequencerAnimationSupport {}
+#[repr(C, align(8))]
+pub struct USequencerAnimationSupport {
+    __padding_end: [u8; 48],
+}
+impl USequencerAnimationSupport {}
 #[repr(C, align(8))]
 pub struct USkeletalControlLibrary {
     __padding_end: [u8; 48],

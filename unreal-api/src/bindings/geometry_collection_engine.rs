@@ -126,10 +126,18 @@ pub struct FGeometryCollectionProxyMeshData {
     pub mesh_override_materials: TArray<FGeometryCollectionProxyMeshMaterials>,
 }
 impl FGeometryCollectionProxyMeshData {}
-pub struct UGeometryCollectionExternalRenderInterface {}
 pub struct IGeometryCollectionExternalRenderInterface {}
-pub struct UGeometryCollectionCustomDataInterface {}
+#[repr(C, align(8))]
+pub struct UGeometryCollectionExternalRenderInterface {
+    __padding_end: [u8; 48],
+}
+impl UGeometryCollectionExternalRenderInterface {}
 pub struct IGeometryCollectionCustomDataInterface {}
+#[repr(C, align(8))]
+pub struct UGeometryCollectionCustomDataInterface {
+    __padding_end: [u8; 48],
+}
+impl UGeometryCollectionCustomDataInterface {}
 #[repr(C, align(16))]
 pub struct UChaosDestructionListener {
     #[doc(hidden)]

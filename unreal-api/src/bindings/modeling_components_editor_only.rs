@@ -4,10 +4,18 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
-pub struct USkeletonCommitter {}
 pub struct ISkeletonCommitter {}
-pub struct USkeletonProvider {}
+#[repr(C, align(8))]
+pub struct USkeletonCommitter {
+    __padding_end: [u8; 48],
+}
+impl USkeletonCommitter {}
 pub struct ISkeletonProvider {}
+#[repr(C, align(8))]
+pub struct USkeletonProvider {
+    __padding_end: [u8; 48],
+}
+impl USkeletonProvider {}
 #[repr(C, align(8))]
 pub struct UEditorModelingObjectsCreationAPI {
     __padding_end: [u8; 232],

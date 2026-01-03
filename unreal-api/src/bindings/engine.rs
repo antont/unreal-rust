@@ -4179,8 +4179,12 @@ pub struct UTextureAllMipDataProviderFactory {
     __padding_end: [u8; 48],
 }
 impl UTextureAllMipDataProviderFactory {}
-pub struct UActiveSoundUpdateInterface {}
 pub struct IActiveSoundUpdateInterface {}
+#[repr(C, align(8))]
+pub struct UActiveSoundUpdateInterface {
+    __padding_end: [u8; 48],
+}
+impl UActiveSoundUpdateInterface {}
 #[repr(C, align(8))]
 pub struct UChannel {
     __padding_end: [u8; 120],
@@ -4191,8 +4195,12 @@ pub struct UActorChannel {
     __padding_end: [u8; 680],
 }
 impl UActorChannel {}
-pub struct UActorInstanceManagerInterface {}
 pub struct IActorInstanceManagerInterface {}
+#[repr(C, align(8))]
+pub struct UActorInstanceManagerInterface {
+    __padding_end: [u8; 48],
+}
+impl UActorInstanceManagerInterface {}
 #[repr(C, align(8))]
 pub struct UAnimationAssetExtensions {
     __padding_end: [u8; 48],
@@ -4203,8 +4211,12 @@ pub struct UAnimBlueprintClassSubsystem_PropertyAccess {
     __padding_end: [u8; 48],
 }
 impl UAnimBlueprintClassSubsystem_PropertyAccess {}
-pub struct UInterface_AnimCurveMetaData {}
 pub struct IInterface_AnimCurveMetaData {}
+#[repr(C, align(8))]
+pub struct UInterface_AnimCurveMetaData {
+    __padding_end: [u8; 48],
+}
+impl UInterface_AnimCurveMetaData {}
 #[repr(C, align(8))]
 pub struct UAnimCurveMetaData {
     __padding_end: [u8; 176],
@@ -4215,8 +4227,12 @@ pub struct UAnimationDataModelNotifiesExtensions {
     __padding_end: [u8; 48],
 }
 impl UAnimationDataModelNotifiesExtensions {}
-pub struct UAnimLayerInterface {}
 pub struct IAnimLayerInterface {}
+#[repr(C, align(8))]
+pub struct UAnimLayerInterface {
+    __padding_end: [u8; 48],
+}
+impl UAnimLayerInterface {}
 #[repr(C, align(8))]
 pub struct UAssetManagerSettings {
     __padding_end: [u8; 304],
@@ -4227,8 +4243,12 @@ pub struct UAsyncPhysicsData {
     __padding_end: [u8; 56],
 }
 impl UAsyncPhysicsData {}
-pub struct UAudioPanelWidgetInterface {}
 pub struct IAudioPanelWidgetInterface {}
+#[repr(C, align(8))]
+pub struct UAudioPanelWidgetInterface {
+    __padding_end: [u8; 48],
+}
+impl UAudioPanelWidgetInterface {}
 #[repr(C, align(8))]
 pub struct AAutoRTFMTestActor {
     __padding_end: [u8; 1200],
@@ -4296,8 +4316,12 @@ pub struct UAutoRTFMTestPrimitiveComponent {
     __padding_end: [u8; 1584],
 }
 impl UAutoRTFMTestPrimitiveComponent {}
-pub struct UBlendableInterface {}
 pub struct IBlendableInterface {}
+#[repr(C, align(8))]
+pub struct UBlendableInterface {
+    __padding_end: [u8; 48],
+}
+impl UBlendableInterface {}
 #[repr(C, align(8))]
 pub struct UBlueprintSpringMathLibrary {
     __padding_end: [u8; 48],
@@ -4571,39 +4595,95 @@ pub struct UHapticFeedbackEffect_SoundWave {
     __padding_end: [u8; 80],
 }
 impl UHapticFeedbackEffect_SoundWave {}
-pub struct UAssetRegistryTagProviderInterface {}
 pub struct IAssetRegistryTagProviderInterface {}
+#[repr(C, align(8))]
+pub struct UAssetRegistryTagProviderInterface {
+    __padding_end: [u8; 48],
+}
+impl UAssetRegistryTagProviderInterface {}
 #[repr(C, align(8))]
 pub struct UInGameAdManager {
     __padding_end: [u8; 104],
 }
 impl UInGameAdManager {}
-pub struct UInterface_ActorSubobject {}
 pub struct IInterface_ActorSubobject {}
-pub struct UInterface_AssetUserData {}
+#[repr(C, align(8))]
+pub struct UInterface_ActorSubobject {
+    __padding_end: [u8; 48],
+}
+impl UInterface_ActorSubobject {}
 pub struct IInterface_AssetUserData {}
-pub struct UInterface_AsyncCompilation {}
+#[repr(C, align(8))]
+pub struct UInterface_AssetUserData {
+    __padding_end: [u8; 48],
+}
+impl UInterface_AssetUserData {}
 pub struct IInterface_AsyncCompilation {}
-pub struct UBoneReferenceSkeletonProvider {}
+#[repr(C, align(8))]
+pub struct UInterface_AsyncCompilation {
+    __padding_end: [u8; 48],
+}
+impl UInterface_AsyncCompilation {}
 pub struct IBoneReferenceSkeletonProvider {}
-pub struct UInterface_CollisionDataProvider {}
+#[repr(C, align(8))]
+pub struct UBoneReferenceSkeletonProvider {
+    __padding_end: [u8; 48],
+}
+impl UBoneReferenceSkeletonProvider {}
 pub struct IInterface_CollisionDataProvider {}
-pub struct UInterface_PostProcessVolume {}
+#[repr(C, align(8))]
+pub struct UInterface_CollisionDataProvider {
+    __padding_end: [u8; 48],
+}
+impl UInterface_CollisionDataProvider {}
 pub struct IInterface_PostProcessVolume {}
-pub struct UInterface_PreviewMeshProvider {}
+#[repr(C, align(8))]
+pub struct UInterface_PostProcessVolume {
+    __padding_end: [u8; 48],
+}
+impl UInterface_PostProcessVolume {}
 pub struct IInterface_PreviewMeshProvider {}
-pub struct UPhysicsComponent {}
+#[repr(C, align(8))]
+pub struct UInterface_PreviewMeshProvider {
+    __padding_end: [u8; 48],
+}
+impl UInterface_PreviewMeshProvider {}
 pub struct IPhysicsComponent {}
-pub struct UISMPartitionInstanceManager {}
+#[repr(C, align(8))]
+pub struct UPhysicsComponent {
+    __padding_end: [u8; 48],
+}
+impl UPhysicsComponent {}
 pub struct IISMPartitionInstanceManager {}
-pub struct UISMPartitionInstanceManagerProvider {}
+#[repr(C, align(8))]
+pub struct UISMPartitionInstanceManager {
+    __padding_end: [u8; 48],
+}
+impl UISMPartitionInstanceManager {}
 pub struct IISMPartitionInstanceManagerProvider {}
-pub struct UViewportSelectableObject {}
+#[repr(C, align(8))]
+pub struct UISMPartitionInstanceManagerProvider {
+    __padding_end: [u8; 48],
+}
+impl UISMPartitionInstanceManagerProvider {}
 pub struct IViewportSelectableObject {}
-pub struct UWorldPartitionObjectResolver {}
+#[repr(C, align(8))]
+pub struct UViewportSelectableObject {
+    __padding_end: [u8; 48],
+}
+impl UViewportSelectableObject {}
 pub struct IWorldPartitionObjectResolver {}
-pub struct ULevelInstanceEditorPivotInterface {}
+#[repr(C, align(8))]
+pub struct UWorldPartitionObjectResolver {
+    __padding_end: [u8; 48],
+}
+impl UWorldPartitionObjectResolver {}
 pub struct ILevelInstanceEditorPivotInterface {}
+#[repr(C, align(8))]
+pub struct ULevelInstanceEditorPivotInterface {
+    __padding_end: [u8; 48],
+}
+impl ULevelInstanceEditorPivotInterface {}
 #[repr(C, align(16))]
 pub struct ULevelStreaming {
     #[doc(hidden)]
@@ -6177,8 +6257,12 @@ pub struct UMeshDeformerInstance {
     __padding_end: [u8; 48],
 }
 impl UMeshDeformerInstance {}
-pub struct UMeshDeformerProducer {}
 pub struct IMeshDeformerProducer {}
+#[repr(C, align(8))]
+pub struct UMeshDeformerProducer {
+    __padding_end: [u8; 48],
+}
+impl UMeshDeformerProducer {}
 #[repr(C, align(8))]
 pub struct UMeshDrawCommandStatsSettings {
     __padding_end: [u8; 144],
@@ -6189,20 +6273,48 @@ pub struct UMicroTransactionBase {
     __padding_end: [u8; 112],
 }
 impl UMicroTransactionBase {}
-pub struct UNavAgentInterface {}
 pub struct INavAgentInterface {}
-pub struct UNavEdgeProviderInterface {}
+#[repr(C, align(8))]
+pub struct UNavAgentInterface {
+    __padding_end: [u8; 48],
+}
+impl UNavAgentInterface {}
 pub struct INavEdgeProviderInterface {}
-pub struct UNavigationDataInterface {}
+#[repr(C, align(8))]
+pub struct UNavEdgeProviderInterface {
+    __padding_end: [u8; 48],
+}
+impl UNavEdgeProviderInterface {}
 pub struct INavigationDataInterface {}
-pub struct UNavigationInvokerInterface {}
+#[repr(C, align(8))]
+pub struct UNavigationDataInterface {
+    __padding_end: [u8; 48],
+}
+impl UNavigationDataInterface {}
 pub struct INavigationInvokerInterface {}
-pub struct UNavPathObserverInterface {}
+#[repr(C, align(8))]
+pub struct UNavigationInvokerInterface {
+    __padding_end: [u8; 48],
+}
+impl UNavigationInvokerInterface {}
 pub struct INavPathObserverInterface {}
-pub struct UNavRelevantInterface {}
+#[repr(C, align(8))]
+pub struct UNavPathObserverInterface {
+    __padding_end: [u8; 48],
+}
+impl UNavPathObserverInterface {}
 pub struct INavRelevantInterface {}
-pub struct UNetworkPredictionInterface {}
+#[repr(C, align(8))]
+pub struct UNavRelevantInterface {
+    __padding_end: [u8; 48],
+}
+impl UNavRelevantInterface {}
 pub struct INetworkPredictionInterface {}
+#[repr(C, align(8))]
+pub struct UNetworkPredictionInterface {
+    __padding_end: [u8; 48],
+}
+impl UNetworkPredictionInterface {}
 #[repr(C, align(8))]
 pub struct UFXSystemAsset {
     __padding_end: [u8; 96],
@@ -6818,8 +6930,12 @@ pub struct UParticleSystemReplay {
     __padding_end: [u8; 72],
 }
 impl UParticleSystemReplay {}
-pub struct UPathFollowingAgentInterface {}
 pub struct IPathFollowingAgentInterface {}
+#[repr(C, align(8))]
+pub struct UPathFollowingAgentInterface {
+    __padding_end: [u8; 48],
+}
+impl UPathFollowingAgentInterface {}
 #[repr(C, align(16))]
 pub struct UPhysicsSpringComponent {
     #[doc(hidden)]
@@ -6964,8 +7080,12 @@ pub struct UReplicationConnectionDriver {
     __padding_end: [u8; 48],
 }
 impl UReplicationConnectionDriver {}
-pub struct URVOAvoidanceInterface {}
 pub struct IRVOAvoidanceInterface {}
+#[repr(C, align(8))]
+pub struct URVOAvoidanceInterface {
+    __padding_end: [u8; 48],
+}
+impl URVOAvoidanceInterface {}
 #[repr(C, align(8))]
 pub struct ASceneCapture2D {
     #[doc(hidden)]
@@ -7060,17 +7180,29 @@ pub struct ASkyLight {
     __padding_end: [u8; 8],
 }
 impl ASkyLight {}
-pub struct USMInstanceManager {}
 pub struct ISMInstanceManager {}
-pub struct USMInstanceManagerProvider {}
+#[repr(C, align(8))]
+pub struct USMInstanceManager {
+    __padding_end: [u8; 48],
+}
+impl USMInstanceManager {}
 pub struct ISMInstanceManagerProvider {}
+#[repr(C, align(8))]
+pub struct USMInstanceManagerProvider {
+    __padding_end: [u8; 48],
+}
+impl USMInstanceManagerProvider {}
 #[repr(C, align(8))]
 pub struct USoundAttenuationEditorSettings {
     __padding_end: [u8; 56],
 }
 impl USoundAttenuationEditorSettings {}
-pub struct USoundEffectPresetWidgetInterface {}
 pub struct ISoundEffectPresetWidgetInterface {}
+#[repr(C, align(8))]
+pub struct USoundEffectPresetWidgetInterface {
+    __padding_end: [u8; 48],
+}
+impl USoundEffectPresetWidgetInterface {}
 #[repr(C, align(8))]
 pub struct USoundEffectSourcePreset {
     __padding_end: [u8; 112],
@@ -7081,8 +7213,12 @@ pub struct USoundEffectSourcePresetChain {
     __padding_end: [u8; 72],
 }
 impl USoundEffectSourcePresetChain {}
-pub struct USoundSubmixWidgetInterface {}
 pub struct ISoundSubmixWidgetInterface {}
+#[repr(C, align(8))]
+pub struct USoundSubmixWidgetInterface {
+    __padding_end: [u8; 48],
+}
+impl USoundSubmixWidgetInterface {}
 #[repr(C, align(8))]
 pub struct ASphereReflectionCapture {
     __padding_end: [u8; 1168],
@@ -7108,10 +7244,18 @@ pub struct UStaticMeshSocket {
     __padding_end: [u8; 48],
 }
 impl UStaticMeshSocket {}
-pub struct UStreamingWorldSubsystemInterface {}
 pub struct IStreamingWorldSubsystemInterface {}
-pub struct UTedsTypedElementBridgeInterface {}
+#[repr(C, align(8))]
+pub struct UStreamingWorldSubsystemInterface {
+    __padding_end: [u8; 48],
+}
+impl UStreamingWorldSubsystemInterface {}
 pub struct ITedsTypedElementBridgeInterface {}
+#[repr(C, align(8))]
+pub struct UTedsTypedElementBridgeInterface {
+    __padding_end: [u8; 48],
+}
+impl UTedsTypedElementBridgeInterface {}
 #[repr(C, align(8))]
 pub struct UTextPropertyTestObject {
     __padding_end: [u8; 96],
@@ -7198,8 +7342,12 @@ pub struct UVectorFieldStatic {
     __padding_end: [u8; 256],
 }
 impl UVectorFieldStatic {}
-pub struct UVisualLoggerDebugSnapshotInterface {}
 pub struct IVisualLoggerDebugSnapshotInterface {}
+#[repr(C, align(8))]
+pub struct UVisualLoggerDebugSnapshotInterface {
+    __padding_end: [u8; 48],
+}
+impl UVisualLoggerDebugSnapshotInterface {}
 #[repr(C, align(16))]
 pub struct UWindDirectionalSourceComponent {
     #[doc(hidden)]
@@ -7321,8 +7469,12 @@ pub struct UAnimBoneCompressionSettings {
     __padding_end: [u8; 72],
 }
 impl UAnimBoneCompressionSettings {}
-pub struct UAnimClassInterface {}
 pub struct IAnimClassInterface {}
+#[repr(C, align(8))]
+pub struct UAnimClassInterface {
+    __padding_end: [u8; 48],
+}
+impl UAnimClassInterface {}
 #[repr(C, align(8))]
 pub struct UAnimSequenceBase {
     #[doc(hidden)]
@@ -7422,10 +7574,18 @@ pub struct UAnimDataModel {
     __padding_end: [u8; 16],
 }
 impl UAnimDataModel {}
-pub struct UAnimationDataController {}
 pub struct IAnimationDataController {}
-pub struct UAnimationDataModel {}
+#[repr(C, align(8))]
+pub struct UAnimationDataController {
+    __padding_end: [u8; 48],
+}
+impl UAnimationDataController {}
 pub struct IAnimationDataModel {}
+#[repr(C, align(8))]
+pub struct UAnimationDataModel {
+    __padding_end: [u8; 48],
+}
+impl UAnimationDataModel {}
 #[repr(C, align(8))]
 pub struct UAnimMetaData {
     __padding_end: [u8; 48],
@@ -7561,8 +7721,12 @@ pub struct UAnimationAttributeIdentifierExtensions {
     __padding_end: [u8; 48],
 }
 impl UAnimationAttributeIdentifierExtensions {}
-pub struct UBlendProfileProviderInterface {}
 pub struct IBlendProfileProviderInterface {}
+#[repr(C, align(8))]
+pub struct UBlendProfileProviderInterface {
+    __padding_end: [u8; 48],
+}
+impl UBlendProfileProviderInterface {}
 #[repr(C, align(8))]
 pub struct UBlendProfile {
     __padding_end: [u8; 88],
@@ -7588,8 +7752,12 @@ pub struct UAnimationCurveIdentifierExtensions {
     __padding_end: [u8; 48],
 }
 impl UAnimationCurveIdentifierExtensions {}
-pub struct UCurveSourceInterface {}
 pub struct ICurveSourceInterface {}
+#[repr(C, align(8))]
+pub struct UCurveSourceInterface {
+    __padding_end: [u8; 48],
+}
+impl UCurveSourceInterface {}
 #[repr(C, align(8))]
 pub struct UMeshDeformerCollection {
     __padding_end: [u8; 104],
@@ -7610,15 +7778,23 @@ pub struct UNodeMappingContainer {
     __padding_end: [u8; 384],
 }
 impl UNodeMappingContainer {}
-pub struct UNodeMappingProviderInterface {}
 pub struct INodeMappingProviderInterface {}
+#[repr(C, align(8))]
+pub struct UNodeMappingProviderInterface {
+    __padding_end: [u8; 48],
+}
+impl UNodeMappingProviderInterface {}
 #[repr(C, align(8))]
 pub struct UPoseAsset {
     __padding_end: [u8; 504],
 }
 impl UPoseAsset {}
-pub struct UPreviewCollectionInterface {}
 pub struct IPreviewCollectionInterface {}
+#[repr(C, align(8))]
+pub struct UPreviewCollectionInterface {
+    __padding_end: [u8; 48],
+}
+impl UPreviewCollectionInterface {}
 #[repr(C, align(8))]
 pub struct UPreviewMeshCollection {
     __padding_end: [u8; 88],
@@ -7749,15 +7925,23 @@ pub struct AAudioVolume {
     pub submix_override_settings: TArray<FAudioVolumeSubmixOverrideSettings>,
 }
 impl AAudioVolume {}
-pub struct UActorSoundParameterInterface {}
 pub struct IActorSoundParameterInterface {}
+#[repr(C, align(8))]
+pub struct UActorSoundParameterInterface {
+    __padding_end: [u8; 48],
+}
+impl UActorSoundParameterInterface {}
 #[repr(C, align(8))]
 pub struct UAudioWidgetSubsystem {
     __padding_end: [u8; 56],
 }
 impl UAudioWidgetSubsystem {}
-pub struct USoundParameterControllerInterface {}
 pub struct ISoundParameterControllerInterface {}
+#[repr(C, align(8))]
+pub struct USoundParameterControllerInterface {
+    __padding_end: [u8; 48],
+}
+impl USoundParameterControllerInterface {}
 #[repr(C, align(8))]
 pub struct UAudioParameterConversionStatics {
     __padding_end: [u8; 48],
@@ -7808,8 +7992,12 @@ pub struct UCameraProxyMeshComponent {
     __padding_end: [u8; 1888],
 }
 impl UCameraProxyMeshComponent {}
-pub struct UCameraLensEffectInterface {}
 pub struct ICameraLensEffectInterface {}
+#[repr(C, align(8))]
+pub struct UCameraLensEffectInterface {
+    __padding_end: [u8; 48],
+}
+impl UCameraLensEffectInterface {}
 #[repr(C, align(8))]
 pub struct UCameraLensEffectInterfaceClassSupportLibrary {
     __padding_end: [u8; 48],
@@ -9501,8 +9689,12 @@ pub struct ADefaultPhysicsVolume {
     __padding_end: [u8; 1224],
 }
 impl ADefaultPhysicsVolume {}
-pub struct UDeformableInterface {}
 pub struct IDeformableInterface {}
+#[repr(C, align(8))]
+pub struct UDeformableInterface {
+    __padding_end: [u8; 48],
+}
+impl UDeformableInterface {}
 #[repr(C, align(8))]
 pub struct UDeletedObjectPlaceholder {
     __padding_end: [u8; 80],
@@ -9518,8 +9710,12 @@ pub struct UDemoNetDriver {
     __padding_end: [u8; 5936],
 }
 impl UDemoNetDriver {}
-pub struct UDestructibleInterface {}
 pub struct IDestructibleInterface {}
+#[repr(C, align(8))]
+pub struct UDestructibleInterface {
+    __padding_end: [u8; 48],
+}
+impl UDestructibleInterface {}
 #[repr(C, align(8))]
 pub struct UTextureLODSettings {
     __padding_end: [u8; 72],
@@ -9624,8 +9820,12 @@ pub struct UTypedElementCommonActions {
     __padding_end: [u8; 2096],
 }
 impl UTypedElementCommonActions {}
-pub struct UTypedElementWorldInterface {}
 pub struct ITypedElementWorldInterface {}
+#[repr(C, align(8))]
+pub struct UTypedElementWorldInterface {
+    __padding_end: [u8; 48],
+}
+impl UTypedElementWorldInterface {}
 #[repr(C, align(8))]
 pub struct UObjectElementAssetDataInterface {
     __padding_end: [u8; 56],
@@ -9686,8 +9886,12 @@ pub struct UCancellableAsyncAction {
     __padding_end: [u8; 56],
 }
 impl UCancellableAsyncAction {}
-pub struct ULODSyncInterface {}
 pub struct ILODSyncInterface {}
+#[repr(C, align(8))]
+pub struct ULODSyncInterface {
+    __padding_end: [u8; 48],
+}
+impl ULODSyncInterface {}
 #[repr(C, align(8))]
 pub struct UPoseWatchFolder {
     __padding_end: [u8; 80],
@@ -10003,8 +10207,12 @@ pub struct UHierarchicalLODSetup {
     __padding_end: [u8; 112],
 }
 impl UHierarchicalLODSetup {}
-pub struct UImportantToggleSettingInterface {}
 pub struct IImportantToggleSettingInterface {}
+#[repr(C, align(8))]
+pub struct UImportantToggleSettingInterface {
+    __padding_end: [u8; 48],
+}
+impl UImportantToggleSettingInterface {}
 #[repr(C, align(8))]
 pub struct UInheritableComponentHandler {
     __padding_end: [u8; 80],
@@ -10215,8 +10423,12 @@ pub struct ULevelStreamingLevelInstanceEditorPropertyOverride {
     __padding_end: [u8; 704],
 }
 impl ULevelStreamingLevelInstanceEditorPropertyOverride {}
-pub struct ULevelInstanceInterface {}
 pub struct ILevelInstanceInterface {}
+#[repr(C, align(8))]
+pub struct ULevelInstanceInterface {
+    __padding_end: [u8; 48],
+}
+impl ULevelInstanceInterface {}
 #[repr(C, align(16))]
 pub struct ULevelStreamingLevelInstance {
     __padding_end: [u8; 832],
@@ -10368,8 +10580,12 @@ pub struct UMaterialAggregate {
     __padding_end: [u8; 72],
 }
 impl UMaterialAggregate {}
-pub struct UMaterialEnumerationProvider {}
 pub struct IMaterialEnumerationProvider {}
+#[repr(C, align(8))]
+pub struct UMaterialEnumerationProvider {
+    __padding_end: [u8; 48],
+}
+impl UMaterialEnumerationProvider {}
 #[repr(C, align(8))]
 pub struct UMaterialExpressionLayerStack {
     __padding_end: [u8; 808],
@@ -10571,8 +10787,12 @@ pub struct ANavigationObjectBase {
     __padding_end: [u8; 1176],
 }
 impl ANavigationObjectBase {}
-pub struct UNavMovementInterface {}
 pub struct INavMovementInterface {}
+#[repr(C, align(8))]
+pub struct UNavMovementInterface {
+    __padding_end: [u8; 48],
+}
+impl UNavMovementInterface {}
 #[repr(C, align(16))]
 pub struct USimulatedClientNetConnection {
     __padding_end: [u8; 8048],
@@ -10658,8 +10878,12 @@ pub struct UNetworkMetricsStats {
     __padding_end: [u8; 88],
 }
 impl UNetworkMetricsStats {}
-pub struct UReplicatedObjectInterface {}
 pub struct IReplicatedObjectInterface {}
+#[repr(C, align(8))]
+pub struct UReplicatedObjectInterface {
+    __padding_end: [u8; 48],
+}
+impl UReplicatedObjectInterface {}
 #[repr(C, align(8))]
 pub struct URPCDoSDetectionConfig {
     __padding_end: [u8; 144],
@@ -10888,8 +11112,12 @@ pub struct UPhysicsAsset {
     __padding_end: [u8; 528],
 }
 impl UPhysicsAsset {}
-pub struct UPhysicsBodyInstanceOwnerResolver {}
 pub struct IPhysicsBodyInstanceOwnerResolver {}
+#[repr(C, align(8))]
+pub struct UPhysicsBodyInstanceOwnerResolver {
+    __padding_end: [u8; 48],
+}
+impl UPhysicsBodyInstanceOwnerResolver {}
 #[repr(C, align(8))]
 pub struct UPhysicsCollisionHandler {
     #[doc(hidden)]
@@ -11112,8 +11340,12 @@ pub struct UNeuralProfile {
     __padding_end: [u8; 136],
 }
 impl UNeuralProfile {}
-pub struct USkeletalMeshHalfEdgeBufferAccessor {}
 pub struct ISkeletalMeshHalfEdgeBufferAccessor {}
+#[repr(C, align(8))]
+pub struct USkeletalMeshHalfEdgeBufferAccessor {
+    __padding_end: [u8; 48],
+}
+impl USkeletalMeshHalfEdgeBufferAccessor {}
 #[repr(C, align(8))]
 pub struct USpecularProfile {
     __padding_end: [u8; 1120],
@@ -11250,8 +11482,12 @@ pub struct USlateBrushAsset {
     __padding_end: [u8; 256],
 }
 impl USlateBrushAsset {}
-pub struct USlateTextureAtlasInterface {}
 pub struct ISlateTextureAtlasInterface {}
+#[repr(C, align(8))]
+pub struct USlateTextureAtlasInterface {
+    __padding_end: [u8; 48],
+}
+impl USlateTextureAtlasInterface {}
 #[repr(C, align(8))]
 pub struct USoundAttenuation {
     #[doc(hidden)]
@@ -11972,8 +12208,12 @@ pub struct UContentBundleDuplicateForPIEHelper {
     __padding_end: [u8; 128],
 }
 impl UContentBundleDuplicateForPIEHelper {}
-pub struct UWorldPartitionCookPackageObject {}
 pub struct IWorldPartitionCookPackageObject {}
+#[repr(C, align(8))]
+pub struct UWorldPartitionCookPackageObject {
+    __padding_end: [u8; 48],
+}
+impl UWorldPartitionCookPackageObject {}
 #[repr(C, align(8))]
 pub struct AWorldDataLayers {
     __padding_end: [u8; 2552],
@@ -11999,8 +12239,12 @@ pub struct UDataLayerInstancePrivate {
     __padding_end: [u8; 120],
 }
 impl UDataLayerInstancePrivate {}
-pub struct UDataLayerInstanceProvider {}
 pub struct IDataLayerInstanceProvider {}
+#[repr(C, align(8))]
+pub struct UDataLayerInstanceProvider {
+    __padding_end: [u8; 48],
+}
+impl UDataLayerInstanceProvider {}
 #[repr(C, align(8))]
 pub struct UDataLayerInstanceWithAsset {
     __padding_end: [u8; 120],
@@ -12096,8 +12340,12 @@ pub struct UNullHLODBuilder {
     __padding_end: [u8; 72],
 }
 impl UNullHLODBuilder {}
-pub struct UWorldPartitionDestructibleInHLODInterface {}
 pub struct IWorldPartitionDestructibleInHLODInterface {}
+#[repr(C, align(8))]
+pub struct UWorldPartitionDestructibleInHLODInterface {
+    __padding_end: [u8; 48],
+}
+impl UWorldPartitionDestructibleInHLODInterface {}
 #[repr(C, align(8))]
 pub struct UWorldPartitionDestructibleInHLODSupportLibrary {
     __padding_end: [u8; 48],
@@ -12128,8 +12376,12 @@ pub struct AWorldPartitionHLODOnlyLevelInstance {
     __padding_end: [u8; 1416],
 }
 impl AWorldPartitionHLODOnlyLevelInstance {}
-pub struct UWorldPartitionHLODProvider {}
 pub struct IWorldPartitionHLODProvider {}
+#[repr(C, align(8))]
+pub struct UWorldPartitionHLODProvider {
+    __padding_end: [u8; 48],
+}
+impl UWorldPartitionHLODProvider {}
 #[repr(C, align(8))]
 pub struct UWorldPartitionHLODRuntimeSubsystem {
     __padding_end: [u8; 728],
@@ -12240,8 +12492,12 @@ pub struct AMapBuildDataActor {
     __padding_end: [u8; 1264],
 }
 impl AMapBuildDataActor {}
-pub struct UWorldPartitionActorLoaderInterface {}
 pub struct IWorldPartitionActorLoaderInterface {}
+#[repr(C, align(8))]
+pub struct UWorldPartitionActorLoaderInterface {
+    __padding_end: [u8; 48],
+}
+impl UWorldPartitionActorLoaderInterface {}
 #[repr(C, align(8))]
 pub struct UWorldPartitionEditorHash {
     __padding_end: [u8; 48],
@@ -12292,8 +12548,12 @@ pub struct UWorldPartitionRuntimeCellDataSpatialHash {
     __padding_end: [u8; 384],
 }
 impl UWorldPartitionRuntimeCellDataSpatialHash {}
-pub struct UWorldPartitionCell {}
 pub struct IWorldPartitionCell {}
+#[repr(C, align(8))]
+pub struct UWorldPartitionCell {
+    __padding_end: [u8; 48],
+}
+impl UWorldPartitionCell {}
 #[repr(C, align(8))]
 pub struct UWorldPartitionRuntimeCellTransformerSettings {
     __padding_end: [u8; 80],

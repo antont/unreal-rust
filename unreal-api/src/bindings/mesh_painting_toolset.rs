@@ -14,8 +14,12 @@ pub struct UMeshPaintingSubsystem {
     __padding_end: [u8; 256],
 }
 impl UMeshPaintingSubsystem {}
-pub struct UMeshPaintSelectionInterface {}
 pub struct IMeshPaintSelectionInterface {}
+#[repr(C, align(8))]
+pub struct UMeshPaintSelectionInterface {
+    __padding_end: [u8; 48],
+}
+impl UMeshPaintSelectionInterface {}
 #[repr(C, align(8))]
 pub struct UMeshPaintSelectionMechanic {
     __padding_end: [u8; 96],

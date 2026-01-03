@@ -14,8 +14,12 @@ pub struct UGameplayTask {
     __padding_end: [u8; 128],
 }
 impl UGameplayTask {}
-pub struct UGameplayTaskOwnerInterface {}
 pub struct IGameplayTaskOwnerInterface {}
+#[repr(C, align(8))]
+pub struct UGameplayTaskOwnerInterface {
+    __padding_end: [u8; 48],
+}
+impl UGameplayTaskOwnerInterface {}
 #[repr(C, align(8))]
 pub struct UGameplayTaskResource {
     #[doc(hidden)]

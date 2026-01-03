@@ -4,8 +4,12 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
-pub struct UDataflowGraphInterface {}
 pub struct IDataflowGraphInterface {}
+#[repr(C, align(8))]
+pub struct UDataflowGraphInterface {
+    __padding_end: [u8; 48],
+}
+impl UDataflowGraphInterface {}
 #[repr(C, align(8))]
 pub struct UDataflowSettings {
     __padding_end: [u8; 360],

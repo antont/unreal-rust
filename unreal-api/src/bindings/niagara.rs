@@ -243,17 +243,29 @@ pub struct UNiagaraParameterDefinitionsBase {
     __padding_end: [u8; 96],
 }
 impl UNiagaraParameterDefinitionsBase {}
-pub struct UNiagaraRenderableMeshArrayInterface {}
 pub struct INiagaraRenderableMeshArrayInterface {}
-pub struct UNiagaraRenderableMeshInterface {}
+#[repr(C, align(8))]
+pub struct UNiagaraRenderableMeshArrayInterface {
+    __padding_end: [u8; 48],
+}
+impl UNiagaraRenderableMeshArrayInterface {}
 pub struct INiagaraRenderableMeshInterface {}
+#[repr(C, align(8))]
+pub struct UNiagaraRenderableMeshInterface {
+    __padding_end: [u8; 48],
+}
+impl UNiagaraRenderableMeshInterface {}
 #[repr(C, align(8))]
 pub struct UNiagaraScriptSourceBase {
     __padding_end: [u8; 112],
 }
 impl UNiagaraScriptSourceBase {}
-pub struct UNiagaraSimCacheCustomStorageInterface {}
 pub struct INiagaraSimCacheCustomStorageInterface {}
+#[repr(C, align(8))]
+pub struct UNiagaraSimCacheCustomStorageInterface {
+    __padding_end: [u8; 48],
+}
+impl UNiagaraSimCacheCustomStorageInterface {}
 #[repr(C, align(8))]
 pub struct UNiagaraValidationRuleSet {
     __padding_end: [u8; 64],
@@ -357,8 +369,12 @@ pub struct UNiagaraDataInterfacePhysicsAsset {
     __padding_end: [u8; 320],
 }
 impl UNiagaraDataInterfacePhysicsAsset {}
-pub struct UNiagaraPhysicsAssetDICollectorInterface {}
 pub struct INiagaraPhysicsAssetDICollectorInterface {}
+#[repr(C, align(8))]
+pub struct UNiagaraPhysicsAssetDICollectorInterface {
+    __padding_end: [u8; 48],
+}
+impl UNiagaraPhysicsAssetDICollectorInterface {}
 #[repr(C, align(8))]
 pub struct UNiagaraDataInterfaceSceneCapture2D {
     __padding_end: [u8; 448],
@@ -773,8 +789,12 @@ pub struct UNiagaraDataInterfaceCurve {
     __padding_end: [u8; 488],
 }
 impl UNiagaraDataInterfaceCurve {}
-pub struct UNiagaraParticleCallbackHandler {}
 pub struct INiagaraParticleCallbackHandler {}
+#[repr(C, align(8))]
+pub struct UNiagaraParticleCallbackHandler {
+    __padding_end: [u8; 48],
+}
+impl UNiagaraParticleCallbackHandler {}
 #[repr(C, align(8))]
 pub struct UNiagaraDataInterfaceExport {
     __padding_end: [u8; 240],

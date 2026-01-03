@@ -9,8 +9,12 @@ pub struct FPropertyBindingIndex16 {
     __padding_end: [u8; 2],
 }
 impl FPropertyBindingIndex16 {}
-pub struct UPropertyBindingBindingCollectionOwner {}
 pub struct IPropertyBindingBindingCollectionOwner {}
+#[repr(C, align(8))]
+pub struct UPropertyBindingBindingCollectionOwner {
+    __padding_end: [u8; 48],
+}
+impl UPropertyBindingBindingCollectionOwner {}
 #[repr(transparent)]
 pub struct EPropertyBindingPropertyAccessType(pub u8);
 impl EPropertyBindingPropertyAccessType {

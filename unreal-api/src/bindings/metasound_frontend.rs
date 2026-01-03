@@ -83,8 +83,12 @@ pub struct FMetaSoundClassInterfaceInfo {
     pub inherited_interfaces: TArray<FMetasoundFrontendVersion>,
 }
 impl FMetaSoundClassInterfaceInfo {}
-pub struct UMetaSoundDocumentInterface {}
 pub struct IMetaSoundDocumentInterface {}
+#[repr(C, align(8))]
+pub struct UMetaSoundDocumentInterface {
+    __padding_end: [u8; 48],
+}
+impl UMetaSoundDocumentInterface {}
 #[repr(C, align(8))]
 pub struct UMetaSoundFrontendMemberMetadata {
     __padding_end: [u8; 64],

@@ -117,8 +117,12 @@ pub struct UAnimTimelineClipboardContent {
     __padding_end: [u8; 64],
 }
 impl UAnimTimelineClipboardContent {}
-pub struct UPersonaManagerContext {}
 pub struct IPersonaManagerContext {}
+#[repr(C, align(8))]
+pub struct UPersonaManagerContext {
+    __padding_end: [u8; 48],
+}
+impl UPersonaManagerContext {}
 #[repr(C, align(8))]
 pub struct UPersonaEditorModeManagerContext {
     __padding_end: [u8; 64],

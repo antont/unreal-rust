@@ -4,8 +4,12 @@
 #![allow(non_camel_case_types)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
-pub struct UChaosVDCharacterGroundConstraintDataProviderInterface {}
 pub struct IChaosVDCharacterGroundConstraintDataProviderInterface {}
+#[repr(C, align(8))]
+pub struct UChaosVDCharacterGroundConstraintDataProviderInterface {
+    __padding_end: [u8; 48],
+}
+impl UChaosVDCharacterGroundConstraintDataProviderInterface {}
 #[repr(C, align(8))]
 pub struct UChaosVDSettingsObjectBase {
     __padding_end: [u8; 96],
@@ -16,12 +20,24 @@ pub struct UChaosVDMiscSettings {
     __padding_end: [u8; 200],
 }
 impl UChaosVDMiscSettings {}
-pub struct UChaosVDPooledObject {}
 pub struct IChaosVDPooledObject {}
-pub struct UChaosVDSelectableObject {}
+#[repr(C, align(8))]
+pub struct UChaosVDPooledObject {
+    __padding_end: [u8; 48],
+}
+impl UChaosVDPooledObject {}
 pub struct IChaosVDSelectableObject {}
-pub struct UChaosVDSkySphereInterface {}
+#[repr(C, align(8))]
+pub struct UChaosVDSelectableObject {
+    __padding_end: [u8; 48],
+}
+impl UChaosVDSelectableObject {}
 pub struct IChaosVDSkySphereInterface {}
+#[repr(C, align(8))]
+pub struct UChaosVDSkySphereInterface {
+    __padding_end: [u8; 48],
+}
+impl UChaosVDSkySphereInterface {}
 #[repr(C, align(8))]
 pub struct UChaosVDSolverTrackSettings {
     __padding_end: [u8; 104],
@@ -52,8 +68,12 @@ pub struct UChaosVDEditorMode {
     __padding_end: [u8; 352],
 }
 impl UChaosVDEditorMode {}
-pub struct UChaosVDGeometryComponent {}
 pub struct IChaosVDGeometryComponent {}
+#[repr(C, align(8))]
+pub struct UChaosVDGeometryComponent {
+    __padding_end: [u8; 48],
+}
+impl UChaosVDGeometryComponent {}
 #[repr(C, align(8))]
 pub struct UChaosVDSolverDataComponent {
     __padding_end: [u8; 264],

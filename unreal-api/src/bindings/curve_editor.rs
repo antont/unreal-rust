@@ -31,8 +31,12 @@ pub struct UCurveEditorCopyBuffer {
     __padding_end: [u8; 80],
 }
 impl UCurveEditorCopyBuffer {}
-pub struct UCurveEditorKeyProxy {}
 pub struct ICurveEditorKeyProxy {}
+#[repr(C, align(8))]
+pub struct UCurveEditorKeyProxy {
+    __padding_end: [u8; 48],
+}
+impl UCurveEditorKeyProxy {}
 #[repr(C, align(8))]
 pub struct UCurveEditorTransactionObject {
     __padding_end: [u8; 64],

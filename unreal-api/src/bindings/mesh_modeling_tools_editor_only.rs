@@ -109,8 +109,12 @@ pub struct URefSkeletonPoser {
     __padding_end: [u8; 488],
 }
 impl URefSkeletonPoser {}
-pub struct USkeletalMeshEditingInterface {}
 pub struct ISkeletalMeshEditingInterface {}
+#[repr(C, align(8))]
+pub struct USkeletalMeshEditingInterface {
+    __padding_end: [u8; 48],
+}
+impl USkeletalMeshEditingInterface {}
 #[repr(C, align(8))]
 pub struct USkeletalMeshGizmoContextObjectBase {
     __padding_end: [u8; 48],

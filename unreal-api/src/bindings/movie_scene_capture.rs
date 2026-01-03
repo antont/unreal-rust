@@ -82,8 +82,12 @@ pub struct UMasterAudioSubmixCaptureProtocol {
     __padding_end: [u8; 40],
 }
 impl UMasterAudioSubmixCaptureProtocol {}
-pub struct UMovieSceneCaptureInterface {}
 pub struct IMovieSceneCaptureInterface {}
+#[repr(C, align(8))]
+pub struct UMovieSceneCaptureInterface {
+    __padding_end: [u8; 48],
+}
+impl UMovieSceneCaptureInterface {}
 #[repr(C, align(8))]
 pub struct UMovieSceneImageCaptureProtocolBase {
     __padding_end: [u8; 96],

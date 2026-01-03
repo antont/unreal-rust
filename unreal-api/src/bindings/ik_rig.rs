@@ -733,8 +733,12 @@ pub struct FIKRigStretchLimbSolver {
     __padding_end: [u8; 240],
 }
 impl FIKRigStretchLimbSolver {}
-pub struct UIKGoalCreatorInterface {}
 pub struct IIKGoalCreatorInterface {}
+#[repr(C, align(8))]
+pub struct UIKGoalCreatorInterface {
+    __padding_end: [u8; 48],
+}
+impl UIKGoalCreatorInterface {}
 #[repr(C, align(8))]
 pub struct UIKRigComponent {
     __padding_end: [u8; 272],

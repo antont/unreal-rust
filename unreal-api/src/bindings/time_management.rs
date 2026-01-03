@@ -15,8 +15,12 @@ pub struct FTimedDataInputEvaluationData {
     pub distance_to_oldest_sample_seconds: f32,
 }
 impl FTimedDataInputEvaluationData {}
-pub struct UClockedTimeStep {}
 pub struct IClockedTimeStep {}
+#[repr(C, align(8))]
+pub struct UClockedTimeStep {
+    __padding_end: [u8; 48],
+}
+impl UClockedTimeStep {}
 #[repr(C, align(8))]
 pub struct UFixedFrameRateCustomTimeStep {
     __padding_end: [u8; 48],

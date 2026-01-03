@@ -44,8 +44,12 @@ pub struct UChaosGameplayEventDispatcher {
     __padding_end: [u8; 776],
 }
 impl UChaosGameplayEventDispatcher {}
-pub struct UChaosNotifyHandlerInterface {}
 pub struct IChaosNotifyHandlerInterface {}
+#[repr(C, align(8))]
+pub struct UChaosNotifyHandlerInterface {
+    __padding_end: [u8; 48],
+}
+impl UChaosNotifyHandlerInterface {}
 #[repr(C, align(8))]
 pub struct UChaosSolverEngineBlueprintLibrary {
     __padding_end: [u8; 48],

@@ -169,66 +169,186 @@ pub struct FOptimusDeformerInstanceComponentBinding {
     __padding_end: [u8; 24],
 }
 impl FOptimusDeformerInstanceComponentBinding {}
-pub struct UOptimusAlternativeSelectedObjectProvider {}
 pub struct IOptimusAlternativeSelectedObjectProvider {}
-pub struct UOptimusComponentBindingProvider {}
+#[repr(C, align(8))]
+pub struct UOptimusAlternativeSelectedObjectProvider {
+    __padding_end: [u8; 48],
+}
+impl UOptimusAlternativeSelectedObjectProvider {}
 pub struct IOptimusComponentBindingProvider {}
-pub struct UOptimusComponentBindingReceiver {}
+#[repr(C, align(8))]
+pub struct UOptimusComponentBindingProvider {
+    __padding_end: [u8; 48],
+}
+impl UOptimusComponentBindingProvider {}
 pub struct IOptimusComponentBindingReceiver {}
-pub struct UOptimusComputeKernelDataInterface {}
+#[repr(C, align(8))]
+pub struct UOptimusComponentBindingReceiver {
+    __padding_end: [u8; 48],
+}
+impl UOptimusComponentBindingReceiver {}
 pub struct IOptimusComputeKernelDataInterface {}
-pub struct UOptimusComputeKernelProvider {}
+#[repr(C, align(8))]
+pub struct UOptimusComputeKernelDataInterface {
+    __padding_end: [u8; 48],
+}
+impl UOptimusComputeKernelDataInterface {}
 pub struct IOptimusComputeKernelProvider {}
-pub struct UOptimusDataInterfaceProvider {}
+#[repr(C, align(8))]
+pub struct UOptimusComputeKernelProvider {
+    __padding_end: [u8; 48],
+}
+impl UOptimusComputeKernelProvider {}
 pub struct IOptimusDataInterfaceProvider {}
-pub struct UOptimusDeformerAssetPathAccessor {}
+#[repr(C, align(8))]
+pub struct UOptimusDataInterfaceProvider {
+    __padding_end: [u8; 48],
+}
+impl UOptimusDataInterfaceProvider {}
 pub struct IOptimusDeformerAssetPathAccessor {}
-pub struct UOptimusDeformerGeometryReadbackProvider {}
+#[repr(C, align(8))]
+pub struct UOptimusDeformerAssetPathAccessor {
+    __padding_end: [u8; 48],
+}
+impl UOptimusDeformerAssetPathAccessor {}
 pub struct IOptimusDeformerGeometryReadbackProvider {}
-pub struct UOptimusDeformerInstanceAccessor {}
+#[repr(C, align(8))]
+pub struct UOptimusDeformerGeometryReadbackProvider {
+    __padding_end: [u8; 48],
+}
+impl UOptimusDeformerGeometryReadbackProvider {}
 pub struct IOptimusDeformerInstanceAccessor {}
-pub struct UOptimusDeprecatedExecutionDataInterface {}
+#[repr(C, align(8))]
+pub struct UOptimusDeformerInstanceAccessor {
+    __padding_end: [u8; 48],
+}
+impl UOptimusDeformerInstanceAccessor {}
 pub struct IOptimusDeprecatedExecutionDataInterface {}
-pub struct UOptimusExecutionDomainProvider {}
+#[repr(C, align(8))]
+pub struct UOptimusDeprecatedExecutionDataInterface {
+    __padding_end: [u8; 48],
+}
+impl UOptimusDeprecatedExecutionDataInterface {}
 pub struct IOptimusExecutionDomainProvider {}
-pub struct UOptimusGeneratedClassDefiner {}
+#[repr(C, align(8))]
+pub struct UOptimusExecutionDomainProvider {
+    __padding_end: [u8; 48],
+}
+impl UOptimusExecutionDomainProvider {}
 pub struct IOptimusGeneratedClassDefiner {}
-pub struct UOptimusNodeAdderPinProvider {}
+#[repr(C, align(8))]
+pub struct UOptimusGeneratedClassDefiner {
+    __padding_end: [u8; 48],
+}
+impl UOptimusGeneratedClassDefiner {}
 pub struct IOptimusNodeAdderPinProvider {}
-pub struct UOptimusNodeFunctionLibraryOwner {}
+#[repr(C, align(8))]
+pub struct UOptimusNodeAdderPinProvider {
+    __padding_end: [u8; 48],
+}
+impl UOptimusNodeAdderPinProvider {}
 pub struct IOptimusNodeFunctionLibraryOwner {}
-pub struct UOptimusNodeGraphCollectionOwner {}
+#[repr(C, align(8))]
+pub struct UOptimusNodeFunctionLibraryOwner {
+    __padding_end: [u8; 48],
+}
+impl UOptimusNodeFunctionLibraryOwner {}
 pub struct IOptimusNodeGraphCollectionOwner {}
-pub struct UOptimusNodeGraphProvider {}
+#[repr(C, align(8))]
+pub struct UOptimusNodeGraphCollectionOwner {
+    __padding_end: [u8; 48],
+}
+impl UOptimusNodeGraphCollectionOwner {}
 pub struct IOptimusNodeGraphProvider {}
-pub struct UOptimusNodePairProvider {}
+#[repr(C, align(8))]
+pub struct UOptimusNodeGraphProvider {
+    __padding_end: [u8; 48],
+}
+impl UOptimusNodeGraphProvider {}
 pub struct IOptimusNodePairProvider {}
-pub struct UOptimusNodePinRouter {}
+#[repr(C, align(8))]
+pub struct UOptimusNodePairProvider {
+    __padding_end: [u8; 48],
+}
+impl UOptimusNodePairProvider {}
 pub struct IOptimusNodePinRouter {}
-pub struct UOptimusNodeSubGraphReferencer {}
+#[repr(C, align(8))]
+pub struct UOptimusNodePinRouter {
+    __padding_end: [u8; 48],
+}
+impl UOptimusNodePinRouter {}
 pub struct IOptimusNodeSubGraphReferencer {}
-pub struct UOptimusNonCollapsibleNode {}
+#[repr(C, align(8))]
+pub struct UOptimusNodeSubGraphReferencer {
+    __padding_end: [u8; 48],
+}
+impl UOptimusNodeSubGraphReferencer {}
 pub struct IOptimusNonCollapsibleNode {}
-pub struct UOptimusNonCopyableNode {}
+#[repr(C, align(8))]
+pub struct UOptimusNonCollapsibleNode {
+    __padding_end: [u8; 48],
+}
+impl UOptimusNonCollapsibleNode {}
 pub struct IOptimusNonCopyableNode {}
-pub struct UOptimusOutputBufferWriter {}
+#[repr(C, align(8))]
+pub struct UOptimusNonCopyableNode {
+    __padding_end: [u8; 48],
+}
+impl UOptimusNonCopyableNode {}
 pub struct IOptimusOutputBufferWriter {}
-pub struct UOptimusParameterBindingProvider {}
+#[repr(C, align(8))]
+pub struct UOptimusOutputBufferWriter {
+    __padding_end: [u8; 48],
+}
+impl UOptimusOutputBufferWriter {}
 pub struct IOptimusParameterBindingProvider {}
-pub struct UOptimusPathResolver {}
+#[repr(C, align(8))]
+pub struct UOptimusParameterBindingProvider {
+    __padding_end: [u8; 48],
+}
+impl UOptimusParameterBindingProvider {}
 pub struct IOptimusPathResolver {}
-pub struct UOptimusPersistentBufferProvider {}
+#[repr(C, align(8))]
+pub struct UOptimusPathResolver {
+    __padding_end: [u8; 48],
+}
+impl UOptimusPathResolver {}
 pub struct IOptimusPersistentBufferProvider {}
-pub struct UOptimusPinMutabilityDefiner {}
+#[repr(C, align(8))]
+pub struct UOptimusPersistentBufferProvider {
+    __padding_end: [u8; 48],
+}
+impl UOptimusPersistentBufferProvider {}
 pub struct IOptimusPinMutabilityDefiner {}
-pub struct UOptimusPropertyPinProvider {}
+#[repr(C, align(8))]
+pub struct UOptimusPinMutabilityDefiner {
+    __padding_end: [u8; 48],
+}
+impl UOptimusPinMutabilityDefiner {}
 pub struct IOptimusPropertyPinProvider {}
-pub struct UOptimusShaderTextProvider {}
+#[repr(C, align(8))]
+pub struct UOptimusPropertyPinProvider {
+    __padding_end: [u8; 48],
+}
+impl UOptimusPropertyPinProvider {}
 pub struct IOptimusShaderTextProvider {}
-pub struct UOptimusUnnamedNodePinProvider {}
+#[repr(C, align(8))]
+pub struct UOptimusShaderTextProvider {
+    __padding_end: [u8; 48],
+}
+impl UOptimusShaderTextProvider {}
 pub struct IOptimusUnnamedNodePinProvider {}
-pub struct UOptimusValueProvider {}
+#[repr(C, align(8))]
+pub struct UOptimusUnnamedNodePinProvider {
+    __padding_end: [u8; 48],
+}
+impl UOptimusUnnamedNodePinProvider {}
 pub struct IOptimusValueProvider {}
+#[repr(C, align(8))]
+pub struct UOptimusValueProvider {
+    __padding_end: [u8; 48],
+}
+impl UOptimusValueProvider {}
 #[repr(C, align(8))]
 pub struct UOptimusKernelSource {
     __padding_end: [u8; 176],

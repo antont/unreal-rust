@@ -17,12 +17,24 @@ pub struct UDynamicMeshProcessorBlueprint {
     __padding_end: [u8; 56],
 }
 impl UDynamicMeshProcessorBlueprint {}
-pub struct UMeshCommandChangeTarget {}
 pub struct IMeshCommandChangeTarget {}
-pub struct UMeshReplacementCommandChangeTarget {}
+#[repr(C, align(8))]
+pub struct UMeshCommandChangeTarget {
+    __padding_end: [u8; 48],
+}
+impl UMeshCommandChangeTarget {}
 pub struct IMeshReplacementCommandChangeTarget {}
-pub struct UMeshVertexCommandChangeTarget {}
+#[repr(C, align(8))]
+pub struct UMeshReplacementCommandChangeTarget {
+    __padding_end: [u8; 48],
+}
+impl UMeshReplacementCommandChangeTarget {}
 pub struct IMeshVertexCommandChangeTarget {}
+#[repr(C, align(8))]
+pub struct UMeshVertexCommandChangeTarget {
+    __padding_end: [u8; 48],
+}
+impl UMeshVertexCommandChangeTarget {}
 #[repr(C, align(16))]
 pub struct UBaseDynamicMeshComponent {
     #[doc(hidden)]

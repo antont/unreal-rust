@@ -26,8 +26,12 @@ pub struct UAssetRegistryHelpers {
     __padding_end: [u8; 48],
 }
 impl UAssetRegistryHelpers {}
-pub struct UAssetRegistry {}
 pub struct IAssetRegistry {}
+#[repr(C, align(8))]
+pub struct UAssetRegistry {
+    __padding_end: [u8; 48],
+}
+impl UAssetRegistry {}
 #[repr(C, align(8))]
 pub struct UAssetRegistryImpl {
     __padding_end: [u8; 5880],

@@ -9,17 +9,29 @@ pub struct UAssetEditorUISubsystem {
     __padding_end: [u8; 56],
 }
 impl UAssetEditorUISubsystem {}
-pub struct UAssetEditorContextInterface {}
 pub struct IAssetEditorContextInterface {}
-pub struct UTypedElementDetailsInterface {}
+#[repr(C, align(8))]
+pub struct UAssetEditorContextInterface {
+    __padding_end: [u8; 48],
+}
+impl UAssetEditorContextInterface {}
 pub struct ITypedElementDetailsInterface {}
+#[repr(C, align(8))]
+pub struct UTypedElementDetailsInterface {
+    __padding_end: [u8; 48],
+}
+impl UTypedElementDetailsInterface {}
 #[repr(C, align(8))]
 pub struct UTypedElementViewportInteraction {
     __padding_end: [u8; 2096],
 }
 impl UTypedElementViewportInteraction {}
-pub struct UAssetFactoryInterface {}
 pub struct IAssetFactoryInterface {}
+#[repr(C, align(8))]
+pub struct UAssetFactoryInterface {
+    __padding_end: [u8; 48],
+}
+impl UAssetFactoryInterface {}
 #[repr(C, align(8))]
 pub struct UEditorElementSubsystem {
     __padding_end: [u8; 56],

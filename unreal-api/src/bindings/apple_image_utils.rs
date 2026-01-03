@@ -10,8 +10,12 @@ pub struct FAppleImageUtilsImageConversionResult {
     pub image_data: TArray<u8>,
 }
 impl FAppleImageUtilsImageConversionResult {}
-pub struct UAppleImageInterface {}
 pub struct IAppleImageInterface {}
+#[repr(C, align(8))]
+pub struct UAppleImageInterface {
+    __padding_end: [u8; 48],
+}
+impl UAppleImageInterface {}
 #[repr(C, align(8))]
 pub struct UAppleImageUtilsBaseAsyncTaskBlueprintProxy {
     #[doc(hidden)]

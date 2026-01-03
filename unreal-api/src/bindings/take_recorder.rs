@@ -57,8 +57,12 @@ pub struct FTakeRecorderSequenceParameters {
     pub sequence_to_view: UPtr<crate::bindings::level_sequence::ULevelSequence>,
 }
 impl FTakeRecorderSequenceParameters {}
-pub struct UTakeRecorderSubsystemInterface {}
 pub struct ITakeRecorderSubsystemInterface {}
+#[repr(C, align(8))]
+pub struct UTakeRecorderSubsystemInterface {
+    __padding_end: [u8; 48],
+}
+impl UTakeRecorderSubsystemInterface {}
 #[repr(C, align(8))]
 pub struct UTakeRecorderHitchVisualizationSettings {
     __padding_end: [u8; 56],

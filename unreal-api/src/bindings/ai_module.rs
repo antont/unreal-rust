@@ -183,8 +183,12 @@ pub struct UAIAsyncTaskBlueprintProxy {
     __padding_end: [u8; 128],
 }
 impl UAIAsyncTaskBlueprintProxy {}
-pub struct UAIResourceInterface {}
 pub struct IAIResourceInterface {}
+#[repr(C, align(8))]
+pub struct UAIResourceInterface {
+    __padding_end: [u8; 48],
+}
+impl UAIResourceInterface {}
 #[repr(C, align(8))]
 pub struct UAISenseBlueprintListener {
     __padding_end: [u8; 368],
@@ -271,12 +275,24 @@ pub struct UAISenseEvent_Hearing {
     pub event: FAINoiseEvent,
 }
 impl UAISenseEvent_Hearing {}
-pub struct UCrowdAgentInterface {}
 pub struct ICrowdAgentInterface {}
-pub struct UEQSQueryResultSourceInterface {}
+#[repr(C, align(8))]
+pub struct UCrowdAgentInterface {
+    __padding_end: [u8; 48],
+}
+impl UCrowdAgentInterface {}
 pub struct IEQSQueryResultSourceInterface {}
-pub struct UGenericTeamAgentInterface {}
+#[repr(C, align(8))]
+pub struct UEQSQueryResultSourceInterface {
+    __padding_end: [u8; 48],
+}
+impl UEQSQueryResultSourceInterface {}
 pub struct IGenericTeamAgentInterface {}
+#[repr(C, align(8))]
+pub struct UGenericTeamAgentInterface {
+    __padding_end: [u8; 48],
+}
+impl UGenericTeamAgentInterface {}
 #[repr(C, align(8))]
 pub struct AAIController {
     #[doc(hidden)]
@@ -344,8 +360,12 @@ pub struct UBehaviorTreeTypes {
     __padding_end: [u8; 48],
 }
 impl UBehaviorTreeTypes {}
-pub struct UBlackboardAssetProvider {}
 pub struct IBlackboardAssetProvider {}
+#[repr(C, align(8))]
+pub struct UBlackboardAssetProvider {
+    __padding_end: [u8; 48],
+}
+impl UBlackboardAssetProvider {}
 #[repr(C, align(8))]
 pub struct UBlackboardComponent {
     __padding_end: [u8; 504],
@@ -1045,8 +1065,12 @@ pub struct UAIPerceptionComponent {
     __padding_end: [u8; 512],
 }
 impl UAIPerceptionComponent {}
-pub struct UAIPerceptionListenerInterface {}
 pub struct IAIPerceptionListenerInterface {}
+#[repr(C, align(8))]
+pub struct UAIPerceptionListenerInterface {
+    __padding_end: [u8; 48],
+}
+impl UAIPerceptionListenerInterface {}
 #[repr(C, align(8))]
 pub struct UAIPerceptionStimuliSourceComponent {
     #[doc(hidden)]
@@ -1119,8 +1143,12 @@ pub struct UAISense_Touch {
     __padding_end: [u8; 256],
 }
 impl UAISense_Touch {}
-pub struct UAISightTargetInterface {}
 pub struct IAISightTargetInterface {}
+#[repr(C, align(8))]
+pub struct UAISightTargetInterface {
+    __padding_end: [u8; 48],
+}
+impl UAISightTargetInterface {}
 #[repr(C, align(8))]
 pub struct UPawnSensingComponent {
     #[doc(hidden)]

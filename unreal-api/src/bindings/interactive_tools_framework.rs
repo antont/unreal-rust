@@ -60,10 +60,18 @@ pub struct FInputDeviceRay {
     pub screen_position: crate::bindings::core_u_object::FVector2D,
 }
 impl FInputDeviceRay {}
-pub struct UAssetBackedTarget {}
 pub struct IAssetBackedTarget {}
-pub struct UGizmoBaseComponentInterface {}
+#[repr(C, align(8))]
+pub struct UAssetBackedTarget {
+    __padding_end: [u8; 48],
+}
+impl UAssetBackedTarget {}
 pub struct IGizmoBaseComponentInterface {}
+#[repr(C, align(8))]
+pub struct UGizmoBaseComponentInterface {
+    __padding_end: [u8; 48],
+}
+impl UGizmoBaseComponentInterface {}
 #[repr(C, align(16))]
 pub struct UGizmoBaseComponent {
     __padding_end: [u8; 1568],
@@ -89,33 +97,77 @@ pub struct UInteractiveGizmoBuilder {
     __padding_end: [u8; 48],
 }
 impl UInteractiveGizmoBuilder {}
-pub struct UToolContextTransactionProvider {}
 pub struct IToolContextTransactionProvider {}
+#[repr(C, align(8))]
+pub struct UToolContextTransactionProvider {
+    __padding_end: [u8; 48],
+}
+impl UToolContextTransactionProvider {}
 #[repr(C, align(8))]
 pub struct AInternalToolFrameworkActor {
     __padding_end: [u8; 1144],
 }
 impl AInternalToolFrameworkActor {}
-pub struct UToolFrameworkComponent {}
 pub struct IToolFrameworkComponent {}
-pub struct UInteractiveToolCameraFocusAPI {}
+#[repr(C, align(8))]
+pub struct UToolFrameworkComponent {
+    __padding_end: [u8; 48],
+}
+impl UToolFrameworkComponent {}
 pub struct IInteractiveToolCameraFocusAPI {}
-pub struct UInteractiveToolNestedAcceptCancelAPI {}
+#[repr(C, align(8))]
+pub struct UInteractiveToolCameraFocusAPI {
+    __padding_end: [u8; 48],
+}
+impl UInteractiveToolCameraFocusAPI {}
 pub struct IInteractiveToolNestedAcceptCancelAPI {}
-pub struct UInteractiveToolShutdownQueryAPI {}
+#[repr(C, align(8))]
+pub struct UInteractiveToolNestedAcceptCancelAPI {
+    __padding_end: [u8; 48],
+}
+impl UInteractiveToolNestedAcceptCancelAPI {}
 pub struct IInteractiveToolShutdownQueryAPI {}
-pub struct UInteractiveToolExclusiveToolAPI {}
+#[repr(C, align(8))]
+pub struct UInteractiveToolShutdownQueryAPI {
+    __padding_end: [u8; 48],
+}
+impl UInteractiveToolShutdownQueryAPI {}
 pub struct IInteractiveToolExclusiveToolAPI {}
-pub struct UInteractiveToolEditorGizmoAPI {}
+#[repr(C, align(8))]
+pub struct UInteractiveToolExclusiveToolAPI {
+    __padding_end: [u8; 48],
+}
+impl UInteractiveToolExclusiveToolAPI {}
 pub struct IInteractiveToolEditorGizmoAPI {}
-pub struct UInteractiveToolManageGeometrySelectionAPI {}
+#[repr(C, align(8))]
+pub struct UInteractiveToolEditorGizmoAPI {
+    __padding_end: [u8; 48],
+}
+impl UInteractiveToolEditorGizmoAPI {}
 pub struct IInteractiveToolManageGeometrySelectionAPI {}
-pub struct UMaterialProvider {}
+#[repr(C, align(8))]
+pub struct UInteractiveToolManageGeometrySelectionAPI {
+    __padding_end: [u8; 48],
+}
+impl UInteractiveToolManageGeometrySelectionAPI {}
 pub struct IMaterialProvider {}
-pub struct UMeshDescriptionCommitter {}
+#[repr(C, align(8))]
+pub struct UMaterialProvider {
+    __padding_end: [u8; 48],
+}
+impl UMaterialProvider {}
 pub struct IMeshDescriptionCommitter {}
-pub struct UMeshDescriptionProvider {}
+#[repr(C, align(8))]
+pub struct UMeshDescriptionCommitter {
+    __padding_end: [u8; 48],
+}
+impl UMeshDescriptionCommitter {}
 pub struct IMeshDescriptionProvider {}
+#[repr(C, align(8))]
+pub struct UMeshDescriptionProvider {
+    __padding_end: [u8; 48],
+}
+impl UMeshDescriptionProvider {}
 #[repr(C, align(8))]
 pub struct UGizmoBaseVec2ParameterSource {
     __padding_end: [u8; 88],
@@ -126,16 +178,36 @@ pub struct UGizmoLocalVec2ParameterSource {
     __padding_end: [u8; 136],
 }
 impl UGizmoLocalVec2ParameterSource {}
-pub struct UPhysicsDataSource {}
 pub struct IPhysicsDataSource {}
-pub struct USceneComponentBackedTarget {}
+#[repr(C, align(8))]
+pub struct UPhysicsDataSource {
+    __padding_end: [u8; 48],
+}
+impl UPhysicsDataSource {}
 pub struct ISceneComponentBackedTarget {}
-pub struct UPrimitiveComponentBackedTarget {}
+#[repr(C, align(8))]
+pub struct USceneComponentBackedTarget {
+    __padding_end: [u8; 48],
+}
+impl USceneComponentBackedTarget {}
 pub struct IPrimitiveComponentBackedTarget {}
-pub struct USkeletalMeshBackedTarget {}
+#[repr(C, align(8))]
+pub struct UPrimitiveComponentBackedTarget {
+    __padding_end: [u8; 48],
+}
+impl UPrimitiveComponentBackedTarget {}
 pub struct ISkeletalMeshBackedTarget {}
-pub struct UStaticMeshBackedTarget {}
+#[repr(C, align(8))]
+pub struct USkeletalMeshBackedTarget {
+    __padding_end: [u8; 48],
+}
+impl USkeletalMeshBackedTarget {}
 pub struct IStaticMeshBackedTarget {}
+#[repr(C, align(8))]
+pub struct UStaticMeshBackedTarget {
+    __padding_end: [u8; 48],
+}
+impl UStaticMeshBackedTarget {}
 #[repr(C, align(8))]
 pub struct UInputBehavior {
     __padding_end: [u8; 88],
@@ -236,8 +308,12 @@ pub struct ULocalTwoAxisPropertyEditInputBehavior {
     __padding_end: [u8; 624],
 }
 impl ULocalTwoAxisPropertyEditInputBehavior {}
-pub struct UWidgetBaseBehavior {}
 pub struct IWidgetBaseBehavior {}
+#[repr(C, align(8))]
+pub struct UWidgetBaseBehavior {
+    __padding_end: [u8; 48],
+}
+impl UWidgetBaseBehavior {}
 #[repr(C, align(8))]
 pub struct UAxisAngleGizmoBuilder {
     __padding_end: [u8; 48],
@@ -448,24 +524,60 @@ pub struct UGizmoElementTriangleList {
     __padding_end: [u8; 448],
 }
 impl UGizmoElementTriangleList {}
-pub struct UGizmoTransformSource {}
 pub struct IGizmoTransformSource {}
-pub struct UGizmoAxisSource {}
+#[repr(C, align(8))]
+pub struct UGizmoTransformSource {
+    __padding_end: [u8; 48],
+}
+impl UGizmoTransformSource {}
 pub struct IGizmoAxisSource {}
-pub struct UGizmoClickTarget {}
+#[repr(C, align(8))]
+pub struct UGizmoAxisSource {
+    __padding_end: [u8; 48],
+}
+impl UGizmoAxisSource {}
 pub struct IGizmoClickTarget {}
-pub struct UGizmoClickMultiTarget {}
+#[repr(C, align(8))]
+pub struct UGizmoClickTarget {
+    __padding_end: [u8; 48],
+}
+impl UGizmoClickTarget {}
 pub struct IGizmoClickMultiTarget {}
-pub struct UGizmoRenderTarget {}
+#[repr(C, align(8))]
+pub struct UGizmoClickMultiTarget {
+    __padding_end: [u8; 48],
+}
+impl UGizmoClickMultiTarget {}
 pub struct IGizmoRenderTarget {}
-pub struct UGizmoRenderMultiTarget {}
+#[repr(C, align(8))]
+pub struct UGizmoRenderTarget {
+    __padding_end: [u8; 48],
+}
+impl UGizmoRenderTarget {}
 pub struct IGizmoRenderMultiTarget {}
-pub struct UGizmoStateTarget {}
+#[repr(C, align(8))]
+pub struct UGizmoRenderMultiTarget {
+    __padding_end: [u8; 48],
+}
+impl UGizmoRenderMultiTarget {}
 pub struct IGizmoStateTarget {}
-pub struct UGizmoFloatParameterSource {}
+#[repr(C, align(8))]
+pub struct UGizmoStateTarget {
+    __padding_end: [u8; 48],
+}
+impl UGizmoStateTarget {}
 pub struct IGizmoFloatParameterSource {}
-pub struct UGizmoVec2ParameterSource {}
+#[repr(C, align(8))]
+pub struct UGizmoFloatParameterSource {
+    __padding_end: [u8; 48],
+}
+impl UGizmoFloatParameterSource {}
 pub struct IGizmoVec2ParameterSource {}
+#[repr(C, align(8))]
+pub struct UGizmoVec2ParameterSource {
+    __padding_end: [u8; 48],
+}
+impl UGizmoVec2ParameterSource {}
 #[repr(C, align(16))]
 pub struct UGizmoLineHandleComponent {
     __padding_end: [u8; 1632],
@@ -726,8 +838,12 @@ pub struct UInputBehaviorSet {
     __padding_end: [u8; 64],
 }
 impl UInputBehaviorSet {}
-pub struct UInputBehaviorSource {}
 pub struct IInputBehaviorSource {}
+#[repr(C, align(8))]
+pub struct UInputBehaviorSource {
+    __padding_end: [u8; 48],
+}
+impl UInputBehaviorSource {}
 #[repr(C, align(16))]
 pub struct ULocalInputBehaviorSource {
     __padding_end: [u8; 112],

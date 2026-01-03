@@ -29,19 +29,35 @@ pub struct UNavigationGraphNodeComponent {
     __padding_end: [u8; 704],
 }
 impl UNavigationGraphNodeComponent {}
-pub struct UNavigationPathGenerator {}
 pub struct INavigationPathGenerator {}
-pub struct UNavLinkCustomInterface {}
+#[repr(C, align(8))]
+pub struct UNavigationPathGenerator {
+    __padding_end: [u8; 48],
+}
+impl UNavigationPathGenerator {}
 pub struct INavLinkCustomInterface {}
-pub struct UNavLinkHostInterface {}
+#[repr(C, align(8))]
+pub struct UNavLinkCustomInterface {
+    __padding_end: [u8; 48],
+}
+impl UNavLinkCustomInterface {}
 pub struct INavLinkHostInterface {}
+#[repr(C, align(8))]
+pub struct UNavLinkHostInterface {
+    __padding_end: [u8; 48],
+}
+impl UNavLinkHostInterface {}
 #[repr(C, align(8))]
 pub struct UNavLinkTrivial {
     __padding_end: [u8; 88],
 }
 impl UNavLinkTrivial {}
-pub struct UNavNodeInterface {}
 pub struct INavNodeInterface {}
+#[repr(C, align(8))]
+pub struct UNavNodeInterface {
+    __padding_end: [u8; 48],
+}
+impl UNavNodeInterface {}
 #[repr(C, align(8))]
 pub struct ANavigationData {
     __padding_end: [u8; 1760],

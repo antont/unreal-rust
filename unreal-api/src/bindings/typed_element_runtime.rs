@@ -48,16 +48,36 @@ pub struct UTypedElementSelectionSet {
     __padding_end: [u8; 2256],
 }
 impl UTypedElementSelectionSet {}
-pub struct UTypedElementAssetDataInterface {}
 pub struct ITypedElementAssetDataInterface {}
-pub struct UTypedElementHierarchyInterface {}
+#[repr(C, align(8))]
+pub struct UTypedElementAssetDataInterface {
+    __padding_end: [u8; 48],
+}
+impl UTypedElementAssetDataInterface {}
 pub struct ITypedElementHierarchyInterface {}
-pub struct UTypedElementObjectInterface {}
+#[repr(C, align(8))]
+pub struct UTypedElementHierarchyInterface {
+    __padding_end: [u8; 48],
+}
+impl UTypedElementHierarchyInterface {}
 pub struct ITypedElementObjectInterface {}
-pub struct UTypedElementPrimitiveCustomDataInterface {}
+#[repr(C, align(8))]
+pub struct UTypedElementObjectInterface {
+    __padding_end: [u8; 48],
+}
+impl UTypedElementObjectInterface {}
 pub struct ITypedElementPrimitiveCustomDataInterface {}
-pub struct UTypedElementSelectionInterface {}
+#[repr(C, align(8))]
+pub struct UTypedElementPrimitiveCustomDataInterface {
+    __padding_end: [u8; 48],
+}
+impl UTypedElementPrimitiveCustomDataInterface {}
 pub struct ITypedElementSelectionInterface {}
+#[repr(C, align(8))]
+pub struct UTypedElementSelectionInterface {
+    __padding_end: [u8; 48],
+}
+impl UTypedElementSelectionInterface {}
 #[repr(C, align(8))]
 pub struct FTypedElementSelectionSet_OnPreSelectionChange {
     _opague: [u8; 24],

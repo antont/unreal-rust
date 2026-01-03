@@ -297,58 +297,142 @@ pub struct UMovieSceneSubTrack {
     __padding_end: [u8; 416],
 }
 impl UMovieSceneSubTrack {}
-pub struct UMovieSceneBlenderSystemSupport {}
 pub struct IMovieSceneBlenderSystemSupport {}
-pub struct UMovieSceneBoundObjectProxy {}
+#[repr(C, align(8))]
+pub struct UMovieSceneBlenderSystemSupport {
+    __padding_end: [u8; 48],
+}
+impl UMovieSceneBlenderSystemSupport {}
 pub struct IMovieSceneBoundObjectProxy {}
-pub struct UMovieSceneChannelDecoration {}
+#[repr(C, align(8))]
+pub struct UMovieSceneBoundObjectProxy {
+    __padding_end: [u8; 48],
+}
+impl UMovieSceneBoundObjectProxy {}
 pub struct IMovieSceneChannelDecoration {}
-pub struct UMovieSceneChannelOverrideProvider {}
+#[repr(C, align(8))]
+pub struct UMovieSceneChannelDecoration {
+    __padding_end: [u8; 48],
+}
+impl UMovieSceneChannelDecoration {}
 pub struct IMovieSceneChannelOverrideProvider {}
-pub struct UMovieSceneChannelOwner {}
+#[repr(C, align(8))]
+pub struct UMovieSceneChannelOverrideProvider {
+    __padding_end: [u8; 48],
+}
+impl UMovieSceneChannelOverrideProvider {}
 pub struct IMovieSceneChannelOwner {}
-pub struct UMovieSceneDecoration {}
+#[repr(C, align(8))]
+pub struct UMovieSceneChannelOwner {
+    __padding_end: [u8; 48],
+}
+impl UMovieSceneChannelOwner {}
 pub struct IMovieSceneDecoration {}
-pub struct UMovieSceneDeterminismSource {}
+#[repr(C, align(8))]
+pub struct UMovieSceneDecoration {
+    __padding_end: [u8; 48],
+}
+impl UMovieSceneDecoration {}
 pub struct IMovieSceneDeterminismSource {}
-pub struct UMovieSceneEntityDecorator {}
+#[repr(C, align(8))]
+pub struct UMovieSceneDeterminismSource {
+    __padding_end: [u8; 48],
+}
+impl UMovieSceneDeterminismSource {}
 pub struct IMovieSceneEntityDecorator {}
-pub struct UMovieSceneLifetimeDecoration {}
+#[repr(C, align(8))]
+pub struct UMovieSceneEntityDecorator {
+    __padding_end: [u8; 48],
+}
+impl UMovieSceneEntityDecorator {}
 pub struct IMovieSceneLifetimeDecoration {}
-pub struct UMovieSceneMetaDataInterface {}
+#[repr(C, align(8))]
+pub struct UMovieSceneLifetimeDecoration {
+    __padding_end: [u8; 48],
+}
+impl UMovieSceneLifetimeDecoration {}
 pub struct IMovieSceneMetaDataInterface {}
-pub struct UMovieScenePlaybackClient {}
+#[repr(C, align(8))]
+pub struct UMovieSceneMetaDataInterface {
+    __padding_end: [u8; 48],
+}
+impl UMovieSceneMetaDataInterface {}
 pub struct IMovieScenePlaybackClient {}
-pub struct UMovieSceneSectionDecoration {}
+#[repr(C, align(8))]
+pub struct UMovieScenePlaybackClient {
+    __padding_end: [u8; 48],
+}
+impl UMovieScenePlaybackClient {}
 pub struct IMovieSceneSectionDecoration {}
-pub struct UMovieSceneSequencePlayerObserver {}
+#[repr(C, align(8))]
+pub struct UMovieSceneSectionDecoration {
+    __padding_end: [u8; 48],
+}
+impl UMovieSceneSectionDecoration {}
 pub struct IMovieSceneSequencePlayerObserver {}
-pub struct UMovieSceneTrackDecoration {}
+#[repr(C, align(8))]
+pub struct UMovieSceneSequencePlayerObserver {
+    __padding_end: [u8; 48],
+}
+impl UMovieSceneSequencePlayerObserver {}
 pub struct IMovieSceneTrackDecoration {}
-pub struct UMovieSceneBindingEventReceiverInterface {}
+#[repr(C, align(8))]
+pub struct UMovieSceneTrackDecoration {
+    __padding_end: [u8; 48],
+}
+impl UMovieSceneTrackDecoration {}
 pub struct IMovieSceneBindingEventReceiverInterface {}
-pub struct UMovieSceneBindingOwnerInterface {}
+#[repr(C, align(8))]
+pub struct UMovieSceneBindingEventReceiverInterface {
+    __padding_end: [u8; 48],
+}
+impl UMovieSceneBindingEventReceiverInterface {}
 pub struct IMovieSceneBindingOwnerInterface {}
-pub struct UMovieSceneCachedTrack {}
+#[repr(C, align(8))]
+pub struct UMovieSceneBindingOwnerInterface {
+    __padding_end: [u8; 48],
+}
+impl UMovieSceneBindingOwnerInterface {}
 pub struct IMovieSceneCachedTrack {}
-pub struct UMovieSceneEasingFunction {}
+#[repr(C, align(8))]
+pub struct UMovieSceneCachedTrack {
+    __padding_end: [u8; 48],
+}
+impl UMovieSceneCachedTrack {}
 pub struct IMovieSceneEasingFunction {}
-pub struct UMovieSceneKeyProxy {}
+#[repr(C, align(8))]
+pub struct UMovieSceneEasingFunction {
+    __padding_end: [u8; 48],
+}
+impl UMovieSceneEasingFunction {}
 pub struct IMovieSceneKeyProxy {}
+#[repr(C, align(8))]
+pub struct UMovieSceneKeyProxy {
+    __padding_end: [u8; 48],
+}
+impl UMovieSceneKeyProxy {}
 #[repr(C, align(8))]
 pub struct UMovieSceneNumericVariantGetter {
     __padding_end: [u8; 120],
 }
 impl UMovieSceneNumericVariantGetter {}
-pub struct UMovieSceneSequenceTickManagerClient {}
 pub struct IMovieSceneSequenceTickManagerClient {}
+#[repr(C, align(8))]
+pub struct UMovieSceneSequenceTickManagerClient {
+    __padding_end: [u8; 48],
+}
+impl UMovieSceneSequenceTickManagerClient {}
 #[repr(C, align(8))]
 pub struct UMovieSceneSectionChannelOverrideRegistry {
     __padding_end: [u8; 128],
 }
 impl UMovieSceneSectionChannelOverrideRegistry {}
-pub struct UMovieSceneTrackTemplateProducer {}
 pub struct IMovieSceneTrackTemplateProducer {}
+#[repr(C, align(8))]
+pub struct UMovieSceneTrackTemplateProducer {
+    __padding_end: [u8; 48],
+}
+impl UMovieSceneTrackTemplateProducer {}
 #[repr(C, align(8))]
 pub struct UMovieSceneCompiledData {
     __padding_end: [u8; 1080],
@@ -377,8 +461,12 @@ pub struct UMovieSceneMuteSoloDecoration {
     __padding_end: [u8; 64],
 }
 impl UMovieSceneMuteSoloDecoration {}
-pub struct UMovieSceneScalingDriver {}
 pub struct IMovieSceneScalingDriver {}
+#[repr(C, align(8))]
+pub struct UMovieSceneScalingDriver {
+    __padding_end: [u8; 48],
+}
+impl UMovieSceneScalingDriver {}
 #[repr(C, align(8))]
 pub struct UMovieSceneTimeWarpGetter {
     __padding_end: [u8; 136],
@@ -399,8 +487,12 @@ pub struct UMovieSceneSectionAnchorsDecoration {
     __padding_end: [u8; 88],
 }
 impl UMovieSceneSectionAnchorsDecoration {}
-pub struct UMovieSceneTimeWarpSource {}
 pub struct IMovieSceneTimeWarpSource {}
+#[repr(C, align(8))]
+pub struct UMovieSceneTimeWarpSource {
+    __padding_end: [u8; 48],
+}
+impl UMovieSceneTimeWarpSource {}
 #[repr(C, align(8))]
 pub struct UMovieSceneTimeWarpDecoration {
     __padding_end: [u8; 72],
@@ -411,8 +503,12 @@ pub struct UMovieSceneTrackRowDecoration {
     __padding_end: [u8; 136],
 }
 impl UMovieSceneTrackRowDecoration {}
-pub struct UMovieSceneEntityProvider {}
 pub struct IMovieSceneEntityProvider {}
+#[repr(C, align(8))]
+pub struct UMovieSceneEntityProvider {
+    __padding_end: [u8; 48],
+}
+impl UMovieSceneEntityProvider {}
 #[repr(C, align(8))]
 pub struct UMovieSceneBindingLifetimeSystem {
     __padding_end: [u8; 80],
@@ -428,8 +524,12 @@ pub struct UMovieSceneBoundSceneComponentInstantiator {
     __padding_end: [u8; 80],
 }
 impl UMovieSceneBoundSceneComponentInstantiator {}
-pub struct UMovieSceneValueDecomposer {}
 pub struct IMovieSceneValueDecomposer {}
+#[repr(C, align(8))]
+pub struct UMovieSceneValueDecomposer {
+    __padding_end: [u8; 48],
+}
+impl UMovieSceneValueDecomposer {}
 #[repr(C, align(8))]
 pub struct UMovieSceneEntityGroupingSystem {
     __padding_end: [u8; 360],
@@ -455,8 +555,12 @@ pub struct UMovieSceneInitialValueSystem {
     __padding_end: [u8; 80],
 }
 impl UMovieSceneInitialValueSystem {}
-pub struct UMovieScenePreAnimatedStateSystemInterface {}
 pub struct IMovieScenePreAnimatedStateSystemInterface {}
+#[repr(C, align(8))]
+pub struct UMovieScenePreAnimatedStateSystemInterface {
+    __padding_end: [u8; 48],
+}
+impl UMovieScenePreAnimatedStateSystemInterface {}
 #[repr(C, align(8))]
 pub struct UMovieSceneCachePreAnimatedStateSystem {
     __padding_end: [u8; 80],
@@ -487,10 +591,18 @@ pub struct UMovieSceneTrackInstanceSystem {
     __padding_end: [u8; 88],
 }
 impl UMovieSceneTrackInstanceSystem {}
-pub struct UMovieSceneCustomClockSource {}
 pub struct IMovieSceneCustomClockSource {}
-pub struct UMovieSceneEvaluationHook {}
+#[repr(C, align(8))]
+pub struct UMovieSceneCustomClockSource {
+    __padding_end: [u8; 48],
+}
+impl UMovieSceneCustomClockSource {}
 pub struct IMovieSceneEvaluationHook {}
+#[repr(C, align(8))]
+pub struct UMovieSceneEvaluationHook {
+    __padding_end: [u8; 48],
+}
+impl UMovieSceneEvaluationHook {}
 #[repr(C, align(8))]
 pub struct UMovieSceneBuiltInEasingFunction {
     __padding_end: [u8; 64],
@@ -501,8 +613,12 @@ pub struct UMovieSceneEasingExternalCurve {
     __padding_end: [u8; 64],
 }
 impl UMovieSceneEasingExternalCurve {}
-pub struct UNodeAndChannelMappings {}
 pub struct INodeAndChannelMappings {}
+#[repr(C, align(8))]
+pub struct UNodeAndChannelMappings {
+    __padding_end: [u8; 48],
+}
+impl UNodeAndChannelMappings {}
 #[repr(C, align(8))]
 pub struct UMovieSceneShotMetaData {
     __padding_end: [u8; 72],

@@ -64,8 +64,12 @@ pub struct UStateTreeEditorMode {
     __padding_end: [u8; 376],
 }
 impl UStateTreeEditorMode {}
-pub struct UStateTreeEditorPropertyBindingsOwner {}
 pub struct IStateTreeEditorPropertyBindingsOwner {}
+#[repr(C, align(8))]
+pub struct UStateTreeEditorPropertyBindingsOwner {
+    __padding_end: [u8; 48],
+}
+impl UStateTreeEditorPropertyBindingsOwner {}
 #[repr(C, align(8))]
 pub struct UStateTreeEditorSchema {
     __padding_end: [u8; 48],
