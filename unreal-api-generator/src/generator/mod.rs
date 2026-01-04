@@ -63,7 +63,7 @@ impl NameResolver {
     }
 }
 use crate::parse_api::{
-    Api, ClassDefinition, DelegateDefinition, EnumDefinition, OpagueDefinition, Property,
+    Api, ClassDefinition, DelegateDefinition, EnumDefinition, Function, OpagueDefinition, Property,
     PropertyFlag, StructDefinition, Type, TypeUsageHint,
 };
 
@@ -72,10 +72,9 @@ pub struct Context {
 }
 
 pub fn iter_properties(properties: &[Property]) -> impl Iterator<Item = &Property> {
-    properties.iter().filter(|p| {
-        p.flags.contains(&PropertyFlag::BlueprintReadOnly)
-            || p.flags.contains(&PropertyFlag::BlueprintReadWrite)
-    })
+    properties
+        .iter()
+        .filter(|p| p.flags.contains(&PropertyFlag::BlueprintVisible))
 }
 
 impl Context {
@@ -216,6 +215,69 @@ pub fn generate_layout_check(name: &str, properties: &[Property]) -> TokenStream
         }
     }
 }
+
+pub fn generate_function(ctx: &Context, module: &str, function: &Function) -> TokenStream {
+    let fn_name = function
+        .meta
+        .get("ScriptName")
+        .unwrap_or_else(|| &function.function_name);
+    let fn_ident = format_ident!("{}", fn_name.to_snake_case());
+
+    let return_ty = function.parameters.last().and_then(|param| {
+        if param.property.name != "ReturnValue" {
+            return None;
+        }
+
+        let ty = generate_type(module, ctx, &param.property.data_type).ok()?;
+
+        Some(quote! {
+                -> #ty
+        })
+    });
+
+    let param_tokens: Vec<_> = function
+        .parameters
+        .iter()
+        .filter_map(|param| {
+            if param.property.name == "ReturnValue" {
+                return None;
+            }
+
+            let name = format_ident!("{}", property_name(&param.property));
+            let ty = generate_type(module, ctx, &param.property.data_type).ok()?;
+            Some(quote! {
+                #name: #ty
+            })
+        })
+        .collect();
+
+    let all_properties = function.parameters.iter().map(|param| {
+        let name = format_ident!("{}", property_name(&param.property));
+        let ty = generate_type(module, ctx, &param.property.data_type).unwrap();
+
+        quote! {
+        #name: #ty
+        }
+    });
+
+    let param_struct = quote! {
+        #[repr(C)]
+        pub struct Param
+        {
+            #(
+                #all_properties
+            ),*
+        }
+    };
+
+    quote! {
+        fn #fn_ident(#(#param_tokens),*) #return_ty
+        {
+            #param_struct
+            todo!()
+        }
+    }
+}
 pub fn generate_class(
     ctx: &Context,
     class_def: &ClassDefinition,
@@ -282,11 +344,24 @@ pub fn generate_class(
         None
     };
 
+    let fn_allow_list = ["K2_GetActorLocation", "K2_SetActorLocation"];
+
+    let function_tokens: Vec<_> = class_def
+        .functions
+        .iter()
+        .filter(|f| fn_allow_list.contains(&f.function_name.as_str()))
+        .map(|f| generate_function(ctx, &module_name, f))
+        .collect();
+
     let class_tokens = quote! {
         #interface_tokens
         #class_def_tokens
         impl #class_name
         {
+            #(
+                #function_tokens
+            )*
+
             #layout_check_tokens
         }
     };

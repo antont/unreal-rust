@@ -6,50 +6,164 @@ use serde::{Deserialize, Serialize};
 // 1. Enums for Flags (The new part)
 // ---------------------------------------------------------
 
-#[derive(Debug, Clone, Copy, Serialize, Deserialize, PartialEq)]
-pub enum StructFlag {
+#[derive(Debug, Clone, PartialEq, Eq, Hash, Serialize, Deserialize)]
+pub enum FunctionFlag {
+    Final,
+    RequiredAPI,
+    BlueprintAuthorityOnly,
+    BlueprintCosmetic,
+    Net,
+    NetReliable,
+    NetRequest,
+    Exec,
     Native,
-    Atomic,
-    Immutable,
-    NoExport,
-    BlueprintType,
-
-    #[serde(other)]
-    Unknown,
-}
-
-// TODO This is terrible wrong ai code. Need to fix
-#[derive(Debug, Clone, Copy, Serialize, Deserialize, PartialEq)]
-pub enum PropertyFlag {
-    EditAnywhere,
-    EditDefaultsOnly,
-    EditInstanceOnly,
-    BlueprintReadOnly,
-    BlueprintReadWrite,
-    Transient,
-    ConstParm,
-    ReturnParm,
-    OutParm,
-    Deprecated,
+    Event,
+    NetResponse,
+    Static,
+    NetMulticast,
+    UbergraphFunction,
+    MulticastDelegate,
+    Public,
+    Private,
+    Protected,
+    Delegate,
+    NetServer,
+    HasOutParms,
+    HasDefaults,
+    NetClient,
+    DLLImport,
+    BlueprintCallable,
+    BlueprintEvent,
+    BlueprintPure,
     EditorOnly,
-
-    #[serde(other)]
-    Unknown,
+    Const,
+    NetValidate,
 }
 
-#[derive(Debug, Clone, Copy, Serialize, Deserialize, PartialEq)]
+#[derive(Debug, Clone, PartialEq, Eq, Hash, Serialize, Deserialize)]
 pub enum ClassFlag {
     Abstract,
     DefaultConfig,
     Config,
     Transient,
+    Optional,
     MatchedSerializers,
     ProjectUserConfig,
     Native,
-    BlueprintType,
-    // Safety net
-    #[serde(other)]
-    Unknown,
+    NotPlaceable,
+    PerObjectConfig,
+    ReplicationDataIsSetUp,
+    EditInlineNew,
+    CollapseCategories,
+    Interface,
+    PerPlatformConfig,
+    Const,
+    NeedsDeferredDependencyLoading,
+    CompiledFromBlueprint,
+    MinimalAPI,
+    RequiredAPI,
+    DefaultToInstanced,
+    TokenStreamAssembled,
+    HasInstancedReference,
+    Hidden,
+    Deprecated,
+    HideDropDown,
+    GlobalUserConfig,
+    Intrinsic,
+    Constructed,
+    ConfigDoNotCheckDefaults,
+    NewerVersionExists,
+}
+
+#[derive(Debug, Clone, PartialEq, Eq, Hash, Serialize, Deserialize)]
+pub enum PropertyFlag {
+    Edit,
+    ConstParm,
+    BlueprintVisible,
+    ExportObject,
+    BlueprintReadOnly,
+    Net,
+    EditFixedSize,
+    Parm,
+    OutParm,
+    ZeroConstructor,
+    ReturnParm,
+    DisableEditOnTemplate,
+    NonNullable,
+    Transient,
+    Config,
+    RequiredParm,
+    DisableEditOnInstance,
+    EditConst,
+    GlobalConfig,
+    InstancedReference,
+    ExperimentalExternalObjects,
+    DuplicateTransient,
+    SaveGame,
+    NoClear,
+    Virtual,
+    ReferenceParm,
+    BlueprintAssignable,
+    Deprecated,
+    IsPlainOldData,
+    RepSkip,
+    RepNotify,
+    Interp,
+    NonTransactional,
+    EditorOnly,
+    NoDestructor,
+    AutoWeak,
+    ContainsInstancedReference,
+    AssetRegistrySearchable,
+    SimpleDisplay,
+    AdvancedDisplay,
+    Protected,
+    BlueprintCallable,
+    BlueprintAuthorityOnly,
+    TextExportTransient,
+    NonPIEDuplicateTransient,
+    ExposeOnSpawn,
+    PersistentInstance,
+    UObjectWrapper,
+    HasGetValueTypeHash,
+    NativeAccessSpecifierPublic,
+    NativeAccessSpecifierProtected,
+    NativeAccessSpecifierPrivate,
+    SkipSerialization,
+    TObjectPtr,
+    ExperimentalOverridableLogic,
+    ExperimentalAlwaysOverriden,
+    ExperimentalNeverOverriden,
+    AllowSelfReference,
+}
+
+#[derive(Debug, Clone, PartialEq, Eq, Hash, Serialize, Deserialize)]
+pub enum StructFlag {
+    Native,
+    IdenticalNative,
+    HasInstancedReference,
+    NoExport,
+    Atomic,
+    Immutable,
+    AddStructReferencedObjects,
+    RequiredAPI,
+    NetSerializeNative,
+    SerializeNative,
+    CopyNative,
+    IsPlainOldData,
+    NoDestructor,
+    ZeroConstructor,
+    ExportTextItemNative,
+    ImportTextItemNative,
+    PostSerializeNative,
+    SerializeFromMismatchedTag,
+    NetDeltaSerializeNative,
+    PostScriptConstruct,
+    NetSharedSerialization,
+    Trashed,
+    NewerVersionExists,
+    CanEditChange,
+    Visitor,
 }
 
 #[derive(Debug, Copy, Clone, PartialEq, Hash, Serialize, Deserialize)]
@@ -183,12 +297,8 @@ pub struct EnumDefinition {
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct ParameterDefinition {
-    #[serde(rename = "Name")]
-    pub name: String,
-    #[serde(rename = "Type")]
-    pub ty: Type,
-    #[serde(rename = "Documentation", default)]
-    pub documentation: Option<String>,
+    #[serde(rename = "Property")]
+    pub property: Property,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -196,10 +306,14 @@ pub struct Function {
     #[serde(rename = "FunctionName")]
     pub function_name: String,
 
-    // #[serde(rename = "Flags", default)]
-    // pub flags: Vec<StructFlag>,
+    #[serde(rename = "Flags", default)]
+    pub flags: Vec<FunctionFlag>,
+
     #[serde(rename = "ParamSize")]
     pub param_size: u16,
+
+    #[serde(rename = "Metadata", default)]
+    pub meta: HashMap<String, String>,
 
     #[serde(rename = "Parameters")]
     pub parameters: Vec<ParameterDefinition>,

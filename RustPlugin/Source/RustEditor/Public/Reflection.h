@@ -79,15 +79,11 @@ static TUniquePtr<RustReflection_Type> FromProperty(FProperty* Property);
 
 struct FRustReflection_Param
 {
-	FString Name;
-
-	TUniquePtr<RustReflection_Type> Type;
+	FRustReflection_Property Property;
 
 	bool bIsRef = false;
 	bool bIsOut = false;
 	bool bIsReturn = false;
-
-	TOptional<FText> Documentation;
 
 	static FRustReflection_Param FromProperty(FProperty* Property);
 	TSharedPtr<FJsonObject> ToJson();

@@ -3166,6 +3166,29 @@ pub struct AActor {
     __padding_end: [u8; 312],
 }
 impl AActor {
+    fn set_actor_location(
+        new_location: crate::bindings::core_u_object::FVector,
+        b_sweep: bool,
+        sweep_hit_result: FHitResult,
+        b_teleport: bool,
+    ) -> bool {
+        #[repr(C)]
+        pub struct Param {
+            new_location: crate::bindings::core_u_object::FVector,
+            b_sweep: bool,
+            sweep_hit_result: FHitResult,
+            b_teleport: bool,
+            return_value: bool,
+        }
+        todo!()
+    }
+    fn get_actor_location() -> crate::bindings::core_u_object::FVector {
+        #[repr(C)]
+        pub struct Param {
+            return_value: crate::bindings::core_u_object::FVector,
+        }
+        todo!()
+    }
     pub fn verify_layout() {
         log::warn!(
             "{} = {} vs {}", "initial_life_span", std::mem::offset_of!(AActor,
@@ -16011,16 +16034,6 @@ impl EConstraintTransformComponentFlags {
     );
 }
 #[repr(transparent)]
-pub struct EPerQualityLevels(pub u8);
-impl EPerQualityLevels {
-    pub const LOW: EPerQualityLevels = EPerQualityLevels(0);
-    pub const MEDIUM: EPerQualityLevels = EPerQualityLevels(1);
-    pub const HIGH: EPerQualityLevels = EPerQualityLevels(2);
-    pub const EPIC: EPerQualityLevels = EPerQualityLevels(3);
-    pub const CINEMATIC: EPerQualityLevels = EPerQualityLevels(4);
-    pub const NUM: EPerQualityLevels = EPerQualityLevels(5);
-}
-#[repr(transparent)]
 pub struct ESceneDepthPriorityGroup(pub u8);
 impl ESceneDepthPriorityGroup {
     pub const SDPG_WORLD: ESceneDepthPriorityGroup = ESceneDepthPriorityGroup(0);
@@ -16036,6 +16049,16 @@ impl EFFTSize {
     pub const LARGE: EFFTSize = EFFTSize(4);
     pub const VERY_LARGE: EFFTSize = EFFTSize(5);
     pub const MAX: EFFTSize = EFFTSize(6);
+}
+#[repr(transparent)]
+pub struct EPerQualityLevels(pub u8);
+impl EPerQualityLevels {
+    pub const LOW: EPerQualityLevels = EPerQualityLevels(0);
+    pub const MEDIUM: EPerQualityLevels = EPerQualityLevels(1);
+    pub const HIGH: EPerQualityLevels = EPerQualityLevels(2);
+    pub const EPIC: EPerQualityLevels = EPerQualityLevels(3);
+    pub const CINEMATIC: EPerQualityLevels = EPerQualityLevels(4);
+    pub const NUM: EPerQualityLevels = EPerQualityLevels(5);
 }
 #[repr(transparent)]
 pub struct EEndPlayReason(pub u8);

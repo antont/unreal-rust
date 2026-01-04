@@ -31,302 +31,183 @@ TMap<FString, FString> GetAllMetadata(UObject* Object)
 	return Result;
 }
 
+static TArray<FString> GetStructFlagStrings(uint32 Flags)
+{
+	TArray<FString> Result;
+
+	// Note: We skip STRUCT_NoFlags (0) and composite masks (Inherit, ComputedFlags)
+	// to only return the atomic flags set on the struct.
+
+	if (Flags & STRUCT_Native) Result.Add(TEXT("Native"));
+	if (Flags & STRUCT_IdenticalNative) Result.Add(TEXT("IdenticalNative"));
+	if (Flags & STRUCT_HasInstancedReference) Result.Add(TEXT("HasInstancedReference"));
+	if (Flags & STRUCT_NoExport) Result.Add(TEXT("NoExport"));
+	if (Flags & STRUCT_Atomic) Result.Add(TEXT("Atomic"));
+	if (Flags & STRUCT_Immutable) Result.Add(TEXT("Immutable"));
+	if (Flags & STRUCT_AddStructReferencedObjects) Result.Add(TEXT("AddStructReferencedObjects"));
+	if (Flags & STRUCT_RequiredAPI) Result.Add(TEXT("RequiredAPI"));
+	if (Flags & STRUCT_NetSerializeNative) Result.Add(TEXT("NetSerializeNative"));
+	if (Flags & STRUCT_SerializeNative) Result.Add(TEXT("SerializeNative"));
+	if (Flags & STRUCT_CopyNative) Result.Add(TEXT("CopyNative"));
+	if (Flags & STRUCT_IsPlainOldData) Result.Add(TEXT("IsPlainOldData"));
+	if (Flags & STRUCT_NoDestructor) Result.Add(TEXT("NoDestructor"));
+	if (Flags & STRUCT_ZeroConstructor) Result.Add(TEXT("ZeroConstructor"));
+	if (Flags & STRUCT_ExportTextItemNative) Result.Add(TEXT("ExportTextItemNative"));
+	if (Flags & STRUCT_ImportTextItemNative) Result.Add(TEXT("ImportTextItemNative"));
+	if (Flags & STRUCT_PostSerializeNative) Result.Add(TEXT("PostSerializeNative"));
+	if (Flags & STRUCT_SerializeFromMismatchedTag) Result.Add(TEXT("SerializeFromMismatchedTag"));
+	if (Flags & STRUCT_NetDeltaSerializeNative) Result.Add(TEXT("NetDeltaSerializeNative"));
+	if (Flags & STRUCT_PostScriptConstruct) Result.Add(TEXT("PostScriptConstruct"));
+	if (Flags & STRUCT_NetSharedSerialization) Result.Add(TEXT("NetSharedSerialization"));
+	if (Flags & STRUCT_Trashed) Result.Add(TEXT("Trashed"));
+	if (Flags & STRUCT_NewerVersionExists) Result.Add(TEXT("NewerVersionExists"));
+	if (Flags & STRUCT_CanEditChange) Result.Add(TEXT("CanEditChange"));
+	if (Flags & STRUCT_Visitor) Result.Add(TEXT("Visitor"));
+
+	return Result;
+}
+
 static TArray<FString> GetPropertyFlagStrings(uint64 Flags)
 {
-	TArray<FString> ActiveFlags;
+	TArray<FString> Result;
 
-	// -------------------------------------------------------------------
-	// 1. EDIT & VISIBILITY SPECIFIERS (Mutually Exclusive Logic)
-	// -------------------------------------------------------------------
-	// In Unreal, 'Visible' is just 'Edit' turned on + 'EditConst' (Read Only).
+	if (Flags & CPF_Edit) Result.Add(TEXT("Edit"));
+	if (Flags & CPF_ConstParm) Result.Add(TEXT("ConstParm"));
+	if (Flags & CPF_BlueprintVisible) Result.Add(TEXT("BlueprintVisible"));
+	if (Flags & CPF_ExportObject) Result.Add(TEXT("ExportObject"));
+	if (Flags & CPF_BlueprintReadOnly) Result.Add(TEXT("BlueprintReadOnly"));
+	if (Flags & CPF_Net) Result.Add(TEXT("Net"));
+	if (Flags & CPF_EditFixedSize) Result.Add(TEXT("EditFixedSize"));
+	if (Flags & CPF_Parm) Result.Add(TEXT("Parm"));
+	if (Flags & CPF_OutParm) Result.Add(TEXT("OutParm"));
+	if (Flags & CPF_ZeroConstructor) Result.Add(TEXT("ZeroConstructor"));
+	if (Flags & CPF_ReturnParm) Result.Add(TEXT("ReturnParm"));
+	if (Flags & CPF_DisableEditOnTemplate) Result.Add(TEXT("DisableEditOnTemplate"));
+	if (Flags & CPF_NonNullable) Result.Add(TEXT("NonNullable"));
+	if (Flags & CPF_Transient) Result.Add(TEXT("Transient"));
+	if (Flags & CPF_Config) Result.Add(TEXT("Config"));
+	if (Flags & CPF_RequiredParm) Result.Add(TEXT("RequiredParm"));
+	if (Flags & CPF_DisableEditOnInstance) Result.Add(TEXT("DisableEditOnInstance"));
+	if (Flags & CPF_EditConst) Result.Add(TEXT("EditConst"));
+	if (Flags & CPF_GlobalConfig) Result.Add(TEXT("GlobalConfig"));
+	if (Flags & CPF_InstancedReference) Result.Add(TEXT("InstancedReference"));
+	if (Flags & CPF_ExperimentalExternalObjects) Result.Add(TEXT("ExperimentalExternalObjects"));
+	if (Flags & CPF_DuplicateTransient) Result.Add(TEXT("DuplicateTransient"));
+	if (Flags & CPF_SaveGame) Result.Add(TEXT("SaveGame"));
+	if (Flags & CPF_NoClear) Result.Add(TEXT("NoClear"));
+	if (Flags & CPF_Virtual) Result.Add(TEXT("Virtual"));
+	if (Flags & CPF_ReferenceParm) Result.Add(TEXT("ReferenceParm"));
+	if (Flags & CPF_BlueprintAssignable) Result.Add(TEXT("BlueprintAssignable"));
+	if (Flags & CPF_Deprecated) Result.Add(TEXT("Deprecated"));
+	if (Flags & CPF_IsPlainOldData) Result.Add(TEXT("IsPlainOldData"));
+	if (Flags & CPF_RepSkip) Result.Add(TEXT("RepSkip"));
+	if (Flags & CPF_RepNotify) Result.Add(TEXT("RepNotify"));
+	if (Flags & CPF_Interp) Result.Add(TEXT("Interp"));
+	if (Flags & CPF_NonTransactional) Result.Add(TEXT("NonTransactional"));
+	if (Flags & CPF_EditorOnly) Result.Add(TEXT("EditorOnly"));
+	if (Flags & CPF_NoDestructor) Result.Add(TEXT("NoDestructor"));
+	if (Flags & CPF_AutoWeak) Result.Add(TEXT("AutoWeak"));
+	if (Flags & CPF_ContainsInstancedReference) Result.Add(TEXT("ContainsInstancedReference"));
+	if (Flags & CPF_AssetRegistrySearchable) Result.Add(TEXT("AssetRegistrySearchable"));
+	if (Flags & CPF_SimpleDisplay) Result.Add(TEXT("SimpleDisplay"));
+	if (Flags & CPF_AdvancedDisplay) Result.Add(TEXT("AdvancedDisplay"));
+	if (Flags & CPF_Protected) Result.Add(TEXT("Protected"));
+	if (Flags & CPF_BlueprintCallable) Result.Add(TEXT("BlueprintCallable"));
+	if (Flags & CPF_BlueprintAuthorityOnly) Result.Add(TEXT("BlueprintAuthorityOnly"));
+	if (Flags & CPF_TextExportTransient) Result.Add(TEXT("TextExportTransient"));
+	if (Flags & CPF_NonPIEDuplicateTransient) Result.Add(TEXT("NonPIEDuplicateTransient"));
+	if (Flags & CPF_ExposeOnSpawn) Result.Add(TEXT("ExposeOnSpawn"));
+	if (Flags & CPF_PersistentInstance) Result.Add(TEXT("PersistentInstance"));
+	if (Flags & CPF_UObjectWrapper) Result.Add(TEXT("UObjectWrapper"));
+	if (Flags & CPF_HasGetValueTypeHash) Result.Add(TEXT("HasGetValueTypeHash"));
+	if (Flags & CPF_NativeAccessSpecifierPublic) Result.Add(TEXT("NativeAccessSpecifierPublic"));
+	if (Flags & CPF_NativeAccessSpecifierProtected) Result.Add(TEXT("NativeAccessSpecifierProtected"));
+	if (Flags & CPF_NativeAccessSpecifierPrivate) Result.Add(TEXT("NativeAccessSpecifierPrivate"));
+	if (Flags & CPF_SkipSerialization) Result.Add(TEXT("SkipSerialization"));
+	if (Flags & CPF_TObjectPtr) Result.Add(TEXT("TObjectPtr"));
+	if (Flags & CPF_ExperimentalOverridableLogic) Result.Add(TEXT("ExperimentalOverridableLogic"));
+	if (Flags & CPF_ExperimentalAlwaysOverriden) Result.Add(TEXT("ExperimentalAlwaysOverriden"));
+	if (Flags & CPF_ExperimentalNeverOverriden) Result.Add(TEXT("ExperimentalNeverOverriden"));
+	if (Flags & CPF_AllowSelfReference) Result.Add(TEXT("AllowSelfReference"));
 
-	if (Flags & CPF_Edit)
-	{
-		// --- CASE A: VISIBLE (ReadOnly in Editor) ---
-		if (Flags & CPF_EditConst)
-		{
-			if (Flags & CPF_DisableEditOnInstance)
-			{
-				ActiveFlags.Add(TEXT("VisibleDefaultsOnly"));
-			}
-			else if (Flags & CPF_DisableEditOnTemplate)
-			{
-				ActiveFlags.Add(TEXT("VisibleInstanceOnly"));
-			}
-			else
-			{
-				ActiveFlags.Add(TEXT("VisibleAnywhere"));
-			}
-		}
-		// --- CASE B: EDIT (Read/Write in Editor) ---
-		else
-		{
-			if (Flags & CPF_DisableEditOnInstance)
-			{
-				ActiveFlags.Add(TEXT("EditDefaultsOnly"));
-			}
-			else if (Flags & CPF_DisableEditOnTemplate)
-			{
-				ActiveFlags.Add(TEXT("EditInstanceOnly"));
-			}
-			else
-			{
-				ActiveFlags.Add(TEXT("EditAnywhere"));
-			}
-		}
-	}
-
-	// -------------------------------------------------------------------
-	// 2. BLUEPRINT ACCESS (Composite Logic)
-	// -------------------------------------------------------------------
-
-	if (Flags & CPF_BlueprintVisible)
-	{
-		if (Flags & CPF_BlueprintReadOnly)
-		{
-			ActiveFlags.Add(TEXT("BlueprintReadOnly"));
-		}
-		else
-		{
-			ActiveFlags.Add(TEXT("BlueprintReadWrite"));
-		}
-	}
-
-	// Note: BlueprintAssignable/Callable are separate from the Read/Write logic
-	// They are specific to Delegates (Multicast or Single)
-	if (Flags & CPF_BlueprintAssignable) ActiveFlags.Add(TEXT("BlueprintAssignable"));
-	if (Flags & CPF_BlueprintCallable) ActiveFlags.Add(TEXT("BlueprintCallable"));
-	if (Flags & CPF_BlueprintAuthorityOnly) ActiveFlags.Add(TEXT("BlueprintAuthorityOnly"));
-
-	// -------------------------------------------------------------------
-	// 3. NETWORKING
-	// -------------------------------------------------------------------
-
-	// If it has RepNotify, it implies replication, but usually we write the specific one.
-	if (Flags & CPF_RepNotify)
-	{
-		ActiveFlags.Add(TEXT("ReplicatedUsing"));
-		// Note: We don't add "Replicated" here because ReplicatedUsing implies it.
-	}
-	else if (Flags & CPF_Net)
-	{
-		ActiveFlags.Add(TEXT("Replicated"));
-	}
-
-	if (Flags & CPF_RepSkip) ActiveFlags.Add(TEXT("RepSkip")); // Advanced
-
-	// -------------------------------------------------------------------
-	// 4. PARAMETER FLAGS (If you are reflecting functions)
-	// -------------------------------------------------------------------
-	// You typically only see these on properties inside a UFunction
-
-	if (Flags & CPF_Parm)
-	{
-		// "Return Value" is a parameter, but handled specially
-		if (Flags & CPF_ReturnParm)
-		{
-			ActiveFlags.Add(TEXT("ReturnParm"));
-		}
-		else
-		{
-			// Standard Parameter
-			if (Flags & CPF_ConstParm) ActiveFlags.Add(TEXT("Const"));
-			if (Flags & CPF_OutParm) ActiveFlags.Add(TEXT("Out")); // Logic for TArray&, etc.
-			if (Flags & CPF_ReferenceParm) ActiveFlags.Add(TEXT("Ref"));
-		}
-	}
-
-	// -------------------------------------------------------------------
-	// 5. STANDARD INDEPENDENT FLAGS
-	// -------------------------------------------------------------------
-
-	if (Flags & CPF_ExposeOnSpawn) ActiveFlags.Add(TEXT("ExposeOnSpawn"));
-	if (Flags & CPF_Config) ActiveFlags.Add(TEXT("Config"));
-	if (Flags & CPF_GlobalConfig) ActiveFlags.Add(TEXT("GlobalConfig"));
-	if (Flags & CPF_Transient) ActiveFlags.Add(TEXT("Transient"));
-	if (Flags & CPF_DuplicateTransient) ActiveFlags.Add(TEXT("DuplicateTransient"));
-	if (Flags & CPF_TextExportTransient) ActiveFlags.Add(TEXT("TextExportTransient"));
-	if (Flags & CPF_NonPIEDuplicateTransient) ActiveFlags.Add(TEXT("NonPIEDuplicateTransient"));
-	if (Flags & CPF_SaveGame) ActiveFlags.Add(TEXT("SaveGame"));
-	if (Flags & CPF_NoClear) ActiveFlags.Add(TEXT("NoClear"));
-	if (Flags & CPF_Interp) ActiveFlags.Add(TEXT("Interp"));
-	if (Flags & CPF_NonTransactional) ActiveFlags.Add(TEXT("NonTransactional"));
-	if (Flags & CPF_EditorOnly) ActiveFlags.Add(TEXT("EditorOnly"));
-	if (Flags & CPF_AdvancedDisplay) ActiveFlags.Add(TEXT("AdvancedDisplay"));
-	if (Flags & CPF_SimpleDisplay) ActiveFlags.Add(TEXT("SimpleDisplay"));
-	if (Flags & CPF_AssetRegistrySearchable) ActiveFlags.Add(TEXT("AssetRegistrySearchable"));
-
-	// Instanced is tricky: 
-	// - EditInlineNew (Class flag) allows creation.
-	// - Instanced (Property flag) means the object is owned by this container.
-	if (Flags & CPF_InstancedReference) ActiveFlags.Add(TEXT("Instanced"));
-	if (Flags & CPF_ContainsInstancedReference) ActiveFlags.Add(TEXT("ContainsInstancedReference"));
-
-	// -------------------------------------------------------------------
-	// 6. DEPRECATION
-	// -------------------------------------------------------------------
-	if (Flags & CPF_Deprecated) ActiveFlags.Add(TEXT("Deprecated"));
-
-	return ActiveFlags;
+	return Result;
 }
 
 static TArray<FString> GetClassFlagStrings(uint32 Flags)
 {
-	TArray<FString> ActiveFlags;
+	TArray<FString> Result;
 
-	// --- Valid UCLASS() Specifiers ---
+	if (Flags & CLASS_Abstract) Result.Add(TEXT("Abstract"));
+	if (Flags & CLASS_DefaultConfig) Result.Add(TEXT("DefaultConfig"));
+	if (Flags & CLASS_Config) Result.Add(TEXT("Config"));
+	if (Flags & CLASS_Transient) Result.Add(TEXT("Transient"));
+	if (Flags & CLASS_Optional) Result.Add(TEXT("Optional"));
+	if (Flags & CLASS_MatchedSerializers) Result.Add(TEXT("MatchedSerializers"));
+	if (Flags & CLASS_ProjectUserConfig) Result.Add(TEXT("ProjectUserConfig"));
+	if (Flags & CLASS_Native) Result.Add(TEXT("Native"));
+	if (Flags & CLASS_NotPlaceable) Result.Add(TEXT("NotPlaceable"));
+	if (Flags & CLASS_PerObjectConfig) Result.Add(TEXT("PerObjectConfig"));
+	if (Flags & CLASS_ReplicationDataIsSetUp) Result.Add(TEXT("ReplicationDataIsSetUp"));
+	if (Flags & CLASS_EditInlineNew) Result.Add(TEXT("EditInlineNew"));
+	if (Flags & CLASS_CollapseCategories) Result.Add(TEXT("CollapseCategories"));
+	if (Flags & CLASS_Interface) Result.Add(TEXT("Interface"));
+	if (Flags & CLASS_PerPlatformConfig) Result.Add(TEXT("PerPlatformConfig"));
+	if (Flags & CLASS_Const) Result.Add(TEXT("Const"));
+	if (Flags & CLASS_NeedsDeferredDependencyLoading) Result.Add(TEXT("NeedsDeferredDependencyLoading"));
+	if (Flags & CLASS_CompiledFromBlueprint) Result.Add(TEXT("CompiledFromBlueprint"));
+	if (Flags & CLASS_MinimalAPI) Result.Add(TEXT("MinimalAPI"));
+	if (Flags & CLASS_RequiredAPI) Result.Add(TEXT("RequiredAPI"));
+	if (Flags & CLASS_DefaultToInstanced) Result.Add(TEXT("DefaultToInstanced"));
+	if (Flags & CLASS_TokenStreamAssembled) Result.Add(TEXT("TokenStreamAssembled"));
+	if (Flags & CLASS_HasInstancedReference) Result.Add(TEXT("HasInstancedReference"));
+	if (Flags & CLASS_Hidden) Result.Add(TEXT("Hidden"));
+	if (Flags & CLASS_Deprecated) Result.Add(TEXT("Deprecated"));
+	if (Flags & CLASS_HideDropDown) Result.Add(TEXT("HideDropDown"));
+	if (Flags & CLASS_GlobalUserConfig) Result.Add(TEXT("GlobalUserConfig"));
+	if (Flags & CLASS_Intrinsic) Result.Add(TEXT("Intrinsic"));
+	if (Flags & CLASS_Constructed) Result.Add(TEXT("Constructed"));
+	if (Flags & CLASS_ConfigDoNotCheckDefaults) Result.Add(TEXT("ConfigDoNotCheckDefaults"));
+	if (Flags & CLASS_NewerVersionExists) Result.Add(TEXT("NewerVersionExists"));
 
-	// UCLASS(Abstract)
-	if (Flags & CLASS_Abstract) ActiveFlags.Add(TEXT("Abstract"));
-
-	// UCLASS(Transient)
-	if (Flags & CLASS_Transient) ActiveFlags.Add(TEXT("Transient"));
-
-	// UCLASS(Config=...) -> Sets CLASS_Config
-	if (Flags & CLASS_Config) ActiveFlags.Add(TEXT("Config"));
-
-	// UCLASS(DefaultConfig)
-	if (Flags & CLASS_DefaultConfig) ActiveFlags.Add(TEXT("DefaultConfig"));
-
-	// UCLASS(GlobalUserConfig)
-	if (Flags & CLASS_GlobalUserConfig) ActiveFlags.Add(TEXT("GlobalUserConfig"));
-
-	// UCLASS(ProjectUserConfig)
-	if (Flags & CLASS_ProjectUserConfig) ActiveFlags.Add(TEXT("ProjectUserConfig"));
-
-	// UCLASS(PerObjectConfig)
-	if (Flags & CLASS_PerObjectConfig) ActiveFlags.Add(TEXT("PerObjectConfig"));
-
-	// UCLASS(PerPlatformConfig)
-	if (Flags & CLASS_PerPlatformConfig) ActiveFlags.Add(TEXT("PerPlatformConfig"));
-
-	// UCLASS(ConfigDoNotCheckDefaults)
-	if (Flags & CLASS_ConfigDoNotCheckDefaults) ActiveFlags.Add(TEXT("ConfigDoNotCheckDefaults"));
-
-	// UCLASS(NotPlaceable)
-	if (Flags & CLASS_NotPlaceable) ActiveFlags.Add(TEXT("NotPlaceable"));
-
-	// UCLASS(EditInlineNew)
-	if (Flags & CLASS_EditInlineNew) ActiveFlags.Add(TEXT("EditInlineNew"));
-
-	// UCLASS(CollapseCategories)
-	if (Flags & CLASS_CollapseCategories) ActiveFlags.Add(TEXT("CollapseCategories"));
-
-	// UCLASS(Const)
-	if (Flags & CLASS_Const) ActiveFlags.Add(TEXT("Const"));
-
-	// UCLASS(MinimalAPI)
-	if (Flags & CLASS_MinimalAPI) ActiveFlags.Add(TEXT("MinimalAPI"));
-
-	// UCLASS(DefaultToInstanced)
-	if (Flags & CLASS_DefaultToInstanced) ActiveFlags.Add(TEXT("DefaultToInstanced"));
-
-	// UCLASS(Hidden)
-	if (Flags & CLASS_Hidden) ActiveFlags.Add(TEXT("Hidden"));
-
-	// UCLASS(Deprecated)
-	if (Flags & CLASS_Deprecated) ActiveFlags.Add(TEXT("Deprecated"));
-
-	// UCLASS(HideDropDown)
-	if (Flags & CLASS_HideDropDown) ActiveFlags.Add(TEXT("HideDropDown"));
-
-	return ActiveFlags;
+	return Result;
 }
 
-static TArray<FString> GetFunctionFlagStrings(UFunction* Function)
+static TArray<FString> GetFunctionFlagStrings(uint32 Flags)
 {
-	uint32 Flags = Function->FunctionFlags;
+	TArray<FString> Result;
 
-	TArray<FString> ActiveFlags;
+	if (Flags & FUNC_Final) Result.Add(TEXT("Final"));
+	if (Flags & FUNC_RequiredAPI) Result.Add(TEXT("RequiredAPI"));
+	if (Flags & FUNC_BlueprintAuthorityOnly)Result.Add(TEXT("BlueprintAuthorityOnly"));
+	if (Flags & FUNC_BlueprintCosmetic) Result.Add(TEXT("BlueprintCosmetic"));
+	if (Flags & FUNC_Net) Result.Add(TEXT("Net"));
+	if (Flags & FUNC_NetReliable) Result.Add(TEXT("NetReliable"));
+	if (Flags & FUNC_NetRequest) Result.Add(TEXT("NetRequest"));
+	if (Flags & FUNC_Exec) Result.Add(TEXT("Exec"));
+	if (Flags & FUNC_Native) Result.Add(TEXT("Native"));
+	if (Flags & FUNC_Event) Result.Add(TEXT("Event"));
+	if (Flags & FUNC_NetResponse) Result.Add(TEXT("NetResponse"));
+	if (Flags & FUNC_Static) Result.Add(TEXT("Static"));
+	if (Flags & FUNC_NetMulticast) Result.Add(TEXT("NetMulticast"));
+	if (Flags & FUNC_UbergraphFunction) Result.Add(TEXT("UbergraphFunction"));
+	if (Flags & FUNC_MulticastDelegate) Result.Add(TEXT("MulticastDelegate"));
+	if (Flags & FUNC_Public) Result.Add(TEXT("Public"));
+	if (Flags & FUNC_Private) Result.Add(TEXT("Private"));
+	if (Flags & FUNC_Protected) Result.Add(TEXT("Protected"));
+	if (Flags & FUNC_Delegate) Result.Add(TEXT("Delegate"));
+	if (Flags & FUNC_NetServer) Result.Add(TEXT("NetServer"));
+	if (Flags & FUNC_HasOutParms) Result.Add(TEXT("HasOutParms"));
+	if (Flags & FUNC_HasDefaults) Result.Add(TEXT("HasDefaults"));
+	if (Flags & FUNC_NetClient) Result.Add(TEXT("NetClient"));
+	if (Flags & FUNC_DLLImport) Result.Add(TEXT("DLLImport"));
+	if (Flags & FUNC_BlueprintCallable) Result.Add(TEXT("BlueprintCallable"));
+	if (Flags & FUNC_BlueprintEvent) Result.Add(TEXT("BlueprintEvent"));
+	if (Flags & FUNC_BlueprintPure) Result.Add(TEXT("BlueprintPure"));
+	if (Flags & FUNC_EditorOnly) Result.Add(TEXT("EditorOnly"));
+	if (Flags & FUNC_Const) Result.Add(TEXT("Const"));
+	if (Flags & FUNC_NetValidate) Result.Add(TEXT("NetValidate"));
 
-	// -------------------------------------------------------------------
-	// 1. BLUEPRINT LOGIC (The Composite Tricky Part)
-	// -------------------------------------------------------------------
-
-	// Logic for BlueprintPure vs BlueprintCallable
-	if (Flags & FUNC_BlueprintPure)
-	{
-		ActiveFlags.Add(TEXT("BlueprintPure"));
-	}
-	else if (Flags & FUNC_BlueprintCallable)
-	{
-		ActiveFlags.Add(TEXT("BlueprintCallable"));
-	}
-
-	// Logic for BlueprintImplementableEvent vs BlueprintNativeEvent
-	// Both are 'Events' and 'BlueprintEvents', but NativeEvent is also 'Native'.
-	if (Flags & FUNC_Event)
-	{
-		// If it is an event, we check if it is implementable or native
-		if (Flags & FUNC_BlueprintEvent)
-		{
-			if (Flags & FUNC_Native)
-			{
-				ActiveFlags.Add(TEXT("BlueprintNativeEvent"));
-			}
-			else
-			{
-				ActiveFlags.Add(TEXT("BlueprintImplementableEvent"));
-			}
-		}
-	}
-
-	// -------------------------------------------------------------------
-	// 2. NETWORKING (RPCs)
-	// -------------------------------------------------------------------
-
-	if (Flags & FUNC_Net)
-	{
-		// Determine type of RPC
-		if (Flags & FUNC_NetMulticast)
-		{
-			ActiveFlags.Add(TEXT("NetMulticast"));
-		}
-		else if (Flags & FUNC_NetServer)
-		{
-			ActiveFlags.Add(TEXT("Server"));
-		}
-		else if (Flags & FUNC_NetClient)
-		{
-			ActiveFlags.Add(TEXT("Client"));
-		}
-
-		// Reliability is a separate modifier for RPCs
-		if (Flags & FUNC_NetReliable)
-		{
-			ActiveFlags.Add(TEXT("Reliable"));
-		}
-		else
-		{
-			ActiveFlags.Add(TEXT("Unreliable"));
-		}
-	}
-
-	// -------------------------------------------------------------------
-	// 3. EDITOR & TOOLS
-	// -------------------------------------------------------------------
-
-	if (Flags & FUNC_Exec) ActiveFlags.Add(TEXT("Exec"));
-
-	// -------------------------------------------------------------------
-	// 4. ADVANCED / MEMORY
-	// -------------------------------------------------------------------
-
-	if (Flags & FUNC_Static) ActiveFlags.Add(TEXT("Static"));
-	if (Flags & FUNC_Const) ActiveFlags.Add(TEXT("Const"));
-
-	// UFUNCTION(ServiceRequest) / UFUNCTION(ServiceResponse)
-	if (Flags & FUNC_NetRequest) ActiveFlags.Add(TEXT("ServiceRequest"));
-	if (Flags & FUNC_NetResponse) ActiveFlags.Add(TEXT("ServiceResponse"));
-
-	if (Function->GetBoolMetaData(TEXT("CallInEditor")))
-	{
-		// You can manually add this string to your Flags array if you want 
-		// it to appear alongside the others in your JSON.
-		ActiveFlags.Add(TEXT("CallInEditor"));
-	}
-
-	return ActiveFlags;
+	return Result;
 }
 
 TSharedPtr<FJsonObject> RustReflection_MapType::ToJson()
@@ -603,18 +484,13 @@ TSharedPtr<FJsonObject> RustReflection_ContainerType::ToJson()
 FRustReflection_Param FRustReflection_Param::FromProperty(FProperty* Property)
 {
 	FRustReflection_Param ParamReflection;
-	ParamReflection.Name = Property->GetName();
-	ParamReflection.Type = ::FromProperty(Property);
+
+
+	ParamReflection.Property = FRustReflection_Property::FromProperty(Property);
 
 	ParamReflection.bIsOut = Property->HasAnyPropertyFlags(CPF_OutParm);
 	ParamReflection.bIsReturn = Property->HasAnyPropertyFlags(CPF_ReturnParm);
 	ParamReflection.bIsRef = Property->HasAnyPropertyFlags(CPF_ReferenceParm);
-
-	auto DocText = Property->GetToolTipText();
-	if (!DocText.IsEmpty())
-	{
-		ParamReflection.Documentation = Property->GetToolTipText();
-	}
 
 	return ParamReflection;
 }
@@ -624,8 +500,8 @@ FRustReflection_Function FRustReflection_Function::FromFunction(UFunction* Funct
 	FRustReflection_Function ReflectionFunction;
 
 	ReflectionFunction.Name = Function->GetName();
-	ReflectionFunction.FunctionFlags = GetFunctionFlagStrings(Function);
-	// ReflectionFunction.Metadata = GetAllMetadata(Function);
+	ReflectionFunction.FunctionFlags = GetFunctionFlagStrings(Function->FunctionFlags);
+	ReflectionFunction.Metadata = GetAllMetadata(Function);
 	ReflectionFunction.ParamSize = Function->ParmsSize;
 
 	for (TFieldIterator<FProperty> ParamIt(Function); ParamIt; ++ParamIt)
@@ -642,8 +518,12 @@ FRustReflection_Function FRustReflection_Function::FromFunction(UFunction* Funct
 	return ReflectionFunction;
 }
 
-FRustReflection_UStruct FRustReflection_UStruct::FromStruct(UStruct* Struct)
+FRustReflection_UStruct FRustReflection_UStruct::FromStruct(UStruct* InStruct)
 {
+	// TODO: Change api to UScriptStruct
+	UScriptStruct* Struct = Cast<UScriptStruct>(InStruct);
+	check(Struct);
+
 	FRustReflection_UStruct ReflectionStruct;
 	// ReflectionStruct.StructFlags = GetClassFlagStrings(->ClassFlags);
 	ReflectionStruct.StructName = Struct->GetPrefixCPP() + Struct->GetName();
@@ -652,6 +532,7 @@ FRustReflection_UStruct FRustReflection_UStruct::FromStruct(UStruct* Struct)
 		ReflectionStruct.SuperStuctName = SuperStruct->GetPrefixCPP() + SuperStruct->GetName();
 	}
 
+	ReflectionStruct.StructFlags = GetStructFlagStrings(Struct->StructFlags);
 	ReflectionStruct.Metadata = GetAllMetadata(Struct);
 	ReflectionStruct.Package = Struct->GetOutermost()->GetPackage()->GetName();
 
@@ -851,6 +732,8 @@ TSharedPtr<FJsonObject> FRustReflection_Function::ToJson()
 		JsonFlags.Add(MakeShared<FJsonValueString>(Flag));
 	}
 
+	Json->SetArrayField(TEXT("Flags"), JsonFlags);
+
 	Json->SetNumberField(TEXT("ParamSize"), ParamSize);
 
 	TArray<TSharedPtr<FJsonValue>> JsonParams;
@@ -900,12 +783,10 @@ TSharedPtr<FJsonObject> FRustReflection_Param::ToJson()
 {
 	auto Json = MakeShared<FJsonObject>();
 
-	Json->SetStringField(TEXT("Name"), Name);
-	Json->SetObjectField(TEXT("Type"), Type->ToJson());
-	if (Documentation.IsSet())
-	{
-		Json->SetStringField(TEXT("Documentation"), Documentation.GetValue().ToString());
-	}
+	Json->SetObjectField(TEXT("Property"), Property.ToJson());
+	Json->SetBoolField(TEXT("IsOut"), bIsOut);
+	Json->SetBoolField(TEXT("IsRef"), bIsRef);
+	Json->SetBoolField(TEXT("IsReturn"), bIsReturn);
 	return Json;
 }
 
@@ -1017,7 +898,7 @@ void FRustReflection_Root::ExportToJson_Classes(TSharedPtr<FJsonObject> Json)
 		auto Class = FRustReflection_UClass::FromClass(*It);
 		JsonClasses.Add(MakeShared<FJsonValueObject>(Class.ToJson()));
 	}
-	
+
 	Json->SetArrayField(TEXT("Classes"), JsonClasses);
 }
 
@@ -1172,8 +1053,6 @@ void FRustReflection_Root::ExportToJson_Delegates(TSharedPtr<FJsonObject> Json)
 			}
 		}
 	};
-	
-	FFieldPath
 
 	TArray<TSharedPtr<FJsonValue>> JsonDelegates;
 	for (auto& Delegate : Delegates)
