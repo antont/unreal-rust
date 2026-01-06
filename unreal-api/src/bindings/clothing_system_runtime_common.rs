@@ -2,23 +2,75 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(clippy::non_camel_case_types)]
+#![allow(clippy::new_without_default)]
+#![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
+pub fn initialize() {}
 #[repr(C, align(8))]
 pub struct UClothConfigCommon {
     __padding_end: [u8; 48],
 }
-impl UClothConfigCommon {}
+impl UClothConfigCommon {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UClothConfigCommon")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UClothSharedConfigCommon {
     __padding_end: [u8; 48],
 }
-impl UClothSharedConfigCommon {}
+impl UClothSharedConfigCommon {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UClothSharedConfigCommon")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UClothingAssetCustomData {
     __padding_end: [u8; 48],
 }
-impl UClothingAssetCustomData {}
+impl UClothingAssetCustomData {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UClothingAssetCustomData")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UClothingAssetCommon {
     #[doc(hidden)]
@@ -29,12 +81,44 @@ pub struct UClothingAssetCommon {
     >,
     __padding_end: [u8; 416],
 }
-impl UClothingAssetCommon {}
+impl UClothingAssetCommon {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UClothingAssetCommon")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UClothLODDataCommon_Legacy {
     __padding_end: [u8; 544],
 }
-impl UClothLODDataCommon_Legacy {}
+impl UClothLODDataCommon_Legacy {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UClothLODDataCommon_Legacy")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(transparent)]
 pub struct EClothingWindMethod_Legacy(pub u8);
 impl EClothingWindMethod_Legacy {

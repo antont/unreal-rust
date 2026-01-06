@@ -2,8 +2,2165 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(clippy::non_camel_case_types)]
+#![allow(clippy::new_without_default)]
+#![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
+#[doc(hidden)]
+pub static mut U_MODULAR_SYNTH_LIBRARY_ADD_MODULAR_SYNTH_PRESET_TO_BANK_ASSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MODULAR_SYNTH_COMPONENT_SET_SYNTH_PRESET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MODULAR_SYNTH_COMPONENT_SET_SUSTAIN_GAIN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MODULAR_SYNTH_COMPONENT_SET_STEREO_DELAY_WETLEVEL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MODULAR_SYNTH_COMPONENT_SET_STEREO_DELAY_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MODULAR_SYNTH_COMPONENT_SET_STEREO_DELAY_RATIO: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MODULAR_SYNTH_COMPONENT_SET_STEREO_DELAY_MODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MODULAR_SYNTH_COMPONENT_SET_STEREO_DELAY_IS_ENABLED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MODULAR_SYNTH_COMPONENT_SET_STEREO_DELAY_FEEDBACK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MODULAR_SYNTH_COMPONENT_SET_SPREAD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MODULAR_SYNTH_COMPONENT_SET_RELEASE_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MODULAR_SYNTH_COMPONENT_SET_PORTAMENTO: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MODULAR_SYNTH_COMPONENT_SET_PITCH_BEND: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MODULAR_SYNTH_COMPONENT_SET_PAN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MODULAR_SYNTH_COMPONENT_SET_OSC_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MODULAR_SYNTH_COMPONENT_SET_OSC_SYNC: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MODULAR_SYNTH_COMPONENT_SET_OSC_SEMITONES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MODULAR_SYNTH_COMPONENT_SET_OSC_PULSEWIDTH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MODULAR_SYNTH_COMPONENT_SET_OSC_OCTAVE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MODULAR_SYNTH_COMPONENT_SET_OSC_GAIN_MOD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MODULAR_SYNTH_COMPONENT_SET_OSC_GAIN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MODULAR_SYNTH_COMPONENT_SET_OSC_FREQUENCY_MOD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MODULAR_SYNTH_COMPONENT_SET_OSC_CENTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MODULAR_SYNTH_COMPONENT_SET_MOD_ENV_SUSTAIN_GAIN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MODULAR_SYNTH_COMPONENT_SET_MOD_ENV_RELEASE_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MODULAR_SYNTH_COMPONENT_SET_MOD_ENV_PATCH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MODULAR_SYNTH_COMPONENT_SET_MOD_ENV_INVERT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MODULAR_SYNTH_COMPONENT_SET_MOD_ENV_DEPTH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MODULAR_SYNTH_COMPONENT_SET_MOD_ENV_DECAY_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MODULAR_SYNTH_COMPONENT_SET_MOD_ENV_BIAS_PATCH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MODULAR_SYNTH_COMPONENT_SET_MOD_ENV_BIAS_INVERT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MODULAR_SYNTH_COMPONENT_SET_MOD_ENV_ATTACK_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MODULAR_SYNTH_COMPONENT_SET_LFO_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MODULAR_SYNTH_COMPONENT_SET_LFO_PATCH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MODULAR_SYNTH_COMPONENT_SET_LFO_MODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MODULAR_SYNTH_COMPONENT_SET_LFO_GAIN_MOD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MODULAR_SYNTH_COMPONENT_SET_LFO_GAIN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MODULAR_SYNTH_COMPONENT_SET_LFO_FREQUENCY_MOD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MODULAR_SYNTH_COMPONENT_SET_LFO_FREQUENCY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MODULAR_SYNTH_COMPONENT_SET_GAIN_DB: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MODULAR_SYNTH_COMPONENT_SET_FILTER_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MODULAR_SYNTH_COMPONENT_SET_FILTER_Q_MOD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MODULAR_SYNTH_COMPONENT_SET_FILTER_Q: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MODULAR_SYNTH_COMPONENT_SET_FILTER_FREQUENCY_MOD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MODULAR_SYNTH_COMPONENT_SET_FILTER_FREQUENCY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MODULAR_SYNTH_COMPONENT_SET_FILTER_ALGORITHM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MODULAR_SYNTH_COMPONENT_SET_ENABLE_UNISON: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MODULAR_SYNTH_COMPONENT_SET_ENABLE_RETRIGGER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MODULAR_SYNTH_COMPONENT_SET_ENABLE_POLYPHONY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MODULAR_SYNTH_COMPONENT_SET_ENABLE_PATCH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MODULAR_SYNTH_COMPONENT_SET_ENABLE_LEGATO: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MODULAR_SYNTH_COMPONENT_SET_DECAY_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MODULAR_SYNTH_COMPONENT_SET_CHORUS_FREQUENCY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MODULAR_SYNTH_COMPONENT_SET_CHORUS_FEEDBACK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MODULAR_SYNTH_COMPONENT_SET_CHORUS_ENABLED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MODULAR_SYNTH_COMPONENT_SET_CHORUS_DEPTH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MODULAR_SYNTH_COMPONENT_SET_ATTACK_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MODULAR_SYNTH_COMPONENT_NOTE_ON: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MODULAR_SYNTH_COMPONENT_NOTE_OFF: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MODULAR_SYNTH_COMPONENT_CREATE_PATCH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SOURCE_EFFECT_BIT_CRUSHER_PRESET_SET_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SOURCE_EFFECT_BIT_CRUSHER_PRESET_SET_SAMPLE_RATE_MODULATORS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SOURCE_EFFECT_BIT_CRUSHER_PRESET_SET_SAMPLE_RATE_MODULATOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SOURCE_EFFECT_BIT_CRUSHER_PRESET_SET_SAMPLE_RATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SOURCE_EFFECT_BIT_CRUSHER_PRESET_SET_MODULATION_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SOURCE_EFFECT_BIT_CRUSHER_PRESET_SET_BITS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SOURCE_EFFECT_BIT_CRUSHER_PRESET_SET_BIT_MODULATORS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SOURCE_EFFECT_BIT_CRUSHER_PRESET_SET_BIT_MODULATOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SOURCE_EFFECT_CHORUS_PRESET_SET_WET_MODULATORS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SOURCE_EFFECT_CHORUS_PRESET_SET_WET_MODULATOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SOURCE_EFFECT_CHORUS_PRESET_SET_WET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SOURCE_EFFECT_CHORUS_PRESET_SET_SPREAD_MODULATORS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SOURCE_EFFECT_CHORUS_PRESET_SET_SPREAD_MODULATOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SOURCE_EFFECT_CHORUS_PRESET_SET_SPREAD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SOURCE_EFFECT_CHORUS_PRESET_SET_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SOURCE_EFFECT_CHORUS_PRESET_SET_MODULATION_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SOURCE_EFFECT_CHORUS_PRESET_SET_FREQUENCY_MODULATORS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SOURCE_EFFECT_CHORUS_PRESET_SET_FREQUENCY_MODULATOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SOURCE_EFFECT_CHORUS_PRESET_SET_FREQUENCY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SOURCE_EFFECT_CHORUS_PRESET_SET_FEEDBACK_MODULATORS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SOURCE_EFFECT_CHORUS_PRESET_SET_FEEDBACK_MODULATOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SOURCE_EFFECT_CHORUS_PRESET_SET_FEEDBACK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SOURCE_EFFECT_CHORUS_PRESET_SET_DRY_MODULATORS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SOURCE_EFFECT_CHORUS_PRESET_SET_DRY_MODULATOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SOURCE_EFFECT_CHORUS_PRESET_SET_DRY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SOURCE_EFFECT_CHORUS_PRESET_SET_DEPTH_MODULATORS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SOURCE_EFFECT_CHORUS_PRESET_SET_DEPTH_MODULATOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SOURCE_EFFECT_CHORUS_PRESET_SET_DEPTH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SOURCE_EFFECT_CONVOLUTION_REVERB_PRESET_SET_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SOURCE_EFFECT_CONVOLUTION_REVERB_PRESET_SET_IMPULSE_RESPONSE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SOURCE_EFFECT_DYNAMICS_PROCESSOR_PRESET_SET_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SOURCE_EFFECT_ENVELOPE_FOLLOWER_PRESET_UNREGISTER_ENVELOPE_FOLLOWER_LISTENER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SOURCE_EFFECT_ENVELOPE_FOLLOWER_PRESET_SET_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SOURCE_EFFECT_ENVELOPE_FOLLOWER_PRESET_REGISTER_ENVELOPE_FOLLOWER_LISTENER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SOURCE_EFFECT_EQ_PRESET_SET_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SOURCE_EFFECT_FILTER_PRESET_SET_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SOURCE_EFFECT_FOLDBACK_DISTORTION_PRESET_SET_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SOURCE_EFFECT_MID_SIDE_SPREADER_PRESET_SET_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SOURCE_EFFECT_MOTION_FILTER_PRESET_SET_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SOURCE_EFFECT_PANNER_PRESET_SET_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SOURCE_EFFECT_PHASER_PRESET_SET_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SOURCE_EFFECT_RING_MODULATION_PRESET_SET_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SOURCE_EFFECT_SIMPLE_DELAY_PRESET_SET_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SOURCE_EFFECT_STEREO_DELAY_PRESET_SET_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SOURCE_EFFECT_WAVE_SHAPER_PRESET_SET_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SUBMIX_EFFECT_CONVOLUTION_REVERB_PRESET_SET_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SUBMIX_EFFECT_CONVOLUTION_REVERB_PRESET_SET_IMPULSE_RESPONSE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SUBMIX_EFFECT_DELAY_STATICS_SET_MAXIMUM_DELAY_LENGTH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SUBMIX_EFFECT_DELAY_STATICS_SET_INTERPOLATION_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SUBMIX_EFFECT_DELAY_STATICS_SET_DELAY_LENGTH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SUBMIX_EFFECT_DELAY_PRESET_SET_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SUBMIX_EFFECT_DELAY_PRESET_SET_INTERPOLATION_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SUBMIX_EFFECT_DELAY_PRESET_SET_DELAY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SUBMIX_EFFECT_DELAY_PRESET_SET_DEFAULT_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SUBMIX_EFFECT_DELAY_PRESET_GET_MAX_DELAY_IN_MILLISECONDS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SUBMIX_EFFECT_FILTER_PRESET_SET_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SUBMIX_EFFECT_FILTER_PRESET_SET_FILTER_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SUBMIX_EFFECT_FILTER_PRESET_SET_FILTER_Q_MOD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SUBMIX_EFFECT_FILTER_PRESET_SET_FILTER_Q: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SUBMIX_EFFECT_FILTER_PRESET_SET_FILTER_CUTOFF_FREQUENCY_MOD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SUBMIX_EFFECT_FILTER_PRESET_SET_FILTER_CUTOFF_FREQUENCY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SUBMIX_EFFECT_FILTER_PRESET_SET_FILTER_ALGORITHM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SUBMIX_EFFECT_FLEXIVERB_PRESET_SET_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SUBMIX_EFFECT_MULTIBAND_COMPRESSOR_PRESET_SET_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SUBMIX_EFFECT_MULTIBAND_COMPRESSOR_PRESET_SET_EXTERNAL_SUBMIX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SUBMIX_EFFECT_MULTIBAND_COMPRESSOR_PRESET_SET_AUDIO_BUS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SUBMIX_EFFECT_MULTIBAND_COMPRESSOR_PRESET_RESET_KEY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SUBMIX_EFFECT_STEREO_DELAY_PRESET_SET_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SUBMIX_EFFECT_STEREO_TO_QUAD_PRESET_SET_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SUBMIX_EFFECT_TAP_DELAY_PRESET_SET_TAP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SUBMIX_EFFECT_TAP_DELAY_PRESET_SET_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SUBMIX_EFFECT_TAP_DELAY_PRESET_SET_INTERPOLATION_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SUBMIX_EFFECT_TAP_DELAY_PRESET_REMOVE_TAP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SUBMIX_EFFECT_TAP_DELAY_PRESET_GET_TAP_IDS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SUBMIX_EFFECT_TAP_DELAY_PRESET_GET_TAP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SUBMIX_EFFECT_TAP_DELAY_PRESET_GET_MAX_DELAY_IN_MILLISECONDS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SUBMIX_EFFECT_TAP_DELAY_PRESET_ADD_TAP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GRANULAR_SYNTH_SET_SUSTAIN_GAIN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GRANULAR_SYNTH_SET_SOUND_WAVE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GRANULAR_SYNTH_SET_SCRUB_MODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GRANULAR_SYNTH_SET_RELEASE_TIME_MSEC: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GRANULAR_SYNTH_SET_PLAYHEAD_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GRANULAR_SYNTH_SET_PLAYBACK_SPEED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GRANULAR_SYNTH_SET_GRAIN_VOLUME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GRANULAR_SYNTH_SET_GRAINS_PER_SECOND: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GRANULAR_SYNTH_SET_GRAIN_PROBABILITY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GRANULAR_SYNTH_SET_GRAIN_PITCH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GRANULAR_SYNTH_SET_GRAIN_PAN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GRANULAR_SYNTH_SET_GRAIN_ENVELOPE_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GRANULAR_SYNTH_SET_GRAIN_DURATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GRANULAR_SYNTH_SET_DECAY_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GRANULAR_SYNTH_SET_ATTACK_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GRANULAR_SYNTH_NOTE_ON: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GRANULAR_SYNTH_NOTE_OFF: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GRANULAR_SYNTH_IS_LOADED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GRANULAR_SYNTH_GET_SAMPLE_DURATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GRANULAR_SYNTH_GET_CURRENT_PLAYHEAD_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_WAVE_TABLE_POSITION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_SUSTAIN_PEDAL_STATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_POS_LFO_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_POS_LFO_FREQUENCY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_POS_LFO_DEPTH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_POSITION_ENVELOPE_SUSTAIN_GAIN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_POSITION_ENVELOPE_RELEASE_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_POSITION_ENVELOPE_INVERT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_POSITION_ENVELOPE_DEPTH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_POSITION_ENVELOPE_DECAY_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_POSITION_ENVELOPE_BIAS_INVERT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_POSITION_ENVELOPE_BIAS_DEPTH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_POSITION_ENVELOPE_ATTACK_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_LOW_PASS_FILTER_RESONANCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_FREQUENCY_WITH_MIDI_NOTE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_FREQUENCY_PITCH_BEND: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_FREQUENCY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_FILTER_ENVELOPE_SUSTAIN_GAIN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_FILTER_ENVELOPE_RELEASE_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_FILTER_ENVELOPEN_DECAY_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_FILTER_ENVELOPE_INVERT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_FILTER_ENVELOPE_DEPTH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_FILTER_ENVELOPE_BIAS_INVERT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_FILTER_ENVELOPE_BIAS_DEPTH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_FILTER_ENVELOPE_ATTACK_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_CURVE_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_CURVE_TANGENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_CURVE_INTERPOLATION_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_AMP_ENVELOPE_SUSTAIN_GAIN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_AMP_ENVELOPE_RELEASE_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_AMP_ENVELOPE_INVERT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_AMP_ENVELOPE_DEPTH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_AMP_ENVELOPE_DECAY_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_AMP_ENVELOPE_BIAS_INVERT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_AMP_ENVELOPE_BIAS_DEPTH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_AMP_ENVELOPE_ATTACK_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_REFRESH_WAVE_TABLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_REFRESH_ALL_WAVE_TABLES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_NOTE_ON: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_NOTE_OFF: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_GET_NUM_TABLE_ENTRIES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_GET_MAX_TABLE_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_GET_KEY_FRAME_VALUES_FOR_TABLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_GET_CURVE_TANGENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SYNTH_COMPONENT_TONE_GENERATOR_SET_VOLUME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SYNTH_COMPONENT_TONE_GENERATOR_SET_FREQUENCY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SYNTH_SAMPLE_PLAYER_SET_SOUND_WAVE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SYNTH_SAMPLE_PLAYER_SET_SCRUB_TIME_WIDTH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SYNTH_SAMPLE_PLAYER_SET_SCRUB_MODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SYNTH_SAMPLE_PLAYER_SET_PITCH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SYNTH_SAMPLE_PLAYER_SEEK_TO_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SYNTH_SAMPLE_PLAYER_IS_LOADED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SYNTH_SAMPLE_PLAYER_GET_SAMPLE_DURATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SYNTH_SAMPLE_PLAYER_GET_CURRENT_PLAYBACK_PROGRESS_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SYNTH_SAMPLE_PLAYER_GET_CURRENT_PLAYBACK_PROGRESS_PERCENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SYNTHESIS_UTILITIES_BLUEPRINT_FUNCTION_LIBRARY_GET_LOG_FREQUENCY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SYNTHESIS_UTILITIES_BLUEPRINT_FUNCTION_LIBRARY_GET_LINEAR_FREQUENCY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SYNTH2_D_SLIDER_SET_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SYNTH2_D_SLIDER_SET_STEP_SIZE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SYNTH2_D_SLIDER_SET_SLIDER_HANDLE_COLOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SYNTH2_D_SLIDER_SET_LOCKED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SYNTH2_D_SLIDER_SET_INDENT_HANDLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SYNTH2_D_SLIDER_GET_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SYNTH_KNOB_SET_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SYNTH_KNOB_SET_STEP_SIZE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SYNTH_KNOB_SET_LOCKED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SYNTH_KNOB_GET_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub fn initialize() {
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UModularSynthLibrary::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("AddModularSynthPresetToBankAsset"),
+            &raw mut U_MODULAR_SYNTH_LIBRARY_ADD_MODULAR_SYNTH_PRESET_TO_BANK_ASSET,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UModularSynthComponent::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetSynthPreset"),
+            &raw mut U_MODULAR_SYNTH_COMPONENT_SET_SYNTH_PRESET,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetSustainGain"),
+            &raw mut U_MODULAR_SYNTH_COMPONENT_SET_SUSTAIN_GAIN,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetStereoDelayWetlevel"),
+            &raw mut U_MODULAR_SYNTH_COMPONENT_SET_STEREO_DELAY_WETLEVEL,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetStereoDelayTime"),
+            &raw mut U_MODULAR_SYNTH_COMPONENT_SET_STEREO_DELAY_TIME,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetStereoDelayRatio"),
+            &raw mut U_MODULAR_SYNTH_COMPONENT_SET_STEREO_DELAY_RATIO,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetStereoDelayMode"),
+            &raw mut U_MODULAR_SYNTH_COMPONENT_SET_STEREO_DELAY_MODE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetStereoDelayIsEnabled"),
+            &raw mut U_MODULAR_SYNTH_COMPONENT_SET_STEREO_DELAY_IS_ENABLED,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetStereoDelayFeedback"),
+            &raw mut U_MODULAR_SYNTH_COMPONENT_SET_STEREO_DELAY_FEEDBACK,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetSpread"),
+            &raw mut U_MODULAR_SYNTH_COMPONENT_SET_SPREAD,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetReleaseTime"),
+            &raw mut U_MODULAR_SYNTH_COMPONENT_SET_RELEASE_TIME,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetPortamento"),
+            &raw mut U_MODULAR_SYNTH_COMPONENT_SET_PORTAMENTO,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetPitchBend"),
+            &raw mut U_MODULAR_SYNTH_COMPONENT_SET_PITCH_BEND,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetPan"),
+            &raw mut U_MODULAR_SYNTH_COMPONENT_SET_PAN,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetOscType"),
+            &raw mut U_MODULAR_SYNTH_COMPONENT_SET_OSC_TYPE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetOscSync"),
+            &raw mut U_MODULAR_SYNTH_COMPONENT_SET_OSC_SYNC,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetOscSemitones"),
+            &raw mut U_MODULAR_SYNTH_COMPONENT_SET_OSC_SEMITONES,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetOscPulsewidth"),
+            &raw mut U_MODULAR_SYNTH_COMPONENT_SET_OSC_PULSEWIDTH,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetOscOctave"),
+            &raw mut U_MODULAR_SYNTH_COMPONENT_SET_OSC_OCTAVE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetOscGainMod"),
+            &raw mut U_MODULAR_SYNTH_COMPONENT_SET_OSC_GAIN_MOD,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetOscGain"),
+            &raw mut U_MODULAR_SYNTH_COMPONENT_SET_OSC_GAIN,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetOscFrequencyMod"),
+            &raw mut U_MODULAR_SYNTH_COMPONENT_SET_OSC_FREQUENCY_MOD,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetOscCents"),
+            &raw mut U_MODULAR_SYNTH_COMPONENT_SET_OSC_CENTS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetModEnvSustainGain"),
+            &raw mut U_MODULAR_SYNTH_COMPONENT_SET_MOD_ENV_SUSTAIN_GAIN,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetModEnvReleaseTime"),
+            &raw mut U_MODULAR_SYNTH_COMPONENT_SET_MOD_ENV_RELEASE_TIME,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetModEnvPatch"),
+            &raw mut U_MODULAR_SYNTH_COMPONENT_SET_MOD_ENV_PATCH,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetModEnvInvert"),
+            &raw mut U_MODULAR_SYNTH_COMPONENT_SET_MOD_ENV_INVERT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetModEnvDepth"),
+            &raw mut U_MODULAR_SYNTH_COMPONENT_SET_MOD_ENV_DEPTH,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetModEnvDecayTime"),
+            &raw mut U_MODULAR_SYNTH_COMPONENT_SET_MOD_ENV_DECAY_TIME,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetModEnvBiasPatch"),
+            &raw mut U_MODULAR_SYNTH_COMPONENT_SET_MOD_ENV_BIAS_PATCH,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetModEnvBiasInvert"),
+            &raw mut U_MODULAR_SYNTH_COMPONENT_SET_MOD_ENV_BIAS_INVERT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetModEnvAttackTime"),
+            &raw mut U_MODULAR_SYNTH_COMPONENT_SET_MOD_ENV_ATTACK_TIME,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetLFOType"),
+            &raw mut U_MODULAR_SYNTH_COMPONENT_SET_LFO_TYPE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetLFOPatch"),
+            &raw mut U_MODULAR_SYNTH_COMPONENT_SET_LFO_PATCH,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetLFOMode"),
+            &raw mut U_MODULAR_SYNTH_COMPONENT_SET_LFO_MODE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetLFOGainMod"),
+            &raw mut U_MODULAR_SYNTH_COMPONENT_SET_LFO_GAIN_MOD,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetLFOGain"),
+            &raw mut U_MODULAR_SYNTH_COMPONENT_SET_LFO_GAIN,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetLFOFrequencyMod"),
+            &raw mut U_MODULAR_SYNTH_COMPONENT_SET_LFO_FREQUENCY_MOD,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetLFOFrequency"),
+            &raw mut U_MODULAR_SYNTH_COMPONENT_SET_LFO_FREQUENCY,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetGainDb"),
+            &raw mut U_MODULAR_SYNTH_COMPONENT_SET_GAIN_DB,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetFilterType"),
+            &raw mut U_MODULAR_SYNTH_COMPONENT_SET_FILTER_TYPE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetFilterQMod"),
+            &raw mut U_MODULAR_SYNTH_COMPONENT_SET_FILTER_Q_MOD,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetFilterQ"),
+            &raw mut U_MODULAR_SYNTH_COMPONENT_SET_FILTER_Q,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetFilterFrequencyMod"),
+            &raw mut U_MODULAR_SYNTH_COMPONENT_SET_FILTER_FREQUENCY_MOD,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetFilterFrequency"),
+            &raw mut U_MODULAR_SYNTH_COMPONENT_SET_FILTER_FREQUENCY,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetFilterAlgorithm"),
+            &raw mut U_MODULAR_SYNTH_COMPONENT_SET_FILTER_ALGORITHM,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetEnableUnison"),
+            &raw mut U_MODULAR_SYNTH_COMPONENT_SET_ENABLE_UNISON,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetEnableRetrigger"),
+            &raw mut U_MODULAR_SYNTH_COMPONENT_SET_ENABLE_RETRIGGER,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetEnablePolyphony"),
+            &raw mut U_MODULAR_SYNTH_COMPONENT_SET_ENABLE_POLYPHONY,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetEnablePatch"),
+            &raw mut U_MODULAR_SYNTH_COMPONENT_SET_ENABLE_PATCH,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetEnableLegato"),
+            &raw mut U_MODULAR_SYNTH_COMPONENT_SET_ENABLE_LEGATO,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetDecayTime"),
+            &raw mut U_MODULAR_SYNTH_COMPONENT_SET_DECAY_TIME,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetChorusFrequency"),
+            &raw mut U_MODULAR_SYNTH_COMPONENT_SET_CHORUS_FREQUENCY,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetChorusFeedback"),
+            &raw mut U_MODULAR_SYNTH_COMPONENT_SET_CHORUS_FEEDBACK,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetChorusEnabled"),
+            &raw mut U_MODULAR_SYNTH_COMPONENT_SET_CHORUS_ENABLED,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetChorusDepth"),
+            &raw mut U_MODULAR_SYNTH_COMPONENT_SET_CHORUS_DEPTH,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetAttackTime"),
+            &raw mut U_MODULAR_SYNTH_COMPONENT_SET_ATTACK_TIME,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("NoteOn"),
+            &raw mut U_MODULAR_SYNTH_COMPONENT_NOTE_ON,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("NoteOff"),
+            &raw mut U_MODULAR_SYNTH_COMPONENT_NOTE_OFF,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("CreatePatch"),
+            &raw mut U_MODULAR_SYNTH_COMPONENT_CREATE_PATCH,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = USourceEffectBitCrusherPreset::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetSettings"),
+            &raw mut U_SOURCE_EFFECT_BIT_CRUSHER_PRESET_SET_SETTINGS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetSampleRateModulators"),
+            &raw mut U_SOURCE_EFFECT_BIT_CRUSHER_PRESET_SET_SAMPLE_RATE_MODULATORS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetSampleRateModulator"),
+            &raw mut U_SOURCE_EFFECT_BIT_CRUSHER_PRESET_SET_SAMPLE_RATE_MODULATOR,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetSampleRate"),
+            &raw mut U_SOURCE_EFFECT_BIT_CRUSHER_PRESET_SET_SAMPLE_RATE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetModulationSettings"),
+            &raw mut U_SOURCE_EFFECT_BIT_CRUSHER_PRESET_SET_MODULATION_SETTINGS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetBits"),
+            &raw mut U_SOURCE_EFFECT_BIT_CRUSHER_PRESET_SET_BITS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetBitModulators"),
+            &raw mut U_SOURCE_EFFECT_BIT_CRUSHER_PRESET_SET_BIT_MODULATORS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetBitModulator"),
+            &raw mut U_SOURCE_EFFECT_BIT_CRUSHER_PRESET_SET_BIT_MODULATOR,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = USourceEffectChorusPreset::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetWetModulators"),
+            &raw mut U_SOURCE_EFFECT_CHORUS_PRESET_SET_WET_MODULATORS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetWetModulator"),
+            &raw mut U_SOURCE_EFFECT_CHORUS_PRESET_SET_WET_MODULATOR,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetWet"),
+            &raw mut U_SOURCE_EFFECT_CHORUS_PRESET_SET_WET,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetSpreadModulators"),
+            &raw mut U_SOURCE_EFFECT_CHORUS_PRESET_SET_SPREAD_MODULATORS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetSpreadModulator"),
+            &raw mut U_SOURCE_EFFECT_CHORUS_PRESET_SET_SPREAD_MODULATOR,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetSpread"),
+            &raw mut U_SOURCE_EFFECT_CHORUS_PRESET_SET_SPREAD,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetSettings"),
+            &raw mut U_SOURCE_EFFECT_CHORUS_PRESET_SET_SETTINGS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetModulationSettings"),
+            &raw mut U_SOURCE_EFFECT_CHORUS_PRESET_SET_MODULATION_SETTINGS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetFrequencyModulators"),
+            &raw mut U_SOURCE_EFFECT_CHORUS_PRESET_SET_FREQUENCY_MODULATORS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetFrequencyModulator"),
+            &raw mut U_SOURCE_EFFECT_CHORUS_PRESET_SET_FREQUENCY_MODULATOR,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetFrequency"),
+            &raw mut U_SOURCE_EFFECT_CHORUS_PRESET_SET_FREQUENCY,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetFeedbackModulators"),
+            &raw mut U_SOURCE_EFFECT_CHORUS_PRESET_SET_FEEDBACK_MODULATORS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetFeedbackModulator"),
+            &raw mut U_SOURCE_EFFECT_CHORUS_PRESET_SET_FEEDBACK_MODULATOR,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetFeedback"),
+            &raw mut U_SOURCE_EFFECT_CHORUS_PRESET_SET_FEEDBACK,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetDryModulators"),
+            &raw mut U_SOURCE_EFFECT_CHORUS_PRESET_SET_DRY_MODULATORS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetDryModulator"),
+            &raw mut U_SOURCE_EFFECT_CHORUS_PRESET_SET_DRY_MODULATOR,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetDry"),
+            &raw mut U_SOURCE_EFFECT_CHORUS_PRESET_SET_DRY,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetDepthModulators"),
+            &raw mut U_SOURCE_EFFECT_CHORUS_PRESET_SET_DEPTH_MODULATORS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetDepthModulator"),
+            &raw mut U_SOURCE_EFFECT_CHORUS_PRESET_SET_DEPTH_MODULATOR,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetDepth"),
+            &raw mut U_SOURCE_EFFECT_CHORUS_PRESET_SET_DEPTH,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = USourceEffectConvolutionReverbPreset::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetSettings"),
+            &raw mut U_SOURCE_EFFECT_CONVOLUTION_REVERB_PRESET_SET_SETTINGS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetImpulseResponse"),
+            &raw mut U_SOURCE_EFFECT_CONVOLUTION_REVERB_PRESET_SET_IMPULSE_RESPONSE,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = USourceEffectDynamicsProcessorPreset::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetSettings"),
+            &raw mut U_SOURCE_EFFECT_DYNAMICS_PROCESSOR_PRESET_SET_SETTINGS,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = USourceEffectEnvelopeFollowerPreset::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("UnregisterEnvelopeFollowerListener"),
+            &raw mut U_SOURCE_EFFECT_ENVELOPE_FOLLOWER_PRESET_UNREGISTER_ENVELOPE_FOLLOWER_LISTENER,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetSettings"),
+            &raw mut U_SOURCE_EFFECT_ENVELOPE_FOLLOWER_PRESET_SET_SETTINGS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("RegisterEnvelopeFollowerListener"),
+            &raw mut U_SOURCE_EFFECT_ENVELOPE_FOLLOWER_PRESET_REGISTER_ENVELOPE_FOLLOWER_LISTENER,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = USourceEffectEQPreset::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetSettings"),
+            &raw mut U_SOURCE_EFFECT_EQ_PRESET_SET_SETTINGS,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = USourceEffectFilterPreset::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetSettings"),
+            &raw mut U_SOURCE_EFFECT_FILTER_PRESET_SET_SETTINGS,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = USourceEffectFoldbackDistortionPreset::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetSettings"),
+            &raw mut U_SOURCE_EFFECT_FOLDBACK_DISTORTION_PRESET_SET_SETTINGS,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = USourceEffectMidSideSpreaderPreset::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetSettings"),
+            &raw mut U_SOURCE_EFFECT_MID_SIDE_SPREADER_PRESET_SET_SETTINGS,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = USourceEffectMotionFilterPreset::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetSettings"),
+            &raw mut U_SOURCE_EFFECT_MOTION_FILTER_PRESET_SET_SETTINGS,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = USourceEffectPannerPreset::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetSettings"),
+            &raw mut U_SOURCE_EFFECT_PANNER_PRESET_SET_SETTINGS,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = USourceEffectPhaserPreset::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetSettings"),
+            &raw mut U_SOURCE_EFFECT_PHASER_PRESET_SET_SETTINGS,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = USourceEffectRingModulationPreset::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetSettings"),
+            &raw mut U_SOURCE_EFFECT_RING_MODULATION_PRESET_SET_SETTINGS,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = USourceEffectSimpleDelayPreset::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetSettings"),
+            &raw mut U_SOURCE_EFFECT_SIMPLE_DELAY_PRESET_SET_SETTINGS,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = USourceEffectStereoDelayPreset::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetSettings"),
+            &raw mut U_SOURCE_EFFECT_STEREO_DELAY_PRESET_SET_SETTINGS,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = USourceEffectWaveShaperPreset::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetSettings"),
+            &raw mut U_SOURCE_EFFECT_WAVE_SHAPER_PRESET_SET_SETTINGS,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = USubmixEffectConvolutionReverbPreset::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetSettings"),
+            &raw mut U_SUBMIX_EFFECT_CONVOLUTION_REVERB_PRESET_SET_SETTINGS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetImpulseResponse"),
+            &raw mut U_SUBMIX_EFFECT_CONVOLUTION_REVERB_PRESET_SET_IMPULSE_RESPONSE,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = USubmixEffectDelayStatics::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetMaximumDelayLength"),
+            &raw mut U_SUBMIX_EFFECT_DELAY_STATICS_SET_MAXIMUM_DELAY_LENGTH,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetInterpolationTime"),
+            &raw mut U_SUBMIX_EFFECT_DELAY_STATICS_SET_INTERPOLATION_TIME,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetDelayLength"),
+            &raw mut U_SUBMIX_EFFECT_DELAY_STATICS_SET_DELAY_LENGTH,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = USubmixEffectDelayPreset::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetSettings"),
+            &raw mut U_SUBMIX_EFFECT_DELAY_PRESET_SET_SETTINGS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetInterpolationTime"),
+            &raw mut U_SUBMIX_EFFECT_DELAY_PRESET_SET_INTERPOLATION_TIME,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetDelay"),
+            &raw mut U_SUBMIX_EFFECT_DELAY_PRESET_SET_DELAY,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetDefaultSettings"),
+            &raw mut U_SUBMIX_EFFECT_DELAY_PRESET_SET_DEFAULT_SETTINGS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetMaxDelayInMilliseconds"),
+            &raw mut U_SUBMIX_EFFECT_DELAY_PRESET_GET_MAX_DELAY_IN_MILLISECONDS,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = USubmixEffectFilterPreset::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetSettings"),
+            &raw mut U_SUBMIX_EFFECT_FILTER_PRESET_SET_SETTINGS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetFilterType"),
+            &raw mut U_SUBMIX_EFFECT_FILTER_PRESET_SET_FILTER_TYPE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetFilterQMod"),
+            &raw mut U_SUBMIX_EFFECT_FILTER_PRESET_SET_FILTER_Q_MOD,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetFilterQ"),
+            &raw mut U_SUBMIX_EFFECT_FILTER_PRESET_SET_FILTER_Q,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetFilterCutoffFrequencyMod"),
+            &raw mut U_SUBMIX_EFFECT_FILTER_PRESET_SET_FILTER_CUTOFF_FREQUENCY_MOD,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetFilterCutoffFrequency"),
+            &raw mut U_SUBMIX_EFFECT_FILTER_PRESET_SET_FILTER_CUTOFF_FREQUENCY,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetFilterAlgorithm"),
+            &raw mut U_SUBMIX_EFFECT_FILTER_PRESET_SET_FILTER_ALGORITHM,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = USubmixEffectFlexiverbPreset::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetSettings"),
+            &raw mut U_SUBMIX_EFFECT_FLEXIVERB_PRESET_SET_SETTINGS,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = USubmixEffectMultibandCompressorPreset::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetSettings"),
+            &raw mut U_SUBMIX_EFFECT_MULTIBAND_COMPRESSOR_PRESET_SET_SETTINGS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetExternalSubmix"),
+            &raw mut U_SUBMIX_EFFECT_MULTIBAND_COMPRESSOR_PRESET_SET_EXTERNAL_SUBMIX,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetAudioBus"),
+            &raw mut U_SUBMIX_EFFECT_MULTIBAND_COMPRESSOR_PRESET_SET_AUDIO_BUS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ResetKey"),
+            &raw mut U_SUBMIX_EFFECT_MULTIBAND_COMPRESSOR_PRESET_RESET_KEY,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = USubmixEffectStereoDelayPreset::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetSettings"),
+            &raw mut U_SUBMIX_EFFECT_STEREO_DELAY_PRESET_SET_SETTINGS,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = USubmixEffectStereoToQuadPreset::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetSettings"),
+            &raw mut U_SUBMIX_EFFECT_STEREO_TO_QUAD_PRESET_SET_SETTINGS,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = USubmixEffectTapDelayPreset::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetTap"),
+            &raw mut U_SUBMIX_EFFECT_TAP_DELAY_PRESET_SET_TAP,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetSettings"),
+            &raw mut U_SUBMIX_EFFECT_TAP_DELAY_PRESET_SET_SETTINGS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetInterpolationTime"),
+            &raw mut U_SUBMIX_EFFECT_TAP_DELAY_PRESET_SET_INTERPOLATION_TIME,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("RemoveTap"),
+            &raw mut U_SUBMIX_EFFECT_TAP_DELAY_PRESET_REMOVE_TAP,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetTapIds"),
+            &raw mut U_SUBMIX_EFFECT_TAP_DELAY_PRESET_GET_TAP_IDS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetTap"),
+            &raw mut U_SUBMIX_EFFECT_TAP_DELAY_PRESET_GET_TAP,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetMaxDelayInMilliseconds"),
+            &raw mut U_SUBMIX_EFFECT_TAP_DELAY_PRESET_GET_MAX_DELAY_IN_MILLISECONDS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("AddTap"),
+            &raw mut U_SUBMIX_EFFECT_TAP_DELAY_PRESET_ADD_TAP,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UGranularSynth::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetSustainGain"),
+            &raw mut U_GRANULAR_SYNTH_SET_SUSTAIN_GAIN,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetSoundWave"),
+            &raw mut U_GRANULAR_SYNTH_SET_SOUND_WAVE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetScrubMode"),
+            &raw mut U_GRANULAR_SYNTH_SET_SCRUB_MODE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetReleaseTimeMsec"),
+            &raw mut U_GRANULAR_SYNTH_SET_RELEASE_TIME_MSEC,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetPlayheadTime"),
+            &raw mut U_GRANULAR_SYNTH_SET_PLAYHEAD_TIME,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetPlaybackSpeed"),
+            &raw mut U_GRANULAR_SYNTH_SET_PLAYBACK_SPEED,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetGrainVolume"),
+            &raw mut U_GRANULAR_SYNTH_SET_GRAIN_VOLUME,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetGrainsPerSecond"),
+            &raw mut U_GRANULAR_SYNTH_SET_GRAINS_PER_SECOND,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetGrainProbability"),
+            &raw mut U_GRANULAR_SYNTH_SET_GRAIN_PROBABILITY,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetGrainPitch"),
+            &raw mut U_GRANULAR_SYNTH_SET_GRAIN_PITCH,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetGrainPan"),
+            &raw mut U_GRANULAR_SYNTH_SET_GRAIN_PAN,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetGrainEnvelopeType"),
+            &raw mut U_GRANULAR_SYNTH_SET_GRAIN_ENVELOPE_TYPE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetGrainDuration"),
+            &raw mut U_GRANULAR_SYNTH_SET_GRAIN_DURATION,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetDecayTime"),
+            &raw mut U_GRANULAR_SYNTH_SET_DECAY_TIME,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetAttackTime"),
+            &raw mut U_GRANULAR_SYNTH_SET_ATTACK_TIME,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("NoteOn"),
+            &raw mut U_GRANULAR_SYNTH_NOTE_ON,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("NoteOff"),
+            &raw mut U_GRANULAR_SYNTH_NOTE_OFF,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("IsLoaded"),
+            &raw mut U_GRANULAR_SYNTH_IS_LOADED,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetSampleDuration"),
+            &raw mut U_GRANULAR_SYNTH_GET_SAMPLE_DURATION,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetCurrentPlayheadTime"),
+            &raw mut U_GRANULAR_SYNTH_GET_CURRENT_PLAYHEAD_TIME,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = USynthComponentMonoWaveTable::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetWaveTablePosition"),
+            &raw mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_WAVE_TABLE_POSITION,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetSustainPedalState"),
+            &raw mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_SUSTAIN_PEDAL_STATE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetPosLfoType"),
+            &raw mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_POS_LFO_TYPE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetPosLfoFrequency"),
+            &raw mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_POS_LFO_FREQUENCY,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetPosLfoDepth"),
+            &raw mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_POS_LFO_DEPTH,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetPositionEnvelopeSustainGain"),
+            &raw mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_POSITION_ENVELOPE_SUSTAIN_GAIN,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetPositionEnvelopeReleaseTime"),
+            &raw mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_POSITION_ENVELOPE_RELEASE_TIME,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetPositionEnvelopeInvert"),
+            &raw mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_POSITION_ENVELOPE_INVERT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetPositionEnvelopeDepth"),
+            &raw mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_POSITION_ENVELOPE_DEPTH,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetPositionEnvelopeDecayTime"),
+            &raw mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_POSITION_ENVELOPE_DECAY_TIME,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetPositionEnvelopeBiasInvert"),
+            &raw mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_POSITION_ENVELOPE_BIAS_INVERT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetPositionEnvelopeBiasDepth"),
+            &raw mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_POSITION_ENVELOPE_BIAS_DEPTH,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetPositionEnvelopeAttackTime"),
+            &raw mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_POSITION_ENVELOPE_ATTACK_TIME,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetLowPassFilterResonance"),
+            &raw mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_LOW_PASS_FILTER_RESONANCE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetFrequencyWithMidiNote"),
+            &raw mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_FREQUENCY_WITH_MIDI_NOTE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetFrequencyPitchBend"),
+            &raw mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_FREQUENCY_PITCH_BEND,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetFrequency"),
+            &raw mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_FREQUENCY,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetFilterEnvelopeSustainGain"),
+            &raw mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_FILTER_ENVELOPE_SUSTAIN_GAIN,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetFilterEnvelopeReleaseTime"),
+            &raw mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_FILTER_ENVELOPE_RELEASE_TIME,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetFilterEnvelopenDecayTime"),
+            &raw mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_FILTER_ENVELOPEN_DECAY_TIME,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetFilterEnvelopeInvert"),
+            &raw mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_FILTER_ENVELOPE_INVERT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetFilterEnvelopeDepth"),
+            &raw mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_FILTER_ENVELOPE_DEPTH,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetFilterEnvelopeBiasInvert"),
+            &raw mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_FILTER_ENVELOPE_BIAS_INVERT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetFilterEnvelopeBiasDepth"),
+            &raw mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_FILTER_ENVELOPE_BIAS_DEPTH,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetFilterEnvelopeAttackTime"),
+            &raw mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_FILTER_ENVELOPE_ATTACK_TIME,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetCurveValue"),
+            &raw mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_CURVE_VALUE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetCurveTangent"),
+            &raw mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_CURVE_TANGENT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetCurveInterpolationType"),
+            &raw mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_CURVE_INTERPOLATION_TYPE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetAmpEnvelopeSustainGain"),
+            &raw mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_AMP_ENVELOPE_SUSTAIN_GAIN,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetAmpEnvelopeReleaseTime"),
+            &raw mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_AMP_ENVELOPE_RELEASE_TIME,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetAmpEnvelopeInvert"),
+            &raw mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_AMP_ENVELOPE_INVERT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetAmpEnvelopeDepth"),
+            &raw mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_AMP_ENVELOPE_DEPTH,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetAmpEnvelopeDecayTime"),
+            &raw mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_AMP_ENVELOPE_DECAY_TIME,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetAmpEnvelopeBiasInvert"),
+            &raw mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_AMP_ENVELOPE_BIAS_INVERT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetAmpEnvelopeBiasDepth"),
+            &raw mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_AMP_ENVELOPE_BIAS_DEPTH,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetAmpEnvelopeAttackTime"),
+            &raw mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_AMP_ENVELOPE_ATTACK_TIME,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("RefreshWaveTable"),
+            &raw mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_REFRESH_WAVE_TABLE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("RefreshAllWaveTables"),
+            &raw mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_REFRESH_ALL_WAVE_TABLES,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("NoteOn"),
+            &raw mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_NOTE_ON,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("NoteOff"),
+            &raw mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_NOTE_OFF,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetNumTableEntries"),
+            &raw mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_GET_NUM_TABLE_ENTRIES,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetMaxTableIndex"),
+            &raw mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_GET_MAX_TABLE_INDEX,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetKeyFrameValuesForTable"),
+            &raw mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_GET_KEY_FRAME_VALUES_FOR_TABLE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetCurveTangent"),
+            &raw mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_GET_CURVE_TANGENT,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = USynthComponentToneGenerator::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetVolume"),
+            &raw mut U_SYNTH_COMPONENT_TONE_GENERATOR_SET_VOLUME,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetFrequency"),
+            &raw mut U_SYNTH_COMPONENT_TONE_GENERATOR_SET_FREQUENCY,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = USynthSamplePlayer::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetSoundWave"),
+            &raw mut U_SYNTH_SAMPLE_PLAYER_SET_SOUND_WAVE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetScrubTimeWidth"),
+            &raw mut U_SYNTH_SAMPLE_PLAYER_SET_SCRUB_TIME_WIDTH,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetScrubMode"),
+            &raw mut U_SYNTH_SAMPLE_PLAYER_SET_SCRUB_MODE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetPitch"),
+            &raw mut U_SYNTH_SAMPLE_PLAYER_SET_PITCH,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SeekToTime"),
+            &raw mut U_SYNTH_SAMPLE_PLAYER_SEEK_TO_TIME,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("IsLoaded"),
+            &raw mut U_SYNTH_SAMPLE_PLAYER_IS_LOADED,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetSampleDuration"),
+            &raw mut U_SYNTH_SAMPLE_PLAYER_GET_SAMPLE_DURATION,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetCurrentPlaybackProgressTime"),
+            &raw mut U_SYNTH_SAMPLE_PLAYER_GET_CURRENT_PLAYBACK_PROGRESS_TIME,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetCurrentPlaybackProgressPercent"),
+            &raw mut U_SYNTH_SAMPLE_PLAYER_GET_CURRENT_PLAYBACK_PROGRESS_PERCENT,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = USynthesisUtilitiesBlueprintFunctionLibrary::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetLogFrequency"),
+            &raw mut U_SYNTHESIS_UTILITIES_BLUEPRINT_FUNCTION_LIBRARY_GET_LOG_FREQUENCY,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetLinearFrequency"),
+            &raw mut U_SYNTHESIS_UTILITIES_BLUEPRINT_FUNCTION_LIBRARY_GET_LINEAR_FREQUENCY,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = USynth2DSlider::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetValue"),
+            &raw mut U_SYNTH2_D_SLIDER_SET_VALUE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetStepSize"),
+            &raw mut U_SYNTH2_D_SLIDER_SET_STEP_SIZE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetSliderHandleColor"),
+            &raw mut U_SYNTH2_D_SLIDER_SET_SLIDER_HANDLE_COLOR,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetLocked"),
+            &raw mut U_SYNTH2_D_SLIDER_SET_LOCKED,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetIndentHandle"),
+            &raw mut U_SYNTH2_D_SLIDER_SET_INDENT_HANDLE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetValue"),
+            &raw mut U_SYNTH2_D_SLIDER_GET_VALUE,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = USynthKnob::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetValue"),
+            &raw mut U_SYNTH_KNOB_SET_VALUE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetStepSize"),
+            &raw mut U_SYNTH_KNOB_SET_STEP_SIZE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetLocked"),
+            &raw mut U_SYNTH_KNOB_SET_LOCKED,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetValue"),
+            &raw mut U_SYNTH_KNOB_GET_VALUE,
+        );
+    }
+}
 #[repr(C, align(4))]
 pub struct FSynth1PatchCable {
     pub depth: f32,
@@ -460,19 +2617,67 @@ pub struct UAudioImpulseResponse {
     pub b_true_stereo: bool,
     __padding_end: [u8; 59],
 }
-impl UAudioImpulseResponse {}
+impl UAudioImpulseResponse {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAudioImpulseResponse")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UModularSynthPresetBank {
     #[doc(hidden)]
     __padding_48: [u8; 48],
     pub presets: TArray<FModularSynthPresetBankEntry>,
 }
-impl UModularSynthPresetBank {}
+impl UModularSynthPresetBank {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UModularSynthPresetBank")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UModularSynthLibrary {
     __padding_end: [u8; 48],
 }
-impl UModularSynthLibrary {}
+impl UModularSynthLibrary {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UModularSynthLibrary")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(16))]
 pub struct UModularSynthComponent {
     #[doc(hidden)]
@@ -480,21 +2685,69 @@ pub struct UModularSynthComponent {
     pub voice_count: i32,
     __padding_end: [u8; 1788],
 }
-impl UModularSynthComponent {}
+impl UModularSynthComponent {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UModularSynthComponent")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct USourceEffectBitCrusherPreset {
     #[doc(hidden)]
     __padding_344: [u8; 344],
     pub settings: FSourceEffectBitCrusherSettings,
 }
-impl USourceEffectBitCrusherPreset {}
+impl USourceEffectBitCrusherPreset {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USourceEffectBitCrusherPreset")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct USourceEffectChorusPreset {
     #[doc(hidden)]
     __padding_752: [u8; 752],
     pub settings: FSourceEffectChorusSettings,
 }
-impl USourceEffectChorusPreset {}
+impl USourceEffectChorusPreset {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USourceEffectChorusPreset")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct USourceEffectConvolutionReverbPreset {
     #[doc(hidden)]
@@ -505,103 +2758,343 @@ pub struct USourceEffectConvolutionReverbPreset {
     pub b_enable_hardware_acceleration: bool,
     __padding_end: [u8; 142],
 }
-impl USourceEffectConvolutionReverbPreset {}
+impl USourceEffectConvolutionReverbPreset {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USourceEffectConvolutionReverbPreset")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct USourceEffectDynamicsProcessorPreset {
     #[doc(hidden)]
     __padding_196: [u8; 196],
     pub settings: FSourceEffectDynamicsProcessorSettings,
 }
-impl USourceEffectDynamicsProcessorPreset {}
+impl USourceEffectDynamicsProcessorPreset {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USourceEffectDynamicsProcessorPreset")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UEnvelopeFollowerListener {
     __padding_end: [u8; 280],
 }
-impl UEnvelopeFollowerListener {}
+impl UEnvelopeFollowerListener {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEnvelopeFollowerListener")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct USourceEffectEnvelopeFollowerPreset {
     #[doc(hidden)]
     __padding_164: [u8; 164],
     pub settings: FSourceEffectEnvelopeFollowerSettings,
 }
-impl USourceEffectEnvelopeFollowerPreset {}
+impl USourceEffectEnvelopeFollowerPreset {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USourceEffectEnvelopeFollowerPreset")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct USourceEffectEQPreset {
     #[doc(hidden)]
     __padding_168: [u8; 168],
     pub settings: FSourceEffectEQSettings,
 }
-impl USourceEffectEQPreset {}
+impl USourceEffectEQPreset {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USourceEffectEQPreset")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct USourceEffectFilterPreset {
     #[doc(hidden)]
     __padding_184: [u8; 184],
     pub settings: FSourceEffectFilterSettings,
 }
-impl USourceEffectFilterPreset {}
+impl USourceEffectFilterPreset {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USourceEffectFilterPreset")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct USourceEffectFoldbackDistortionPreset {
     #[doc(hidden)]
     __padding_164: [u8; 164],
     pub settings: FSourceEffectFoldbackDistortionSettings,
 }
-impl USourceEffectFoldbackDistortionPreset {}
+impl USourceEffectFoldbackDistortionPreset {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USourceEffectFoldbackDistortionPreset")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct USourceEffectMidSideSpreaderPreset {
     #[doc(hidden)]
     __padding_160: [u8; 160],
     pub settings: FSourceEffectMidSideSpreaderSettings,
 }
-impl USourceEffectMidSideSpreaderPreset {}
+impl USourceEffectMidSideSpreaderPreset {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USourceEffectMidSideSpreaderPreset")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct USourceEffectMotionFilterPreset {
     #[doc(hidden)]
     __padding_272: [u8; 272],
     pub settings: FSourceEffectMotionFilterSettings,
 }
-impl USourceEffectMotionFilterPreset {}
+impl USourceEffectMotionFilterPreset {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USourceEffectMotionFilterPreset")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct USourceEffectPannerPreset {
     #[doc(hidden)]
     __padding_160: [u8; 160],
     pub settings: FSourceEffectPannerSettings,
 }
-impl USourceEffectPannerPreset {}
+impl USourceEffectPannerPreset {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USourceEffectPannerPreset")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct USourceEffectPhaserPreset {
     #[doc(hidden)]
     __padding_168: [u8; 168],
     pub settings: FSourceEffectPhaserSettings,
 }
-impl USourceEffectPhaserPreset {}
+impl USourceEffectPhaserPreset {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USourceEffectPhaserPreset")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct USourceEffectRingModulationPreset {
     #[doc(hidden)]
     __padding_184: [u8; 184],
     pub settings: FSourceEffectRingModulationSettings,
 }
-impl USourceEffectRingModulationPreset {}
+impl USourceEffectRingModulationPreset {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USourceEffectRingModulationPreset")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct USourceEffectSimpleDelayPreset {
     #[doc(hidden)]
     __padding_176: [u8; 176],
     pub settings: FSourceEffectSimpleDelaySettings,
 }
-impl USourceEffectSimpleDelayPreset {}
+impl USourceEffectSimpleDelayPreset {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USourceEffectSimpleDelayPreset")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct USourceEffectStereoDelayPreset {
     #[doc(hidden)]
     __padding_188: [u8; 188],
     pub settings: FSourceEffectStereoDelaySettings,
 }
-impl USourceEffectStereoDelayPreset {}
+impl USourceEffectStereoDelayPreset {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USourceEffectStereoDelayPreset")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct USourceEffectWaveShaperPreset {
     #[doc(hidden)]
     __padding_160: [u8; 160],
     pub settings: FSourceEffectWaveShaperSettings,
 }
-impl USourceEffectWaveShaperPreset {}
+impl USourceEffectWaveShaperPreset {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USourceEffectWaveShaperPreset")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct USubmixEffectConvolutionReverbPreset {
     #[doc(hidden)]
@@ -612,12 +3105,44 @@ pub struct USubmixEffectConvolutionReverbPreset {
     pub b_enable_hardware_acceleration: bool,
     __padding_end: [u8; 174],
 }
-impl USubmixEffectConvolutionReverbPreset {}
+impl USubmixEffectConvolutionReverbPreset {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USubmixEffectConvolutionReverbPreset")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct USubmixEffectDelayStatics {
     __padding_end: [u8; 48],
 }
-impl USubmixEffectDelayStatics {}
+impl USubmixEffectDelayStatics {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USubmixEffectDelayStatics")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct USubmixEffectDelayPreset {
     #[doc(hidden)]
@@ -625,42 +3150,138 @@ pub struct USubmixEffectDelayPreset {
     pub settings: FSubmixEffectDelaySettings,
     __padding_end: [u8; 16],
 }
-impl USubmixEffectDelayPreset {}
+impl USubmixEffectDelayPreset {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USubmixEffectDelayPreset")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct USubmixEffectFilterPreset {
     #[doc(hidden)]
     __padding_164: [u8; 164],
     pub settings: FSubmixEffectFilterSettings,
 }
-impl USubmixEffectFilterPreset {}
+impl USubmixEffectFilterPreset {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USubmixEffectFilterPreset")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct USubmixEffectFlexiverbPreset {
     #[doc(hidden)]
     __padding_168: [u8; 168],
     pub settings: FSubmixEffectFlexiverbSettings,
 }
-impl USubmixEffectFlexiverbPreset {}
+impl USubmixEffectFlexiverbPreset {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USubmixEffectFlexiverbPreset")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct USubmixEffectMultibandCompressorPreset {
     #[doc(hidden)]
     __padding_208: [u8; 208],
     pub settings: FSubmixEffectMultibandCompressorSettings,
 }
-impl USubmixEffectMultibandCompressorPreset {}
+impl USubmixEffectMultibandCompressorPreset {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USubmixEffectMultibandCompressorPreset")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct USubmixEffectStereoDelayPreset {
     #[doc(hidden)]
     __padding_188: [u8; 188],
     pub settings: FSubmixEffectStereoDelaySettings,
 }
-impl USubmixEffectStereoDelayPreset {}
+impl USubmixEffectStereoDelayPreset {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USubmixEffectStereoDelayPreset")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct USubmixEffectStereoToQuadPreset {
     #[doc(hidden)]
     __padding_160: [u8; 160],
     pub settings: FSubmixEffectStereoToQuadSettings,
 }
-impl USubmixEffectStereoToQuadPreset {}
+impl USubmixEffectStereoToQuadPreset {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USubmixEffectStereoToQuadPreset")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct USubmixEffectTapDelayPreset {
     #[doc(hidden)]
@@ -668,12 +3289,44 @@ pub struct USubmixEffectTapDelayPreset {
     pub settings: FSubmixEffectTapDelaySettings,
     __padding_end: [u8; 24],
 }
-impl USubmixEffectTapDelayPreset {}
+impl USubmixEffectTapDelayPreset {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USubmixEffectTapDelayPreset")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(16))]
 pub struct UGranularSynth {
     __padding_end: [u8; 3392],
 }
-impl UGranularSynth {}
+impl UGranularSynth {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGranularSynth")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMonoWaveTableSynthPreset {
     #[doc(hidden)]
@@ -686,12 +3339,44 @@ pub struct UMonoWaveTableSynthPreset {
     pub flags_96: u8,
     __padding_end: [u8; 279],
 }
-impl UMonoWaveTableSynthPreset {}
+impl UMonoWaveTableSynthPreset {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMonoWaveTableSynthPreset")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(16))]
 pub struct USynthComponentMonoWaveTable {
     __padding_end: [u8; 4272],
 }
-impl USynthComponentMonoWaveTable {}
+impl USynthComponentMonoWaveTable {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USynthComponentMonoWaveTable")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(16))]
 pub struct USynthComponentToneGenerator {
     #[doc(hidden)]
@@ -703,7 +3388,23 @@ pub struct USynthComponentToneGenerator {
     pub attenuation_db_at_max_range: f32,
     __padding_end: [u8; 76],
 }
-impl USynthComponentToneGenerator {}
+impl USynthComponentToneGenerator {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USynthComponentToneGenerator")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(16))]
 pub struct USynthSamplePlayer {
     #[doc(hidden)]
@@ -711,12 +3412,44 @@ pub struct USynthSamplePlayer {
     pub sound_wave: UPtr<crate::bindings::engine::USoundWave>,
     __padding_end: [u8; 312],
 }
-impl USynthSamplePlayer {}
+impl USynthSamplePlayer {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USynthSamplePlayer")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct USynthesisUtilitiesBlueprintFunctionLibrary {
     __padding_end: [u8; 48],
 }
-impl USynthesisUtilitiesBlueprintFunctionLibrary {}
+impl USynthesisUtilitiesBlueprintFunctionLibrary {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USynthesisUtilitiesBlueprintFunctionLibrary")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(16))]
 pub struct USynth2DSlider {
     #[doc(hidden)]
@@ -729,7 +3462,23 @@ pub struct USynth2DSlider {
     pub is_focusable: bool,
     __padding_end: [u8; 183],
 }
-impl USynth2DSlider {}
+impl USynth2DSlider {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USynth2DSlider")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(16))]
 pub struct USynthKnob {
     #[doc(hidden)]
@@ -747,7 +3496,23 @@ pub struct USynthKnob {
     pub is_focusable: bool,
     __padding_end: [u8; 158],
 }
-impl USynthKnob {}
+impl USynthKnob {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USynthKnob")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct FEnvelopeFollowerListener_OnEnvelopeFollowerUpdate {
     _opague: [u8; 24],

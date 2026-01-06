@@ -2,8 +2,52 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(clippy::non_camel_case_types)]
+#![allow(clippy::new_without_default)]
+#![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
+#[doc(hidden)]
+pub static mut U_ANIM_NOTIFY_STATE_TIMED_NIAGARA_EFFECT_GET_SPAWNED_EFFECT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_ANIM_NOTIFY_STATE_TIMED_NIAGARA_EFFECT_ADVANCED_GET_NOTIFY_PROGRESS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_ANIM_NOTIFY_PLAY_NIAGARA_EFFECT_GET_SPAWNED_EFFECT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub fn initialize() {
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UAnimNotifyState_TimedNiagaraEffect::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetSpawnedEffect"),
+            &raw mut U_ANIM_NOTIFY_STATE_TIMED_NIAGARA_EFFECT_GET_SPAWNED_EFFECT,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UAnimNotifyState_TimedNiagaraEffectAdvanced::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetNotifyProgress"),
+            &raw mut U_ANIM_NOTIFY_STATE_TIMED_NIAGARA_EFFECT_ADVANCED_GET_NOTIFY_PROGRESS,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UAnimNotify_PlayNiagaraEffect::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetSpawnedEffect"),
+            &raw mut U_ANIM_NOTIFY_PLAY_NIAGARA_EFFECT_GET_SPAWNED_EFFECT,
+        );
+    }
+}
 #[repr(C, align(4))]
 pub struct FCurveParameterPair {
     pub anim_curve_name: FName,
@@ -24,7 +68,23 @@ pub struct UAnimNotifyState_TimedNiagaraEffect {
     pub b_destroy_at_end: bool,
     __padding_end: [u8; 6],
 }
-impl UAnimNotifyState_TimedNiagaraEffect {}
+impl UAnimNotifyState_TimedNiagaraEffect {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimNotifyState_TimedNiagaraEffect")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimNotifyState_TimedNiagaraEffectAdvanced {
     #[doc(hidden)]
@@ -32,7 +92,23 @@ pub struct UAnimNotifyState_TimedNiagaraEffectAdvanced {
     pub b_apply_rate_scale_to_progress: bool,
     __padding_end: [u8; 118],
 }
-impl UAnimNotifyState_TimedNiagaraEffectAdvanced {}
+impl UAnimNotifyState_TimedNiagaraEffectAdvanced {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimNotifyState_TimedNiagaraEffectAdvanced")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(16))]
 pub struct UAnimNotify_PlayNiagaraEffect {
     #[doc(hidden)]
@@ -45,7 +121,23 @@ pub struct UAnimNotify_PlayNiagaraEffect {
     pub flags_192: u8,
     pub socket_name: FName,
 }
-impl UAnimNotify_PlayNiagaraEffect {}
+impl UAnimNotify_PlayNiagaraEffect {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimNotify_PlayNiagaraEffect")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(transparent)]
 pub struct ENiagaraAnimNotifyProgressType(pub u8);
 impl ENiagaraAnimNotifyProgressType {

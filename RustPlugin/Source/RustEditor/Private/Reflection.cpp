@@ -899,6 +899,7 @@ void FRustReflection_Root::ExportToJson_Classes(TSharedPtr<FJsonObject> Json)
 		JsonClasses.Add(MakeShared<FJsonValueObject>(Class.ToJson()));
 	}
 
+	UE_LOG(LogTemp, Warning, TEXT("%i"), JsonClasses.Num());
 	Json->SetArrayField(TEXT("Classes"), JsonClasses);
 }
 

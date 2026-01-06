@@ -2,43 +2,159 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(clippy::non_camel_case_types)]
+#![allow(clippy::new_without_default)]
+#![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
+pub fn initialize() {}
 #[repr(C, align(8))]
 pub struct UNavigationToolFilterBarContext {
     __padding_end: [u8; 88],
 }
-impl UNavigationToolFilterBarContext {}
+impl UNavigationToolFilterBarContext {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNavigationToolFilterBarContext")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UNavigationToolFilterExtension {
     __padding_end: [u8; 48],
 }
-impl UNavigationToolFilterExtension {}
+impl UNavigationToolFilterExtension {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNavigationToolFilterExtension")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UNavigationToolFilterMenuContext {
     __padding_end: [u8; 88],
 }
-impl UNavigationToolFilterMenuContext {}
+impl UNavigationToolFilterMenuContext {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNavigationToolFilterMenuContext")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UNavigationToolFilterTextExpressionExtension {
     __padding_end: [u8; 48],
 }
-impl UNavigationToolFilterTextExpressionExtension {}
+impl UNavigationToolFilterTextExpressionExtension {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNavigationToolFilterTextExpressionExtension")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UNavigationToolItemMenuContext {
     __padding_end: [u8; 80],
 }
-impl UNavigationToolItemMenuContext {}
+impl UNavigationToolItemMenuContext {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNavigationToolItemMenuContext")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UNavigationToolViewMenuContext {
     __padding_end: [u8; 88],
 }
-impl UNavigationToolViewMenuContext {}
+impl UNavigationToolViewMenuContext {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNavigationToolViewMenuContext")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UNavigationToolSettings {
     __padding_end: [u8; 368],
 }
-impl UNavigationToolSettings {}
+impl UNavigationToolSettings {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNavigationToolSettings")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(transparent)]
 pub struct ENavigationToolFilterMode(pub u8);
 impl ENavigationToolFilterMode {

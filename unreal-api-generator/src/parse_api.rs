@@ -1,4 +1,4 @@
-use std::collections::HashMap;
+use std::collections::{HashMap, HashSet};
 
 use serde::{Deserialize, Serialize};
 
@@ -216,7 +216,7 @@ pub struct Property {
     pub data_type: Type,
 
     #[serde(rename = "Flags", default)]
-    pub flags: Vec<PropertyFlag>,
+    pub flags: HashSet<PropertyFlag>,
 
     #[serde(rename = "Offset")]
     pub offset: u32,
@@ -307,7 +307,7 @@ pub struct Function {
     pub function_name: String,
 
     #[serde(rename = "Flags", default)]
-    pub flags: Vec<FunctionFlag>,
+    pub flags: HashSet<FunctionFlag>,
 
     #[serde(rename = "ParamSize")]
     pub param_size: u16,
@@ -336,7 +336,7 @@ pub struct StructDefinition {
     #[serde(rename = "Metadata", default)]
     pub meta: HashMap<String, String>,
     #[serde(rename = "Flags", default)]
-    pub flags: Vec<StructFlag>,
+    pub flags: HashSet<StructFlag>,
 
     #[serde(rename = "MinAlignment")]
     pub min_alignment: u32,
@@ -374,7 +374,7 @@ pub struct ClassDefinition {
     #[serde(rename = "Metadata", default)]
     pub meta: HashMap<String, String>,
     #[serde(rename = "Flags", default)]
-    pub flags: Vec<ClassFlag>,
+    pub flags: HashSet<ClassFlag>,
 
     // Classes also store property sizes/alignment for their instances
     #[serde(rename = "MinAlignment")]

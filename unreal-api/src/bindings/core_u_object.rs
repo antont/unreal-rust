@@ -2,8 +2,26 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(clippy::non_camel_case_types)]
+#![allow(clippy::new_without_default)]
+#![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
+#[doc(hidden)]
+pub static mut U_OBJECT_EXECUTE_UBERGRAPH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub fn initialize() {
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UObject::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ExecuteUbergraph"),
+            &raw mut U_OBJECT_EXECUTE_UBERGRAPH,
+        );
+    }
+}
 #[repr(C, align(4))]
 pub struct FGuid {
     __padding_end: [u8; 16],
@@ -622,473 +640,1953 @@ impl FTemplateString {}
 pub struct UObject {
     __padding_end: [u8; 48],
 }
-impl UObject {}
+impl UObject {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS.wait().name_to_ptr.get("UObject").unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UGCBarrier {
     __padding_end: [u8; 48],
 }
-impl UGCBarrier {}
+impl UGCBarrier {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGCBarrier")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UGCObjectReferencer {
     __padding_end: [u8; 128],
 }
-impl UGCObjectReferencer {}
+impl UGCObjectReferencer {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGCObjectReferencer")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UObjectPtrTestClass {
     __padding_end: [u8; 48],
 }
-impl UObjectPtrTestClass {}
+impl UObjectPtrTestClass {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UObjectPtrTestClass")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UObjectPtrAbstractTestClass {
     __padding_end: [u8; 48],
 }
-impl UObjectPtrAbstractTestClass {}
+impl UObjectPtrAbstractTestClass {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UObjectPtrAbstractTestClass")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UObjectPtrAbstractDerivedTestClass {
     __padding_end: [u8; 48],
 }
-impl UObjectPtrAbstractDerivedTestClass {}
+impl UObjectPtrAbstractDerivedTestClass {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UObjectPtrAbstractDerivedTestClass")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UObjectPtrTestClassWithRef {
     __padding_end: [u8; 88],
 }
-impl UObjectPtrTestClassWithRef {}
+impl UObjectPtrTestClassWithRef {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UObjectPtrTestClassWithRef")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UObjectWithClassProperty {
     __padding_end: [u8; 72],
 }
-impl UObjectWithClassProperty {}
+impl UObjectWithClassProperty {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UObjectWithClassProperty")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UObjectWithRawProperty {
     __padding_end: [u8; 64],
 }
-impl UObjectWithRawProperty {}
+impl UObjectWithRawProperty {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UObjectWithRawProperty")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UObjectPtrDerrivedTestClass {
     __padding_end: [u8; 48],
 }
-impl UObjectPtrDerrivedTestClass {}
+impl UObjectPtrDerrivedTestClass {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UObjectPtrDerrivedTestClass")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UObjectPtrNotLazyTestClass {
     __padding_end: [u8; 48],
 }
-impl UObjectPtrNotLazyTestClass {}
+impl UObjectPtrNotLazyTestClass {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UObjectPtrNotLazyTestClass")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UObjectPtrStressTestClass {
     __padding_end: [u8; 112],
 }
-impl UObjectPtrStressTestClass {}
+impl UObjectPtrStressTestClass {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UObjectPtrStressTestClass")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMiddleClass {
     __padding_end: [u8; 56],
 }
-impl UMiddleClass {}
+impl UMiddleClass {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMiddleClass")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UDerrivedClass {
     __padding_end: [u8; 64],
 }
-impl UDerrivedClass {}
+impl UDerrivedClass {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDerrivedClass")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UOptionalPropertyTestObject {
     __padding_end: [u8; 104],
 }
-impl UOptionalPropertyTestObject {}
+impl UOptionalPropertyTestObject {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptionalPropertyTestObject")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UPropertyWrapper {
     __padding_end: [u8; 56],
 }
-impl UPropertyWrapper {}
+impl UPropertyWrapper {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPropertyWrapper")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMulticastDelegatePropertyWrapper {
     __padding_end: [u8; 56],
 }
-impl UMulticastDelegatePropertyWrapper {}
+impl UMulticastDelegatePropertyWrapper {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMulticastDelegatePropertyWrapper")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMulticastInlineDelegatePropertyWrapper {
     __padding_end: [u8; 56],
 }
-impl UMulticastInlineDelegatePropertyWrapper {}
+impl UMulticastInlineDelegatePropertyWrapper {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMulticastInlineDelegatePropertyWrapper")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UField {
     __padding_end: [u8; 56],
 }
-impl UField {}
+impl UField {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS.wait().name_to_ptr.get("UField").unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UProperty {
     __padding_end: [u8; 136],
 }
-impl UProperty {}
+impl UProperty {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UProperty")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UNumericProperty {
     __padding_end: [u8; 136],
 }
-impl UNumericProperty {}
+impl UNumericProperty {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNumericProperty")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UByteProperty {
     __padding_end: [u8; 144],
 }
-impl UByteProperty {}
+impl UByteProperty {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UByteProperty")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UInt8Property {
     __padding_end: [u8; 136],
 }
-impl UInt8Property {}
+impl UInt8Property {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInt8Property")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UInt16Property {
     __padding_end: [u8; 136],
 }
-impl UInt16Property {}
+impl UInt16Property {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInt16Property")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UIntProperty {
     __padding_end: [u8; 136],
 }
-impl UIntProperty {}
+impl UIntProperty {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UIntProperty")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UInt64Property {
     __padding_end: [u8; 136],
 }
-impl UInt64Property {}
+impl UInt64Property {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInt64Property")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UUInt16Property {
     __padding_end: [u8; 136],
 }
-impl UUInt16Property {}
+impl UUInt16Property {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UUInt16Property")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UUInt32Property {
     __padding_end: [u8; 136],
 }
-impl UUInt32Property {}
+impl UUInt32Property {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UUInt32Property")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UUInt64Property {
     __padding_end: [u8; 136],
 }
-impl UUInt64Property {}
+impl UUInt64Property {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UUInt64Property")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UFloatProperty {
     __padding_end: [u8; 136],
 }
-impl UFloatProperty {}
+impl UFloatProperty {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFloatProperty")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UDoubleProperty {
     __padding_end: [u8; 136],
 }
-impl UDoubleProperty {}
+impl UDoubleProperty {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDoubleProperty")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UBoolProperty {
     __padding_end: [u8; 144],
 }
-impl UBoolProperty {}
+impl UBoolProperty {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBoolProperty")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UObjectPropertyBase {
     __padding_end: [u8; 144],
 }
-impl UObjectPropertyBase {}
+impl UObjectPropertyBase {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UObjectPropertyBase")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UObjectProperty {
     __padding_end: [u8; 144],
 }
-impl UObjectProperty {}
+impl UObjectProperty {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UObjectProperty")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UWeakObjectProperty {
     __padding_end: [u8; 144],
 }
-impl UWeakObjectProperty {}
+impl UWeakObjectProperty {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UWeakObjectProperty")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct ULazyObjectProperty {
     __padding_end: [u8; 144],
 }
-impl ULazyObjectProperty {}
+impl ULazyObjectProperty {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULazyObjectProperty")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct USoftObjectProperty {
     __padding_end: [u8; 144],
 }
-impl USoftObjectProperty {}
+impl USoftObjectProperty {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USoftObjectProperty")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UClassProperty {
     __padding_end: [u8; 152],
 }
-impl UClassProperty {}
+impl UClassProperty {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UClassProperty")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct USoftClassProperty {
     __padding_end: [u8; 152],
 }
-impl USoftClassProperty {}
+impl USoftClassProperty {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USoftClassProperty")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UInterfaceProperty {
     __padding_end: [u8; 144],
 }
-impl UInterfaceProperty {}
+impl UInterfaceProperty {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInterfaceProperty")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UNameProperty {
     __padding_end: [u8; 136],
 }
-impl UNameProperty {}
+impl UNameProperty {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNameProperty")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UStrProperty {
     __padding_end: [u8; 136],
 }
-impl UStrProperty {}
+impl UStrProperty {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UStrProperty")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UArrayProperty {
     __padding_end: [u8; 144],
 }
-impl UArrayProperty {}
+impl UArrayProperty {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UArrayProperty")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMapProperty {
     __padding_end: [u8; 176],
 }
-impl UMapProperty {}
+impl UMapProperty {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMapProperty")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct USetProperty {
     __padding_end: [u8; 168],
 }
-impl USetProperty {}
+impl USetProperty {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USetProperty")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UStructProperty {
     __padding_end: [u8; 144],
 }
-impl UStructProperty {}
+impl UStructProperty {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UStructProperty")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UDelegateProperty {
     __padding_end: [u8; 144],
 }
-impl UDelegateProperty {}
+impl UDelegateProperty {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDelegateProperty")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMulticastDelegateProperty {
     __padding_end: [u8; 144],
 }
-impl UMulticastDelegateProperty {}
+impl UMulticastDelegateProperty {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMulticastDelegateProperty")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMulticastInlineDelegateProperty {
     __padding_end: [u8; 144],
 }
-impl UMulticastInlineDelegateProperty {}
+impl UMulticastInlineDelegateProperty {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMulticastInlineDelegateProperty")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMulticastSparseDelegateProperty {
     __padding_end: [u8; 144],
 }
-impl UMulticastSparseDelegateProperty {}
+impl UMulticastSparseDelegateProperty {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMulticastSparseDelegateProperty")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UEnumProperty {
     __padding_end: [u8; 152],
 }
-impl UEnumProperty {}
+impl UEnumProperty {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEnumProperty")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UTextProperty {
     __padding_end: [u8; 136],
 }
-impl UTextProperty {}
+impl UTextProperty {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTextProperty")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UInterface {
     __padding_end: [u8; 48],
 }
-impl UInterface {}
+impl UInterface {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInterface")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 pub struct IEditorPathObjectInterface {}
 #[repr(C, align(8))]
 pub struct UEditorPathObjectInterface {
     __padding_end: [u8; 48],
 }
-impl UEditorPathObjectInterface {}
+impl UEditorPathObjectInterface {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEditorPathObjectInterface")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UTextBuffer {
     __padding_end: [u8; 88],
 }
-impl UTextBuffer {}
+impl UTextBuffer {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTextBuffer")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UPropertyBagMissingObject {
     __padding_end: [u8; 48],
 }
-impl UPropertyBagMissingObject {}
+impl UPropertyBagMissingObject {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPropertyBagMissingObject")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UStruct {
     __padding_end: [u8; 208],
 }
-impl UStruct {}
+impl UStruct {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS.wait().name_to_ptr.get("UStruct").unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UScriptStruct {
     __padding_end: [u8; 224],
 }
-impl UScriptStruct {}
+impl UScriptStruct {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UScriptStruct")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UPropertyBag {
     __padding_end: [u8; 248],
 }
-impl UPropertyBag {}
+impl UPropertyBag {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPropertyBag")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UUserDefinedStruct {
     __padding_end: [u8; 368],
 }
-impl UUserDefinedStruct {}
+impl UUserDefinedStruct {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UUserDefinedStruct")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UUserDefinedStructEditorDataBase {
     __padding_end: [u8; 48],
 }
-impl UUserDefinedStructEditorDataBase {}
+impl UUserDefinedStructEditorDataBase {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UUserDefinedStructEditorDataBase")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UFunction {
     __padding_end: [u8; 264],
 }
-impl UFunction {}
+impl UFunction {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFunction")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UDelegateFunction {
     __padding_end: [u8; 264],
 }
-impl UDelegateFunction {}
+impl UDelegateFunction {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDelegateFunction")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct USparseDelegateFunction {
     __padding_end: [u8; 288],
 }
-impl USparseDelegateFunction {}
+impl USparseDelegateFunction {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USparseDelegateFunction")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UEnum {
     __padding_end: [u8; 120],
 }
-impl UEnum {}
+impl UEnum {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS.wait().name_to_ptr.get("UEnum").unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UPackage {
     __padding_end: [u8; 360],
 }
-impl UPackage {}
+impl UPackage {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS.wait().name_to_ptr.get("UPackage").unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UClass {
     __padding_end: [u8; 624],
 }
-impl UClass {}
+impl UClass {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS.wait().name_to_ptr.get("UClass").unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UEnumCookedMetaData {
     __padding_end: [u8; 128],
 }
-impl UEnumCookedMetaData {}
+impl UEnumCookedMetaData {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEnumCookedMetaData")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UStructCookedMetaData {
     __padding_end: [u8; 208],
 }
-impl UStructCookedMetaData {}
+impl UStructCookedMetaData {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UStructCookedMetaData")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UClassCookedMetaData {
     __padding_end: [u8; 288],
 }
-impl UClassCookedMetaData {}
+impl UClassCookedMetaData {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UClassCookedMetaData")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UPackageMap {
     __padding_end: [u8; 232],
 }
-impl UPackageMap {}
+impl UPackageMap {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPackageMap")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UObjectReachabilityStressData {
     __padding_end: [u8; 64],
 }
-impl UObjectReachabilityStressData {}
+impl UObjectReachabilityStressData {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UObjectReachabilityStressData")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UInstanceDataObjectClass {
     __padding_end: [u8; 640],
 }
-impl UInstanceDataObjectClass {}
+impl UInstanceDataObjectClass {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInstanceDataObjectClass")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UInstanceDataObjectStruct {
     __padding_end: [u8; 256],
 }
-impl UInstanceDataObjectStruct {}
+impl UInstanceDataObjectStruct {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInstanceDataObjectStruct")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct ULinkerPlaceholderClass {
     __padding_end: [u8; 1072],
 }
-impl ULinkerPlaceholderClass {}
+impl ULinkerPlaceholderClass {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULinkerPlaceholderClass")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct ULinkerPlaceholderExportObject {
     __padding_end: [u8; 256],
 }
-impl ULinkerPlaceholderExportObject {}
+impl ULinkerPlaceholderExportObject {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULinkerPlaceholderExportObject")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct ULinkerPlaceholderFunction {
     __padding_end: [u8; 712],
 }
-impl ULinkerPlaceholderFunction {}
+impl ULinkerPlaceholderFunction {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULinkerPlaceholderFunction")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UDEPRECATED_MetaData {
     __padding_end: [u8; 208],
 }
-impl UDEPRECATED_MetaData {}
+impl UDEPRECATED_MetaData {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDEPRECATED_MetaData")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UObjectRedirector {
     __padding_end: [u8; 64],
 }
-impl UObjectRedirector {}
+impl UObjectRedirector {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UObjectRedirector")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UVerseClass {
     __padding_end: [u8; 1368],
 }
-impl UVerseClass {}
+impl UVerseClass {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UVerseClass")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UVerseEnum {
     __padding_end: [u8; 160],
 }
-impl UVerseEnum {}
+impl UVerseEnum {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UVerseEnum")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UVerseFunction {
     __padding_end: [u8; 280],
 }
-impl UVerseFunction {}
+impl UVerseFunction {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UVerseFunction")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UVerseStruct {
     __padding_end: [u8; 480],
 }
-impl UVerseStruct {}
+impl UVerseStruct {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UVerseStruct")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UTestPropertyPathFunctionsClass {
     __padding_end: [u8; 2248],
 }
-impl UTestPropertyPathFunctionsClass {}
+impl UTestPropertyPathFunctionsClass {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTestPropertyPathFunctionsClass")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UTestInstanceDataObjectClass {
     __padding_end: [u8; 136],
 }
-impl UTestInstanceDataObjectClass {}
+impl UTestInstanceDataObjectClass {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTestInstanceDataObjectClass")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct USubobjectInstancingTestObject {
     __padding_end: [u8; 56],
 }
-impl USubobjectInstancingTestObject {}
+impl USubobjectInstancingTestObject {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USubobjectInstancingTestObject")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct USubobjectInstancingTestDerivedObject {
     __padding_end: [u8; 56],
 }
-impl USubobjectInstancingTestDerivedObject {}
+impl USubobjectInstancingTestDerivedObject {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USubobjectInstancingTestDerivedObject")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct USubobjectInstancingTestDirectlyNestedObject {
     __padding_end: [u8; 80],
 }
-impl USubobjectInstancingTestDirectlyNestedObject {}
+impl USubobjectInstancingTestDirectlyNestedObject {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USubobjectInstancingTestDirectlyNestedObject")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct USubobjectInstancingTestIndirectlyNestedObject {
     __padding_end: [u8; 64],
 }
-impl USubobjectInstancingTestIndirectlyNestedObject {}
+impl USubobjectInstancingTestIndirectlyNestedObject {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USubobjectInstancingTestIndirectlyNestedObject")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct USubobjectInstancingDefaultToInstancedTestObject {
     __padding_end: [u8; 56],
 }
-impl USubobjectInstancingDefaultToInstancedTestObject {}
+impl USubobjectInstancingDefaultToInstancedTestObject {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USubobjectInstancingDefaultToInstancedTestObject")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct USubobjectInstancingTestOuterObject {
     __padding_end: [u8; 592],
 }
-impl USubobjectInstancingTestOuterObject {}
+impl USubobjectInstancingTestOuterObject {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USubobjectInstancingTestOuterObject")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct USubobjectInstancingTestDerivedOuterObjectWithTypeOverride {
     __padding_end: [u8; 592],
 }
-impl USubobjectInstancingTestDerivedOuterObjectWithTypeOverride {}
+impl USubobjectInstancingTestDerivedOuterObjectWithTypeOverride {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USubobjectInstancingTestDerivedOuterObjectWithTypeOverride")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct USubobjectInstancingTestDerivedOuterObjectWithDoNotCreateOverride {
     __padding_end: [u8; 592],
 }
-impl USubobjectInstancingTestDerivedOuterObjectWithDoNotCreateOverride {}
+impl USubobjectInstancingTestDerivedOuterObjectWithDoNotCreateOverride {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USubobjectInstancingTestDerivedOuterObjectWithDoNotCreateOverride")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UDynamicSubobjectInstancingTestClass {
     __padding_end: [u8; 624],
 }
-impl UDynamicSubobjectInstancingTestClass {}
+impl UDynamicSubobjectInstancingTestClass {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDynamicSubobjectInstancingTestClass")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(transparent)]
 pub struct EAutomationEventType(pub u8);
 impl EAutomationEventType {

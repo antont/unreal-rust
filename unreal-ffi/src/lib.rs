@@ -376,11 +376,14 @@ pub struct RustBindings {
     pub reflection_fns: ReflectionFns,
     pub allocate_fns: AllocateFns,
     pub send_actor_event: SendActorEventFn,
+    pub initialize_modules: InitializeModulesFn,
 }
 
 pub type UnrealEventFn = unsafe extern "C" fn(ty: *const EventType, data: *const c_void);
 pub type SendActorEventFn =
     unsafe extern "C" fn(actor: *const AActorOpaque, uuid: Uuid, json: Utf8Str);
+pub type InitializeModulesFn =
+    unsafe extern "C" fn();
 
 #[repr(u32)]
 pub enum ReflectionType {
@@ -601,7 +604,7 @@ pub type InitializeValuesInParamBufferCoreFn =
 pub type DestroyValuesInParamBufferCoreFn =
     unsafe extern "C" fn(function_opague: *const UFunctionOpague, buffer: *mut c_void) -> u32;
 pub type ProcessEventsCoreFn = unsafe extern "C" fn(
-    class_opague: *mut UObjectOpague,
+    object_opague: *mut UObjectOpague,
     function_opague: *mut UFunctionOpague,
     buffer: *mut c_void,
 ) -> u32;

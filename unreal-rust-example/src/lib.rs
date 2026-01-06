@@ -1,14 +1,20 @@
 use std::collections::HashMap;
 use std::ffi::c_void;
 use std::mem::offset_of;
+use std::ops::Deref;
 
 use bevy_ecs::prelude::*;
 use unreal_api::api::UnrealApi;
-use unreal_api::bindings::core_u_object::FTransform;
-use unreal_api::bindings::engine::{AActor, FBodyInstance, FHitResult, UCharacterMovementComponent, USceneComponent, UStaticMesh, UVolumetricCloudComponent, UWorldPartition};
+use unreal_api::bindings::core_u_object::{FTransform, FVector};
+use unreal_api::bindings::engine::{
+    AActor, FBodyInstance, FHitResult, UCharacterMovementComponent, USceneComponent, UStaticMesh,
+    UVolumetricCloudComponent, UWorldPartition,
+};
+use unreal_api::bindings::rust_plugin::{ARustActor, URustExtension_FHitResult};
 use unreal_api::bindings::umg::UWidget;
 use unreal_api::core::{ActorHitEvent, Despawn};
-use unreal_api::ffi::{UFunctionOpague, Utf8Str};
+use unreal_api::core_data::StackAlloc;
+use unreal_api::ffi::{StrRustAlloc, UFunctionOpague, Utf8Str};
 use unreal_api::registry::USound;
 use unreal_api::sound::{SoundSettings, play_sound_at_location};
 use unreal_api::{Component, register_editor_components};
@@ -294,23 +300,8 @@ fn spawn_camera(
     }
 }
 
-#[repr(C, align(16))]
-struct StackAlloc<const N: usize> {
-    stack: [u8; N],
-}
-
-impl<const N: usize> StackAlloc<N> {
-    pub fn new() -> Self {
-        Self { stack: [0; N] }
-    }
-
-    pub fn buffer_mut(&mut self) -> *mut c_void {
-        self as *mut Self as *mut c_void
-    }
-}
-
-fn update(query: Query<(Entity, &ActorComponent)>) {
-    // let mut alloc = RustAlloc::empty();
+fn begin(query: Query<(Entity, &ActorComponent)>) {
+    // let mut alloc = ffi::RustAlloc::empty();
     // unsafe {
     //     (bindings().core_fns.get_all_uclasses)(&mut alloc);
     // }
@@ -321,7 +312,23 @@ fn update(query: Query<(Entity, &ActorComponent)>) {
     //         alloc.size / std::mem::size_of::<*mut UClassOpague>(),
     //     )
     // };
-    //
+    // let ptrs = unreal_api::bindings::globals::CLASS_PTRS.wait();
+    // log::warn!("-----------------------------------------------------");
+    // for name in ptrs.name_to_ptr.keys() {
+    //     log::warn!("Class: {}", name);
+    // }
+
+    let class = ARustActor::static_class();
+    let hit_result = URustExtension_FHitResult::new();
+    let mut str_alloc = StrRustAlloc::empty();
+    unsafe {
+        (bindings().core_fns.get_class_name)(class as *const UClassOpague, &mut str_alloc);
+    }
+    log::info!("{}", str_alloc.into_string());
+    // log::warn!("Class: {}", ptrs.name_to_ptr.keys().count());
+}
+fn update(query: Query<(Entity, &ActorComponent)>) {
+
     // for &class in classes {
     //     let mut str_alloc = StrRustAlloc::empty();
     //     unsafe {
@@ -334,35 +341,9 @@ fn update(query: Query<(Entity, &ActorComponent)>) {
     // unsafe {
     //     alloc.free();
     // }
-    #[derive(Copy, Clone, Debug)]
-    #[repr(C, align(8))]
-    struct FVector {
-        x: f64,
-        y: f64,
-        z: f64,
-    }
 
-    #[repr(transparent)]
-    struct Property<T> {
-        m: std::marker::PhantomData<T>,
-    }
-
-    impl<T: Copy> Property<T> {
-        fn read(&self) -> T {
-            let ptr_self = self as *const Self;
-            unsafe { *ptr_self.cast::<T>() }
-        }
-    }
-    #[repr(C, align(8))]
-    struct Actor {
-        #[doc(hidden)]
-        __padding: [u8; 448],
-        net_update_frequency: Property<f32>,
-        net_update_frequency2: Property<f32>,
-    }
-
-    log::warn!("-----------------");
-    UVolumetricCloudComponent::verify_layout();
+    // log::warn!("-----------------");
+    // UVolumetricCloudComponent::verify_layout();
 
     // log::warn!(
     //     "{} {} {} {}",
@@ -372,13 +353,32 @@ fn update(query: Query<(Entity, &ActorComponent)>) {
     //     size_of::<FTransform>()
     // );
 
+    // let class = ARustActor::static_class();
+    // let mut str_alloc = StrRustAlloc::empty();
+    // unsafe {
+    //     (bindings().core_fns.get_class_name)(class as *const UClassOpague, &mut str_alloc);
+    // }
+
+    // log::info!("{}", str_alloc.into_string());
+    // for (_entity, actor) in query.iter() {
+    //     let actor = unsafe { actor.actor.0.cast::<AActor>().as_ref().unwrap() };
+    //
+    //     let v = actor.get_actor_location();
+    //     log::warn!("{} {} {}", v.x, v.y, v.z);
+    // }
+
     // for (_entity, actor) in query.iter() {
     //     let mut stack_alloc = StackAlloc::<24>::new();
     //     let actor_ptr = unsafe { actor.actor.0 };
-    //     let actor = unsafe { actor.actor.0.cast::<AActor>().as_ref().unwrap() };
+    //     let actor = unsafe { actor.actor.0.cast::<AActor>().as_mut().unwrap() };
+    //     // let actor_class = unsafe { (bindings().actor_fns.get_class1)(&) };
+    //     let mut class_name = StrRustAlloc::empty();
+    //     unsafe { (bindings().core_fns.get_class_name)(actor_class, &mut class_name) };
+    //     // log::warn!("{}", class_name.into_string());
+    //     // let actor = unsafe { actor.actor.0.cast::<AActor>().as_ref().unwrap() };
     //
     //     // log::warn!("{} {} {}", actor.pivot_offset.x, actor.pivot_offset.y, actor.pivot_offset.z);
-    //     log::warn!("{} {}", actor.net_update_frequency, actor.net_priority);
+    //     // log::warn!("{} {}", actor.net_update_frequency, actor.net_priority);
     //     // let aactor_ptr = unsafe { actor.actor.0.cast::<Actor>().as_ref().unwrap() };
     //     // log::info!(
     //     //     "{} and {} {}",
@@ -386,38 +386,37 @@ fn update(query: Query<(Entity, &ActorComponent)>) {
     //     //     std::mem::offset_of!(Actor, net_update_frequency2),
     //     //     aactor_ptr.net_update_frequency.read()
     //     // );
-    //     // let actor_class = unsafe { (bindings().actor_fns.get_class)(actor_ptr) };
-    //     // let fn_name = Utf8Str::from("K2_GetActorLocation");
-    //     //
-    //     // let mut fn_ptr: *mut UFunctionOpague = std::ptr::null_mut();
-    //     //
+    //     let fn_name = Utf8Str::from("K2_GetActorLocation");
+    //
+    //     let mut fn_ptr: *mut UFunctionOpague = std::ptr::null_mut();
+    //
     //     // #[repr(C)]
     //     // struct Params
     //     // {
     //     //     out: FVector
     //     // }
     //
-    //     // unsafe {
-    //     //     let mut params = Params{
-    //     //         out: FVector {x: 0.0, y: 0.0, z: 0.0}
-    //     //     };
-    //     //
-    //     //     (bindings().core_fns.begin_trace)(c"MyGetActorLocation".as_ptr());
-    //     //     (bindings().core_fns.find_function_by_name)(actor_class, fn_name, &raw mut fn_ptr);
-    //     //     // (bindings().core_fns.initialize_values_in_param_buffer)(
-    //     //     //     fn_ptr,
-    //     //     //     stack_alloc.buffer_mut(),
-    //     //     // );
-    //     //     (bindings().core_fns.process_event)(actor_ptr, fn_ptr, &mut params as *mut _ as *mut c_void);
-    //     //     // (bindings().core_fns.process_event)(actor_ptr, fn_ptr, stack_alloc.buffer_mut());
-    //     //     // let data = *stack_alloc.buffer_mut().cast::<FVector>();
-    //     //     // (bindings().core_fns.destroy_values_in_param_buffer)(fn_ptr, stack_alloc.buffer_mut());
-    //     //     //
-    //     //     //
-    //     //     log::warn!("{:?}", params.out);
-    //     //
-    //     //     (bindings().core_fns.end_trace)();
-    //     // }
+    //     unsafe {
+    //         //     let mut params = Params{
+    //         //         out: FVector {x: 0.0, y: 0.0, z: 0.0}
+    //         //     };
+    //         //
+    //         (bindings().core_fns.begin_trace)(c"MyGetActorLocation".as_ptr());
+    //         (bindings().core_fns.find_function_by_name)(actor_class, fn_name, &raw mut fn_ptr);
+    //         // (bindings().core_fns.initialize_values_in_param_buffer)(
+    //         //     fn_ptr,
+    //         //     stack_alloc.buffer_mut(),
+    //         // );
+    //         // (bindings().core_fns.process_event)(actor_ptr, fn_ptr, &mut params as *mut _ as *mut c_void);
+    //         (bindings().core_fns.process_event)(actor_ptr, fn_ptr, stack_alloc.buffer_mut());
+    //         let data = stack_alloc.buffer_mut().cast::<FVector>().read();
+    //         (bindings().core_fns.destroy_values_in_param_buffer)(fn_ptr, stack_alloc.buffer_mut());
+    //         //
+    //         //
+    //         // log::warn!("{:?}", params.out);
+    //
+    //         (bindings().core_fns.end_trace)();
+    //     }
     // }
 }
 
@@ -471,7 +470,8 @@ impl UserModule for MyModule {
                 SystemSet::new()
                     .with_system(register_class_resource)
                     .with_system(register_player_input)
-                    .with_system(register_hit_events),
+                    .with_system(register_hit_events)
+                    .with_system(begin),
             )
             .add_system_set_to_stage(
                 CoreStage::Update,

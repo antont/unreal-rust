@@ -2,8 +2,52 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(clippy::non_camel_case_types)]
+#![allow(clippy::new_without_default)]
+#![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
+#[doc(hidden)]
+pub static mut UGLTF_EXPORTER_EXPORT_TO_GLTF: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut UGLTF_EXPORT_OPTIONS_RESET_TO_DEFAULT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut UGLTF_PROXY_OPTIONS_RESET_TO_DEFAULT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub fn initialize() {
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UGLTFExporter::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ExportToGLTF"),
+            &raw mut UGLTF_EXPORTER_EXPORT_TO_GLTF,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UGLTFExportOptions::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ResetToDefault"),
+            &raw mut UGLTF_EXPORT_OPTIONS_RESET_TO_DEFAULT,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UGLTFProxyOptions::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ResetToDefault"),
+            &raw mut UGLTF_PROXY_OPTIONS_RESET_TO_DEFAULT,
+        );
+    }
+}
 #[repr(C, align(8))]
 pub struct FGLTFExportMessages {
     pub suggestions: TArray<FString>,
@@ -33,42 +77,170 @@ impl FGLTFOverrideMaterialBakeSettings {}
 pub struct UGLTFExporter {
     __padding_end: [u8; 128],
 }
-impl UGLTFExporter {}
+impl UGLTFExporter {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGLTFExporter")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UGLTFAnimSequenceExporter {
     __padding_end: [u8; 128],
 }
-impl UGLTFAnimSequenceExporter {}
+impl UGLTFAnimSequenceExporter {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGLTFAnimSequenceExporter")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UGLTFLevelExporter {
     __padding_end: [u8; 128],
 }
-impl UGLTFLevelExporter {}
+impl UGLTFLevelExporter {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGLTFLevelExporter")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UGLTFLevelSequenceExporter {
     __padding_end: [u8; 128],
 }
-impl UGLTFLevelSequenceExporter {}
+impl UGLTFLevelSequenceExporter {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGLTFLevelSequenceExporter")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UGLTFLevelVariantSetsExporter {
     __padding_end: [u8; 128],
 }
-impl UGLTFLevelVariantSetsExporter {}
+impl UGLTFLevelVariantSetsExporter {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGLTFLevelVariantSetsExporter")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UGLTFMaterialExporter {
     __padding_end: [u8; 128],
 }
-impl UGLTFMaterialExporter {}
+impl UGLTFMaterialExporter {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGLTFMaterialExporter")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UGLTFSkeletalMeshExporter {
     __padding_end: [u8; 128],
 }
-impl UGLTFSkeletalMeshExporter {}
+impl UGLTFSkeletalMeshExporter {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGLTFSkeletalMeshExporter")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UGLTFStaticMeshExporter {
     __padding_end: [u8; 128],
 }
-impl UGLTFStaticMeshExporter {}
+impl UGLTFStaticMeshExporter {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGLTFStaticMeshExporter")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UGLTFExportOptions {
     #[doc(hidden)]
@@ -113,7 +285,23 @@ pub struct UGLTFExportOptions {
     pub export_material_variants: EGLTFMaterialVariantMode,
     __padding_end: [u8; 5],
 }
-impl UGLTFExportOptions {}
+impl UGLTFExportOptions {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGLTFExportOptions")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UGLTFProxyOptions {
     #[doc(hidden)]
@@ -128,7 +316,23 @@ pub struct UGLTFProxyOptions {
         FGLTFOverrideMaterialBakeSettings,
     >,
 }
-impl UGLTFProxyOptions {}
+impl UGLTFProxyOptions {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGLTFProxyOptions")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UGLTFMaterialExportOptions {
     #[doc(hidden)]
@@ -137,7 +341,23 @@ pub struct UGLTFMaterialExportOptions {
     pub default: FGLTFOverrideMaterialBakeSettings,
     pub inputs: TMap<EGLTFMaterialPropertyGroup, FGLTFOverrideMaterialBakeSettings>,
 }
-impl UGLTFMaterialExportOptions {}
+impl UGLTFMaterialExportOptions {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGLTFMaterialExportOptions")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(transparent)]
 pub struct EGLTFMaterialBakeMode(pub u8);
 impl EGLTFMaterialBakeMode {

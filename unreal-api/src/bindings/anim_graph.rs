@@ -2,445 +2,1971 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(clippy::non_camel_case_types)]
+#![allow(clippy::new_without_default)]
+#![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
+#[doc(hidden)]
+pub static mut U_ANIMATION_GRAPH_GET_GRAPH_NODES_OF_CLASS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_ANIM_GRAPH_NODE_CUSTOMIZATION_INTERFACE_GET_TITLE_COLOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_ANIM_GRAPH_NODE_POSE_DRIVER_SET_SOURCE_BONES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_ANIM_GRAPH_NODE_POSE_DRIVER_SET_RBF_PARAMETERS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_ANIM_GRAPH_NODE_POSE_DRIVER_SET_POSE_DRIVER_SOURCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_ANIM_GRAPH_NODE_POSE_DRIVER_SET_POSE_DRIVER_OUTPUT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_ANIM_GRAPH_NODE_POSE_DRIVER_SET_DRIVING_BONES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_ANIM_GRAPH_NODE_POSE_DRIVER_GET_SOURCE_BONE_NAMES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_ANIM_GRAPH_NODE_POSE_DRIVER_GET_RBF_PARAMETERS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_ANIM_GRAPH_NODE_POSE_DRIVER_GET_POSE_DRIVER_SOURCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_ANIM_GRAPH_NODE_POSE_DRIVER_GET_POSE_DRIVER_OUTPUT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_ANIM_GRAPH_NODE_POSE_DRIVER_GET_DRIVING_BONE_NAMES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_ANIM_GRAPH_NODE_POSE_DRIVER_COPY_TARGETS_FROM_POSE_ASSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub fn initialize() {
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UAnimationGraph::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetGraphNodesOfClass"),
+            &raw mut U_ANIMATION_GRAPH_GET_GRAPH_NODES_OF_CLASS,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UAnimGraphNodeCustomizationInterface::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetTitleColor"),
+            &raw mut U_ANIM_GRAPH_NODE_CUSTOMIZATION_INTERFACE_GET_TITLE_COLOR,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UAnimGraphNode_PoseDriver::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetSourceBones"),
+            &raw mut U_ANIM_GRAPH_NODE_POSE_DRIVER_SET_SOURCE_BONES,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetRBFParameters"),
+            &raw mut U_ANIM_GRAPH_NODE_POSE_DRIVER_SET_RBF_PARAMETERS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetPoseDriverSource"),
+            &raw mut U_ANIM_GRAPH_NODE_POSE_DRIVER_SET_POSE_DRIVER_SOURCE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetPoseDriverOutput"),
+            &raw mut U_ANIM_GRAPH_NODE_POSE_DRIVER_SET_POSE_DRIVER_OUTPUT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetDrivingBones"),
+            &raw mut U_ANIM_GRAPH_NODE_POSE_DRIVER_SET_DRIVING_BONES,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetSourceBoneNames"),
+            &raw mut U_ANIM_GRAPH_NODE_POSE_DRIVER_GET_SOURCE_BONE_NAMES,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetRBFParameters"),
+            &raw mut U_ANIM_GRAPH_NODE_POSE_DRIVER_GET_RBF_PARAMETERS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetPoseDriverSource"),
+            &raw mut U_ANIM_GRAPH_NODE_POSE_DRIVER_GET_POSE_DRIVER_SOURCE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetPoseDriverOutput"),
+            &raw mut U_ANIM_GRAPH_NODE_POSE_DRIVER_GET_POSE_DRIVER_OUTPUT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetDrivingBoneNames"),
+            &raw mut U_ANIM_GRAPH_NODE_POSE_DRIVER_GET_DRIVING_BONE_NAMES,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("CopyTargetsFromPoseAsset"),
+            &raw mut U_ANIM_GRAPH_NODE_POSE_DRIVER_COPY_TARGETS_FROM_POSE_ASSET,
+        );
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimationGraph {
     __padding_end: [u8; 256],
 }
-impl UAnimationGraph {}
+impl UAnimationGraph {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimationGraph")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimationBlendSpaceSampleGraph {
     __padding_end: [u8; 264],
 }
-impl UAnimationBlendSpaceSampleGraph {}
+impl UAnimationBlendSpaceSampleGraph {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimationBlendSpaceSampleGraph")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimBlueprintExtension {
     __padding_end: [u8; 48],
 }
-impl UAnimBlueprintExtension {}
+impl UAnimBlueprintExtension {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimBlueprintExtension")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimBlueprintExtension_NodeRelevancy {
     __padding_end: [u8; 216],
 }
-impl UAnimBlueprintExtension_NodeRelevancy {}
+impl UAnimBlueprintExtension_NodeRelevancy {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimBlueprintExtension_NodeRelevancy")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimBlueprintExtension_SharedLinkedAnimLayers {
     __padding_end: [u8; 88],
 }
-impl UAnimBlueprintExtension_SharedLinkedAnimLayers {}
+impl UAnimBlueprintExtension_SharedLinkedAnimLayers {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimBlueprintExtension_SharedLinkedAnimLayers")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimGraphNodeBinding {
     __padding_end: [u8; 48],
 }
-impl UAnimGraphNodeBinding {}
+impl UAnimGraphNodeBinding {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimGraphNodeBinding")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 pub struct IAnimGraphNodeCustomizationInterface {}
 #[repr(C, align(8))]
 pub struct UAnimGraphNodeCustomizationInterface {
     __padding_end: [u8; 48],
 }
-impl UAnimGraphNodeCustomizationInterface {}
+impl UAnimGraphNodeCustomizationInterface {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimGraphNodeCustomizationInterface")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 pub struct IClassVariableCreator {}
 #[repr(C, align(8))]
 pub struct UClassVariableCreator {
     __padding_end: [u8; 48],
 }
-impl UClassVariableCreator {}
+impl UClassVariableCreator {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UClassVariableCreator")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimationConduitGraphSchema {
     __padding_end: [u8; 152],
 }
-impl UAnimationConduitGraphSchema {}
+impl UAnimationConduitGraphSchema {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimationConduitGraphSchema")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimationCustomTransitionGraph {
     __padding_end: [u8; 264],
 }
-impl UAnimationCustomTransitionGraph {}
+impl UAnimationCustomTransitionGraph {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimationCustomTransitionGraph")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimationGraphSchema {
     __padding_end: [u8; 256],
 }
-impl UAnimationGraphSchema {}
+impl UAnimationGraphSchema {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimationGraphSchema")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimationCustomTransitionSchema {
     __padding_end: [u8; 256],
 }
-impl UAnimationCustomTransitionSchema {}
+impl UAnimationCustomTransitionSchema {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimationCustomTransitionSchema")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimationStateGraph {
     __padding_end: [u8; 264],
 }
-impl UAnimationStateGraph {}
+impl UAnimationStateGraph {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimationStateGraph")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimationStateGraphSchema {
     __padding_end: [u8; 256],
 }
-impl UAnimationStateGraphSchema {}
+impl UAnimationStateGraphSchema {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimationStateGraphSchema")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimationStateMachineGraph {
     __padding_end: [u8; 208],
 }
-impl UAnimationStateMachineGraph {}
+impl UAnimationStateMachineGraph {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimationStateMachineGraph")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimationStateMachineSchema {
     __padding_end: [u8; 48],
 }
-impl UAnimationStateMachineSchema {}
+impl UAnimationStateMachineSchema {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimationStateMachineSchema")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimationTransitionGraph {
     __padding_end: [u8; 264],
 }
-impl UAnimationTransitionGraph {}
+impl UAnimationTransitionGraph {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimationTransitionGraph")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimationTransitionSchema {
     __padding_end: [u8; 152],
 }
-impl UAnimationTransitionSchema {}
+impl UAnimationTransitionSchema {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimationTransitionSchema")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimBlueprintExtension_Attributes {
     __padding_end: [u8; 48],
 }
-impl UAnimBlueprintExtension_Attributes {}
+impl UAnimBlueprintExtension_Attributes {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimBlueprintExtension_Attributes")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimBlueprintExtension_Base {
     __padding_end: [u8; 384],
 }
-impl UAnimBlueprintExtension_Base {}
+impl UAnimBlueprintExtension_Base {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimBlueprintExtension_Base")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimBlueprintExtension_BlendSpaceGraph {
     __padding_end: [u8; 80],
 }
-impl UAnimBlueprintExtension_BlendSpaceGraph {}
+impl UAnimBlueprintExtension_BlendSpaceGraph {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimBlueprintExtension_BlendSpaceGraph")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimBlueprintExtension_CachedPose {
     __padding_end: [u8; 128],
 }
-impl UAnimBlueprintExtension_CachedPose {}
+impl UAnimBlueprintExtension_CachedPose {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimBlueprintExtension_CachedPose")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimBlueprintExtension_CallFunction {
     __padding_end: [u8; 136],
 }
-impl UAnimBlueprintExtension_CallFunction {}
+impl UAnimBlueprintExtension_CallFunction {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimBlueprintExtension_CallFunction")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimBlueprintExtension_LinkedAnimGraph {
     __padding_end: [u8; 48],
 }
-impl UAnimBlueprintExtension_LinkedAnimGraph {}
+impl UAnimBlueprintExtension_LinkedAnimGraph {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimBlueprintExtension_LinkedAnimGraph")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimBlueprintExtension_LinkedInputPose {
     __padding_end: [u8; 48],
 }
-impl UAnimBlueprintExtension_LinkedInputPose {}
+impl UAnimBlueprintExtension_LinkedInputPose {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimBlueprintExtension_LinkedInputPose")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimBlueprintExtension_PropertyAccess {
     __padding_end: [u8; 312],
 }
-impl UAnimBlueprintExtension_PropertyAccess {}
+impl UAnimBlueprintExtension_PropertyAccess {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimBlueprintExtension_PropertyAccess")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimBlueprintExtension_StateMachine {
     __padding_end: [u8; 96],
 }
-impl UAnimBlueprintExtension_StateMachine {}
+impl UAnimBlueprintExtension_StateMachine {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimBlueprintExtension_StateMachine")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimBlueprintExtension_Tag {
     __padding_end: [u8; 240],
 }
-impl UAnimBlueprintExtension_Tag {}
+impl UAnimBlueprintExtension_Tag {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimBlueprintExtension_Tag")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimBlueprintPostCompileValidation {
     __padding_end: [u8; 48],
 }
-impl UAnimBlueprintPostCompileValidation {}
+impl UAnimBlueprintPostCompileValidation {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimBlueprintPostCompileValidation")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimGraphAttributes {
     __padding_end: [u8; 144],
 }
-impl UAnimGraphAttributes {}
+impl UAnimGraphAttributes {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimGraphAttributes")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimGraphNodeBinding_Base {
     __padding_end: [u8; 128],
 }
-impl UAnimGraphNodeBinding_Base {}
+impl UAnimGraphNodeBinding_Base {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimGraphNodeBinding_Base")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimGraphNode_Base {
     __padding_end: [u8; 680],
 }
-impl UAnimGraphNode_Base {}
+impl UAnimGraphNode_Base {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimGraphNode_Base")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimGraphNode_AssetPlayerBase {
     __padding_end: [u8; 720],
 }
-impl UAnimGraphNode_AssetPlayerBase {}
+impl UAnimGraphNode_AssetPlayerBase {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimGraphNode_AssetPlayerBase")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimGraphNode_BlendSpaceBase {
     __padding_end: [u8; 720],
 }
-impl UAnimGraphNode_BlendSpaceBase {}
+impl UAnimGraphNode_BlendSpaceBase {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimGraphNode_BlendSpaceBase")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(16))]
 pub struct UAnimGraphNode_AimOffsetLookAt {
     __padding_end: [u8; 1488],
 }
-impl UAnimGraphNode_AimOffsetLookAt {}
+impl UAnimGraphNode_AimOffsetLookAt {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimGraphNode_AimOffsetLookAt")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimGraphNode_SkeletalControlBase {
     __padding_end: [u8; 680],
 }
-impl UAnimGraphNode_SkeletalControlBase {}
+impl UAnimGraphNode_SkeletalControlBase {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimGraphNode_SkeletalControlBase")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(16))]
 pub struct UAnimGraphNode_AnimDynamics {
     __padding_end: [u8; 2720],
 }
-impl UAnimGraphNode_AnimDynamics {}
+impl UAnimGraphNode_AnimDynamics {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimGraphNode_AnimDynamics")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimGraphNode_ApplyAdditive {
     __padding_end: [u8; 1024],
 }
-impl UAnimGraphNode_ApplyAdditive {}
+impl UAnimGraphNode_ApplyAdditive {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimGraphNode_ApplyAdditive")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimGraphNode_ApplyLimits {
     __padding_end: [u8; 1136],
 }
-impl UAnimGraphNode_ApplyLimits {}
+impl UAnimGraphNode_ApplyLimits {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimGraphNode_ApplyLimits")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimGraphNode_ApplyMeshSpaceAdditive {
     __padding_end: [u8; 1032],
 }
-impl UAnimGraphNode_ApplyMeshSpaceAdditive {}
+impl UAnimGraphNode_ApplyMeshSpaceAdditive {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimGraphNode_ApplyMeshSpaceAdditive")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimGraphNode_BlendBoneByChannel {
     __padding_end: [u8; 920],
 }
-impl UAnimGraphNode_BlendBoneByChannel {}
+impl UAnimGraphNode_BlendBoneByChannel {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimGraphNode_BlendBoneByChannel")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimGraphNode_BlendListBase {
     __padding_end: [u8; 688],
 }
-impl UAnimGraphNode_BlendListBase {}
+impl UAnimGraphNode_BlendListBase {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimGraphNode_BlendListBase")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimGraphNode_BlendListByBool {
     __padding_end: [u8; 944],
 }
-impl UAnimGraphNode_BlendListByBool {}
+impl UAnimGraphNode_BlendListByBool {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimGraphNode_BlendListByBool")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimGraphNode_BlendListByEnum {
     __padding_end: [u8; 1008],
 }
-impl UAnimGraphNode_BlendListByEnum {}
+impl UAnimGraphNode_BlendListByEnum {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimGraphNode_BlendListByEnum")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimGraphNode_BlendListByInt {
     __padding_end: [u8; 936],
 }
-impl UAnimGraphNode_BlendListByInt {}
+impl UAnimGraphNode_BlendListByInt {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimGraphNode_BlendListByInt")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimGraphNode_BlendSpaceEvaluator {
     __padding_end: [u8; 1104],
 }
-impl UAnimGraphNode_BlendSpaceEvaluator {}
+impl UAnimGraphNode_BlendSpaceEvaluator {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimGraphNode_BlendSpaceEvaluator")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimGraphNode_BlendSpaceGraphBase {
     __padding_end: [u8; 736],
 }
-impl UAnimGraphNode_BlendSpaceGraphBase {}
+impl UAnimGraphNode_BlendSpaceGraphBase {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimGraphNode_BlendSpaceGraphBase")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimGraphNode_BlendSpaceGraph {
     __padding_end: [u8; 992],
 }
-impl UAnimGraphNode_BlendSpaceGraph {}
+impl UAnimGraphNode_BlendSpaceGraph {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimGraphNode_BlendSpaceGraph")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimGraphNode_BlendSpacePlayer {
     __padding_end: [u8; 1000],
 }
-impl UAnimGraphNode_BlendSpacePlayer {}
+impl UAnimGraphNode_BlendSpacePlayer {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimGraphNode_BlendSpacePlayer")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimGraphNode_BlendSpaceSampleResult {
     __padding_end: [u8; 880],
 }
-impl UAnimGraphNode_BlendSpaceSampleResult {}
+impl UAnimGraphNode_BlendSpaceSampleResult {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimGraphNode_BlendSpaceSampleResult")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimGraphNode_BoneDrivenController {
     __padding_end: [u8; 1216],
 }
-impl UAnimGraphNode_BoneDrivenController {}
+impl UAnimGraphNode_BoneDrivenController {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimGraphNode_BoneDrivenController")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimGraphNode_CallFunction {
     __padding_end: [u8; 936],
 }
-impl UAnimGraphNode_CallFunction {}
+impl UAnimGraphNode_CallFunction {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimGraphNode_CallFunction")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(16))]
 pub struct UAnimGraphNode_CCDIK {
     __padding_end: [u8; 1504],
 }
-impl UAnimGraphNode_CCDIK {}
+impl UAnimGraphNode_CCDIK {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimGraphNode_CCDIK")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimGraphNode_ComponentToLocalSpace {
     __padding_end: [u8; 840],
 }
-impl UAnimGraphNode_ComponentToLocalSpace {}
+impl UAnimGraphNode_ComponentToLocalSpace {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimGraphNode_ComponentToLocalSpace")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(16))]
 pub struct UAnimGraphNode_Constraint {
     __padding_end: [u8; 1488],
 }
-impl UAnimGraphNode_Constraint {}
+impl UAnimGraphNode_Constraint {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimGraphNode_Constraint")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimGraphNode_CopyBone {
     __padding_end: [u8; 1248],
 }
-impl UAnimGraphNode_CopyBone {}
+impl UAnimGraphNode_CopyBone {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimGraphNode_CopyBone")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimGraphNode_CopyBoneDelta {
     __padding_end: [u8; 1160],
 }
-impl UAnimGraphNode_CopyBoneDelta {}
+impl UAnimGraphNode_CopyBoneDelta {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimGraphNode_CopyBoneDelta")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimGraphNode_CopyPoseFromMesh {
     __padding_end: [u8; 1144],
 }
-impl UAnimGraphNode_CopyPoseFromMesh {}
+impl UAnimGraphNode_CopyPoseFromMesh {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimGraphNode_CopyPoseFromMesh")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimGraphNode_CurveSource {
     __padding_end: [u8; 872],
 }
-impl UAnimGraphNode_CurveSource {}
+impl UAnimGraphNode_CurveSource {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimGraphNode_CurveSource")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimGraphNode_CustomProperty {
     __padding_end: [u8; 736],
 }
-impl UAnimGraphNode_CustomProperty {}
+impl UAnimGraphNode_CustomProperty {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimGraphNode_CustomProperty")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimGraphNode_StateResult {
     __padding_end: [u8; 1272],
 }
-impl UAnimGraphNode_StateResult {}
+impl UAnimGraphNode_StateResult {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimGraphNode_StateResult")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimGraphNode_CustomTransitionResult {
     __padding_end: [u8; 1272],
 }
-impl UAnimGraphNode_CustomTransitionResult {}
+impl UAnimGraphNode_CustomTransitionResult {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimGraphNode_CustomTransitionResult")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(16))]
 pub struct UAnimGraphNode_DeadBlending {
     __padding_end: [u8; 2560],
 }
-impl UAnimGraphNode_DeadBlending {}
+impl UAnimGraphNode_DeadBlending {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimGraphNode_DeadBlending")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(16))]
 pub struct UAnimGraphNode_Fabrik {
     __padding_end: [u8; 1552],
 }
-impl UAnimGraphNode_Fabrik {}
+impl UAnimGraphNode_Fabrik {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimGraphNode_Fabrik")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimGraphNode_HandIKRetargeting {
     __padding_end: [u8; 1232],
 }
-impl UAnimGraphNode_HandIKRetargeting {}
+impl UAnimGraphNode_HandIKRetargeting {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimGraphNode_HandIKRetargeting")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimGraphNode_RefPoseBase {
     __padding_end: [u8; 824],
 }
-impl UAnimGraphNode_RefPoseBase {}
+impl UAnimGraphNode_RefPoseBase {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimGraphNode_RefPoseBase")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimGraphNode_IdentityPose {
     __padding_end: [u8; 824],
 }
-impl UAnimGraphNode_IdentityPose {}
+impl UAnimGraphNode_IdentityPose {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimGraphNode_IdentityPose")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(16))]
 pub struct UAnimGraphNode_Inertialization {
     __padding_end: [u8; 2208],
 }
-impl UAnimGraphNode_Inertialization {}
+impl UAnimGraphNode_Inertialization {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimGraphNode_Inertialization")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimGraphNode_LayeredBoneBlend {
     __padding_end: [u8; 1048],
 }
-impl UAnimGraphNode_LayeredBoneBlend {}
+impl UAnimGraphNode_LayeredBoneBlend {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimGraphNode_LayeredBoneBlend")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimGraphNode_LegIK {
     __padding_end: [u8; 1160],
 }
-impl UAnimGraphNode_LegIK {}
+impl UAnimGraphNode_LegIK {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimGraphNode_LegIK")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimGraphNode_LinkedAnimGraphBase {
     __padding_end: [u8; 824],
 }
-impl UAnimGraphNode_LinkedAnimGraphBase {}
+impl UAnimGraphNode_LinkedAnimGraphBase {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimGraphNode_LinkedAnimGraphBase")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimGraphNode_LinkedAnimGraph {
     __padding_end: [u8; 1160],
 }
-impl UAnimGraphNode_LinkedAnimGraph {}
+impl UAnimGraphNode_LinkedAnimGraph {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimGraphNode_LinkedAnimGraph")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimGraphNode_LinkedAnimLayer {
     __padding_end: [u8; 1232],
 }
-impl UAnimGraphNode_LinkedAnimLayer {}
+impl UAnimGraphNode_LinkedAnimLayer {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimGraphNode_LinkedAnimLayer")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimGraphNode_LinkedInputPose {
     __padding_end: [u8; 1088],
 }
-impl UAnimGraphNode_LinkedInputPose {}
+impl UAnimGraphNode_LinkedInputPose {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimGraphNode_LinkedInputPose")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimGraphNode_LocalRefPose {
     __padding_end: [u8; 824],
 }
-impl UAnimGraphNode_LocalRefPose {}
+impl UAnimGraphNode_LocalRefPose {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimGraphNode_LocalRefPose")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimGraphNode_LocalToComponentSpace {
     __padding_end: [u8; 840],
 }
-impl UAnimGraphNode_LocalToComponentSpace {}
+impl UAnimGraphNode_LocalToComponentSpace {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimGraphNode_LocalToComponentSpace")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(16))]
 pub struct UAnimGraphNode_LookAt {
     __padding_end: [u8; 2048],
 }
-impl UAnimGraphNode_LookAt {}
+impl UAnimGraphNode_LookAt {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimGraphNode_LookAt")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimGraphNode_MakeDynamicAdditive {
     __padding_end: [u8; 872],
 }
-impl UAnimGraphNode_MakeDynamicAdditive {}
+impl UAnimGraphNode_MakeDynamicAdditive {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimGraphNode_MakeDynamicAdditive")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimGraphNode_MeshRefPose {
     __padding_end: [u8; 816],
 }
-impl UAnimGraphNode_MeshRefPose {}
+impl UAnimGraphNode_MeshRefPose {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimGraphNode_MeshRefPose")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimGraphNode_Mirror {
     __padding_end: [u8; 920],
 }
-impl UAnimGraphNode_Mirror {}
+impl UAnimGraphNode_Mirror {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimGraphNode_Mirror")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimGraphNode_ModifyBone {
     __padding_end: [u8; 1304],
 }
-impl UAnimGraphNode_ModifyBone {}
+impl UAnimGraphNode_ModifyBone {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimGraphNode_ModifyBone")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimGraphNode_ModifyCurve {
     __padding_end: [u8; 1096],
 }
-impl UAnimGraphNode_ModifyCurve {}
+impl UAnimGraphNode_ModifyCurve {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimGraphNode_ModifyCurve")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimGraphNode_MultiWayBlend {
     __padding_end: [u8; 888],
 }
-impl UAnimGraphNode_MultiWayBlend {}
+impl UAnimGraphNode_MultiWayBlend {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimGraphNode_MultiWayBlend")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimGraphNode_ObserveBone {
     __padding_end: [u8; 1200],
 }
-impl UAnimGraphNode_ObserveBone {}
+impl UAnimGraphNode_ObserveBone {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimGraphNode_ObserveBone")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimGraphNode_PoseHandler {
     __padding_end: [u8; 720],
 }
-impl UAnimGraphNode_PoseHandler {}
+impl UAnimGraphNode_PoseHandler {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimGraphNode_PoseHandler")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimGraphNode_PoseBlendNode {
     __padding_end: [u8; 1120],
 }
-impl UAnimGraphNode_PoseBlendNode {}
+impl UAnimGraphNode_PoseBlendNode {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimGraphNode_PoseBlendNode")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimGraphNode_PoseByName {
     __padding_end: [u8; 1096],
 }
-impl UAnimGraphNode_PoseByName {}
+impl UAnimGraphNode_PoseByName {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimGraphNode_PoseByName")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimGraphNode_PoseDriver {
     #[doc(hidden)]
@@ -448,159 +1974,655 @@ pub struct UAnimGraphNode_PoseDriver {
     pub node: crate::bindings::anim_graph_runtime::FAnimNode_PoseDriver,
     __padding_end: [u8; 152],
 }
-impl UAnimGraphNode_PoseDriver {}
+impl UAnimGraphNode_PoseDriver {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimGraphNode_PoseDriver")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimGraphNode_PoseSnapshot {
     __padding_end: [u8; 976],
 }
-impl UAnimGraphNode_PoseSnapshot {}
+impl UAnimGraphNode_PoseSnapshot {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimGraphNode_PoseSnapshot")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimGraphNode_RandomPlayer {
     __padding_end: [u8; 928],
 }
-impl UAnimGraphNode_RandomPlayer {}
+impl UAnimGraphNode_RandomPlayer {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimGraphNode_RandomPlayer")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimGraphNode_ResetRoot {
     __padding_end: [u8; 1120],
 }
-impl UAnimGraphNode_ResetRoot {}
+impl UAnimGraphNode_ResetRoot {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimGraphNode_ResetRoot")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(16))]
 pub struct UAnimGraphNode_RigidBody {
     __padding_end: [u8; 3344],
 }
-impl UAnimGraphNode_RigidBody {}
+impl UAnimGraphNode_RigidBody {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimGraphNode_RigidBody")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimGraphNode_Root {
     __padding_end: [u8; 880],
 }
-impl UAnimGraphNode_Root {}
+impl UAnimGraphNode_Root {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimGraphNode_Root")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimGraphNode_RotateRootBone {
     __padding_end: [u8; 984],
 }
-impl UAnimGraphNode_RotateRootBone {}
+impl UAnimGraphNode_RotateRootBone {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimGraphNode_RotateRootBone")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimGraphNode_RotationMultiplier {
     __padding_end: [u8; 1248],
 }
-impl UAnimGraphNode_RotationMultiplier {}
+impl UAnimGraphNode_RotationMultiplier {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimGraphNode_RotationMultiplier")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimGraphNode_RotationOffsetBlendSpace {
     __padding_end: [u8; 1280],
 }
-impl UAnimGraphNode_RotationOffsetBlendSpace {}
+impl UAnimGraphNode_RotationOffsetBlendSpace {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimGraphNode_RotationOffsetBlendSpace")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimGraphNode_RotationOffsetBlendSpaceGraph {
     __padding_end: [u8; 1176],
 }
-impl UAnimGraphNode_RotationOffsetBlendSpaceGraph {}
+impl UAnimGraphNode_RotationOffsetBlendSpaceGraph {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimGraphNode_RotationOffsetBlendSpaceGraph")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimGraphNode_SaveCachedPose {
     __padding_end: [u8; 976],
 }
-impl UAnimGraphNode_SaveCachedPose {}
+impl UAnimGraphNode_SaveCachedPose {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimGraphNode_SaveCachedPose")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimGraphNode_ScaleChainLength {
     __padding_end: [u8; 952],
 }
-impl UAnimGraphNode_ScaleChainLength {}
+impl UAnimGraphNode_ScaleChainLength {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimGraphNode_ScaleChainLength")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimGraphNode_SequenceEvaluator {
     __padding_end: [u8; 960],
 }
-impl UAnimGraphNode_SequenceEvaluator {}
+impl UAnimGraphNode_SequenceEvaluator {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimGraphNode_SequenceEvaluator")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimGraphNode_SequencePlayer {
     __padding_end: [u8; 1048],
 }
-impl UAnimGraphNode_SequencePlayer {}
+impl UAnimGraphNode_SequencePlayer {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimGraphNode_SequencePlayer")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimGraphNode_Slot {
     __padding_end: [u8; 984],
 }
-impl UAnimGraphNode_Slot {}
+impl UAnimGraphNode_Slot {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimGraphNode_Slot")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimGraphNode_SplineIK {
     __padding_end: [u8; 1632],
 }
-impl UAnimGraphNode_SplineIK {}
+impl UAnimGraphNode_SplineIK {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimGraphNode_SplineIK")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimGraphNode_SpringBone {
     __padding_end: [u8; 1392],
 }
-impl UAnimGraphNode_SpringBone {}
+impl UAnimGraphNode_SpringBone {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimGraphNode_SpringBone")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimGraphNode_StateMachineBase {
     __padding_end: [u8; 712],
 }
-impl UAnimGraphNode_StateMachineBase {}
+impl UAnimGraphNode_StateMachineBase {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimGraphNode_StateMachineBase")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimGraphNode_StateMachine {
     __padding_end: [u8; 1072],
 }
-impl UAnimGraphNode_StateMachine {}
+impl UAnimGraphNode_StateMachine {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimGraphNode_StateMachine")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimGraphNode_Sync {
     __padding_end: [u8; 856],
 }
-impl UAnimGraphNode_Sync {}
+impl UAnimGraphNode_Sync {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimGraphNode_Sync")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(16))]
 pub struct UAnimGraphNode_Trail {
     __padding_end: [u8; 1744],
 }
-impl UAnimGraphNode_Trail {}
+impl UAnimGraphNode_Trail {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimGraphNode_Trail")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimGraphNode_TransitionPoseEvaluator {
     #[doc(hidden)]
     __padding_680: [u8; 680],
     pub node: crate::bindings::engine::FAnimNode_TransitionPoseEvaluator,
 }
-impl UAnimGraphNode_TransitionPoseEvaluator {}
+impl UAnimGraphNode_TransitionPoseEvaluator {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimGraphNode_TransitionPoseEvaluator")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimGraphNode_TransitionResult {
     __padding_end: [u8; 848],
 }
-impl UAnimGraphNode_TransitionResult {}
+impl UAnimGraphNode_TransitionResult {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimGraphNode_TransitionResult")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimGraphNode_TwistCorrectiveNode {
     __padding_end: [u8; 1296],
 }
-impl UAnimGraphNode_TwistCorrectiveNode {}
+impl UAnimGraphNode_TwistCorrectiveNode {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimGraphNode_TwistCorrectiveNode")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(16))]
 pub struct UAnimGraphNode_TwoBoneIK {
     __padding_end: [u8; 1840],
 }
-impl UAnimGraphNode_TwoBoneIK {}
+impl UAnimGraphNode_TwoBoneIK {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimGraphNode_TwoBoneIK")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimGraphNode_TwoWayBlend {
     __padding_end: [u8; 1016],
 }
-impl UAnimGraphNode_TwoWayBlend {}
+impl UAnimGraphNode_TwoWayBlend {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimGraphNode_TwoWayBlend")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimGraphNode_UseCachedPose {
     __padding_end: [u8; 880],
 }
-impl UAnimGraphNode_UseCachedPose {}
+impl UAnimGraphNode_UseCachedPose {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimGraphNode_UseCachedPose")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimGraphSettings {
     __padding_end: [u8; 112],
 }
-impl UAnimGraphSettings {}
+impl UAnimGraphSettings {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimGraphSettings")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(16))]
 pub struct UAnimPreviewAttacheInstance {
     __padding_end: [u8; 1136],
 }
-impl UAnimPreviewAttacheInstance {}
+impl UAnimPreviewAttacheInstance {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimPreviewAttacheInstance")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(16))]
 pub struct UAnimPreviewInstance {
     __padding_end: [u8; 1184],
 }
-impl UAnimPreviewInstance {}
+impl UAnimPreviewInstance {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimPreviewInstance")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimStateNodeBase {
     __padding_end: [u8; 192],
 }
-impl UAnimStateNodeBase {}
+impl UAnimStateNodeBase {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimStateNodeBase")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimStateAliasNode {
     #[doc(hidden)]
@@ -608,22 +2630,86 @@ pub struct UAnimStateAliasNode {
     pub b_global_alias: bool,
     __padding_end: [u8; 103],
 }
-impl UAnimStateAliasNode {}
+impl UAnimStateAliasNode {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimStateAliasNode")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimStateConduitNode {
     __padding_end: [u8; 200],
 }
-impl UAnimStateConduitNode {}
+impl UAnimStateConduitNode {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimStateConduitNode")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimStateEntryNode {
     __padding_end: [u8; 192],
 }
-impl UAnimStateEntryNode {}
+impl UAnimStateEntryNode {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimStateEntryNode")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimStateNode {
     __padding_end: [u8; 888],
 }
-impl UAnimStateNode {}
+impl UAnimStateNode {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimStateNode")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimStateTransitionNode {
     #[doc(hidden)]
@@ -631,32 +2717,128 @@ pub struct UAnimStateTransitionNode {
     pub logic_type: crate::bindings::engine::ETransitionLogicType,
     __padding_end: [u8; 791],
 }
-impl UAnimStateTransitionNode {}
+impl UAnimStateTransitionNode {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimStateTransitionNode")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UBlendSpaceGraph {
     __padding_end: [u8; 200],
 }
-impl UBlendSpaceGraph {}
+impl UBlendSpaceGraph {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBlendSpaceGraph")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UK2Node_AnimGetter {
     __padding_end: [u8; 408],
 }
-impl UK2Node_AnimGetter {}
+impl UK2Node_AnimGetter {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UK2Node_AnimGetter")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UK2Node_AnimNodeReference {
     __padding_end: [u8; 208],
 }
-impl UK2Node_AnimNodeReference {}
+impl UK2Node_AnimNodeReference {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UK2Node_AnimNodeReference")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UK2Node_PlayMontage {
     __padding_end: [u8; 240],
 }
-impl UK2Node_PlayMontage {}
+impl UK2Node_PlayMontage {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UK2Node_PlayMontage")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UK2Node_TransitionRuleGetter {
     __padding_end: [u8; 216],
 }
-impl UK2Node_TransitionRuleGetter {}
+impl UK2Node_TransitionRuleGetter {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UK2Node_TransitionRuleGetter")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(transparent)]
 pub struct EAnimGraphAttributesDisplayMode(pub i32);
 impl EAnimGraphAttributesDisplayMode {

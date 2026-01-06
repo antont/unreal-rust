@@ -2,43 +2,182 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(clippy::non_camel_case_types)]
+#![allow(clippy::new_without_default)]
+#![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
+#[doc(hidden)]
+pub static mut U_ANIMATION_COMPRESSION_LIBRARY_DATABASE_SET_VISUAL_FIDELITY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_ANIMATION_COMPRESSION_LIBRARY_DATABASE_GET_VISUAL_FIDELITY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub fn initialize() {
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UAnimationCompressionLibraryDatabase::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetVisualFidelity"),
+            &raw mut U_ANIMATION_COMPRESSION_LIBRARY_DATABASE_SET_VISUAL_FIDELITY,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetVisualFidelity"),
+            &raw mut U_ANIMATION_COMPRESSION_LIBRARY_DATABASE_GET_VISUAL_FIDELITY,
+        );
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimationCompressionLibraryDatabase {
     __padding_end: [u8; 552],
 }
-impl UAnimationCompressionLibraryDatabase {}
+impl UAnimationCompressionLibraryDatabase {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimationCompressionLibraryDatabase")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimBoneCompressionCodec_ACLBase {
     __padding_end: [u8; 80],
 }
-impl UAnimBoneCompressionCodec_ACLBase {}
+impl UAnimBoneCompressionCodec_ACLBase {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimBoneCompressionCodec_ACLBase")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimBoneCompressionCodec_ACL {
     __padding_end: [u8; 272],
 }
-impl UAnimBoneCompressionCodec_ACL {}
+impl UAnimBoneCompressionCodec_ACL {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimBoneCompressionCodec_ACL")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimBoneCompressionCodec_ACLCustom {
     __padding_end: [u8; 280],
 }
-impl UAnimBoneCompressionCodec_ACLCustom {}
+impl UAnimBoneCompressionCodec_ACLCustom {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimBoneCompressionCodec_ACLCustom")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimBoneCompressionCodec_ACLDatabase {
     __padding_end: [u8; 104],
 }
-impl UAnimBoneCompressionCodec_ACLDatabase {}
+impl UAnimBoneCompressionCodec_ACLDatabase {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimBoneCompressionCodec_ACLDatabase")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimBoneCompressionCodec_ACLSafe {
     __padding_end: [u8; 80],
 }
-impl UAnimBoneCompressionCodec_ACLSafe {}
+impl UAnimBoneCompressionCodec_ACLSafe {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimBoneCompressionCodec_ACLSafe")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimCurveCompressionCodec_ACL {
     __padding_end: [u8; 64],
 }
-impl UAnimCurveCompressionCodec_ACL {}
+impl UAnimCurveCompressionCodec_ACL {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimCurveCompressionCodec_ACL")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(transparent)]
 pub struct ACLVisualFidelity(pub u8);
 impl ACLVisualFidelity {

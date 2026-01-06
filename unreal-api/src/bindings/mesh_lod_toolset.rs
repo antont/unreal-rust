@@ -2,99 +2,506 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(clippy::non_camel_case_types)]
+#![allow(clippy::new_without_default)]
+#![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
+#[doc(hidden)]
+pub static mut U_GENERATE_STATIC_MESH_LOD_ASSET_TOOL_PRESET_PROPERTIES_WRITE_TO_PRESET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GENERATE_STATIC_MESH_LOD_ASSET_TOOL_PRESET_PROPERTIES_READ_FROM_PRESET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GENERATE_STATIC_MESH_LOD_ASSET_TOOL_PROPERTIES_GET_GROUP_LAYERS_FUNC: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut ULOD_MANAGER_PREVIEW_LOD_PROPERTIES_GET_LOD_NAMES_FUNC: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut ULOD_MANAGER_HI_RES_SOURCE_MODEL_ACTIONS_MOVE_TO_LOD0: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut ULOD_MANAGER_HI_RES_SOURCE_MODEL_ACTIONS_DELETE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut ULOD_MANAGER_MATERIAL_ACTIONS_CLEAN_MATERIALS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut ULOD_MANAGER_TOOL_REMOVE_UNREFERENCED_MATERIALS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut ULOD_MANAGER_TOOL_MOVE_HI_RES_TO_LOD0: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut ULOD_MANAGER_TOOL_DELETE_HI_RES_SOURCE_MODEL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub fn initialize() {
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UGenerateStaticMeshLODAssetToolPresetProperties::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("WriteToPreset"),
+            &raw mut U_GENERATE_STATIC_MESH_LOD_ASSET_TOOL_PRESET_PROPERTIES_WRITE_TO_PRESET,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ReadFromPreset"),
+            &raw mut U_GENERATE_STATIC_MESH_LOD_ASSET_TOOL_PRESET_PROPERTIES_READ_FROM_PRESET,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UGenerateStaticMeshLODAssetToolProperties::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetGroupLayersFunc"),
+            &raw mut U_GENERATE_STATIC_MESH_LOD_ASSET_TOOL_PROPERTIES_GET_GROUP_LAYERS_FUNC,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = ULODManagerPreviewLODProperties::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetLODNamesFunc"),
+            &raw mut ULOD_MANAGER_PREVIEW_LOD_PROPERTIES_GET_LOD_NAMES_FUNC,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = ULODManagerHiResSourceModelActions::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("MoveToLOD0"),
+            &raw mut ULOD_MANAGER_HI_RES_SOURCE_MODEL_ACTIONS_MOVE_TO_LOD0,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("Delete"),
+            &raw mut ULOD_MANAGER_HI_RES_SOURCE_MODEL_ACTIONS_DELETE,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = ULODManagerMaterialActions::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("CleanMaterials"),
+            &raw mut ULOD_MANAGER_MATERIAL_ACTIONS_CLEAN_MATERIALS,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = ULODManagerTool::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("RemoveUnreferencedMaterials"),
+            &raw mut ULOD_MANAGER_TOOL_REMOVE_UNREFERENCED_MATERIALS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("MoveHiResToLOD0"),
+            &raw mut ULOD_MANAGER_TOOL_MOVE_HI_RES_TO_LOD0,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("DeleteHiResSourceModel"),
+            &raw mut ULOD_MANAGER_TOOL_DELETE_HI_RES_SOURCE_MODEL,
+        );
+    }
+}
 #[repr(C, align(8))]
 pub struct UAssetDefinition_StaticMeshLODGenerationSettings {
     __padding_end: [u8; 72],
 }
-impl UAssetDefinition_StaticMeshLODGenerationSettings {}
+impl UAssetDefinition_StaticMeshLODGenerationSettings {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAssetDefinition_StaticMeshLODGenerationSettings")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UGenerateStaticMeshLODProcess {
     __padding_end: [u8; 2096],
 }
-impl UGenerateStaticMeshLODProcess {}
+impl UGenerateStaticMeshLODProcess {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGenerateStaticMeshLODProcess")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UGenerateStaticMeshLODAssetToolBuilder {
     __padding_end: [u8; 56],
 }
-impl UGenerateStaticMeshLODAssetToolBuilder {}
+impl UGenerateStaticMeshLODAssetToolBuilder {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGenerateStaticMeshLODAssetToolBuilder")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UGenerateStaticMeshLODAssetToolOutputProperties {
     __padding_end: [u8; 240],
 }
-impl UGenerateStaticMeshLODAssetToolOutputProperties {}
+impl UGenerateStaticMeshLODAssetToolOutputProperties {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGenerateStaticMeshLODAssetToolOutputProperties")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UGenerateStaticMeshLODAssetToolPresetProperties {
     __padding_end: [u8; 200],
 }
-impl UGenerateStaticMeshLODAssetToolPresetProperties {}
+impl UGenerateStaticMeshLODAssetToolPresetProperties {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGenerateStaticMeshLODAssetToolPresetProperties")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UGenerateStaticMeshLODAssetToolProperties {
     __padding_end: [u8; 376],
 }
-impl UGenerateStaticMeshLODAssetToolProperties {}
+impl UGenerateStaticMeshLODAssetToolProperties {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGenerateStaticMeshLODAssetToolProperties")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UGenerateStaticMeshLODAssetToolTextureProperties {
     __padding_end: [u8; 232],
 }
-impl UGenerateStaticMeshLODAssetToolTextureProperties {}
+impl UGenerateStaticMeshLODAssetToolTextureProperties {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGenerateStaticMeshLODAssetToolTextureProperties")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UGenerateStaticMeshLODAssetTool {
     __padding_end: [u8; 352],
 }
-impl UGenerateStaticMeshLODAssetTool {}
+impl UGenerateStaticMeshLODAssetTool {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGenerateStaticMeshLODAssetTool")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UStaticMeshLODGenerationSettings {
     __padding_end: [u8; 216],
 }
-impl UStaticMeshLODGenerationSettings {}
+impl UStaticMeshLODGenerationSettings {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UStaticMeshLODGenerationSettings")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UStaticMeshLODGenerationSettingsFactory {
     __padding_end: [u8; 136],
 }
-impl UStaticMeshLODGenerationSettingsFactory {}
+impl UStaticMeshLODGenerationSettingsFactory {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UStaticMeshLODGenerationSettingsFactory")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct ULODManagerToolBuilder {
     __padding_end: [u8; 48],
 }
-impl ULODManagerToolBuilder {}
+impl ULODManagerToolBuilder {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULODManagerToolBuilder")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct ULODManagerLODProperties {
     __padding_end: [u8; 256],
 }
-impl ULODManagerLODProperties {}
+impl ULODManagerLODProperties {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULODManagerLODProperties")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct ULODManagerPreviewLODProperties {
     __padding_end: [u8; 224],
 }
-impl ULODManagerPreviewLODProperties {}
+impl ULODManagerPreviewLODProperties {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULODManagerPreviewLODProperties")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct ULODManagerActionPropertySet {
     __padding_end: [u8; 192],
 }
-impl ULODManagerActionPropertySet {}
+impl ULODManagerActionPropertySet {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULODManagerActionPropertySet")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct ULODManagerHiResSourceModelActions {
     __padding_end: [u8; 192],
 }
-impl ULODManagerHiResSourceModelActions {}
+impl ULODManagerHiResSourceModelActions {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULODManagerHiResSourceModelActions")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct ULODManagerMaterialActions {
     __padding_end: [u8; 192],
 }
-impl ULODManagerMaterialActions {}
+impl ULODManagerMaterialActions {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULODManagerMaterialActions")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 pub struct ILODManagerToolChangeTarget {}
 #[repr(C, align(8))]
 pub struct ULODManagerToolChangeTarget {
     __padding_end: [u8; 48],
 }
-impl ULODManagerToolChangeTarget {}
+impl ULODManagerToolChangeTarget {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULODManagerToolChangeTarget")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct ULODManagerTool {
     __padding_end: [u8; 408],
 }
-impl ULODManagerTool {}
+impl ULODManagerTool {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULODManagerTool")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(transparent)]
 pub struct EGenerateStaticMeshLODProcess_MeshGeneratorModes(pub u8);
 impl EGenerateStaticMeshLODProcess_MeshGeneratorModes {

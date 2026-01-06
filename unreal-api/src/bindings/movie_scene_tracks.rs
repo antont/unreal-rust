@@ -2,8 +2,645 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(clippy::non_camel_case_types)]
+#![allow(clippy::new_without_default)]
+#![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
+#[doc(hidden)]
+pub static mut U_MOVIE_SCENE_TRANSFORM_ORIGIN_BP_GET_TRANSFORM_ORIGIN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MOVIE_SCENE_REPLACEABLE_ACTOR_BINDING_BP_BASE_BP_SUPPORTS_BINDING_CREATION_FROM_OBJECT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MOVIE_SCENE_REPLACEABLE_ACTOR_BINDING_BP_BASE_BP_RESOLVE_RUNTIME_BINDING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MOVIE_SCENE_REPLACEABLE_ACTOR_BINDING_BP_BASE_BP_INIT_REPLACEABLE_BINDING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MOVIE_SCENE3_D_CONSTRAINT_SECTION_SET_CONSTRAINT_BINDING_ID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MOVIE_SCENE3_D_CONSTRAINT_SECTION_GET_CONSTRAINT_BINDING_ID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MOVIE_SCENE_AUDIO_SECTION_SET_SUPPRESS_SUBTITLES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MOVIE_SCENE_AUDIO_SECTION_SET_START_OFFSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MOVIE_SCENE_AUDIO_SECTION_SET_SOUND: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MOVIE_SCENE_AUDIO_SECTION_SET_OVERRIDE_ATTENUATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MOVIE_SCENE_AUDIO_SECTION_SET_LOOPING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MOVIE_SCENE_AUDIO_SECTION_SET_ATTENUATION_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MOVIE_SCENE_AUDIO_SECTION_GET_SUPPRESS_SUBTITLES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MOVIE_SCENE_AUDIO_SECTION_GET_START_OFFSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MOVIE_SCENE_AUDIO_SECTION_GET_SOUND: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MOVIE_SCENE_AUDIO_SECTION_GET_PLAYBACK_SOUND: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MOVIE_SCENE_AUDIO_SECTION_GET_OVERRIDE_ATTENUATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MOVIE_SCENE_AUDIO_SECTION_GET_LOOPING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MOVIE_SCENE_AUDIO_SECTION_GET_ATTENUATION_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MOVIE_SCENE_CAMERA_CUT_SECTION_SET_CAMERA_BINDING_ID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MOVIE_SCENE_CAMERA_CUT_SECTION_GET_CAMERA_BINDING_ID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MOVIE_SCENE_CINEMATIC_SHOT_SECTION_SET_SHOT_DISPLAY_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MOVIE_SCENE_CINEMATIC_SHOT_SECTION_GET_SHOT_DISPLAY_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MOVIE_SCENE_COMPONENT_MATERIAL_PARAMETER_SECTION_REMOVE_SCALAR_PARAMETER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MOVIE_SCENE_COMPONENT_MATERIAL_PARAMETER_SECTION_REMOVE_COLOR_PARAMETER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MOVIE_SCENE_COMPONENT_MATERIAL_PARAMETER_SECTION_ADD_SCALAR_PARAMETER_KEY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MOVIE_SCENE_COMPONENT_MATERIAL_PARAMETER_SECTION_ADD_COLOR_PARAMETER_KEY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MOVIE_SCENE_PARAMETER_SECTION_REMOVE_VECTOR_PARAMETER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MOVIE_SCENE_PARAMETER_SECTION_REMOVE_VECTOR2_D_PARAMETER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MOVIE_SCENE_PARAMETER_SECTION_REMOVE_TRANSFORM_PARAMETER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MOVIE_SCENE_PARAMETER_SECTION_REMOVE_SCALAR_PARAMETER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MOVIE_SCENE_PARAMETER_SECTION_REMOVE_COLOR_PARAMETER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MOVIE_SCENE_PARAMETER_SECTION_REMOVE_BOOL_PARAMETER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MOVIE_SCENE_PARAMETER_SECTION_GET_PARAMETER_NAMES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MOVIE_SCENE_PARAMETER_SECTION_ADD_VECTOR_PARAMETER_KEY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MOVIE_SCENE_PARAMETER_SECTION_ADD_VECTOR2_D_PARAMETER_KEY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MOVIE_SCENE_PARAMETER_SECTION_ADD_TRANSFORM_PARAMETER_KEY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MOVIE_SCENE_PARAMETER_SECTION_ADD_SCALAR_PARAMETER_KEY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MOVIE_SCENE_PARAMETER_SECTION_ADD_COLOR_PARAMETER_KEY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MOVIE_SCENE_PARAMETER_SECTION_ADD_BOOL_PARAMETER_KEY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MOVIE_SCENE_C_VAR_SECTION_SET_FROM_STRING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MOVIE_SCENE_C_VAR_SECTION_GET_STRING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MOVIE_SCENE_DATA_LAYER_SECTION_SET_PREROLL_STATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MOVIE_SCENE_DATA_LAYER_SECTION_SET_FLUSH_ON_UNLOAD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MOVIE_SCENE_DATA_LAYER_SECTION_SET_FLUSH_ON_ACTIVATED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MOVIE_SCENE_DATA_LAYER_SECTION_SET_DESIRED_STATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MOVIE_SCENE_DATA_LAYER_SECTION_SET_DATA_LAYER_ASSETS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MOVIE_SCENE_DATA_LAYER_SECTION_HAS_PRE_ROLL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MOVIE_SCENE_DATA_LAYER_SECTION_GET_PREROLL_STATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MOVIE_SCENE_DATA_LAYER_SECTION_GET_FLUSH_ON_UNLOAD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MOVIE_SCENE_DATA_LAYER_SECTION_GET_FLUSH_ON_ACTIVATED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MOVIE_SCENE_DATA_LAYER_SECTION_GET_DESIRED_STATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MOVIE_SCENE_DATA_LAYER_SECTION_GET_DATA_LAYER_ASSETS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MOVIE_SCENE_LEVEL_VISIBILITY_SECTION_SET_VISIBILITY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MOVIE_SCENE_LEVEL_VISIBILITY_SECTION_SET_LEVEL_NAMES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MOVIE_SCENE_LEVEL_VISIBILITY_SECTION_GET_VISIBILITY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MOVIE_SCENE_LEVEL_VISIBILITY_SECTION_GET_LEVEL_NAMES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MOVIE_SCENE_ASYNC_ACTION_SEQUENCE_PREDICTION_PREDICT_WORLD_TRANSFORM_AT_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MOVIE_SCENE_ASYNC_ACTION_SEQUENCE_PREDICTION_PREDICT_WORLD_TRANSFORM_AT_FRAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MOVIE_SCENE_ASYNC_ACTION_SEQUENCE_PREDICTION_PREDICT_LOCAL_TRANSFORM_AT_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MOVIE_SCENE_ASYNC_ACTION_SEQUENCE_PREDICTION_PREDICT_LOCAL_TRANSFORM_AT_FRAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MOVIE_SCENE_FADE_TRACK_TEST_LIBRARY_GET_MANUAL_FADE_AMOUNT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MOVIE_SCENE_SKELETAL_ANIMATION_TRACK_SET_SWAP_ROOT_BONE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MOVIE_SCENE_SKELETAL_ANIMATION_TRACK_GET_SWAP_ROOT_BONE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub fn initialize() {
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UMovieSceneTransformOrigin::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("BP_GetTransformOrigin"),
+            &raw mut U_MOVIE_SCENE_TRANSFORM_ORIGIN_BP_GET_TRANSFORM_ORIGIN,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UMovieSceneReplaceableActorBinding_BPBase::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("BP_SupportsBindingCreationFromObject"),
+            &raw mut U_MOVIE_SCENE_REPLACEABLE_ACTOR_BINDING_BP_BASE_BP_SUPPORTS_BINDING_CREATION_FROM_OBJECT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("BP_ResolveRuntimeBinding"),
+            &raw mut U_MOVIE_SCENE_REPLACEABLE_ACTOR_BINDING_BP_BASE_BP_RESOLVE_RUNTIME_BINDING,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("BP_InitReplaceableBinding"),
+            &raw mut U_MOVIE_SCENE_REPLACEABLE_ACTOR_BINDING_BP_BASE_BP_INIT_REPLACEABLE_BINDING,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UMovieScene3DConstraintSection::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetConstraintBindingID"),
+            &raw mut U_MOVIE_SCENE3_D_CONSTRAINT_SECTION_SET_CONSTRAINT_BINDING_ID,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetConstraintBindingID"),
+            &raw mut U_MOVIE_SCENE3_D_CONSTRAINT_SECTION_GET_CONSTRAINT_BINDING_ID,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UMovieSceneAudioSection::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetSuppressSubtitles"),
+            &raw mut U_MOVIE_SCENE_AUDIO_SECTION_SET_SUPPRESS_SUBTITLES,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetStartOffset"),
+            &raw mut U_MOVIE_SCENE_AUDIO_SECTION_SET_START_OFFSET,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetSound"),
+            &raw mut U_MOVIE_SCENE_AUDIO_SECTION_SET_SOUND,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetOverrideAttenuation"),
+            &raw mut U_MOVIE_SCENE_AUDIO_SECTION_SET_OVERRIDE_ATTENUATION,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetLooping"),
+            &raw mut U_MOVIE_SCENE_AUDIO_SECTION_SET_LOOPING,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetAttenuationSettings"),
+            &raw mut U_MOVIE_SCENE_AUDIO_SECTION_SET_ATTENUATION_SETTINGS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetSuppressSubtitles"),
+            &raw mut U_MOVIE_SCENE_AUDIO_SECTION_GET_SUPPRESS_SUBTITLES,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetStartOffset"),
+            &raw mut U_MOVIE_SCENE_AUDIO_SECTION_GET_START_OFFSET,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetSound"),
+            &raw mut U_MOVIE_SCENE_AUDIO_SECTION_GET_SOUND,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetPlaybackSound"),
+            &raw mut U_MOVIE_SCENE_AUDIO_SECTION_GET_PLAYBACK_SOUND,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetOverrideAttenuation"),
+            &raw mut U_MOVIE_SCENE_AUDIO_SECTION_GET_OVERRIDE_ATTENUATION,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetLooping"),
+            &raw mut U_MOVIE_SCENE_AUDIO_SECTION_GET_LOOPING,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetAttenuationSettings"),
+            &raw mut U_MOVIE_SCENE_AUDIO_SECTION_GET_ATTENUATION_SETTINGS,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UMovieSceneCameraCutSection::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetCameraBindingID"),
+            &raw mut U_MOVIE_SCENE_CAMERA_CUT_SECTION_SET_CAMERA_BINDING_ID,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetCameraBindingID"),
+            &raw mut U_MOVIE_SCENE_CAMERA_CUT_SECTION_GET_CAMERA_BINDING_ID,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UMovieSceneCinematicShotSection::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetShotDisplayName"),
+            &raw mut U_MOVIE_SCENE_CINEMATIC_SHOT_SECTION_SET_SHOT_DISPLAY_NAME,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetShotDisplayName"),
+            &raw mut U_MOVIE_SCENE_CINEMATIC_SHOT_SECTION_GET_SHOT_DISPLAY_NAME,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UMovieSceneComponentMaterialParameterSection::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("RemoveScalarParameter"),
+            &raw mut U_MOVIE_SCENE_COMPONENT_MATERIAL_PARAMETER_SECTION_REMOVE_SCALAR_PARAMETER,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("RemoveColorParameter"),
+            &raw mut U_MOVIE_SCENE_COMPONENT_MATERIAL_PARAMETER_SECTION_REMOVE_COLOR_PARAMETER,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("AddScalarParameterKey"),
+            &raw mut U_MOVIE_SCENE_COMPONENT_MATERIAL_PARAMETER_SECTION_ADD_SCALAR_PARAMETER_KEY,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("AddColorParameterKey"),
+            &raw mut U_MOVIE_SCENE_COMPONENT_MATERIAL_PARAMETER_SECTION_ADD_COLOR_PARAMETER_KEY,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UMovieSceneParameterSection::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("RemoveVectorParameter"),
+            &raw mut U_MOVIE_SCENE_PARAMETER_SECTION_REMOVE_VECTOR_PARAMETER,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("RemoveVector2DParameter"),
+            &raw mut U_MOVIE_SCENE_PARAMETER_SECTION_REMOVE_VECTOR2_D_PARAMETER,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("RemoveTransformParameter"),
+            &raw mut U_MOVIE_SCENE_PARAMETER_SECTION_REMOVE_TRANSFORM_PARAMETER,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("RemoveScalarParameter"),
+            &raw mut U_MOVIE_SCENE_PARAMETER_SECTION_REMOVE_SCALAR_PARAMETER,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("RemoveColorParameter"),
+            &raw mut U_MOVIE_SCENE_PARAMETER_SECTION_REMOVE_COLOR_PARAMETER,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("RemoveBoolParameter"),
+            &raw mut U_MOVIE_SCENE_PARAMETER_SECTION_REMOVE_BOOL_PARAMETER,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetParameterNames"),
+            &raw mut U_MOVIE_SCENE_PARAMETER_SECTION_GET_PARAMETER_NAMES,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("AddVectorParameterKey"),
+            &raw mut U_MOVIE_SCENE_PARAMETER_SECTION_ADD_VECTOR_PARAMETER_KEY,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("AddVector2DParameterKey"),
+            &raw mut U_MOVIE_SCENE_PARAMETER_SECTION_ADD_VECTOR2_D_PARAMETER_KEY,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("AddTransformParameterKey"),
+            &raw mut U_MOVIE_SCENE_PARAMETER_SECTION_ADD_TRANSFORM_PARAMETER_KEY,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("AddScalarParameterKey"),
+            &raw mut U_MOVIE_SCENE_PARAMETER_SECTION_ADD_SCALAR_PARAMETER_KEY,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("AddColorParameterKey"),
+            &raw mut U_MOVIE_SCENE_PARAMETER_SECTION_ADD_COLOR_PARAMETER_KEY,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("AddBoolParameterKey"),
+            &raw mut U_MOVIE_SCENE_PARAMETER_SECTION_ADD_BOOL_PARAMETER_KEY,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UMovieSceneCVarSection::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetFromString"),
+            &raw mut U_MOVIE_SCENE_C_VAR_SECTION_SET_FROM_STRING,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetString"),
+            &raw mut U_MOVIE_SCENE_C_VAR_SECTION_GET_STRING,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UMovieSceneDataLayerSection::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetPrerollState"),
+            &raw mut U_MOVIE_SCENE_DATA_LAYER_SECTION_SET_PREROLL_STATE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetFlushOnUnload"),
+            &raw mut U_MOVIE_SCENE_DATA_LAYER_SECTION_SET_FLUSH_ON_UNLOAD,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetFlushOnActivated"),
+            &raw mut U_MOVIE_SCENE_DATA_LAYER_SECTION_SET_FLUSH_ON_ACTIVATED,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetDesiredState"),
+            &raw mut U_MOVIE_SCENE_DATA_LAYER_SECTION_SET_DESIRED_STATE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetDataLayerAssets"),
+            &raw mut U_MOVIE_SCENE_DATA_LAYER_SECTION_SET_DATA_LAYER_ASSETS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("HasPreRoll"),
+            &raw mut U_MOVIE_SCENE_DATA_LAYER_SECTION_HAS_PRE_ROLL,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetPrerollState"),
+            &raw mut U_MOVIE_SCENE_DATA_LAYER_SECTION_GET_PREROLL_STATE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetFlushOnUnload"),
+            &raw mut U_MOVIE_SCENE_DATA_LAYER_SECTION_GET_FLUSH_ON_UNLOAD,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetFlushOnActivated"),
+            &raw mut U_MOVIE_SCENE_DATA_LAYER_SECTION_GET_FLUSH_ON_ACTIVATED,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetDesiredState"),
+            &raw mut U_MOVIE_SCENE_DATA_LAYER_SECTION_GET_DESIRED_STATE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetDataLayerAssets"),
+            &raw mut U_MOVIE_SCENE_DATA_LAYER_SECTION_GET_DATA_LAYER_ASSETS,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UMovieSceneLevelVisibilitySection::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetVisibility"),
+            &raw mut U_MOVIE_SCENE_LEVEL_VISIBILITY_SECTION_SET_VISIBILITY,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetLevelNames"),
+            &raw mut U_MOVIE_SCENE_LEVEL_VISIBILITY_SECTION_SET_LEVEL_NAMES,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetVisibility"),
+            &raw mut U_MOVIE_SCENE_LEVEL_VISIBILITY_SECTION_GET_VISIBILITY,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetLevelNames"),
+            &raw mut U_MOVIE_SCENE_LEVEL_VISIBILITY_SECTION_GET_LEVEL_NAMES,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UMovieSceneAsyncAction_SequencePrediction::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("PredictWorldTransformAtTime"),
+            &raw mut U_MOVIE_SCENE_ASYNC_ACTION_SEQUENCE_PREDICTION_PREDICT_WORLD_TRANSFORM_AT_TIME,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("PredictWorldTransformAtFrame"),
+            &raw mut U_MOVIE_SCENE_ASYNC_ACTION_SEQUENCE_PREDICTION_PREDICT_WORLD_TRANSFORM_AT_FRAME,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("PredictLocalTransformAtTime"),
+            &raw mut U_MOVIE_SCENE_ASYNC_ACTION_SEQUENCE_PREDICTION_PREDICT_LOCAL_TRANSFORM_AT_TIME,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("PredictLocalTransformAtFrame"),
+            &raw mut U_MOVIE_SCENE_ASYNC_ACTION_SEQUENCE_PREDICTION_PREDICT_LOCAL_TRANSFORM_AT_FRAME,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UMovieSceneFadeTrackTestLibrary::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetManualFadeAmount"),
+            &raw mut U_MOVIE_SCENE_FADE_TRACK_TEST_LIBRARY_GET_MANUAL_FADE_AMOUNT,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UMovieSceneSkeletalAnimationTrack::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetSwapRootBone"),
+            &raw mut U_MOVIE_SCENE_SKELETAL_ANIMATION_TRACK_SET_SWAP_ROOT_BONE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetSwapRootBone"),
+            &raw mut U_MOVIE_SCENE_SKELETAL_ANIMATION_TRACK_GET_SWAP_ROOT_BONE,
+        );
+    }
+}
 #[repr(C, align(8))]
 pub struct FMovieSceneCameraShakeSourceTrigger {
     pub shake_class: TSubclassOf<crate::bindings::engine::UCameraShakeBase>,
@@ -74,34 +711,130 @@ impl FComponentMaterialInfo {}
 pub struct UMovieScenePropertySystem {
     __padding_end: [u8; 104],
 }
-impl UMovieScenePropertySystem {}
+impl UMovieScenePropertySystem {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieScenePropertySystem")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieScenePropertyTrack {
     __padding_end: [u8; 480],
 }
-impl UMovieScenePropertyTrack {}
+impl UMovieScenePropertyTrack {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieScenePropertyTrack")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneMaterialTrack {
     __padding_end: [u8; 408],
 }
-impl UMovieSceneMaterialTrack {}
+impl UMovieSceneMaterialTrack {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneMaterialTrack")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 pub struct IMovieSceneTransformOrigin {}
 #[repr(C, align(8))]
 pub struct UMovieSceneTransformOrigin {
     __padding_end: [u8; 48],
 }
-impl UMovieSceneTransformOrigin {}
+impl UMovieSceneTransformOrigin {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneTransformOrigin")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 pub struct IMovieSceneConsoleVariableTrackInterface {}
 #[repr(C, align(8))]
 pub struct UMovieSceneConsoleVariableTrackInterface {
     __padding_end: [u8; 48],
 }
-impl UMovieSceneConsoleVariableTrackInterface {}
+impl UMovieSceneConsoleVariableTrackInterface {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneConsoleVariableTrackInterface")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneReplaceableActorBinding {
     __padding_end: [u8; 56],
 }
-impl UMovieSceneReplaceableActorBinding {}
+impl UMovieSceneReplaceableActorBinding {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneReplaceableActorBinding")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneReplaceableActorBinding_BPBase {
     #[doc(hidden)]
@@ -113,7 +846,23 @@ pub struct UMovieSceneReplaceableActorBinding_BPBase {
         crate::bindings::movie_scene::UMovieSceneSpawnableBindingBase,
     >,
 }
-impl UMovieSceneReplaceableActorBinding_BPBase {}
+impl UMovieSceneReplaceableActorBinding_BPBase {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneReplaceableActorBinding_BPBase")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneReplaceableDirectorBlueprintBinding {
     #[doc(hidden)]
@@ -122,7 +871,23 @@ pub struct UMovieSceneReplaceableDirectorBlueprintBinding {
         crate::bindings::movie_scene::UMovieSceneSpawnableBindingBase,
     >,
 }
-impl UMovieSceneReplaceableDirectorBlueprintBinding {}
+impl UMovieSceneReplaceableDirectorBlueprintBinding {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneReplaceableDirectorBlueprintBinding")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneSpawnableActorBindingBase {
     #[doc(hidden)]
@@ -130,57 +895,233 @@ pub struct UMovieSceneSpawnableActorBindingBase {
     pub b_net_addressable_name: bool,
     pub level_name: FName,
 }
-impl UMovieSceneSpawnableActorBindingBase {}
+impl UMovieSceneSpawnableActorBindingBase {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneSpawnableActorBindingBase")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneSpawnableActorBinding {
     __padding_end: [u8; 80],
 }
-impl UMovieSceneSpawnableActorBinding {}
+impl UMovieSceneSpawnableActorBinding {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneSpawnableActorBinding")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneSpawnableDirectorBlueprintBinding {
     __padding_end: [u8; 224],
 }
-impl UMovieSceneSpawnableDirectorBlueprintBinding {}
+impl UMovieSceneSpawnableDirectorBlueprintBinding {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneSpawnableDirectorBlueprintBinding")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneDoublePerlinNoiseChannelContainer {
     __padding_end: [u8; 240],
 }
-impl UMovieSceneDoublePerlinNoiseChannelContainer {}
+impl UMovieSceneDoublePerlinNoiseChannelContainer {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneDoublePerlinNoiseChannelContainer")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneFloatPerlinNoiseChannelContainer {
     __padding_end: [u8; 240],
 }
-impl UMovieSceneFloatPerlinNoiseChannelContainer {}
+impl UMovieSceneFloatPerlinNoiseChannelContainer {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneFloatPerlinNoiseChannelContainer")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneDirectorBlueprintCondition {
     __padding_end: [u8; 296],
 }
-impl UMovieSceneDirectorBlueprintCondition {}
+impl UMovieSceneDirectorBlueprintCondition {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneDirectorBlueprintCondition")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieScenePlatformCondition {
     __padding_end: [u8; 136],
 }
-impl UMovieScenePlatformCondition {}
+impl UMovieScenePlatformCondition {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieScenePlatformCondition")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneScalabilityCondition {
     __padding_end: [u8; 128],
 }
-impl UMovieSceneScalabilityCondition {}
+impl UMovieSceneScalabilityCondition {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneScalabilityCondition")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneInterrogatedPropertyInstantiatorSystem {
     __padding_end: [u8; 536],
 }
-impl UMovieSceneInterrogatedPropertyInstantiatorSystem {}
+impl UMovieSceneInterrogatedPropertyInstantiatorSystem {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneInterrogatedPropertyInstantiatorSystem")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneTracksSettings {
     __padding_end: [u8; 56],
 }
-impl UMovieSceneTracksSettings {}
+impl UMovieSceneTracksSettings {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneTracksSettings")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieScene3DConstraintSection {
     __padding_end: [u8; 408],
 }
-impl UMovieScene3DConstraintSection {}
+impl UMovieScene3DConstraintSection {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieScene3DConstraintSection")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieScene3DAttachSection {
     #[doc(hidden)]
@@ -197,7 +1138,23 @@ pub struct UMovieScene3DAttachSection {
     pub detachment_scale_rule: crate::bindings::engine::EDetachmentRule,
     __padding_end: [u8; 2],
 }
-impl UMovieScene3DAttachSection {}
+impl UMovieScene3DAttachSection {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieScene3DAttachSection")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieScene3DPathSection {
     #[doc(hidden)]
@@ -209,22 +1166,86 @@ pub struct UMovieScene3DPathSection {
     pub flags_716: u8,
     __padding_end: [u8; 3],
 }
-impl UMovieScene3DPathSection {}
+impl UMovieScene3DPathSection {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieScene3DPathSection")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieScene3DTransformSectionConstraints {
     __padding_end: [u8; 64],
 }
-impl UMovieScene3DTransformSectionConstraints {}
+impl UMovieScene3DTransformSectionConstraints {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieScene3DTransformSectionConstraints")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieScene3DTransformSection {
     __padding_end: [u8; 3576],
 }
-impl UMovieScene3DTransformSection {}
+impl UMovieScene3DTransformSection {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieScene3DTransformSection")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneActorReferenceSection {
     __padding_end: [u8; 832],
 }
-impl UMovieSceneActorReferenceSection {}
+impl UMovieSceneActorReferenceSection {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneActorReferenceSection")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneAudioSection {
     #[doc(hidden)]
@@ -232,154 +1253,634 @@ pub struct UMovieSceneAudioSection {
     pub sound: UPtr<crate::bindings::engine::USoundBase>,
     __padding_end: [u8; 1456],
 }
-impl UMovieSceneAudioSection {}
+impl UMovieSceneAudioSection {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneAudioSection")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneBaseCacheSection {
     __padding_end: [u8; 376],
 }
-impl UMovieSceneBaseCacheSection {}
+impl UMovieSceneBaseCacheSection {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneBaseCacheSection")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneByteSection {
     __padding_end: [u8; 664],
 }
-impl UMovieSceneByteSection {}
+impl UMovieSceneByteSection {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneByteSection")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(16))]
 pub struct UMovieSceneCameraCutSection {
     __padding_end: [u8; 528],
 }
-impl UMovieSceneCameraCutSection {}
+impl UMovieSceneCameraCutSection {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneCameraCutSection")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneCameraShakeSection {
     __padding_end: [u8; 448],
 }
-impl UMovieSceneCameraShakeSection {}
+impl UMovieSceneCameraShakeSection {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneCameraShakeSection")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneCameraShakeSourceShakeSection {
     __padding_end: [u8; 408],
 }
-impl UMovieSceneCameraShakeSourceShakeSection {}
+impl UMovieSceneCameraShakeSourceShakeSection {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneCameraShakeSourceShakeSection")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneCameraShakeSourceTriggerSection {
     __padding_end: [u8; 640],
 }
-impl UMovieSceneCameraShakeSourceTriggerSection {}
+impl UMovieSceneCameraShakeSourceTriggerSection {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneCameraShakeSourceTriggerSection")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneCinematicShotSection {
     __padding_end: [u8; 2464],
 }
-impl UMovieSceneCinematicShotSection {}
+impl UMovieSceneCinematicShotSection {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneCinematicShotSection")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneColorSection {
     __padding_end: [u8; 1584],
 }
-impl UMovieSceneColorSection {}
+impl UMovieSceneColorSection {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneColorSection")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneComponentMaterialParameterSection {
     __padding_end: [u8; 400],
 }
-impl UMovieSceneComponentMaterialParameterSection {}
+impl UMovieSceneComponentMaterialParameterSection {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneComponentMaterialParameterSection")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 pub struct IMovieSceneConstrainedSection {}
 #[repr(C, align(8))]
 pub struct UMovieSceneConstrainedSection {
     __padding_end: [u8; 48],
 }
-impl UMovieSceneConstrainedSection {}
+impl UMovieSceneConstrainedSection {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneConstrainedSection")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneParameterSection {
     __padding_end: [u8; 464],
 }
-impl UMovieSceneParameterSection {}
+impl UMovieSceneParameterSection {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneParameterSection")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneCustomPrimitiveDataSection {
     __padding_end: [u8; 472],
 }
-impl UMovieSceneCustomPrimitiveDataSection {}
+impl UMovieSceneCustomPrimitiveDataSection {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneCustomPrimitiveDataSection")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneCVarSection {
     __padding_end: [u8; 464],
 }
-impl UMovieSceneCVarSection {}
+impl UMovieSceneCVarSection {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneCVarSection")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneDataLayerSection {
     __padding_end: [u8; 392],
 }
-impl UMovieSceneDataLayerSection {}
+impl UMovieSceneDataLayerSection {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneDataLayerSection")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneDoubleSection {
     __padding_end: [u8; 680],
 }
-impl UMovieSceneDoubleSection {}
+impl UMovieSceneDoubleSection {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneDoubleSection")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneEnumSection {
     __padding_end: [u8; 664],
 }
-impl UMovieSceneEnumSection {}
+impl UMovieSceneEnumSection {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneEnumSection")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneEventSectionBase {
     __padding_end: [u8; 368],
 }
-impl UMovieSceneEventSectionBase {}
+impl UMovieSceneEventSectionBase {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneEventSectionBase")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneEventRepeaterSection {
     __padding_end: [u8; 584],
 }
-impl UMovieSceneEventRepeaterSection {}
+impl UMovieSceneEventRepeaterSection {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneEventRepeaterSection")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneEventSection {
     __padding_end: [u8; 768],
 }
-impl UMovieSceneEventSection {}
+impl UMovieSceneEventSection {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneEventSection")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneEventTriggerSection {
     __padding_end: [u8; 648],
 }
-impl UMovieSceneEventTriggerSection {}
+impl UMovieSceneEventTriggerSection {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneEventTriggerSection")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneFadeSection {
     __padding_end: [u8; 696],
 }
-impl UMovieSceneFadeSection {}
+impl UMovieSceneFadeSection {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneFadeSection")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneFloatSection {
     __padding_end: [u8; 688],
 }
-impl UMovieSceneFloatSection {}
+impl UMovieSceneFloatSection {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneFloatSection")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneIntegerSection {
     __padding_end: [u8; 656],
 }
-impl UMovieSceneIntegerSection {}
+impl UMovieSceneIntegerSection {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneIntegerSection")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneLevelVisibilitySection {
     __padding_end: [u8; 392],
 }
-impl UMovieSceneLevelVisibilitySection {}
+impl UMovieSceneLevelVisibilitySection {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneLevelVisibilitySection")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneObjectPropertySection {
     __padding_end: [u8; 704],
 }
-impl UMovieSceneObjectPropertySection {}
+impl UMovieSceneObjectPropertySection {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneObjectPropertySection")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 pub struct IMovieSceneParameterSectionExtender {}
 #[repr(C, align(8))]
 pub struct UMovieSceneParameterSectionExtender {
     __padding_end: [u8; 48],
 }
-impl UMovieSceneParameterSectionExtender {}
+impl UMovieSceneParameterSectionExtender {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneParameterSectionExtender")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneParticleSection {
     __padding_end: [u8; 656],
 }
-impl UMovieSceneParticleSection {}
+impl UMovieSceneParticleSection {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneParticleSection")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieScenePrimitiveMaterialSection {
     __padding_end: [u8; 704],
 }
-impl UMovieScenePrimitiveMaterialSection {}
+impl UMovieScenePrimitiveMaterialSection {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieScenePrimitiveMaterialSection")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneRotatorSection {
     __padding_end: [u8; 1304],
 }
-impl UMovieSceneRotatorSection {}
+impl UMovieSceneRotatorSection {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneRotatorSection")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(16))]
 pub struct UMovieSceneSkeletalAnimationSection {
     #[doc(hidden)]
@@ -396,578 +1897,2418 @@ pub struct UMovieSceneSkeletalAnimationSection {
     pub flags_920: u8,
     __padding_end: [u8; 151],
 }
-impl UMovieSceneSkeletalAnimationSection {}
+impl UMovieSceneSkeletalAnimationSection {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneSkeletalAnimationSection")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneSlomoSection {
     __padding_end: [u8; 672],
 }
-impl UMovieSceneSlomoSection {}
+impl UMovieSceneSlomoSection {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneSlomoSection")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneStringSection {
     __padding_end: [u8; 664],
 }
-impl UMovieSceneStringSection {}
+impl UMovieSceneStringSection {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneStringSection")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneTextSection {
     __padding_end: [u8; 672],
 }
-impl UMovieSceneTextSection {}
+impl UMovieSceneTextSection {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneTextSection")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneFloatVectorSection {
     __padding_end: [u8; 1592],
 }
-impl UMovieSceneFloatVectorSection {}
+impl UMovieSceneFloatVectorSection {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneFloatVectorSection")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneDoubleVectorSection {
     __padding_end: [u8; 1624],
 }
-impl UMovieSceneDoubleVectorSection {}
+impl UMovieSceneDoubleVectorSection {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneDoubleVectorSection")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneVisibilitySection {
     __padding_end: [u8; 672],
 }
-impl UMovieSceneVisibilitySection {}
+impl UMovieSceneVisibilitySection {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneVisibilitySection")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UBoolChannelEvaluatorSystem {
     __padding_end: [u8; 80],
 }
-impl UBoolChannelEvaluatorSystem {}
+impl UBoolChannelEvaluatorSystem {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBoolChannelEvaluatorSystem")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UByteChannelEvaluatorSystem {
     __padding_end: [u8; 80],
 }
-impl UByteChannelEvaluatorSystem {}
+impl UByteChannelEvaluatorSystem {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UByteChannelEvaluatorSystem")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UDoubleChannelEvaluatorSystem {
     __padding_end: [u8; 80],
 }
-impl UDoubleChannelEvaluatorSystem {}
+impl UDoubleChannelEvaluatorSystem {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDoubleChannelEvaluatorSystem")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UDoublePerlinNoiseChannelEvaluatorSystem {
     __padding_end: [u8; 80],
 }
-impl UDoublePerlinNoiseChannelEvaluatorSystem {}
+impl UDoublePerlinNoiseChannelEvaluatorSystem {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDoublePerlinNoiseChannelEvaluatorSystem")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UFloatChannelEvaluatorSystem {
     __padding_end: [u8; 80],
 }
-impl UFloatChannelEvaluatorSystem {}
+impl UFloatChannelEvaluatorSystem {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFloatChannelEvaluatorSystem")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UFloatPerlinNoiseChannelEvaluatorSystem {
     __padding_end: [u8; 80],
 }
-impl UFloatPerlinNoiseChannelEvaluatorSystem {}
+impl UFloatPerlinNoiseChannelEvaluatorSystem {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFloatPerlinNoiseChannelEvaluatorSystem")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UIntegerChannelEvaluatorSystem {
     __padding_end: [u8; 80],
 }
-impl UIntegerChannelEvaluatorSystem {}
+impl UIntegerChannelEvaluatorSystem {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UIntegerChannelEvaluatorSystem")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieScene3DTransformPropertySystem {
     __padding_end: [u8; 104],
 }
-impl UMovieScene3DTransformPropertySystem {}
+impl UMovieScene3DTransformPropertySystem {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieScene3DTransformPropertySystem")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneAudioSystem {
     __padding_end: [u8; 256],
 }
-impl UMovieSceneAudioSystem {}
+impl UMovieSceneAudioSystem {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneAudioSystem")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneBaseValueEvaluatorSystem {
     __padding_end: [u8; 80],
 }
-impl UMovieSceneBaseValueEvaluatorSystem {}
+impl UMovieSceneBaseValueEvaluatorSystem {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneBaseValueEvaluatorSystem")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneBoolPropertySystem {
     __padding_end: [u8; 104],
 }
-impl UMovieSceneBoolPropertySystem {}
+impl UMovieSceneBoolPropertySystem {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneBoolPropertySystem")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneBytePropertySystem {
     __padding_end: [u8; 104],
 }
-impl UMovieSceneBytePropertySystem {}
+impl UMovieSceneBytePropertySystem {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneBytePropertySystem")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneCameraShakeInstantiatorSystem {
     __padding_end: [u8; 224],
 }
-impl UMovieSceneCameraShakeInstantiatorSystem {}
+impl UMovieSceneCameraShakeInstantiatorSystem {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneCameraShakeInstantiatorSystem")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneCameraShakeEvaluatorSystem {
     __padding_end: [u8; 96],
 }
-impl UMovieSceneCameraShakeEvaluatorSystem {}
+impl UMovieSceneCameraShakeEvaluatorSystem {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneCameraShakeEvaluatorSystem")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneColorPropertySystem {
     __padding_end: [u8; 104],
 }
-impl UMovieSceneColorPropertySystem {}
+impl UMovieSceneColorPropertySystem {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneColorPropertySystem")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneComponentAttachmentInvalidatorSystem {
     __padding_end: [u8; 80],
 }
-impl UMovieSceneComponentAttachmentInvalidatorSystem {}
+impl UMovieSceneComponentAttachmentInvalidatorSystem {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneComponentAttachmentInvalidatorSystem")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneComponentAttachmentSystem {
     __padding_end: [u8; 480],
 }
-impl UMovieSceneComponentAttachmentSystem {}
+impl UMovieSceneComponentAttachmentSystem {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneComponentAttachmentSystem")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneComponentMaterialSystem {
     __padding_end: [u8; 536],
 }
-impl UMovieSceneComponentMaterialSystem {}
+impl UMovieSceneComponentMaterialSystem {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneComponentMaterialSystem")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneComponentMobilitySystem {
     __padding_end: [u8; 608],
 }
-impl UMovieSceneComponentMobilitySystem {}
+impl UMovieSceneComponentMobilitySystem {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneComponentMobilitySystem")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneComponentTransformSystem {
     __padding_end: [u8; 104],
 }
-impl UMovieSceneComponentTransformSystem {}
+impl UMovieSceneComponentTransformSystem {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneComponentTransformSystem")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneConstraintSystem {
     __padding_end: [u8; 96],
 }
-impl UMovieSceneConstraintSystem {}
+impl UMovieSceneConstraintSystem {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneConstraintSystem")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneCustomPrimitiveDataSystem {
     __padding_end: [u8; 488],
 }
-impl UMovieSceneCustomPrimitiveDataSystem {}
+impl UMovieSceneCustomPrimitiveDataSystem {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneCustomPrimitiveDataSystem")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneDataLayerSystem {
     __padding_end: [u8; 256],
 }
-impl UMovieSceneDataLayerSystem {}
+impl UMovieSceneDataLayerSystem {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneDataLayerSystem")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneDeferredComponentMovementSystem {
     __padding_end: [u8; 104],
 }
-impl UMovieSceneDeferredComponentMovementSystem {}
+impl UMovieSceneDeferredComponentMovementSystem {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneDeferredComponentMovementSystem")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneDoublePropertySystem {
     __padding_end: [u8; 104],
 }
-impl UMovieSceneDoublePropertySystem {}
+impl UMovieSceneDoublePropertySystem {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneDoublePropertySystem")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneEnumPropertySystem {
     __padding_end: [u8; 104],
 }
-impl UMovieSceneEnumPropertySystem {}
+impl UMovieSceneEnumPropertySystem {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneEnumPropertySystem")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneEulerTransformPropertySystem {
     __padding_end: [u8; 104],
 }
-impl UMovieSceneEulerTransformPropertySystem {}
+impl UMovieSceneEulerTransformPropertySystem {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneEulerTransformPropertySystem")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneEventSystem {
     __padding_end: [u8; 160],
 }
-impl UMovieSceneEventSystem {}
+impl UMovieSceneEventSystem {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneEventSystem")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieScenePreSpawnEventSystem {
     __padding_end: [u8; 160],
 }
-impl UMovieScenePreSpawnEventSystem {}
+impl UMovieScenePreSpawnEventSystem {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieScenePreSpawnEventSystem")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieScenePostSpawnEventSystem {
     __padding_end: [u8; 160],
 }
-impl UMovieScenePostSpawnEventSystem {}
+impl UMovieScenePostSpawnEventSystem {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieScenePostSpawnEventSystem")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieScenePostEvalEventSystem {
     __padding_end: [u8; 160],
 }
-impl UMovieScenePostEvalEventSystem {}
+impl UMovieScenePostEvalEventSystem {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieScenePostEvalEventSystem")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneFadeSystem {
     __padding_end: [u8; 96],
 }
-impl UMovieSceneFadeSystem {}
+impl UMovieSceneFadeSystem {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneFadeSystem")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneFloatPropertySystem {
     __padding_end: [u8; 104],
 }
-impl UMovieSceneFloatPropertySystem {}
+impl UMovieSceneFloatPropertySystem {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneFloatPropertySystem")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneHierarchicalBiasSystem {
     __padding_end: [u8; 88],
 }
-impl UMovieSceneHierarchicalBiasSystem {}
+impl UMovieSceneHierarchicalBiasSystem {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneHierarchicalBiasSystem")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneIntegerPropertySystem {
     __padding_end: [u8; 104],
 }
-impl UMovieSceneIntegerPropertySystem {}
+impl UMovieSceneIntegerPropertySystem {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneIntegerPropertySystem")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneLevelVisibilitySystem {
     __padding_end: [u8; 504],
 }
-impl UMovieSceneLevelVisibilitySystem {}
+impl UMovieSceneLevelVisibilitySystem {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneLevelVisibilitySystem")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneMaterialParameterCollectionSystem {
     __padding_end: [u8; 120],
 }
-impl UMovieSceneMaterialParameterCollectionSystem {}
+impl UMovieSceneMaterialParameterCollectionSystem {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneMaterialParameterCollectionSystem")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneMaterialParameterInstantiatorSystem {
     __padding_end: [u8; 872],
 }
-impl UMovieSceneMaterialParameterInstantiatorSystem {}
+impl UMovieSceneMaterialParameterInstantiatorSystem {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneMaterialParameterInstantiatorSystem")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneMaterialParameterEvaluationSystem {
     __padding_end: [u8; 80],
 }
-impl UMovieSceneMaterialParameterEvaluationSystem {}
+impl UMovieSceneMaterialParameterEvaluationSystem {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneMaterialParameterEvaluationSystem")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneMotionVectorSimulationSystem {
     __padding_end: [u8; 168],
 }
-impl UMovieSceneMotionVectorSimulationSystem {}
+impl UMovieSceneMotionVectorSimulationSystem {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneMotionVectorSimulationSystem")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneObjectPropertySystem {
     __padding_end: [u8; 104],
 }
-impl UMovieSceneObjectPropertySystem {}
+impl UMovieSceneObjectPropertySystem {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneObjectPropertySystem")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieScenePiecewiseBoolBlenderSystem {
     __padding_end: [u8; 160],
 }
-impl UMovieScenePiecewiseBoolBlenderSystem {}
+impl UMovieScenePiecewiseBoolBlenderSystem {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieScenePiecewiseBoolBlenderSystem")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieScenePiecewiseByteBlenderSystem {
     __padding_end: [u8; 160],
 }
-impl UMovieScenePiecewiseByteBlenderSystem {}
+impl UMovieScenePiecewiseByteBlenderSystem {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieScenePiecewiseByteBlenderSystem")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieScenePiecewiseDoubleBlenderSystem {
     __padding_end: [u8; 368],
 }
-impl UMovieScenePiecewiseDoubleBlenderSystem {}
+impl UMovieScenePiecewiseDoubleBlenderSystem {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieScenePiecewiseDoubleBlenderSystem")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieScenePiecewiseEnumBlenderSystem {
     __padding_end: [u8; 160],
 }
-impl UMovieScenePiecewiseEnumBlenderSystem {}
+impl UMovieScenePiecewiseEnumBlenderSystem {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieScenePiecewiseEnumBlenderSystem")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieScenePiecewiseIntegerBlenderSystem {
     __padding_end: [u8; 192],
 }
-impl UMovieScenePiecewiseIntegerBlenderSystem {}
+impl UMovieScenePiecewiseIntegerBlenderSystem {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieScenePiecewiseIntegerBlenderSystem")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneAsyncAction_SequencePrediction {
     __padding_end: [u8; 152],
 }
-impl UMovieSceneAsyncAction_SequencePrediction {}
+impl UMovieSceneAsyncAction_SequencePrediction {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneAsyncAction_SequencePrediction")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieScenePredictionSystem {
     __padding_end: [u8; 256],
 }
-impl UMovieScenePredictionSystem {}
+impl UMovieScenePredictionSystem {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieScenePredictionSystem")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieScenePropertyInstantiatorSystem {
     __padding_end: [u8; 504],
 }
-impl UMovieScenePropertyInstantiatorSystem {}
+impl UMovieScenePropertyInstantiatorSystem {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieScenePropertyInstantiatorSystem")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieScenePropertyNotificationSystem {
     __padding_end: [u8; 80],
 }
-impl UMovieScenePropertyNotificationSystem {}
+impl UMovieScenePropertyNotificationSystem {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieScenePropertyNotificationSystem")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneQuaternionBlenderSystem {
     __padding_end: [u8; 216],
 }
-impl UMovieSceneQuaternionBlenderSystem {}
+impl UMovieSceneQuaternionBlenderSystem {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneQuaternionBlenderSystem")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneQuaternionInterpolationRotationSystem {
     __padding_end: [u8; 80],
 }
-impl UMovieSceneQuaternionInterpolationRotationSystem {}
+impl UMovieSceneQuaternionInterpolationRotationSystem {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneQuaternionInterpolationRotationSystem")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneRotatorPropertySystem {
     __padding_end: [u8; 104],
 }
-impl UMovieSceneRotatorPropertySystem {}
+impl UMovieSceneRotatorPropertySystem {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneRotatorPropertySystem")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneSkeletalAnimationSystem {
     __padding_end: [u8; 248],
 }
-impl UMovieSceneSkeletalAnimationSystem {}
+impl UMovieSceneSkeletalAnimationSystem {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneSkeletalAnimationSystem")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneSlomoSystem {
     __padding_end: [u8; 104],
 }
-impl UMovieSceneSlomoSystem {}
+impl UMovieSceneSlomoSystem {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneSlomoSystem")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneStringPropertySystem {
     __padding_end: [u8; 104],
 }
-impl UMovieSceneStringPropertySystem {}
+impl UMovieSceneStringPropertySystem {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneStringPropertySystem")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneTextPropertySystem {
     __padding_end: [u8; 104],
 }
-impl UMovieSceneTextPropertySystem {}
+impl UMovieSceneTextPropertySystem {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneTextPropertySystem")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneTransformOriginInstantiatorSystem {
     __padding_end: [u8; 80],
 }
-impl UMovieSceneTransformOriginInstantiatorSystem {}
+impl UMovieSceneTransformOriginInstantiatorSystem {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneTransformOriginInstantiatorSystem")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneTransformOriginSystem {
     __padding_end: [u8; 360],
 }
-impl UMovieSceneTransformOriginSystem {}
+impl UMovieSceneTransformOriginSystem {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneTransformOriginSystem")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneFloatVectorPropertySystem {
     __padding_end: [u8; 104],
 }
-impl UMovieSceneFloatVectorPropertySystem {}
+impl UMovieSceneFloatVectorPropertySystem {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneFloatVectorPropertySystem")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneDoubleVectorPropertySystem {
     __padding_end: [u8; 104],
 }
-impl UMovieSceneDoubleVectorPropertySystem {}
+impl UMovieSceneDoubleVectorPropertySystem {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneDoubleVectorPropertySystem")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneVisibilitySystem {
     __padding_end: [u8; 96],
 }
-impl UMovieSceneVisibilitySystem {}
+impl UMovieSceneVisibilitySystem {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneVisibilitySystem")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UObjectPathChannelEvaluatorSystem {
     __padding_end: [u8; 80],
 }
-impl UObjectPathChannelEvaluatorSystem {}
+impl UObjectPathChannelEvaluatorSystem {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UObjectPathChannelEvaluatorSystem")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UStringChannelEvaluatorSystem {
     __padding_end: [u8; 80],
 }
-impl UStringChannelEvaluatorSystem {}
+impl UStringChannelEvaluatorSystem {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UStringChannelEvaluatorSystem")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UTextChannelEvaluatorSystem {
     __padding_end: [u8; 80],
 }
-impl UTextChannelEvaluatorSystem {}
+impl UTextChannelEvaluatorSystem {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTextChannelEvaluatorSystem")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneHierarchicalEasingInstantiatorSystem {
     __padding_end: [u8; 232],
 }
-impl UMovieSceneHierarchicalEasingInstantiatorSystem {}
+impl UMovieSceneHierarchicalEasingInstantiatorSystem {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneHierarchicalEasingInstantiatorSystem")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneHierarchicalEasingFinalizationSystem {
     __padding_end: [u8; 80],
 }
-impl UMovieSceneHierarchicalEasingFinalizationSystem {}
+impl UMovieSceneHierarchicalEasingFinalizationSystem {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneHierarchicalEasingFinalizationSystem")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UWeightAndEasingEvaluatorSystem {
     __padding_end: [u8; 104],
 }
-impl UWeightAndEasingEvaluatorSystem {}
+impl UWeightAndEasingEvaluatorSystem {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UWeightAndEasingEvaluatorSystem")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneDecomposerTestObject {
     __padding_end: [u8; 56],
 }
-impl UMovieSceneDecomposerTestObject {}
+impl UMovieSceneDecomposerTestObject {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneDecomposerTestObject")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneFadeTrackTestLibrary {
     __padding_end: [u8; 48],
 }
-impl UMovieSceneFadeTrackTestLibrary {}
+impl UMovieSceneFadeTrackTestLibrary {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneFadeTrackTestLibrary")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieScenePartialEvaluationTestObject {
     __padding_end: [u8; 80],
 }
-impl UMovieScenePartialEvaluationTestObject {}
+impl UMovieScenePartialEvaluationTestObject {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieScenePartialEvaluationTestObject")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneTestSequence {
     __padding_end: [u8; 168],
 }
-impl UMovieSceneTestSequence {}
+impl UMovieSceneTestSequence {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneTestSequence")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneCameraCutTrackInstance {
     __padding_end: [u8; 136],
 }
-impl UMovieSceneCameraCutTrackInstance {}
+impl UMovieSceneCameraCutTrackInstance {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneCameraCutTrackInstance")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneCVarTrackInstance {
     __padding_end: [u8; 168],
 }
-impl UMovieSceneCVarTrackInstance {}
+impl UMovieSceneCVarTrackInstance {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneCVarTrackInstance")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 pub struct IMovieSceneSectionsToKey {}
 #[repr(C, align(8))]
 pub struct UMovieSceneSectionsToKey {
     __padding_end: [u8; 48],
 }
-impl UMovieSceneSectionsToKey {}
+impl UMovieSceneSectionsToKey {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneSectionsToKey")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieScene3DConstraintTrack {
     __padding_end: [u8; 368],
 }
-impl UMovieScene3DConstraintTrack {}
+impl UMovieScene3DConstraintTrack {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieScene3DConstraintTrack")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieScene3DAttachTrack {
     __padding_end: [u8; 368],
 }
-impl UMovieScene3DAttachTrack {}
+impl UMovieScene3DAttachTrack {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieScene3DAttachTrack")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieScene3DPathTrack {
     __padding_end: [u8; 376],
 }
-impl UMovieScene3DPathTrack {}
+impl UMovieScene3DPathTrack {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieScene3DPathTrack")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieScene3DTransformTrack {
     __padding_end: [u8; 496],
 }
-impl UMovieScene3DTransformTrack {}
+impl UMovieScene3DTransformTrack {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieScene3DTransformTrack")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneActorReferenceTrack {
     __padding_end: [u8; 488],
 }
-impl UMovieSceneActorReferenceTrack {}
+impl UMovieSceneActorReferenceTrack {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneActorReferenceTrack")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneAudioTrack {
     __padding_end: [u8; 408],
 }
-impl UMovieSceneAudioTrack {}
+impl UMovieSceneAudioTrack {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneAudioTrack")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneBoolTrack {
     __padding_end: [u8; 496],
 }
-impl UMovieSceneBoolTrack {}
+impl UMovieSceneBoolTrack {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneBoolTrack")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneByteTrack {
     __padding_end: [u8; 488],
 }
-impl UMovieSceneByteTrack {}
+impl UMovieSceneByteTrack {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneByteTrack")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneCameraCutTrack {
     __padding_end: [u8; 416],
 }
-impl UMovieSceneCameraCutTrack {}
+impl UMovieSceneCameraCutTrack {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneCameraCutTrack")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneCameraShakeSourceShakeTrack {
     __padding_end: [u8; 400],
 }
-impl UMovieSceneCameraShakeSourceShakeTrack {}
+impl UMovieSceneCameraShakeSourceShakeTrack {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneCameraShakeSourceShakeTrack")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneCameraShakeSourceTriggerTrack {
     __padding_end: [u8; 368],
 }
-impl UMovieSceneCameraShakeSourceTriggerTrack {}
+impl UMovieSceneCameraShakeSourceTriggerTrack {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneCameraShakeSourceTriggerTrack")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneCameraShakeTrack {
     __padding_end: [u8; 400],
 }
-impl UMovieSceneCameraShakeTrack {}
+impl UMovieSceneCameraShakeTrack {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneCameraShakeTrack")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneCinematicShotTrack {
     __padding_end: [u8; 416],
 }
-impl UMovieSceneCinematicShotTrack {}
+impl UMovieSceneCinematicShotTrack {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneCinematicShotTrack")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneColorTrack {
     __padding_end: [u8; 488],
 }
-impl UMovieSceneColorTrack {}
+impl UMovieSceneColorTrack {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneColorTrack")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(16))]
 pub struct UMovieSceneCommonAnimationTrack {
     __padding_end: [u8; 576],
 }
-impl UMovieSceneCommonAnimationTrack {}
+impl UMovieSceneCommonAnimationTrack {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneCommonAnimationTrack")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneCustomPrimitiveDataTrack {
     __padding_end: [u8; 424],
 }
-impl UMovieSceneCustomPrimitiveDataTrack {}
+impl UMovieSceneCustomPrimitiveDataTrack {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneCustomPrimitiveDataTrack")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneCVarTrack {
     __padding_end: [u8; 400],
 }
-impl UMovieSceneCVarTrack {}
+impl UMovieSceneCVarTrack {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneCVarTrack")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneDataLayerTrack {
     __padding_end: [u8; 400],
 }
-impl UMovieSceneDataLayerTrack {}
+impl UMovieSceneDataLayerTrack {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneDataLayerTrack")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneDoubleTrack {
     __padding_end: [u8; 480],
 }
-impl UMovieSceneDoubleTrack {}
+impl UMovieSceneDoubleTrack {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneDoubleTrack")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneEnumTrack {
     __padding_end: [u8; 488],
 }
-impl UMovieSceneEnumTrack {}
+impl UMovieSceneEnumTrack {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneEnumTrack")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneEulerTransformTrack {
     __padding_end: [u8; 480],
 }
-impl UMovieSceneEulerTransformTrack {}
+impl UMovieSceneEulerTransformTrack {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneEulerTransformTrack")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneEventTrack {
     __padding_end: [u8; 424],
 }
-impl UMovieSceneEventTrack {}
+impl UMovieSceneEventTrack {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneEventTrack")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneFloatTrack {
     __padding_end: [u8; 480],
 }
-impl UMovieSceneFloatTrack {}
+impl UMovieSceneFloatTrack {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneFloatTrack")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneFadeTrack {
     __padding_end: [u8; 480],
 }
-impl UMovieSceneFadeTrack {}
+impl UMovieSceneFadeTrack {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneFadeTrack")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneIntegerTrack {
     __padding_end: [u8; 480],
 }
-impl UMovieSceneIntegerTrack {}
+impl UMovieSceneIntegerTrack {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneIntegerTrack")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneLevelVisibilityTrack {
     __padding_end: [u8; 400],
 }
-impl UMovieSceneLevelVisibilityTrack {}
+impl UMovieSceneLevelVisibilityTrack {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneLevelVisibilityTrack")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneMaterialParameterCollectionTrack {
     __padding_end: [u8; 432],
 }
-impl UMovieSceneMaterialParameterCollectionTrack {}
+impl UMovieSceneMaterialParameterCollectionTrack {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneMaterialParameterCollectionTrack")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneComponentMaterialTrack {
     __padding_end: [u8; 448],
 }
-impl UMovieSceneComponentMaterialTrack {}
+impl UMovieSceneComponentMaterialTrack {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneComponentMaterialTrack")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneObjectPropertyTrack {
     __padding_end: [u8; 496],
 }
-impl UMovieSceneObjectPropertyTrack {}
+impl UMovieSceneObjectPropertyTrack {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneObjectPropertyTrack")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneParticleParameterTrack {
     __padding_end: [u8; 408],
 }
-impl UMovieSceneParticleParameterTrack {}
+impl UMovieSceneParticleParameterTrack {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneParticleParameterTrack")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneParticleTrack {
     __padding_end: [u8; 408],
 }
-impl UMovieSceneParticleTrack {}
+impl UMovieSceneParticleTrack {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneParticleTrack")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieScenePrimitiveMaterialTrack {
     __padding_end: [u8; 504],
 }
-impl UMovieScenePrimitiveMaterialTrack {}
+impl UMovieScenePrimitiveMaterialTrack {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieScenePrimitiveMaterialTrack")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneRotatorTrack {
     __padding_end: [u8; 480],
 }
-impl UMovieSceneRotatorTrack {}
+impl UMovieSceneRotatorTrack {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneRotatorTrack")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(16))]
 pub struct UMovieSceneSkeletalAnimationTrack {
     #[doc(hidden)]
@@ -975,42 +4316,170 @@ pub struct UMovieSceneSkeletalAnimationTrack {
     pub swap_root_bone: crate::bindings::anim_graph_runtime::ESwapRootBone,
     __padding_end: [u8; 6],
 }
-impl UMovieSceneSkeletalAnimationTrack {}
+impl UMovieSceneSkeletalAnimationTrack {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneSkeletalAnimationTrack")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneSlomoTrack {
     __padding_end: [u8; 480],
 }
-impl UMovieSceneSlomoTrack {}
+impl UMovieSceneSlomoTrack {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneSlomoTrack")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneStringTrack {
     __padding_end: [u8; 480],
 }
-impl UMovieSceneStringTrack {}
+impl UMovieSceneStringTrack {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneStringTrack")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneTextTrack {
     __padding_end: [u8; 480],
 }
-impl UMovieSceneTextTrack {}
+impl UMovieSceneTextTrack {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneTextTrack")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneTransformTrack {
     __padding_end: [u8; 480],
 }
-impl UMovieSceneTransformTrack {}
+impl UMovieSceneTransformTrack {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneTransformTrack")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneFloatVectorTrack {
     __padding_end: [u8; 488],
 }
-impl UMovieSceneFloatVectorTrack {}
+impl UMovieSceneFloatVectorTrack {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneFloatVectorTrack")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneDoubleVectorTrack {
     __padding_end: [u8; 488],
 }
-impl UMovieSceneDoubleVectorTrack {}
+impl UMovieSceneDoubleVectorTrack {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneDoubleVectorTrack")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneVisibilityTrack {
     __padding_end: [u8; 480],
 }
-impl UMovieSceneVisibilityTrack {}
+impl UMovieSceneVisibilityTrack {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneVisibilityTrack")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct FMovieSceneAudioSection_OnQueueSubtitles {
     _opague: [u8; 32],

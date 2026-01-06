@@ -2,13 +2,191 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(clippy::non_camel_case_types)]
+#![allow(clippy::new_without_default)]
+#![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
+#[doc(hidden)]
+pub static mut U_GOOGLE_PAD_FUNCTION_LIBRARY_SHOW_CONFIRMATION_DIALOG: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GOOGLE_PAD_FUNCTION_LIBRARY_SHOW_CELLULAR_DATA_CONFIRMATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GOOGLE_PAD_FUNCTION_LIBRARY_REQUEST_REMOVAL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GOOGLE_PAD_FUNCTION_LIBRARY_REQUEST_INFO: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GOOGLE_PAD_FUNCTION_LIBRARY_REQUEST_DOWNLOAD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GOOGLE_PAD_FUNCTION_LIBRARY_RELEASE_DOWNLOAD_STATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GOOGLE_PAD_FUNCTION_LIBRARY_RELEASE_ASSET_PACK_LOCATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GOOGLE_PAD_FUNCTION_LIBRARY_GET_TOTAL_BYTES_TO_DOWNLOAD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GOOGLE_PAD_FUNCTION_LIBRARY_GET_STORAGE_METHOD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GOOGLE_PAD_FUNCTION_LIBRARY_GET_SHOW_CONFIRMATION_DIALOG_STATUS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GOOGLE_PAD_FUNCTION_LIBRARY_GET_SHOW_CELLULAR_DATA_CONFIRMATION_STATUS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GOOGLE_PAD_FUNCTION_LIBRARY_GET_DOWNLOAD_STATUS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GOOGLE_PAD_FUNCTION_LIBRARY_GET_DOWNLOAD_STATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GOOGLE_PAD_FUNCTION_LIBRARY_GET_BYTES_DOWNLOADED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GOOGLE_PAD_FUNCTION_LIBRARY_GET_ASSETS_PATH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GOOGLE_PAD_FUNCTION_LIBRARY_GET_ASSET_PACK_LOCATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GOOGLE_PAD_FUNCTION_LIBRARY_CANCEL_DOWNLOAD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub fn initialize() {
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UGooglePADFunctionLibrary::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ShowConfirmationDialog"),
+            &raw mut U_GOOGLE_PAD_FUNCTION_LIBRARY_SHOW_CONFIRMATION_DIALOG,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ShowCellularDataConfirmation"),
+            &raw mut U_GOOGLE_PAD_FUNCTION_LIBRARY_SHOW_CELLULAR_DATA_CONFIRMATION,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("RequestRemoval"),
+            &raw mut U_GOOGLE_PAD_FUNCTION_LIBRARY_REQUEST_REMOVAL,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("RequestInfo"),
+            &raw mut U_GOOGLE_PAD_FUNCTION_LIBRARY_REQUEST_INFO,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("RequestDownload"),
+            &raw mut U_GOOGLE_PAD_FUNCTION_LIBRARY_REQUEST_DOWNLOAD,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ReleaseDownloadState"),
+            &raw mut U_GOOGLE_PAD_FUNCTION_LIBRARY_RELEASE_DOWNLOAD_STATE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ReleaseAssetPackLocation"),
+            &raw mut U_GOOGLE_PAD_FUNCTION_LIBRARY_RELEASE_ASSET_PACK_LOCATION,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetTotalBytesToDownload"),
+            &raw mut U_GOOGLE_PAD_FUNCTION_LIBRARY_GET_TOTAL_BYTES_TO_DOWNLOAD,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetStorageMethod"),
+            &raw mut U_GOOGLE_PAD_FUNCTION_LIBRARY_GET_STORAGE_METHOD,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetShowConfirmationDialogStatus"),
+            &raw mut U_GOOGLE_PAD_FUNCTION_LIBRARY_GET_SHOW_CONFIRMATION_DIALOG_STATUS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetShowCellularDataConfirmationStatus"),
+            &raw mut U_GOOGLE_PAD_FUNCTION_LIBRARY_GET_SHOW_CELLULAR_DATA_CONFIRMATION_STATUS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetDownloadStatus"),
+            &raw mut U_GOOGLE_PAD_FUNCTION_LIBRARY_GET_DOWNLOAD_STATUS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetDownloadState"),
+            &raw mut U_GOOGLE_PAD_FUNCTION_LIBRARY_GET_DOWNLOAD_STATE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetBytesDownloaded"),
+            &raw mut U_GOOGLE_PAD_FUNCTION_LIBRARY_GET_BYTES_DOWNLOADED,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetAssetsPath"),
+            &raw mut U_GOOGLE_PAD_FUNCTION_LIBRARY_GET_ASSETS_PATH,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetAssetPackLocation"),
+            &raw mut U_GOOGLE_PAD_FUNCTION_LIBRARY_GET_ASSET_PACK_LOCATION,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("CancelDownload"),
+            &raw mut U_GOOGLE_PAD_FUNCTION_LIBRARY_CANCEL_DOWNLOAD,
+        );
+    }
+}
 #[repr(C, align(8))]
 pub struct UGooglePADFunctionLibrary {
     __padding_end: [u8; 48],
 }
-impl UGooglePADFunctionLibrary {}
+impl UGooglePADFunctionLibrary {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGooglePADFunctionLibrary")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(transparent)]
 pub struct EGooglePADErrorCode(pub u8);
 impl EGooglePADErrorCode {

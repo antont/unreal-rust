@@ -2,13 +2,33 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(clippy::non_camel_case_types)]
+#![allow(clippy::new_without_default)]
+#![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
+pub fn initialize() {}
 #[repr(C, align(8))]
 pub struct UOptimusGroomCollisionReadDataInterface {
     __padding_end: [u8; 48],
 }
-impl UOptimusGroomCollisionReadDataInterface {}
+impl UOptimusGroomCollisionReadDataInterface {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusGroomCollisionReadDataInterface")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UOptimusGroomCollisionReadDataProvider {
     #[doc(hidden)]
@@ -17,12 +37,44 @@ pub struct UOptimusGroomCollisionReadDataProvider {
         crate::bindings::hair_strands_solver::UGroomSolverComponent,
     >,
 }
-impl UOptimusGroomCollisionReadDataProvider {}
+impl UOptimusGroomCollisionReadDataProvider {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusGroomCollisionReadDataProvider")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UOptimusGroomAttributeReadDataInterface {
     __padding_end: [u8; 88],
 }
-impl UOptimusGroomAttributeReadDataInterface {}
+impl UOptimusGroomAttributeReadDataInterface {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusGroomAttributeReadDataInterface")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UOptimusGroomAttributeReadDataProvider {
     #[doc(hidden)]
@@ -30,49 +82,193 @@ pub struct UOptimusGroomAttributeReadDataProvider {
     pub mesh_component: UPtr<crate::bindings::engine::UMeshComponent>,
     __padding_end: [u8; 16],
 }
-impl UOptimusGroomAttributeReadDataProvider {}
+impl UOptimusGroomAttributeReadDataProvider {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusGroomAttributeReadDataProvider")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UOptimusGroomExecDataInterface {
     __padding_end: [u8; 64],
 }
-impl UOptimusGroomExecDataInterface {}
+impl UOptimusGroomExecDataInterface {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusGroomExecDataInterface")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UOptimusGroomExecDataProvider {
     __padding_end: [u8; 64],
 }
-impl UOptimusGroomExecDataProvider {}
+impl UOptimusGroomExecDataProvider {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusGroomExecDataProvider")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UOptimusGroomAssetComponentSource {
     __padding_end: [u8; 48],
 }
-impl UOptimusGroomAssetComponentSource {}
+impl UOptimusGroomAssetComponentSource {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusGroomAssetComponentSource")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UOptimusGroomSolverComponentSource {
     __padding_end: [u8; 48],
 }
-impl UOptimusGroomSolverComponentSource {}
+impl UOptimusGroomSolverComponentSource {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusGroomSolverComponentSource")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UOptimusGroomCollisionComponentSource {
     __padding_end: [u8; 48],
 }
-impl UOptimusGroomCollisionComponentSource {}
+impl UOptimusGroomCollisionComponentSource {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusGroomCollisionComponentSource")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UOptimusGroomGuidesReadDataInterface {
     __padding_end: [u8; 48],
 }
-impl UOptimusGroomGuidesReadDataInterface {}
+impl UOptimusGroomGuidesReadDataInterface {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusGroomGuidesReadDataInterface")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UOptimusGroomGuidesReadDataProvider {
     #[doc(hidden)]
     __padding_48: [u8; 48],
     pub mesh_component: UPtr<crate::bindings::engine::UMeshComponent>,
 }
-impl UOptimusGroomGuidesReadDataProvider {}
+impl UOptimusGroomGuidesReadDataProvider {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusGroomGuidesReadDataProvider")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UOptimusGroomGuidesWriteDataInterface {
     __padding_end: [u8; 48],
 }
-impl UOptimusGroomGuidesWriteDataInterface {}
+impl UOptimusGroomGuidesWriteDataInterface {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusGroomGuidesWriteDataInterface")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UOptimusGroomGuidesWriteDataProvider {
     #[doc(hidden)]
@@ -80,24 +276,88 @@ pub struct UOptimusGroomGuidesWriteDataProvider {
     pub mesh_component: UPtr<crate::bindings::engine::UMeshComponent>,
     __padding_end: [u8; 8],
 }
-impl UOptimusGroomGuidesWriteDataProvider {}
+impl UOptimusGroomGuidesWriteDataProvider {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusGroomGuidesWriteDataProvider")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UOptimusGroomMeshesReadDataInterface {
     __padding_end: [u8; 48],
 }
-impl UOptimusGroomMeshesReadDataInterface {}
+impl UOptimusGroomMeshesReadDataInterface {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusGroomMeshesReadDataInterface")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UOptimusGroomMeshesReadDataProvider {
     #[doc(hidden)]
     __padding_48: [u8; 48],
     pub mesh_component: UPtr<crate::bindings::engine::UMeshComponent>,
 }
-impl UOptimusGroomMeshesReadDataProvider {}
+impl UOptimusGroomMeshesReadDataProvider {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusGroomMeshesReadDataProvider")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UOptimusGroomSolverReadDataInterface {
     __padding_end: [u8; 64],
 }
-impl UOptimusGroomSolverReadDataInterface {}
+impl UOptimusGroomSolverReadDataInterface {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusGroomSolverReadDataInterface")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UOptimusGroomSolverReadDataProvider {
     #[doc(hidden)]
@@ -107,24 +367,88 @@ pub struct UOptimusGroomSolverReadDataProvider {
     >,
     __padding_end: [u8; 24],
 }
-impl UOptimusGroomSolverReadDataProvider {}
+impl UOptimusGroomSolverReadDataProvider {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusGroomSolverReadDataProvider")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UOptimusGroomStrandsReadDataInterface {
     __padding_end: [u8; 48],
 }
-impl UOptimusGroomStrandsReadDataInterface {}
+impl UOptimusGroomStrandsReadDataInterface {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusGroomStrandsReadDataInterface")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UOptimusGroomStrandsReadDataProvider {
     #[doc(hidden)]
     __padding_48: [u8; 48],
     pub mesh_component: UPtr<crate::bindings::engine::UMeshComponent>,
 }
-impl UOptimusGroomStrandsReadDataProvider {}
+impl UOptimusGroomStrandsReadDataProvider {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusGroomStrandsReadDataProvider")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UOptimusGroomStrandsWriteDataInterface {
     __padding_end: [u8; 48],
 }
-impl UOptimusGroomStrandsWriteDataInterface {}
+impl UOptimusGroomStrandsWriteDataInterface {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusGroomStrandsWriteDataInterface")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UOptimusGroomStrandsWriteDataProvider {
     #[doc(hidden)]
@@ -132,7 +456,23 @@ pub struct UOptimusGroomStrandsWriteDataProvider {
     pub mesh_component: UPtr<crate::bindings::engine::UMeshComponent>,
     __padding_end: [u8; 8],
 }
-impl UOptimusGroomStrandsWriteDataProvider {}
+impl UOptimusGroomStrandsWriteDataProvider {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusGroomStrandsWriteDataProvider")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(transparent)]
 pub struct EOptimusGroomExecDomain(pub u8);
 impl EOptimusGroomExecDomain {

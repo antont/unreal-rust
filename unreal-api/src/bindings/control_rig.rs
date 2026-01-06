@@ -2,8 +2,3583 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(clippy::non_camel_case_types)]
+#![allow(clippy::new_without_default)]
+#![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
+#[doc(hidden)]
+pub static mut U_ANIM_NODE_CONTROL_RIG_LIBRARY_SET_CONTROL_RIG_CLASS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_ANIM_NODE_CONTROL_RIG_LIBRARY_CONVERT_TO_CONTROL_RIG_PURE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_ANIM_NODE_CONTROL_RIG_LIBRARY_CONVERT_TO_CONTROL_RIG: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CONTROL_RIG_SUPPORTS_BACKWARDS_SOLVE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CONTROL_RIG_SET_INTERACTION_RIG_CLASS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CONTROL_RIG_SET_INTERACTION_RIG: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CONTROL_RIG_SELECT_CONTROL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CONTROL_RIG_REQUEST_CONSTRUCTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CONTROL_RIG_ON_CONTROL_SELECTED_BP_DELEGATE_SIGNATURE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CONTROL_RIG_IS_CONTROL_SELECTED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CONTROL_RIG_GET_INTERACTION_RIG_CLASS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CONTROL_RIG_GET_INTERACTION_RIG: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CONTROL_RIG_GET_HOSTING_ACTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CONTROL_RIG_GET_HIERARCHY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CONTROL_RIG_FIND_CONTROL_RIGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CONTROL_RIG_CURRENT_CONTROL_SELECTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CONTROL_RIG_CREATE_TRANSFORMABLE_CONTROL_HANDLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CONTROL_RIG_CLEAR_CONTROL_SELECTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CONTROL_RIG_SHAPE_LIBRARY_LINK_SET_SHAPE_LIBRARY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CONTROL_RIG_SHAPE_LIBRARY_LINK_GET_SHAPE_LIBRARY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CONTROL_RIG_COMPONENT_UPDATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CONTROL_RIG_COMPONENT_SET_OBJECT_BINDING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CONTROL_RIG_COMPONENT_SET_MAPPED_ELEMENTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CONTROL_RIG_COMPONENT_SET_INITIAL_SPACE_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CONTROL_RIG_COMPONENT_SET_INITIAL_BONE_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CONTROL_RIG_COMPONENT_SET_CONTROL_VECTOR2_D: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CONTROL_RIG_COMPONENT_SET_CONTROL_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CONTROL_RIG_COMPONENT_SET_CONTROL_SCALE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CONTROL_RIG_COMPONENT_SET_CONTROL_ROTATOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CONTROL_RIG_COMPONENT_SET_CONTROL_RIG_CLASS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CONTROL_RIG_COMPONENT_SET_CONTROL_POSITION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CONTROL_RIG_COMPONENT_SET_CONTROL_OFFSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CONTROL_RIG_COMPONENT_SET_CONTROL_INT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CONTROL_RIG_COMPONENT_SET_CONTROL_FLOAT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CONTROL_RIG_COMPONENT_SET_CONTROL_BOOL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CONTROL_RIG_COMPONENT_SET_BONE_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CONTROL_RIG_COMPONENT_SET_BONE_INITIAL_TRANSFORMS_FROM_SKELETAL_MESH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CONTROL_RIG_COMPONENT_ON_PRE_INITIALIZE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CONTROL_RIG_COMPONENT_ON_PRE_FORWARDS_SOLVE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CONTROL_RIG_COMPONENT_ON_PRE_CONSTRUCTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CONTROL_RIG_COMPONENT_ON_POST_INITIALIZE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CONTROL_RIG_COMPONENT_ON_POST_FORWARDS_SOLVE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CONTROL_RIG_COMPONENT_ON_POST_CONSTRUCTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CONTROL_RIG_COMPONENT_INITIALIZE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CONTROL_RIG_COMPONENT_GET_SPACE_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CONTROL_RIG_COMPONENT_GET_INITIAL_SPACE_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CONTROL_RIG_COMPONENT_GET_INITIAL_BONE_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CONTROL_RIG_COMPONENT_GET_ELEMENT_NAMES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CONTROL_RIG_COMPONENT_GET_CONTROL_VECTOR2_D: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CONTROL_RIG_COMPONENT_GET_CONTROL_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CONTROL_RIG_COMPONENT_GET_CONTROL_SCALE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CONTROL_RIG_COMPONENT_GET_CONTROL_ROTATOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CONTROL_RIG_COMPONENT_GET_CONTROL_RIG: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CONTROL_RIG_COMPONENT_GET_CONTROL_POSITION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CONTROL_RIG_COMPONENT_GET_CONTROL_OFFSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CONTROL_RIG_COMPONENT_GET_CONTROL_INT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CONTROL_RIG_COMPONENT_GET_CONTROL_FLOAT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CONTROL_RIG_COMPONENT_GET_CONTROL_BOOL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CONTROL_RIG_COMPONENT_GET_BONE_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CONTROL_RIG_COMPONENT_GET_ABSOLUTE_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CONTROL_RIG_COMPONENT_DOES_ELEMENT_EXIST: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CONTROL_RIG_COMPONENT_CLEAR_MAPPED_ELEMENTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CONTROL_RIG_COMPONENT_CAN_EXECUTE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CONTROL_RIG_COMPONENT_ADD_MAPPED_SKELETAL_MESH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CONTROL_RIG_COMPONENT_ADD_MAPPED_ELEMENTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CONTROL_RIG_COMPONENT_ADD_MAPPED_COMPONENTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CONTROL_RIG_COMPONENT_ADD_MAPPED_COMPLETE_SKELETAL_MESH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_CONTROL_RIG_CONTROL_ACTOR_RESET_CONTROL_ACTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_CONTROL_RIG_CONTROL_ACTOR_REFRESH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_CONTROL_RIG_CONTROL_ACTOR_CLEAR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_CONTROL_RIG_SHAPE_ACTOR_SET_SELECTED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_CONTROL_RIG_SHAPE_ACTOR_SET_SELECTABLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_CONTROL_RIG_SHAPE_ACTOR_SET_HOVERED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_CONTROL_RIG_SHAPE_ACTOR_SET_GLOBAL_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_CONTROL_RIG_SHAPE_ACTOR_SET_ENABLED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_CONTROL_RIG_SHAPE_ACTOR_ON_TRANSFORM_CHANGED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_CONTROL_RIG_SHAPE_ACTOR_ON_SELECTION_CHANGED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_CONTROL_RIG_SHAPE_ACTOR_ON_MANIPULATING_CHANGED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_CONTROL_RIG_SHAPE_ACTOR_ON_HOVERED_CHANGED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_CONTROL_RIG_SHAPE_ACTOR_ON_ENABLED_CHANGED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_CONTROL_RIG_SHAPE_ACTOR_IS_SELECTED_IN_EDITOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_CONTROL_RIG_SHAPE_ACTOR_IS_HOVERED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_CONTROL_RIG_SHAPE_ACTOR_IS_ENABLED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_CONTROL_RIG_SHAPE_ACTOR_GET_GLOBAL_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CONTROL_RIG_REPLAY_STOP_REPLAY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CONTROL_RIG_REPLAY_STOP_RECORDING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CONTROL_RIG_REPLAY_START_REPLAY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CONTROL_RIG_REPLAY_START_RECORDING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CONTROL_RIG_REPLAY_SET_PLAYBACK_MODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CONTROL_RIG_REPLAY_PAUSE_REPLAY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CONTROL_RIG_REPLAY_IS_REPLAYING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CONTROL_RIG_REPLAY_IS_RECORDING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CONTROL_RIG_REPLAY_IS_PAUSED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CONTROL_RIG_REPLAY_GET_TIME_RANGE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CONTROL_RIG_REPLAY_GET_PLAYBACK_MODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CONTROL_RIG_REPLAY_CREATE_NEW_ASSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CONTROL_RIG_TEST_DATA_GET_FRAME_INDEX_FOR_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MODULAR_RIG_GET_PARENT_PATH_FOR_BP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MODULAR_RIG_GET_PARENT_MODULE_NAME_FOR_BP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MODULAR_RIG_GET_MODULE_RIG_BY_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MODULAR_RIG_GET_MODULE_RIG: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MODULAR_RIG_GET_MODULE_PATHS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MODULAR_RIG_GET_MODULE_NAMES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MODULAR_RIG_GET_EVENTS_FOR_MODULE_BY_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MODULAR_RIG_GET_EVENTS_FOR_MODULE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MODULAR_RIG_GET_EVENTS_FOR_ALL_MODULES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MODULAR_RIG_EXECUTE_EVENT_ON_MODULE_FOR_BP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MODULAR_RIG_EXECUTE_EVENT_ON_MODULE_BY_NAME_FOR_BP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MODULAR_RIG_EXECUTE_EVENT_ON_ALL_MODULES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MODULAR_RIG_CONTROLLER_UN_BIND_MODULE_VARIABLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MODULAR_RIG_CONTROLLER_SWAP_MODULES_OF_CLASS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MODULAR_RIG_CONTROLLER_SWAP_MODULE_CLASS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MODULAR_RIG_CONTROLLER_SET_MODULE_SELECTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MODULAR_RIG_CONTROLLER_SET_CONFIG_VALUE_IN_MODULE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MODULAR_RIG_CONTROLLER_SELECT_MODULE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MODULAR_RIG_CONTROLLER_RESET_CONFIG_VALUE_IN_MODULE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MODULAR_RIG_CONTROLLER_REPARENT_MODULE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MODULAR_RIG_CONTROLLER_REORDER_MODULE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MODULAR_RIG_CONTROLLER_RENAME_MODULE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MODULAR_RIG_CONTROLLER_MIRROR_MODULE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MODULAR_RIG_CONTROLLER_IMPORT_MODULE_SETTINGS_FROM_STRING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MODULAR_RIG_CONTROLLER_GET_SELECTED_MODULES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MODULAR_RIG_CONTROLLER_GET_MODULE_REFERENCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MODULAR_RIG_CONTROLLER_GET_CONNECTORS_FOR_MODULE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MODULAR_RIG_CONTROLLER_GET_ALL_MODULES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MODULAR_RIG_CONTROLLER_EXPORT_MODULE_SETTINGS_TO_STRING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MODULAR_RIG_CONTROLLER_DISCONNECT_CYCLIC_CONNECTORS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MODULAR_RIG_CONTROLLER_DISCONNECT_CONNECTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MODULAR_RIG_CONTROLLER_DESELECT_MODULE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MODULAR_RIG_CONTROLLER_DELETE_MODULE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MODULAR_RIG_CONTROLLER_CONNECT_CONNECTOR_TO_ELEMENTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MODULAR_RIG_CONTROLLER_CONNECT_CONNECTOR_TO_ELEMENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MODULAR_RIG_CONTROLLER_CAN_CONNECT_CONNECTOR_TO_ELEMENTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MODULAR_RIG_CONTROLLER_CAN_CONNECT_CONNECTOR_TO_ELEMENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MODULAR_RIG_CONTROLLER_BIND_MODULE_VARIABLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MODULAR_RIG_CONTROLLER_AUTO_CONNECT_SECONDARY_CONNECTORS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MODULAR_RIG_CONTROLLER_AUTO_CONNECT_MODULES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MODULAR_RIG_CONTROLLER_ADD_TARGET_TO_ARRAY_CONNECTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MODULAR_RIG_CONTROLLER_ADD_MODULE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_UNSET_CURVE_VALUE_BY_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_UNSET_CURVE_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_SWITCH_TO_WORLD_SPACE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_SWITCH_TO_PARENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_SWITCH_TO_DEFAULT_PARENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_SORT_KEYS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_SET_VECTOR_METADATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_SET_VECTOR_ARRAY_METADATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_SET_TRANSFORM_METADATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_SET_TRANSFORM_ARRAY_METADATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_SET_TAG: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_SET_ROTATOR_METADATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_SET_ROTATOR_ARRAY_METADATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_SET_RIG_ELEMENT_KEY_METADATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_SET_RIG_ELEMENT_KEY_ARRAY_METADATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_SET_QUAT_METADATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_SET_QUAT_ARRAY_METADATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_SET_POSE_FOR_BLUEPRINT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_SET_PARENT_WEIGHT_ARRAY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_SET_PARENT_WEIGHT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_SET_NAME_METADATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_SET_NAME_ARRAY_METADATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_SET_LOCAL_TRANSFORM_BY_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_SET_LOCAL_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_SET_LINEAR_COLOR_METADATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_SET_LINEAR_COLOR_ARRAY_METADATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_SET_INT32_METADATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_SET_INT32_ARRAY_METADATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_SET_GLOBAL_TRANSFORM_BY_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_SET_GLOBAL_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_SET_FLOAT_METADATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_SET_FLOAT_ARRAY_METADATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_SET_CURVE_VALUE_BY_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_SET_CURVE_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_SET_CONTROL_VISIBILITY_BY_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_SET_CONTROL_VISIBILITY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_SET_CONTROL_VALUE_BY_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_SET_CONTROL_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_SET_CONTROL_SHAPE_TRANSFORM_BY_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_SET_CONTROL_SHAPE_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_SET_CONTROL_SETTINGS_BY_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_SET_CONTROL_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_SET_CONTROL_PREFERRED_ROTATOR_BY_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_SET_CONTROL_PREFERRED_ROTATOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_SET_CONTROL_PREFERRED_ROTATION_ORDER_BY_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_SET_CONTROL_PREFERRED_ROTATION_ORDER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_SET_CONTROL_PREFERRED_EULER_ANGLES_BY_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_SET_CONTROL_PREFERRED_EULER_ANGLES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_SET_CONTROL_OFFSET_TRANSFORM_BY_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_SET_CONTROL_OFFSET_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_SET_CONNECTOR_SETTINGS_BY_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_SET_CONNECTOR_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_SET_BOOL_METADATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_SET_BOOL_ARRAY_METADATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_SEND_AUTO_KEY_EVENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_RESTORE_SOCKETS_FROM_STATES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_RESTORE_CONNECTORS_FROM_STATES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_RESET_TO_DEFAULT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_RESET_POSE_TO_INITIAL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_RESET_CURVE_VALUES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_RESET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_REMOVE_METADATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_REMOVE_ALL_METADATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_NUM_COMPONENTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_NUM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_MAKE_CONTROL_VALUE_FROM_VECTOR2_D: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_MAKE_CONTROL_VALUE_FROM_VECTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_MAKE_CONTROL_VALUE_FROM_TRANSFORM_NO_SCALE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_MAKE_CONTROL_VALUE_FROM_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_MAKE_CONTROL_VALUE_FROM_ROTATOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_MAKE_CONTROL_VALUE_FROM_INT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_MAKE_CONTROL_VALUE_FROM_FLOAT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_MAKE_CONTROL_VALUE_FROM_EULER_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_MAKE_CONTROL_VALUE_FROM_BOOL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_IS_VALID_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_IS_SELECTED_BY_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_IS_SELECTED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_IS_PROCEDURAL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_IS_PARENTED_TO: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_IS_CURVE_VALUE_SET_BY_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_IS_CURVE_VALUE_SET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_IS_CONTROLLER_AVAILABLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_IS_COMPONENT_SELECTED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_HAS_TAG: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_GET_VECTOR_METADATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_GET_VECTOR_FROM_CONTROL_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_GET_VECTOR_ARRAY_METADATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_GET_VECTOR2_D_FROM_CONTROL_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_GET_TRANSFORM_NO_SCALE_FROM_CONTROL_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_GET_TRANSFORM_METADATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_GET_TRANSFORM_FROM_CONTROL_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_GET_TRANSFORM_ARRAY_METADATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_GET_TAGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_GET_SOCKET_STATES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_GET_SOCKET_KEYS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_GET_SELECTED_KEYS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_GET_SELECTED_HIERARCHY_KEYS_FOR_BLUEPRINT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_GET_RULE_MANAGER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_GET_ROTATOR_METADATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_GET_ROTATOR_FROM_CONTROL_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_GET_ROTATOR_ARRAY_METADATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_GET_ROOT_ELEMENT_KEYS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_GET_RIG_ELEMENT_KEY_METADATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_GET_RIG_ELEMENT_KEY_ARRAY_METADATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_GET_REFERENCE_KEYS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_GET_QUAT_METADATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_GET_QUAT_ARRAY_METADATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_GET_PREVIOUS_PARENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_GET_PREVIOUS_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_GET_PREVIOUS_HIERARCHY_PARENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_GET_PREVIOUS_HIERARCHY_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_GET_POSE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_GET_PARENT_WEIGHT_ARRAY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_GET_PARENT_WEIGHT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_GET_PARENT_TRANSFORM_BY_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_GET_PARENT_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_GET_PARENTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_GET_NUMBER_OF_PARENTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_GET_NULL_KEYS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_GET_NAME_SPACE_F_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_GET_NAME_SPACE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_GET_NAME_METADATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_GET_NAME_ARRAY_METADATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_GET_MODULE_PREFIX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_GET_MODULE_PATH_F_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_GET_MODULE_PATH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_GET_MODULE_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_GET_MODULE_F_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_GET_METADATA_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_GET_METADATA_NAMES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_GET_LOCAL_TRANSFORM_BY_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_GET_LOCAL_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_GET_LOCAL_INDEX_FOR_BLUEPRINT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_GET_LOCAL_CONTROL_SHAPE_TRANSFORM_BY_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_GET_LOCAL_CONTROL_SHAPE_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_GET_LINEAR_COLOR_METADATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_GET_LINEAR_COLOR_ARRAY_METADATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_GET_KEYS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_GET_KEY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_GET_INT_FROM_CONTROL_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_GET_INT32_METADATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_GET_INT32_ARRAY_METADATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_GET_INDEX_FOR_BLUEPRINT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_GET_GLOBAL_TRANSFORM_BY_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_GET_GLOBAL_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_GET_GLOBAL_CONTROL_SHAPE_TRANSFORM_BY_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_GET_GLOBAL_CONTROL_SHAPE_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_GET_GLOBAL_CONTROL_OFFSET_TRANSFORM_BY_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_GET_GLOBAL_CONTROL_OFFSET_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_GET_FLOAT_METADATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_GET_FLOAT_FROM_CONTROL_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_GET_FLOAT_ARRAY_METADATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_GET_FIRST_PARENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_GET_EULER_TRANSFORM_FROM_CONTROL_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_GET_DEFAULT_PARENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_GET_CURVE_VALUE_BY_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_GET_CURVE_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_GET_CURVE_KEYS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_GET_CONTROL_VALUE_BY_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_GET_CONTROL_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_GET_CONTROL_PREFERRED_ROTATOR_BY_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_GET_CONTROL_PREFERRED_ROTATOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_GET_CONTROL_PREFERRED_EULER_ROTATION_ORDER_BY_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_GET_CONTROL_PREFERRED_EULER_ROTATION_ORDER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_GET_CONTROL_PREFERRED_EULER_ANGLES_BY_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_GET_CONTROL_PREFERRED_EULER_ANGLES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_GET_CONTROLLER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_GET_CONTROL_KEYS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_GET_CONNECTOR_STATES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_GET_CONNECTOR_KEYS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_GET_COMPONENT_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_GET_COMPONENT_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_GET_COMPONENT_KEYS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_GET_COMPONENT_KEY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_GET_COMPONENT_CONTENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_GET_CHILDREN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_GET_BOOL_METADATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_GET_BOOL_ARRAY_METADATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_GET_BONE_KEYS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_GET_ALL_KEYS_FOR_BLUEPRINT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_GET_ALL_COMPONENT_KEYS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_FIND_NULL_FOR_BLUEPRINT_ONLY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_FIND_CONTROL_FOR_BLUEPRINT_ONLY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_FIND_BONE_FOR_BLUEPRINT_ONLY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_COPY_POSE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_COPY_HIERARCHY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_CONTAINS_FOR_BLUEPRINT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_CONTROLLER_SET_SELECTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_CONTROLLER_SET_PARENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_CONTROLLER_SET_HIERARCHY_SELECTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_CONTROLLER_SET_HIERARCHY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_CONTROLLER_SET_DISPLAY_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_CONTROLLER_SET_CONTROL_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_CONTROLLER_SET_COMPONENT_SELECTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_CONTROLLER_SET_COMPONENT_CONTENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_CONTROLLER_SET_AVAILABLE_SPACE_LABEL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_CONTROLLER_SET_AVAILABLE_SPACE_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_CONTROLLER_SELECT_HIERARCHY_KEY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_CONTROLLER_SELECT_ELEMENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_CONTROLLER_SELECT_COMPONENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_CONTROLLER_REPARENT_COMPONENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_CONTROLLER_REORDER_ELEMENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_CONTROLLER_RENAME_ELEMENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_CONTROLLER_RENAME_COMPONENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_CONTROLLER_REMOVE_PARENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_CONTROLLER_REMOVE_ELEMENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_CONTROLLER_REMOVE_COMPONENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_CONTROLLER_REMOVE_CHANNEL_HOST: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_CONTROLLER_REMOVE_AVAILABLE_SPACE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_CONTROLLER_REMOVE_ALL_PARENTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_CONTROLLER_MIRROR_ELEMENTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_CONTROLLER_IMPORT_SOCKETS_FROM_SKELETAL_MESH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_CONTROLLER_IMPORT_PREVIEW_SKELETAL_MESH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_CONTROLLER_IMPORT_FROM_TEXT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_CONTROLLER_IMPORT_CURVES_FROM_SKELETAL_MESH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_CONTROLLER_IMPORT_CURVES_FROM_ASSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_CONTROLLER_IMPORT_CURVES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_CONTROLLER_IMPORT_BONES_FROM_SKELETAL_MESH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_CONTROLLER_IMPORT_BONES_FROM_ASSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_CONTROLLER_IMPORT_BONES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_CONTROLLER_GET_HIERARCHY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_CONTROLLER_GET_CONTROL_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_CONTROLLER_GENERATE_PYTHON_COMMANDS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_CONTROLLER_EXPORT_TO_TEXT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_CONTROLLER_EXPORT_SELECTION_TO_TEXT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_CONTROLLER_DUPLICATE_ELEMENTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_CONTROLLER_DESELECT_HIERARCHY_KEY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_CONTROLLER_DESELECT_ELEMENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_CONTROLLER_DESELECT_COMPONENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_CONTROLLER_CLEAR_SELECTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_CONTROLLER_ADD_SOCKET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_CONTROLLER_ADD_PARENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_CONTROLLER_ADD_NULL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_CONTROLLER_ADD_CURVE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_CONTROLLER_ADD_CONTROL_FOR_BLUEPRINT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_CONTROLLER_ADD_CONNECTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_CONTROLLER_ADD_COMPONENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_CONTROLLER_ADD_CHANNEL_HOST: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_CONTROLLER_ADD_BONE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_CONTROLLER_ADD_AVAILABLE_SPACE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_HIERARCHY_CONTROLLER_ADD_ANIMATION_CHANNEL_FOR_BLUEPRINT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CONTROL_RIG_POSE_ASSET_SET_UP_MIRROR_MATCH_TABLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CONTROL_RIG_POSE_ASSET_SELECT_CONTROLS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CONTROL_RIG_POSE_ASSET_SAVE_POSE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CONTROL_RIG_POSE_ASSET_REPLACE_CONTROL_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CONTROL_RIG_POSE_ASSET_PASTE_POSE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CONTROL_RIG_POSE_ASSET_GET_CURRENT_POSE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CONTROL_RIG_POSE_ASSET_GET_CONTROL_NAMES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CONTROL_RIG_POSE_ASSET_DOES_MIRROR_MATCH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CONTROL_RIG_WORKFLOW_OPTIONS_ENSURE_AT_LEAST_ONE_RIG_ELEMENT_SELECTED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CONTROL_RIG_TRANSFORM_WORKFLOW_OPTIONS_PROVIDE_WORKFLOWS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub fn initialize() {
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UAnimNodeControlRigLibrary::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetControlRigClass"),
+            &raw mut U_ANIM_NODE_CONTROL_RIG_LIBRARY_SET_CONTROL_RIG_CLASS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ConvertToControlRigPure"),
+            &raw mut U_ANIM_NODE_CONTROL_RIG_LIBRARY_CONVERT_TO_CONTROL_RIG_PURE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ConvertToControlRig"),
+            &raw mut U_ANIM_NODE_CONTROL_RIG_LIBRARY_CONVERT_TO_CONTROL_RIG,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UControlRig::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SupportsBackwardsSolve"),
+            &raw mut U_CONTROL_RIG_SUPPORTS_BACKWARDS_SOLVE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetInteractionRigClass"),
+            &raw mut U_CONTROL_RIG_SET_INTERACTION_RIG_CLASS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetInteractionRig"),
+            &raw mut U_CONTROL_RIG_SET_INTERACTION_RIG,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SelectControl"),
+            &raw mut U_CONTROL_RIG_SELECT_CONTROL,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("RequestConstruction"),
+            &raw mut U_CONTROL_RIG_REQUEST_CONSTRUCTION,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("OnControlSelectedBP__DelegateSignature"),
+            &raw mut U_CONTROL_RIG_ON_CONTROL_SELECTED_BP_DELEGATE_SIGNATURE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("IsControlSelected"),
+            &raw mut U_CONTROL_RIG_IS_CONTROL_SELECTED,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetInteractionRigClass"),
+            &raw mut U_CONTROL_RIG_GET_INTERACTION_RIG_CLASS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetInteractionRig"),
+            &raw mut U_CONTROL_RIG_GET_INTERACTION_RIG,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetHostingActor"),
+            &raw mut U_CONTROL_RIG_GET_HOSTING_ACTOR,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetHierarchy"),
+            &raw mut U_CONTROL_RIG_GET_HIERARCHY,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("FindControlRigs"),
+            &raw mut U_CONTROL_RIG_FIND_CONTROL_RIGS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("CurrentControlSelection"),
+            &raw mut U_CONTROL_RIG_CURRENT_CONTROL_SELECTION,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("CreateTransformableControlHandle"),
+            &raw mut U_CONTROL_RIG_CREATE_TRANSFORMABLE_CONTROL_HANDLE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ClearControlSelection"),
+            &raw mut U_CONTROL_RIG_CLEAR_CONTROL_SELECTION,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UControlRigShapeLibraryLink::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetShapeLibrary"),
+            &raw mut U_CONTROL_RIG_SHAPE_LIBRARY_LINK_SET_SHAPE_LIBRARY,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetShapeLibrary"),
+            &raw mut U_CONTROL_RIG_SHAPE_LIBRARY_LINK_GET_SHAPE_LIBRARY,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UControlRigComponent::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("Update"),
+            &raw mut U_CONTROL_RIG_COMPONENT_UPDATE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetObjectBinding"),
+            &raw mut U_CONTROL_RIG_COMPONENT_SET_OBJECT_BINDING,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetMappedElements"),
+            &raw mut U_CONTROL_RIG_COMPONENT_SET_MAPPED_ELEMENTS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetInitialSpaceTransform"),
+            &raw mut U_CONTROL_RIG_COMPONENT_SET_INITIAL_SPACE_TRANSFORM,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetInitialBoneTransform"),
+            &raw mut U_CONTROL_RIG_COMPONENT_SET_INITIAL_BONE_TRANSFORM,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetControlVector2D"),
+            &raw mut U_CONTROL_RIG_COMPONENT_SET_CONTROL_VECTOR2_D,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetControlTransform"),
+            &raw mut U_CONTROL_RIG_COMPONENT_SET_CONTROL_TRANSFORM,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetControlScale"),
+            &raw mut U_CONTROL_RIG_COMPONENT_SET_CONTROL_SCALE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetControlRotator"),
+            &raw mut U_CONTROL_RIG_COMPONENT_SET_CONTROL_ROTATOR,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetControlRigClass"),
+            &raw mut U_CONTROL_RIG_COMPONENT_SET_CONTROL_RIG_CLASS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetControlPosition"),
+            &raw mut U_CONTROL_RIG_COMPONENT_SET_CONTROL_POSITION,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetControlOffset"),
+            &raw mut U_CONTROL_RIG_COMPONENT_SET_CONTROL_OFFSET,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetControlInt"),
+            &raw mut U_CONTROL_RIG_COMPONENT_SET_CONTROL_INT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetControlFloat"),
+            &raw mut U_CONTROL_RIG_COMPONENT_SET_CONTROL_FLOAT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetControlBool"),
+            &raw mut U_CONTROL_RIG_COMPONENT_SET_CONTROL_BOOL,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetBoneTransform"),
+            &raw mut U_CONTROL_RIG_COMPONENT_SET_BONE_TRANSFORM,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetBoneInitialTransformsFromSkeletalMesh"),
+            &raw mut U_CONTROL_RIG_COMPONENT_SET_BONE_INITIAL_TRANSFORMS_FROM_SKELETAL_MESH,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("OnPreInitialize"),
+            &raw mut U_CONTROL_RIG_COMPONENT_ON_PRE_INITIALIZE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("OnPreForwardsSolve"),
+            &raw mut U_CONTROL_RIG_COMPONENT_ON_PRE_FORWARDS_SOLVE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("OnPreConstruction"),
+            &raw mut U_CONTROL_RIG_COMPONENT_ON_PRE_CONSTRUCTION,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("OnPostInitialize"),
+            &raw mut U_CONTROL_RIG_COMPONENT_ON_POST_INITIALIZE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("OnPostForwardsSolve"),
+            &raw mut U_CONTROL_RIG_COMPONENT_ON_POST_FORWARDS_SOLVE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("OnPostConstruction"),
+            &raw mut U_CONTROL_RIG_COMPONENT_ON_POST_CONSTRUCTION,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("Initialize"),
+            &raw mut U_CONTROL_RIG_COMPONENT_INITIALIZE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetSpaceTransform"),
+            &raw mut U_CONTROL_RIG_COMPONENT_GET_SPACE_TRANSFORM,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetInitialSpaceTransform"),
+            &raw mut U_CONTROL_RIG_COMPONENT_GET_INITIAL_SPACE_TRANSFORM,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetInitialBoneTransform"),
+            &raw mut U_CONTROL_RIG_COMPONENT_GET_INITIAL_BONE_TRANSFORM,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetElementNames"),
+            &raw mut U_CONTROL_RIG_COMPONENT_GET_ELEMENT_NAMES,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetControlVector2D"),
+            &raw mut U_CONTROL_RIG_COMPONENT_GET_CONTROL_VECTOR2_D,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetControlTransform"),
+            &raw mut U_CONTROL_RIG_COMPONENT_GET_CONTROL_TRANSFORM,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetControlScale"),
+            &raw mut U_CONTROL_RIG_COMPONENT_GET_CONTROL_SCALE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetControlRotator"),
+            &raw mut U_CONTROL_RIG_COMPONENT_GET_CONTROL_ROTATOR,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetControlRig"),
+            &raw mut U_CONTROL_RIG_COMPONENT_GET_CONTROL_RIG,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetControlPosition"),
+            &raw mut U_CONTROL_RIG_COMPONENT_GET_CONTROL_POSITION,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetControlOffset"),
+            &raw mut U_CONTROL_RIG_COMPONENT_GET_CONTROL_OFFSET,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetControlInt"),
+            &raw mut U_CONTROL_RIG_COMPONENT_GET_CONTROL_INT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetControlFloat"),
+            &raw mut U_CONTROL_RIG_COMPONENT_GET_CONTROL_FLOAT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetControlBool"),
+            &raw mut U_CONTROL_RIG_COMPONENT_GET_CONTROL_BOOL,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetBoneTransform"),
+            &raw mut U_CONTROL_RIG_COMPONENT_GET_BONE_TRANSFORM,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetAbsoluteTime"),
+            &raw mut U_CONTROL_RIG_COMPONENT_GET_ABSOLUTE_TIME,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("DoesElementExist"),
+            &raw mut U_CONTROL_RIG_COMPONENT_DOES_ELEMENT_EXIST,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ClearMappedElements"),
+            &raw mut U_CONTROL_RIG_COMPONENT_CLEAR_MAPPED_ELEMENTS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("CanExecute"),
+            &raw mut U_CONTROL_RIG_COMPONENT_CAN_EXECUTE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("AddMappedSkeletalMesh"),
+            &raw mut U_CONTROL_RIG_COMPONENT_ADD_MAPPED_SKELETAL_MESH,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("AddMappedElements"),
+            &raw mut U_CONTROL_RIG_COMPONENT_ADD_MAPPED_ELEMENTS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("AddMappedComponents"),
+            &raw mut U_CONTROL_RIG_COMPONENT_ADD_MAPPED_COMPONENTS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("AddMappedCompleteSkeletalMesh"),
+            &raw mut U_CONTROL_RIG_COMPONENT_ADD_MAPPED_COMPLETE_SKELETAL_MESH,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = AControlRigControlActor::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ResetControlActor"),
+            &raw mut A_CONTROL_RIG_CONTROL_ACTOR_RESET_CONTROL_ACTOR,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("Refresh"),
+            &raw mut A_CONTROL_RIG_CONTROL_ACTOR_REFRESH,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("Clear"),
+            &raw mut A_CONTROL_RIG_CONTROL_ACTOR_CLEAR,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = AControlRigShapeActor::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetSelected"),
+            &raw mut A_CONTROL_RIG_SHAPE_ACTOR_SET_SELECTED,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetSelectable"),
+            &raw mut A_CONTROL_RIG_SHAPE_ACTOR_SET_SELECTABLE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetHovered"),
+            &raw mut A_CONTROL_RIG_SHAPE_ACTOR_SET_HOVERED,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetGlobalTransform"),
+            &raw mut A_CONTROL_RIG_SHAPE_ACTOR_SET_GLOBAL_TRANSFORM,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetEnabled"),
+            &raw mut A_CONTROL_RIG_SHAPE_ACTOR_SET_ENABLED,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("OnTransformChanged"),
+            &raw mut A_CONTROL_RIG_SHAPE_ACTOR_ON_TRANSFORM_CHANGED,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("OnSelectionChanged"),
+            &raw mut A_CONTROL_RIG_SHAPE_ACTOR_ON_SELECTION_CHANGED,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("OnManipulatingChanged"),
+            &raw mut A_CONTROL_RIG_SHAPE_ACTOR_ON_MANIPULATING_CHANGED,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("OnHoveredChanged"),
+            &raw mut A_CONTROL_RIG_SHAPE_ACTOR_ON_HOVERED_CHANGED,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("OnEnabledChanged"),
+            &raw mut A_CONTROL_RIG_SHAPE_ACTOR_ON_ENABLED_CHANGED,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("IsSelectedInEditor"),
+            &raw mut A_CONTROL_RIG_SHAPE_ACTOR_IS_SELECTED_IN_EDITOR,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("IsHovered"),
+            &raw mut A_CONTROL_RIG_SHAPE_ACTOR_IS_HOVERED,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("IsEnabled"),
+            &raw mut A_CONTROL_RIG_SHAPE_ACTOR_IS_ENABLED,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetGlobalTransform"),
+            &raw mut A_CONTROL_RIG_SHAPE_ACTOR_GET_GLOBAL_TRANSFORM,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UControlRigReplay::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("StopReplay"),
+            &raw mut U_CONTROL_RIG_REPLAY_STOP_REPLAY,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("StopRecording"),
+            &raw mut U_CONTROL_RIG_REPLAY_STOP_RECORDING,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("StartReplay"),
+            &raw mut U_CONTROL_RIG_REPLAY_START_REPLAY,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("StartRecording"),
+            &raw mut U_CONTROL_RIG_REPLAY_START_RECORDING,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetPlaybackMode"),
+            &raw mut U_CONTROL_RIG_REPLAY_SET_PLAYBACK_MODE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("PauseReplay"),
+            &raw mut U_CONTROL_RIG_REPLAY_PAUSE_REPLAY,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("IsReplaying"),
+            &raw mut U_CONTROL_RIG_REPLAY_IS_REPLAYING,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("IsRecording"),
+            &raw mut U_CONTROL_RIG_REPLAY_IS_RECORDING,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("IsPaused"),
+            &raw mut U_CONTROL_RIG_REPLAY_IS_PAUSED,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetTimeRange"),
+            &raw mut U_CONTROL_RIG_REPLAY_GET_TIME_RANGE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetPlaybackMode"),
+            &raw mut U_CONTROL_RIG_REPLAY_GET_PLAYBACK_MODE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("CreateNewAsset"),
+            &raw mut U_CONTROL_RIG_REPLAY_CREATE_NEW_ASSET,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UControlRigTestData::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetFrameIndexForTime"),
+            &raw mut U_CONTROL_RIG_TEST_DATA_GET_FRAME_INDEX_FOR_TIME,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UModularRig::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetParentPathForBP"),
+            &raw mut U_MODULAR_RIG_GET_PARENT_PATH_FOR_BP,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetParentModuleNameForBP"),
+            &raw mut U_MODULAR_RIG_GET_PARENT_MODULE_NAME_FOR_BP,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetModuleRigByName"),
+            &raw mut U_MODULAR_RIG_GET_MODULE_RIG_BY_NAME,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetModuleRig"),
+            &raw mut U_MODULAR_RIG_GET_MODULE_RIG,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetModulePaths"),
+            &raw mut U_MODULAR_RIG_GET_MODULE_PATHS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetModuleNames"),
+            &raw mut U_MODULAR_RIG_GET_MODULE_NAMES,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetEventsForModuleByName"),
+            &raw mut U_MODULAR_RIG_GET_EVENTS_FOR_MODULE_BY_NAME,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetEventsForModule"),
+            &raw mut U_MODULAR_RIG_GET_EVENTS_FOR_MODULE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetEventsForAllModules"),
+            &raw mut U_MODULAR_RIG_GET_EVENTS_FOR_ALL_MODULES,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ExecuteEventOnModuleForBP"),
+            &raw mut U_MODULAR_RIG_EXECUTE_EVENT_ON_MODULE_FOR_BP,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ExecuteEventOnModuleByNameForBP"),
+            &raw mut U_MODULAR_RIG_EXECUTE_EVENT_ON_MODULE_BY_NAME_FOR_BP,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ExecuteEventOnAllModules"),
+            &raw mut U_MODULAR_RIG_EXECUTE_EVENT_ON_ALL_MODULES,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UModularRigController::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("UnBindModuleVariable"),
+            &raw mut U_MODULAR_RIG_CONTROLLER_UN_BIND_MODULE_VARIABLE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SwapModulesOfClass"),
+            &raw mut U_MODULAR_RIG_CONTROLLER_SWAP_MODULES_OF_CLASS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SwapModuleClass"),
+            &raw mut U_MODULAR_RIG_CONTROLLER_SWAP_MODULE_CLASS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetModuleSelection"),
+            &raw mut U_MODULAR_RIG_CONTROLLER_SET_MODULE_SELECTION,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetConfigValueInModule"),
+            &raw mut U_MODULAR_RIG_CONTROLLER_SET_CONFIG_VALUE_IN_MODULE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SelectModule"),
+            &raw mut U_MODULAR_RIG_CONTROLLER_SELECT_MODULE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ResetConfigValueInModule"),
+            &raw mut U_MODULAR_RIG_CONTROLLER_RESET_CONFIG_VALUE_IN_MODULE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ReparentModule"),
+            &raw mut U_MODULAR_RIG_CONTROLLER_REPARENT_MODULE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ReorderModule"),
+            &raw mut U_MODULAR_RIG_CONTROLLER_REORDER_MODULE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("RenameModule"),
+            &raw mut U_MODULAR_RIG_CONTROLLER_RENAME_MODULE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("MirrorModule"),
+            &raw mut U_MODULAR_RIG_CONTROLLER_MIRROR_MODULE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ImportModuleSettingsFromString"),
+            &raw mut U_MODULAR_RIG_CONTROLLER_IMPORT_MODULE_SETTINGS_FROM_STRING,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetSelectedModules"),
+            &raw mut U_MODULAR_RIG_CONTROLLER_GET_SELECTED_MODULES,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetModuleReference"),
+            &raw mut U_MODULAR_RIG_CONTROLLER_GET_MODULE_REFERENCE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetConnectorsForModule"),
+            &raw mut U_MODULAR_RIG_CONTROLLER_GET_CONNECTORS_FOR_MODULE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetAllModules"),
+            &raw mut U_MODULAR_RIG_CONTROLLER_GET_ALL_MODULES,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ExportModuleSettingsToString"),
+            &raw mut U_MODULAR_RIG_CONTROLLER_EXPORT_MODULE_SETTINGS_TO_STRING,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("DisconnectCyclicConnectors"),
+            &raw mut U_MODULAR_RIG_CONTROLLER_DISCONNECT_CYCLIC_CONNECTORS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("DisconnectConnector"),
+            &raw mut U_MODULAR_RIG_CONTROLLER_DISCONNECT_CONNECTOR,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("DeselectModule"),
+            &raw mut U_MODULAR_RIG_CONTROLLER_DESELECT_MODULE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("DeleteModule"),
+            &raw mut U_MODULAR_RIG_CONTROLLER_DELETE_MODULE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ConnectConnectorToElements"),
+            &raw mut U_MODULAR_RIG_CONTROLLER_CONNECT_CONNECTOR_TO_ELEMENTS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ConnectConnectorToElement"),
+            &raw mut U_MODULAR_RIG_CONTROLLER_CONNECT_CONNECTOR_TO_ELEMENT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("CanConnectConnectorToElements"),
+            &raw mut U_MODULAR_RIG_CONTROLLER_CAN_CONNECT_CONNECTOR_TO_ELEMENTS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("CanConnectConnectorToElement"),
+            &raw mut U_MODULAR_RIG_CONTROLLER_CAN_CONNECT_CONNECTOR_TO_ELEMENT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("BindModuleVariable"),
+            &raw mut U_MODULAR_RIG_CONTROLLER_BIND_MODULE_VARIABLE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("AutoConnectSecondaryConnectors"),
+            &raw mut U_MODULAR_RIG_CONTROLLER_AUTO_CONNECT_SECONDARY_CONNECTORS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("AutoConnectModules"),
+            &raw mut U_MODULAR_RIG_CONTROLLER_AUTO_CONNECT_MODULES,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("AddTargetToArrayConnector"),
+            &raw mut U_MODULAR_RIG_CONTROLLER_ADD_TARGET_TO_ARRAY_CONNECTOR,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("AddModule"),
+            &raw mut U_MODULAR_RIG_CONTROLLER_ADD_MODULE,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = URigHierarchy::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("UnsetCurveValueByIndex"),
+            &raw mut U_RIG_HIERARCHY_UNSET_CURVE_VALUE_BY_INDEX,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("UnsetCurveValue"),
+            &raw mut U_RIG_HIERARCHY_UNSET_CURVE_VALUE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SwitchToWorldSpace"),
+            &raw mut U_RIG_HIERARCHY_SWITCH_TO_WORLD_SPACE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SwitchToParent"),
+            &raw mut U_RIG_HIERARCHY_SWITCH_TO_PARENT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SwitchToDefaultParent"),
+            &raw mut U_RIG_HIERARCHY_SWITCH_TO_DEFAULT_PARENT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SortKeys"),
+            &raw mut U_RIG_HIERARCHY_SORT_KEYS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetVectorMetadata"),
+            &raw mut U_RIG_HIERARCHY_SET_VECTOR_METADATA,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetVectorArrayMetadata"),
+            &raw mut U_RIG_HIERARCHY_SET_VECTOR_ARRAY_METADATA,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetTransformMetadata"),
+            &raw mut U_RIG_HIERARCHY_SET_TRANSFORM_METADATA,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetTransformArrayMetadata"),
+            &raw mut U_RIG_HIERARCHY_SET_TRANSFORM_ARRAY_METADATA,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetTag"),
+            &raw mut U_RIG_HIERARCHY_SET_TAG,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetRotatorMetadata"),
+            &raw mut U_RIG_HIERARCHY_SET_ROTATOR_METADATA,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetRotatorArrayMetadata"),
+            &raw mut U_RIG_HIERARCHY_SET_ROTATOR_ARRAY_METADATA,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetRigElementKeyMetadata"),
+            &raw mut U_RIG_HIERARCHY_SET_RIG_ELEMENT_KEY_METADATA,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetRigElementKeyArrayMetadata"),
+            &raw mut U_RIG_HIERARCHY_SET_RIG_ELEMENT_KEY_ARRAY_METADATA,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetQuatMetadata"),
+            &raw mut U_RIG_HIERARCHY_SET_QUAT_METADATA,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetQuatArrayMetadata"),
+            &raw mut U_RIG_HIERARCHY_SET_QUAT_ARRAY_METADATA,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetPose_ForBlueprint"),
+            &raw mut U_RIG_HIERARCHY_SET_POSE_FOR_BLUEPRINT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetParentWeightArray"),
+            &raw mut U_RIG_HIERARCHY_SET_PARENT_WEIGHT_ARRAY,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetParentWeight"),
+            &raw mut U_RIG_HIERARCHY_SET_PARENT_WEIGHT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetNameMetadata"),
+            &raw mut U_RIG_HIERARCHY_SET_NAME_METADATA,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetNameArrayMetadata"),
+            &raw mut U_RIG_HIERARCHY_SET_NAME_ARRAY_METADATA,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetLocalTransformByIndex"),
+            &raw mut U_RIG_HIERARCHY_SET_LOCAL_TRANSFORM_BY_INDEX,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetLocalTransform"),
+            &raw mut U_RIG_HIERARCHY_SET_LOCAL_TRANSFORM,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetLinearColorMetadata"),
+            &raw mut U_RIG_HIERARCHY_SET_LINEAR_COLOR_METADATA,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetLinearColorArrayMetadata"),
+            &raw mut U_RIG_HIERARCHY_SET_LINEAR_COLOR_ARRAY_METADATA,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetInt32Metadata"),
+            &raw mut U_RIG_HIERARCHY_SET_INT32_METADATA,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetInt32ArrayMetadata"),
+            &raw mut U_RIG_HIERARCHY_SET_INT32_ARRAY_METADATA,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetGlobalTransformByIndex"),
+            &raw mut U_RIG_HIERARCHY_SET_GLOBAL_TRANSFORM_BY_INDEX,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetGlobalTransform"),
+            &raw mut U_RIG_HIERARCHY_SET_GLOBAL_TRANSFORM,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetFloatMetadata"),
+            &raw mut U_RIG_HIERARCHY_SET_FLOAT_METADATA,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetFloatArrayMetadata"),
+            &raw mut U_RIG_HIERARCHY_SET_FLOAT_ARRAY_METADATA,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetCurveValueByIndex"),
+            &raw mut U_RIG_HIERARCHY_SET_CURVE_VALUE_BY_INDEX,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetCurveValue"),
+            &raw mut U_RIG_HIERARCHY_SET_CURVE_VALUE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetControlVisibilityByIndex"),
+            &raw mut U_RIG_HIERARCHY_SET_CONTROL_VISIBILITY_BY_INDEX,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetControlVisibility"),
+            &raw mut U_RIG_HIERARCHY_SET_CONTROL_VISIBILITY,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetControlValueByIndex"),
+            &raw mut U_RIG_HIERARCHY_SET_CONTROL_VALUE_BY_INDEX,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetControlValue"),
+            &raw mut U_RIG_HIERARCHY_SET_CONTROL_VALUE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetControlShapeTransformByIndex"),
+            &raw mut U_RIG_HIERARCHY_SET_CONTROL_SHAPE_TRANSFORM_BY_INDEX,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetControlShapeTransform"),
+            &raw mut U_RIG_HIERARCHY_SET_CONTROL_SHAPE_TRANSFORM,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetControlSettingsByIndex"),
+            &raw mut U_RIG_HIERARCHY_SET_CONTROL_SETTINGS_BY_INDEX,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetControlSettings"),
+            &raw mut U_RIG_HIERARCHY_SET_CONTROL_SETTINGS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetControlPreferredRotatorByIndex"),
+            &raw mut U_RIG_HIERARCHY_SET_CONTROL_PREFERRED_ROTATOR_BY_INDEX,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetControlPreferredRotator"),
+            &raw mut U_RIG_HIERARCHY_SET_CONTROL_PREFERRED_ROTATOR,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetControlPreferredRotationOrderByIndex"),
+            &raw mut U_RIG_HIERARCHY_SET_CONTROL_PREFERRED_ROTATION_ORDER_BY_INDEX,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetControlPreferredRotationOrder"),
+            &raw mut U_RIG_HIERARCHY_SET_CONTROL_PREFERRED_ROTATION_ORDER,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetControlPreferredEulerAnglesByIndex"),
+            &raw mut U_RIG_HIERARCHY_SET_CONTROL_PREFERRED_EULER_ANGLES_BY_INDEX,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetControlPreferredEulerAngles"),
+            &raw mut U_RIG_HIERARCHY_SET_CONTROL_PREFERRED_EULER_ANGLES,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetControlOffsetTransformByIndex"),
+            &raw mut U_RIG_HIERARCHY_SET_CONTROL_OFFSET_TRANSFORM_BY_INDEX,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetControlOffsetTransform"),
+            &raw mut U_RIG_HIERARCHY_SET_CONTROL_OFFSET_TRANSFORM,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetConnectorSettingsByIndex"),
+            &raw mut U_RIG_HIERARCHY_SET_CONNECTOR_SETTINGS_BY_INDEX,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetConnectorSettings"),
+            &raw mut U_RIG_HIERARCHY_SET_CONNECTOR_SETTINGS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetBoolMetadata"),
+            &raw mut U_RIG_HIERARCHY_SET_BOOL_METADATA,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetBoolArrayMetadata"),
+            &raw mut U_RIG_HIERARCHY_SET_BOOL_ARRAY_METADATA,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SendAutoKeyEvent"),
+            &raw mut U_RIG_HIERARCHY_SEND_AUTO_KEY_EVENT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("RestoreSocketsFromStates"),
+            &raw mut U_RIG_HIERARCHY_RESTORE_SOCKETS_FROM_STATES,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("RestoreConnectorsFromStates"),
+            &raw mut U_RIG_HIERARCHY_RESTORE_CONNECTORS_FROM_STATES,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ResetToDefault"),
+            &raw mut U_RIG_HIERARCHY_RESET_TO_DEFAULT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ResetPoseToInitial"),
+            &raw mut U_RIG_HIERARCHY_RESET_POSE_TO_INITIAL,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ResetCurveValues"),
+            &raw mut U_RIG_HIERARCHY_RESET_CURVE_VALUES,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("Reset"),
+            &raw mut U_RIG_HIERARCHY_RESET,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("RemoveMetadata"),
+            &raw mut U_RIG_HIERARCHY_REMOVE_METADATA,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("RemoveAllMetadata"),
+            &raw mut U_RIG_HIERARCHY_REMOVE_ALL_METADATA,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("NumComponents"),
+            &raw mut U_RIG_HIERARCHY_NUM_COMPONENTS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("Num"),
+            &raw mut U_RIG_HIERARCHY_NUM,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("MakeControlValueFromVector2D"),
+            &raw mut U_RIG_HIERARCHY_MAKE_CONTROL_VALUE_FROM_VECTOR2_D,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("MakeControlValueFromVector"),
+            &raw mut U_RIG_HIERARCHY_MAKE_CONTROL_VALUE_FROM_VECTOR,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("MakeControlValueFromTransformNoScale"),
+            &raw mut U_RIG_HIERARCHY_MAKE_CONTROL_VALUE_FROM_TRANSFORM_NO_SCALE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("MakeControlValueFromTransform"),
+            &raw mut U_RIG_HIERARCHY_MAKE_CONTROL_VALUE_FROM_TRANSFORM,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("MakeControlValueFromRotator"),
+            &raw mut U_RIG_HIERARCHY_MAKE_CONTROL_VALUE_FROM_ROTATOR,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("MakeControlValueFromInt"),
+            &raw mut U_RIG_HIERARCHY_MAKE_CONTROL_VALUE_FROM_INT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("MakeControlValueFromFloat"),
+            &raw mut U_RIG_HIERARCHY_MAKE_CONTROL_VALUE_FROM_FLOAT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("MakeControlValueFromEulerTransform"),
+            &raw mut U_RIG_HIERARCHY_MAKE_CONTROL_VALUE_FROM_EULER_TRANSFORM,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("MakeControlValueFromBool"),
+            &raw mut U_RIG_HIERARCHY_MAKE_CONTROL_VALUE_FROM_BOOL,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("IsValidIndex"),
+            &raw mut U_RIG_HIERARCHY_IS_VALID_INDEX,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("IsSelectedByIndex"),
+            &raw mut U_RIG_HIERARCHY_IS_SELECTED_BY_INDEX,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("IsSelected"),
+            &raw mut U_RIG_HIERARCHY_IS_SELECTED,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("IsProcedural"),
+            &raw mut U_RIG_HIERARCHY_IS_PROCEDURAL,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("IsParentedTo"),
+            &raw mut U_RIG_HIERARCHY_IS_PARENTED_TO,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("IsCurveValueSetByIndex"),
+            &raw mut U_RIG_HIERARCHY_IS_CURVE_VALUE_SET_BY_INDEX,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("IsCurveValueSet"),
+            &raw mut U_RIG_HIERARCHY_IS_CURVE_VALUE_SET,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("IsControllerAvailable"),
+            &raw mut U_RIG_HIERARCHY_IS_CONTROLLER_AVAILABLE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("IsComponentSelected"),
+            &raw mut U_RIG_HIERARCHY_IS_COMPONENT_SELECTED,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("HasTag"),
+            &raw mut U_RIG_HIERARCHY_HAS_TAG,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetVectorMetadata"),
+            &raw mut U_RIG_HIERARCHY_GET_VECTOR_METADATA,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetVectorFromControlValue"),
+            &raw mut U_RIG_HIERARCHY_GET_VECTOR_FROM_CONTROL_VALUE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetVectorArrayMetadata"),
+            &raw mut U_RIG_HIERARCHY_GET_VECTOR_ARRAY_METADATA,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetVector2DFromControlValue"),
+            &raw mut U_RIG_HIERARCHY_GET_VECTOR2_D_FROM_CONTROL_VALUE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetTransformNoScaleFromControlValue"),
+            &raw mut U_RIG_HIERARCHY_GET_TRANSFORM_NO_SCALE_FROM_CONTROL_VALUE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetTransformMetadata"),
+            &raw mut U_RIG_HIERARCHY_GET_TRANSFORM_METADATA,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetTransformFromControlValue"),
+            &raw mut U_RIG_HIERARCHY_GET_TRANSFORM_FROM_CONTROL_VALUE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetTransformArrayMetadata"),
+            &raw mut U_RIG_HIERARCHY_GET_TRANSFORM_ARRAY_METADATA,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetTags"),
+            &raw mut U_RIG_HIERARCHY_GET_TAGS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetSocketStates"),
+            &raw mut U_RIG_HIERARCHY_GET_SOCKET_STATES,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetSocketKeys"),
+            &raw mut U_RIG_HIERARCHY_GET_SOCKET_KEYS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetSelectedKeys"),
+            &raw mut U_RIG_HIERARCHY_GET_SELECTED_KEYS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetSelectedHierarchyKeys_ForBlueprint"),
+            &raw mut U_RIG_HIERARCHY_GET_SELECTED_HIERARCHY_KEYS_FOR_BLUEPRINT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetRuleManager"),
+            &raw mut U_RIG_HIERARCHY_GET_RULE_MANAGER,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetRotatorMetadata"),
+            &raw mut U_RIG_HIERARCHY_GET_ROTATOR_METADATA,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetRotatorFromControlValue"),
+            &raw mut U_RIG_HIERARCHY_GET_ROTATOR_FROM_CONTROL_VALUE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetRotatorArrayMetadata"),
+            &raw mut U_RIG_HIERARCHY_GET_ROTATOR_ARRAY_METADATA,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetRootElementKeys"),
+            &raw mut U_RIG_HIERARCHY_GET_ROOT_ELEMENT_KEYS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetRigElementKeyMetadata"),
+            &raw mut U_RIG_HIERARCHY_GET_RIG_ELEMENT_KEY_METADATA,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetRigElementKeyArrayMetadata"),
+            &raw mut U_RIG_HIERARCHY_GET_RIG_ELEMENT_KEY_ARRAY_METADATA,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetReferenceKeys"),
+            &raw mut U_RIG_HIERARCHY_GET_REFERENCE_KEYS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetQuatMetadata"),
+            &raw mut U_RIG_HIERARCHY_GET_QUAT_METADATA,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetQuatArrayMetadata"),
+            &raw mut U_RIG_HIERARCHY_GET_QUAT_ARRAY_METADATA,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetPreviousParent"),
+            &raw mut U_RIG_HIERARCHY_GET_PREVIOUS_PARENT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetPreviousName"),
+            &raw mut U_RIG_HIERARCHY_GET_PREVIOUS_NAME,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetPreviousHierarchyParent"),
+            &raw mut U_RIG_HIERARCHY_GET_PREVIOUS_HIERARCHY_PARENT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetPreviousHierarchyName"),
+            &raw mut U_RIG_HIERARCHY_GET_PREVIOUS_HIERARCHY_NAME,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetPose"),
+            &raw mut U_RIG_HIERARCHY_GET_POSE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetParentWeightArray"),
+            &raw mut U_RIG_HIERARCHY_GET_PARENT_WEIGHT_ARRAY,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetParentWeight"),
+            &raw mut U_RIG_HIERARCHY_GET_PARENT_WEIGHT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetParentTransformByIndex"),
+            &raw mut U_RIG_HIERARCHY_GET_PARENT_TRANSFORM_BY_INDEX,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetParentTransform"),
+            &raw mut U_RIG_HIERARCHY_GET_PARENT_TRANSFORM,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetParents"),
+            &raw mut U_RIG_HIERARCHY_GET_PARENTS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetNumberOfParents"),
+            &raw mut U_RIG_HIERARCHY_GET_NUMBER_OF_PARENTS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetNullKeys"),
+            &raw mut U_RIG_HIERARCHY_GET_NULL_KEYS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetNameSpaceFName"),
+            &raw mut U_RIG_HIERARCHY_GET_NAME_SPACE_F_NAME,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetNameSpace"),
+            &raw mut U_RIG_HIERARCHY_GET_NAME_SPACE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetNameMetadata"),
+            &raw mut U_RIG_HIERARCHY_GET_NAME_METADATA,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetNameArrayMetadata"),
+            &raw mut U_RIG_HIERARCHY_GET_NAME_ARRAY_METADATA,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetModulePrefix"),
+            &raw mut U_RIG_HIERARCHY_GET_MODULE_PREFIX,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetModulePathFName"),
+            &raw mut U_RIG_HIERARCHY_GET_MODULE_PATH_F_NAME,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetModulePath"),
+            &raw mut U_RIG_HIERARCHY_GET_MODULE_PATH,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetModuleName"),
+            &raw mut U_RIG_HIERARCHY_GET_MODULE_NAME,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetModuleFName"),
+            &raw mut U_RIG_HIERARCHY_GET_MODULE_F_NAME,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetMetadataType"),
+            &raw mut U_RIG_HIERARCHY_GET_METADATA_TYPE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetMetadataNames"),
+            &raw mut U_RIG_HIERARCHY_GET_METADATA_NAMES,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetLocalTransformByIndex"),
+            &raw mut U_RIG_HIERARCHY_GET_LOCAL_TRANSFORM_BY_INDEX,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetLocalTransform"),
+            &raw mut U_RIG_HIERARCHY_GET_LOCAL_TRANSFORM,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetLocalIndex_ForBlueprint"),
+            &raw mut U_RIG_HIERARCHY_GET_LOCAL_INDEX_FOR_BLUEPRINT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetLocalControlShapeTransformByIndex"),
+            &raw mut U_RIG_HIERARCHY_GET_LOCAL_CONTROL_SHAPE_TRANSFORM_BY_INDEX,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetLocalControlShapeTransform"),
+            &raw mut U_RIG_HIERARCHY_GET_LOCAL_CONTROL_SHAPE_TRANSFORM,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetLinearColorMetadata"),
+            &raw mut U_RIG_HIERARCHY_GET_LINEAR_COLOR_METADATA,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetLinearColorArrayMetadata"),
+            &raw mut U_RIG_HIERARCHY_GET_LINEAR_COLOR_ARRAY_METADATA,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetKeys"),
+            &raw mut U_RIG_HIERARCHY_GET_KEYS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetKey"),
+            &raw mut U_RIG_HIERARCHY_GET_KEY,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetIntFromControlValue"),
+            &raw mut U_RIG_HIERARCHY_GET_INT_FROM_CONTROL_VALUE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetInt32Metadata"),
+            &raw mut U_RIG_HIERARCHY_GET_INT32_METADATA,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetInt32ArrayMetadata"),
+            &raw mut U_RIG_HIERARCHY_GET_INT32_ARRAY_METADATA,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetIndex_ForBlueprint"),
+            &raw mut U_RIG_HIERARCHY_GET_INDEX_FOR_BLUEPRINT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetGlobalTransformByIndex"),
+            &raw mut U_RIG_HIERARCHY_GET_GLOBAL_TRANSFORM_BY_INDEX,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetGlobalTransform"),
+            &raw mut U_RIG_HIERARCHY_GET_GLOBAL_TRANSFORM,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetGlobalControlShapeTransformByIndex"),
+            &raw mut U_RIG_HIERARCHY_GET_GLOBAL_CONTROL_SHAPE_TRANSFORM_BY_INDEX,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetGlobalControlShapeTransform"),
+            &raw mut U_RIG_HIERARCHY_GET_GLOBAL_CONTROL_SHAPE_TRANSFORM,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetGlobalControlOffsetTransformByIndex"),
+            &raw mut U_RIG_HIERARCHY_GET_GLOBAL_CONTROL_OFFSET_TRANSFORM_BY_INDEX,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetGlobalControlOffsetTransform"),
+            &raw mut U_RIG_HIERARCHY_GET_GLOBAL_CONTROL_OFFSET_TRANSFORM,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetFloatMetadata"),
+            &raw mut U_RIG_HIERARCHY_GET_FLOAT_METADATA,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetFloatFromControlValue"),
+            &raw mut U_RIG_HIERARCHY_GET_FLOAT_FROM_CONTROL_VALUE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetFloatArrayMetadata"),
+            &raw mut U_RIG_HIERARCHY_GET_FLOAT_ARRAY_METADATA,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetFirstParent"),
+            &raw mut U_RIG_HIERARCHY_GET_FIRST_PARENT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetEulerTransformFromControlValue"),
+            &raw mut U_RIG_HIERARCHY_GET_EULER_TRANSFORM_FROM_CONTROL_VALUE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetDefaultParent"),
+            &raw mut U_RIG_HIERARCHY_GET_DEFAULT_PARENT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetCurveValueByIndex"),
+            &raw mut U_RIG_HIERARCHY_GET_CURVE_VALUE_BY_INDEX,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetCurveValue"),
+            &raw mut U_RIG_HIERARCHY_GET_CURVE_VALUE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetCurveKeys"),
+            &raw mut U_RIG_HIERARCHY_GET_CURVE_KEYS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetControlValueByIndex"),
+            &raw mut U_RIG_HIERARCHY_GET_CONTROL_VALUE_BY_INDEX,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetControlValue"),
+            &raw mut U_RIG_HIERARCHY_GET_CONTROL_VALUE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetControlPreferredRotatorByIndex"),
+            &raw mut U_RIG_HIERARCHY_GET_CONTROL_PREFERRED_ROTATOR_BY_INDEX,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetControlPreferredRotator"),
+            &raw mut U_RIG_HIERARCHY_GET_CONTROL_PREFERRED_ROTATOR,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetControlPreferredEulerRotationOrderByIndex"),
+            &raw mut U_RIG_HIERARCHY_GET_CONTROL_PREFERRED_EULER_ROTATION_ORDER_BY_INDEX,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetControlPreferredEulerRotationOrder"),
+            &raw mut U_RIG_HIERARCHY_GET_CONTROL_PREFERRED_EULER_ROTATION_ORDER,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetControlPreferredEulerAnglesByIndex"),
+            &raw mut U_RIG_HIERARCHY_GET_CONTROL_PREFERRED_EULER_ANGLES_BY_INDEX,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetControlPreferredEulerAngles"),
+            &raw mut U_RIG_HIERARCHY_GET_CONTROL_PREFERRED_EULER_ANGLES,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetController"),
+            &raw mut U_RIG_HIERARCHY_GET_CONTROLLER,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetControlKeys"),
+            &raw mut U_RIG_HIERARCHY_GET_CONTROL_KEYS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetConnectorStates"),
+            &raw mut U_RIG_HIERARCHY_GET_CONNECTOR_STATES,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetConnectorKeys"),
+            &raw mut U_RIG_HIERARCHY_GET_CONNECTOR_KEYS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetComponentType"),
+            &raw mut U_RIG_HIERARCHY_GET_COMPONENT_TYPE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetComponentName"),
+            &raw mut U_RIG_HIERARCHY_GET_COMPONENT_NAME,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetComponentKeys"),
+            &raw mut U_RIG_HIERARCHY_GET_COMPONENT_KEYS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetComponentKey"),
+            &raw mut U_RIG_HIERARCHY_GET_COMPONENT_KEY,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetComponentContent"),
+            &raw mut U_RIG_HIERARCHY_GET_COMPONENT_CONTENT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetChildren"),
+            &raw mut U_RIG_HIERARCHY_GET_CHILDREN,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetBoolMetadata"),
+            &raw mut U_RIG_HIERARCHY_GET_BOOL_METADATA,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetBoolArrayMetadata"),
+            &raw mut U_RIG_HIERARCHY_GET_BOOL_ARRAY_METADATA,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetBoneKeys"),
+            &raw mut U_RIG_HIERARCHY_GET_BONE_KEYS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetAllKeys_ForBlueprint"),
+            &raw mut U_RIG_HIERARCHY_GET_ALL_KEYS_FOR_BLUEPRINT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetAllComponentKeys"),
+            &raw mut U_RIG_HIERARCHY_GET_ALL_COMPONENT_KEYS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("FindNull_ForBlueprintOnly"),
+            &raw mut U_RIG_HIERARCHY_FIND_NULL_FOR_BLUEPRINT_ONLY,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("FindControl_ForBlueprintOnly"),
+            &raw mut U_RIG_HIERARCHY_FIND_CONTROL_FOR_BLUEPRINT_ONLY,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("FindBone_ForBlueprintOnly"),
+            &raw mut U_RIG_HIERARCHY_FIND_BONE_FOR_BLUEPRINT_ONLY,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("CopyPose"),
+            &raw mut U_RIG_HIERARCHY_COPY_POSE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("CopyHierarchy"),
+            &raw mut U_RIG_HIERARCHY_COPY_HIERARCHY,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("Contains_ForBlueprint"),
+            &raw mut U_RIG_HIERARCHY_CONTAINS_FOR_BLUEPRINT,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = URigHierarchyController::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetSelection"),
+            &raw mut U_RIG_HIERARCHY_CONTROLLER_SET_SELECTION,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetParent"),
+            &raw mut U_RIG_HIERARCHY_CONTROLLER_SET_PARENT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetHierarchySelection"),
+            &raw mut U_RIG_HIERARCHY_CONTROLLER_SET_HIERARCHY_SELECTION,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetHierarchy"),
+            &raw mut U_RIG_HIERARCHY_CONTROLLER_SET_HIERARCHY,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetDisplayName"),
+            &raw mut U_RIG_HIERARCHY_CONTROLLER_SET_DISPLAY_NAME,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetControlSettings"),
+            &raw mut U_RIG_HIERARCHY_CONTROLLER_SET_CONTROL_SETTINGS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetComponentSelection"),
+            &raw mut U_RIG_HIERARCHY_CONTROLLER_SET_COMPONENT_SELECTION,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetComponentContent"),
+            &raw mut U_RIG_HIERARCHY_CONTROLLER_SET_COMPONENT_CONTENT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetAvailableSpaceLabel"),
+            &raw mut U_RIG_HIERARCHY_CONTROLLER_SET_AVAILABLE_SPACE_LABEL,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetAvailableSpaceIndex"),
+            &raw mut U_RIG_HIERARCHY_CONTROLLER_SET_AVAILABLE_SPACE_INDEX,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SelectHierarchyKey"),
+            &raw mut U_RIG_HIERARCHY_CONTROLLER_SELECT_HIERARCHY_KEY,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SelectElement"),
+            &raw mut U_RIG_HIERARCHY_CONTROLLER_SELECT_ELEMENT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SelectComponent"),
+            &raw mut U_RIG_HIERARCHY_CONTROLLER_SELECT_COMPONENT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ReparentComponent"),
+            &raw mut U_RIG_HIERARCHY_CONTROLLER_REPARENT_COMPONENT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ReorderElement"),
+            &raw mut U_RIG_HIERARCHY_CONTROLLER_REORDER_ELEMENT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("RenameElement"),
+            &raw mut U_RIG_HIERARCHY_CONTROLLER_RENAME_ELEMENT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("RenameComponent"),
+            &raw mut U_RIG_HIERARCHY_CONTROLLER_RENAME_COMPONENT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("RemoveParent"),
+            &raw mut U_RIG_HIERARCHY_CONTROLLER_REMOVE_PARENT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("RemoveElement"),
+            &raw mut U_RIG_HIERARCHY_CONTROLLER_REMOVE_ELEMENT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("RemoveComponent"),
+            &raw mut U_RIG_HIERARCHY_CONTROLLER_REMOVE_COMPONENT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("RemoveChannelHost"),
+            &raw mut U_RIG_HIERARCHY_CONTROLLER_REMOVE_CHANNEL_HOST,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("RemoveAvailableSpace"),
+            &raw mut U_RIG_HIERARCHY_CONTROLLER_REMOVE_AVAILABLE_SPACE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("RemoveAllParents"),
+            &raw mut U_RIG_HIERARCHY_CONTROLLER_REMOVE_ALL_PARENTS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("MirrorElements"),
+            &raw mut U_RIG_HIERARCHY_CONTROLLER_MIRROR_ELEMENTS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ImportSocketsFromSkeletalMesh"),
+            &raw mut U_RIG_HIERARCHY_CONTROLLER_IMPORT_SOCKETS_FROM_SKELETAL_MESH,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ImportPreviewSkeletalMesh"),
+            &raw mut U_RIG_HIERARCHY_CONTROLLER_IMPORT_PREVIEW_SKELETAL_MESH,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ImportFromText"),
+            &raw mut U_RIG_HIERARCHY_CONTROLLER_IMPORT_FROM_TEXT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ImportCurvesFromSkeletalMesh"),
+            &raw mut U_RIG_HIERARCHY_CONTROLLER_IMPORT_CURVES_FROM_SKELETAL_MESH,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ImportCurvesFromAsset"),
+            &raw mut U_RIG_HIERARCHY_CONTROLLER_IMPORT_CURVES_FROM_ASSET,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ImportCurves"),
+            &raw mut U_RIG_HIERARCHY_CONTROLLER_IMPORT_CURVES,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ImportBonesFromSkeletalMesh"),
+            &raw mut U_RIG_HIERARCHY_CONTROLLER_IMPORT_BONES_FROM_SKELETAL_MESH,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ImportBonesFromAsset"),
+            &raw mut U_RIG_HIERARCHY_CONTROLLER_IMPORT_BONES_FROM_ASSET,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ImportBones"),
+            &raw mut U_RIG_HIERARCHY_CONTROLLER_IMPORT_BONES,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetHierarchy"),
+            &raw mut U_RIG_HIERARCHY_CONTROLLER_GET_HIERARCHY,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetControlSettings"),
+            &raw mut U_RIG_HIERARCHY_CONTROLLER_GET_CONTROL_SETTINGS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GeneratePythonCommands"),
+            &raw mut U_RIG_HIERARCHY_CONTROLLER_GENERATE_PYTHON_COMMANDS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ExportToText"),
+            &raw mut U_RIG_HIERARCHY_CONTROLLER_EXPORT_TO_TEXT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ExportSelectionToText"),
+            &raw mut U_RIG_HIERARCHY_CONTROLLER_EXPORT_SELECTION_TO_TEXT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("DuplicateElements"),
+            &raw mut U_RIG_HIERARCHY_CONTROLLER_DUPLICATE_ELEMENTS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("DeselectHierarchyKey"),
+            &raw mut U_RIG_HIERARCHY_CONTROLLER_DESELECT_HIERARCHY_KEY,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("DeselectElement"),
+            &raw mut U_RIG_HIERARCHY_CONTROLLER_DESELECT_ELEMENT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("DeselectComponent"),
+            &raw mut U_RIG_HIERARCHY_CONTROLLER_DESELECT_COMPONENT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ClearSelection"),
+            &raw mut U_RIG_HIERARCHY_CONTROLLER_CLEAR_SELECTION,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("AddSocket"),
+            &raw mut U_RIG_HIERARCHY_CONTROLLER_ADD_SOCKET,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("AddParent"),
+            &raw mut U_RIG_HIERARCHY_CONTROLLER_ADD_PARENT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("AddNull"),
+            &raw mut U_RIG_HIERARCHY_CONTROLLER_ADD_NULL,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("AddCurve"),
+            &raw mut U_RIG_HIERARCHY_CONTROLLER_ADD_CURVE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("AddControl_ForBlueprint"),
+            &raw mut U_RIG_HIERARCHY_CONTROLLER_ADD_CONTROL_FOR_BLUEPRINT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("AddConnector"),
+            &raw mut U_RIG_HIERARCHY_CONTROLLER_ADD_CONNECTOR,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("AddComponent"),
+            &raw mut U_RIG_HIERARCHY_CONTROLLER_ADD_COMPONENT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("AddChannelHost"),
+            &raw mut U_RIG_HIERARCHY_CONTROLLER_ADD_CHANNEL_HOST,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("AddBone"),
+            &raw mut U_RIG_HIERARCHY_CONTROLLER_ADD_BONE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("AddAvailableSpace"),
+            &raw mut U_RIG_HIERARCHY_CONTROLLER_ADD_AVAILABLE_SPACE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("AddAnimationChannel_ForBlueprint"),
+            &raw mut U_RIG_HIERARCHY_CONTROLLER_ADD_ANIMATION_CHANNEL_FOR_BLUEPRINT,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UControlRigPoseAsset::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetUpMirrorMatchTable"),
+            &raw mut U_CONTROL_RIG_POSE_ASSET_SET_UP_MIRROR_MATCH_TABLE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SelectControls"),
+            &raw mut U_CONTROL_RIG_POSE_ASSET_SELECT_CONTROLS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SavePose"),
+            &raw mut U_CONTROL_RIG_POSE_ASSET_SAVE_POSE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ReplaceControlName"),
+            &raw mut U_CONTROL_RIG_POSE_ASSET_REPLACE_CONTROL_NAME,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("PastePose"),
+            &raw mut U_CONTROL_RIG_POSE_ASSET_PASTE_POSE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetCurrentPose"),
+            &raw mut U_CONTROL_RIG_POSE_ASSET_GET_CURRENT_POSE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetControlNames"),
+            &raw mut U_CONTROL_RIG_POSE_ASSET_GET_CONTROL_NAMES,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("DoesMirrorMatch"),
+            &raw mut U_CONTROL_RIG_POSE_ASSET_DOES_MIRROR_MATCH,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UControlRigWorkflowOptions::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("EnsureAtLeastOneRigElementSelected"),
+            &raw mut U_CONTROL_RIG_WORKFLOW_OPTIONS_ENSURE_AT_LEAST_ONE_RIG_ELEMENT_SELECTED,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UControlRigTransformWorkflowOptions::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ProvideWorkflows"),
+            &raw mut U_CONTROL_RIG_TRANSFORM_WORKFLOW_OPTIONS_PROVIDE_WORKFLOWS,
+        );
+    }
+}
 #[repr(C, align(4))]
 pub struct FRigElementKey {
     pub ty: ERigElementType,
@@ -5036,7 +8611,23 @@ impl FRigUnit_SpringInterpQuaternionV2 {}
 pub struct UAnimNodeControlRigLibrary {
     __padding_end: [u8; 48],
 }
-impl UAnimNodeControlRigLibrary {}
+impl UAnimNodeControlRigLibrary {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimNodeControlRigLibrary")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(16))]
 pub struct UTransformableControlHandle {
     #[doc(hidden)]
@@ -5045,17 +8636,65 @@ pub struct UTransformableControlHandle {
     pub control_name: FName,
     __padding_end: [u8; 180],
 }
-impl UTransformableControlHandle {}
+impl UTransformableControlHandle {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTransformableControlHandle")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(16))]
 pub struct UControlRig {
     __padding_end: [u8; 5040],
 }
-impl UControlRig {}
+impl UControlRig {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UControlRig")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(16))]
 pub struct UControlRigAnimInstance {
     __padding_end: [u8; 1136],
 }
-impl UControlRigAnimInstance {}
+impl UControlRigAnimInstance {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UControlRigAnimInstance")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UControlRigShapeLibraryLink {
     #[doc(hidden)]
@@ -5063,12 +8702,44 @@ pub struct UControlRigShapeLibraryLink {
     pub shape_library: TSoftObjectPtr<UControlRigShapeLibrary>,
     __padding_end: [u8; 24],
 }
-impl UControlRigShapeLibraryLink {}
+impl UControlRigShapeLibraryLink {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UControlRigShapeLibraryLink")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UControlRigBlueprintGeneratedClass {
     __padding_end: [u8; 1960],
 }
-impl UControlRigBlueprintGeneratedClass {}
+impl UControlRigBlueprintGeneratedClass {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UControlRigBlueprintGeneratedClass")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(16))]
 pub struct UControlRigComponent {
     #[doc(hidden)]
@@ -5076,7 +8747,23 @@ pub struct UControlRigComponent {
     pub control_rig_class: TSubclassOf<UControlRig>,
     __padding_end: [u8; 552],
 }
-impl UControlRigComponent {}
+impl UControlRigComponent {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UControlRigComponent")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct AControlRigControlActor {
     #[doc(hidden)]
@@ -5090,7 +8777,23 @@ pub struct AControlRigControlActor {
     pub b_cast_shadows: bool,
     __padding_end: [u8; 143],
 }
-impl AControlRigControlActor {}
+impl AControlRigControlActor {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("AControlRigControlActor")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(16))]
 pub struct AControlRigShapeActor {
     #[doc(hidden)]
@@ -5101,17 +8804,65 @@ pub struct AControlRigShapeActor {
     pub flags_1360: u8,
     __padding_end: [u8; 31],
 }
-impl AControlRigShapeActor {}
+impl AControlRigShapeActor {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("AControlRigShapeActor")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(16))]
 pub struct UControlRigShapeLibrary {
     __padding_end: [u8; 368],
 }
-impl UControlRigShapeLibrary {}
+impl UControlRigShapeLibrary {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UControlRigShapeLibrary")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UControlRigOverrideAsset {
     __padding_end: [u8; 424],
 }
-impl UControlRigOverrideAsset {}
+impl UControlRigOverrideAsset {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UControlRigOverrideAsset")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UControlRigReplay {
     #[doc(hidden)]
@@ -5130,7 +8881,23 @@ pub struct UControlRigReplay {
     pub enable_test: bool,
     __padding_end: [u8; 95],
 }
-impl UControlRigReplay {}
+impl UControlRigReplay {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UControlRigReplay")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UControlRigTestData {
     #[doc(hidden)]
@@ -5141,42 +8908,170 @@ pub struct UControlRigTestData {
     pub event_queue: TArray<FName>,
     __padding_end: [u8; 8],
 }
-impl UControlRigTestData {}
+impl UControlRigTestData {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UControlRigTestData")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UControlRigValidator {
     __padding_end: [u8; 128],
 }
-impl UControlRigValidator {}
+impl UControlRigValidator {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UControlRigValidator")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UControlRigValidationPass {
     __padding_end: [u8; 48],
 }
-impl UControlRigValidationPass {}
+impl UControlRigValidationPass {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UControlRigValidationPass")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(16))]
 pub struct UModularRig {
     __padding_end: [u8; 5504],
 }
-impl UModularRig {}
+impl UModularRig {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UModularRig")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UModularRigController {
     __padding_end: [u8; 96],
 }
-impl UModularRigController {}
+impl UModularRigController {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UModularRigController")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UModularRigRuleManager {
     __padding_end: [u8; 56],
 }
-impl UModularRigRuleManager {}
+impl UModularRigRuleManager {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UModularRigRuleManager")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(16))]
 pub struct UAdditiveControlRig {
     __padding_end: [u8; 5056],
 }
-impl UAdditiveControlRig {}
+impl UAdditiveControlRig {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAdditiveControlRig")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(16))]
 pub struct UFKControlRig {
     __padding_end: [u8; 5104],
 }
-impl UFKControlRig {}
+impl UFKControlRig {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFKControlRig")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(16))]
 pub struct URigHierarchy {
     #[doc(hidden)]
@@ -5184,48 +9079,192 @@ pub struct URigHierarchy {
     pub modified_event_dynamic: FRigHierarchy_ModifiedEventDynamic,
     __padding_end: [u8; 1656],
 }
-impl URigHierarchy {}
+impl URigHierarchy {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("URigHierarchy")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 pub struct IRigHierarchyProvider {}
 #[repr(C, align(8))]
 pub struct URigHierarchyProvider {
     __padding_end: [u8; 48],
 }
-impl URigHierarchyProvider {}
+impl URigHierarchyProvider {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("URigHierarchyProvider")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(16))]
 pub struct URigHierarchyController {
     __padding_end: [u8; 144],
 }
-impl URigHierarchyController {}
+impl URigHierarchyController {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("URigHierarchyController")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(16))]
 pub struct UControlRigLayerInstance {
     __padding_end: [u8; 1136],
 }
-impl UControlRigLayerInstance {}
+impl UControlRigLayerInstance {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UControlRigLayerInstance")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneControlRigParameterSection {
     __padding_end: [u8; 1256],
 }
-impl UMovieSceneControlRigParameterSection {}
+impl UMovieSceneControlRigParameterSection {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneControlRigParameterSection")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneControlRigParameterTrack {
     __padding_end: [u8; 808],
 }
-impl UMovieSceneControlRigParameterTrack {}
+impl UMovieSceneControlRigParameterTrack {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneControlRigParameterTrack")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneControlRigParameterEvaluatorSystem {
     __padding_end: [u8; 616],
 }
-impl UMovieSceneControlRigParameterEvaluatorSystem {}
+impl UMovieSceneControlRigParameterEvaluatorSystem {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneControlRigParameterEvaluatorSystem")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UControlRigSettings {
     __padding_end: [u8; 192],
 }
-impl UControlRigSettings {}
+impl UControlRigSettings {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UControlRigSettings")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UControlRigEditorSettings {
     __padding_end: [u8; 272],
 }
-impl UControlRigEditorSettings {}
+impl UControlRigEditorSettings {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UControlRigEditorSettings")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UControlRigPoseAsset {
     #[doc(hidden)]
@@ -5233,7 +9272,23 @@ pub struct UControlRigPoseAsset {
     pub pose: FControlRigControlPose,
     __padding_end: [u8; 8],
 }
-impl UControlRigPoseAsset {}
+impl UControlRigPoseAsset {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UControlRigPoseAsset")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UControlRigPoseMirrorSettings {
     #[doc(hidden)]
@@ -5242,14 +9297,46 @@ pub struct UControlRigPoseMirrorSettings {
     pub axis_to_flip: crate::bindings::core_u_object::EAxis,
     pub mirror_match_tolerance: f64,
 }
-impl UControlRigPoseMirrorSettings {}
+impl UControlRigPoseMirrorSettings {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UControlRigPoseMirrorSettings")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UControlRigPoseProjectSettings {
     #[doc(hidden)]
     __padding_48: [u8; 48],
     pub root_save_dirs: TArray<crate::bindings::core_u_object::FDirectoryPath>,
 }
-impl UControlRigPoseProjectSettings {}
+impl UControlRigPoseProjectSettings {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UControlRigPoseProjectSettings")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UControlRigWorkflowOptions {
     #[doc(hidden)]
@@ -5257,7 +9344,23 @@ pub struct UControlRigWorkflowOptions {
     pub hierarchy: UPtr<URigHierarchy>,
     pub selection: TArray<FRigElementKey>,
 }
-impl UControlRigWorkflowOptions {}
+impl UControlRigWorkflowOptions {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UControlRigWorkflowOptions")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UControlRigTransformWorkflowOptions {
     #[doc(hidden)]
@@ -5265,12 +9368,44 @@ pub struct UControlRigTransformWorkflowOptions {
     pub transform_type: ERigTransformType,
     __padding_end: [u8; 7],
 }
-impl UControlRigTransformWorkflowOptions {}
+impl UControlRigTransformWorkflowOptions {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UControlRigTransformWorkflowOptions")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UControlRigNumericalValidationPass {
     __padding_end: [u8; 208],
 }
-impl UControlRigNumericalValidationPass {}
+impl UControlRigNumericalValidationPass {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UControlRigNumericalValidationPass")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(1))]
 pub struct FControlRig_OnControlSelected_BP {
     _opague: [u8; 1],

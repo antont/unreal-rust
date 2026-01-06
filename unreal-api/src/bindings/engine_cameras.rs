@@ -2,8 +2,242 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(clippy::non_camel_case_types)]
+#![allow(clippy::new_without_default)]
+#![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
+#[doc(hidden)]
+pub static mut U_CAMERA_ANIMATION_CAMERA_MODIFIER_STOP_CAMERA_ANIMATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CAMERA_ANIMATION_CAMERA_MODIFIER_STOP_ALL_CAMERA_ANIMATIONS_OF: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CAMERA_ANIMATION_CAMERA_MODIFIER_STOP_ALL_CAMERA_ANIMATIONS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CAMERA_ANIMATION_CAMERA_MODIFIER_PLAY_CAMERA_ANIMATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CAMERA_ANIMATION_CAMERA_MODIFIER_IS_CAMERA_ANIMATION_ACTIVE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CAMERA_ANIMATION_CAMERA_MODIFIER_GET_CAMERA_ANIMATION_CAMERA_MODIFIER_FROM_PLAYER_CONTROLLER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CAMERA_ANIMATION_CAMERA_MODIFIER_GET_CAMERA_ANIMATION_CAMERA_MODIFIER_FROM_ID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CAMERA_ANIMATION_CAMERA_MODIFIER_GET_CAMERA_ANIMATION_CAMERA_MODIFIER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_ENGINE_CAMERA_ANIMATION_FUNCTION_LIBRARY_CONV_CAMERA_SHAKE_PLAY_SPACE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_ENGINE_CAMERA_ANIMATION_FUNCTION_LIBRARY_CONV_CAMERA_ANIMATION_PLAY_SPACE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_ENGINE_CAMERA_ANIMATION_FUNCTION_LIBRARY_CONV_CAMERA_ANIMATION_CAMERA_MODIFIER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_ENGINE_CAMERAS_SUBSYSTEM_STOP_CAMERA_ANIMATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_ENGINE_CAMERAS_SUBSYSTEM_STOP_ALL_CAMERA_ANIMATIONS_OF: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_ENGINE_CAMERAS_SUBSYSTEM_STOP_ALL_CAMERA_ANIMATIONS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_ENGINE_CAMERAS_SUBSYSTEM_PLAY_CAMERA_ANIMATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_ENGINE_CAMERAS_SUBSYSTEM_IS_CAMERA_ANIMATION_ACTIVE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_LEGACY_CAMERA_SHAKE_START_LEGACY_CAMERA_SHAKE_FROM_SOURCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_LEGACY_CAMERA_SHAKE_START_LEGACY_CAMERA_SHAKE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_LEGACY_CAMERA_SHAKE_RECEIVE_STOP_SHAKE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_LEGACY_CAMERA_SHAKE_RECEIVE_PLAY_SHAKE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_LEGACY_CAMERA_SHAKE_RECEIVE_IS_FINISHED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_LEGACY_CAMERA_SHAKE_BLUEPRINT_UPDATE_CAMERA_SHAKE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_LEGACY_CAMERA_SHAKE_FUNCTION_LIBRARY_CONV_LEGACY_CAMERA_SHAKE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub fn initialize() {
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UCameraAnimationCameraModifier::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("StopCameraAnimation"),
+            &raw mut U_CAMERA_ANIMATION_CAMERA_MODIFIER_STOP_CAMERA_ANIMATION,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("StopAllCameraAnimationsOf"),
+            &raw mut U_CAMERA_ANIMATION_CAMERA_MODIFIER_STOP_ALL_CAMERA_ANIMATIONS_OF,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("StopAllCameraAnimations"),
+            &raw mut U_CAMERA_ANIMATION_CAMERA_MODIFIER_STOP_ALL_CAMERA_ANIMATIONS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("PlayCameraAnimation"),
+            &raw mut U_CAMERA_ANIMATION_CAMERA_MODIFIER_PLAY_CAMERA_ANIMATION,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("IsCameraAnimationActive"),
+            &raw mut U_CAMERA_ANIMATION_CAMERA_MODIFIER_IS_CAMERA_ANIMATION_ACTIVE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from(
+                "GetCameraAnimationCameraModifierFromPlayerController",
+            ),
+            &raw mut U_CAMERA_ANIMATION_CAMERA_MODIFIER_GET_CAMERA_ANIMATION_CAMERA_MODIFIER_FROM_PLAYER_CONTROLLER,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetCameraAnimationCameraModifierFromID"),
+            &raw mut U_CAMERA_ANIMATION_CAMERA_MODIFIER_GET_CAMERA_ANIMATION_CAMERA_MODIFIER_FROM_ID,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetCameraAnimationCameraModifier"),
+            &raw mut U_CAMERA_ANIMATION_CAMERA_MODIFIER_GET_CAMERA_ANIMATION_CAMERA_MODIFIER,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UEngineCameraAnimationFunctionLibrary::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("Conv_CameraShakePlaySpace"),
+            &raw mut U_ENGINE_CAMERA_ANIMATION_FUNCTION_LIBRARY_CONV_CAMERA_SHAKE_PLAY_SPACE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("Conv_CameraAnimationPlaySpace"),
+            &raw mut U_ENGINE_CAMERA_ANIMATION_FUNCTION_LIBRARY_CONV_CAMERA_ANIMATION_PLAY_SPACE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("Conv_CameraAnimationCameraModifier"),
+            &raw mut U_ENGINE_CAMERA_ANIMATION_FUNCTION_LIBRARY_CONV_CAMERA_ANIMATION_CAMERA_MODIFIER,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UEngineCamerasSubsystem::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("StopCameraAnimation"),
+            &raw mut U_ENGINE_CAMERAS_SUBSYSTEM_STOP_CAMERA_ANIMATION,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("StopAllCameraAnimationsOf"),
+            &raw mut U_ENGINE_CAMERAS_SUBSYSTEM_STOP_ALL_CAMERA_ANIMATIONS_OF,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("StopAllCameraAnimations"),
+            &raw mut U_ENGINE_CAMERAS_SUBSYSTEM_STOP_ALL_CAMERA_ANIMATIONS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("PlayCameraAnimation"),
+            &raw mut U_ENGINE_CAMERAS_SUBSYSTEM_PLAY_CAMERA_ANIMATION,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("IsCameraAnimationActive"),
+            &raw mut U_ENGINE_CAMERAS_SUBSYSTEM_IS_CAMERA_ANIMATION_ACTIVE,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = ULegacyCameraShake::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("StartLegacyCameraShakeFromSource"),
+            &raw mut U_LEGACY_CAMERA_SHAKE_START_LEGACY_CAMERA_SHAKE_FROM_SOURCE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("StartLegacyCameraShake"),
+            &raw mut U_LEGACY_CAMERA_SHAKE_START_LEGACY_CAMERA_SHAKE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ReceiveStopShake"),
+            &raw mut U_LEGACY_CAMERA_SHAKE_RECEIVE_STOP_SHAKE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ReceivePlayShake"),
+            &raw mut U_LEGACY_CAMERA_SHAKE_RECEIVE_PLAY_SHAKE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ReceiveIsFinished"),
+            &raw mut U_LEGACY_CAMERA_SHAKE_RECEIVE_IS_FINISHED,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("BlueprintUpdateCameraShake"),
+            &raw mut U_LEGACY_CAMERA_SHAKE_BLUEPRINT_UPDATE_CAMERA_SHAKE,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = ULegacyCameraShakeFunctionLibrary::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("Conv_LegacyCameraShake"),
+            &raw mut U_LEGACY_CAMERA_SHAKE_FUNCTION_LIBRARY_CONV_LEGACY_CAMERA_SHAKE,
+        );
+    }
+}
 #[repr(C, align(8))]
 pub struct FCameraAnimationParams {
     pub play_rate: f32,
@@ -67,27 +301,107 @@ impl FWaveOscillator {}
 pub struct UCameraAnimationCameraModifier {
     __padding_end: [u8; 104],
 }
-impl UCameraAnimationCameraModifier {}
+impl UCameraAnimationCameraModifier {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UCameraAnimationCameraModifier")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UEngineCameraAnimationFunctionLibrary {
     __padding_end: [u8; 48],
 }
-impl UEngineCameraAnimationFunctionLibrary {}
+impl UEngineCameraAnimationFunctionLibrary {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEngineCameraAnimationFunctionLibrary")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UEngineCamerasSubsystem {
     __padding_end: [u8; 64],
 }
-impl UEngineCamerasSubsystem {}
+impl UEngineCamerasSubsystem {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEngineCamerasSubsystem")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UCompositeCameraShakePattern {
     __padding_end: [u8; 64],
 }
-impl UCompositeCameraShakePattern {}
+impl UCompositeCameraShakePattern {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UCompositeCameraShakePattern")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(16))]
 pub struct UDefaultCameraShakeBase {
     __padding_end: [u8; 224],
 }
-impl UDefaultCameraShakeBase {}
+impl UDefaultCameraShakeBase {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDefaultCameraShakeBase")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(16))]
 pub struct ULegacyCameraShake {
     #[doc(hidden)]
@@ -100,22 +414,86 @@ pub struct ULegacyCameraShake {
     pub oscillator_time_remaining: f32,
     __padding_end: [u8; 144],
 }
-impl ULegacyCameraShake {}
+impl ULegacyCameraShake {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULegacyCameraShake")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct ULegacyCameraShakePattern {
     __padding_end: [u8; 48],
 }
-impl ULegacyCameraShakePattern {}
+impl ULegacyCameraShakePattern {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULegacyCameraShakePattern")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct ULegacyCameraShakeFunctionLibrary {
     __padding_end: [u8; 48],
 }
-impl ULegacyCameraShakeFunctionLibrary {}
+impl ULegacyCameraShakeFunctionLibrary {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULegacyCameraShakeFunctionLibrary")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct USimpleCameraShakePattern {
     __padding_end: [u8; 96],
 }
-impl USimpleCameraShakePattern {}
+impl USimpleCameraShakePattern {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USimpleCameraShakePattern")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UPerlinNoiseCameraShakePattern {
     #[doc(hidden)]
@@ -133,7 +511,23 @@ pub struct UPerlinNoiseCameraShakePattern {
     pub fov: FPerlinNoiseShaker,
     __padding_end: [u8; 56],
 }
-impl UPerlinNoiseCameraShakePattern {}
+impl UPerlinNoiseCameraShakePattern {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPerlinNoiseCameraShakePattern")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UWaveOscillatorCameraShakePattern {
     #[doc(hidden)]
@@ -151,17 +545,65 @@ pub struct UWaveOscillatorCameraShakePattern {
     pub fov: FWaveOscillator,
     __padding_end: [u8; 60],
 }
-impl UWaveOscillatorCameraShakePattern {}
+impl UWaveOscillatorCameraShakePattern {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UWaveOscillatorCameraShakePattern")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(16))]
 pub struct UTestCameraShake {
     __padding_end: [u8; 224],
 }
-impl UTestCameraShake {}
+impl UTestCameraShake {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTestCameraShake")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UConstantCameraShakePattern {
     __padding_end: [u8; 144],
 }
-impl UConstantCameraShakePattern {}
+impl UConstantCameraShakePattern {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UConstantCameraShakePattern")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(transparent)]
 pub struct ECameraAnimationEasingType(pub u8);
 impl ECameraAnimationEasingType {

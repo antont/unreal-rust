@@ -142,3 +142,18 @@ pub struct TScriptInterface<T> {
     interface: FScriptInterface,
     _marker: std::marker::PhantomData<T>,
 }
+
+#[repr(C, align(16))]
+pub struct StackAlloc<const N: usize> {
+    stack: [u8; N],
+}
+
+impl<const N: usize> StackAlloc<N> {
+    pub fn new() -> Self {
+        Self { stack: [0; N] }
+    }
+
+    pub fn buffer_mut(&mut self) -> *mut c_void {
+        self.stack.as_mut_ptr() as *mut c_void
+    }
+}

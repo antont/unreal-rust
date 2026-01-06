@@ -2,8 +2,161 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(clippy::non_camel_case_types)]
+#![allow(clippy::new_without_default)]
+#![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
+#[doc(hidden)]
+pub static mut U_METASOUND_PARAMETER_PACK_SET_TRIGGER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_METASOUND_PARAMETER_PACK_SET_STRING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_METASOUND_PARAMETER_PACK_SET_INT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_METASOUND_PARAMETER_PACK_SET_FLOAT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_METASOUND_PARAMETER_PACK_SET_BOOL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_METASOUND_PARAMETER_PACK_MAKE_METASOUND_PARAMETER_PACK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_METASOUND_PARAMETER_PACK_HAS_TRIGGER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_METASOUND_PARAMETER_PACK_HAS_STRING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_METASOUND_PARAMETER_PACK_HAS_INT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_METASOUND_PARAMETER_PACK_HAS_FLOAT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_METASOUND_PARAMETER_PACK_HAS_BOOL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_METASOUND_PARAMETER_PACK_GET_TRIGGER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_METASOUND_PARAMETER_PACK_GET_STRING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_METASOUND_PARAMETER_PACK_GET_INT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_METASOUND_PARAMETER_PACK_GET_FLOAT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_METASOUND_PARAMETER_PACK_GET_BOOL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub fn initialize() {
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UMetasoundParameterPack::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetTrigger"),
+            &raw mut U_METASOUND_PARAMETER_PACK_SET_TRIGGER,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetString"),
+            &raw mut U_METASOUND_PARAMETER_PACK_SET_STRING,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetInt"),
+            &raw mut U_METASOUND_PARAMETER_PACK_SET_INT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetFloat"),
+            &raw mut U_METASOUND_PARAMETER_PACK_SET_FLOAT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetBool"),
+            &raw mut U_METASOUND_PARAMETER_PACK_SET_BOOL,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("MakeMetasoundParameterPack"),
+            &raw mut U_METASOUND_PARAMETER_PACK_MAKE_METASOUND_PARAMETER_PACK,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("HasTrigger"),
+            &raw mut U_METASOUND_PARAMETER_PACK_HAS_TRIGGER,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("HasString"),
+            &raw mut U_METASOUND_PARAMETER_PACK_HAS_STRING,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("HasInt"),
+            &raw mut U_METASOUND_PARAMETER_PACK_HAS_INT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("HasFloat"),
+            &raw mut U_METASOUND_PARAMETER_PACK_HAS_FLOAT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("HasBool"),
+            &raw mut U_METASOUND_PARAMETER_PACK_HAS_BOOL,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetTrigger"),
+            &raw mut U_METASOUND_PARAMETER_PACK_GET_TRIGGER,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetString"),
+            &raw mut U_METASOUND_PARAMETER_PACK_GET_STRING,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetInt"),
+            &raw mut U_METASOUND_PARAMETER_PACK_GET_INT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetFloat"),
+            &raw mut U_METASOUND_PARAMETER_PACK_GET_FLOAT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetBool"),
+            &raw mut U_METASOUND_PARAMETER_PACK_GET_BOOL,
+        );
+    }
+}
 #[repr(C, align(4))]
 pub struct FMetasoundFrontendVersionNumber {
     pub major: i32,
@@ -88,22 +241,86 @@ pub struct IMetaSoundDocumentInterface {}
 pub struct UMetaSoundDocumentInterface {
     __padding_end: [u8; 48],
 }
-impl UMetaSoundDocumentInterface {}
+impl UMetaSoundDocumentInterface {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMetaSoundDocumentInterface")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMetaSoundFrontendMemberMetadata {
     __padding_end: [u8; 64],
 }
-impl UMetaSoundFrontendMemberMetadata {}
+impl UMetaSoundFrontendMemberMetadata {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMetaSoundFrontendMemberMetadata")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMetaSoundBuilderDocument {
     __padding_end: [u8; 1416],
 }
-impl UMetaSoundBuilderDocument {}
+impl UMetaSoundBuilderDocument {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMetaSoundBuilderDocument")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMetasoundParameterPack {
     __padding_end: [u8; 72],
 }
-impl UMetasoundParameterPack {}
+impl UMetasoundParameterPack {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMetasoundParameterPack")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(transparent)]
 pub struct EMetaSoundFrontendGraphCommentMoveMode(pub u8);
 impl EMetaSoundFrontendGraphCommentMoveMode {

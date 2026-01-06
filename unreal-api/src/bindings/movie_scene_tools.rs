@@ -2,8 +2,65 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(clippy::non_camel_case_types)]
+#![allow(clippy::new_without_default)]
+#![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
+#[doc(hidden)]
+pub static mut U_MOVIE_SCENE_DIRECTOR_BLUEPRINT_CONDITION_ENDPOINT_UTIL_SAMPLE_DIRECTOR_BLUEPRINT_CONDITION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MOVIE_SCENE_DYNAMIC_BINDING_ENDPOINT_UTIL_SAMPLE_RESOLVE_BINDING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MOVIE_SCENE_USER_IMPORT_FBX_CONTROL_RIG_SETTINGS_LOAD_CONTROL_MAPPINGS_FROM_PRESET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MOVIE_SCENE_USER_EXPORT_FBX_CONTROL_RIG_SETTINGS_LOAD_CONTROL_MAPPINGS_FROM_PRESET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub fn initialize() {
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UMovieSceneDirectorBlueprintConditionEndpointUtil::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SampleDirectorBlueprintCondition"),
+            &raw mut U_MOVIE_SCENE_DIRECTOR_BLUEPRINT_CONDITION_ENDPOINT_UTIL_SAMPLE_DIRECTOR_BLUEPRINT_CONDITION,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UMovieSceneDynamicBindingEndpointUtil::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SampleResolveBinding"),
+            &raw mut U_MOVIE_SCENE_DYNAMIC_BINDING_ENDPOINT_UTIL_SAMPLE_RESOLVE_BINDING,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UMovieSceneUserImportFBXControlRigSettings::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("LoadControlMappingsFromPreset"),
+            &raw mut U_MOVIE_SCENE_USER_IMPORT_FBX_CONTROL_RIG_SETTINGS_LOAD_CONTROL_MAPPINGS_FROM_PRESET,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UMovieSceneUserExportFBXControlRigSettings::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("LoadControlMappingsFromPreset"),
+            &raw mut U_MOVIE_SCENE_USER_EXPORT_FBX_CONTROL_RIG_SETTINGS_LOAD_CONTROL_MAPPINGS_FROM_PRESET,
+        );
+    }
+}
 #[repr(C, align(4))]
 pub struct FBakingAnimationKeySettings {
     pub start_frame: crate::bindings::core_u_object::FFrameNumber,
@@ -30,14 +87,46 @@ impl FControlFindReplaceString {}
 pub struct UMovieSceneTextKeyStruct {
     __padding_end: [u8; 416],
 }
-impl UMovieSceneTextKeyStruct {}
+impl UMovieSceneTextKeyStruct {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneTextKeyStruct")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct USequencerExportTask {
     #[doc(hidden)]
     __padding_128: [u8; 128],
     pub sequencer_context: UPtr<crate::bindings::core_u_object::UObject>,
 }
-impl USequencerExportTask {}
+impl USequencerExportTask {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USequencerExportTask")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAutomatedLevelSequenceCapture {
     #[doc(hidden)]
@@ -59,87 +148,359 @@ pub struct UAutomatedLevelSequenceCapture {
     pub b_write_final_cut_pro_xml: bool,
     __padding_end: [u8; 326],
 }
-impl UAutomatedLevelSequenceCapture {}
+impl UAutomatedLevelSequenceCapture {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAutomatedLevelSequenceCapture")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UBoolChannelKeyProxy {
     __padding_end: [u8; 120],
 }
-impl UBoolChannelKeyProxy {}
+impl UBoolChannelKeyProxy {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBoolChannelKeyProxy")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UByteChannelKeyProxy {
     __padding_end: [u8; 120],
 }
-impl UByteChannelKeyProxy {}
+impl UByteChannelKeyProxy {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UByteChannelKeyProxy")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UDoubleChannelKeyProxy {
     __padding_end: [u8; 152],
 }
-impl UDoubleChannelKeyProxy {}
+impl UDoubleChannelKeyProxy {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDoubleChannelKeyProxy")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UFloatChannelKeyProxy {
     __padding_end: [u8; 144],
 }
-impl UFloatChannelKeyProxy {}
+impl UFloatChannelKeyProxy {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFloatChannelKeyProxy")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UIntegerChannelKeyProxy {
     __padding_end: [u8; 120],
 }
-impl UIntegerChannelKeyProxy {}
+impl UIntegerChannelKeyProxy {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UIntegerChannelKeyProxy")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneTrackRowMetadataHelper {
     __padding_end: [u8; 64],
 }
-impl UMovieSceneTrackRowMetadataHelper {}
+impl UMovieSceneTrackRowMetadataHelper {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneTrackRowMetadataHelper")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneDirectorBlueprintConditionExtension {
     __padding_end: [u8; 64],
 }
-impl UMovieSceneDirectorBlueprintConditionExtension {}
+impl UMovieSceneDirectorBlueprintConditionExtension {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneDirectorBlueprintConditionExtension")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneDirectorBlueprintConditionEndpointUtil {
     __padding_end: [u8; 48],
 }
-impl UMovieSceneDirectorBlueprintConditionEndpointUtil {}
+impl UMovieSceneDirectorBlueprintConditionEndpointUtil {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneDirectorBlueprintConditionEndpointUtil")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UK2Node_GetSequenceBinding {
     __padding_end: [u8; 672],
 }
-impl UK2Node_GetSequenceBinding {}
+impl UK2Node_GetSequenceBinding {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UK2Node_GetSequenceBinding")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneDynamicBindingBlueprintExtension {
     __padding_end: [u8; 72],
 }
-impl UMovieSceneDynamicBindingBlueprintExtension {}
+impl UMovieSceneDynamicBindingBlueprintExtension {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneDynamicBindingBlueprintExtension")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneDynamicBindingEndpointUtil {
     __padding_end: [u8; 48],
 }
-impl UMovieSceneDynamicBindingEndpointUtil {}
+impl UMovieSceneDynamicBindingEndpointUtil {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneDynamicBindingEndpointUtil")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneEventBlueprintExtension {
     __padding_end: [u8; 64],
 }
-impl UMovieSceneEventBlueprintExtension {}
+impl UMovieSceneEventBlueprintExtension {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneEventBlueprintExtension")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneToolsProjectSettings {
     __padding_end: [u8; 176],
 }
-impl UMovieSceneToolsProjectSettings {}
+impl UMovieSceneToolsProjectSettings {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneToolsProjectSettings")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneUserThumbnailSettings {
     __padding_end: [u8; 152],
 }
-impl UMovieSceneUserThumbnailSettings {}
+impl UMovieSceneUserThumbnailSettings {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneUserThumbnailSettings")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneUserImportFBXSettings {
     __padding_end: [u8; 64],
 }
-impl UMovieSceneUserImportFBXSettings {}
+impl UMovieSceneUserImportFBXSettings {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneUserImportFBXSettings")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneUserImportFBXControlRigSettings {
     __padding_end: [u8; 168],
 }
-impl UMovieSceneUserImportFBXControlRigSettings {}
+impl UMovieSceneUserImportFBXControlRigSettings {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneUserImportFBXControlRigSettings")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneUserExportFBXControlRigSettings {
     #[doc(hidden)]
@@ -153,7 +514,23 @@ pub struct UMovieSceneUserExportFBXControlRigSettings {
     pub flags_96: u8,
     __padding_end: [u8; 7],
 }
-impl UMovieSceneUserExportFBXControlRigSettings {}
+impl UMovieSceneUserExportFBXControlRigSettings {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneUserExportFBXControlRigSettings")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(transparent)]
 pub struct EBakingKeySettings(pub u8);
 impl EBakingKeySettings {

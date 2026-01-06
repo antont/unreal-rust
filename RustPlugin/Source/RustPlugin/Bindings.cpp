@@ -484,10 +484,12 @@ void GetRegisteredClasses(UClassOpague** classes, uintptr_t* len)
 	}
 }
 
+UE_DISABLE_OPTIMIZATION
 UClassOpague* GetClass(const AActorOpaque* actor)
 {
-	return (UClassOpague*)ToAActor(actor)->GetClass();
+	return (UClassOpague*)static_cast<const UObject*>(actor)->GetClass();
 }
+UE_ENABLE_OPTIMIZATION
 
 uint32 IsMoveable(const AActorOpaque* actor)
 {
@@ -828,7 +830,7 @@ uint32_t GetClassName(const UClassOpague* InClass, StrRustAlloc* out)
 {
 	UClass* Class = (UClass*)(InClass);
 
-	FString Name = Class->GetName();
+	FString Name = Class->GetPrefixCPP() + Class->GetName();
 	auto Utf8 = FTCHARToUTF8(*Name);
 	GetRustModule().Plugin.Rust.allocate_fns.allocate(Utf8.Length(), 1, &out->alloc);
 	FMemory::Memcpy(out->alloc.ptr, Utf8.Get(), out->alloc.size);
@@ -904,6 +906,7 @@ uint32_t DestroyValuesInParamBuffer(const UFunctionOpague* function_opague, void
 	return 1;
 }
 
+UE_DISABLE_OPTIMIZATION
 uint32_t FindFunctionByName(const UClassOpague* cdo_opague, Utf8Str name, UFunctionOpague** function_opague)
 {
 	const UClass* Class = static_cast<const UClass*>(cdo_opague);
@@ -927,6 +930,7 @@ uint32_t FindFunctionByName(const UClassOpague* cdo_opague, Utf8Str name, UFunct
 
 	return 1;
 }
+UE_ENABLE_OPTIMIZATION
 
 void BeginTrace(const char* name)
 {

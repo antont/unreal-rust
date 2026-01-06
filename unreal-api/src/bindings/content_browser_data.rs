@@ -2,8 +2,187 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(clippy::non_camel_case_types)]
+#![allow(clippy::new_without_default)]
+#![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
+#[doc(hidden)]
+pub static mut U_CONTENT_BROWSER_DATA_SUBSYSTEM_GET_ITEMS_UNDER_PATH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CONTENT_BROWSER_DATA_SUBSYSTEM_GET_ITEMS_AT_PATH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CONTENT_BROWSER_DATA_SUBSYSTEM_GET_ITEM_AT_PATH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CONTENT_BROWSER_DATA_SUBSYSTEM_GET_AVAILABLE_DATA_SOURCES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CONTENT_BROWSER_DATA_SUBSYSTEM_GET_ACTIVE_DATA_SOURCES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CONTENT_BROWSER_DATA_SUBSYSTEM_DEACTIVATE_DATA_SOURCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CONTENT_BROWSER_DATA_SUBSYSTEM_DEACTIVATE_ALL_DATA_SOURCES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CONTENT_BROWSER_DATA_SUBSYSTEM_ACTIVATE_DATA_SOURCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CONTENT_BROWSER_DATA_SUBSYSTEM_ACTIVATE_ALL_DATA_SOURCES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CONTENT_BROWSER_ITEM_LIBRARY_IS_FOLDER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CONTENT_BROWSER_ITEM_LIBRARY_IS_FILE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CONTENT_BROWSER_ITEM_LIBRARY_GET_VIRTUAL_PATH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CONTENT_BROWSER_ITEM_LIBRARY_GET_DISPLAY_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CONTENT_BROWSER_ITEM_PATH_EXTENSIONS_SET_PATH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CONTENT_BROWSER_ITEM_PATH_EXTENSIONS_MAKE_CONTENT_BROWSER_ITEM_PATH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CONTENT_BROWSER_ITEM_PATH_EXTENSIONS_GET_VIRTUAL_PATH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CONTENT_BROWSER_ITEM_PATH_EXTENSIONS_GET_INTERNAL_PATH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CONTENT_BROWSER_ITEM_PATH_EXTENSIONS_BREAK_CONTENT_BROWSER_ITEM_PATH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub fn initialize() {
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UContentBrowserDataSubsystem::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetItemsUnderPath"),
+            &raw mut U_CONTENT_BROWSER_DATA_SUBSYSTEM_GET_ITEMS_UNDER_PATH,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetItemsAtPath"),
+            &raw mut U_CONTENT_BROWSER_DATA_SUBSYSTEM_GET_ITEMS_AT_PATH,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetItemAtPath"),
+            &raw mut U_CONTENT_BROWSER_DATA_SUBSYSTEM_GET_ITEM_AT_PATH,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetAvailableDataSources"),
+            &raw mut U_CONTENT_BROWSER_DATA_SUBSYSTEM_GET_AVAILABLE_DATA_SOURCES,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetActiveDataSources"),
+            &raw mut U_CONTENT_BROWSER_DATA_SUBSYSTEM_GET_ACTIVE_DATA_SOURCES,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("DeactivateDataSource"),
+            &raw mut U_CONTENT_BROWSER_DATA_SUBSYSTEM_DEACTIVATE_DATA_SOURCE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("DeactivateAllDataSources"),
+            &raw mut U_CONTENT_BROWSER_DATA_SUBSYSTEM_DEACTIVATE_ALL_DATA_SOURCES,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ActivateDataSource"),
+            &raw mut U_CONTENT_BROWSER_DATA_SUBSYSTEM_ACTIVATE_DATA_SOURCE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ActivateAllDataSources"),
+            &raw mut U_CONTENT_BROWSER_DATA_SUBSYSTEM_ACTIVATE_ALL_DATA_SOURCES,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UContentBrowserItemLibrary::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("IsFolder"),
+            &raw mut U_CONTENT_BROWSER_ITEM_LIBRARY_IS_FOLDER,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("IsFile"),
+            &raw mut U_CONTENT_BROWSER_ITEM_LIBRARY_IS_FILE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetVirtualPath"),
+            &raw mut U_CONTENT_BROWSER_ITEM_LIBRARY_GET_VIRTUAL_PATH,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetDisplayName"),
+            &raw mut U_CONTENT_BROWSER_ITEM_LIBRARY_GET_DISPLAY_NAME,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UContentBrowserItemPathExtensions::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetPath"),
+            &raw mut U_CONTENT_BROWSER_ITEM_PATH_EXTENSIONS_SET_PATH,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("MakeContentBrowserItemPath"),
+            &raw mut U_CONTENT_BROWSER_ITEM_PATH_EXTENSIONS_MAKE_CONTENT_BROWSER_ITEM_PATH,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetVirtualPath"),
+            &raw mut U_CONTENT_BROWSER_ITEM_PATH_EXTENSIONS_GET_VIRTUAL_PATH,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetInternalPath"),
+            &raw mut U_CONTENT_BROWSER_ITEM_PATH_EXTENSIONS_GET_INTERNAL_PATH,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("BreakContentBrowserItemPath"),
+            &raw mut U_CONTENT_BROWSER_ITEM_PATH_EXTENSIONS_BREAK_CONTENT_BROWSER_ITEM_PATH,
+        );
+    }
+}
 #[repr(C, align(8))]
 pub struct FContentBrowserDataFilter {
     pub b_recursive_paths: bool,
@@ -69,7 +248,23 @@ pub struct UContentBrowserDataMenuContext_AddNewMenu {
     pub owner_domain: EContentBrowserDataMenuContext_AddNewMenuDomain,
     __padding_end: [u8; 37],
 }
-impl UContentBrowserDataMenuContext_AddNewMenu {}
+impl UContentBrowserDataMenuContext_AddNewMenu {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UContentBrowserDataMenuContext_AddNewMenu")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UContentBrowserDataMenuContext_FolderMenu {
     #[doc(hidden)]
@@ -78,7 +273,23 @@ pub struct UContentBrowserDataMenuContext_FolderMenu {
     pub b_can_be_modified: bool,
     __padding_end: [u8; 23],
 }
-impl UContentBrowserDataMenuContext_FolderMenu {}
+impl UContentBrowserDataMenuContext_FolderMenu {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UContentBrowserDataMenuContext_FolderMenu")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UContentBrowserDataMenuContext_FileMenu {
     #[doc(hidden)]
@@ -92,7 +303,23 @@ pub struct UContentBrowserDataMenuContext_FileMenu {
     pub b_contains_unsupported_assets: bool,
     __padding_end: [u8; 68],
 }
-impl UContentBrowserDataMenuContext_FileMenu {}
+impl UContentBrowserDataMenuContext_FileMenu {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UContentBrowserDataMenuContext_FileMenu")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UContentBrowserDataMenuContext_DragDropMenu {
     #[doc(hidden)]
@@ -103,27 +330,107 @@ pub struct UContentBrowserDataMenuContext_DragDropMenu {
     pub b_can_copy: bool,
     __padding_end: [u8; 22],
 }
-impl UContentBrowserDataMenuContext_DragDropMenu {}
+impl UContentBrowserDataMenuContext_DragDropMenu {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UContentBrowserDataMenuContext_DragDropMenu")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UContentBrowserDataSource {
     __padding_end: [u8; 304],
 }
-impl UContentBrowserDataSource {}
+impl UContentBrowserDataSource {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UContentBrowserDataSource")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UContentBrowserDataSubsystem {
     __padding_end: [u8; 560],
 }
-impl UContentBrowserDataSubsystem {}
+impl UContentBrowserDataSubsystem {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UContentBrowserDataSubsystem")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UContentBrowserItemLibrary {
     __padding_end: [u8; 48],
 }
-impl UContentBrowserItemLibrary {}
+impl UContentBrowserItemLibrary {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UContentBrowserItemLibrary")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UContentBrowserItemPathExtensions {
     __padding_end: [u8; 48],
 }
-impl UContentBrowserItemPathExtensions {}
+impl UContentBrowserItemPathExtensions {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UContentBrowserItemPathExtensions")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(transparent)]
 pub struct EContentBrowserItemTypeFilter(pub u8);
 impl EContentBrowserItemTypeFilter {

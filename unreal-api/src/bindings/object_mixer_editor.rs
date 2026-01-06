@@ -2,8 +2,109 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(clippy::non_camel_case_types)]
+#![allow(clippy::new_without_default)]
+#![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
+#[doc(hidden)]
+pub static mut U_OBJECT_MIXER_BLUEPRINT_OBJECT_FILTER_SHOULD_INCLUDE_UNSUPPORTED_PROPERTIES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_OBJECT_MIXER_BLUEPRINT_OBJECT_FILTER_GET_SHOW_TRANSIENT_OBJECTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_OBJECT_MIXER_BLUEPRINT_OBJECT_FILTER_GET_PROPERTIES_THAT_REQUIRE_LIST_REFRESH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_OBJECT_MIXER_BLUEPRINT_OBJECT_FILTER_GET_OBJECT_MIXER_PROPERTY_INHERITANCE_INCLUSION_OPTIONS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_OBJECT_MIXER_BLUEPRINT_OBJECT_FILTER_GET_OBJECT_MIXER_PLACEMENT_CLASS_INCLUSION_OPTIONS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_OBJECT_MIXER_BLUEPRINT_OBJECT_FILTER_GET_OBJECT_CLASSES_TO_PLACE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_OBJECT_MIXER_BLUEPRINT_OBJECT_FILTER_GET_OBJECT_CLASSES_TO_FILTER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_OBJECT_MIXER_BLUEPRINT_OBJECT_FILTER_GET_FORCE_ADDED_COLUMNS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_OBJECT_MIXER_BLUEPRINT_OBJECT_FILTER_GET_COLUMNS_TO_SHOW_BY_DEFAULT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_OBJECT_MIXER_BLUEPRINT_OBJECT_FILTER_GET_COLUMNS_TO_EXCLUDE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub fn initialize() {
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UObjectMixerBlueprintObjectFilter::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ShouldIncludeUnsupportedProperties"),
+            &raw mut U_OBJECT_MIXER_BLUEPRINT_OBJECT_FILTER_SHOULD_INCLUDE_UNSUPPORTED_PROPERTIES,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetShowTransientObjects"),
+            &raw mut U_OBJECT_MIXER_BLUEPRINT_OBJECT_FILTER_GET_SHOW_TRANSIENT_OBJECTS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetPropertiesThatRequireListRefresh"),
+            &raw mut U_OBJECT_MIXER_BLUEPRINT_OBJECT_FILTER_GET_PROPERTIES_THAT_REQUIRE_LIST_REFRESH,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from(
+                "GetObjectMixerPropertyInheritanceInclusionOptions",
+            ),
+            &raw mut U_OBJECT_MIXER_BLUEPRINT_OBJECT_FILTER_GET_OBJECT_MIXER_PROPERTY_INHERITANCE_INCLUSION_OPTIONS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetObjectMixerPlacementClassInclusionOptions"),
+            &raw mut U_OBJECT_MIXER_BLUEPRINT_OBJECT_FILTER_GET_OBJECT_MIXER_PLACEMENT_CLASS_INCLUSION_OPTIONS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetObjectClassesToPlace"),
+            &raw mut U_OBJECT_MIXER_BLUEPRINT_OBJECT_FILTER_GET_OBJECT_CLASSES_TO_PLACE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetObjectClassesToFilter"),
+            &raw mut U_OBJECT_MIXER_BLUEPRINT_OBJECT_FILTER_GET_OBJECT_CLASSES_TO_FILTER,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetForceAddedColumns"),
+            &raw mut U_OBJECT_MIXER_BLUEPRINT_OBJECT_FILTER_GET_FORCE_ADDED_COLUMNS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetColumnsToShowByDefault"),
+            &raw mut U_OBJECT_MIXER_BLUEPRINT_OBJECT_FILTER_GET_COLUMNS_TO_SHOW_BY_DEFAULT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetColumnsToExclude"),
+            &raw mut U_OBJECT_MIXER_BLUEPRINT_OBJECT_FILTER_GET_COLUMNS_TO_EXCLUDE,
+        );
+    }
+}
 #[repr(C, align(8))]
 pub struct FObjectMixerWidgetUserConfig {
     pub default_filter_class: TSubclassOf<UObjectMixerObjectFilter>,
@@ -13,44 +114,172 @@ impl FObjectMixerWidgetUserConfig {}
 pub struct UObjectMixerEditorSettings {
     __padding_end: [u8; 112],
 }
-impl UObjectMixerEditorSettings {}
+impl UObjectMixerEditorSettings {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UObjectMixerEditorSettings")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UObjectMixerObjectFilter {
     __padding_end: [u8; 48],
 }
-impl UObjectMixerObjectFilter {}
+impl UObjectMixerObjectFilter {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UObjectMixerObjectFilter")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UObjectMixerBlueprintObjectFilter {
     __padding_end: [u8; 48],
 }
-impl UObjectMixerBlueprintObjectFilter {}
+impl UObjectMixerBlueprintObjectFilter {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UObjectMixerBlueprintObjectFilter")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UObjectMixerEditorSerializedData {
     __padding_end: [u8; 192],
 }
-impl UObjectMixerEditorSerializedData {}
+impl UObjectMixerEditorSerializedData {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UObjectMixerEditorSerializedData")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UObjectMixerBlueprintFilterFactory {
     __padding_end: [u8; 144],
 }
-impl UObjectMixerBlueprintFilterFactory {}
+impl UObjectMixerBlueprintFilterFactory {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UObjectMixerBlueprintFilterFactory")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UObjectMixerOutlinerModeEditorConfig {
     __padding_end: [u8; 128],
 }
-impl UObjectMixerOutlinerModeEditorConfig {}
+impl UObjectMixerOutlinerModeEditorConfig {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UObjectMixerOutlinerModeEditorConfig")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UObjectMixerEditorListMenuContext {
     __padding_end: [u8; 80],
 }
-impl UObjectMixerEditorListMenuContext {}
+impl UObjectMixerEditorListMenuContext {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UObjectMixerEditorListMenuContext")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UObjectMixerEditorUWidget {
     #[doc(hidden)]
     __padding_696: [u8; 696],
     pub object_mixer_widget_user_config: FObjectMixerWidgetUserConfig,
 }
-impl UObjectMixerEditorUWidget {}
+impl UObjectMixerEditorUWidget {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UObjectMixerEditorUWidget")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(transparent)]
 pub struct EListViewColumnType(pub i32);
 impl EListViewColumnType {

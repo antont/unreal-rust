@@ -2,8 +2,325 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(clippy::non_camel_case_types)]
+#![allow(clippy::new_without_default)]
+#![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
+#[doc(hidden)]
+pub static mut A_LANDSCAPE_PROXY_SET_VIRTUAL_TEXTURE_RENDER_PASS_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_LANDSCAPE_PROXY_SET_LANDSCAPE_MATERIAL_VECTOR_PARAMETER_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_LANDSCAPE_PROXY_SET_LANDSCAPE_MATERIAL_TEXTURE_PARAMETER_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_LANDSCAPE_PROXY_SET_LANDSCAPE_MATERIAL_SCALAR_PARAMETER_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_LANDSCAPE_PROXY_LANDSCAPE_IMPORT_WEIGHTMAP_FROM_RENDER_TARGET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_LANDSCAPE_PROXY_LANDSCAPE_IMPORT_HEIGHTMAP_FROM_RENDER_TARGET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_LANDSCAPE_PROXY_LANDSCAPE_EXPORT_WEIGHTMAP_TO_RENDER_TARGET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_LANDSCAPE_PROXY_LANDSCAPE_EXPORT_HEIGHTMAP_TO_RENDER_TARGET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_LANDSCAPE_PROXY_GET_LANDSCAPE_ACTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_LANDSCAPE_PROXY_EDITOR_SET_LANDSCAPE_MATERIAL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_LANDSCAPE_PROXY_EDITOR_APPLY_SPLINE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_LANDSCAPE_PROXY_DELETE_UNUSED_LAYERS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_LANDSCAPE_PROXY_CHANGE_LOD_DISTANCE_FACTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_LANDSCAPE_PROXY_CHANGE_COMPONENT_SCREEN_SIZE_TO_USE_SUB_SECTIONS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_LANDSCAPE_HEIGHTFIELD_COLLISION_COMPONENT_GET_RENDER_COMPONENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_LANDSCAPE_SPLINES_COMPONENT_GET_SPLINE_MESH_COMPONENTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_LANDSCAPE_RENDER_WEIGHTMAPS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_LANDSCAPE_RENDER_WEIGHTMAP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_LANDSCAPE_RENDER_HEIGHTMAP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_LANDSCAPE_GET_TARGET_LAYER_NAMES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_LANDSCAPE_FORCE_LAYERS_FULL_UPDATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_LANDSCAPE_BLUEPRINT_BRUSH_BASE_REQUEST_LANDSCAPE_UPDATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_LANDSCAPE_BLUEPRINT_BRUSH_BASE_RENDER_LAYER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_LANDSCAPE_BLUEPRINT_BRUSH_BASE_RENDER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_LANDSCAPE_BLUEPRINT_BRUSH_BASE_INITIALIZE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_LANDSCAPE_BLUEPRINT_BRUSH_BASE_GET_BLUEPRINT_RENDER_DEPENDENCIES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_LANDSCAPE_COMPONENT_SET_LOD_BIAS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_LANDSCAPE_COMPONENT_SET_FORCED_LOD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_LANDSCAPE_COMPONENT_GET_MATERIAL_INSTANCE_DYNAMIC: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_LANDSCAPE_COMPONENT_GET_GRASS_TYPES_BP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_LANDSCAPE_COMPONENT_EDITOR_GET_PAINT_LAYER_WEIGHT_BY_NAME_AT_LOCATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_LANDSCAPE_COMPONENT_EDITOR_GET_PAINT_LAYER_WEIGHT_AT_LOCATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub fn initialize() {
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = ALandscapeProxy::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetVirtualTextureRenderPassType"),
+            &raw mut A_LANDSCAPE_PROXY_SET_VIRTUAL_TEXTURE_RENDER_PASS_TYPE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetLandscapeMaterialVectorParameterValue"),
+            &raw mut A_LANDSCAPE_PROXY_SET_LANDSCAPE_MATERIAL_VECTOR_PARAMETER_VALUE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetLandscapeMaterialTextureParameterValue"),
+            &raw mut A_LANDSCAPE_PROXY_SET_LANDSCAPE_MATERIAL_TEXTURE_PARAMETER_VALUE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetLandscapeMaterialScalarParameterValue"),
+            &raw mut A_LANDSCAPE_PROXY_SET_LANDSCAPE_MATERIAL_SCALAR_PARAMETER_VALUE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("LandscapeImportWeightmapFromRenderTarget"),
+            &raw mut A_LANDSCAPE_PROXY_LANDSCAPE_IMPORT_WEIGHTMAP_FROM_RENDER_TARGET,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("LandscapeImportHeightmapFromRenderTarget"),
+            &raw mut A_LANDSCAPE_PROXY_LANDSCAPE_IMPORT_HEIGHTMAP_FROM_RENDER_TARGET,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("LandscapeExportWeightmapToRenderTarget"),
+            &raw mut A_LANDSCAPE_PROXY_LANDSCAPE_EXPORT_WEIGHTMAP_TO_RENDER_TARGET,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("LandscapeExportHeightmapToRenderTarget"),
+            &raw mut A_LANDSCAPE_PROXY_LANDSCAPE_EXPORT_HEIGHTMAP_TO_RENDER_TARGET,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetLandscapeActor"),
+            &raw mut A_LANDSCAPE_PROXY_GET_LANDSCAPE_ACTOR,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("EditorSetLandscapeMaterial"),
+            &raw mut A_LANDSCAPE_PROXY_EDITOR_SET_LANDSCAPE_MATERIAL,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("EditorApplySpline"),
+            &raw mut A_LANDSCAPE_PROXY_EDITOR_APPLY_SPLINE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("DeleteUnusedLayers"),
+            &raw mut A_LANDSCAPE_PROXY_DELETE_UNUSED_LAYERS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ChangeLODDistanceFactor"),
+            &raw mut A_LANDSCAPE_PROXY_CHANGE_LOD_DISTANCE_FACTOR,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ChangeComponentScreenSizeToUseSubSections"),
+            &raw mut A_LANDSCAPE_PROXY_CHANGE_COMPONENT_SCREEN_SIZE_TO_USE_SUB_SECTIONS,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = ULandscapeHeightfieldCollisionComponent::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetRenderComponent"),
+            &raw mut U_LANDSCAPE_HEIGHTFIELD_COLLISION_COMPONENT_GET_RENDER_COMPONENT,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = ULandscapeSplinesComponent::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetSplineMeshComponents"),
+            &raw mut U_LANDSCAPE_SPLINES_COMPONENT_GET_SPLINE_MESH_COMPONENTS,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = ALandscape::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("RenderWeightmaps"),
+            &raw mut A_LANDSCAPE_RENDER_WEIGHTMAPS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("RenderWeightmap"),
+            &raw mut A_LANDSCAPE_RENDER_WEIGHTMAP,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("RenderHeightmap"),
+            &raw mut A_LANDSCAPE_RENDER_HEIGHTMAP,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetTargetLayerNames"),
+            &raw mut A_LANDSCAPE_GET_TARGET_LAYER_NAMES,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ForceLayersFullUpdate"),
+            &raw mut A_LANDSCAPE_FORCE_LAYERS_FULL_UPDATE,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = ALandscapeBlueprintBrushBase::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("RequestLandscapeUpdate"),
+            &raw mut A_LANDSCAPE_BLUEPRINT_BRUSH_BASE_REQUEST_LANDSCAPE_UPDATE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("RenderLayer"),
+            &raw mut A_LANDSCAPE_BLUEPRINT_BRUSH_BASE_RENDER_LAYER,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("Render"),
+            &raw mut A_LANDSCAPE_BLUEPRINT_BRUSH_BASE_RENDER,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("Initialize"),
+            &raw mut A_LANDSCAPE_BLUEPRINT_BRUSH_BASE_INITIALIZE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetBlueprintRenderDependencies"),
+            &raw mut A_LANDSCAPE_BLUEPRINT_BRUSH_BASE_GET_BLUEPRINT_RENDER_DEPENDENCIES,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = ULandscapeComponent::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetLODBias"),
+            &raw mut U_LANDSCAPE_COMPONENT_SET_LOD_BIAS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetForcedLOD"),
+            &raw mut U_LANDSCAPE_COMPONENT_SET_FORCED_LOD,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetMaterialInstanceDynamic"),
+            &raw mut U_LANDSCAPE_COMPONENT_GET_MATERIAL_INSTANCE_DYNAMIC,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetGrassTypesBP"),
+            &raw mut U_LANDSCAPE_COMPONENT_GET_GRASS_TYPES_BP,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("EditorGetPaintLayerWeightByNameAtLocation"),
+            &raw mut U_LANDSCAPE_COMPONENT_EDITOR_GET_PAINT_LAYER_WEIGHT_BY_NAME_AT_LOCATION,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("EditorGetPaintLayerWeightAtLocation"),
+            &raw mut U_LANDSCAPE_COMPONENT_EDITOR_GET_PAINT_LAYER_WEIGHT_AT_LOCATION,
+        );
+    }
+}
 #[repr(C, align(8))]
 pub struct FGrassVariety {
     pub grass_mesh: UPtr<crate::bindings::engine::UStaticMesh>,
@@ -53,40 +370,152 @@ impl FLandscapeBrushParameters {}
 pub struct UControlPointMeshComponent {
     __padding_end: [u8; 1904],
 }
-impl UControlPointMeshComponent {}
+impl UControlPointMeshComponent {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UControlPointMeshComponent")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 pub struct ILandscapeBrushRenderCallAdapter_GlobalMergeLegacySupport_DEPRECATED {}
 #[repr(C, align(8))]
 pub struct ULandscapeBrushRenderCallAdapter_GlobalMergeLegacySupport_DEPRECATED {
     __padding_end: [u8; 48],
 }
-impl ULandscapeBrushRenderCallAdapter_GlobalMergeLegacySupport_DEPRECATED {}
+impl ULandscapeBrushRenderCallAdapter_GlobalMergeLegacySupport_DEPRECATED {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULandscapeBrushRenderCallAdapter_GlobalMergeLegacySupport_DEPRECATED")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 pub struct ILandscapeSplineInterface {}
 #[repr(C, align(8))]
 pub struct ULandscapeSplineInterface {
     __padding_end: [u8; 48],
 }
-impl ULandscapeSplineInterface {}
+impl ULandscapeSplineInterface {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULandscapeSplineInterface")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 pub struct ILandscapeEditLayerRenderer {}
 #[repr(C, align(8))]
 pub struct ULandscapeEditLayerRenderer {
     __padding_end: [u8; 48],
 }
-impl ULandscapeEditLayerRenderer {}
+impl ULandscapeEditLayerRenderer {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULandscapeEditLayerRenderer")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct ALandscapeGizmoActor {
     __padding_end: [u8; 1176],
 }
-impl ALandscapeGizmoActor {}
+impl ALandscapeGizmoActor {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ALandscapeGizmoActor")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct ALandscapeGizmoActiveActor {
     __padding_end: [u8; 1608],
 }
-impl ALandscapeGizmoActiveActor {}
+impl ALandscapeGizmoActiveActor {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ALandscapeGizmoActiveActor")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(16))]
 pub struct ULandscapeGizmoRenderComponent {
     __padding_end: [u8; 1504],
 }
-impl ULandscapeGizmoRenderComponent {}
+impl ULandscapeGizmoRenderComponent {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULandscapeGizmoRenderComponent")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct ULandscapeGrassType {
     #[doc(hidden)]
@@ -95,7 +524,23 @@ pub struct ULandscapeGrassType {
     pub flags_64: u8,
     __padding_end: [u8; 39],
 }
-impl ULandscapeGrassType {}
+impl ULandscapeGrassType {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULandscapeGrassType")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct ALandscapeProxy {
     #[doc(hidden)]
@@ -151,39 +596,151 @@ pub struct ALandscapeProxy {
     pub flags_2688: u8,
     __padding_end: [u8; 655],
 }
-impl ALandscapeProxy {}
+impl ALandscapeProxy {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ALandscapeProxy")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(16))]
 pub struct ULandscapeHeightfieldCollisionComponent {
     __padding_end: [u8; 2096],
 }
-impl ULandscapeHeightfieldCollisionComponent {}
+impl ULandscapeHeightfieldCollisionComponent {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULandscapeHeightfieldCollisionComponent")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct ULandscapeMaterialInstanceConstant {
     __padding_end: [u8; 1872],
 }
-impl ULandscapeMaterialInstanceConstant {}
+impl ULandscapeMaterialInstanceConstant {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULandscapeMaterialInstanceConstant")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(16))]
 pub struct ULandscapeMeshCollisionComponent_DEPRECATED {
     __padding_end: [u8; 2208],
 }
-impl ULandscapeMeshCollisionComponent_DEPRECATED {}
+impl ULandscapeMeshCollisionComponent_DEPRECATED {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULandscapeMeshCollisionComponent_DEPRECATED")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct ALandscapeMeshProxyActor {
     #[doc(hidden)]
     __padding_1136: [u8; 1136],
     pub landscape_mesh_proxy_component: UPtr<ULandscapeMeshProxyComponent>,
 }
-impl ALandscapeMeshProxyActor {}
+impl ALandscapeMeshProxyActor {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ALandscapeMeshProxyActor")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(16))]
 pub struct ULandscapeMeshProxyComponent {
     __padding_end: [u8; 2000],
 }
-impl ULandscapeMeshProxyComponent {}
+impl ULandscapeMeshProxyComponent {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULandscapeMeshProxyComponent")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(16))]
 pub struct ULandscapeSplinesComponent {
     __padding_end: [u8; 1824],
 }
-impl ULandscapeSplinesComponent {}
+impl ULandscapeSplinesComponent {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULandscapeSplinesComponent")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct ULandscapeSplineControlPoint {
     #[doc(hidden)]
@@ -191,7 +748,23 @@ pub struct ULandscapeSplineControlPoint {
     pub body_instance: crate::bindings::engine::FBodyInstance,
     __padding_end: [u8; 168],
 }
-impl ULandscapeSplineControlPoint {}
+impl ULandscapeSplineControlPoint {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULandscapeSplineControlPoint")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct ULandscapeSplineSegment {
     #[doc(hidden)]
@@ -199,34 +772,130 @@ pub struct ULandscapeSplineSegment {
     pub body_instance: crate::bindings::engine::FBodyInstance,
     __padding_end: [u8; 152],
 }
-impl ULandscapeSplineSegment {}
+impl ULandscapeSplineSegment {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULandscapeSplineSegment")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct ALandscapeStreamingProxy {
     __padding_end: [u8; 3496],
 }
-impl ALandscapeStreamingProxy {}
+impl ALandscapeStreamingProxy {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ALandscapeStreamingProxy")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct ULandscapeWeightmapUsage {
     __padding_end: [u8; 96],
 }
-impl ULandscapeWeightmapUsage {}
+impl ULandscapeWeightmapUsage {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULandscapeWeightmapUsage")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMaterialExpressionLandscapeGrassOutput {
     __padding_end: [u8; 216],
 }
-impl UMaterialExpressionLandscapeGrassOutput {}
+impl UMaterialExpressionLandscapeGrassOutput {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMaterialExpressionLandscapeGrassOutput")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct AControlPointMeshActor {
     #[doc(hidden)]
     __padding_1136: [u8; 1136],
     pub control_point_mesh_component: UPtr<UControlPointMeshComponent>,
 }
-impl AControlPointMeshActor {}
+impl AControlPointMeshActor {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("AControlPointMeshActor")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct ALandscape {
     __padding_end: [u8; 3768],
 }
-impl ALandscape {}
+impl ALandscape {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ALandscape")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(16))]
 pub struct ALandscapeBlueprintBrushBase {
     #[doc(hidden)]
@@ -239,12 +908,44 @@ pub struct ALandscapeBlueprintBrushBase {
     pub b_use_power_of_two_render_target: bool,
     __padding_end: [u8; 135],
 }
-impl ALandscapeBlueprintBrushBase {}
+impl ALandscapeBlueprintBrushBase {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ALandscapeBlueprintBrushBase")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct ULandscapeLODStreamingProxy_DEPRECATED {
     __padding_end: [u8; 256],
 }
-impl ULandscapeLODStreamingProxy_DEPRECATED {}
+impl ULandscapeLODStreamingProxy_DEPRECATED {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULandscapeLODStreamingProxy_DEPRECATED")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(16))]
 pub struct ULandscapeComponent {
     #[doc(hidden)]
@@ -261,97 +962,401 @@ pub struct ULandscapeComponent {
     pub lod_bias: i32,
     __padding_end: [u8; 364],
 }
-impl ULandscapeComponent {}
+impl ULandscapeComponent {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULandscapeComponent")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct ULandscapeHeightmapTextureEdgeFixup {
     __padding_end: [u8; 152],
 }
-impl ULandscapeHeightmapTextureEdgeFixup {}
+impl ULandscapeHeightmapTextureEdgeFixup {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULandscapeHeightmapTextureEdgeFixup")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct ULandscapeEditLayerBase {
     __padding_end: [u8; 216],
 }
-impl ULandscapeEditLayerBase {}
+impl ULandscapeEditLayerBase {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULandscapeEditLayerBase")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct ULandscapeEditLayerPersistent {
     __padding_end: [u8; 224],
 }
-impl ULandscapeEditLayerPersistent {}
+impl ULandscapeEditLayerPersistent {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULandscapeEditLayerPersistent")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct ULandscapeEditLayer {
     __padding_end: [u8; 224],
 }
-impl ULandscapeEditLayer {}
+impl ULandscapeEditLayer {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULandscapeEditLayer")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct ULandscapeEditLayerProcedural {
     __padding_end: [u8; 216],
 }
-impl ULandscapeEditLayerProcedural {}
+impl ULandscapeEditLayerProcedural {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULandscapeEditLayerProcedural")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct ULandscapeEditLayerSplines {
     __padding_end: [u8; 224],
 }
-impl ULandscapeEditLayerSplines {}
+impl ULandscapeEditLayerSplines {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULandscapeEditLayerSplines")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct ULandscapeDefaultEditLayerRenderer {
     __padding_end: [u8; 56],
 }
-impl ULandscapeDefaultEditLayerRenderer {}
+impl ULandscapeDefaultEditLayerRenderer {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULandscapeDefaultEditLayerRenderer")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct ULandscapeHeightmapNormalsEditLayerRenderer {
     __padding_end: [u8; 56],
 }
-impl ULandscapeHeightmapNormalsEditLayerRenderer {}
+impl ULandscapeHeightmapNormalsEditLayerRenderer {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULandscapeHeightmapNormalsEditLayerRenderer")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct ULandscapeWeightmapWeightBlendedLayersRenderer {
     __padding_end: [u8; 56],
 }
-impl ULandscapeWeightmapWeightBlendedLayersRenderer {}
+impl ULandscapeWeightmapWeightBlendedLayersRenderer {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULandscapeWeightmapWeightBlendedLayersRenderer")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct ULandscapeScratchRenderTarget {
     __padding_end: [u8; 128],
 }
-impl ULandscapeScratchRenderTarget {}
+impl ULandscapeScratchRenderTarget {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULandscapeScratchRenderTarget")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct ULandscapeEditResourcesSubsystem {
     __padding_end: [u8; 136],
 }
-impl ULandscapeEditResourcesSubsystem {}
+impl ULandscapeEditResourcesSubsystem {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULandscapeEditResourcesSubsystem")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct ULandscapeHLODBuilder {
     __padding_end: [u8; 72],
 }
-impl ULandscapeHLODBuilder {}
+impl ULandscapeHLODBuilder {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULandscapeHLODBuilder")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct ULandscapeInfo {
     __padding_end: [u8; 848],
 }
-impl ULandscapeInfo {}
+impl ULandscapeInfo {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULandscapeInfo")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct ULandscapeInfoMap {
     __padding_end: [u8; 136],
 }
-impl ULandscapeInfoMap {}
+impl ULandscapeInfoMap {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULandscapeInfoMap")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct ULandscapeLayerInfoObject {
     __padding_end: [u8; 184],
 }
-impl ULandscapeLayerInfoObject {}
+impl ULandscapeLayerInfoObject {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULandscapeLayerInfoObject")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(16))]
 pub struct ULandscapeNaniteComponent {
     __padding_end: [u8; 1936],
 }
-impl ULandscapeNaniteComponent {}
+impl ULandscapeNaniteComponent {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULandscapeNaniteComponent")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct ULandscapeSettings {
     __padding_end: [u8; 264],
 }
-impl ULandscapeSettings {}
+impl ULandscapeSettings {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULandscapeSettings")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct ALandscapeSplineActor {
     __padding_end: [u8; 1168],
 }
-impl ALandscapeSplineActor {}
+impl ALandscapeSplineActor {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ALandscapeSplineActor")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct ALandscapeSplineMeshesActor {
     #[doc(hidden)]
@@ -361,62 +1366,254 @@ pub struct ALandscapeSplineMeshesActor {
     >,
     __padding_end: [u8; 16],
 }
-impl ALandscapeSplineMeshesActor {}
+impl ALandscapeSplineMeshesActor {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ALandscapeSplineMeshesActor")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct ULandscapeSubsystem {
     __padding_end: [u8; 496],
 }
-impl ULandscapeSubsystem {}
+impl ULandscapeSubsystem {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULandscapeSubsystem")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct ULandscapeTextureHash {
     __padding_end: [u8; 168],
 }
-impl ULandscapeTextureHash {}
+impl ULandscapeTextureHash {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULandscapeTextureHash")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct ULandscapeTextureMipEdgeOverrideFactory {
     __padding_end: [u8; 64],
 }
-impl ULandscapeTextureMipEdgeOverrideFactory {}
+impl ULandscapeTextureMipEdgeOverrideFactory {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULandscapeTextureMipEdgeOverrideFactory")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct ULandscapeTextureStorageProviderFactory {
     __padding_end: [u8; 112],
 }
-impl ULandscapeTextureStorageProviderFactory {}
+impl ULandscapeTextureStorageProviderFactory {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULandscapeTextureStorageProviderFactory")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMaterialExpressionLandscapeLayerBlend {
     __padding_end: [u8; 216],
 }
-impl UMaterialExpressionLandscapeLayerBlend {}
+impl UMaterialExpressionLandscapeLayerBlend {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMaterialExpressionLandscapeLayerBlend")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMaterialExpressionLandscapeLayerCoords {
     __padding_end: [u8; 224],
 }
-impl UMaterialExpressionLandscapeLayerCoords {}
+impl UMaterialExpressionLandscapeLayerCoords {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMaterialExpressionLandscapeLayerCoords")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMaterialExpressionLandscapeLayerSample {
     __padding_end: [u8; 216],
 }
-impl UMaterialExpressionLandscapeLayerSample {}
+impl UMaterialExpressionLandscapeLayerSample {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMaterialExpressionLandscapeLayerSample")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMaterialExpressionLandscapeLayerSwitch {
     __padding_end: [u8; 312],
 }
-impl UMaterialExpressionLandscapeLayerSwitch {}
+impl UMaterialExpressionLandscapeLayerSwitch {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMaterialExpressionLandscapeLayerSwitch")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMaterialExpressionLandscapeLayerWeight {
     __padding_end: [u8; 336],
 }
-impl UMaterialExpressionLandscapeLayerWeight {}
+impl UMaterialExpressionLandscapeLayerWeight {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMaterialExpressionLandscapeLayerWeight")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMaterialExpressionLandscapePhysicalMaterialOutput {
     __padding_end: [u8; 216],
 }
-impl UMaterialExpressionLandscapePhysicalMaterialOutput {}
+impl UMaterialExpressionLandscapePhysicalMaterialOutput {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMaterialExpressionLandscapePhysicalMaterialOutput")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMaterialExpressionLandscapeVisibilityMask {
     __padding_end: [u8; 200],
 }
-impl UMaterialExpressionLandscapeVisibilityMask {}
+impl UMaterialExpressionLandscapeVisibilityMask {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMaterialExpressionLandscapeVisibilityMask")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(transparent)]
 pub struct EGrassScaling(pub u8);
 impl EGrassScaling {

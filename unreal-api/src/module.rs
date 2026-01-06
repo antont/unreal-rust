@@ -252,6 +252,7 @@ macro_rules! implement_unreal_module {
                 }
             }));
             $crate::module::BINDINGS.set(bindings);
+
             let _ = $crate::log::init();
 
             let r = std::panic::catch_unwind(|| unsafe {
@@ -271,15 +272,26 @@ macro_rules! implement_unreal_module {
                     reflection_fns: $crate::core::create_reflection_fns(),
                     allocate_fns: $crate::core::create_allocate_fns(),
                     send_actor_event: $crate::core::send_actor_event,
+                    initialize_modules: $crate::core::initialize_modules,
                 }
             });
-            match r {
-                Ok(bindings) => {
-                    *rust_bindings = bindings;
-                    1
-                }
-                Err(_) => 0,
+            if let Ok(bindings) = r {
+                *rust_bindings = bindings;
+            } else {
+                return 0;
             }
+
+            let class_db = $crate::bindings::globals::ClassPtrDB::from($crate::module::bindings());
+            $crate::bindings::globals::CLASS_PTRS.set(class_db);
+
+            1
+            // match r {
+            //     Ok(bindings) => {
+            //         *rust_bindings = bindings;
+            //         1
+            //     }
+            //     Err(_) => 0,
+            // }
         }
     };
 }

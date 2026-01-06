@@ -2,8 +2,1085 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(clippy::non_camel_case_types)]
+#![allow(clippy::new_without_default)]
+#![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
+#[doc(hidden)]
+pub static mut U_SEQUENCER_ANIMATION_OVERRIDE_GET_SEQUENCER_ANIM_SLOT_NAMES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SEQUENCER_ANIMATION_OVERRIDE_ALLOWS_CINEMATIC_OVERRIDE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_ANIMATION_STATE_MACHINE_LIBRARY_SET_STATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_ANIMATION_STATE_MACHINE_LIBRARY_IS_STATE_BLENDING_OUT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_ANIMATION_STATE_MACHINE_LIBRARY_IS_STATE_BLENDING_IN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_ANIMATION_STATE_MACHINE_LIBRARY_GET_STATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_ANIMATION_STATE_MACHINE_LIBRARY_GET_RELEVANT_ANIM_TIME_REMAINING_FRACTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_ANIMATION_STATE_MACHINE_LIBRARY_GET_RELEVANT_ANIM_TIME_REMAINING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_ANIMATION_STATE_MACHINE_LIBRARY_CONVERT_TO_ANIMATION_STATE_RESULT_PURE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_ANIMATION_STATE_MACHINE_LIBRARY_CONVERT_TO_ANIMATION_STATE_RESULT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_ANIMATION_STATE_MACHINE_LIBRARY_CONVERT_TO_ANIMATION_STATE_MACHINE_PURE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_ANIMATION_STATE_MACHINE_LIBRARY_CONVERT_TO_ANIMATION_STATE_MACHINE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_ANIM_EXECUTION_CONTEXT_LIBRARY_PROTOTYPE_THREAD_SAFE_ANIM_UPDATE_CALL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_ANIM_EXECUTION_CONTEXT_LIBRARY_PROTOTYPE_THREAD_SAFE_ANIM_NODE_CALL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_ANIM_EXECUTION_CONTEXT_LIBRARY_IS_ACTIVE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_ANIM_EXECUTION_CONTEXT_LIBRARY_GET_DELTA_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_ANIM_EXECUTION_CONTEXT_LIBRARY_GET_CURRENT_WEIGHT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_ANIM_EXECUTION_CONTEXT_LIBRARY_GET_ANIM_NODE_REFERENCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_ANIM_EXECUTION_CONTEXT_LIBRARY_GET_ANIM_INSTANCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_ANIM_EXECUTION_CONTEXT_LIBRARY_CONVERT_TO_UPDATE_CONTEXT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_ANIM_EXECUTION_CONTEXT_LIBRARY_CONVERT_TO_POSE_CONTEXT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_ANIM_EXECUTION_CONTEXT_LIBRARY_CONVERT_TO_INITIALIZATION_CONTEXT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_ANIM_EXECUTION_CONTEXT_LIBRARY_CONVERT_TO_COMPONENT_SPACE_POSE_CONTEXT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_BLEND_LIST_BASE_LIBRARY_RESET_NODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_BLEND_LIST_BASE_LIBRARY_CONVERT_TO_BLEND_LIST_BASE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_BLEND_SPACE_LIBRARY_SNAP_TO_POSITION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_BLEND_SPACE_LIBRARY_GET_POSITION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_BLEND_SPACE_LIBRARY_GET_FILTERED_POSITION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_BLEND_SPACE_LIBRARY_CONVERT_TO_BLEND_SPACE_PURE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_BLEND_SPACE_LIBRARY_CONVERT_TO_BLEND_SPACE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_BLEND_SPACE_PLAYER_LIBRARY_SNAP_TO_POSITION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_BLEND_SPACE_PLAYER_LIBRARY_SHOULD_RESET_PLAY_TIME_WHEN_BLEND_SPACE_CHANGES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_BLEND_SPACE_PLAYER_LIBRARY_SET_RESET_PLAY_TIME_WHEN_BLEND_SPACE_CHANGES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_BLEND_SPACE_PLAYER_LIBRARY_SET_PLAY_RATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_BLEND_SPACE_PLAYER_LIBRARY_SET_LOOP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_BLEND_SPACE_PLAYER_LIBRARY_SET_BLEND_SPACE_WITH_INERTIAL_BLENDING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_BLEND_SPACE_PLAYER_LIBRARY_SET_BLEND_SPACE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_BLEND_SPACE_PLAYER_LIBRARY_GET_START_POSITION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_BLEND_SPACE_PLAYER_LIBRARY_GET_POSITION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_BLEND_SPACE_PLAYER_LIBRARY_GET_PLAY_RATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_BLEND_SPACE_PLAYER_LIBRARY_GET_LOOP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_BLEND_SPACE_PLAYER_LIBRARY_GET_BLEND_SPACE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_BLEND_SPACE_PLAYER_LIBRARY_CONVERT_TO_BLEND_SPACE_PLAYER_PURE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_BLEND_SPACE_PLAYER_LIBRARY_CONVERT_TO_BLEND_SPACE_PLAYER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_ANIM_NODE_RIGID_BODY_LIBRARY_SET_OVERRIDE_PHYSICS_ASSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_ANIM_NODE_RIGID_BODY_LIBRARY_CONVERT_TO_RIGID_BODY_ANIM_NODE_PURE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_ANIM_NODE_RIGID_BODY_LIBRARY_CONVERT_TO_RIGID_BODY_ANIM_NODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_KISMET_ANIMATION_LIBRARY_K2_TWO_BONE_IK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_KISMET_ANIMATION_LIBRARY_K2_START_PROFILING_TIMER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_KISMET_ANIMATION_LIBRARY_K2_MAKE_PERLIN_NOISE_VECTOR_AND_REMAP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_KISMET_ANIMATION_LIBRARY_K2_MAKE_PERLIN_NOISE_AND_REMAP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_KISMET_ANIMATION_LIBRARY_K2_LOOK_AT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_KISMET_ANIMATION_LIBRARY_K2_END_PROFILING_TIMER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_KISMET_ANIMATION_LIBRARY_K2_DISTANCE_BETWEEN_TWO_SOCKETS_AND_MAP_RANGE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_KISMET_ANIMATION_LIBRARY_K2_DIRECTION_BETWEEN_SOCKETS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_KISMET_ANIMATION_LIBRARY_K2_CALCULATE_VELOCITY_FROM_SOCKETS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_KISMET_ANIMATION_LIBRARY_K2_CALCULATE_VELOCITY_FROM_POSITION_HISTORY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_KISMET_ANIMATION_LIBRARY_CALCULATE_DIRECTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_LAYERED_BONE_BLEND_LIBRARY_SET_BLEND_MASK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_LAYERED_BONE_BLEND_LIBRARY_GET_NUM_POSES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_LAYERED_BONE_BLEND_LIBRARY_CONVERT_TO_LAYERED_BONE_BLEND: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_LAYERED_BONE_BLEND_LIBRARY_CONVERT_TO_LAYERED_BLEND_PER_BONE_PURE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_LINKED_ANIM_GRAPH_LIBRARY_HAS_LINKED_ANIM_INSTANCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_LINKED_ANIM_GRAPH_LIBRARY_GET_LINKED_ANIM_INSTANCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_LINKED_ANIM_GRAPH_LIBRARY_CONVERT_TO_LINKED_ANIM_GRAPH_PURE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_LINKED_ANIM_GRAPH_LIBRARY_CONVERT_TO_LINKED_ANIM_GRAPH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MIRROR_ANIM_LIBRARY_SET_MIRROR_TRANSITION_BLEND_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MIRROR_ANIM_LIBRARY_SET_MIRROR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MIRROR_ANIM_LIBRARY_GET_MIRROR_TRANSITION_BLEND_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MIRROR_ANIM_LIBRARY_GET_MIRROR_DATA_TABLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MIRROR_ANIM_LIBRARY_GET_MIRROR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MIRROR_ANIM_LIBRARY_CONVERT_TO_MIRROR_NODE_PURE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MIRROR_ANIM_LIBRARY_CONVERT_TO_MIRROR_NODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MODIFY_CURVE_ANIM_LIBRARY_SET_CURVE_MAP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MODIFY_CURVE_ANIM_LIBRARY_SET_APPLY_MODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MODIFY_CURVE_ANIM_LIBRARY_SET_ALPHA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MODIFY_CURVE_ANIM_LIBRARY_GET_APPLY_MODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MODIFY_CURVE_ANIM_LIBRARY_GET_ALPHA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MODIFY_CURVE_ANIM_LIBRARY_CONVERT_TO_MODIFY_CURVE_NODE_PURE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MODIFY_CURVE_ANIM_LIBRARY_CONVERT_TO_MODIFY_CURVE_NODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_PLAY_MONTAGE_CALLBACK_PROXY_ON_NOTIFY_END_RECEIVED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_PLAY_MONTAGE_CALLBACK_PROXY_ON_NOTIFY_BEGIN_RECEIVED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_PLAY_MONTAGE_CALLBACK_PROXY_ON_MONTAGE_ENDED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_PLAY_MONTAGE_CALLBACK_PROXY_ON_MONTAGE_BLENDING_OUT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_PLAY_MONTAGE_CALLBACK_PROXY_CREATE_PROXY_OBJECT_FOR_PLAY_MONTAGE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SEQUENCE_EVALUATOR_LIBRARY_SET_SEQUENCE_WITH_INERTIAL_BLENDING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SEQUENCE_EVALUATOR_LIBRARY_SET_SEQUENCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SEQUENCE_EVALUATOR_LIBRARY_SET_EXPLICIT_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SEQUENCE_EVALUATOR_LIBRARY_SET_EXPLICIT_FRAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SEQUENCE_EVALUATOR_LIBRARY_GET_SEQUENCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SEQUENCE_EVALUATOR_LIBRARY_GET_ACCUMULATED_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SEQUENCE_EVALUATOR_LIBRARY_CONVERT_TO_SEQUENCE_EVALUATOR_PURE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SEQUENCE_EVALUATOR_LIBRARY_CONVERT_TO_SEQUENCE_EVALUATOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SEQUENCE_EVALUATOR_LIBRARY_ADVANCE_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SEQUENCE_PLAYER_LIBRARY_SET_START_POSITION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SEQUENCE_PLAYER_LIBRARY_SET_SEQUENCE_WITH_INERTIAL_BLENDING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SEQUENCE_PLAYER_LIBRARY_SET_SEQUENCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SEQUENCE_PLAYER_LIBRARY_SET_PLAY_RATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SEQUENCE_PLAYER_LIBRARY_SET_ACCUMULATED_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SEQUENCE_PLAYER_LIBRARY_GET_START_POSITION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SEQUENCE_PLAYER_LIBRARY_GET_SEQUENCE_PURE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SEQUENCE_PLAYER_LIBRARY_GET_SEQUENCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SEQUENCE_PLAYER_LIBRARY_GET_PLAY_RATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SEQUENCE_PLAYER_LIBRARY_GET_LOOP_ANIMATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SEQUENCE_PLAYER_LIBRARY_GET_ACCUMULATED_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SEQUENCE_PLAYER_LIBRARY_CONVERT_TO_SEQUENCE_PLAYER_PURE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SEQUENCE_PLAYER_LIBRARY_CONVERT_TO_SEQUENCE_PLAYER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SEQUENCE_PLAYER_LIBRARY_COMPUTE_PLAY_RATE_FROM_DURATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SKELETAL_CONTROL_LIBRARY_SET_ALPHA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SKELETAL_CONTROL_LIBRARY_GET_ALPHA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SKELETAL_CONTROL_LIBRARY_CONVERT_TO_SKELETAL_CONTROL_PURE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SKELETAL_CONTROL_LIBRARY_CONVERT_TO_SKELETAL_CONTROL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub fn initialize() {
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = USequencerAnimationOverride::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetSequencerAnimSlotNames"),
+            &raw mut U_SEQUENCER_ANIMATION_OVERRIDE_GET_SEQUENCER_ANIM_SLOT_NAMES,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("AllowsCinematicOverride"),
+            &raw mut U_SEQUENCER_ANIMATION_OVERRIDE_ALLOWS_CINEMATIC_OVERRIDE,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UAnimationStateMachineLibrary::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetState"),
+            &raw mut U_ANIMATION_STATE_MACHINE_LIBRARY_SET_STATE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("IsStateBlendingOut"),
+            &raw mut U_ANIMATION_STATE_MACHINE_LIBRARY_IS_STATE_BLENDING_OUT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("IsStateBlendingIn"),
+            &raw mut U_ANIMATION_STATE_MACHINE_LIBRARY_IS_STATE_BLENDING_IN,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetState"),
+            &raw mut U_ANIMATION_STATE_MACHINE_LIBRARY_GET_STATE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetRelevantAnimTimeRemainingFraction"),
+            &raw mut U_ANIMATION_STATE_MACHINE_LIBRARY_GET_RELEVANT_ANIM_TIME_REMAINING_FRACTION,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetRelevantAnimTimeRemaining"),
+            &raw mut U_ANIMATION_STATE_MACHINE_LIBRARY_GET_RELEVANT_ANIM_TIME_REMAINING,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ConvertToAnimationStateResultPure"),
+            &raw mut U_ANIMATION_STATE_MACHINE_LIBRARY_CONVERT_TO_ANIMATION_STATE_RESULT_PURE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ConvertToAnimationStateResult"),
+            &raw mut U_ANIMATION_STATE_MACHINE_LIBRARY_CONVERT_TO_ANIMATION_STATE_RESULT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ConvertToAnimationStateMachinePure"),
+            &raw mut U_ANIMATION_STATE_MACHINE_LIBRARY_CONVERT_TO_ANIMATION_STATE_MACHINE_PURE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ConvertToAnimationStateMachine"),
+            &raw mut U_ANIMATION_STATE_MACHINE_LIBRARY_CONVERT_TO_ANIMATION_STATE_MACHINE,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UAnimExecutionContextLibrary::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("Prototype_ThreadSafeAnimUpdateCall"),
+            &raw mut U_ANIM_EXECUTION_CONTEXT_LIBRARY_PROTOTYPE_THREAD_SAFE_ANIM_UPDATE_CALL,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("Prototype_ThreadSafeAnimNodeCall"),
+            &raw mut U_ANIM_EXECUTION_CONTEXT_LIBRARY_PROTOTYPE_THREAD_SAFE_ANIM_NODE_CALL,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("IsActive"),
+            &raw mut U_ANIM_EXECUTION_CONTEXT_LIBRARY_IS_ACTIVE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetDeltaTime"),
+            &raw mut U_ANIM_EXECUTION_CONTEXT_LIBRARY_GET_DELTA_TIME,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetCurrentWeight"),
+            &raw mut U_ANIM_EXECUTION_CONTEXT_LIBRARY_GET_CURRENT_WEIGHT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetAnimNodeReference"),
+            &raw mut U_ANIM_EXECUTION_CONTEXT_LIBRARY_GET_ANIM_NODE_REFERENCE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetAnimInstance"),
+            &raw mut U_ANIM_EXECUTION_CONTEXT_LIBRARY_GET_ANIM_INSTANCE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ConvertToUpdateContext"),
+            &raw mut U_ANIM_EXECUTION_CONTEXT_LIBRARY_CONVERT_TO_UPDATE_CONTEXT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ConvertToPoseContext"),
+            &raw mut U_ANIM_EXECUTION_CONTEXT_LIBRARY_CONVERT_TO_POSE_CONTEXT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ConvertToInitializationContext"),
+            &raw mut U_ANIM_EXECUTION_CONTEXT_LIBRARY_CONVERT_TO_INITIALIZATION_CONTEXT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ConvertToComponentSpacePoseContext"),
+            &raw mut U_ANIM_EXECUTION_CONTEXT_LIBRARY_CONVERT_TO_COMPONENT_SPACE_POSE_CONTEXT,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UBlendListBaseLibrary::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ResetNode"),
+            &raw mut U_BLEND_LIST_BASE_LIBRARY_RESET_NODE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ConvertToBlendListBase"),
+            &raw mut U_BLEND_LIST_BASE_LIBRARY_CONVERT_TO_BLEND_LIST_BASE,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UBlendSpaceLibrary::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SnapToPosition"),
+            &raw mut U_BLEND_SPACE_LIBRARY_SNAP_TO_POSITION,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetPosition"),
+            &raw mut U_BLEND_SPACE_LIBRARY_GET_POSITION,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetFilteredPosition"),
+            &raw mut U_BLEND_SPACE_LIBRARY_GET_FILTERED_POSITION,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ConvertToBlendSpacePure"),
+            &raw mut U_BLEND_SPACE_LIBRARY_CONVERT_TO_BLEND_SPACE_PURE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ConvertToBlendSpace"),
+            &raw mut U_BLEND_SPACE_LIBRARY_CONVERT_TO_BLEND_SPACE,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UBlendSpacePlayerLibrary::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SnapToPosition"),
+            &raw mut U_BLEND_SPACE_PLAYER_LIBRARY_SNAP_TO_POSITION,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ShouldResetPlayTimeWhenBlendSpaceChanges"),
+            &raw mut U_BLEND_SPACE_PLAYER_LIBRARY_SHOULD_RESET_PLAY_TIME_WHEN_BLEND_SPACE_CHANGES,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetResetPlayTimeWhenBlendSpaceChanges"),
+            &raw mut U_BLEND_SPACE_PLAYER_LIBRARY_SET_RESET_PLAY_TIME_WHEN_BLEND_SPACE_CHANGES,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetPlayRate"),
+            &raw mut U_BLEND_SPACE_PLAYER_LIBRARY_SET_PLAY_RATE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetLoop"),
+            &raw mut U_BLEND_SPACE_PLAYER_LIBRARY_SET_LOOP,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetBlendSpaceWithInertialBlending"),
+            &raw mut U_BLEND_SPACE_PLAYER_LIBRARY_SET_BLEND_SPACE_WITH_INERTIAL_BLENDING,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetBlendSpace"),
+            &raw mut U_BLEND_SPACE_PLAYER_LIBRARY_SET_BLEND_SPACE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetStartPosition"),
+            &raw mut U_BLEND_SPACE_PLAYER_LIBRARY_GET_START_POSITION,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetPosition"),
+            &raw mut U_BLEND_SPACE_PLAYER_LIBRARY_GET_POSITION,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetPlayRate"),
+            &raw mut U_BLEND_SPACE_PLAYER_LIBRARY_GET_PLAY_RATE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetLoop"),
+            &raw mut U_BLEND_SPACE_PLAYER_LIBRARY_GET_LOOP,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetBlendSpace"),
+            &raw mut U_BLEND_SPACE_PLAYER_LIBRARY_GET_BLEND_SPACE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ConvertToBlendSpacePlayerPure"),
+            &raw mut U_BLEND_SPACE_PLAYER_LIBRARY_CONVERT_TO_BLEND_SPACE_PLAYER_PURE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ConvertToBlendSpacePlayer"),
+            &raw mut U_BLEND_SPACE_PLAYER_LIBRARY_CONVERT_TO_BLEND_SPACE_PLAYER,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UAnimNodeRigidBodyLibrary::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetOverridePhysicsAsset"),
+            &raw mut U_ANIM_NODE_RIGID_BODY_LIBRARY_SET_OVERRIDE_PHYSICS_ASSET,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ConvertToRigidBodyAnimNodePure"),
+            &raw mut U_ANIM_NODE_RIGID_BODY_LIBRARY_CONVERT_TO_RIGID_BODY_ANIM_NODE_PURE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ConvertToRigidBodyAnimNode"),
+            &raw mut U_ANIM_NODE_RIGID_BODY_LIBRARY_CONVERT_TO_RIGID_BODY_ANIM_NODE,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UKismetAnimationLibrary::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("K2_TwoBoneIK"),
+            &raw mut U_KISMET_ANIMATION_LIBRARY_K2_TWO_BONE_IK,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("K2_StartProfilingTimer"),
+            &raw mut U_KISMET_ANIMATION_LIBRARY_K2_START_PROFILING_TIMER,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("K2_MakePerlinNoiseVectorAndRemap"),
+            &raw mut U_KISMET_ANIMATION_LIBRARY_K2_MAKE_PERLIN_NOISE_VECTOR_AND_REMAP,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("K2_MakePerlinNoiseAndRemap"),
+            &raw mut U_KISMET_ANIMATION_LIBRARY_K2_MAKE_PERLIN_NOISE_AND_REMAP,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("K2_LookAt"),
+            &raw mut U_KISMET_ANIMATION_LIBRARY_K2_LOOK_AT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("K2_EndProfilingTimer"),
+            &raw mut U_KISMET_ANIMATION_LIBRARY_K2_END_PROFILING_TIMER,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("K2_DistanceBetweenTwoSocketsAndMapRange"),
+            &raw mut U_KISMET_ANIMATION_LIBRARY_K2_DISTANCE_BETWEEN_TWO_SOCKETS_AND_MAP_RANGE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("K2_DirectionBetweenSockets"),
+            &raw mut U_KISMET_ANIMATION_LIBRARY_K2_DIRECTION_BETWEEN_SOCKETS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("K2_CalculateVelocityFromSockets"),
+            &raw mut U_KISMET_ANIMATION_LIBRARY_K2_CALCULATE_VELOCITY_FROM_SOCKETS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("K2_CalculateVelocityFromPositionHistory"),
+            &raw mut U_KISMET_ANIMATION_LIBRARY_K2_CALCULATE_VELOCITY_FROM_POSITION_HISTORY,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("CalculateDirection"),
+            &raw mut U_KISMET_ANIMATION_LIBRARY_CALCULATE_DIRECTION,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = ULayeredBoneBlendLibrary::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetBlendMask"),
+            &raw mut U_LAYERED_BONE_BLEND_LIBRARY_SET_BLEND_MASK,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetNumPoses"),
+            &raw mut U_LAYERED_BONE_BLEND_LIBRARY_GET_NUM_POSES,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ConvertToLayeredBoneBlend"),
+            &raw mut U_LAYERED_BONE_BLEND_LIBRARY_CONVERT_TO_LAYERED_BONE_BLEND,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ConvertToLayeredBlendPerBonePure"),
+            &raw mut U_LAYERED_BONE_BLEND_LIBRARY_CONVERT_TO_LAYERED_BLEND_PER_BONE_PURE,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = ULinkedAnimGraphLibrary::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("HasLinkedAnimInstance"),
+            &raw mut U_LINKED_ANIM_GRAPH_LIBRARY_HAS_LINKED_ANIM_INSTANCE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetLinkedAnimInstance"),
+            &raw mut U_LINKED_ANIM_GRAPH_LIBRARY_GET_LINKED_ANIM_INSTANCE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ConvertToLinkedAnimGraphPure"),
+            &raw mut U_LINKED_ANIM_GRAPH_LIBRARY_CONVERT_TO_LINKED_ANIM_GRAPH_PURE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ConvertToLinkedAnimGraph"),
+            &raw mut U_LINKED_ANIM_GRAPH_LIBRARY_CONVERT_TO_LINKED_ANIM_GRAPH,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UMirrorAnimLibrary::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetMirrorTransitionBlendTime"),
+            &raw mut U_MIRROR_ANIM_LIBRARY_SET_MIRROR_TRANSITION_BLEND_TIME,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetMirror"),
+            &raw mut U_MIRROR_ANIM_LIBRARY_SET_MIRROR,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetMirrorTransitionBlendTime"),
+            &raw mut U_MIRROR_ANIM_LIBRARY_GET_MIRROR_TRANSITION_BLEND_TIME,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetMirrorDataTable"),
+            &raw mut U_MIRROR_ANIM_LIBRARY_GET_MIRROR_DATA_TABLE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetMirror"),
+            &raw mut U_MIRROR_ANIM_LIBRARY_GET_MIRROR,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ConvertToMirrorNodePure"),
+            &raw mut U_MIRROR_ANIM_LIBRARY_CONVERT_TO_MIRROR_NODE_PURE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ConvertToMirrorNode"),
+            &raw mut U_MIRROR_ANIM_LIBRARY_CONVERT_TO_MIRROR_NODE,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UModifyCurveAnimLibrary::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetCurveMap"),
+            &raw mut U_MODIFY_CURVE_ANIM_LIBRARY_SET_CURVE_MAP,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetApplyMode"),
+            &raw mut U_MODIFY_CURVE_ANIM_LIBRARY_SET_APPLY_MODE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetAlpha"),
+            &raw mut U_MODIFY_CURVE_ANIM_LIBRARY_SET_ALPHA,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetApplyMode"),
+            &raw mut U_MODIFY_CURVE_ANIM_LIBRARY_GET_APPLY_MODE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetAlpha"),
+            &raw mut U_MODIFY_CURVE_ANIM_LIBRARY_GET_ALPHA,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ConvertToModifyCurveNodePure"),
+            &raw mut U_MODIFY_CURVE_ANIM_LIBRARY_CONVERT_TO_MODIFY_CURVE_NODE_PURE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ConvertToModifyCurveNode"),
+            &raw mut U_MODIFY_CURVE_ANIM_LIBRARY_CONVERT_TO_MODIFY_CURVE_NODE,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UPlayMontageCallbackProxy::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("OnNotifyEndReceived"),
+            &raw mut U_PLAY_MONTAGE_CALLBACK_PROXY_ON_NOTIFY_END_RECEIVED,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("OnNotifyBeginReceived"),
+            &raw mut U_PLAY_MONTAGE_CALLBACK_PROXY_ON_NOTIFY_BEGIN_RECEIVED,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("OnMontageEnded"),
+            &raw mut U_PLAY_MONTAGE_CALLBACK_PROXY_ON_MONTAGE_ENDED,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("OnMontageBlendingOut"),
+            &raw mut U_PLAY_MONTAGE_CALLBACK_PROXY_ON_MONTAGE_BLENDING_OUT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("CreateProxyObjectForPlayMontage"),
+            &raw mut U_PLAY_MONTAGE_CALLBACK_PROXY_CREATE_PROXY_OBJECT_FOR_PLAY_MONTAGE,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = USequenceEvaluatorLibrary::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetSequenceWithInertialBlending"),
+            &raw mut U_SEQUENCE_EVALUATOR_LIBRARY_SET_SEQUENCE_WITH_INERTIAL_BLENDING,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetSequence"),
+            &raw mut U_SEQUENCE_EVALUATOR_LIBRARY_SET_SEQUENCE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetExplicitTime"),
+            &raw mut U_SEQUENCE_EVALUATOR_LIBRARY_SET_EXPLICIT_TIME,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetExplicitFrame"),
+            &raw mut U_SEQUENCE_EVALUATOR_LIBRARY_SET_EXPLICIT_FRAME,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetSequence"),
+            &raw mut U_SEQUENCE_EVALUATOR_LIBRARY_GET_SEQUENCE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetAccumulatedTime"),
+            &raw mut U_SEQUENCE_EVALUATOR_LIBRARY_GET_ACCUMULATED_TIME,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ConvertToSequenceEvaluatorPure"),
+            &raw mut U_SEQUENCE_EVALUATOR_LIBRARY_CONVERT_TO_SEQUENCE_EVALUATOR_PURE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ConvertToSequenceEvaluator"),
+            &raw mut U_SEQUENCE_EVALUATOR_LIBRARY_CONVERT_TO_SEQUENCE_EVALUATOR,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("AdvanceTime"),
+            &raw mut U_SEQUENCE_EVALUATOR_LIBRARY_ADVANCE_TIME,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = USequencePlayerLibrary::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetStartPosition"),
+            &raw mut U_SEQUENCE_PLAYER_LIBRARY_SET_START_POSITION,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetSequenceWithInertialBlending"),
+            &raw mut U_SEQUENCE_PLAYER_LIBRARY_SET_SEQUENCE_WITH_INERTIAL_BLENDING,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetSequence"),
+            &raw mut U_SEQUENCE_PLAYER_LIBRARY_SET_SEQUENCE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetPlayRate"),
+            &raw mut U_SEQUENCE_PLAYER_LIBRARY_SET_PLAY_RATE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetAccumulatedTime"),
+            &raw mut U_SEQUENCE_PLAYER_LIBRARY_SET_ACCUMULATED_TIME,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetStartPosition"),
+            &raw mut U_SEQUENCE_PLAYER_LIBRARY_GET_START_POSITION,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetSequencePure"),
+            &raw mut U_SEQUENCE_PLAYER_LIBRARY_GET_SEQUENCE_PURE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetSequence"),
+            &raw mut U_SEQUENCE_PLAYER_LIBRARY_GET_SEQUENCE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetPlayRate"),
+            &raw mut U_SEQUENCE_PLAYER_LIBRARY_GET_PLAY_RATE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetLoopAnimation"),
+            &raw mut U_SEQUENCE_PLAYER_LIBRARY_GET_LOOP_ANIMATION,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetAccumulatedTime"),
+            &raw mut U_SEQUENCE_PLAYER_LIBRARY_GET_ACCUMULATED_TIME,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ConvertToSequencePlayerPure"),
+            &raw mut U_SEQUENCE_PLAYER_LIBRARY_CONVERT_TO_SEQUENCE_PLAYER_PURE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ConvertToSequencePlayer"),
+            &raw mut U_SEQUENCE_PLAYER_LIBRARY_CONVERT_TO_SEQUENCE_PLAYER,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ComputePlayRateFromDuration"),
+            &raw mut U_SEQUENCE_PLAYER_LIBRARY_COMPUTE_PLAY_RATE_FROM_DURATION,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = USkeletalControlLibrary::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetAlpha"),
+            &raw mut U_SKELETAL_CONTROL_LIBRARY_SET_ALPHA,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetAlpha"),
+            &raw mut U_SKELETAL_CONTROL_LIBRARY_GET_ALPHA,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ConvertToSkeletalControlPure"),
+            &raw mut U_SKELETAL_CONTROL_LIBRARY_CONVERT_TO_SKELETAL_CONTROL_PURE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ConvertToSkeletalControl"),
+            &raw mut U_SKELETAL_CONTROL_LIBRARY_CONVERT_TO_SKELETAL_CONTROL,
+        );
+    }
+}
 #[repr(C, align(8))]
 pub struct FAnimNode_BlendSpaceGraphBase {
     #[doc(hidden)]
@@ -743,17 +1820,65 @@ pub struct ISequencerAnimationOverride {}
 pub struct USequencerAnimationOverride {
     __padding_end: [u8; 48],
 }
-impl USequencerAnimationOverride {}
+impl USequencerAnimationOverride {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USequencerAnimationOverride")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimationStateMachineLibrary {
     __padding_end: [u8; 48],
 }
-impl UAnimationStateMachineLibrary {}
+impl UAnimationStateMachineLibrary {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimationStateMachineLibrary")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimExecutionContextLibrary {
     __padding_end: [u8; 48],
 }
-impl UAnimExecutionContextLibrary {}
+impl UAnimExecutionContextLibrary {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimExecutionContextLibrary")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimNotify_PlayMontageNotify {
     #[doc(hidden)]
@@ -761,7 +1886,23 @@ pub struct UAnimNotify_PlayMontageNotify {
     pub notify_name: FName,
     __padding_end: [u8; 4],
 }
-impl UAnimNotify_PlayMontageNotify {}
+impl UAnimNotify_PlayMontageNotify {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimNotify_PlayMontageNotify")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimNotify_PlayMontageNotifyWindow {
     #[doc(hidden)]
@@ -769,83 +1910,339 @@ pub struct UAnimNotify_PlayMontageNotifyWindow {
     pub notify_name: FName,
     __padding_end: [u8; 4],
 }
-impl UAnimNotify_PlayMontageNotifyWindow {}
+impl UAnimNotify_PlayMontageNotifyWindow {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimNotify_PlayMontageNotifyWindow")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(16))]
 pub struct UAnimSequencerInstance {
     __padding_end: [u8; 1136],
 }
-impl UAnimSequencerInstance {}
+impl UAnimSequencerInstance {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimSequencerInstance")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UBlendListBaseLibrary {
     __padding_end: [u8; 48],
 }
-impl UBlendListBaseLibrary {}
+impl UBlendListBaseLibrary {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBlendListBaseLibrary")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UBlendSpaceLibrary {
     __padding_end: [u8; 48],
 }
-impl UBlendSpaceLibrary {}
+impl UBlendSpaceLibrary {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBlendSpaceLibrary")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UBlendSpacePlayerLibrary {
     __padding_end: [u8; 48],
 }
-impl UBlendSpacePlayerLibrary {}
+impl UBlendSpacePlayerLibrary {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBlendSpacePlayerLibrary")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimNodeRigidBodyLibrary {
     __padding_end: [u8; 48],
 }
-impl UAnimNodeRigidBodyLibrary {}
+impl UAnimNodeRigidBodyLibrary {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimNodeRigidBodyLibrary")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UKismetAnimationLibrary {
     __padding_end: [u8; 48],
 }
-impl UKismetAnimationLibrary {}
+impl UKismetAnimationLibrary {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UKismetAnimationLibrary")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct ULayeredBoneBlendLibrary {
     __padding_end: [u8; 48],
 }
-impl ULayeredBoneBlendLibrary {}
+impl ULayeredBoneBlendLibrary {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULayeredBoneBlendLibrary")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct ULinkedAnimGraphLibrary {
     __padding_end: [u8; 48],
 }
-impl ULinkedAnimGraphLibrary {}
+impl ULinkedAnimGraphLibrary {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULinkedAnimGraphLibrary")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMirrorAnimLibrary {
     __padding_end: [u8; 48],
 }
-impl UMirrorAnimLibrary {}
+impl UMirrorAnimLibrary {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMirrorAnimLibrary")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UModifyCurveAnimLibrary {
     __padding_end: [u8; 48],
 }
-impl UModifyCurveAnimLibrary {}
+impl UModifyCurveAnimLibrary {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UModifyCurveAnimLibrary")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UPlayMontageCallbackProxy {
     __padding_end: [u8; 232],
 }
-impl UPlayMontageCallbackProxy {}
+impl UPlayMontageCallbackProxy {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPlayMontageCallbackProxy")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct USequenceEvaluatorLibrary {
     __padding_end: [u8; 48],
 }
-impl USequenceEvaluatorLibrary {}
+impl USequenceEvaluatorLibrary {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USequenceEvaluatorLibrary")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct USequencePlayerLibrary {
     __padding_end: [u8; 48],
 }
-impl USequencePlayerLibrary {}
+impl USequencePlayerLibrary {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USequencePlayerLibrary")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 pub struct ISequencerAnimationSupport {}
 #[repr(C, align(8))]
 pub struct USequencerAnimationSupport {
     __padding_end: [u8; 48],
 }
-impl USequencerAnimationSupport {}
+impl USequencerAnimationSupport {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USequencerAnimationSupport")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct USkeletalControlLibrary {
     __padding_end: [u8; 48],
 }
-impl USkeletalControlLibrary {}
+impl USkeletalControlLibrary {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USkeletalControlLibrary")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct FPlayMontageCallbackProxy_OnCompleted {
     _opague: [u8; 24],

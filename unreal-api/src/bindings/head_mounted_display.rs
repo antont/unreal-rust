@@ -2,8 +2,129 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(clippy::non_camel_case_types)]
+#![allow(clippy::new_without_default)]
+#![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
+#[doc(hidden)]
+pub static mut U_HAND_KEYPOINT_CONVERSION_CONV_HAND_KEYPOINT_TO_INT32: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MOTION_CONTROLLER_COMPONENT_SET_TRACKING_SOURCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MOTION_CONTROLLER_COMPONENT_SET_TRACKING_MOTION_SOURCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MOTION_CONTROLLER_COMPONENT_SET_ASSOCIATED_PLAYER_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MOTION_CONTROLLER_COMPONENT_ON_MOTION_CONTROLLER_UPDATED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MOTION_CONTROLLER_COMPONENT_IS_TRACKED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MOTION_CONTROLLER_COMPONENT_GET_TRACKING_SOURCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MOTION_CONTROLLER_COMPONENT_GET_PARAMETER_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MOTION_CONTROLLER_COMPONENT_GET_LINEAR_VELOCITY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MOTION_CONTROLLER_COMPONENT_GET_LINEAR_ACCELERATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MOTION_CONTROLLER_COMPONENT_GET_HAND_JOINT_POSITION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MOTION_CONTROLLER_COMPONENT_GET_ANGULAR_VELOCITY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub fn initialize() {
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UHandKeypointConversion::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("Conv_HandKeypointToInt32"),
+            &raw mut U_HAND_KEYPOINT_CONVERSION_CONV_HAND_KEYPOINT_TO_INT32,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UMotionControllerComponent::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetTrackingSource"),
+            &raw mut U_MOTION_CONTROLLER_COMPONENT_SET_TRACKING_SOURCE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetTrackingMotionSource"),
+            &raw mut U_MOTION_CONTROLLER_COMPONENT_SET_TRACKING_MOTION_SOURCE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetAssociatedPlayerIndex"),
+            &raw mut U_MOTION_CONTROLLER_COMPONENT_SET_ASSOCIATED_PLAYER_INDEX,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("OnMotionControllerUpdated"),
+            &raw mut U_MOTION_CONTROLLER_COMPONENT_ON_MOTION_CONTROLLER_UPDATED,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("IsTracked"),
+            &raw mut U_MOTION_CONTROLLER_COMPONENT_IS_TRACKED,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetTrackingSource"),
+            &raw mut U_MOTION_CONTROLLER_COMPONENT_GET_TRACKING_SOURCE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetParameterValue"),
+            &raw mut U_MOTION_CONTROLLER_COMPONENT_GET_PARAMETER_VALUE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetLinearVelocity"),
+            &raw mut U_MOTION_CONTROLLER_COMPONENT_GET_LINEAR_VELOCITY,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetLinearAcceleration"),
+            &raw mut U_MOTION_CONTROLLER_COMPONENT_GET_LINEAR_ACCELERATION,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetHandJointPosition"),
+            &raw mut U_MOTION_CONTROLLER_COMPONENT_GET_HAND_JOINT_POSITION,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetAngularVelocity"),
+            &raw mut U_MOTION_CONTROLLER_COMPONENT_GET_ANGULAR_VELOCITY,
+        );
+    }
+}
 #[repr(C, align(16))]
 pub struct FXRHMDData {
     pub b_valid: bool,
@@ -51,7 +172,23 @@ impl FXRDeviceId {}
 pub struct UHandKeypointConversion {
     __padding_end: [u8; 48],
 }
-impl UHandKeypointConversion {}
+impl UHandKeypointConversion {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UHandKeypointConversion")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(16))]
 pub struct UMotionControllerComponent {
     #[doc(hidden)]
@@ -64,7 +201,23 @@ pub struct UMotionControllerComponent {
     pub current_tracking_status: ETrackingStatus,
     __padding_end: [u8; 299],
 }
-impl UMotionControllerComponent {}
+impl UMotionControllerComponent {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMotionControllerComponent")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(transparent)]
 pub struct ETrackingStatus(pub u8);
 impl ETrackingStatus {

@@ -2,8 +2,303 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(clippy::non_camel_case_types)]
+#![allow(clippy::new_without_default)]
+#![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
+#[doc(hidden)]
+pub static mut U_MOVIE_SCENE_CAPTURE_PROTOCOL_BASE_IS_CAPTURING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MOVIE_SCENE_CAPTURE_PROTOCOL_BASE_GET_STATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MOVIE_SCENE_CAPTURE_SET_IMAGE_CAPTURE_PROTOCOL_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MOVIE_SCENE_CAPTURE_SET_AUDIO_CAPTURE_PROTOCOL_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MOVIE_SCENE_CAPTURE_GET_IMAGE_CAPTURE_PROTOCOL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MOVIE_SCENE_CAPTURE_GET_AUDIO_CAPTURE_PROTOCOL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MOVIE_SCENE_CAPTURE_ENVIRONMENT_IS_CAPTURE_IN_PROGRESS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MOVIE_SCENE_CAPTURE_ENVIRONMENT_GET_CAPTURE_FRAME_NUMBER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MOVIE_SCENE_CAPTURE_ENVIRONMENT_GET_CAPTURE_ELAPSED_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MOVIE_SCENE_CAPTURE_ENVIRONMENT_FIND_IMAGE_CAPTURE_PROTOCOL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MOVIE_SCENE_CAPTURE_ENVIRONMENT_FIND_AUDIO_CAPTURE_PROTOCOL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_USER_DEFINED_CAPTURE_PROTOCOL_STOP_CAPTURING_FINAL_PIXELS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_USER_DEFINED_CAPTURE_PROTOCOL_START_CAPTURING_FINAL_PIXELS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_USER_DEFINED_CAPTURE_PROTOCOL_RESOLVE_BUFFER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_USER_DEFINED_CAPTURE_PROTOCOL_ON_WARM_UP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_USER_DEFINED_CAPTURE_PROTOCOL_ON_TICK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_USER_DEFINED_CAPTURE_PROTOCOL_ON_START_CAPTURE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_USER_DEFINED_CAPTURE_PROTOCOL_ON_SETUP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_USER_DEFINED_CAPTURE_PROTOCOL_ON_PRE_TICK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_USER_DEFINED_CAPTURE_PROTOCOL_ON_PIXELS_RECEIVED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_USER_DEFINED_CAPTURE_PROTOCOL_ON_PAUSE_CAPTURE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_USER_DEFINED_CAPTURE_PROTOCOL_ON_FINALIZE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_USER_DEFINED_CAPTURE_PROTOCOL_ON_CAPTURE_FRAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_USER_DEFINED_CAPTURE_PROTOCOL_ON_CAN_FINALIZE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_USER_DEFINED_CAPTURE_PROTOCOL_ON_BEGIN_FINALIZE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_USER_DEFINED_CAPTURE_PROTOCOL_GET_CURRENT_FRAME_METRICS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_USER_DEFINED_CAPTURE_PROTOCOL_GENERATE_FILENAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_USER_DEFINED_IMAGE_CAPTURE_PROTOCOL_WRITE_IMAGE_TO_DISK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_USER_DEFINED_IMAGE_CAPTURE_PROTOCOL_GENERATE_FILENAME_FOR_CURRENT_FRAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_USER_DEFINED_IMAGE_CAPTURE_PROTOCOL_GENERATE_FILENAME_FOR_BUFFER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub fn initialize() {
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UMovieSceneCaptureProtocolBase::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("IsCapturing"),
+            &raw mut U_MOVIE_SCENE_CAPTURE_PROTOCOL_BASE_IS_CAPTURING,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetState"),
+            &raw mut U_MOVIE_SCENE_CAPTURE_PROTOCOL_BASE_GET_STATE,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UMovieSceneCapture::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetImageCaptureProtocolType"),
+            &raw mut U_MOVIE_SCENE_CAPTURE_SET_IMAGE_CAPTURE_PROTOCOL_TYPE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetAudioCaptureProtocolType"),
+            &raw mut U_MOVIE_SCENE_CAPTURE_SET_AUDIO_CAPTURE_PROTOCOL_TYPE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetImageCaptureProtocol"),
+            &raw mut U_MOVIE_SCENE_CAPTURE_GET_IMAGE_CAPTURE_PROTOCOL,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetAudioCaptureProtocol"),
+            &raw mut U_MOVIE_SCENE_CAPTURE_GET_AUDIO_CAPTURE_PROTOCOL,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UMovieSceneCaptureEnvironment::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("IsCaptureInProgress"),
+            &raw mut U_MOVIE_SCENE_CAPTURE_ENVIRONMENT_IS_CAPTURE_IN_PROGRESS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetCaptureFrameNumber"),
+            &raw mut U_MOVIE_SCENE_CAPTURE_ENVIRONMENT_GET_CAPTURE_FRAME_NUMBER,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetCaptureElapsedTime"),
+            &raw mut U_MOVIE_SCENE_CAPTURE_ENVIRONMENT_GET_CAPTURE_ELAPSED_TIME,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("FindImageCaptureProtocol"),
+            &raw mut U_MOVIE_SCENE_CAPTURE_ENVIRONMENT_FIND_IMAGE_CAPTURE_PROTOCOL,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("FindAudioCaptureProtocol"),
+            &raw mut U_MOVIE_SCENE_CAPTURE_ENVIRONMENT_FIND_AUDIO_CAPTURE_PROTOCOL,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UUserDefinedCaptureProtocol::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("StopCapturingFinalPixels"),
+            &raw mut U_USER_DEFINED_CAPTURE_PROTOCOL_STOP_CAPTURING_FINAL_PIXELS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("StartCapturingFinalPixels"),
+            &raw mut U_USER_DEFINED_CAPTURE_PROTOCOL_START_CAPTURING_FINAL_PIXELS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ResolveBuffer"),
+            &raw mut U_USER_DEFINED_CAPTURE_PROTOCOL_RESOLVE_BUFFER,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("OnWarmUp"),
+            &raw mut U_USER_DEFINED_CAPTURE_PROTOCOL_ON_WARM_UP,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("OnTick"),
+            &raw mut U_USER_DEFINED_CAPTURE_PROTOCOL_ON_TICK,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("OnStartCapture"),
+            &raw mut U_USER_DEFINED_CAPTURE_PROTOCOL_ON_START_CAPTURE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("OnSetup"),
+            &raw mut U_USER_DEFINED_CAPTURE_PROTOCOL_ON_SETUP,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("OnPreTick"),
+            &raw mut U_USER_DEFINED_CAPTURE_PROTOCOL_ON_PRE_TICK,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("OnPixelsReceived"),
+            &raw mut U_USER_DEFINED_CAPTURE_PROTOCOL_ON_PIXELS_RECEIVED,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("OnPauseCapture"),
+            &raw mut U_USER_DEFINED_CAPTURE_PROTOCOL_ON_PAUSE_CAPTURE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("OnFinalize"),
+            &raw mut U_USER_DEFINED_CAPTURE_PROTOCOL_ON_FINALIZE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("OnCaptureFrame"),
+            &raw mut U_USER_DEFINED_CAPTURE_PROTOCOL_ON_CAPTURE_FRAME,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("OnCanFinalize"),
+            &raw mut U_USER_DEFINED_CAPTURE_PROTOCOL_ON_CAN_FINALIZE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("OnBeginFinalize"),
+            &raw mut U_USER_DEFINED_CAPTURE_PROTOCOL_ON_BEGIN_FINALIZE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetCurrentFrameMetrics"),
+            &raw mut U_USER_DEFINED_CAPTURE_PROTOCOL_GET_CURRENT_FRAME_METRICS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GenerateFilename"),
+            &raw mut U_USER_DEFINED_CAPTURE_PROTOCOL_GENERATE_FILENAME,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UUserDefinedImageCaptureProtocol::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("WriteImageToDisk"),
+            &raw mut U_USER_DEFINED_IMAGE_CAPTURE_PROTOCOL_WRITE_IMAGE_TO_DISK,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GenerateFilenameForCurrentFrame"),
+            &raw mut U_USER_DEFINED_IMAGE_CAPTURE_PROTOCOL_GENERATE_FILENAME_FOR_CURRENT_FRAME,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GenerateFilenameForBuffer"),
+            &raw mut U_USER_DEFINED_IMAGE_CAPTURE_PROTOCOL_GENERATE_FILENAME_FOR_BUFFER,
+        );
+    }
+}
 #[repr(C, align(4))]
 pub struct FCaptureResolution {
     pub res_x: i32,
@@ -63,17 +358,65 @@ impl FCapturedPixels {}
 pub struct UMovieSceneCaptureProtocolBase {
     __padding_end: [u8; 96],
 }
-impl UMovieSceneCaptureProtocolBase {}
+impl UMovieSceneCaptureProtocolBase {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneCaptureProtocolBase")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneAudioCaptureProtocolBase {
     __padding_end: [u8; 96],
 }
-impl UMovieSceneAudioCaptureProtocolBase {}
+impl UMovieSceneAudioCaptureProtocolBase {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneAudioCaptureProtocolBase")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UNullAudioCaptureProtocol {
     __padding_end: [u8; 96],
 }
-impl UNullAudioCaptureProtocol {}
+impl UNullAudioCaptureProtocol {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNullAudioCaptureProtocol")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMasterAudioSubmixCaptureProtocol {
     #[doc(hidden)]
@@ -81,18 +424,66 @@ pub struct UMasterAudioSubmixCaptureProtocol {
     pub file_name: FString,
     __padding_end: [u8; 40],
 }
-impl UMasterAudioSubmixCaptureProtocol {}
+impl UMasterAudioSubmixCaptureProtocol {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMasterAudioSubmixCaptureProtocol")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 pub struct IMovieSceneCaptureInterface {}
 #[repr(C, align(8))]
 pub struct UMovieSceneCaptureInterface {
     __padding_end: [u8; 48],
 }
-impl UMovieSceneCaptureInterface {}
+impl UMovieSceneCaptureInterface {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneCaptureInterface")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneImageCaptureProtocolBase {
     __padding_end: [u8; 96],
 }
-impl UMovieSceneImageCaptureProtocolBase {}
+impl UMovieSceneImageCaptureProtocolBase {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneImageCaptureProtocolBase")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UCompositionGraphCaptureProtocol {
     #[doc(hidden)]
@@ -105,17 +496,65 @@ pub struct UCompositionGraphCaptureProtocol {
     pub b_disable_screen_percentage: bool,
     __padding_end: [u8; 47],
 }
-impl UCompositionGraphCaptureProtocol {}
+impl UCompositionGraphCaptureProtocol {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UCompositionGraphCaptureProtocol")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UFrameGrabberProtocol {
     __padding_end: [u8; 112],
 }
-impl UFrameGrabberProtocol {}
+impl UFrameGrabberProtocol {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFrameGrabberProtocol")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UImageSequenceProtocol {
     __padding_end: [u8; 224],
 }
-impl UImageSequenceProtocol {}
+impl UImageSequenceProtocol {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UImageSequenceProtocol")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UCompressedImageSequenceProtocol {
     #[doc(hidden)]
@@ -123,27 +562,107 @@ pub struct UCompressedImageSequenceProtocol {
     pub compression_quality: i32,
     __padding_end: [u8; 4],
 }
-impl UCompressedImageSequenceProtocol {}
+impl UCompressedImageSequenceProtocol {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UCompressedImageSequenceProtocol")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UImageSequenceProtocol_BMP {
     __padding_end: [u8; 224],
 }
-impl UImageSequenceProtocol_BMP {}
+impl UImageSequenceProtocol_BMP {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UImageSequenceProtocol_BMP")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UImageSequenceProtocol_PNG {
     __padding_end: [u8; 232],
 }
-impl UImageSequenceProtocol_PNG {}
+impl UImageSequenceProtocol_PNG {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UImageSequenceProtocol_PNG")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UImageSequenceProtocol_JPG {
     __padding_end: [u8; 232],
 }
-impl UImageSequenceProtocol_JPG {}
+impl UImageSequenceProtocol_JPG {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UImageSequenceProtocol_JPG")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UImageSequenceProtocol_EXR {
     __padding_end: [u8; 240],
 }
-impl UImageSequenceProtocol_EXR {}
+impl UImageSequenceProtocol_EXR {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UImageSequenceProtocol_EXR")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneCapture {
     #[doc(hidden)]
@@ -155,17 +674,65 @@ pub struct UMovieSceneCapture {
     pub inherited_command_line_arguments: FString,
     __padding_end: [u8; 288],
 }
-impl UMovieSceneCapture {}
+impl UMovieSceneCapture {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneCapture")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct ULevelCapture {
     __padding_end: [u8; 632],
 }
-impl ULevelCapture {}
+impl ULevelCapture {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULevelCapture")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneCaptureEnvironment {
     __padding_end: [u8; 48],
 }
-impl UMovieSceneCaptureEnvironment {}
+impl UMovieSceneCaptureEnvironment {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneCaptureEnvironment")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UUserDefinedCaptureProtocol {
     #[doc(hidden)]
@@ -173,7 +740,23 @@ pub struct UUserDefinedCaptureProtocol {
     pub world: UPtr<crate::bindings::engine::UWorld>,
     __padding_end: [u8; 120],
 }
-impl UUserDefinedCaptureProtocol {}
+impl UUserDefinedCaptureProtocol {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UUserDefinedCaptureProtocol")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UUserDefinedImageCaptureProtocol {
     #[doc(hidden)]
@@ -182,12 +765,44 @@ pub struct UUserDefinedImageCaptureProtocol {
     pub b_enable_compression: bool,
     pub compression_quality: i32,
 }
-impl UUserDefinedImageCaptureProtocol {}
+impl UUserDefinedImageCaptureProtocol {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UUserDefinedImageCaptureProtocol")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UVideoCaptureProtocol {
     __padding_end: [u8; 136],
 }
-impl UVideoCaptureProtocol {}
+impl UVideoCaptureProtocol {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UVideoCaptureProtocol")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(transparent)]
 pub struct EMovieSceneCaptureProtocolState(pub u8);
 impl EMovieSceneCaptureProtocolState {

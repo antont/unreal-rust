@@ -2,8 +2,26 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(clippy::non_camel_case_types)]
+#![allow(clippy::new_without_default)]
+#![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
+#[doc(hidden)]
+pub static mut U_SVG_DISTANCE_FIELD_GENERATOR_GENERATE_TEXTURE_FROM_SVG_FILE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub fn initialize() {
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = USvgDistanceFieldGenerator::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GenerateTextureFromSvgFile"),
+            &raw mut U_SVG_DISTANCE_FIELD_GENERATOR_GENERATE_TEXTURE_FROM_SVG_FILE,
+        );
+    }
+}
 #[repr(C, align(4))]
 pub struct FSvgDistanceFieldConfiguration {
     pub distance_field_type: ESvgDistanceFieldType,
@@ -23,7 +41,23 @@ impl FSvgDistanceFieldConfiguration {}
 pub struct USvgDistanceFieldGenerator {
     __padding_end: [u8; 48],
 }
-impl USvgDistanceFieldGenerator {}
+impl USvgDistanceFieldGenerator {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USvgDistanceFieldGenerator")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(transparent)]
 pub struct ESvgDistanceFieldType(pub u8);
 impl ESvgDistanceFieldType {

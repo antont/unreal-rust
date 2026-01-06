@@ -2,8 +2,641 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(clippy::non_camel_case_types)]
+#![allow(clippy::new_without_default)]
+#![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
+#[doc(hidden)]
+pub static mut U_ACHIEVEMENT_BLUEPRINT_LIBRARY_GET_CACHED_ACHIEVEMENT_PROGRESS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_ACHIEVEMENT_BLUEPRINT_LIBRARY_GET_CACHED_ACHIEVEMENT_DESCRIPTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_ACHIEVEMENT_QUERY_CALLBACK_PROXY_CACHE_ACHIEVEMENTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_ACHIEVEMENT_QUERY_CALLBACK_PROXY_CACHE_ACHIEVEMENT_DESCRIPTIONS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_ACHIEVEMENT_WRITE_CALLBACK_PROXY_WRITE_PROGRESS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CONNECTION_CALLBACK_PROXY_CONNECT_TO_SERVICE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CREATE_SESSION_CALLBACK_PROXY_CREATE_SESSION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_DESTROY_SESSION_CALLBACK_PROXY_DESTROY_SESSION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_END_MATCH_CALLBACK_PROXY_END_MATCH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_END_TURN_CALLBACK_PROXY_END_TURN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_FIND_SESSIONS_CALLBACK_PROXY_GET_SERVER_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_FIND_SESSIONS_CALLBACK_PROXY_GET_PING_IN_MS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_FIND_SESSIONS_CALLBACK_PROXY_GET_MAX_PLAYERS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_FIND_SESSIONS_CALLBACK_PROXY_GET_CURRENT_PLAYERS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_FIND_SESSIONS_CALLBACK_PROXY_FIND_SESSIONS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_FIND_TURN_BASED_MATCH_CALLBACK_PROXY_FIND_TURN_BASED_MATCH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_IN_APP_PURCHASE_CALLBACK_PROXY2_CREATE_PROXY_OBJECT_FOR_IN_APP_PURCHASE_UNPROCESSED_PURCHASES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_IN_APP_PURCHASE_CALLBACK_PROXY2_CREATE_PROXY_OBJECT_FOR_IN_APP_PURCHASE_QUERY_OWNED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_IN_APP_PURCHASE_CALLBACK_PROXY2_CREATE_PROXY_OBJECT_FOR_IN_APP_PURCHASE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_IN_APP_PURCHASE_CHECKOUT_CALLBACK_PROXY_CREATE_PROXY_OBJECT_FOR_IN_APP_PURCHASE_CHECKOUT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_IN_APP_PURCHASE_FINALIZE_PROXY_CREATE_PROXY_OBJECT_FOR_IN_APP_PURCHASE_FINALIZE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_IN_APP_PURCHASE_QUERY_CALLBACK_PROXY2_CREATE_PROXY_OBJECT_FOR_IN_APP_PURCHASE_QUERY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_IN_APP_PURCHASE_RECEIPTS_CALLBACK_PROXY_CREATE_PROXY_OBJECT_FOR_IN_APP_PURCHASE_RESTORE_OWNED_PRODUCTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_IN_APP_PURCHASE_RECEIPTS_CALLBACK_PROXY_CREATE_PROXY_OBJECT_FOR_IN_APP_PURCHASE_QUERY_OWNED_PRODUCTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_IN_APP_PURCHASE_RECEIPTS_CALLBACK_PROXY_CREATE_PROXY_OBJECT_FOR_IN_APP_PURCHASE_GET_KNOWN_RECEIPTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_IN_APP_PURCHASE_RESTORE_CALLBACK_PROXY2_CREATE_PROXY_OBJECT_FOR_IN_APP_PURCHASE_RESTORE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_JOIN_SESSION_CALLBACK_PROXY_JOIN_SESSION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_LEADERBOARD_BLUEPRINT_LIBRARY_WRITE_LEADERBOARD_INTEGER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_LEADERBOARD_FLUSH_CALLBACK_PROXY_CREATE_PROXY_OBJECT_FOR_FLUSH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_LEADERBOARD_QUERY_CALLBACK_PROXY_CREATE_PROXY_OBJECT_FOR_INT_QUERY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_LOGOUT_CALLBACK_PROXY_LOGOUT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_ONLINE_BEACON_CLIENT_CLIENT_ON_CONNECTED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_PARTY_BEACON_CLIENT_SERVER_UPDATE_RESERVATION_REQUEST: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_PARTY_BEACON_CLIENT_SERVER_RESERVATION_REQUEST: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_PARTY_BEACON_CLIENT_SERVER_REMOVE_MEMBER_FROM_RESERVATION_REQUEST: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_PARTY_BEACON_CLIENT_SERVER_CANCEL_RESERVATION_REQUEST: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_PARTY_BEACON_CLIENT_SERVER_ADD_OR_UPDATE_RESERVATION_REQUEST: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_PARTY_BEACON_CLIENT_CLIENT_SEND_RESERVATION_UPDATES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_PARTY_BEACON_CLIENT_CLIENT_SEND_RESERVATION_FULL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_PARTY_BEACON_CLIENT_CLIENT_RESERVATION_RESPONSE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_PARTY_BEACON_CLIENT_CLIENT_CANCEL_RESERVATION_RESPONSE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_QUIT_MATCH_CALLBACK_PROXY_QUIT_MATCH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SHOW_LOGIN_UI_CALLBACK_PROXY_SHOW_EXTERNAL_LOGIN_UI: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_SPECTATOR_BEACON_CLIENT_SERVER_RESERVATION_REQUEST: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_SPECTATOR_BEACON_CLIENT_SERVER_CANCEL_RESERVATION_REQUEST: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_SPECTATOR_BEACON_CLIENT_CLIENT_SEND_RESERVATION_UPDATES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_SPECTATOR_BEACON_CLIENT_CLIENT_SEND_RESERVATION_FULL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_SPECTATOR_BEACON_CLIENT_CLIENT_RESERVATION_RESPONSE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_SPECTATOR_BEACON_CLIENT_CLIENT_CANCEL_RESERVATION_RESPONSE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_TEST_BEACON_CLIENT_SERVER_PONG: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_TEST_BEACON_CLIENT_CLIENT_PING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_TURN_BASED_BLUEPRINT_LIBRARY_REGISTER_TURN_BASED_MATCH_INTERFACE_OBJECT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_TURN_BASED_BLUEPRINT_LIBRARY_GET_PLAYER_DISPLAY_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_TURN_BASED_BLUEPRINT_LIBRARY_GET_MY_PLAYER_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_TURN_BASED_BLUEPRINT_LIBRARY_GET_IS_MY_TURN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_VOIP_LISTENER_SYNTH_COMPONENT_IS_IDLING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub fn initialize() {
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UAchievementBlueprintLibrary::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetCachedAchievementProgress"),
+            &raw mut U_ACHIEVEMENT_BLUEPRINT_LIBRARY_GET_CACHED_ACHIEVEMENT_PROGRESS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetCachedAchievementDescription"),
+            &raw mut U_ACHIEVEMENT_BLUEPRINT_LIBRARY_GET_CACHED_ACHIEVEMENT_DESCRIPTION,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UAchievementQueryCallbackProxy::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("CacheAchievements"),
+            &raw mut U_ACHIEVEMENT_QUERY_CALLBACK_PROXY_CACHE_ACHIEVEMENTS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("CacheAchievementDescriptions"),
+            &raw mut U_ACHIEVEMENT_QUERY_CALLBACK_PROXY_CACHE_ACHIEVEMENT_DESCRIPTIONS,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UAchievementWriteCallbackProxy::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("WriteProgress"),
+            &raw mut U_ACHIEVEMENT_WRITE_CALLBACK_PROXY_WRITE_PROGRESS,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UConnectionCallbackProxy::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ConnectToService"),
+            &raw mut U_CONNECTION_CALLBACK_PROXY_CONNECT_TO_SERVICE,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UCreateSessionCallbackProxy::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("CreateSession"),
+            &raw mut U_CREATE_SESSION_CALLBACK_PROXY_CREATE_SESSION,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UDestroySessionCallbackProxy::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("DestroySession"),
+            &raw mut U_DESTROY_SESSION_CALLBACK_PROXY_DESTROY_SESSION,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UEndMatchCallbackProxy::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("EndMatch"),
+            &raw mut U_END_MATCH_CALLBACK_PROXY_END_MATCH,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UEndTurnCallbackProxy::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("EndTurn"),
+            &raw mut U_END_TURN_CALLBACK_PROXY_END_TURN,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UFindSessionsCallbackProxy::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetServerName"),
+            &raw mut U_FIND_SESSIONS_CALLBACK_PROXY_GET_SERVER_NAME,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetPingInMs"),
+            &raw mut U_FIND_SESSIONS_CALLBACK_PROXY_GET_PING_IN_MS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetMaxPlayers"),
+            &raw mut U_FIND_SESSIONS_CALLBACK_PROXY_GET_MAX_PLAYERS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetCurrentPlayers"),
+            &raw mut U_FIND_SESSIONS_CALLBACK_PROXY_GET_CURRENT_PLAYERS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("FindSessions"),
+            &raw mut U_FIND_SESSIONS_CALLBACK_PROXY_FIND_SESSIONS,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UFindTurnBasedMatchCallbackProxy::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("FindTurnBasedMatch"),
+            &raw mut U_FIND_TURN_BASED_MATCH_CALLBACK_PROXY_FIND_TURN_BASED_MATCH,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UInAppPurchaseCallbackProxy2::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from(
+                "CreateProxyObjectForInAppPurchaseUnprocessedPurchases",
+            ),
+            &raw mut U_IN_APP_PURCHASE_CALLBACK_PROXY2_CREATE_PROXY_OBJECT_FOR_IN_APP_PURCHASE_UNPROCESSED_PURCHASES,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("CreateProxyObjectForInAppPurchaseQueryOwned"),
+            &raw mut U_IN_APP_PURCHASE_CALLBACK_PROXY2_CREATE_PROXY_OBJECT_FOR_IN_APP_PURCHASE_QUERY_OWNED,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("CreateProxyObjectForInAppPurchase"),
+            &raw mut U_IN_APP_PURCHASE_CALLBACK_PROXY2_CREATE_PROXY_OBJECT_FOR_IN_APP_PURCHASE,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UInAppPurchaseCheckoutCallbackProxy::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("CreateProxyObjectForInAppPurchaseCheckout"),
+            &raw mut U_IN_APP_PURCHASE_CHECKOUT_CALLBACK_PROXY_CREATE_PROXY_OBJECT_FOR_IN_APP_PURCHASE_CHECKOUT,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UInAppPurchaseFinalizeProxy::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("CreateProxyObjectForInAppPurchaseFinalize"),
+            &raw mut U_IN_APP_PURCHASE_FINALIZE_PROXY_CREATE_PROXY_OBJECT_FOR_IN_APP_PURCHASE_FINALIZE,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UInAppPurchaseQueryCallbackProxy2::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("CreateProxyObjectForInAppPurchaseQuery"),
+            &raw mut U_IN_APP_PURCHASE_QUERY_CALLBACK_PROXY2_CREATE_PROXY_OBJECT_FOR_IN_APP_PURCHASE_QUERY,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UInAppPurchaseReceiptsCallbackProxy::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from(
+                "CreateProxyObjectForInAppPurchaseRestoreOwnedProducts",
+            ),
+            &raw mut U_IN_APP_PURCHASE_RECEIPTS_CALLBACK_PROXY_CREATE_PROXY_OBJECT_FOR_IN_APP_PURCHASE_RESTORE_OWNED_PRODUCTS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from(
+                "CreateProxyObjectForInAppPurchaseQueryOwnedProducts",
+            ),
+            &raw mut U_IN_APP_PURCHASE_RECEIPTS_CALLBACK_PROXY_CREATE_PROXY_OBJECT_FOR_IN_APP_PURCHASE_QUERY_OWNED_PRODUCTS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from(
+                "CreateProxyObjectForInAppPurchaseGetKnownReceipts",
+            ),
+            &raw mut U_IN_APP_PURCHASE_RECEIPTS_CALLBACK_PROXY_CREATE_PROXY_OBJECT_FOR_IN_APP_PURCHASE_GET_KNOWN_RECEIPTS,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UInAppPurchaseRestoreCallbackProxy2::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("CreateProxyObjectForInAppPurchaseRestore"),
+            &raw mut U_IN_APP_PURCHASE_RESTORE_CALLBACK_PROXY2_CREATE_PROXY_OBJECT_FOR_IN_APP_PURCHASE_RESTORE,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UJoinSessionCallbackProxy::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("JoinSession"),
+            &raw mut U_JOIN_SESSION_CALLBACK_PROXY_JOIN_SESSION,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = ULeaderboardBlueprintLibrary::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("WriteLeaderboardInteger"),
+            &raw mut U_LEADERBOARD_BLUEPRINT_LIBRARY_WRITE_LEADERBOARD_INTEGER,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = ULeaderboardFlushCallbackProxy::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("CreateProxyObjectForFlush"),
+            &raw mut U_LEADERBOARD_FLUSH_CALLBACK_PROXY_CREATE_PROXY_OBJECT_FOR_FLUSH,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = ULeaderboardQueryCallbackProxy::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("CreateProxyObjectForIntQuery"),
+            &raw mut U_LEADERBOARD_QUERY_CALLBACK_PROXY_CREATE_PROXY_OBJECT_FOR_INT_QUERY,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = ULogoutCallbackProxy::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("Logout"),
+            &raw mut U_LOGOUT_CALLBACK_PROXY_LOGOUT,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = AOnlineBeaconClient::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ClientOnConnected"),
+            &raw mut A_ONLINE_BEACON_CLIENT_CLIENT_ON_CONNECTED,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = APartyBeaconClient::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ServerUpdateReservationRequest"),
+            &raw mut A_PARTY_BEACON_CLIENT_SERVER_UPDATE_RESERVATION_REQUEST,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ServerReservationRequest"),
+            &raw mut A_PARTY_BEACON_CLIENT_SERVER_RESERVATION_REQUEST,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ServerRemoveMemberFromReservationRequest"),
+            &raw mut A_PARTY_BEACON_CLIENT_SERVER_REMOVE_MEMBER_FROM_RESERVATION_REQUEST,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ServerCancelReservationRequest"),
+            &raw mut A_PARTY_BEACON_CLIENT_SERVER_CANCEL_RESERVATION_REQUEST,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ServerAddOrUpdateReservationRequest"),
+            &raw mut A_PARTY_BEACON_CLIENT_SERVER_ADD_OR_UPDATE_RESERVATION_REQUEST,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ClientSendReservationUpdates"),
+            &raw mut A_PARTY_BEACON_CLIENT_CLIENT_SEND_RESERVATION_UPDATES,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ClientSendReservationFull"),
+            &raw mut A_PARTY_BEACON_CLIENT_CLIENT_SEND_RESERVATION_FULL,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ClientReservationResponse"),
+            &raw mut A_PARTY_BEACON_CLIENT_CLIENT_RESERVATION_RESPONSE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ClientCancelReservationResponse"),
+            &raw mut A_PARTY_BEACON_CLIENT_CLIENT_CANCEL_RESERVATION_RESPONSE,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UQuitMatchCallbackProxy::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("QuitMatch"),
+            &raw mut U_QUIT_MATCH_CALLBACK_PROXY_QUIT_MATCH,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UShowLoginUICallbackProxy::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ShowExternalLoginUI"),
+            &raw mut U_SHOW_LOGIN_UI_CALLBACK_PROXY_SHOW_EXTERNAL_LOGIN_UI,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = ASpectatorBeaconClient::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ServerReservationRequest"),
+            &raw mut A_SPECTATOR_BEACON_CLIENT_SERVER_RESERVATION_REQUEST,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ServerCancelReservationRequest"),
+            &raw mut A_SPECTATOR_BEACON_CLIENT_SERVER_CANCEL_RESERVATION_REQUEST,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ClientSendReservationUpdates"),
+            &raw mut A_SPECTATOR_BEACON_CLIENT_CLIENT_SEND_RESERVATION_UPDATES,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ClientSendReservationFull"),
+            &raw mut A_SPECTATOR_BEACON_CLIENT_CLIENT_SEND_RESERVATION_FULL,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ClientReservationResponse"),
+            &raw mut A_SPECTATOR_BEACON_CLIENT_CLIENT_RESERVATION_RESPONSE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ClientCancelReservationResponse"),
+            &raw mut A_SPECTATOR_BEACON_CLIENT_CLIENT_CANCEL_RESERVATION_RESPONSE,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = ATestBeaconClient::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ServerPong"),
+            &raw mut A_TEST_BEACON_CLIENT_SERVER_PONG,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ClientPing"),
+            &raw mut A_TEST_BEACON_CLIENT_CLIENT_PING,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UTurnBasedBlueprintLibrary::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("RegisterTurnBasedMatchInterfaceObject"),
+            &raw mut U_TURN_BASED_BLUEPRINT_LIBRARY_REGISTER_TURN_BASED_MATCH_INTERFACE_OBJECT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetPlayerDisplayName"),
+            &raw mut U_TURN_BASED_BLUEPRINT_LIBRARY_GET_PLAYER_DISPLAY_NAME,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetMyPlayerIndex"),
+            &raw mut U_TURN_BASED_BLUEPRINT_LIBRARY_GET_MY_PLAYER_INDEX,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetIsMyTurn"),
+            &raw mut U_TURN_BASED_BLUEPRINT_LIBRARY_GET_IS_MY_TURN,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UVoipListenerSynthComponent::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("IsIdling"),
+            &raw mut U_VOIP_LISTENER_SYNTH_COMPONENT_IS_IDLING,
+        );
+    }
+}
 #[repr(C, align(8))]
 pub struct FBlueprintSessionResult {
     __padding_end: [u8; 288],
@@ -68,247 +701,1031 @@ impl FInAppPurchaseProductRequest2 {}
 pub struct UAchievementBlueprintLibrary {
     __padding_end: [u8; 48],
 }
-impl UAchievementBlueprintLibrary {}
+impl UAchievementBlueprintLibrary {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAchievementBlueprintLibrary")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAchievementQueryCallbackProxy {
     __padding_end: [u8; 128],
 }
-impl UAchievementQueryCallbackProxy {}
+impl UAchievementQueryCallbackProxy {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAchievementQueryCallbackProxy")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAchievementWriteCallbackProxy {
     __padding_end: [u8; 160],
 }
-impl UAchievementWriteCallbackProxy {}
+impl UAchievementWriteCallbackProxy {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAchievementWriteCallbackProxy")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UConnectionCallbackProxy {
     __padding_end: [u8; 152],
 }
-impl UConnectionCallbackProxy {}
+impl UConnectionCallbackProxy {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UConnectionCallbackProxy")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UCreateSessionCallbackProxy {
     __padding_end: [u8; 192],
 }
-impl UCreateSessionCallbackProxy {}
+impl UCreateSessionCallbackProxy {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UCreateSessionCallbackProxy")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UDestroySessionCallbackProxy {
     __padding_end: [u8; 152],
 }
-impl UDestroySessionCallbackProxy {}
+impl UDestroySessionCallbackProxy {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDestroySessionCallbackProxy")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UEndMatchCallbackProxy {
     __padding_end: [u8; 152],
 }
-impl UEndMatchCallbackProxy {}
+impl UEndMatchCallbackProxy {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEndMatchCallbackProxy")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UEndTurnCallbackProxy {
     __padding_end: [u8; 144],
 }
-impl UEndTurnCallbackProxy {}
+impl UEndTurnCallbackProxy {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEndTurnCallbackProxy")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UFindSessionsCallbackProxy {
     __padding_end: [u8; 176],
 }
-impl UFindSessionsCallbackProxy {}
+impl UFindSessionsCallbackProxy {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFindSessionsCallbackProxy")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UFindTurnBasedMatchCallbackProxy {
     __padding_end: [u8; 160],
 }
-impl UFindTurnBasedMatchCallbackProxy {}
+impl UFindTurnBasedMatchCallbackProxy {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFindTurnBasedMatchCallbackProxy")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UInAppPurchaseCallbackProxy2 {
     __padding_end: [u8; 200],
 }
-impl UInAppPurchaseCallbackProxy2 {}
+impl UInAppPurchaseCallbackProxy2 {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInAppPurchaseCallbackProxy2")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UInAppPurchaseCheckoutCallbackProxy {
     __padding_end: [u8; 184],
 }
-impl UInAppPurchaseCheckoutCallbackProxy {}
+impl UInAppPurchaseCheckoutCallbackProxy {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInAppPurchaseCheckoutCallbackProxy")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UInAppPurchaseFinalizeProxy {
     __padding_end: [u8; 48],
 }
-impl UInAppPurchaseFinalizeProxy {}
+impl UInAppPurchaseFinalizeProxy {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInAppPurchaseFinalizeProxy")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UInAppPurchaseQueryCallbackProxy2 {
     __padding_end: [u8; 128],
 }
-impl UInAppPurchaseQueryCallbackProxy2 {}
+impl UInAppPurchaseQueryCallbackProxy2 {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInAppPurchaseQueryCallbackProxy2")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UInAppPurchaseReceiptsCallbackProxy {
     __padding_end: [u8; 168],
 }
-impl UInAppPurchaseReceiptsCallbackProxy {}
+impl UInAppPurchaseReceiptsCallbackProxy {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInAppPurchaseReceiptsCallbackProxy")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UInAppPurchaseRestoreCallbackProxy2 {
     __padding_end: [u8; 200],
 }
-impl UInAppPurchaseRestoreCallbackProxy2 {}
+impl UInAppPurchaseRestoreCallbackProxy2 {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInAppPurchaseRestoreCallbackProxy2")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(16))]
 pub struct UIpConnection {
     __padding_end: [u8; 8208],
 }
-impl UIpConnection {}
+impl UIpConnection {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UIpConnection")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UIpNetDriver {
     __padding_end: [u8; 2840],
 }
-impl UIpNetDriver {}
+impl UIpNetDriver {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UIpNetDriver")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UJoinSessionCallbackProxy {
     __padding_end: [u8; 440],
 }
-impl UJoinSessionCallbackProxy {}
+impl UJoinSessionCallbackProxy {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UJoinSessionCallbackProxy")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct ULeaderboardBlueprintLibrary {
     __padding_end: [u8; 48],
 }
-impl ULeaderboardBlueprintLibrary {}
+impl ULeaderboardBlueprintLibrary {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULeaderboardBlueprintLibrary")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct ULeaderboardFlushCallbackProxy {
     __padding_end: [u8; 136],
 }
-impl ULeaderboardFlushCallbackProxy {}
+impl ULeaderboardFlushCallbackProxy {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULeaderboardFlushCallbackProxy")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct ULeaderboardQueryCallbackProxy {
     __padding_end: [u8; 192],
 }
-impl ULeaderboardQueryCallbackProxy {}
+impl ULeaderboardQueryCallbackProxy {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULeaderboardQueryCallbackProxy")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct ULogoutCallbackProxy {
     __padding_end: [u8; 128],
 }
-impl ULogoutCallbackProxy {}
+impl ULogoutCallbackProxy {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULogoutCallbackProxy")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct AOnlineBeacon {
     __padding_end: [u8; 1192],
 }
-impl AOnlineBeacon {}
+impl AOnlineBeacon {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("AOnlineBeacon")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct AOnlineBeaconClient {
     __padding_end: [u8; 1296],
 }
-impl AOnlineBeaconClient {}
+impl AOnlineBeaconClient {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("AOnlineBeaconClient")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct AOnlineBeaconHost {
     __padding_end: [u8; 1464],
 }
-impl AOnlineBeaconHost {}
+impl AOnlineBeaconHost {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("AOnlineBeaconHost")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct AOnlineBeaconHostObject {
     __padding_end: [u8; 1176],
 }
-impl AOnlineBeaconHostObject {}
+impl AOnlineBeaconHostObject {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("AOnlineBeaconHostObject")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UOnlineEngineInterfaceImpl {
     __padding_end: [u8; 424],
 }
-impl UOnlineEngineInterfaceImpl {}
+impl UOnlineEngineInterfaceImpl {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOnlineEngineInterfaceImpl")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UOnlinePIEConfig {
     __padding_end: [u8; 64],
 }
-impl UOnlinePIEConfig {}
+impl UOnlinePIEConfig {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOnlinePIEConfig")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UOnlinePIESettings {
     __padding_end: [u8; 128],
 }
-impl UOnlinePIESettings {}
+impl UOnlinePIESettings {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOnlinePIESettings")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UOnlineServicesEngineInterfaceImpl {
     __padding_end: [u8; 48],
 }
-impl UOnlineServicesEngineInterfaceImpl {}
+impl UOnlineServicesEngineInterfaceImpl {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOnlineServicesEngineInterfaceImpl")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UOnlineSessionClient {
     __padding_end: [u8; 528],
 }
-impl UOnlineSessionClient {}
+impl UOnlineSessionClient {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOnlineSessionClient")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct APartyBeaconClient {
     __padding_end: [u8; 1520],
 }
-impl APartyBeaconClient {}
+impl APartyBeaconClient {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("APartyBeaconClient")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct APartyBeaconHost {
     __padding_end: [u8; 1344],
 }
-impl APartyBeaconHost {}
+impl APartyBeaconHost {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("APartyBeaconHost")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UPartyBeaconState {
     __padding_end: [u8; 176],
 }
-impl UPartyBeaconState {}
+impl UPartyBeaconState {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPartyBeaconState")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UQuitMatchCallbackProxy {
     __padding_end: [u8; 144],
 }
-impl UQuitMatchCallbackProxy {}
+impl UQuitMatchCallbackProxy {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UQuitMatchCallbackProxy")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UShowLoginUICallbackProxy {
     __padding_end: [u8; 120],
 }
-impl UShowLoginUICallbackProxy {}
+impl UShowLoginUICallbackProxy {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UShowLoginUICallbackProxy")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct ASpectatorBeaconClient {
     __padding_end: [u8; 1568],
 }
-impl ASpectatorBeaconClient {}
+impl ASpectatorBeaconClient {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ASpectatorBeaconClient")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct ASpectatorBeaconHost {
     __padding_end: [u8; 1344],
 }
-impl ASpectatorBeaconHost {}
+impl ASpectatorBeaconHost {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ASpectatorBeaconHost")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct USpectatorBeaconState {
     __padding_end: [u8; 104],
 }
-impl USpectatorBeaconState {}
+impl USpectatorBeaconState {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USpectatorBeaconState")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct ATestBeaconClient {
     __padding_end: [u8; 1296],
 }
-impl ATestBeaconClient {}
+impl ATestBeaconClient {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ATestBeaconClient")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct ATestBeaconHost {
     __padding_end: [u8; 1176],
 }
-impl ATestBeaconHost {}
+impl ATestBeaconHost {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ATestBeaconHost")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct AOnlineBeaconUnitTestClient {
     __padding_end: [u8; 1296],
 }
-impl AOnlineBeaconUnitTestClient {}
+impl AOnlineBeaconUnitTestClient {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("AOnlineBeaconUnitTestClient")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct AOnlineBeaconUnitTestHost {
     __padding_end: [u8; 1464],
 }
-impl AOnlineBeaconUnitTestHost {}
+impl AOnlineBeaconUnitTestHost {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("AOnlineBeaconUnitTestHost")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct AOnlineBeaconUnitTestHostObject {
     __padding_end: [u8; 1176],
 }
-impl AOnlineBeaconUnitTestHostObject {}
+impl AOnlineBeaconUnitTestHostObject {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("AOnlineBeaconUnitTestHostObject")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(16))]
 pub struct UOnlineBeaconUnitTestNetConnection {
     __padding_end: [u8; 8208],
 }
-impl UOnlineBeaconUnitTestNetConnection {}
+impl UOnlineBeaconUnitTestNetConnection {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOnlineBeaconUnitTestNetConnection")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UOnlineBeaconUnitTestNetDriver {
     __padding_end: [u8; 2840],
 }
-impl UOnlineBeaconUnitTestNetDriver {}
+impl UOnlineBeaconUnitTestNetDriver {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOnlineBeaconUnitTestNetDriver")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UTurnBasedBlueprintLibrary {
     __padding_end: [u8; 48],
 }
-impl UTurnBasedBlueprintLibrary {}
+impl UTurnBasedBlueprintLibrary {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTurnBasedBlueprintLibrary")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(16))]
 pub struct UVoipListenerSynthComponent {
     __padding_end: [u8; 2480],
 }
-impl UVoipListenerSynthComponent {}
+impl UVoipListenerSynthComponent {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UVoipListenerSynthComponent")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct FAchievementQueryCallbackProxy_OnSuccess {
     _opague: [u8; 24],

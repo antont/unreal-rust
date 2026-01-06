@@ -2,8 +2,1169 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(clippy::non_camel_case_types)]
+#![allow(clippy::new_without_default)]
+#![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
+#[doc(hidden)]
+pub static mut U_AUTOMATION_EDITOR_TASK_IS_VALID_TASK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUTOMATION_EDITOR_TASK_IS_TASK_DONE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_TAKE_HIGH_RES_SCREENSHOT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_TAKE_AUTOMATION_SCREENSHOT_OF_UI: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_TAKE_AUTOMATION_SCREENSHOT_AT_CAMERA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_TAKE_AUTOMATION_SCREENSHOT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_SET_TEST_TELEMETRY_STORAGE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_SET_SCALABILITY_QUALITY_TO_LOW: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_SET_SCALABILITY_QUALITY_TO_EPIC: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_SET_SCALABILITY_QUALITY_LEVEL_RELATIVE_TO_MAX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_SET_EDITOR_VIEWPORT_VISUALIZE_BUFFER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_SET_EDITOR_VIEWPORT_VIEW_MODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_SET_EDITOR_ACTIVE_VIEWPORT_WIREFRAME_OPACITY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_SET_EDITOR_ACTIVE_VIEWPORT_VIEW_MODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_GET_STAT_INC_MAX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_GET_STAT_INC_AVERAGE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_GET_STAT_EXC_MAX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_GET_STAT_EXC_AVERAGE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_GET_STAT_CALL_COUNT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_GET_EDITOR_ACTIVE_VIEWPORT_WIREFRAME_OPACITY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_GET_EDITOR_ACTIVE_VIEWPORT_VIEW_MODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_GET_DEFAULT_SCREENSHOT_OPTIONS_FOR_RENDERING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_GET_DEFAULT_SCREENSHOT_OPTIONS_FOR_GAMEPLAY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_FINISH_LOADING_BEFORE_SCREENSHOT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_ENABLE_STAT_GROUP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_DISABLE_STAT_GROUP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_COMPARE_IMAGE_AGAINST_REFERENCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_AUTOMATION_WAIT_FOR_LOADING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_ARE_AUTOMATED_TESTS_RUNNING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_ADD_TEST_WARNING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_ADD_TEST_TELEMETRY_DATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_ADD_TEST_INFO: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_ADD_TEST_ERROR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_ADD_EXPECTED_PLAIN_LOG_MESSAGE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_ADD_EXPECTED_PLAIN_LOG_ERROR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_ADD_EXPECTED_LOG_MESSAGE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_ADD_EXPECTED_LOG_ERROR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_FUNCTIONAL_TEST_SET_TIME_LIMIT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_FUNCTIONAL_TEST_SET_CONSOLE_VARIABLE_FROM_INTEGER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_FUNCTIONAL_TEST_SET_CONSOLE_VARIABLE_FROM_FLOAT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_FUNCTIONAL_TEST_SET_CONSOLE_VARIABLE_FROM_BOOLEAN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_FUNCTIONAL_TEST_SET_CONSOLE_VARIABLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_FUNCTIONAL_TEST_REGISTER_AUTO_DESTROY_ACTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_FUNCTIONAL_TEST_RECEIVE_TEST_FINISHED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_FUNCTIONAL_TEST_RECEIVE_START_TEST: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_FUNCTIONAL_TEST_RECEIVE_PREPARE_TEST: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_FUNCTIONAL_TEST_ON_WANTS_RE_RUN_CHECK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_FUNCTIONAL_TEST_ON_ADDITIONAL_TEST_FINISHED_MESSAGE_REQUEST: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_FUNCTIONAL_TEST_LOG_MESSAGE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_FUNCTIONAL_TEST_IS_RUNNING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_FUNCTIONAL_TEST_IS_READY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_FUNCTIONAL_TEST_IS_ENABLED_IN_WORLD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_FUNCTIONAL_TEST_IS_ENABLED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_FUNCTIONAL_TEST_GET_CURRENT_RERUN_REASON: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_FUNCTIONAL_TEST_FINISH_TEST: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_FUNCTIONAL_TEST_EDIT_TAGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_FUNCTIONAL_TEST_DEBUG_GATHER_RELEVANT_ACTORS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_FUNCTIONAL_TEST_ASSERT_VALUE_INT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_FUNCTIONAL_TEST_ASSERT_VALUE_FLOAT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_FUNCTIONAL_TEST_ASSERT_VALUE_DOUBLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_FUNCTIONAL_TEST_ASSERT_VALUE_DATE_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_FUNCTIONAL_TEST_ASSERT_TRUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_FUNCTIONAL_TEST_ASSERT_NOT_EQUAL_VECTOR4: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_FUNCTIONAL_TEST_ASSERT_NOT_EQUAL_VECTOR2_D: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_FUNCTIONAL_TEST_ASSERT_NOT_EQUAL_VECTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_FUNCTIONAL_TEST_ASSERT_NOT_EQUAL_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_FUNCTIONAL_TEST_ASSERT_NOT_EQUAL_STRING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_FUNCTIONAL_TEST_ASSERT_NOT_EQUAL_ROTATOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_FUNCTIONAL_TEST_ASSERT_NOT_EQUAL_QUAT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_FUNCTIONAL_TEST_ASSERT_NOT_EQUAL_PLANE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_FUNCTIONAL_TEST_ASSERT_NOT_EQUAL_MATRIX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_FUNCTIONAL_TEST_ASSERT_NOT_EQUAL_BOX2_D: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_FUNCTIONAL_TEST_ASSERT_IS_VALID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_FUNCTIONAL_TEST_ASSERT_FALSE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_FUNCTIONAL_TEST_ASSERT_EQUAL_VECTOR4: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_FUNCTIONAL_TEST_ASSERT_EQUAL_VECTOR2_D: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_FUNCTIONAL_TEST_ASSERT_EQUAL_VECTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_FUNCTIONAL_TEST_ASSERT_EQUAL_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_FUNCTIONAL_TEST_ASSERT_EQUAL_TRACE_QUERY_RESULTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_FUNCTIONAL_TEST_ASSERT_EQUAL_STRING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_FUNCTIONAL_TEST_ASSERT_EQUAL_ROTATOR_ORIENTATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_FUNCTIONAL_TEST_ASSERT_EQUAL_ROTATOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_FUNCTIONAL_TEST_ASSERT_EQUAL_QUAT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_FUNCTIONAL_TEST_ASSERT_EQUAL_PLANE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_FUNCTIONAL_TEST_ASSERT_EQUAL_OBJECT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_FUNCTIONAL_TEST_ASSERT_EQUAL_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_FUNCTIONAL_TEST_ASSERT_EQUAL_MATRIX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_FUNCTIONAL_TEST_ASSERT_EQUAL_INT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_FUNCTIONAL_TEST_ASSERT_EQUAL_FLOAT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_FUNCTIONAL_TEST_ASSERT_EQUAL_DOUBLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_FUNCTIONAL_TEST_ASSERT_EQUAL_BOX2_D: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_FUNCTIONAL_TEST_ASSERT_EQUAL_BOOL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_FUNCTIONAL_TEST_ADD_WARNING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_FUNCTIONAL_TEST_ADD_RERUN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_FUNCTIONAL_TEST_ADD_INFO: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_FUNCTIONAL_TEST_ADD_ERROR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_FUNCTIONAL_AI_TEST_BASE_IS_ONE_OF_SPAWNED_PAWNS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUTOMATION_PERFORMACE_HELPER_WRITE_LOG_FILE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUTOMATION_PERFORMACE_HELPER_TRIGGER_GPU_TRACE_IF_RECORD_FALLS_BELOW_BUDGET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUTOMATION_PERFORMACE_HELPER_TICK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUTOMATION_PERFORMACE_HELPER_STOP_CPU_PROFILING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUTOMATION_PERFORMACE_HELPER_START_CPU_PROFILING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUTOMATION_PERFORMACE_HELPER_SAMPLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUTOMATION_PERFORMACE_HELPER_ON_BEGIN_TESTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUTOMATION_PERFORMACE_HELPER_ON_ALL_TESTS_COMPLETE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUTOMATION_PERFORMACE_HELPER_IS_RECORDING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUTOMATION_PERFORMACE_HELPER_IS_CURRENT_RECORD_WITHIN_RENDER_THREAD_BUDGET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUTOMATION_PERFORMACE_HELPER_IS_CURRENT_RECORD_WITHIN_GPU_BUDGET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUTOMATION_PERFORMACE_HELPER_IS_CURRENT_RECORD_WITHIN_GAME_THREAD_BUDGET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUTOMATION_PERFORMACE_HELPER_END_STATS_FILE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUTOMATION_PERFORMACE_HELPER_END_RECORDING_BASELINE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUTOMATION_PERFORMACE_HELPER_END_RECORDING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUTOMATION_PERFORMACE_HELPER_BEGIN_STATS_FILE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUTOMATION_PERFORMACE_HELPER_BEGIN_RECORDING_BASELINE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUTOMATION_PERFORMACE_HELPER_BEGIN_RECORDING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_FUNCTIONAL_TESTING_MANAGER_RUN_ALL_FUNCTIONAL_TESTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_PHASED_AUTOMATION_ACTOR_BASE_ON_FUNCTIONAL_TESTING_COMPLETE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_PHASED_AUTOMATION_ACTOR_BASE_ON_FUNCTIONAL_TESTING_BEGIN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_FUNCTIONAL_TEST_UTILITY_LIBRARY_TRACE_CHANNEL_TEST_UTIL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GROUND_TRUTH_DATA_SAVE_OBJECT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GROUND_TRUTH_DATA_RESET_OBJECT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GROUND_TRUTH_DATA_LOAD_OBJECT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GROUND_TRUTH_DATA_CAN_MODIFY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_TRACE_QUERY_TEST_RESULTS_TO_STRING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub fn initialize() {
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UAutomationEditorTask::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("IsValidTask"),
+            &raw mut U_AUTOMATION_EDITOR_TASK_IS_VALID_TASK,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("IsTaskDone"),
+            &raw mut U_AUTOMATION_EDITOR_TASK_IS_TASK_DONE,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UAutomationBlueprintFunctionLibrary::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("TakeHighResScreenshot"),
+            &raw mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_TAKE_HIGH_RES_SCREENSHOT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("TakeAutomationScreenshotOfUI"),
+            &raw mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_TAKE_AUTOMATION_SCREENSHOT_OF_UI,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("TakeAutomationScreenshotAtCamera"),
+            &raw mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_TAKE_AUTOMATION_SCREENSHOT_AT_CAMERA,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("TakeAutomationScreenshot"),
+            &raw mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_TAKE_AUTOMATION_SCREENSHOT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetTestTelemetryStorage"),
+            &raw mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_SET_TEST_TELEMETRY_STORAGE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetScalabilityQualityToLow"),
+            &raw mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_SET_SCALABILITY_QUALITY_TO_LOW,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetScalabilityQualityToEpic"),
+            &raw mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_SET_SCALABILITY_QUALITY_TO_EPIC,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetScalabilityQualityLevelRelativeToMax"),
+            &raw mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_SET_SCALABILITY_QUALITY_LEVEL_RELATIVE_TO_MAX,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetEditorViewportVisualizeBuffer"),
+            &raw mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_SET_EDITOR_VIEWPORT_VISUALIZE_BUFFER,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetEditorViewportViewMode"),
+            &raw mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_SET_EDITOR_VIEWPORT_VIEW_MODE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetEditorActiveViewportWireframeOpacity"),
+            &raw mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_SET_EDITOR_ACTIVE_VIEWPORT_WIREFRAME_OPACITY,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetEditorActiveViewportViewMode"),
+            &raw mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_SET_EDITOR_ACTIVE_VIEWPORT_VIEW_MODE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetStatIncMax"),
+            &raw mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_GET_STAT_INC_MAX,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetStatIncAverage"),
+            &raw mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_GET_STAT_INC_AVERAGE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetStatExcMax"),
+            &raw mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_GET_STAT_EXC_MAX,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetStatExcAverage"),
+            &raw mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_GET_STAT_EXC_AVERAGE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetStatCallCount"),
+            &raw mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_GET_STAT_CALL_COUNT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetEditorActiveViewportWireframeOpacity"),
+            &raw mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_GET_EDITOR_ACTIVE_VIEWPORT_WIREFRAME_OPACITY,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetEditorActiveViewportViewMode"),
+            &raw mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_GET_EDITOR_ACTIVE_VIEWPORT_VIEW_MODE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetDefaultScreenshotOptionsForRendering"),
+            &raw mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_GET_DEFAULT_SCREENSHOT_OPTIONS_FOR_RENDERING,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetDefaultScreenshotOptionsForGameplay"),
+            &raw mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_GET_DEFAULT_SCREENSHOT_OPTIONS_FOR_GAMEPLAY,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("FinishLoadingBeforeScreenshot"),
+            &raw mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_FINISH_LOADING_BEFORE_SCREENSHOT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("EnableStatGroup"),
+            &raw mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_ENABLE_STAT_GROUP,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("DisableStatGroup"),
+            &raw mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_DISABLE_STAT_GROUP,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("CompareImageAgainstReference"),
+            &raw mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_COMPARE_IMAGE_AGAINST_REFERENCE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("AutomationWaitForLoading"),
+            &raw mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_AUTOMATION_WAIT_FOR_LOADING,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("AreAutomatedTestsRunning"),
+            &raw mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_ARE_AUTOMATED_TESTS_RUNNING,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("AddTestWarning"),
+            &raw mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_ADD_TEST_WARNING,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("AddTestTelemetryData"),
+            &raw mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_ADD_TEST_TELEMETRY_DATA,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("AddTestInfo"),
+            &raw mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_ADD_TEST_INFO,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("AddTestError"),
+            &raw mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_ADD_TEST_ERROR,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("AddExpectedPlainLogMessage"),
+            &raw mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_ADD_EXPECTED_PLAIN_LOG_MESSAGE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("AddExpectedPlainLogError"),
+            &raw mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_ADD_EXPECTED_PLAIN_LOG_ERROR,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("AddExpectedLogMessage"),
+            &raw mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_ADD_EXPECTED_LOG_MESSAGE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("AddExpectedLogError"),
+            &raw mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_ADD_EXPECTED_LOG_ERROR,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = AFunctionalTest::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetTimeLimit"),
+            &raw mut A_FUNCTIONAL_TEST_SET_TIME_LIMIT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetConsoleVariableFromInteger"),
+            &raw mut A_FUNCTIONAL_TEST_SET_CONSOLE_VARIABLE_FROM_INTEGER,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetConsoleVariableFromFloat"),
+            &raw mut A_FUNCTIONAL_TEST_SET_CONSOLE_VARIABLE_FROM_FLOAT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetConsoleVariableFromBoolean"),
+            &raw mut A_FUNCTIONAL_TEST_SET_CONSOLE_VARIABLE_FROM_BOOLEAN,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetConsoleVariable"),
+            &raw mut A_FUNCTIONAL_TEST_SET_CONSOLE_VARIABLE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("RegisterAutoDestroyActor"),
+            &raw mut A_FUNCTIONAL_TEST_REGISTER_AUTO_DESTROY_ACTOR,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ReceiveTestFinished"),
+            &raw mut A_FUNCTIONAL_TEST_RECEIVE_TEST_FINISHED,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ReceiveStartTest"),
+            &raw mut A_FUNCTIONAL_TEST_RECEIVE_START_TEST,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ReceivePrepareTest"),
+            &raw mut A_FUNCTIONAL_TEST_RECEIVE_PREPARE_TEST,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("OnWantsReRunCheck"),
+            &raw mut A_FUNCTIONAL_TEST_ON_WANTS_RE_RUN_CHECK,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("OnAdditionalTestFinishedMessageRequest"),
+            &raw mut A_FUNCTIONAL_TEST_ON_ADDITIONAL_TEST_FINISHED_MESSAGE_REQUEST,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("LogMessage"),
+            &raw mut A_FUNCTIONAL_TEST_LOG_MESSAGE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("IsRunning"),
+            &raw mut A_FUNCTIONAL_TEST_IS_RUNNING,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("IsReady"),
+            &raw mut A_FUNCTIONAL_TEST_IS_READY,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("IsEnabledInWorld"),
+            &raw mut A_FUNCTIONAL_TEST_IS_ENABLED_IN_WORLD,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("IsEnabled"),
+            &raw mut A_FUNCTIONAL_TEST_IS_ENABLED,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetCurrentRerunReason"),
+            &raw mut A_FUNCTIONAL_TEST_GET_CURRENT_RERUN_REASON,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("FinishTest"),
+            &raw mut A_FUNCTIONAL_TEST_FINISH_TEST,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("EditTags"),
+            &raw mut A_FUNCTIONAL_TEST_EDIT_TAGS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("DebugGatherRelevantActors"),
+            &raw mut A_FUNCTIONAL_TEST_DEBUG_GATHER_RELEVANT_ACTORS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("AssertValue_Int"),
+            &raw mut A_FUNCTIONAL_TEST_ASSERT_VALUE_INT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("AssertValue_Float"),
+            &raw mut A_FUNCTIONAL_TEST_ASSERT_VALUE_FLOAT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("AssertValue_Double"),
+            &raw mut A_FUNCTIONAL_TEST_ASSERT_VALUE_DOUBLE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("AssertValue_DateTime"),
+            &raw mut A_FUNCTIONAL_TEST_ASSERT_VALUE_DATE_TIME,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("AssertTrue"),
+            &raw mut A_FUNCTIONAL_TEST_ASSERT_TRUE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("AssertNotEqual_Vector4"),
+            &raw mut A_FUNCTIONAL_TEST_ASSERT_NOT_EQUAL_VECTOR4,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("AssertNotEqual_Vector2D"),
+            &raw mut A_FUNCTIONAL_TEST_ASSERT_NOT_EQUAL_VECTOR2_D,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("AssertNotEqual_Vector"),
+            &raw mut A_FUNCTIONAL_TEST_ASSERT_NOT_EQUAL_VECTOR,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("AssertNotEqual_Transform"),
+            &raw mut A_FUNCTIONAL_TEST_ASSERT_NOT_EQUAL_TRANSFORM,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("AssertNotEqual_String"),
+            &raw mut A_FUNCTIONAL_TEST_ASSERT_NOT_EQUAL_STRING,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("AssertNotEqual_Rotator"),
+            &raw mut A_FUNCTIONAL_TEST_ASSERT_NOT_EQUAL_ROTATOR,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("AssertNotEqual_Quat"),
+            &raw mut A_FUNCTIONAL_TEST_ASSERT_NOT_EQUAL_QUAT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("AssertNotEqual_Plane"),
+            &raw mut A_FUNCTIONAL_TEST_ASSERT_NOT_EQUAL_PLANE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("AssertNotEqual_Matrix"),
+            &raw mut A_FUNCTIONAL_TEST_ASSERT_NOT_EQUAL_MATRIX,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("AssertNotEqual_Box2D"),
+            &raw mut A_FUNCTIONAL_TEST_ASSERT_NOT_EQUAL_BOX2_D,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("AssertIsValid"),
+            &raw mut A_FUNCTIONAL_TEST_ASSERT_IS_VALID,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("AssertFalse"),
+            &raw mut A_FUNCTIONAL_TEST_ASSERT_FALSE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("AssertEqual_Vector4"),
+            &raw mut A_FUNCTIONAL_TEST_ASSERT_EQUAL_VECTOR4,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("AssertEqual_Vector2D"),
+            &raw mut A_FUNCTIONAL_TEST_ASSERT_EQUAL_VECTOR2_D,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("AssertEqual_Vector"),
+            &raw mut A_FUNCTIONAL_TEST_ASSERT_EQUAL_VECTOR,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("AssertEqual_Transform"),
+            &raw mut A_FUNCTIONAL_TEST_ASSERT_EQUAL_TRANSFORM,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("AssertEqual_TraceQueryResults"),
+            &raw mut A_FUNCTIONAL_TEST_ASSERT_EQUAL_TRACE_QUERY_RESULTS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("AssertEqual_String"),
+            &raw mut A_FUNCTIONAL_TEST_ASSERT_EQUAL_STRING,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("AssertEqual_RotatorOrientation"),
+            &raw mut A_FUNCTIONAL_TEST_ASSERT_EQUAL_ROTATOR_ORIENTATION,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("AssertEqual_Rotator"),
+            &raw mut A_FUNCTIONAL_TEST_ASSERT_EQUAL_ROTATOR,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("AssertEqual_Quat"),
+            &raw mut A_FUNCTIONAL_TEST_ASSERT_EQUAL_QUAT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("AssertEqual_Plane"),
+            &raw mut A_FUNCTIONAL_TEST_ASSERT_EQUAL_PLANE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("AssertEqual_Object"),
+            &raw mut A_FUNCTIONAL_TEST_ASSERT_EQUAL_OBJECT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("AssertEqual_Name"),
+            &raw mut A_FUNCTIONAL_TEST_ASSERT_EQUAL_NAME,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("AssertEqual_Matrix"),
+            &raw mut A_FUNCTIONAL_TEST_ASSERT_EQUAL_MATRIX,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("AssertEqual_Int"),
+            &raw mut A_FUNCTIONAL_TEST_ASSERT_EQUAL_INT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("AssertEqual_Float"),
+            &raw mut A_FUNCTIONAL_TEST_ASSERT_EQUAL_FLOAT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("AssertEqual_Double"),
+            &raw mut A_FUNCTIONAL_TEST_ASSERT_EQUAL_DOUBLE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("AssertEqual_Box2D"),
+            &raw mut A_FUNCTIONAL_TEST_ASSERT_EQUAL_BOX2_D,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("AssertEqual_Bool"),
+            &raw mut A_FUNCTIONAL_TEST_ASSERT_EQUAL_BOOL,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("AddWarning"),
+            &raw mut A_FUNCTIONAL_TEST_ADD_WARNING,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("AddRerun"),
+            &raw mut A_FUNCTIONAL_TEST_ADD_RERUN,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("AddInfo"),
+            &raw mut A_FUNCTIONAL_TEST_ADD_INFO,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("AddError"),
+            &raw mut A_FUNCTIONAL_TEST_ADD_ERROR,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = AFunctionalAITestBase::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("IsOneOfSpawnedPawns"),
+            &raw mut A_FUNCTIONAL_AI_TEST_BASE_IS_ONE_OF_SPAWNED_PAWNS,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UAutomationPerformaceHelper::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("WriteLogFile"),
+            &raw mut U_AUTOMATION_PERFORMACE_HELPER_WRITE_LOG_FILE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("TriggerGPUTraceIfRecordFallsBelowBudget"),
+            &raw mut U_AUTOMATION_PERFORMACE_HELPER_TRIGGER_GPU_TRACE_IF_RECORD_FALLS_BELOW_BUDGET,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("Tick"),
+            &raw mut U_AUTOMATION_PERFORMACE_HELPER_TICK,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("StopCPUProfiling"),
+            &raw mut U_AUTOMATION_PERFORMACE_HELPER_STOP_CPU_PROFILING,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("StartCPUProfiling"),
+            &raw mut U_AUTOMATION_PERFORMACE_HELPER_START_CPU_PROFILING,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("Sample"),
+            &raw mut U_AUTOMATION_PERFORMACE_HELPER_SAMPLE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("OnBeginTests"),
+            &raw mut U_AUTOMATION_PERFORMACE_HELPER_ON_BEGIN_TESTS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("OnAllTestsComplete"),
+            &raw mut U_AUTOMATION_PERFORMACE_HELPER_ON_ALL_TESTS_COMPLETE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("IsRecording"),
+            &raw mut U_AUTOMATION_PERFORMACE_HELPER_IS_RECORDING,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("IsCurrentRecordWithinRenderThreadBudget"),
+            &raw mut U_AUTOMATION_PERFORMACE_HELPER_IS_CURRENT_RECORD_WITHIN_RENDER_THREAD_BUDGET,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("IsCurrentRecordWithinGPUBudget"),
+            &raw mut U_AUTOMATION_PERFORMACE_HELPER_IS_CURRENT_RECORD_WITHIN_GPU_BUDGET,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("IsCurrentRecordWithinGameThreadBudget"),
+            &raw mut U_AUTOMATION_PERFORMACE_HELPER_IS_CURRENT_RECORD_WITHIN_GAME_THREAD_BUDGET,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("EndStatsFile"),
+            &raw mut U_AUTOMATION_PERFORMACE_HELPER_END_STATS_FILE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("EndRecordingBaseline"),
+            &raw mut U_AUTOMATION_PERFORMACE_HELPER_END_RECORDING_BASELINE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("EndRecording"),
+            &raw mut U_AUTOMATION_PERFORMACE_HELPER_END_RECORDING,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("BeginStatsFile"),
+            &raw mut U_AUTOMATION_PERFORMACE_HELPER_BEGIN_STATS_FILE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("BeginRecordingBaseline"),
+            &raw mut U_AUTOMATION_PERFORMACE_HELPER_BEGIN_RECORDING_BASELINE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("BeginRecording"),
+            &raw mut U_AUTOMATION_PERFORMACE_HELPER_BEGIN_RECORDING,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UFunctionalTestingManager::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("RunAllFunctionalTests"),
+            &raw mut U_FUNCTIONAL_TESTING_MANAGER_RUN_ALL_FUNCTIONAL_TESTS,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = APhasedAutomationActorBase::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("OnFunctionalTestingComplete"),
+            &raw mut A_PHASED_AUTOMATION_ACTOR_BASE_ON_FUNCTIONAL_TESTING_COMPLETE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("OnFunctionalTestingBegin"),
+            &raw mut A_PHASED_AUTOMATION_ACTOR_BASE_ON_FUNCTIONAL_TESTING_BEGIN,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UFunctionalTestUtilityLibrary::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("TraceChannelTestUtil"),
+            &raw mut U_FUNCTIONAL_TEST_UTILITY_LIBRARY_TRACE_CHANNEL_TEST_UTIL,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UGroundTruthData::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SaveObject"),
+            &raw mut U_GROUND_TRUTH_DATA_SAVE_OBJECT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ResetObject"),
+            &raw mut U_GROUND_TRUTH_DATA_RESET_OBJECT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("LoadObject"),
+            &raw mut U_GROUND_TRUTH_DATA_LOAD_OBJECT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("CanModify"),
+            &raw mut U_GROUND_TRUTH_DATA_CAN_MODIFY,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UTraceQueryTestResults::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ToString"),
+            &raw mut U_TRACE_QUERY_TEST_RESULTS_TO_STRING,
+        );
+    }
+}
 #[repr(C, align(1))]
 pub struct FComparisonToleranceAmount {
     __padding_end: [u8; 6],
@@ -118,22 +1279,86 @@ impl FTraceQueryTestResultsInner {}
 pub struct UAutomationViewSettings {
     __padding_end: [u8; 72],
 }
-impl UAutomationViewSettings {}
+impl UAutomationViewSettings {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAutomationViewSettings")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAutomationEditorTask {
     __padding_end: [u8; 56],
 }
-impl UAutomationEditorTask {}
+impl UAutomationEditorTask {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAutomationEditorTask")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAutomationBlueprintFunctionLibrary {
     __padding_end: [u8; 48],
 }
-impl UAutomationBlueprintFunctionLibrary {}
+impl UAutomationBlueprintFunctionLibrary {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAutomationBlueprintFunctionLibrary")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(16))]
 pub struct UFuncTestRenderingComponent {
     __padding_end: [u8; 1504],
 }
-impl UFuncTestRenderingComponent {}
+impl UFuncTestRenderingComponent {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFuncTestRenderingComponent")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct AFunctionalTest {
     #[doc(hidden)]
@@ -161,7 +1386,23 @@ pub struct AFunctionalTest {
     pub total_time: f32,
     __padding_end: [u8; 36],
 }
-impl AFunctionalTest {}
+impl AFunctionalTest {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("AFunctionalTest")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct AFunctionalAITestBase {
     #[doc(hidden)]
@@ -176,44 +1417,172 @@ pub struct AFunctionalAITestBase {
     pub flags_1704: u8,
     __padding_end: [u8; 15],
 }
-impl AFunctionalAITestBase {}
+impl AFunctionalAITestBase {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("AFunctionalAITestBase")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct AFunctionalAITest {
     #[doc(hidden)]
     __padding_1720: [u8; 1720],
     pub spawn_sets: TArray<FAITestSpawnSet>,
 }
-impl AFunctionalAITest {}
+impl AFunctionalAITest {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("AFunctionalAITest")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAutomationPerformaceHelper {
     __padding_end: [u8; 104],
 }
-impl UAutomationPerformaceHelper {}
+impl UAutomationPerformaceHelper {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAutomationPerformaceHelper")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct AFunctionalTestGameMode {
     __padding_end: [u8; 1296],
 }
-impl AFunctionalTestGameMode {}
+impl AFunctionalTestGameMode {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("AFunctionalTestGameMode")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UFunctionalTestingManager {
     __padding_end: [u8; 240],
 }
-impl UFunctionalTestingManager {}
+impl UFunctionalTestingManager {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFunctionalTestingManager")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct APhasedAutomationActorBase {
     __padding_end: [u8; 1136],
 }
-impl APhasedAutomationActorBase {}
+impl APhasedAutomationActorBase {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("APhasedAutomationActorBase")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct AFunctionalTestLevelScript {
     __padding_end: [u8; 1144],
 }
-impl AFunctionalTestLevelScript {}
+impl AFunctionalTestLevelScript {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("AFunctionalTestLevelScript")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UFunctionalTestUtilityLibrary {
     __padding_end: [u8; 48],
 }
-impl UFunctionalTestUtilityLibrary {}
+impl UFunctionalTestUtilityLibrary {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFunctionalTestUtilityLibrary")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct AScreenshotFunctionalTestBase {
     #[doc(hidden)]
@@ -223,17 +1592,65 @@ pub struct AScreenshotFunctionalTestBase {
     pub screenshot_options: FAutomationScreenshotOptions,
     __padding_end: [u8; 32],
 }
-impl AScreenshotFunctionalTestBase {}
+impl AScreenshotFunctionalTestBase {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("AScreenshotFunctionalTestBase")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct AFunctionalUIScreenshotTest {
     __padding_end: [u8; 1752],
 }
-impl AFunctionalUIScreenshotTest {}
+impl AFunctionalUIScreenshotTest {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("AFunctionalUIScreenshotTest")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UGroundTruthData {
     __padding_end: [u8; 64],
 }
-impl UGroundTruthData {}
+impl UGroundTruthData {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGroundTruthData")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct AScreenshotFunctionalTest {
     #[doc(hidden)]
@@ -241,12 +1658,44 @@ pub struct AScreenshotFunctionalTest {
     pub b_camera_cut_on_screenshot_prep: bool,
     __padding_end: [u8; 71],
 }
-impl AScreenshotFunctionalTest {}
+impl AScreenshotFunctionalTest {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("AScreenshotFunctionalTest")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(16))]
 pub struct UTestPhaseComponent {
     __padding_end: [u8; 656],
 }
-impl UTestPhaseComponent {}
+impl UTestPhaseComponent {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTestPhaseComponent")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UTraceQueryTestResults {
     #[doc(hidden)]
@@ -257,7 +1706,23 @@ pub struct UTraceQueryTestResults {
     pub batch_options: FTraceChannelTestBatchOptions,
     __padding_end: [u8; 1],
 }
-impl UTraceQueryTestResults {}
+impl UTraceQueryTestResults {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTraceQueryTestResults")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct FFunctionalTest_OnTestPrepare {
     _opague: [u8; 24],

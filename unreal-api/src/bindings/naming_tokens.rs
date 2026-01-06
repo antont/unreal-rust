@@ -2,8 +2,165 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(clippy::non_camel_case_types)]
+#![allow(clippy::new_without_default)]
+#![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
+#[doc(hidden)]
+pub static mut U_NAMING_TOKENS_PROCESS_TOKEN_TEMPLATE_FUNCTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_NAMING_TOKENS_ON_PRE_EVALUATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_NAMING_TOKENS_ON_POST_EVALUATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_NAMING_TOKENS_GET_CURRENT_DATE_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_NAMING_TOKENS_ENGINE_SUBSYSTEM_UNREGISTER_GLOBAL_NAMESPACE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_NAMING_TOKENS_ENGINE_SUBSYSTEM_REGISTER_GLOBAL_NAMESPACE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_NAMING_TOKENS_ENGINE_SUBSYSTEM_IS_GLOBAL_NAMESPACE_REGISTERED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_NAMING_TOKENS_ENGINE_SUBSYSTEM_GET_NAMING_TOKENS_NATIVE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_NAMING_TOKENS_ENGINE_SUBSYSTEM_GET_NAMING_TOKENS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_NAMING_TOKENS_ENGINE_SUBSYSTEM_GET_MULTIPLE_NAMING_TOKENS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_NAMING_TOKENS_ENGINE_SUBSYSTEM_GET_GLOBAL_NAMESPACES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_NAMING_TOKENS_ENGINE_SUBSYSTEM_GET_ALL_NAMESPACES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_NAMING_TOKENS_ENGINE_SUBSYSTEM_EVALUATE_TOKEN_TEXT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_NAMING_TOKENS_ENGINE_SUBSYSTEM_EVALUATE_TOKEN_STRING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_NAMING_TOKENS_ENGINE_SUBSYSTEM_EVALUATE_TOKEN_LIST: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_NAMING_TOKENS_ENGINE_SUBSYSTEM_CLEAR_CACHED_NAMING_TOKENS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub fn initialize() {
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UNamingTokens::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ProcessTokenTemplateFunction"),
+            &raw mut U_NAMING_TOKENS_PROCESS_TOKEN_TEMPLATE_FUNCTION,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("OnPreEvaluate"),
+            &raw mut U_NAMING_TOKENS_ON_PRE_EVALUATE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("OnPostEvaluate"),
+            &raw mut U_NAMING_TOKENS_ON_POST_EVALUATE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetCurrentDateTime"),
+            &raw mut U_NAMING_TOKENS_GET_CURRENT_DATE_TIME,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UNamingTokensEngineSubsystem::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("UnregisterGlobalNamespace"),
+            &raw mut U_NAMING_TOKENS_ENGINE_SUBSYSTEM_UNREGISTER_GLOBAL_NAMESPACE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("RegisterGlobalNamespace"),
+            &raw mut U_NAMING_TOKENS_ENGINE_SUBSYSTEM_REGISTER_GLOBAL_NAMESPACE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("IsGlobalNamespaceRegistered"),
+            &raw mut U_NAMING_TOKENS_ENGINE_SUBSYSTEM_IS_GLOBAL_NAMESPACE_REGISTERED,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetNamingTokensNative"),
+            &raw mut U_NAMING_TOKENS_ENGINE_SUBSYSTEM_GET_NAMING_TOKENS_NATIVE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetNamingTokens"),
+            &raw mut U_NAMING_TOKENS_ENGINE_SUBSYSTEM_GET_NAMING_TOKENS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetMultipleNamingTokens"),
+            &raw mut U_NAMING_TOKENS_ENGINE_SUBSYSTEM_GET_MULTIPLE_NAMING_TOKENS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetGlobalNamespaces"),
+            &raw mut U_NAMING_TOKENS_ENGINE_SUBSYSTEM_GET_GLOBAL_NAMESPACES,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetAllNamespaces"),
+            &raw mut U_NAMING_TOKENS_ENGINE_SUBSYSTEM_GET_ALL_NAMESPACES,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("EvaluateTokenText"),
+            &raw mut U_NAMING_TOKENS_ENGINE_SUBSYSTEM_EVALUATE_TOKEN_TEXT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("EvaluateTokenString"),
+            &raw mut U_NAMING_TOKENS_ENGINE_SUBSYSTEM_EVALUATE_TOKEN_STRING,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("EvaluateTokenList"),
+            &raw mut U_NAMING_TOKENS_ENGINE_SUBSYSTEM_EVALUATE_TOKEN_LIST,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ClearCachedNamingTokens"),
+            &raw mut U_NAMING_TOKENS_ENGINE_SUBSYSTEM_CLEAR_CACHED_NAMING_TOKENS,
+        );
+    }
+}
 #[repr(C, align(8))]
 pub struct FNamingTokenValueData {
     pub token_key: FString,
@@ -51,14 +208,62 @@ pub struct UNamingTokens {
     pub current_evaluation_data: FNamingTokensEvaluationData,
     __padding_end: [u8; 64],
 }
-impl UNamingTokens {}
+impl UNamingTokens {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNamingTokens")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UGlobalNamingTokens {
     __padding_end: [u8; 320],
 }
-impl UGlobalNamingTokens {}
+impl UGlobalNamingTokens {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGlobalNamingTokens")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UNamingTokensEngineSubsystem {
     __padding_end: [u8; 344],
 }
-impl UNamingTokensEngineSubsystem {}
+impl UNamingTokensEngineSubsystem {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNamingTokensEngineSubsystem")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}

@@ -430,7 +430,7 @@ using InitializeValuesInParamBufferCoreFn = uint32_t(*)(const UFunctionOpague *f
 using DestroyValuesInParamBufferCoreFn = uint32_t(*)(const UFunctionOpague *function_opague,
                                                      void *buffer);
 
-using ProcessEventsCoreFn = uint32_t(*)(UObjectOpague *class_opague,
+using ProcessEventsCoreFn = uint32_t(*)(UObjectOpague *object_opague,
                                         UFunctionOpague *function_opague,
                                         void *buffer);
 
@@ -527,6 +527,8 @@ struct AllocateFns {
 
 using SendActorEventFn = void(*)(const AActorOpaque *actor, Uuid uuid, Utf8Str json);
 
+using InitializeModulesFn = void(*)();
+
 struct RustBindings {
   RetrieveUuids retrieve_uuids;
   TickFn tick;
@@ -535,6 +537,7 @@ struct RustBindings {
   ReflectionFns reflection_fns;
   AllocateFns allocate_fns;
   SendActorEventFn send_actor_event;
+  InitializeModulesFn initialize_modules;
 };
 
 using EntryUnrealBindingsFn = uint32_t(*)(UnrealBindings bindings, RustBindings *rust_bindings);

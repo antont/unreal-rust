@@ -2,8 +2,677 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(clippy::non_camel_case_types)]
+#![allow(clippy::new_without_default)]
+#![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
+#[doc(hidden)]
+pub static mut U_GROOM_ASSET_SET_RIGGED_SKELETAL_MESH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GROOM_ASSET_SET_HAIR_INTERPOLATION_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GROOM_ASSET_SET_HAIR_GROUPS_RENDERING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GROOM_ASSET_SET_HAIR_GROUPS_PHYSICS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GROOM_ASSET_SET_HAIR_GROUPS_MESHES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GROOM_ASSET_SET_HAIR_GROUPS_MATERIALS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GROOM_ASSET_SET_HAIR_GROUPS_LOD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GROOM_ASSET_SET_HAIR_GROUPS_INTERPOLATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GROOM_ASSET_SET_HAIR_GROUPS_CARDS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GROOM_ASSET_SET_ENABLE_SIMULATION_CACHE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GROOM_ASSET_SET_ENABLE_GLOBAL_INTERPOLATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GROOM_ASSET_SET_DEFORMED_GROUP_SECTIONS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GROOM_ASSET_GET_RIGGED_SKELETAL_MESH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GROOM_ASSET_GET_HAIR_INTERPOLATION_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GROOM_ASSET_GET_HAIR_GROUPS_RENDERING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GROOM_ASSET_GET_HAIR_GROUPS_PHYSICS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GROOM_ASSET_GET_HAIR_GROUPS_MESHES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GROOM_ASSET_GET_HAIR_GROUPS_MATERIALS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GROOM_ASSET_GET_HAIR_GROUPS_LOD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GROOM_ASSET_GET_HAIR_GROUPS_INTERPOLATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GROOM_ASSET_GET_HAIR_GROUPS_CARDS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GROOM_ASSET_GET_ENABLE_SIMULATION_CACHE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GROOM_ASSET_GET_ENABLE_GLOBAL_INTERPOLATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GROOM_ASSET_GET_DEFORMED_GROUP_SECTIONS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GROOM_ASSET_CREATE_GROOM_DATAFLOW: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GROOM_BINDING_ASSET_SET_TARGET_SKELETAL_MESH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GROOM_BINDING_ASSET_SET_TARGET_MESH_USED_MIN_LOD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GROOM_BINDING_ASSET_SET_TARGET_MESH_REQUESTED_MIN_LOD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GROOM_BINDING_ASSET_SET_TARGET_GEOMETRY_CACHE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GROOM_BINDING_ASSET_SET_TARGET_BINDING_ATTRIBUTE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GROOM_BINDING_ASSET_SET_SOURCE_SKELETAL_MESH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GROOM_BINDING_ASSET_SET_SOURCE_MESH_USED_LOD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GROOM_BINDING_ASSET_SET_SOURCE_MESH_REQUESTED_LOD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GROOM_BINDING_ASSET_SET_SOURCE_GEOMETRY_CACHE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GROOM_BINDING_ASSET_SET_NUM_INTERPOLATION_POINTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GROOM_BINDING_ASSET_SET_MATCHING_SECTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GROOM_BINDING_ASSET_SET_GROUP_INFOS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GROOM_BINDING_ASSET_SET_GROOM_BINDING_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GROOM_BINDING_ASSET_SET_GROOM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GROOM_BINDING_ASSET_GET_TARGET_SKELETAL_MESH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GROOM_BINDING_ASSET_GET_TARGET_MESH_USED_MIN_LOD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GROOM_BINDING_ASSET_GET_TARGET_MESH_REQUESTED_MIN_LOD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GROOM_BINDING_ASSET_GET_TARGET_GEOMETRY_CACHE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GROOM_BINDING_ASSET_GET_TARGET_BINDING_ATTRIBUTE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GROOM_BINDING_ASSET_GET_SOURCE_SKELETAL_MESH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GROOM_BINDING_ASSET_GET_SOURCE_MESH_USED_LOD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GROOM_BINDING_ASSET_GET_SOURCE_MESH_REQUESTED_LOD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GROOM_BINDING_ASSET_GET_SOURCE_GEOMETRY_CACHE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GROOM_BINDING_ASSET_GET_NUM_INTERPOLATION_POINTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GROOM_BINDING_ASSET_GET_MATCHING_SECTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GROOM_BINDING_ASSET_GET_GROUP_INFOS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GROOM_BINDING_ASSET_GET_GROOM_BINDING_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GROOM_BINDING_ASSET_GET_GROOM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GROOM_BINDING_ASSET_BUILD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GROOM_BLUEPRINT_LIBRARY_IS_HAIR_STRANDS_SUPPORTED_IN_WORLD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GROOM_BLUEPRINT_LIBRARY_CREATE_NEW_GROOM_BINDING_ASSET_WITH_PATH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GROOM_BLUEPRINT_LIBRARY_CREATE_NEW_GROOM_BINDING_ASSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GROOM_BLUEPRINT_LIBRARY_CREATE_NEW_GEOMETRY_CACHE_GROOM_BINDING_ASSET_WITH_PATH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GROOM_BLUEPRINT_LIBRARY_CREATE_NEW_GEOMETRY_CACHE_GROOM_BINDING_ASSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GROOM_COMPONENT_SET_PHYSICS_ASSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GROOM_COMPONENT_SET_MESH_DEFORMER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GROOM_COMPONENT_SET_HAIR_LENGTH_SCALE_ENABLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GROOM_COMPONENT_SET_HAIR_LENGTH_SCALE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GROOM_COMPONENT_SET_GROOM_CACHE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GROOM_COMPONENT_SET_GROOM_ASSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GROOM_COMPONENT_SET_ENABLE_SIMULATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GROOM_COMPONENT_SET_BINDING_ASSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GROOM_COMPONENT_RESET_SIMULATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GROOM_COMPONENT_RESET_COLLISION_COMPONENTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GROOM_COMPONENT_GET_NIAGARA_COMPONENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GROOM_COMPONENT_GET_IS_HAIR_LENGTH_SCALE_ENABLED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GROOM_COMPONENT_ADD_COLLISION_COMPONENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub fn initialize() {
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UGroomAsset::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetRiggedSkeletalMesh"),
+            &raw mut U_GROOM_ASSET_SET_RIGGED_SKELETAL_MESH,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetHairInterpolationType"),
+            &raw mut U_GROOM_ASSET_SET_HAIR_INTERPOLATION_TYPE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetHairGroupsRendering"),
+            &raw mut U_GROOM_ASSET_SET_HAIR_GROUPS_RENDERING,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetHairGroupsPhysics"),
+            &raw mut U_GROOM_ASSET_SET_HAIR_GROUPS_PHYSICS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetHairGroupsMeshes"),
+            &raw mut U_GROOM_ASSET_SET_HAIR_GROUPS_MESHES,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetHairGroupsMaterials"),
+            &raw mut U_GROOM_ASSET_SET_HAIR_GROUPS_MATERIALS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetHairGroupsLOD"),
+            &raw mut U_GROOM_ASSET_SET_HAIR_GROUPS_LOD,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetHairGroupsInterpolation"),
+            &raw mut U_GROOM_ASSET_SET_HAIR_GROUPS_INTERPOLATION,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetHairGroupsCards"),
+            &raw mut U_GROOM_ASSET_SET_HAIR_GROUPS_CARDS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetEnableSimulationCache"),
+            &raw mut U_GROOM_ASSET_SET_ENABLE_SIMULATION_CACHE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetEnableGlobalInterpolation"),
+            &raw mut U_GROOM_ASSET_SET_ENABLE_GLOBAL_INTERPOLATION,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetDeformedGroupSections"),
+            &raw mut U_GROOM_ASSET_SET_DEFORMED_GROUP_SECTIONS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetRiggedSkeletalMesh"),
+            &raw mut U_GROOM_ASSET_GET_RIGGED_SKELETAL_MESH,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetHairInterpolationType"),
+            &raw mut U_GROOM_ASSET_GET_HAIR_INTERPOLATION_TYPE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetHairGroupsRendering"),
+            &raw mut U_GROOM_ASSET_GET_HAIR_GROUPS_RENDERING,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetHairGroupsPhysics"),
+            &raw mut U_GROOM_ASSET_GET_HAIR_GROUPS_PHYSICS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetHairGroupsMeshes"),
+            &raw mut U_GROOM_ASSET_GET_HAIR_GROUPS_MESHES,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetHairGroupsMaterials"),
+            &raw mut U_GROOM_ASSET_GET_HAIR_GROUPS_MATERIALS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetHairGroupsLOD"),
+            &raw mut U_GROOM_ASSET_GET_HAIR_GROUPS_LOD,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetHairGroupsInterpolation"),
+            &raw mut U_GROOM_ASSET_GET_HAIR_GROUPS_INTERPOLATION,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetHairGroupsCards"),
+            &raw mut U_GROOM_ASSET_GET_HAIR_GROUPS_CARDS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetEnableSimulationCache"),
+            &raw mut U_GROOM_ASSET_GET_ENABLE_SIMULATION_CACHE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetEnableGlobalInterpolation"),
+            &raw mut U_GROOM_ASSET_GET_ENABLE_GLOBAL_INTERPOLATION,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetDeformedGroupSections"),
+            &raw mut U_GROOM_ASSET_GET_DEFORMED_GROUP_SECTIONS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("CreateGroomDataflow"),
+            &raw mut U_GROOM_ASSET_CREATE_GROOM_DATAFLOW,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UGroomBindingAsset::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetTargetSkeletalMesh"),
+            &raw mut U_GROOM_BINDING_ASSET_SET_TARGET_SKELETAL_MESH,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetTargetMeshUsedMinLOD"),
+            &raw mut U_GROOM_BINDING_ASSET_SET_TARGET_MESH_USED_MIN_LOD,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetTargetMeshRequestedMinLOD"),
+            &raw mut U_GROOM_BINDING_ASSET_SET_TARGET_MESH_REQUESTED_MIN_LOD,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetTargetGeometryCache"),
+            &raw mut U_GROOM_BINDING_ASSET_SET_TARGET_GEOMETRY_CACHE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetTargetBindingAttribute"),
+            &raw mut U_GROOM_BINDING_ASSET_SET_TARGET_BINDING_ATTRIBUTE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetSourceSkeletalMesh"),
+            &raw mut U_GROOM_BINDING_ASSET_SET_SOURCE_SKELETAL_MESH,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetSourceMeshUsedLOD"),
+            &raw mut U_GROOM_BINDING_ASSET_SET_SOURCE_MESH_USED_LOD,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetSourceMeshRequestedLOD"),
+            &raw mut U_GROOM_BINDING_ASSET_SET_SOURCE_MESH_REQUESTED_LOD,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetSourceGeometryCache"),
+            &raw mut U_GROOM_BINDING_ASSET_SET_SOURCE_GEOMETRY_CACHE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetNumInterpolationPoints"),
+            &raw mut U_GROOM_BINDING_ASSET_SET_NUM_INTERPOLATION_POINTS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetMatchingSection"),
+            &raw mut U_GROOM_BINDING_ASSET_SET_MATCHING_SECTION,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetGroupInfos"),
+            &raw mut U_GROOM_BINDING_ASSET_SET_GROUP_INFOS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetGroomBindingType"),
+            &raw mut U_GROOM_BINDING_ASSET_SET_GROOM_BINDING_TYPE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetGroom"),
+            &raw mut U_GROOM_BINDING_ASSET_SET_GROOM,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetTargetSkeletalMesh"),
+            &raw mut U_GROOM_BINDING_ASSET_GET_TARGET_SKELETAL_MESH,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetTargetMeshUsedMinLOD"),
+            &raw mut U_GROOM_BINDING_ASSET_GET_TARGET_MESH_USED_MIN_LOD,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetTargetMeshRequestedMinLOD"),
+            &raw mut U_GROOM_BINDING_ASSET_GET_TARGET_MESH_REQUESTED_MIN_LOD,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetTargetGeometryCache"),
+            &raw mut U_GROOM_BINDING_ASSET_GET_TARGET_GEOMETRY_CACHE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetTargetBindingAttribute"),
+            &raw mut U_GROOM_BINDING_ASSET_GET_TARGET_BINDING_ATTRIBUTE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetSourceSkeletalMesh"),
+            &raw mut U_GROOM_BINDING_ASSET_GET_SOURCE_SKELETAL_MESH,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetSourceMeshUsedLOD"),
+            &raw mut U_GROOM_BINDING_ASSET_GET_SOURCE_MESH_USED_LOD,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetSourceMeshRequestedLOD"),
+            &raw mut U_GROOM_BINDING_ASSET_GET_SOURCE_MESH_REQUESTED_LOD,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetSourceGeometryCache"),
+            &raw mut U_GROOM_BINDING_ASSET_GET_SOURCE_GEOMETRY_CACHE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetNumInterpolationPoints"),
+            &raw mut U_GROOM_BINDING_ASSET_GET_NUM_INTERPOLATION_POINTS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetMatchingSection"),
+            &raw mut U_GROOM_BINDING_ASSET_GET_MATCHING_SECTION,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetGroupInfos"),
+            &raw mut U_GROOM_BINDING_ASSET_GET_GROUP_INFOS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetGroomBindingType"),
+            &raw mut U_GROOM_BINDING_ASSET_GET_GROOM_BINDING_TYPE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetGroom"),
+            &raw mut U_GROOM_BINDING_ASSET_GET_GROOM,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("Build"),
+            &raw mut U_GROOM_BINDING_ASSET_BUILD,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UGroomBlueprintLibrary::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("IsHairStrandsSupportedInWorld"),
+            &raw mut U_GROOM_BLUEPRINT_LIBRARY_IS_HAIR_STRANDS_SUPPORTED_IN_WORLD,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("CreateNewGroomBindingAssetWithPath"),
+            &raw mut U_GROOM_BLUEPRINT_LIBRARY_CREATE_NEW_GROOM_BINDING_ASSET_WITH_PATH,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("CreateNewGroomBindingAsset"),
+            &raw mut U_GROOM_BLUEPRINT_LIBRARY_CREATE_NEW_GROOM_BINDING_ASSET,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("CreateNewGeometryCacheGroomBindingAssetWithPath"),
+            &raw mut U_GROOM_BLUEPRINT_LIBRARY_CREATE_NEW_GEOMETRY_CACHE_GROOM_BINDING_ASSET_WITH_PATH,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("CreateNewGeometryCacheGroomBindingAsset"),
+            &raw mut U_GROOM_BLUEPRINT_LIBRARY_CREATE_NEW_GEOMETRY_CACHE_GROOM_BINDING_ASSET,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UGroomComponent::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetPhysicsAsset"),
+            &raw mut U_GROOM_COMPONENT_SET_PHYSICS_ASSET,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetMeshDeformer"),
+            &raw mut U_GROOM_COMPONENT_SET_MESH_DEFORMER,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetHairLengthScaleEnable"),
+            &raw mut U_GROOM_COMPONENT_SET_HAIR_LENGTH_SCALE_ENABLE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetHairLengthScale"),
+            &raw mut U_GROOM_COMPONENT_SET_HAIR_LENGTH_SCALE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetGroomCache"),
+            &raw mut U_GROOM_COMPONENT_SET_GROOM_CACHE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetGroomAsset"),
+            &raw mut U_GROOM_COMPONENT_SET_GROOM_ASSET,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetEnableSimulation"),
+            &raw mut U_GROOM_COMPONENT_SET_ENABLE_SIMULATION,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetBindingAsset"),
+            &raw mut U_GROOM_COMPONENT_SET_BINDING_ASSET,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ResetSimulation"),
+            &raw mut U_GROOM_COMPONENT_RESET_SIMULATION,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ResetCollisionComponents"),
+            &raw mut U_GROOM_COMPONENT_RESET_COLLISION_COMPONENTS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetNiagaraComponent"),
+            &raw mut U_GROOM_COMPONENT_GET_NIAGARA_COMPONENT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetIsHairLengthScaleEnabled"),
+            &raw mut U_GROOM_COMPONENT_GET_IS_HAIR_LENGTH_SCALE_ENABLED,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("AddCollisionComponent"),
+            &raw mut U_GROOM_COMPONENT_ADD_COLLISION_COMPONENT,
+        );
+    }
+}
 #[repr(C, align(8))]
 pub struct FGroomCacheImportSettings {
     pub b_import_groom_cache: bool,
@@ -281,12 +950,44 @@ pub struct UGroomCacheImportOptions {
     __padding_48: [u8; 48],
     pub import_settings: FGroomCacheImportSettings,
 }
-impl UGroomCacheImportOptions {}
+impl UGroomCacheImportOptions {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGroomCacheImportOptions")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UGroomCacheImportData {
     __padding_end: [u8; 208],
 }
-impl UGroomCacheImportData {}
+impl UGroomCacheImportData {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGroomCacheImportData")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct AGroomActor {
     #[doc(hidden)]
@@ -294,7 +995,23 @@ pub struct AGroomActor {
     pub groom_component: UPtr<UGroomComponent>,
     __padding_end: [u8; 8],
 }
-impl AGroomActor {}
+impl AGroomActor {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("AGroomActor")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(16))]
 pub struct UGroomAsset {
     #[doc(hidden)]
@@ -312,22 +1029,86 @@ pub struct UGroomAsset {
     pub rigged_skeletal_mesh: UPtr<crate::bindings::engine::USkeletalMesh>,
     __padding_end: [u8; 672],
 }
-impl UGroomAsset {}
+impl UGroomAsset {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGroomAsset")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UHairCardGenerationSettings {
     __padding_end: [u8; 48],
 }
-impl UHairCardGenerationSettings {}
+impl UHairCardGenerationSettings {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UHairCardGenerationSettings")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UDataflowGroomContent {
     __padding_end: [u8; 240],
 }
-impl UDataflowGroomContent {}
+impl UDataflowGroomContent {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDataflowGroomContent")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UGroomAssetImportData {
     __padding_end: [u8; 112],
 }
-impl UGroomAssetImportData {}
+impl UGroomAssetImportData {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGroomAssetImportData")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(16))]
 pub struct UGroomBindingAsset {
     #[doc(hidden)]
@@ -348,22 +1129,86 @@ pub struct UGroomBindingAsset {
     pub group_infos: TArray<FGoomBindingGroupInfo>,
     __padding_end: [u8; 176],
 }
-impl UGroomBindingAsset {}
+impl UGroomBindingAsset {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGroomBindingAsset")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UGroomBindingAssetList {
     __padding_end: [u8; 64],
 }
-impl UGroomBindingAssetList {}
+impl UGroomBindingAssetList {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGroomBindingAssetList")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UGroomBlueprintLibrary {
     __padding_end: [u8; 48],
 }
-impl UGroomBlueprintLibrary {}
+impl UGroomBlueprintLibrary {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGroomBlueprintLibrary")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UGroomCache {
     __padding_end: [u8; 160],
 }
-impl UGroomCache {}
+impl UGroomCache {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGroomCache")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(16))]
 pub struct UGroomComponent {
     #[doc(hidden)]
@@ -391,7 +1236,23 @@ pub struct UGroomComponent {
     pub b_use_cards: bool,
     __padding_end: [u8; 143],
 }
-impl UGroomComponent {}
+impl UGroomComponent {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGroomComponent")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UGroomCreateBindingOptions {
     #[doc(hidden)]
@@ -406,7 +1267,23 @@ pub struct UGroomCreateBindingOptions {
     pub target_binding_attribute: FName,
     __padding_end: [u8; 4],
 }
-impl UGroomCreateBindingOptions {}
+impl UGroomCreateBindingOptions {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGroomCreateBindingOptions")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UGroomCreateFollicleMaskOptions {
     #[doc(hidden)]
@@ -415,7 +1292,23 @@ pub struct UGroomCreateFollicleMaskOptions {
     pub root_radius: i32,
     pub grooms: TArray<FFollicleMaskOptions>,
 }
-impl UGroomCreateFollicleMaskOptions {}
+impl UGroomCreateFollicleMaskOptions {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGroomCreateFollicleMaskOptions")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UGroomCreateStrandsTexturesOptions {
     #[doc(hidden)]
@@ -434,7 +1327,23 @@ pub struct UGroomCreateStrandsTexturesOptions {
     pub dilation: i32,
     pub generated_textures: TArray<UPtr<crate::bindings::engine::UTexture2D>>,
 }
-impl UGroomCreateStrandsTexturesOptions {}
+impl UGroomCreateStrandsTexturesOptions {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGroomCreateStrandsTexturesOptions")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UGroomImportOptions {
     #[doc(hidden)]
@@ -442,14 +1351,46 @@ pub struct UGroomImportOptions {
     pub conversion_settings: FGroomConversionSettings,
     pub interpolation_settings: TArray<FHairGroupsInterpolation>,
 }
-impl UGroomImportOptions {}
+impl UGroomImportOptions {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGroomImportOptions")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UGroomHairGroupsPreview {
     #[doc(hidden)]
     __padding_48: [u8; 48],
     pub groups: TArray<FGroomHairGroupPreview>,
 }
-impl UGroomHairGroupsPreview {}
+impl UGroomHairGroupsPreview {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGroomHairGroupsPreview")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UGroomHairGroupsMapping {
     #[doc(hidden)]
@@ -460,37 +1401,149 @@ pub struct UGroomHairGroupsMapping {
     pub new_to_old_group_index_mapping: TArray<i32>,
     __padding_end: [u8; 16],
 }
-impl UGroomHairGroupsMapping {}
+impl UGroomHairGroupsMapping {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGroomHairGroupsMapping")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UGroomPluginSettings {
     __padding_end: [u8; 56],
 }
-impl UGroomPluginSettings {}
+impl UGroomPluginSettings {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGroomPluginSettings")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneGroomCacheSection {
     __padding_end: [u8; 400],
 }
-impl UMovieSceneGroomCacheSection {}
+impl UMovieSceneGroomCacheSection {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneGroomCacheSection")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMovieSceneGroomCacheTrack {
     __padding_end: [u8; 408],
 }
-impl UMovieSceneGroomCacheTrack {}
+impl UMovieSceneGroomCacheTrack {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneGroomCacheTrack")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UNiagaraDataInterfaceHairStrands {
     __padding_end: [u8; 184],
 }
-impl UNiagaraDataInterfaceHairStrands {}
+impl UNiagaraDataInterfaceHairStrands {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraDataInterfaceHairStrands")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UNiagaraDataInterfaceVelocityGrid {
     __padding_end: [u8; 168],
 }
-impl UNiagaraDataInterfaceVelocityGrid {}
+impl UNiagaraDataInterfaceVelocityGrid {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraDataInterfaceVelocityGrid")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UNiagaraDataInterfacePressureGrid {
     __padding_end: [u8; 168],
 }
-impl UNiagaraDataInterfacePressureGrid {}
+impl UNiagaraDataInterfacePressureGrid {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraDataInterfacePressureGrid")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct FBuild_CompletionDelegate {
     _opague: [u8; 32],

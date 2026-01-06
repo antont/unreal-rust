@@ -2,8 +2,715 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(clippy::non_camel_case_types)]
+#![allow(clippy::new_without_default)]
+#![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
+#[doc(hidden)]
+pub static mut U_AUDIO_MATERIAL_BUTTON_SET_IS_PRESSED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUDIO_MATERIAL_BUTTON_GET_IS_PRESSED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUDIO_MATERIAL_KNOB_SET_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUDIO_MATERIAL_KNOB_SET_TUNE_SPEED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUDIO_MATERIAL_KNOB_SET_STEP_SIZE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUDIO_MATERIAL_KNOB_SET_MOUSE_USES_STEP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUDIO_MATERIAL_KNOB_SET_LOCKED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUDIO_MATERIAL_KNOB_SET_FINE_TUNE_SPEED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUDIO_MATERIAL_KNOB_GET_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUDIO_MATERIAL_KNOB_GET_TUNE_SPEED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUDIO_MATERIAL_KNOB_GET_STEP_SIZE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUDIO_MATERIAL_KNOB_GET_MOUSE_USES_STEP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUDIO_MATERIAL_KNOB_GET_IS_LOCKED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUDIO_MATERIAL_KNOB_GET_FINE_TUNE_SPEED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUDIO_MATERIAL_METER_SET_METER_CHANNEL_INFO: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUDIO_MATERIAL_METER_GET_METER_CHANNEL_INFO_DELEGATE_SIGNATURE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUDIO_MATERIAL_METER_GET_METER_CHANNEL_INFO: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUDIO_MATERIAL_SLIDER_SET_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUDIO_MATERIAL_SLIDER_SET_TUNE_SPEED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUDIO_MATERIAL_SLIDER_SET_STEP_SIZE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUDIO_MATERIAL_SLIDER_SET_MOUSE_USES_STEP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUDIO_MATERIAL_SLIDER_SET_LOCKED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUDIO_MATERIAL_SLIDER_SET_FINE_TUNE_SPEED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUDIO_MATERIAL_SLIDER_GET_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUDIO_MATERIAL_SLIDER_GET_TUNE_SPEED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUDIO_MATERIAL_SLIDER_GET_STEP_SIZE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUDIO_MATERIAL_SLIDER_GET_MOUSE_USES_STEP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUDIO_MATERIAL_SLIDER_GET_IS_LOCKED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUDIO_MATERIAL_SLIDER_GET_FINE_TUNE_SPEED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUDIO_METER_SET_METER_VALUE_COLOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUDIO_METER_SET_METER_SCALE_LABEL_COLOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUDIO_METER_SET_METER_SCALE_COLOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUDIO_METER_SET_METER_PEAK_COLOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUDIO_METER_SET_METER_CLIPPING_COLOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUDIO_METER_SET_METER_CHANNEL_INFO: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUDIO_METER_SET_METER_BACKGROUND_COLOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUDIO_METER_SET_BACKGROUND_COLOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUDIO_METER_GET_METER_CHANNEL_INFO_DELEGATE_SIGNATURE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUDIO_METER_GET_METER_CHANNEL_INFO: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUDIO_OSCILLOSCOPE_STOP_PROCESSING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUDIO_OSCILLOSCOPE_START_PROCESSING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUDIO_OSCILLOSCOPE_GET_OSCILLOSCOPE_AUDIO_SAMPLES_DELEGATE_SIGNATURE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUDIO_OSCILLOSCOPE_CAN_TRIGGERING_BE_SET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUDIO_RADIAL_SLIDER_SET_WIDGET_LAYOUT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUDIO_RADIAL_SLIDER_SET_VALUE_TEXT_READ_ONLY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUDIO_RADIAL_SLIDER_SET_UNITS_TEXT_READ_ONLY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUDIO_RADIAL_SLIDER_SET_UNITS_TEXT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUDIO_RADIAL_SLIDER_SET_TEXT_LABEL_BACKGROUND_COLOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUDIO_RADIAL_SLIDER_SET_SLIDER_THICKNESS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUDIO_RADIAL_SLIDER_SET_SLIDER_PROGRESS_COLOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUDIO_RADIAL_SLIDER_SET_SLIDER_BAR_COLOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUDIO_RADIAL_SLIDER_SET_SHOW_UNITS_TEXT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUDIO_RADIAL_SLIDER_SET_SHOW_LABEL_ONLY_ON_HOVER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUDIO_RADIAL_SLIDER_SET_OUTPUT_RANGE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUDIO_RADIAL_SLIDER_SET_HAND_START_END_RATIO: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUDIO_RADIAL_SLIDER_SET_CENTER_BACKGROUND_COLOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUDIO_RADIAL_SLIDER_GET_SLIDER_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUDIO_RADIAL_SLIDER_GET_OUTPUT_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUDIO_SLIDER_BASE_SET_WIDGET_BACKGROUND_COLOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUDIO_SLIDER_BASE_SET_VALUE_TEXT_READ_ONLY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUDIO_SLIDER_BASE_SET_UNITS_TEXT_READ_ONLY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUDIO_SLIDER_BASE_SET_UNITS_TEXT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUDIO_SLIDER_BASE_SET_TEXT_LABEL_BACKGROUND_COLOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUDIO_SLIDER_BASE_SET_SLIDER_THUMB_COLOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUDIO_SLIDER_BASE_SET_SLIDER_BAR_COLOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUDIO_SLIDER_BASE_SET_SLIDER_BACKGROUND_COLOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUDIO_SLIDER_BASE_SET_SHOW_UNITS_TEXT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUDIO_SLIDER_BASE_SET_SHOW_LABEL_ONLY_ON_HOVER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUDIO_SLIDER_BASE_GET_SLIDER_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUDIO_SLIDER_BASE_GET_OUTPUT_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUDIO_SLIDER_BASE_GET_LIN_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUDIO_VECTORSCOPE_STOP_PROCESSING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUDIO_VECTORSCOPE_START_PROCESSING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUDIO_VECTORSCOPE_GET_VECTORSCOPE_AUDIO_SAMPLES_DELEGATE_SIGNATURE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub fn initialize() {
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UAudioMaterialButton::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetIsPressed"),
+            &raw mut U_AUDIO_MATERIAL_BUTTON_SET_IS_PRESSED,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetIsPressed"),
+            &raw mut U_AUDIO_MATERIAL_BUTTON_GET_IS_PRESSED,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UAudioMaterialKnob::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetValue"),
+            &raw mut U_AUDIO_MATERIAL_KNOB_SET_VALUE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetTuneSpeed"),
+            &raw mut U_AUDIO_MATERIAL_KNOB_SET_TUNE_SPEED,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetStepSize"),
+            &raw mut U_AUDIO_MATERIAL_KNOB_SET_STEP_SIZE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetMouseUsesStep"),
+            &raw mut U_AUDIO_MATERIAL_KNOB_SET_MOUSE_USES_STEP,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetLocked"),
+            &raw mut U_AUDIO_MATERIAL_KNOB_SET_LOCKED,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetFineTuneSpeed"),
+            &raw mut U_AUDIO_MATERIAL_KNOB_SET_FINE_TUNE_SPEED,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetValue"),
+            &raw mut U_AUDIO_MATERIAL_KNOB_GET_VALUE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetTuneSpeed"),
+            &raw mut U_AUDIO_MATERIAL_KNOB_GET_TUNE_SPEED,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetStepSize"),
+            &raw mut U_AUDIO_MATERIAL_KNOB_GET_STEP_SIZE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetMouseUsesStep"),
+            &raw mut U_AUDIO_MATERIAL_KNOB_GET_MOUSE_USES_STEP,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetIsLocked"),
+            &raw mut U_AUDIO_MATERIAL_KNOB_GET_IS_LOCKED,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetFineTuneSpeed"),
+            &raw mut U_AUDIO_MATERIAL_KNOB_GET_FINE_TUNE_SPEED,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UAudioMaterialMeter::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetMeterChannelInfo"),
+            &raw mut U_AUDIO_MATERIAL_METER_SET_METER_CHANNEL_INFO,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetMeterChannelInfo__DelegateSignature"),
+            &raw mut U_AUDIO_MATERIAL_METER_GET_METER_CHANNEL_INFO_DELEGATE_SIGNATURE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetMeterChannelInfo"),
+            &raw mut U_AUDIO_MATERIAL_METER_GET_METER_CHANNEL_INFO,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UAudioMaterialSlider::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetValue"),
+            &raw mut U_AUDIO_MATERIAL_SLIDER_SET_VALUE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetTuneSpeed"),
+            &raw mut U_AUDIO_MATERIAL_SLIDER_SET_TUNE_SPEED,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetStepSize"),
+            &raw mut U_AUDIO_MATERIAL_SLIDER_SET_STEP_SIZE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetMouseUsesStep"),
+            &raw mut U_AUDIO_MATERIAL_SLIDER_SET_MOUSE_USES_STEP,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetLocked"),
+            &raw mut U_AUDIO_MATERIAL_SLIDER_SET_LOCKED,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetFineTuneSpeed"),
+            &raw mut U_AUDIO_MATERIAL_SLIDER_SET_FINE_TUNE_SPEED,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetValue"),
+            &raw mut U_AUDIO_MATERIAL_SLIDER_GET_VALUE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetTuneSpeed"),
+            &raw mut U_AUDIO_MATERIAL_SLIDER_GET_TUNE_SPEED,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetStepSize"),
+            &raw mut U_AUDIO_MATERIAL_SLIDER_GET_STEP_SIZE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetMouseUsesStep"),
+            &raw mut U_AUDIO_MATERIAL_SLIDER_GET_MOUSE_USES_STEP,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetIsLocked"),
+            &raw mut U_AUDIO_MATERIAL_SLIDER_GET_IS_LOCKED,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetFineTuneSpeed"),
+            &raw mut U_AUDIO_MATERIAL_SLIDER_GET_FINE_TUNE_SPEED,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UAudioMeter::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetMeterValueColor"),
+            &raw mut U_AUDIO_METER_SET_METER_VALUE_COLOR,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetMeterScaleLabelColor"),
+            &raw mut U_AUDIO_METER_SET_METER_SCALE_LABEL_COLOR,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetMeterScaleColor"),
+            &raw mut U_AUDIO_METER_SET_METER_SCALE_COLOR,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetMeterPeakColor"),
+            &raw mut U_AUDIO_METER_SET_METER_PEAK_COLOR,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetMeterClippingColor"),
+            &raw mut U_AUDIO_METER_SET_METER_CLIPPING_COLOR,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetMeterChannelInfo"),
+            &raw mut U_AUDIO_METER_SET_METER_CHANNEL_INFO,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetMeterBackgroundColor"),
+            &raw mut U_AUDIO_METER_SET_METER_BACKGROUND_COLOR,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetBackgroundColor"),
+            &raw mut U_AUDIO_METER_SET_BACKGROUND_COLOR,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetMeterChannelInfo__DelegateSignature"),
+            &raw mut U_AUDIO_METER_GET_METER_CHANNEL_INFO_DELEGATE_SIGNATURE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetMeterChannelInfo"),
+            &raw mut U_AUDIO_METER_GET_METER_CHANNEL_INFO,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UAudioOscilloscope::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("StopProcessing"),
+            &raw mut U_AUDIO_OSCILLOSCOPE_STOP_PROCESSING,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("StartProcessing"),
+            &raw mut U_AUDIO_OSCILLOSCOPE_START_PROCESSING,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetOscilloscopeAudioSamples__DelegateSignature"),
+            &raw mut U_AUDIO_OSCILLOSCOPE_GET_OSCILLOSCOPE_AUDIO_SAMPLES_DELEGATE_SIGNATURE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("CanTriggeringBeSet"),
+            &raw mut U_AUDIO_OSCILLOSCOPE_CAN_TRIGGERING_BE_SET,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UAudioRadialSlider::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetWidgetLayout"),
+            &raw mut U_AUDIO_RADIAL_SLIDER_SET_WIDGET_LAYOUT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetValueTextReadOnly"),
+            &raw mut U_AUDIO_RADIAL_SLIDER_SET_VALUE_TEXT_READ_ONLY,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetUnitsTextReadOnly"),
+            &raw mut U_AUDIO_RADIAL_SLIDER_SET_UNITS_TEXT_READ_ONLY,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetUnitsText"),
+            &raw mut U_AUDIO_RADIAL_SLIDER_SET_UNITS_TEXT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetTextLabelBackgroundColor"),
+            &raw mut U_AUDIO_RADIAL_SLIDER_SET_TEXT_LABEL_BACKGROUND_COLOR,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetSliderThickness"),
+            &raw mut U_AUDIO_RADIAL_SLIDER_SET_SLIDER_THICKNESS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetSliderProgressColor"),
+            &raw mut U_AUDIO_RADIAL_SLIDER_SET_SLIDER_PROGRESS_COLOR,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetSliderBarColor"),
+            &raw mut U_AUDIO_RADIAL_SLIDER_SET_SLIDER_BAR_COLOR,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetShowUnitsText"),
+            &raw mut U_AUDIO_RADIAL_SLIDER_SET_SHOW_UNITS_TEXT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetShowLabelOnlyOnHover"),
+            &raw mut U_AUDIO_RADIAL_SLIDER_SET_SHOW_LABEL_ONLY_ON_HOVER,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetOutputRange"),
+            &raw mut U_AUDIO_RADIAL_SLIDER_SET_OUTPUT_RANGE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetHandStartEndRatio"),
+            &raw mut U_AUDIO_RADIAL_SLIDER_SET_HAND_START_END_RATIO,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetCenterBackgroundColor"),
+            &raw mut U_AUDIO_RADIAL_SLIDER_SET_CENTER_BACKGROUND_COLOR,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetSliderValue"),
+            &raw mut U_AUDIO_RADIAL_SLIDER_GET_SLIDER_VALUE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetOutputValue"),
+            &raw mut U_AUDIO_RADIAL_SLIDER_GET_OUTPUT_VALUE,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UAudioSliderBase::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetWidgetBackgroundColor"),
+            &raw mut U_AUDIO_SLIDER_BASE_SET_WIDGET_BACKGROUND_COLOR,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetValueTextReadOnly"),
+            &raw mut U_AUDIO_SLIDER_BASE_SET_VALUE_TEXT_READ_ONLY,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetUnitsTextReadOnly"),
+            &raw mut U_AUDIO_SLIDER_BASE_SET_UNITS_TEXT_READ_ONLY,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetUnitsText"),
+            &raw mut U_AUDIO_SLIDER_BASE_SET_UNITS_TEXT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetTextLabelBackgroundColor"),
+            &raw mut U_AUDIO_SLIDER_BASE_SET_TEXT_LABEL_BACKGROUND_COLOR,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetSliderThumbColor"),
+            &raw mut U_AUDIO_SLIDER_BASE_SET_SLIDER_THUMB_COLOR,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetSliderBarColor"),
+            &raw mut U_AUDIO_SLIDER_BASE_SET_SLIDER_BAR_COLOR,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetSliderBackgroundColor"),
+            &raw mut U_AUDIO_SLIDER_BASE_SET_SLIDER_BACKGROUND_COLOR,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetShowUnitsText"),
+            &raw mut U_AUDIO_SLIDER_BASE_SET_SHOW_UNITS_TEXT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetShowLabelOnlyOnHover"),
+            &raw mut U_AUDIO_SLIDER_BASE_SET_SHOW_LABEL_ONLY_ON_HOVER,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetSliderValue"),
+            &raw mut U_AUDIO_SLIDER_BASE_GET_SLIDER_VALUE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetOutputValue"),
+            &raw mut U_AUDIO_SLIDER_BASE_GET_OUTPUT_VALUE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetLinValue"),
+            &raw mut U_AUDIO_SLIDER_BASE_GET_LIN_VALUE,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UAudioVectorscope::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("StopProcessing"),
+            &raw mut U_AUDIO_VECTORSCOPE_STOP_PROCESSING,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("StartProcessing"),
+            &raw mut U_AUDIO_VECTORSCOPE_START_PROCESSING,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetVectorscopeAudioSamples__DelegateSignature"),
+            &raw mut U_AUDIO_VECTORSCOPE_GET_VECTORSCOPE_AUDIO_SAMPLES_DELEGATE_SIGNATURE,
+        );
+    }
+}
 #[repr(C, align(4))]
 pub struct FMeterChannelInfo {
     __padding_end: [u8; 12],
@@ -263,22 +970,86 @@ impl FPlayheadOverlayStyle {}
 pub struct UAudioMaterialKnobWidgetStyle {
     __padding_end: [u8; 544],
 }
-impl UAudioMaterialKnobWidgetStyle {}
+impl UAudioMaterialKnobWidgetStyle {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAudioMaterialKnobWidgetStyle")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAudioMaterialMeterWidgetStyle {
     __padding_end: [u8; 312],
 }
-impl UAudioMaterialMeterWidgetStyle {}
+impl UAudioMaterialMeterWidgetStyle {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAudioMaterialMeterWidgetStyle")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAudioMaterialButtonWidgetStyle {
     __padding_end: [u8; 192],
 }
-impl UAudioMaterialButtonWidgetStyle {}
+impl UAudioMaterialButtonWidgetStyle {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAudioMaterialButtonWidgetStyle")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(16))]
 pub struct UAudioMaterialSliderWidgetStyle {
     __padding_end: [u8; 432],
 }
-impl UAudioMaterialSliderWidgetStyle {}
+impl UAudioMaterialSliderWidgetStyle {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAudioMaterialSliderWidgetStyle")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAudioMaterialButton {
     #[doc(hidden)]
@@ -289,7 +1060,23 @@ pub struct UAudioMaterialButton {
     pub b_is_pressed: bool,
     __padding_end: [u8; 23],
 }
-impl UAudioMaterialButton {}
+impl UAudioMaterialButton {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAudioMaterialButton")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAudioMaterialEnvelope {
     #[doc(hidden)]
@@ -298,7 +1085,23 @@ pub struct UAudioMaterialEnvelope {
     pub envelope_settings: FAudioMaterialEnvelopeSettings,
     __padding_end: [u8; 20],
 }
-impl UAudioMaterialEnvelope {}
+impl UAudioMaterialEnvelope {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAudioMaterialEnvelope")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(16))]
 pub struct UAudioMaterialKnob {
     #[doc(hidden)]
@@ -314,7 +1117,23 @@ pub struct UAudioMaterialKnob {
     pub step_size: f32,
     __padding_end: [u8; 20],
 }
-impl UAudioMaterialKnob {}
+impl UAudioMaterialKnob {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAudioMaterialKnob")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAudioMaterialMeter {
     #[doc(hidden)]
@@ -325,7 +1144,23 @@ pub struct UAudioMaterialMeter {
     __padding_1024: [u8; 64],
     pub meter_channel_info: TArray<FMeterChannelInfo>,
 }
-impl UAudioMaterialMeter {}
+impl UAudioMaterialMeter {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAudioMaterialMeter")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(16))]
 pub struct UAudioMaterialSlider {
     #[doc(hidden)]
@@ -343,7 +1178,23 @@ pub struct UAudioMaterialSlider {
     pub step_size: f32,
     __padding_end: [u8; 16],
 }
-impl UAudioMaterialSlider {}
+impl UAudioMaterialSlider {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAudioMaterialSlider")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(16))]
 pub struct UAudioMeter {
     #[doc(hidden)]
@@ -359,7 +1210,23 @@ pub struct UAudioMeter {
     pub meter_scale_label_color: crate::bindings::core_u_object::FLinearColor,
     __padding_end: [u8; 44],
 }
-impl UAudioMeter {}
+impl UAudioMeter {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAudioMeter")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(16))]
 pub struct UAudioOscilloscope {
     #[doc(hidden)]
@@ -380,22 +1247,86 @@ pub struct UAudioOscilloscope {
     pub channel_to_analyze: i32,
     __padding_end: [u8; 88],
 }
-impl UAudioOscilloscope {}
+impl UAudioOscilloscope {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAudioOscilloscope")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(16))]
 pub struct UAudioRadialSlider {
     __padding_end: [u8; 1280],
 }
-impl UAudioRadialSlider {}
+impl UAudioRadialSlider {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAudioRadialSlider")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(16))]
 pub struct UAudioVolumeRadialSlider {
     __padding_end: [u8; 1280],
 }
-impl UAudioVolumeRadialSlider {}
+impl UAudioVolumeRadialSlider {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAudioVolumeRadialSlider")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(16))]
 pub struct UAudioFrequencyRadialSlider {
     __padding_end: [u8; 1280],
 }
-impl UAudioFrequencyRadialSlider {}
+impl UAudioFrequencyRadialSlider {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAudioFrequencyRadialSlider")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(16))]
 pub struct UAudioSliderBase {
     #[doc(hidden)]
@@ -403,7 +1334,23 @@ pub struct UAudioSliderBase {
     pub orientation: crate::bindings::slate_core::EOrientation,
     __padding_end: [u8; 2023],
 }
-impl UAudioSliderBase {}
+impl UAudioSliderBase {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAudioSliderBase")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(16))]
 pub struct UAudioSlider {
     #[doc(hidden)]
@@ -412,17 +1359,65 @@ pub struct UAudioSlider {
     pub output_to_lin_curve: TWeakObjectPtr<crate::bindings::engine::UCurveFloat>,
     __padding_end: [u8; 8],
 }
-impl UAudioSlider {}
+impl UAudioSlider {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAudioSlider")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(16))]
 pub struct UAudioVolumeSlider {
     __padding_end: [u8; 3040],
 }
-impl UAudioVolumeSlider {}
+impl UAudioVolumeSlider {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAudioVolumeSlider")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(16))]
 pub struct UAudioFrequencySlider {
     __padding_end: [u8; 3040],
 }
-impl UAudioFrequencySlider {}
+impl UAudioFrequencySlider {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAudioFrequencySlider")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(16))]
 pub struct UAudioVectorscope {
     #[doc(hidden)]
@@ -437,7 +1432,23 @@ pub struct UAudioVectorscope {
     pub panel_layout_type: EAudioPanelLayoutType,
     __padding_end: [u8; 83],
 }
-impl UAudioVectorscope {}
+impl UAudioVectorscope {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAudioVectorscope")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct FAudioMaterialButton_OnButtonPressedChangedEvent {
     _opague: [u8; 24],

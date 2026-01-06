@@ -2,8 +2,824 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(clippy::non_camel_case_types)]
+#![allow(clippy::new_without_default)]
+#![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
+#[doc(hidden)]
+pub static mut U_CHAOS_DESTRUCTION_LISTENER_SORT_TRAILING_EVENTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CHAOS_DESTRUCTION_LISTENER_SORT_REMOVAL_EVENTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CHAOS_DESTRUCTION_LISTENER_SORT_COLLISION_EVENTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CHAOS_DESTRUCTION_LISTENER_SORT_BREAKING_EVENTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CHAOS_DESTRUCTION_LISTENER_SET_TRAILING_EVENT_REQUEST_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CHAOS_DESTRUCTION_LISTENER_SET_TRAILING_EVENT_ENABLED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CHAOS_DESTRUCTION_LISTENER_SET_REMOVAL_EVENT_REQUEST_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CHAOS_DESTRUCTION_LISTENER_SET_REMOVAL_EVENT_ENABLED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CHAOS_DESTRUCTION_LISTENER_SET_COLLISION_EVENT_REQUEST_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CHAOS_DESTRUCTION_LISTENER_SET_COLLISION_EVENT_ENABLED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CHAOS_DESTRUCTION_LISTENER_SET_BREAKING_EVENT_REQUEST_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CHAOS_DESTRUCTION_LISTENER_SET_BREAKING_EVENT_ENABLED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CHAOS_DESTRUCTION_LISTENER_REMOVE_GEOMETRY_COLLECTION_ACTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CHAOS_DESTRUCTION_LISTENER_REMOVE_CHAOS_SOLVER_ACTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CHAOS_DESTRUCTION_LISTENER_IS_EVENT_LISTENING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CHAOS_DESTRUCTION_LISTENER_ADD_GEOMETRY_COLLECTION_ACTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CHAOS_DESTRUCTION_LISTENER_ADD_CHAOS_SOLVER_ACTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_GEOMETRY_COLLECTION_ACTOR_RAYCAST_SINGLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GEOMETRY_COLLECTION_BLUEPRINT_LIBRARY_SET_ISM_POOL_CUSTOM_INSTANCE_DATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GEOMETRY_COLLECTION_BLUEPRINT_LIBRARY_SET_CUSTOM_INSTANCE_DATA_BY_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GEOMETRY_COLLECTION_BLUEPRINT_LIBRARY_SET_CUSTOM_INSTANCE_DATA_BY_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GEOMETRY_COLLECTION_COMPONENT_SET_USE_STATIC_MESH_COLLISION_FOR_TRACES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GEOMETRY_COLLECTION_COMPONENT_SET_USE_MATERIAL_DAMAGE_MODIFIERS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GEOMETRY_COLLECTION_COMPONENT_SET_SOLVER_ACTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GEOMETRY_COLLECTION_COMPONENT_SET_ROOT_PROXY_COMPONENT_SPACE_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GEOMETRY_COLLECTION_COMPONENT_SET_REST_COLLECTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GEOMETRY_COLLECTION_COMPONENT_SET_PER_PARTICLE_COLLISION_PROFILE_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GEOMETRY_COLLECTION_COMPONENT_SET_PER_LEVEL_COLLISION_PROFILE_NAMES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GEOMETRY_COLLECTION_COMPONENT_SET_ONE_WAY_INTERACTION_LEVEL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GEOMETRY_COLLECTION_COMPONENT_SET_NOTIFY_REMOVALS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GEOMETRY_COLLECTION_COMPONENT_SET_NOTIFY_GLOBAL_REMOVALS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GEOMETRY_COLLECTION_COMPONENT_SET_NOTIFY_GLOBAL_CRUMBLINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GEOMETRY_COLLECTION_COMPONENT_SET_NOTIFY_GLOBAL_COLLISION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GEOMETRY_COLLECTION_COMPONENT_SET_NOTIFY_GLOBAL_BREAKS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GEOMETRY_COLLECTION_COMPONENT_SET_NOTIFY_CRUMBLINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GEOMETRY_COLLECTION_COMPONENT_SET_NOTIFY_BREAKS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GEOMETRY_COLLECTION_COMPONENT_SET_LOCAL_REST_TRANSFORMS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GEOMETRY_COLLECTION_COMPONENT_SET_GRAVITY_GROUP_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GEOMETRY_COLLECTION_COMPONENT_SET_ENABLE_DAMAGE_FROM_COLLISION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GEOMETRY_COLLECTION_COMPONENT_SET_DENSITY_FROM_PHYSICS_MATERIAL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GEOMETRY_COLLECTION_COMPONENT_SET_DAMAGE_THRESHOLD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GEOMETRY_COLLECTION_COMPONENT_SET_DAMAGE_PROPAGATION_DATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GEOMETRY_COLLECTION_COMPONENT_SET_DAMAGE_MODEL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GEOMETRY_COLLECTION_COMPONENT_SET_ANCHORED_BY_TRANSFORMED_BOX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GEOMETRY_COLLECTION_COMPONENT_SET_ANCHORED_BY_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GEOMETRY_COLLECTION_COMPONENT_SET_ANCHORED_BY_BOX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GEOMETRY_COLLECTION_COMPONENT_SET_ABANDONED_PARTICLE_COLLISION_PROFILE_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GEOMETRY_COLLECTION_COMPONENT_RESET_STATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GEOMETRY_COLLECTION_COMPONENT_REMOVE_ALL_ANCHORS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GEOMETRY_COLLECTION_COMPONENT_RECEIVE_PHYSICS_COLLISION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GEOMETRY_COLLECTION_COMPONENT_ON_REP_REP_STATE_DATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GEOMETRY_COLLECTION_COMPONENT_ON_REP_REP_DYNAMIC_DATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GEOMETRY_COLLECTION_COMPONENT_ON_REP_REP_DATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GEOMETRY_COLLECTION_COMPONENT_NOTIFY_GEOMETRY_COLLECTION_PHYSICS_STATE_CHANGE_DELEGATE_SIGNATURE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GEOMETRY_COLLECTION_COMPONENT_NOTIFY_GEOMETRY_COLLECTION_PHYSICS_LOADING_STATE_CHANGE_DELEGATE_SIGNATURE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GEOMETRY_COLLECTION_COMPONENT_IS_ROOT_BROKEN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GEOMETRY_COLLECTION_COMPONENT_GET_USE_STATIC_MESH_COLLISION_FOR_TRACES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GEOMETRY_COLLECTION_COMPONENT_GET_SOLVER_ACTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GEOMETRY_COLLECTION_COMPONENT_GET_ROOT_INITIAL_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GEOMETRY_COLLECTION_COMPONENT_GET_ROOT_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GEOMETRY_COLLECTION_COMPONENT_GET_ROOT_CURRENT_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GEOMETRY_COLLECTION_COMPONENT_GET_MASS_AND_EXTENTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GEOMETRY_COLLECTION_COMPONENT_GET_LOCAL_REST_TRANSFORMS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GEOMETRY_COLLECTION_COMPONENT_GET_LOCAL_BOUNDS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GEOMETRY_COLLECTION_COMPONENT_GET_INITIAL_LOCAL_REST_TRANSFORMS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GEOMETRY_COLLECTION_COMPONENT_GET_INITIAL_LEVEL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GEOMETRY_COLLECTION_COMPONENT_GET_DEBUG_INFO: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GEOMETRY_COLLECTION_COMPONENT_GET_DAMAGE_THRESHOLD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GEOMETRY_COLLECTION_COMPONENT_FORCE_BROKEN_FOR_CUSTOM_RENDERER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GEOMETRY_COLLECTION_COMPONENT_FIND_LEAF_TRANSFORM_BY_LINE_TRACE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GEOMETRY_COLLECTION_COMPONENT_ENABLE_ROOT_PROXY_FOR_CUSTOM_RENDERER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GEOMETRY_COLLECTION_COMPONENT_CRUMBLE_CLUSTER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GEOMETRY_COLLECTION_COMPONENT_CRUMBLE_ACTIVE_CLUSTERS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GEOMETRY_COLLECTION_COMPONENT_APPLY_PHYSICS_FIELD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GEOMETRY_COLLECTION_COMPONENT_APPLY_LINEAR_VELOCITY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GEOMETRY_COLLECTION_COMPONENT_APPLY_KINEMATIC_FIELD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GEOMETRY_COLLECTION_COMPONENT_APPLY_INTERNAL_STRAIN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GEOMETRY_COLLECTION_COMPONENT_APPLY_EXTERNAL_STRAIN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GEOMETRY_COLLECTION_COMPONENT_APPLY_BREAKING_LINEAR_VELOCITY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GEOMETRY_COLLECTION_COMPONENT_APPLY_BREAKING_ANGULAR_VELOCITY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GEOMETRY_COLLECTION_COMPONENT_APPLY_ASSET_DEFAULTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GEOMETRY_COLLECTION_COMPONENT_APPLY_ANGULAR_VELOCITY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GEOMETRY_COLLECTION_ISM_POOL_SUB_SYSTEM_ON_ACTOR_END_PLAY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GEOMETRY_COLLECTION_SET_ENABLE_NANITE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GEOMETRY_COLLECTION_SET_DATAFLOW_ASSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GEOMETRY_COLLECTION_SET_CONVERT_VERTEX_COLORS_TO_SRGB: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_GEOMETRY_COLLECTION_GET_DATAFLOW_ASSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub fn initialize() {
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UChaosDestructionListener::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SortTrailingEvents"),
+            &raw mut U_CHAOS_DESTRUCTION_LISTENER_SORT_TRAILING_EVENTS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SortRemovalEvents"),
+            &raw mut U_CHAOS_DESTRUCTION_LISTENER_SORT_REMOVAL_EVENTS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SortCollisionEvents"),
+            &raw mut U_CHAOS_DESTRUCTION_LISTENER_SORT_COLLISION_EVENTS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SortBreakingEvents"),
+            &raw mut U_CHAOS_DESTRUCTION_LISTENER_SORT_BREAKING_EVENTS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetTrailingEventRequestSettings"),
+            &raw mut U_CHAOS_DESTRUCTION_LISTENER_SET_TRAILING_EVENT_REQUEST_SETTINGS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetTrailingEventEnabled"),
+            &raw mut U_CHAOS_DESTRUCTION_LISTENER_SET_TRAILING_EVENT_ENABLED,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetRemovalEventRequestSettings"),
+            &raw mut U_CHAOS_DESTRUCTION_LISTENER_SET_REMOVAL_EVENT_REQUEST_SETTINGS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetRemovalEventEnabled"),
+            &raw mut U_CHAOS_DESTRUCTION_LISTENER_SET_REMOVAL_EVENT_ENABLED,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetCollisionEventRequestSettings"),
+            &raw mut U_CHAOS_DESTRUCTION_LISTENER_SET_COLLISION_EVENT_REQUEST_SETTINGS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetCollisionEventEnabled"),
+            &raw mut U_CHAOS_DESTRUCTION_LISTENER_SET_COLLISION_EVENT_ENABLED,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetBreakingEventRequestSettings"),
+            &raw mut U_CHAOS_DESTRUCTION_LISTENER_SET_BREAKING_EVENT_REQUEST_SETTINGS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetBreakingEventEnabled"),
+            &raw mut U_CHAOS_DESTRUCTION_LISTENER_SET_BREAKING_EVENT_ENABLED,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("RemoveGeometryCollectionActor"),
+            &raw mut U_CHAOS_DESTRUCTION_LISTENER_REMOVE_GEOMETRY_COLLECTION_ACTOR,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("RemoveChaosSolverActor"),
+            &raw mut U_CHAOS_DESTRUCTION_LISTENER_REMOVE_CHAOS_SOLVER_ACTOR,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("IsEventListening"),
+            &raw mut U_CHAOS_DESTRUCTION_LISTENER_IS_EVENT_LISTENING,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("AddGeometryCollectionActor"),
+            &raw mut U_CHAOS_DESTRUCTION_LISTENER_ADD_GEOMETRY_COLLECTION_ACTOR,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("AddChaosSolverActor"),
+            &raw mut U_CHAOS_DESTRUCTION_LISTENER_ADD_CHAOS_SOLVER_ACTOR,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = AGeometryCollectionActor::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("RaycastSingle"),
+            &raw mut A_GEOMETRY_COLLECTION_ACTOR_RAYCAST_SINGLE,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UGeometryCollectionBlueprintLibrary::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetISMPoolCustomInstanceData"),
+            &raw mut U_GEOMETRY_COLLECTION_BLUEPRINT_LIBRARY_SET_ISM_POOL_CUSTOM_INSTANCE_DATA,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetCustomInstanceDataByName"),
+            &raw mut U_GEOMETRY_COLLECTION_BLUEPRINT_LIBRARY_SET_CUSTOM_INSTANCE_DATA_BY_NAME,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetCustomInstanceDataByIndex"),
+            &raw mut U_GEOMETRY_COLLECTION_BLUEPRINT_LIBRARY_SET_CUSTOM_INSTANCE_DATA_BY_INDEX,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UGeometryCollectionComponent::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetUseStaticMeshCollisionForTraces"),
+            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_SET_USE_STATIC_MESH_COLLISION_FOR_TRACES,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetUseMaterialDamageModifiers"),
+            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_SET_USE_MATERIAL_DAMAGE_MODIFIERS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetSolverActor"),
+            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_SET_SOLVER_ACTOR,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetRootProxyComponentSpaceTransform"),
+            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_SET_ROOT_PROXY_COMPONENT_SPACE_TRANSFORM,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetRestCollection"),
+            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_SET_REST_COLLECTION,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetPerParticleCollisionProfileName"),
+            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_SET_PER_PARTICLE_COLLISION_PROFILE_NAME,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetPerLevelCollisionProfileNames"),
+            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_SET_PER_LEVEL_COLLISION_PROFILE_NAMES,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetOneWayInteractionLevel"),
+            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_SET_ONE_WAY_INTERACTION_LEVEL,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetNotifyRemovals"),
+            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_SET_NOTIFY_REMOVALS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetNotifyGlobalRemovals"),
+            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_SET_NOTIFY_GLOBAL_REMOVALS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetNotifyGlobalCrumblings"),
+            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_SET_NOTIFY_GLOBAL_CRUMBLINGS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetNotifyGlobalCollision"),
+            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_SET_NOTIFY_GLOBAL_COLLISION,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetNotifyGlobalBreaks"),
+            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_SET_NOTIFY_GLOBAL_BREAKS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetNotifyCrumblings"),
+            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_SET_NOTIFY_CRUMBLINGS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetNotifyBreaks"),
+            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_SET_NOTIFY_BREAKS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetLocalRestTransforms"),
+            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_SET_LOCAL_REST_TRANSFORMS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetGravityGroupIndex"),
+            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_SET_GRAVITY_GROUP_INDEX,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetEnableDamageFromCollision"),
+            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_SET_ENABLE_DAMAGE_FROM_COLLISION,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetDensityFromPhysicsMaterial"),
+            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_SET_DENSITY_FROM_PHYSICS_MATERIAL,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetDamageThreshold"),
+            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_SET_DAMAGE_THRESHOLD,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetDamagePropagationData"),
+            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_SET_DAMAGE_PROPAGATION_DATA,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetDamageModel"),
+            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_SET_DAMAGE_MODEL,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetAnchoredByTransformedBox"),
+            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_SET_ANCHORED_BY_TRANSFORMED_BOX,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetAnchoredByIndex"),
+            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_SET_ANCHORED_BY_INDEX,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetAnchoredByBox"),
+            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_SET_ANCHORED_BY_BOX,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetAbandonedParticleCollisionProfileName"),
+            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_SET_ABANDONED_PARTICLE_COLLISION_PROFILE_NAME,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ResetState"),
+            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_RESET_STATE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("RemoveAllAnchors"),
+            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_REMOVE_ALL_ANCHORS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ReceivePhysicsCollision"),
+            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_RECEIVE_PHYSICS_COLLISION,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("OnRep_RepStateData"),
+            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_ON_REP_REP_STATE_DATA,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("OnRep_RepDynamicData"),
+            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_ON_REP_REP_DYNAMIC_DATA,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("OnRep_RepData"),
+            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_ON_REP_REP_DATA,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from(
+                "NotifyGeometryCollectionPhysicsStateChange__DelegateSignature",
+            ),
+            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_NOTIFY_GEOMETRY_COLLECTION_PHYSICS_STATE_CHANGE_DELEGATE_SIGNATURE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from(
+                "NotifyGeometryCollectionPhysicsLoadingStateChange__DelegateSignature",
+            ),
+            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_NOTIFY_GEOMETRY_COLLECTION_PHYSICS_LOADING_STATE_CHANGE_DELEGATE_SIGNATURE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("IsRootBroken"),
+            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_IS_ROOT_BROKEN,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetUseStaticMeshCollisionForTraces"),
+            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_GET_USE_STATIC_MESH_COLLISION_FOR_TRACES,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetSolverActor"),
+            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_GET_SOLVER_ACTOR,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetRootInitialTransform"),
+            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_GET_ROOT_INITIAL_TRANSFORM,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetRootIndex"),
+            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_GET_ROOT_INDEX,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetRootCurrentTransform"),
+            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_GET_ROOT_CURRENT_TRANSFORM,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetMassAndExtents"),
+            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_GET_MASS_AND_EXTENTS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetLocalRestTransforms"),
+            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_GET_LOCAL_REST_TRANSFORMS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetLocalBounds"),
+            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_GET_LOCAL_BOUNDS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetInitialLocalRestTransforms"),
+            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_GET_INITIAL_LOCAL_REST_TRANSFORMS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetInitialLevel"),
+            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_GET_INITIAL_LEVEL,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetDebugInfo"),
+            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_GET_DEBUG_INFO,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetDamageThreshold"),
+            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_GET_DAMAGE_THRESHOLD,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ForceBrokenForCustomRenderer"),
+            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_FORCE_BROKEN_FOR_CUSTOM_RENDERER,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("FindLeafTransformByLineTrace"),
+            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_FIND_LEAF_TRANSFORM_BY_LINE_TRACE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("EnableRootProxyForCustomRenderer"),
+            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_ENABLE_ROOT_PROXY_FOR_CUSTOM_RENDERER,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("CrumbleCluster"),
+            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_CRUMBLE_CLUSTER,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("CrumbleActiveClusters"),
+            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_CRUMBLE_ACTIVE_CLUSTERS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ApplyPhysicsField"),
+            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_APPLY_PHYSICS_FIELD,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ApplyLinearVelocity"),
+            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_APPLY_LINEAR_VELOCITY,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ApplyKinematicField"),
+            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_APPLY_KINEMATIC_FIELD,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ApplyInternalStrain"),
+            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_APPLY_INTERNAL_STRAIN,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ApplyExternalStrain"),
+            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_APPLY_EXTERNAL_STRAIN,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ApplyBreakingLinearVelocity"),
+            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_APPLY_BREAKING_LINEAR_VELOCITY,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ApplyBreakingAngularVelocity"),
+            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_APPLY_BREAKING_ANGULAR_VELOCITY,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ApplyAssetDefaults"),
+            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_APPLY_ASSET_DEFAULTS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ApplyAngularVelocity"),
+            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_APPLY_ANGULAR_VELOCITY,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UGeometryCollectionISMPoolSubSystem::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("OnActorEndPlay"),
+            &raw mut U_GEOMETRY_COLLECTION_ISM_POOL_SUB_SYSTEM_ON_ACTOR_END_PLAY,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UGeometryCollection::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetEnableNanite"),
+            &raw mut U_GEOMETRY_COLLECTION_SET_ENABLE_NANITE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetDataflowAsset"),
+            &raw mut U_GEOMETRY_COLLECTION_SET_DATAFLOW_ASSET,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetConvertVertexColorsToSRGB"),
+            &raw mut U_GEOMETRY_COLLECTION_SET_CONVERT_VERTEX_COLORS_TO_SRGB,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetDataflowAsset"),
+            &raw mut U_GEOMETRY_COLLECTION_GET_DATAFLOW_ASSET,
+        );
+    }
+}
 #[repr(C, align(8))]
 pub struct FChaosBreakingEventData {
     pub location: crate::bindings::core_u_object::FVector,
@@ -131,13 +947,45 @@ pub struct IGeometryCollectionExternalRenderInterface {}
 pub struct UGeometryCollectionExternalRenderInterface {
     __padding_end: [u8; 48],
 }
-impl UGeometryCollectionExternalRenderInterface {}
+impl UGeometryCollectionExternalRenderInterface {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGeometryCollectionExternalRenderInterface")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 pub struct IGeometryCollectionCustomDataInterface {}
 #[repr(C, align(8))]
 pub struct UGeometryCollectionCustomDataInterface {
     __padding_end: [u8; 48],
 }
-impl UGeometryCollectionCustomDataInterface {}
+impl UGeometryCollectionCustomDataInterface {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGeometryCollectionCustomDataInterface")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(16))]
 pub struct UChaosDestructionListener {
     #[doc(hidden)]
@@ -153,7 +1001,23 @@ pub struct UChaosDestructionListener {
     pub geometry_collection_actors: TSet<UPtr<AGeometryCollectionActor>>,
     __padding_end: [u8; 464],
 }
-impl UChaosDestructionListener {}
+impl UChaosDestructionListener {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UChaosDestructionListener")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct AGeometryCollectionActor {
     #[doc(hidden)]
@@ -161,17 +1025,65 @@ pub struct AGeometryCollectionActor {
     pub geometry_collection_component: UPtr<UGeometryCollectionComponent>,
     __padding_end: [u8; 8],
 }
-impl AGeometryCollectionActor {}
+impl AGeometryCollectionActor {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("AGeometryCollectionActor")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UGeometryCollectionBlueprintLibrary {
     __padding_end: [u8; 48],
 }
-impl UGeometryCollectionBlueprintLibrary {}
+impl UGeometryCollectionBlueprintLibrary {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGeometryCollectionBlueprintLibrary")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UGeometryCollectionCache {
     __padding_end: [u8; 88],
 }
-impl UGeometryCollectionCache {}
+impl UGeometryCollectionCache {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGeometryCollectionCache")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(16))]
 pub struct UGeometryCollectionComponent {
     #[doc(hidden)]
@@ -258,17 +1170,65 @@ pub struct UGeometryCollectionComponent {
     pub replication_max_position_and_velocity_correction_level: i32,
     __padding_end: [u8; 672],
 }
-impl UGeometryCollectionComponent {}
+impl UGeometryCollectionComponent {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGeometryCollectionComponent")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct AGeometryCollectionDebugDrawActor {
     __padding_end: [u8; 1328],
 }
-impl AGeometryCollectionDebugDrawActor {}
+impl AGeometryCollectionDebugDrawActor {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("AGeometryCollectionDebugDrawActor")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UGeometryCollectionDebugDrawComponent {
     __padding_end: [u8; 264],
 }
-impl UGeometryCollectionDebugDrawComponent {}
+impl UGeometryCollectionDebugDrawComponent {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGeometryCollectionDebugDrawComponent")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct AGeometryCollectionISMPoolActor {
     #[doc(hidden)]
@@ -276,22 +1236,86 @@ pub struct AGeometryCollectionISMPoolActor {
     pub ism_pool_comp: UPtr<UGeometryCollectionISMPoolComponent>,
     pub ism_pool_debug_draw_comp: UPtr<UGeometryCollectionISMPoolDebugDrawComponent>,
 }
-impl AGeometryCollectionISMPoolActor {}
+impl AGeometryCollectionISMPoolActor {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("AGeometryCollectionISMPoolActor")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(16))]
 pub struct UGeometryCollectionISMPoolComponent {
     __padding_end: [u8; 960],
 }
-impl UGeometryCollectionISMPoolComponent {}
+impl UGeometryCollectionISMPoolComponent {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGeometryCollectionISMPoolComponent")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(16))]
 pub struct UGeometryCollectionISMPoolRenderer {
     __padding_end: [u8; 240],
 }
-impl UGeometryCollectionISMPoolRenderer {}
+impl UGeometryCollectionISMPoolRenderer {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGeometryCollectionISMPoolRenderer")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UGeometryCollectionISMPoolSubSystem {
     __padding_end: [u8; 144],
 }
-impl UGeometryCollectionISMPoolSubSystem {}
+impl UGeometryCollectionISMPoolSubSystem {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGeometryCollectionISMPoolSubSystem")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UGeometryCollection {
     #[doc(hidden)]
@@ -346,7 +1370,23 @@ pub struct UGeometryCollection {
     pub overrides: TMap<FString, FString>,
     __padding_end: [u8; 264],
 }
-impl UGeometryCollection {}
+impl UGeometryCollection {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGeometryCollection")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(16))]
 pub struct AGeometryCollectionRenderLevelSetActor {
     #[doc(hidden)]
@@ -359,17 +1399,65 @@ pub struct AGeometryCollectionRenderLevelSetActor {
     pub render_volume_bounding_box: bool,
     __padding_end: [u8; 214],
 }
-impl AGeometryCollectionRenderLevelSetActor {}
+impl AGeometryCollectionRenderLevelSetActor {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("AGeometryCollectionRenderLevelSetActor")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UGeometryCollectionRootProxyRenderer {
     __padding_end: [u8; 80],
 }
-impl UGeometryCollectionRootProxyRenderer {}
+impl UGeometryCollectionRootProxyRenderer {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGeometryCollectionRootProxyRenderer")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(16))]
 pub struct UGeometryCollectionISMPoolDebugDrawComponent {
     __padding_end: [u8; 1744],
 }
-impl UGeometryCollectionISMPoolDebugDrawComponent {}
+impl UGeometryCollectionISMPoolDebugDrawComponent {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGeometryCollectionISMPoolDebugDrawComponent")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct FChaosDestructionListener_OnCollisionEvents {
     _opague: [u8; 24],

@@ -2,8 +2,53 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(clippy::non_camel_case_types)]
+#![allow(clippy::new_without_default)]
+#![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
+#[doc(hidden)]
+pub static mut U_MOTION_EXTRACTOR_UTILITY_LIBRARY_GET_STOPPED_RANGES_FROM_ROOT_MOTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MOTION_EXTRACTOR_UTILITY_LIBRARY_GET_MOVING_RANGES_FROM_ROOT_MOTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MOTION_EXTRACTOR_UTILITY_LIBRARY_GET_DESIRED_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_MOTION_EXTRACTOR_UTILITY_LIBRARY_GENERATE_CURVE_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub fn initialize() {
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UMotionExtractorUtilityLibrary::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetStoppedRangesFromRootMotion"),
+            &raw mut U_MOTION_EXTRACTOR_UTILITY_LIBRARY_GET_STOPPED_RANGES_FROM_ROOT_MOTION,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetMovingRangesFromRootMotion"),
+            &raw mut U_MOTION_EXTRACTOR_UTILITY_LIBRARY_GET_MOVING_RANGES_FROM_ROOT_MOTION,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetDesiredValue"),
+            &raw mut U_MOTION_EXTRACTOR_UTILITY_LIBRARY_GET_DESIRED_VALUE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GenerateCurveName"),
+            &raw mut U_MOTION_EXTRACTOR_UTILITY_LIBRARY_GENERATE_CURVE_NAME,
+        );
+    }
+}
 #[repr(C, align(4))]
 pub struct FBoneReferencePair {
     __padding_end: [u8; 40],
@@ -25,12 +70,44 @@ pub struct UCopyBonesModifier {
     pub bone_pose_space: crate::bindings::animation_blueprint_library::EAnimPoseSpaces,
     __padding_end: [u8; 7],
 }
-impl UCopyBonesModifier {}
+impl UCopyBonesModifier {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UCopyBonesModifier")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UEncodeRootBoneModifier {
     __padding_end: [u8; 152],
 }
-impl UEncodeRootBoneModifier {}
+impl UEncodeRootBoneModifier {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEncodeRootBoneModifier")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UFootstepAnimEventsModifier {
     #[doc(hidden)]
@@ -42,12 +119,44 @@ pub struct UFootstepAnimEventsModifier {
     pub b_should_remove_pre_existing_notifies_or_sync_markers: bool,
     __padding_end: [u8; 167],
 }
-impl UFootstepAnimEventsModifier {}
+impl UFootstepAnimEventsModifier {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFootstepAnimEventsModifier")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMirrorModifier {
     __padding_end: [u8; 136],
 }
-impl UMirrorModifier {}
+impl UMirrorModifier {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMirrorModifier")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMotionExtractorModifier {
     #[doc(hidden)]
@@ -71,19 +180,67 @@ pub struct UMotionExtractorModifier {
     pub custom_curve_name: FName,
     __padding_end: [u8; 4],
 }
-impl UMotionExtractorModifier {}
+impl UMotionExtractorModifier {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMotionExtractorModifier")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMotionExtractorUtilityLibrary {
     __padding_end: [u8; 48],
 }
-impl UMotionExtractorUtilityLibrary {}
+impl UMotionExtractorUtilityLibrary {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMotionExtractorUtilityLibrary")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UReOrientRootBoneModifier {
     #[doc(hidden)]
     __padding_120: [u8; 120],
     pub rotator: crate::bindings::core_u_object::FRotator,
 }
-impl UReOrientRootBoneModifier {}
+impl UReOrientRootBoneModifier {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UReOrientRootBoneModifier")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UZeroOutRootBoneModifier {
     #[doc(hidden)]
@@ -92,7 +249,23 @@ pub struct UZeroOutRootBoneModifier {
     pub b_clip_end_frames_with_no_motion: bool,
     __padding_end: [u8; 6],
 }
-impl UZeroOutRootBoneModifier {}
+impl UZeroOutRootBoneModifier {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UZeroOutRootBoneModifier")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(transparent)]
 pub struct EEncodeRootBoneAxis(pub u8);
 impl EEncodeRootBoneAxis {

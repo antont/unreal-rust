@@ -2,8 +2,92 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(clippy::non_camel_case_types)]
+#![allow(clippy::new_without_default)]
+#![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
+#[doc(hidden)]
+pub static mut A_INSTANCED_FOLIAGE_ACTOR_REMOVE_ALL_INSTANCES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_INSTANCED_FOLIAGE_ACTOR_ADD_INSTANCES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_FOLIAGE_STATISTICS_FOLIAGE_OVERLAPPING_SPHERE_COUNT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_FOLIAGE_STATISTICS_FOLIAGE_OVERLAPPING_BOX_TRANSFORMS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_FOLIAGE_STATISTICS_FOLIAGE_OVERLAPPING_BOX_COUNT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_INTERACTIVE_FOLIAGE_ACTOR_CAPSULE_TOUCHED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_PROCEDURAL_FOLIAGE_SPAWNER_SIMULATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub fn initialize() {
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = AInstancedFoliageActor::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("RemoveAllInstances"),
+            &raw mut A_INSTANCED_FOLIAGE_ACTOR_REMOVE_ALL_INSTANCES,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("AddInstances"),
+            &raw mut A_INSTANCED_FOLIAGE_ACTOR_ADD_INSTANCES,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UFoliageStatistics::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("FoliageOverlappingSphereCount"),
+            &raw mut U_FOLIAGE_STATISTICS_FOLIAGE_OVERLAPPING_SPHERE_COUNT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("FoliageOverlappingBoxTransforms"),
+            &raw mut U_FOLIAGE_STATISTICS_FOLIAGE_OVERLAPPING_BOX_TRANSFORMS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("FoliageOverlappingBoxCount"),
+            &raw mut U_FOLIAGE_STATISTICS_FOLIAGE_OVERLAPPING_BOX_COUNT,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = AInteractiveFoliageActor::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("CapsuleTouched"),
+            &raw mut A_INTERACTIVE_FOLIAGE_ACTOR_CAPSULE_TOUCHED,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UProceduralFoliageSpawner::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("Simulate"),
+            &raw mut U_PROCEDURAL_FOLIAGE_SPAWNER_SIMULATE,
+        );
+    }
+}
 #[repr(C, align(16))]
 pub struct FProceduralFoliageInstance {
     #[doc(hidden)]
@@ -18,7 +102,23 @@ impl FProceduralFoliageInstance {}
 pub struct UFoliageInstancedStaticMeshComponent {
     __padding_end: [u8; 3360],
 }
-impl UFoliageInstancedStaticMeshComponent {}
+impl UFoliageInstancedStaticMeshComponent {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFoliageInstancedStaticMeshComponent")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UFoliageType {
     #[doc(hidden)]
@@ -86,12 +186,44 @@ pub struct UFoliageType {
     pub flags_1280: u8,
     __padding_end: [u8; 71],
 }
-impl UFoliageType {}
+impl UFoliageType {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFoliageType")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UFoliageType_Actor {
     __padding_end: [u8; 1376],
 }
-impl UFoliageType_Actor {}
+impl UFoliageType_Actor {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFoliageType_Actor")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UFoliageType_InstancedStaticMesh {
     #[doc(hidden)]
@@ -103,27 +235,107 @@ pub struct UFoliageType_InstancedStaticMesh {
     >,
     __padding_end: [u8; 8],
 }
-impl UFoliageType_InstancedStaticMesh {}
+impl UFoliageType_InstancedStaticMesh {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFoliageType_InstancedStaticMesh")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct AInstancedFoliageActor {
     __padding_end: [u8; 1896],
 }
-impl AInstancedFoliageActor {}
+impl AInstancedFoliageActor {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("AInstancedFoliageActor")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(16))]
 pub struct UInteractiveFoliageComponent {
     __padding_end: [u8; 1904],
 }
-impl UInteractiveFoliageComponent {}
+impl UInteractiveFoliageComponent {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInteractiveFoliageComponent")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UFoliageStatistics {
     __padding_end: [u8; 48],
 }
-impl UFoliageStatistics {}
+impl UFoliageStatistics {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFoliageStatistics")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(16))]
 pub struct UGrassInstancedStaticMeshComponent {
     __padding_end: [u8; 3280],
 }
-impl UGrassInstancedStaticMeshComponent {}
+impl UGrassInstancedStaticMeshComponent {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGrassInstancedStaticMeshComponent")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct AInteractiveFoliageActor {
     #[doc(hidden)]
@@ -138,12 +350,44 @@ pub struct AInteractiveFoliageActor {
     pub max_force: f32,
     __padding_end: [u8; 8],
 }
-impl AInteractiveFoliageActor {}
+impl AInteractiveFoliageActor {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("AInteractiveFoliageActor")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct AProceduralFoliageBlockingVolume {
     __padding_end: [u8; 1360],
 }
-impl AProceduralFoliageBlockingVolume {}
+impl AProceduralFoliageBlockingVolume {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("AProceduralFoliageBlockingVolume")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UProceduralFoliageComponent {
     #[doc(hidden)]
@@ -158,7 +402,23 @@ pub struct UProceduralFoliageComponent {
     pub b_show_debug_tiles: bool,
     __padding_end: [u8; 30],
 }
-impl UProceduralFoliageComponent {}
+impl UProceduralFoliageComponent {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UProceduralFoliageComponent")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UProceduralFoliageSpawner {
     #[doc(hidden)]
@@ -169,12 +429,44 @@ pub struct UProceduralFoliageSpawner {
     pub minimum_quad_tree_size: f32,
     __padding_end: [u8; 72],
 }
-impl UProceduralFoliageSpawner {}
+impl UProceduralFoliageSpawner {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UProceduralFoliageSpawner")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UProceduralFoliageTile {
     __padding_end: [u8; 376],
 }
-impl UProceduralFoliageTile {}
+impl UProceduralFoliageTile {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UProceduralFoliageTile")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct AProceduralFoliageVolume {
     #[doc(hidden)]
@@ -182,7 +474,23 @@ pub struct AProceduralFoliageVolume {
     pub procedural_component: UPtr<UProceduralFoliageComponent>,
     __padding_end: [u8; 8],
 }
-impl AProceduralFoliageVolume {}
+impl AProceduralFoliageVolume {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("AProceduralFoliageVolume")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct FFoliageInstancedStaticMeshComponent_OnInstanceTakePointDamage {
     _opague: [u8; 24],

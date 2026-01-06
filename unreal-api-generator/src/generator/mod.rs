@@ -1,6 +1,7 @@
 use std::{
     collections::{HashMap, HashSet},
     error::Error,
+    hash::Hash,
     path::Path,
 };
 
@@ -63,12 +64,13 @@ impl NameResolver {
     }
 }
 use crate::parse_api::{
-    Api, ClassDefinition, DelegateDefinition, EnumDefinition, Function, OpagueDefinition, Property,
-    PropertyFlag, StructDefinition, Type, TypeUsageHint,
+    Api, ClassDefinition, DelegateDefinition, EnumDefinition, Function, FunctionFlag,
+    OpagueDefinition, Property, PropertyFlag, StructDefinition, Type, TypeUsageHint,
 };
 
 pub struct Context {
     name_resolver: NameResolver,
+    extension_fns_struct: HashMap<String, Vec<Function>>,
 }
 
 pub fn iter_properties(properties: &[Property]) -> impl Iterator<Item = &Property> {
@@ -79,11 +81,195 @@ pub fn iter_properties(properties: &[Property]) -> impl Iterator<Item = &Propert
 
 impl Context {
     pub fn new(api: &Api) -> Self {
+        let mut extension_fns: HashMap<String, Vec<Function>> = HashMap::new();
+
+        for class in &api.classes {
+            let Some(name) = class.meta.get("Impl") else {
+                continue;
+            };
+
+            let fns = extension_fns.entry(name.clone()).or_default();
+            fns.extend_from_slice(&class.functions);
+        }
+
         Self {
+            extension_fns_struct: extension_fns,
             name_resolver: NameResolver::from(api),
         }
     }
 }
+pub fn generate_module_globals(api: &Api) -> HashMap<String, TokenStream> {
+    let mut module_to_class = HashMap::<String, Vec<&ClassDefinition>>::new();
+    for def in &api.classes {
+        let module_name = module_name_from_package(&def.package);
+        module_to_class
+            .entry(module_name.clone())
+            .or_default()
+            .push(def);
+    }
+
+    // let mut module_to_struct = HashMap::new();
+    // for def in &api.structs {
+    //     let module_name = module_name_from_package(&def.package);
+    //     module_to_struct.insert(module_name, def);
+    // }
+
+    fn convert_to_fn_name(name: &str, f: &Function) -> Ident {
+        format_ident!(
+            "{}_{}",
+            name.to_shouty_snake_case(),
+            f.function_name.to_shouty_snake_case()
+        )
+    }
+
+    module_to_class
+        .into_iter()
+        .map(|(module_name, defs)| {
+            let all_fn_pts = defs.iter()
+                .flat_map(|&def| {
+                def.functions.iter().map(|f| {
+                    let ident = convert_to_fn_name(&def.class_name, f);
+                    quote! {
+                        #[doc(hidden)]
+                        pub static mut #ident: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+                    }
+                })
+            });
+
+            let initialize_all_fn_ptrs = defs.iter().flat_map(|&def| {
+                let name = format_ident!("{}", def.class_name);
+
+                let initialize_ptrs_scope: Vec<TokenStream> = def.functions.iter().map(|f| {
+                    let fn_name = &f.function_name;
+                    let ptr_ident = convert_to_fn_name(&def.class_name, f);
+                    quote! {
+                        (bindings
+                            .core_fns
+                            .find_function_by_name)(
+                            class_ptr,
+                            unreal_ffi::Utf8Str::from(#fn_name),
+                            &raw mut #ptr_ident,
+                        );
+                    }
+                }).collect();
+
+                if initialize_ptrs_scope.is_empty()
+                {
+                    return None;
+
+                }
+
+                Some(
+                    quote! {
+                        unsafe {
+                            let bindings = crate::module::bindings();
+                            let class_ptr = #name::static_class();
+
+                            #(
+                                #initialize_ptrs_scope
+                            )*
+                        }
+                    }
+                )
+            });
+
+            let q = quote! {
+                #(
+                    #all_fn_pts
+                )*
+                pub fn initialize()
+                {
+                    #(
+                        #initialize_all_fn_ptrs
+                    )*
+
+                }
+            };
+            (module_name, q)
+        })
+        .collect()
+}
+
+pub fn generate_globals(api: &Api) -> TokenStream {
+    let class_db = quote! {
+        pub struct ClassPtrDB{
+            pub name_to_ptr: std::collections::HashMap<String, *mut crate::ffi::UObjectOpague>,
+        }
+        pub static CLASS_PTRS: std::sync::OnceLock<ClassPtrDB> = std::sync::OnceLock::new();
+
+        unsafe impl Sync for ClassPtrDB {}
+        unsafe impl Send for ClassPtrDB {}
+
+        impl ClassPtrDB {
+            pub fn from(bindings: &'static crate::ffi::UnrealBindings) -> Self {
+                let mut name_to_ptr = std::collections::HashMap::new();
+
+                let mut classes_alloc = crate::ffi::RustAlloc::empty();
+                unsafe {
+                    (bindings.core_fns.get_all_uclasses)(&mut classes_alloc);
+                }
+
+                let ptr = classes_alloc.ptr.cast::<*mut crate::ffi::UObjectOpague>();
+                let len = classes_alloc.size / std::mem::size_of::<*mut crate::ffi::UObjectOpague>();
+
+                let class_slice = unsafe { std::slice::from_raw_parts(ptr, len) };
+
+                for &class_ptr in class_slice {
+                    let mut str_alloc = crate::ffi::StrRustAlloc::empty();
+                    unsafe {
+                        (bindings.core_fns.get_class_name)(class_ptr, &mut str_alloc);
+                    }
+                    let class_name = str_alloc.into_string();
+                    name_to_ptr.insert(class_name, class_ptr);
+                }
+
+                Self { name_to_ptr }
+            }
+        }
+    };
+
+    let struct_ptr_tokens = api.structs.iter().map(|def| {
+        let name = format_ident!("{}", def.struct_name);
+        quote! {
+            #name: *mut crate::ffi::UObjectOpague
+        }
+    });
+
+    let struct_db = quote! {
+        pub struct StructPtrDB{
+            pub name_to_ptr: std::collections::HashMap<String, *mut crate::ffi::UObjectOpague>,
+        }
+    };
+
+    let modules: HashSet<String> = api
+        .classes
+        .iter()
+        .map(|def| module_name_from_package(&def.package))
+        .collect();
+
+    let initialize_modules_tokens = modules.iter().map(|module| {
+        let module_ident = format_ident!("{}", module);
+        quote! {
+            crate::bindings::#module_ident::initialize();
+        }
+    });
+
+    quote! {
+        #![allow(unused)]
+        #![allow(non_snake_case)]
+        #struct_db
+
+        #class_db
+
+        pub fn initialize_modules()
+        {
+            #(
+               #initialize_modules_tokens
+            )*
+        }
+    }
+}
+
 pub fn generate_opagues(api: &Api) -> Result<Vec<TokenStream>, Box<dyn Error>> {
     Ok(api
         .opague_defs
@@ -216,11 +402,16 @@ pub fn generate_layout_check(name: &str, properties: &[Property]) -> TokenStream
     }
 }
 
-pub fn generate_function(ctx: &Context, module: &str, function: &Function) -> TokenStream {
+pub fn generate_function(
+    ctx: &Context,
+    ty_name: &str,
+    module: &str,
+    function: &Function,
+) -> TokenStream {
     let fn_name = function
         .meta
         .get("ScriptName")
-        .unwrap_or_else(|| &function.function_name);
+        .unwrap_or(&function.function_name);
     let fn_ident = format_ident!("{}", fn_name.to_snake_case());
 
     let return_ty = function.parameters.last().and_then(|param| {
@@ -245,36 +436,117 @@ pub fn generate_function(ctx: &Context, module: &str, function: &Function) -> To
 
             let name = format_ident!("{}", property_name(&param.property));
             let ty = generate_type(module, ctx, &param.property.data_type).ok()?;
+            let reference = if param.property.flags.contains(&PropertyFlag::OutParm) {
+                if param.property.flags.contains(&PropertyFlag::ConstParm) {
+                    Some(quote! {
+                        &
+                    })
+                } else {
+                    Some(quote! {
+                        &mut
+                    })
+                }
+            } else {
+                None
+            };
             Some(quote! {
-                #name: #ty
+                #name: #reference #ty
             })
         })
         .collect();
 
-    let all_properties = function.parameters.iter().map(|param| {
+    let stack_size_lit = Literal::u32_unsuffixed(function.param_size as _);
+
+    let raw_fn_name = &function.function_name;
+
+    let self_tokens = if !function.flags.contains(&FunctionFlag::Static) {
+        let tokens = if function.flags.contains(&FunctionFlag::Const) {
+            quote! {
+                &self
+            }
+        } else {
+            quote! {
+                &mut self
+            }
+        };
+        Some(tokens)
+    } else {
+        None
+    }
+    .into_iter();
+
+    let out_tokens = function.parameters.iter().filter_map(|param| {
+        let is_out_param = param.property.flags.contains(&PropertyFlag::OutParm)
+            && !param.property.flags.contains(&PropertyFlag::ConstParm);
+
+        if param.property.name == "ReturnValue" || !is_out_param {
+            return None;
+        }
+
         let name = format_ident!("{}", property_name(&param.property));
         let ty = generate_type(module, ctx, &param.property.data_type).unwrap();
 
-        quote! {
-        #name: #ty
-        }
+        let offset = Literal::u32_unsuffixed(param.property.offset);
+
+        Some(quote! {
+            unsafe {
+                buffer.add(#offset).cast::<#ty>().swap(#name);
+            }
+
+        })
+        .clone()
     });
 
-    let param_struct = quote! {
-        #[repr(C)]
-        pub struct Param
-        {
-            #(
-                #all_properties
-            ),*
+    let object_ptr_tokens = if function.flags.contains(&FunctionFlag::Static) {
+        quote! {
+            let mut object_ptr = Self::cdo();
+        }
+    } else {
+        quote! {
+            let object_ptr = self as *const _ as *mut std::ffi::c_void;
         }
     };
+    let return_tokens = function.parameters.last().and_then(|param| {
+        if param.property.name != "ReturnValue" {
+            return None;
+        }
+
+        let ty = generate_type(module, ctx, &param.property.data_type).unwrap();
+
+        let return_offset = Literal::u32_unsuffixed(param.property.offset);
+
+        Some(quote! {
+            unsafe {
+                let return_ptr = buffer.add(#return_offset).cast::<#ty>();
+                return_ptr.read()
+            }
+        })
+    });
+
+    let fn_ptr = format_ident!(
+        "{}_{}",
+        ty_name.to_shouty_snake_case(),
+        function.function_name.to_shouty_snake_case()
+    );
 
     quote! {
-        fn #fn_ident(#(#param_tokens),*) #return_ty
+        pub fn #fn_ident(#(#self_tokens,)* #(#param_tokens),*) #return_ty
         {
-            #param_struct
-            todo!()
+            let mut stack = crate::core_data::StackAlloc::<#stack_size_lit>::new();
+            let buffer = stack.buffer_mut();
+
+            let bindings = crate::module::bindings();
+
+            unsafe { (bindings.core_fns.initialize_values_in_param_buffer)(#fn_ptr, buffer) };
+
+            #object_ptr_tokens
+            unsafe { (bindings.core_fns.process_event)(object_ptr, #fn_ptr, buffer) };
+
+            #(
+                #out_tokens
+            )*
+
+            #return_tokens
         }
     }
 }
@@ -282,6 +554,7 @@ pub fn generate_class(
     ctx: &Context,
     class_def: &ClassDefinition,
 ) -> Result<(String, TokenStream), Box<dyn Error>> {
+    let class_str = &class_def.class_name;
     let class_name = format_ident!("{}", class_def.class_name);
     // let trait_name = format_ident!("I{}", &actor.class_name[1..]);
 
@@ -334,6 +607,7 @@ pub fn generate_class(
         "UStaticMesh",
         "UWidget",
         "UVolumetricCloudComponent",
+        "URustExtension_FHitResult",
     ];
     let layout_check_tokens = if allow_list.contains(&class_def.class_name.as_str()) {
         Some(generate_layout_check(
@@ -344,13 +618,18 @@ pub fn generate_class(
         None
     };
 
-    let fn_allow_list = ["K2_GetActorLocation", "K2_SetActorLocation"];
+    let fn_allow_list = [
+        "K2_GetActorLocation",
+        "K2_SetActorLocation",
+        "GetLevelTransform",
+        "New",
+    ];
 
     let function_tokens: Vec<_> = class_def
         .functions
         .iter()
         .filter(|f| fn_allow_list.contains(&f.function_name.as_str()))
-        .map(|f| generate_function(ctx, &module_name, f))
+        .map(|f| generate_function(ctx, &class_def.class_name, &module_name, f))
         .collect();
 
     let class_tokens = quote! {
@@ -358,6 +637,19 @@ pub fn generate_class(
         #class_def_tokens
         impl #class_name
         {
+            pub fn static_class() -> *mut crate::ffi::UObjectOpague
+            {
+                *crate::bindings::globals::CLASS_PTRS.wait().name_to_ptr.get(#class_str).unwrap()
+            }
+            pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+                let class = Self::static_class();
+                unsafe {
+                    let mut cdo = std::ptr::null_mut();
+                    (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+                    cdo
+                }
+            }
+
             #(
                 #function_tokens
             )*
@@ -394,7 +686,7 @@ pub fn generate_type(
                 rest => rest,
             };
 
-            let ty_tokens = match *usage_hint {
+            match *usage_hint {
                 Some(TypeUsageHint::UObject) => {
                     let ty_ident = ctx
                         .name_resolver
@@ -415,9 +707,7 @@ pub fn generate_type(
                 _ => ctx
                     .name_resolver
                     .get_type_ident(Some(current_module), rust_ty_str),
-            };
-
-            ty_tokens
+            }
         }
         Type::Container {
             container_type_name,
@@ -464,7 +754,7 @@ pub fn generate_type(
         inner_tokens
     };
 
-    return Ok(tokens);
+    Ok(tokens)
 }
 pub fn sanitize_type_name(name: &str) -> &str {
     let trimmed_name = name.trim_start_matches("b_");
@@ -713,11 +1003,28 @@ pub fn generate_struct(
         None
     };
 
+    // let fn_tokens = ctx
+    //     .extension_fns_struct
+    //     .get(&struct_def.struct_name)
+    //     .map(|fns| {
+    //         let fn_tokens = fns
+    //             .iter()
+    //             .map(|f| generate_function(ctx, &module_name, f))
+    //             .collect::<Vec<_>>();
+    //
+    //         quote! {
+    //             #(
+    //                 #fn_tokens
+    //             )*
+    //         }
+    //     });
+
     let tokens = quote! {
         #struct_def_tokens
         impl #struct_ident
         {
             #layout_check_tokens
+            // #fn_tokens
         }
     };
 
@@ -765,6 +1072,11 @@ pub fn generate_crate(api: &Api, out_path: &Path) -> Result<(), Box<dyn Error>> 
     let delegates = generate_delegates(api)?;
     let enum_defs = generate_enums(&ctx, api)?;
     let mut modules: HashMap<String, Vec<TokenStream>> = HashMap::new();
+
+    let global_module_tokens = generate_module_globals(api);
+    for (module_name, tokens) in global_module_tokens {
+        modules.entry(module_name.clone()).or_default().push(tokens);
+    }
 
     for (module_name, structs) in pods {
         let struct_tokens = quote! {
@@ -819,6 +1131,9 @@ pub fn generate_crate(api: &Api, out_path: &Path) -> Result<(), Box<dyn Error>> 
             #![allow(unused_imports)]
             #![allow(unused_variables)]
             #![allow(non_camel_case_types)]
+            #![allow(clippy::non_camel_case_types)]
+            #![allow(clippy::new_without_default)]
+            #![allow(clippy::new_ret_no_self)]
             pub use crate::bindings::opague_definitions::*;
             pub use crate::core_data::*;
             #(#all_tokens)*
@@ -842,12 +1157,15 @@ pub fn generate_crate(api: &Api, out_path: &Path) -> Result<(), Box<dyn Error>> 
         )*
 
         pub mod opague_definitions;
+        pub mod globals;
 
         #[cfg(test)]
         mod tests;
 
     };
+    let globals = generate_globals(api);
 
+    save_file(&globals, &out_path.join("globals.rs"));
     save_file(&mod_tests, &out_path.join("tests.rs"));
     save_file(&mod_tokens, &out_path.join("mod.rs"));
     save_file(&opague_tokens, &out_path.join("opague_definitions.rs"));

@@ -2,8 +2,1098 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(clippy::non_camel_case_types)]
+#![allow(clippy::new_without_default)]
+#![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
+#[doc(hidden)]
+pub static mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_UNREGISTER_AUDIO_BUS_FROM_SUBMIX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_TRIM_AUDIO_CACHE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_SWAP_AUDIO_OUTPUT_DEVICE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_STOP_RECORDING_OUTPUT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_STOP_AUDIO_BUS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_STOP_ANALYZING_OUTPUT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_START_RECORDING_OUTPUT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_START_AUDIO_BUS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_START_ANALYZING_OUTPUT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_SET_SUBMIX_EFFECT_CHAIN_OVERRIDE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_SET_BYPASS_SOURCE_EFFECT_CHAIN_ENTRY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_RESUME_RECORDING_OUTPUT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_REPLACE_SUBMIX_EFFECT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_REPLACE_SOUND_EFFECT_SUBMIX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_REMOVE_SUBMIX_EFFECT_PRESET_AT_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_REMOVE_SUBMIX_EFFECT_PRESET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_REMOVE_SUBMIX_EFFECT_AT_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_REMOVE_SUBMIX_EFFECT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_REMOVE_SOURCE_EFFECT_FROM_PRESET_CHAIN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_REMOVE_MASTER_SUBMIX_EFFECT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_REGISTER_AUDIO_BUS_TO_SUBMIX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_PRIME_SOUND_FOR_PLAYBACK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_PRIME_SOUND_CUE_FOR_PLAYBACK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_PAUSE_RECORDING_OUTPUT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_MAKE_PRESET_SPECTRAL_ANALYSIS_BAND_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_MAKE_MUSICAL_SPECTRAL_ANALYSIS_BAND_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_MAKE_FULL_SPECTRUM_SPECTRAL_ANALYSIS_BAND_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_IS_AUDIO_BUS_ACTIVE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_GET_PHASE_FOR_FREQUENCIES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_GET_NUMBER_OF_ENTRIES_IN_SOURCE_EFFECT_CHAIN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_GET_MAGNITUDE_FOR_FREQUENCIES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_GET_CURRENT_AUDIO_OUTPUT_DEVICE_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_GET_AVAILABLE_AUDIO_OUTPUT_DEVICES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_CONV_AUDIO_OUTPUT_DEVICE_INFO_TO_STRING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_CLEAR_SUBMIX_EFFECTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_CLEAR_SUBMIX_EFFECT_CHAIN_OVERRIDE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_CLEAR_MASTER_SUBMIX_EFFECTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_ADD_SUBMIX_EFFECT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_ADD_SOURCE_EFFECT_TO_PRESET_CHAIN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_ADD_MASTER_SUBMIX_EFFECT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SYNTH_COMPONENT_STOP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SYNTH_COMPONENT_START: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SYNTH_COMPONENT_SET_VOLUME_MULTIPLIER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SYNTH_COMPONENT_SET_SUBMIX_SEND: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SYNTH_COMPONENT_SET_SOURCE_BUS_SEND_PRE_EFFECT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SYNTH_COMPONENT_SET_SOURCE_BUS_SEND_POST_EFFECT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SYNTH_COMPONENT_SET_OUTPUT_TO_BUS_ONLY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SYNTH_COMPONENT_SET_MODULATION_ROUTING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SYNTH_COMPONENT_SET_LOW_PASS_FILTER_FREQUENCY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SYNTH_COMPONENT_SET_LOW_PASS_FILTER_ENABLED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SYNTH_COMPONENT_SET_AUDIO_BUS_SEND_PRE_EFFECT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SYNTH_COMPONENT_SET_AUDIO_BUS_SEND_POST_EFFECT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SYNTH_COMPONENT_IS_PLAYING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SYNTH_COMPONENT_GET_MODULATORS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SYNTH_COMPONENT_FADE_OUT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SYNTH_COMPONENT_FADE_IN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SYNTH_COMPONENT_ADJUST_VOLUME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SUBMIX_EFFECT_DYNAMICS_PROCESSOR_PRESET_SET_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SUBMIX_EFFECT_DYNAMICS_PROCESSOR_PRESET_SET_EXTERNAL_SUBMIX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SUBMIX_EFFECT_DYNAMICS_PROCESSOR_PRESET_SET_AUDIO_BUS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SUBMIX_EFFECT_DYNAMICS_PROCESSOR_PRESET_RESET_KEY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SUBMIX_EFFECT_SUBMIX_EQ_PRESET_SET_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SUBMIX_EFFECT_REVERB_PRESET_SET_SETTINGS_WITH_REVERB_EFFECT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SUBMIX_EFFECT_REVERB_PRESET_SET_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SCRUBBED_SOUND_SET_SOUND_WAVE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SCRUBBED_SOUND_SET_PLAYHEAD_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SCRUBBED_SOUND_SET_IS_SCRUBBING_WHILE_STATIONARY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SCRUBBED_SOUND_SET_IS_SCRUBBING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SCRUBBED_SOUND_SET_GRAIN_DURATION_RANGE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SCRUBBED_SOUND_GET_PLAYHEAD_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_QUARTZ_CLOCK_HANDLE_UNSUBSCRIBE_FROM_TIME_DIVISION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_QUARTZ_CLOCK_HANDLE_UNSUBSCRIBE_FROM_ALL_TIME_DIVISIONS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_QUARTZ_CLOCK_HANDLE_SUBSCRIBE_TO_QUANTIZATION_EVENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_QUARTZ_CLOCK_HANDLE_SUBSCRIBE_TO_ALL_QUANTIZATION_EVENTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_QUARTZ_CLOCK_HANDLE_STOP_CLOCK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_QUARTZ_CLOCK_HANDLE_START_OTHER_CLOCK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_QUARTZ_CLOCK_HANDLE_START_CLOCK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_QUARTZ_CLOCK_HANDLE_SET_TICKS_PER_SECOND: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_QUARTZ_CLOCK_HANDLE_SET_THIRTY_SECOND_NOTES_PER_MINUTE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_QUARTZ_CLOCK_HANDLE_SET_SECONDS_PER_TICK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_QUARTZ_CLOCK_HANDLE_SET_MILLISECONDS_PER_TICK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_QUARTZ_CLOCK_HANDLE_SET_BEATS_PER_MINUTE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_QUARTZ_CLOCK_HANDLE_RESUME_CLOCK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_QUARTZ_CLOCK_HANDLE_RESET_TRANSPORT_QUANTIZED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_QUARTZ_CLOCK_HANDLE_RESET_TRANSPORT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_QUARTZ_CLOCK_HANDLE_PAUSE_CLOCK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_QUARTZ_CLOCK_HANDLE_NOTIFY_ON_QUANTIZATION_BOUNDARY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_QUARTZ_CLOCK_HANDLE_IS_CLOCK_RUNNING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_QUARTZ_CLOCK_HANDLE_GET_TICKS_PER_SECOND: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_QUARTZ_CLOCK_HANDLE_GET_THIRTY_SECOND_NOTES_PER_MINUTE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_QUARTZ_CLOCK_HANDLE_GET_SECONDS_PER_TICK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_QUARTZ_CLOCK_HANDLE_GET_MILLISECONDS_PER_TICK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_QUARTZ_CLOCK_HANDLE_GET_ESTIMATED_RUN_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_QUARTZ_CLOCK_HANDLE_GET_DURATION_OF_QUANTIZATION_TYPE_IN_SECONDS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_QUARTZ_CLOCK_HANDLE_GET_CURRENT_TIMESTAMP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_QUARTZ_CLOCK_HANDLE_GET_BEATS_PER_MINUTE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_QUARTZ_CLOCK_HANDLE_GET_BEAT_PROGRESS_PERCENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_QUARTZ_SUBSYSTEM_SET_QUARTZ_SUBSYSTEM_TICKABLE_WHEN_PAUSED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_QUARTZ_SUBSYSTEM_IS_QUARTZ_ENABLED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_QUARTZ_SUBSYSTEM_IS_CLOCK_RUNNING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_QUARTZ_SUBSYSTEM_GET_ROUND_TRIP_MIN_LATENCY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_QUARTZ_SUBSYSTEM_GET_ROUND_TRIP_MAX_LATENCY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_QUARTZ_SUBSYSTEM_GET_ROUND_TRIP_AVERAGE_LATENCY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_QUARTZ_SUBSYSTEM_GET_HANDLE_FOR_CLOCK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_QUARTZ_SUBSYSTEM_GET_GAME_THREAD_TO_AUDIO_RENDER_THREAD_MIN_LATENCY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_QUARTZ_SUBSYSTEM_GET_GAME_THREAD_TO_AUDIO_RENDER_THREAD_MAX_LATENCY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_QUARTZ_SUBSYSTEM_GET_GAME_THREAD_TO_AUDIO_RENDER_THREAD_AVERAGE_LATENCY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_QUARTZ_SUBSYSTEM_GET_ESTIMATED_CLOCK_RUN_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_QUARTZ_SUBSYSTEM_GET_DURATION_OF_QUANTIZATION_TYPE_IN_SECONDS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_QUARTZ_SUBSYSTEM_GET_CURRENT_CLOCK_TIMESTAMP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_QUARTZ_SUBSYSTEM_GET_AUDIO_RENDER_THREAD_TO_GAME_THREAD_MIN_LATENCY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_QUARTZ_SUBSYSTEM_GET_AUDIO_RENDER_THREAD_TO_GAME_THREAD_MAX_LATENCY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_QUARTZ_SUBSYSTEM_GET_AUDIO_RENDER_THREAD_TO_GAME_THREAD_AVERAGE_LATENCY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_QUARTZ_SUBSYSTEM_DOES_CLOCK_EXIST: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_QUARTZ_SUBSYSTEM_DELETE_CLOCK_BY_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_QUARTZ_SUBSYSTEM_DELETE_CLOCK_BY_HANDLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_QUARTZ_SUBSYSTEM_CREATE_NEW_CLOCK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub fn initialize() {
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UAudioMixerBlueprintLibrary::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("UnregisterAudioBusFromSubmix"),
+            &raw mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_UNREGISTER_AUDIO_BUS_FROM_SUBMIX,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("TrimAudioCache"),
+            &raw mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_TRIM_AUDIO_CACHE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SwapAudioOutputDevice"),
+            &raw mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_SWAP_AUDIO_OUTPUT_DEVICE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("StopRecordingOutput"),
+            &raw mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_STOP_RECORDING_OUTPUT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("StopAudioBus"),
+            &raw mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_STOP_AUDIO_BUS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("StopAnalyzingOutput"),
+            &raw mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_STOP_ANALYZING_OUTPUT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("StartRecordingOutput"),
+            &raw mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_START_RECORDING_OUTPUT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("StartAudioBus"),
+            &raw mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_START_AUDIO_BUS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("StartAnalyzingOutput"),
+            &raw mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_START_ANALYZING_OUTPUT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetSubmixEffectChainOverride"),
+            &raw mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_SET_SUBMIX_EFFECT_CHAIN_OVERRIDE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetBypassSourceEffectChainEntry"),
+            &raw mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_SET_BYPASS_SOURCE_EFFECT_CHAIN_ENTRY,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ResumeRecordingOutput"),
+            &raw mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_RESUME_RECORDING_OUTPUT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ReplaceSubmixEffect"),
+            &raw mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_REPLACE_SUBMIX_EFFECT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ReplaceSoundEffectSubmix"),
+            &raw mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_REPLACE_SOUND_EFFECT_SUBMIX,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("RemoveSubmixEffectPresetAtIndex"),
+            &raw mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_REMOVE_SUBMIX_EFFECT_PRESET_AT_INDEX,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("RemoveSubmixEffectPreset"),
+            &raw mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_REMOVE_SUBMIX_EFFECT_PRESET,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("RemoveSubmixEffectAtIndex"),
+            &raw mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_REMOVE_SUBMIX_EFFECT_AT_INDEX,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("RemoveSubmixEffect"),
+            &raw mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_REMOVE_SUBMIX_EFFECT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("RemoveSourceEffectFromPresetChain"),
+            &raw mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_REMOVE_SOURCE_EFFECT_FROM_PRESET_CHAIN,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("RemoveMasterSubmixEffect"),
+            &raw mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_REMOVE_MASTER_SUBMIX_EFFECT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("RegisterAudioBusToSubmix"),
+            &raw mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_REGISTER_AUDIO_BUS_TO_SUBMIX,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("PrimeSoundForPlayback"),
+            &raw mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_PRIME_SOUND_FOR_PLAYBACK,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("PrimeSoundCueForPlayback"),
+            &raw mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_PRIME_SOUND_CUE_FOR_PLAYBACK,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("PauseRecordingOutput"),
+            &raw mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_PAUSE_RECORDING_OUTPUT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("MakePresetSpectralAnalysisBandSettings"),
+            &raw mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_MAKE_PRESET_SPECTRAL_ANALYSIS_BAND_SETTINGS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("MakeMusicalSpectralAnalysisBandSettings"),
+            &raw mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_MAKE_MUSICAL_SPECTRAL_ANALYSIS_BAND_SETTINGS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("MakeFullSpectrumSpectralAnalysisBandSettings"),
+            &raw mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_MAKE_FULL_SPECTRUM_SPECTRAL_ANALYSIS_BAND_SETTINGS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("IsAudioBusActive"),
+            &raw mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_IS_AUDIO_BUS_ACTIVE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetPhaseForFrequencies"),
+            &raw mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_GET_PHASE_FOR_FREQUENCIES,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetNumberOfEntriesInSourceEffectChain"),
+            &raw mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_GET_NUMBER_OF_ENTRIES_IN_SOURCE_EFFECT_CHAIN,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetMagnitudeForFrequencies"),
+            &raw mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_GET_MAGNITUDE_FOR_FREQUENCIES,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetCurrentAudioOutputDeviceName"),
+            &raw mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_GET_CURRENT_AUDIO_OUTPUT_DEVICE_NAME,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetAvailableAudioOutputDevices"),
+            &raw mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_GET_AVAILABLE_AUDIO_OUTPUT_DEVICES,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("Conv_AudioOutputDeviceInfoToString"),
+            &raw mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_CONV_AUDIO_OUTPUT_DEVICE_INFO_TO_STRING,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ClearSubmixEffects"),
+            &raw mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_CLEAR_SUBMIX_EFFECTS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ClearSubmixEffectChainOverride"),
+            &raw mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_CLEAR_SUBMIX_EFFECT_CHAIN_OVERRIDE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ClearMasterSubmixEffects"),
+            &raw mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_CLEAR_MASTER_SUBMIX_EFFECTS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("AddSubmixEffect"),
+            &raw mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_ADD_SUBMIX_EFFECT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("AddSourceEffectToPresetChain"),
+            &raw mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_ADD_SOURCE_EFFECT_TO_PRESET_CHAIN,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("AddMasterSubmixEffect"),
+            &raw mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_ADD_MASTER_SUBMIX_EFFECT,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = USynthComponent::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("Stop"),
+            &raw mut U_SYNTH_COMPONENT_STOP,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("Start"),
+            &raw mut U_SYNTH_COMPONENT_START,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetVolumeMultiplier"),
+            &raw mut U_SYNTH_COMPONENT_SET_VOLUME_MULTIPLIER,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetSubmixSend"),
+            &raw mut U_SYNTH_COMPONENT_SET_SUBMIX_SEND,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetSourceBusSendPreEffect"),
+            &raw mut U_SYNTH_COMPONENT_SET_SOURCE_BUS_SEND_PRE_EFFECT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetSourceBusSendPostEffect"),
+            &raw mut U_SYNTH_COMPONENT_SET_SOURCE_BUS_SEND_POST_EFFECT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetOutputToBusOnly"),
+            &raw mut U_SYNTH_COMPONENT_SET_OUTPUT_TO_BUS_ONLY,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetModulationRouting"),
+            &raw mut U_SYNTH_COMPONENT_SET_MODULATION_ROUTING,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetLowPassFilterFrequency"),
+            &raw mut U_SYNTH_COMPONENT_SET_LOW_PASS_FILTER_FREQUENCY,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetLowPassFilterEnabled"),
+            &raw mut U_SYNTH_COMPONENT_SET_LOW_PASS_FILTER_ENABLED,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetAudioBusSendPreEffect"),
+            &raw mut U_SYNTH_COMPONENT_SET_AUDIO_BUS_SEND_PRE_EFFECT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetAudioBusSendPostEffect"),
+            &raw mut U_SYNTH_COMPONENT_SET_AUDIO_BUS_SEND_POST_EFFECT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("IsPlaying"),
+            &raw mut U_SYNTH_COMPONENT_IS_PLAYING,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetModulators"),
+            &raw mut U_SYNTH_COMPONENT_GET_MODULATORS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("FadeOut"),
+            &raw mut U_SYNTH_COMPONENT_FADE_OUT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("FadeIn"),
+            &raw mut U_SYNTH_COMPONENT_FADE_IN,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("AdjustVolume"),
+            &raw mut U_SYNTH_COMPONENT_ADJUST_VOLUME,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = USubmixEffectDynamicsProcessorPreset::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetSettings"),
+            &raw mut U_SUBMIX_EFFECT_DYNAMICS_PROCESSOR_PRESET_SET_SETTINGS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetExternalSubmix"),
+            &raw mut U_SUBMIX_EFFECT_DYNAMICS_PROCESSOR_PRESET_SET_EXTERNAL_SUBMIX,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetAudioBus"),
+            &raw mut U_SUBMIX_EFFECT_DYNAMICS_PROCESSOR_PRESET_SET_AUDIO_BUS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ResetKey"),
+            &raw mut U_SUBMIX_EFFECT_DYNAMICS_PROCESSOR_PRESET_RESET_KEY,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = USubmixEffectSubmixEQPreset::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetSettings"),
+            &raw mut U_SUBMIX_EFFECT_SUBMIX_EQ_PRESET_SET_SETTINGS,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = USubmixEffectReverbPreset::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetSettingsWithReverbEffect"),
+            &raw mut U_SUBMIX_EFFECT_REVERB_PRESET_SET_SETTINGS_WITH_REVERB_EFFECT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetSettings"),
+            &raw mut U_SUBMIX_EFFECT_REVERB_PRESET_SET_SETTINGS,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UScrubbedSound::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetSoundWave"),
+            &raw mut U_SCRUBBED_SOUND_SET_SOUND_WAVE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetPlayheadTime"),
+            &raw mut U_SCRUBBED_SOUND_SET_PLAYHEAD_TIME,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetIsScrubbingWhileStationary"),
+            &raw mut U_SCRUBBED_SOUND_SET_IS_SCRUBBING_WHILE_STATIONARY,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetIsScrubbing"),
+            &raw mut U_SCRUBBED_SOUND_SET_IS_SCRUBBING,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetGrainDurationRange"),
+            &raw mut U_SCRUBBED_SOUND_SET_GRAIN_DURATION_RANGE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetPlayheadTime"),
+            &raw mut U_SCRUBBED_SOUND_GET_PLAYHEAD_TIME,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UQuartzClockHandle::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("UnsubscribeFromTimeDivision"),
+            &raw mut U_QUARTZ_CLOCK_HANDLE_UNSUBSCRIBE_FROM_TIME_DIVISION,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("UnsubscribeFromAllTimeDivisions"),
+            &raw mut U_QUARTZ_CLOCK_HANDLE_UNSUBSCRIBE_FROM_ALL_TIME_DIVISIONS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SubscribeToQuantizationEvent"),
+            &raw mut U_QUARTZ_CLOCK_HANDLE_SUBSCRIBE_TO_QUANTIZATION_EVENT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SubscribeToAllQuantizationEvents"),
+            &raw mut U_QUARTZ_CLOCK_HANDLE_SUBSCRIBE_TO_ALL_QUANTIZATION_EVENTS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("StopClock"),
+            &raw mut U_QUARTZ_CLOCK_HANDLE_STOP_CLOCK,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("StartOtherClock"),
+            &raw mut U_QUARTZ_CLOCK_HANDLE_START_OTHER_CLOCK,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("StartClock"),
+            &raw mut U_QUARTZ_CLOCK_HANDLE_START_CLOCK,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetTicksPerSecond"),
+            &raw mut U_QUARTZ_CLOCK_HANDLE_SET_TICKS_PER_SECOND,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetThirtySecondNotesPerMinute"),
+            &raw mut U_QUARTZ_CLOCK_HANDLE_SET_THIRTY_SECOND_NOTES_PER_MINUTE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetSecondsPerTick"),
+            &raw mut U_QUARTZ_CLOCK_HANDLE_SET_SECONDS_PER_TICK,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetMillisecondsPerTick"),
+            &raw mut U_QUARTZ_CLOCK_HANDLE_SET_MILLISECONDS_PER_TICK,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetBeatsPerMinute"),
+            &raw mut U_QUARTZ_CLOCK_HANDLE_SET_BEATS_PER_MINUTE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ResumeClock"),
+            &raw mut U_QUARTZ_CLOCK_HANDLE_RESUME_CLOCK,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ResetTransportQuantized"),
+            &raw mut U_QUARTZ_CLOCK_HANDLE_RESET_TRANSPORT_QUANTIZED,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ResetTransport"),
+            &raw mut U_QUARTZ_CLOCK_HANDLE_RESET_TRANSPORT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("PauseClock"),
+            &raw mut U_QUARTZ_CLOCK_HANDLE_PAUSE_CLOCK,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("NotifyOnQuantizationBoundary"),
+            &raw mut U_QUARTZ_CLOCK_HANDLE_NOTIFY_ON_QUANTIZATION_BOUNDARY,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("IsClockRunning"),
+            &raw mut U_QUARTZ_CLOCK_HANDLE_IS_CLOCK_RUNNING,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetTicksPerSecond"),
+            &raw mut U_QUARTZ_CLOCK_HANDLE_GET_TICKS_PER_SECOND,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetThirtySecondNotesPerMinute"),
+            &raw mut U_QUARTZ_CLOCK_HANDLE_GET_THIRTY_SECOND_NOTES_PER_MINUTE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetSecondsPerTick"),
+            &raw mut U_QUARTZ_CLOCK_HANDLE_GET_SECONDS_PER_TICK,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetMillisecondsPerTick"),
+            &raw mut U_QUARTZ_CLOCK_HANDLE_GET_MILLISECONDS_PER_TICK,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetEstimatedRunTime"),
+            &raw mut U_QUARTZ_CLOCK_HANDLE_GET_ESTIMATED_RUN_TIME,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetDurationOfQuantizationTypeInSeconds"),
+            &raw mut U_QUARTZ_CLOCK_HANDLE_GET_DURATION_OF_QUANTIZATION_TYPE_IN_SECONDS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetCurrentTimestamp"),
+            &raw mut U_QUARTZ_CLOCK_HANDLE_GET_CURRENT_TIMESTAMP,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetBeatsPerMinute"),
+            &raw mut U_QUARTZ_CLOCK_HANDLE_GET_BEATS_PER_MINUTE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetBeatProgressPercent"),
+            &raw mut U_QUARTZ_CLOCK_HANDLE_GET_BEAT_PROGRESS_PERCENT,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UQuartzSubsystem::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetQuartzSubsystemTickableWhenPaused"),
+            &raw mut U_QUARTZ_SUBSYSTEM_SET_QUARTZ_SUBSYSTEM_TICKABLE_WHEN_PAUSED,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("IsQuartzEnabled"),
+            &raw mut U_QUARTZ_SUBSYSTEM_IS_QUARTZ_ENABLED,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("IsClockRunning"),
+            &raw mut U_QUARTZ_SUBSYSTEM_IS_CLOCK_RUNNING,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetRoundTripMinLatency"),
+            &raw mut U_QUARTZ_SUBSYSTEM_GET_ROUND_TRIP_MIN_LATENCY,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetRoundTripMaxLatency"),
+            &raw mut U_QUARTZ_SUBSYSTEM_GET_ROUND_TRIP_MAX_LATENCY,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetRoundTripAverageLatency"),
+            &raw mut U_QUARTZ_SUBSYSTEM_GET_ROUND_TRIP_AVERAGE_LATENCY,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetHandleForClock"),
+            &raw mut U_QUARTZ_SUBSYSTEM_GET_HANDLE_FOR_CLOCK,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetGameThreadToAudioRenderThreadMinLatency"),
+            &raw mut U_QUARTZ_SUBSYSTEM_GET_GAME_THREAD_TO_AUDIO_RENDER_THREAD_MIN_LATENCY,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetGameThreadToAudioRenderThreadMaxLatency"),
+            &raw mut U_QUARTZ_SUBSYSTEM_GET_GAME_THREAD_TO_AUDIO_RENDER_THREAD_MAX_LATENCY,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetGameThreadToAudioRenderThreadAverageLatency"),
+            &raw mut U_QUARTZ_SUBSYSTEM_GET_GAME_THREAD_TO_AUDIO_RENDER_THREAD_AVERAGE_LATENCY,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetEstimatedClockRunTime"),
+            &raw mut U_QUARTZ_SUBSYSTEM_GET_ESTIMATED_CLOCK_RUN_TIME,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetDurationOfQuantizationTypeInSeconds"),
+            &raw mut U_QUARTZ_SUBSYSTEM_GET_DURATION_OF_QUANTIZATION_TYPE_IN_SECONDS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetCurrentClockTimestamp"),
+            &raw mut U_QUARTZ_SUBSYSTEM_GET_CURRENT_CLOCK_TIMESTAMP,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetAudioRenderThreadToGameThreadMinLatency"),
+            &raw mut U_QUARTZ_SUBSYSTEM_GET_AUDIO_RENDER_THREAD_TO_GAME_THREAD_MIN_LATENCY,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetAudioRenderThreadToGameThreadMaxLatency"),
+            &raw mut U_QUARTZ_SUBSYSTEM_GET_AUDIO_RENDER_THREAD_TO_GAME_THREAD_MAX_LATENCY,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetAudioRenderThreadToGameThreadAverageLatency"),
+            &raw mut U_QUARTZ_SUBSYSTEM_GET_AUDIO_RENDER_THREAD_TO_GAME_THREAD_AVERAGE_LATENCY,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("DoesClockExist"),
+            &raw mut U_QUARTZ_SUBSYSTEM_DOES_CLOCK_EXIST,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("DeleteClockByName"),
+            &raw mut U_QUARTZ_SUBSYSTEM_DELETE_CLOCK_BY_NAME,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("DeleteClockByHandle"),
+            &raw mut U_QUARTZ_SUBSYSTEM_DELETE_CLOCK_BY_HANDLE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("CreateNewClock"),
+            &raw mut U_QUARTZ_SUBSYSTEM_CREATE_NEW_CLOCK,
+        );
+    }
+}
 #[repr(C, align(8))]
 pub struct FAudioOutputDeviceInfo {
     pub name: FString,
@@ -93,22 +1183,86 @@ impl FSubmixEffectReverbSettings {}
 pub struct UAudioBusSubsystem {
     __padding_end: [u8; 272],
 }
-impl UAudioBusSubsystem {}
+impl UAudioBusSubsystem {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAudioBusSubsystem")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAudioDeviceNotificationSubsystem {
     __padding_end: [u8; 400],
 }
-impl UAudioDeviceNotificationSubsystem {}
+impl UAudioDeviceNotificationSubsystem {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAudioDeviceNotificationSubsystem")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAudioMixerBlueprintLibrary {
     __padding_end: [u8; 48],
 }
-impl UAudioMixerBlueprintLibrary {}
+impl UAudioMixerBlueprintLibrary {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAudioMixerBlueprintLibrary")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(16))]
 pub struct USynthSound {
     __padding_end: [u8; 2192],
 }
-impl USynthSound {}
+impl USynthSound {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USynthSound")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(16))]
 pub struct USynthComponent {
     #[doc(hidden)]
@@ -133,48 +1287,176 @@ pub struct USynthComponent {
     pub envelope_follower_release_time: i32,
     __padding_end: [u8; 124],
 }
-impl USynthComponent {}
+impl USynthComponent {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USynthComponent")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct USubmixEffectDynamicsProcessorPreset {
     #[doc(hidden)]
     __padding_248: [u8; 248],
     pub settings: FSubmixEffectDynamicsProcessorSettings,
 }
-impl USubmixEffectDynamicsProcessorPreset {}
+impl USubmixEffectDynamicsProcessorPreset {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USubmixEffectDynamicsProcessorPreset")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct USubmixEffectSubmixEQPreset {
     #[doc(hidden)]
     __padding_168: [u8; 168],
     pub settings: FSubmixEffectSubmixEQSettings,
 }
-impl USubmixEffectSubmixEQPreset {}
+impl USubmixEffectSubmixEQPreset {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USubmixEffectSubmixEQPreset")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct USubmixEffectReverbPreset {
     #[doc(hidden)]
     __padding_216: [u8; 216],
     pub settings: FSubmixEffectReverbSettings,
 }
-impl USubmixEffectReverbPreset {}
+impl USubmixEffectReverbPreset {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USubmixEffectReverbPreset")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAudioGenerator {
     __padding_end: [u8; 176],
 }
-impl UAudioGenerator {}
+impl UAudioGenerator {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAudioGenerator")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UScrubbedSound {
     __padding_end: [u8; 2136],
 }
-impl UScrubbedSound {}
+impl UScrubbedSound {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UScrubbedSound")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UQuartzClockHandle {
     __padding_end: [u8; 688],
 }
-impl UQuartzClockHandle {}
+impl UQuartzClockHandle {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UQuartzClockHandle")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UQuartzSubsystem {
     __padding_end: [u8; 120],
 }
-impl UQuartzSubsystem {}
+impl UQuartzSubsystem {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UQuartzSubsystem")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct FGetAvailableAudioOutputDevices_OnObtainDevicesEvent {
     _opague: [u8; 32],

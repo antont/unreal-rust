@@ -159,6 +159,12 @@ pub trait SendEntityEvent: Send + Sync {
     fn send_entity_event(&self, world: &mut World, entity: Entity, json: &str);
 }
 
+pub unsafe extern "C" fn initialize_modules() {
+    let _ = std::panic::catch_unwind(|| {
+        crate::bindings::globals::initialize_modules();
+    });
+}
+
 pub unsafe extern "C" fn send_actor_event(
     actor: *const ffi::AActorOpaque,
     uuid: ffi::Uuid,

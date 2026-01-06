@@ -2,8 +2,528 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(clippy::non_camel_case_types)]
+#![allow(clippy::new_without_default)]
+#![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
+#[doc(hidden)]
+pub static mut U_RIG_VM_SET_PARAMETER_VALUE_VECTOR2_D: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_VM_SET_PARAMETER_VALUE_VECTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_VM_SET_PARAMETER_VALUE_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_VM_SET_PARAMETER_VALUE_STRING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_VM_SET_PARAMETER_VALUE_QUAT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_VM_SET_PARAMETER_VALUE_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_VM_SET_PARAMETER_VALUE_INT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_VM_SET_PARAMETER_VALUE_FLOAT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_VM_SET_PARAMETER_VALUE_DOUBLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_VM_SET_PARAMETER_VALUE_BOOL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_VM_GET_STATISTICS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_VM_GET_RIG_VM_FUNCTION_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_VM_GET_PARAMETER_VALUE_VECTOR2_D: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_VM_GET_PARAMETER_VALUE_VECTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_VM_GET_PARAMETER_VALUE_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_VM_GET_PARAMETER_VALUE_STRING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_VM_GET_PARAMETER_VALUE_QUAT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_VM_GET_PARAMETER_VALUE_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_VM_GET_PARAMETER_VALUE_INT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_VM_GET_PARAMETER_VALUE_FLOAT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_VM_GET_PARAMETER_VALUE_DOUBLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_VM_GET_PARAMETER_VALUE_BOOL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_VM_EXECUTE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_VM_ADD_RIG_VM_FUNCTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_DATA_ASSET_LINK_SET_DATA_ASSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_DATA_ASSET_LINK_GET_DATA_ASSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_VM_USER_WORKFLOW_OPTIONS_REQUIRES_DIALOG: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_VM_USER_WORKFLOW_OPTIONS_REPORT_WARNING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_VM_USER_WORKFLOW_OPTIONS_REPORT_INFO: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_VM_USER_WORKFLOW_OPTIONS_REPORT_ERROR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_VM_USER_WORKFLOW_OPTIONS_IS_VALID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_VM_HOST_SUPPORTS_EVENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_VM_HOST_SET_VARIABLE_FROM_STRING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_VM_HOST_SET_FRAMES_PER_SECOND: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_VM_HOST_SET_DELTA_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_VM_HOST_SET_ABSOLUTE_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_VM_HOST_SET_ABSOLUTE_AND_DELTA_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_VM_HOST_REQUEST_RUN_ONCE_EVENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_VM_HOST_REQUEST_INIT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_VM_HOST_REMOVE_RUN_ONCE_EVENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_VM_HOST_IS_INIT_REQUIRED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_VM_HOST_GET_VM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_VM_HOST_GET_VARIABLE_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_VM_HOST_GET_VARIABLE_AS_STRING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_VM_HOST_GET_SUPPORTED_EVENTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_VM_HOST_GET_SCRIPT_ACCESSIBLE_VARIABLES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_VM_HOST_GET_EXTENDED_EXECUTE_CONTEXT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_VM_HOST_GET_DELTA_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_VM_HOST_GET_CURRENT_FRAMES_PER_SECOND: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_VM_HOST_GET_ABSOLUTE_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_VM_HOST_FIND_RIG_VM_HOSTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_VM_HOST_EXECUTE_EVENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_VM_HOST_EXECUTE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_VM_HOST_CAN_EXECUTE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_RIG_VM_PROJECT_SETTINGS_GET_TAG: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub fn initialize() {
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = URigVM::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetParameterValueVector2D"),
+            &raw mut U_RIG_VM_SET_PARAMETER_VALUE_VECTOR2_D,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetParameterValueVector"),
+            &raw mut U_RIG_VM_SET_PARAMETER_VALUE_VECTOR,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetParameterValueTransform"),
+            &raw mut U_RIG_VM_SET_PARAMETER_VALUE_TRANSFORM,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetParameterValueString"),
+            &raw mut U_RIG_VM_SET_PARAMETER_VALUE_STRING,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetParameterValueQuat"),
+            &raw mut U_RIG_VM_SET_PARAMETER_VALUE_QUAT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetParameterValueName"),
+            &raw mut U_RIG_VM_SET_PARAMETER_VALUE_NAME,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetParameterValueInt"),
+            &raw mut U_RIG_VM_SET_PARAMETER_VALUE_INT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetParameterValueFloat"),
+            &raw mut U_RIG_VM_SET_PARAMETER_VALUE_FLOAT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetParameterValueDouble"),
+            &raw mut U_RIG_VM_SET_PARAMETER_VALUE_DOUBLE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetParameterValueBool"),
+            &raw mut U_RIG_VM_SET_PARAMETER_VALUE_BOOL,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetStatistics"),
+            &raw mut U_RIG_VM_GET_STATISTICS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetRigVMFunctionName"),
+            &raw mut U_RIG_VM_GET_RIG_VM_FUNCTION_NAME,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetParameterValueVector2D"),
+            &raw mut U_RIG_VM_GET_PARAMETER_VALUE_VECTOR2_D,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetParameterValueVector"),
+            &raw mut U_RIG_VM_GET_PARAMETER_VALUE_VECTOR,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetParameterValueTransform"),
+            &raw mut U_RIG_VM_GET_PARAMETER_VALUE_TRANSFORM,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetParameterValueString"),
+            &raw mut U_RIG_VM_GET_PARAMETER_VALUE_STRING,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetParameterValueQuat"),
+            &raw mut U_RIG_VM_GET_PARAMETER_VALUE_QUAT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetParameterValueName"),
+            &raw mut U_RIG_VM_GET_PARAMETER_VALUE_NAME,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetParameterValueInt"),
+            &raw mut U_RIG_VM_GET_PARAMETER_VALUE_INT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetParameterValueFloat"),
+            &raw mut U_RIG_VM_GET_PARAMETER_VALUE_FLOAT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetParameterValueDouble"),
+            &raw mut U_RIG_VM_GET_PARAMETER_VALUE_DOUBLE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetParameterValueBool"),
+            &raw mut U_RIG_VM_GET_PARAMETER_VALUE_BOOL,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("Execute"),
+            &raw mut U_RIG_VM_EXECUTE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("AddRigVMFunction"),
+            &raw mut U_RIG_VM_ADD_RIG_VM_FUNCTION,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UDataAssetLink::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetDataAsset"),
+            &raw mut U_DATA_ASSET_LINK_SET_DATA_ASSET,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetDataAsset"),
+            &raw mut U_DATA_ASSET_LINK_GET_DATA_ASSET,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = URigVMUserWorkflowOptions::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("RequiresDialog"),
+            &raw mut U_RIG_VM_USER_WORKFLOW_OPTIONS_REQUIRES_DIALOG,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ReportWarning"),
+            &raw mut U_RIG_VM_USER_WORKFLOW_OPTIONS_REPORT_WARNING,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ReportInfo"),
+            &raw mut U_RIG_VM_USER_WORKFLOW_OPTIONS_REPORT_INFO,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ReportError"),
+            &raw mut U_RIG_VM_USER_WORKFLOW_OPTIONS_REPORT_ERROR,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("IsValid"),
+            &raw mut U_RIG_VM_USER_WORKFLOW_OPTIONS_IS_VALID,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = URigVMHost::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SupportsEvent"),
+            &raw mut U_RIG_VM_HOST_SUPPORTS_EVENT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetVariableFromString"),
+            &raw mut U_RIG_VM_HOST_SET_VARIABLE_FROM_STRING,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetFramesPerSecond"),
+            &raw mut U_RIG_VM_HOST_SET_FRAMES_PER_SECOND,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetDeltaTime"),
+            &raw mut U_RIG_VM_HOST_SET_DELTA_TIME,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetAbsoluteTime"),
+            &raw mut U_RIG_VM_HOST_SET_ABSOLUTE_TIME,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetAbsoluteAndDeltaTime"),
+            &raw mut U_RIG_VM_HOST_SET_ABSOLUTE_AND_DELTA_TIME,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("RequestRunOnceEvent"),
+            &raw mut U_RIG_VM_HOST_REQUEST_RUN_ONCE_EVENT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("RequestInit"),
+            &raw mut U_RIG_VM_HOST_REQUEST_INIT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("RemoveRunOnceEvent"),
+            &raw mut U_RIG_VM_HOST_REMOVE_RUN_ONCE_EVENT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("IsInitRequired"),
+            &raw mut U_RIG_VM_HOST_IS_INIT_REQUIRED,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetVM"),
+            &raw mut U_RIG_VM_HOST_GET_VM,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetVariableType"),
+            &raw mut U_RIG_VM_HOST_GET_VARIABLE_TYPE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetVariableAsString"),
+            &raw mut U_RIG_VM_HOST_GET_VARIABLE_AS_STRING,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetSupportedEvents"),
+            &raw mut U_RIG_VM_HOST_GET_SUPPORTED_EVENTS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetScriptAccessibleVariables"),
+            &raw mut U_RIG_VM_HOST_GET_SCRIPT_ACCESSIBLE_VARIABLES,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetExtendedExecuteContext"),
+            &raw mut U_RIG_VM_HOST_GET_EXTENDED_EXECUTE_CONTEXT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetDeltaTime"),
+            &raw mut U_RIG_VM_HOST_GET_DELTA_TIME,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetCurrentFramesPerSecond"),
+            &raw mut U_RIG_VM_HOST_GET_CURRENT_FRAMES_PER_SECOND,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetAbsoluteTime"),
+            &raw mut U_RIG_VM_HOST_GET_ABSOLUTE_TIME,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("FindRigVMHosts"),
+            &raw mut U_RIG_VM_HOST_FIND_RIG_VM_HOSTS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ExecuteEvent"),
+            &raw mut U_RIG_VM_HOST_EXECUTE_EVENT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("Execute"),
+            &raw mut U_RIG_VM_HOST_EXECUTE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("CanExecute"),
+            &raw mut U_RIG_VM_HOST_CAN_EXECUTE,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = URigVMProjectSettings::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetTag"),
+            &raw mut U_RIG_VM_PROJECT_SETTINGS_GET_TAG,
+        );
+    }
+}
 #[repr(C, align(8))]
 pub struct FRigVMUserWorkflow {
     #[doc(hidden)]
@@ -3915,17 +4435,61 @@ impl FRigVMFunction_VerletIntegrateVector {}
 pub struct URigVMBlueprintGeneratedClass {
     __padding_end: [u8; 1728],
 }
-impl URigVMBlueprintGeneratedClass {}
+impl URigVMBlueprintGeneratedClass {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("URigVMBlueprintGeneratedClass")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct URigVM {
     __padding_end: [u8; 1320],
 }
-impl URigVM {}
+impl URigVM {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS.wait().name_to_ptr.get("URigVM").unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UNameSpacedUserData {
     __padding_end: [u8; 264],
 }
-impl UNameSpacedUserData {}
+impl UNameSpacedUserData {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNameSpacedUserData")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UDataAssetLink {
     #[doc(hidden)]
@@ -3933,28 +4497,108 @@ pub struct UDataAssetLink {
     pub data_asset: TSoftObjectPtr<crate::bindings::engine::UDataAsset>,
     __padding_end: [u8; 8],
 }
-impl UDataAssetLink {}
+impl UDataAssetLink {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDataAssetLink")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 pub struct IRigVMGraphFunctionHost {}
 #[repr(C, align(8))]
 pub struct URigVMGraphFunctionHost {
     __padding_end: [u8; 48],
 }
-impl URigVMGraphFunctionHost {}
+impl URigVMGraphFunctionHost {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("URigVMGraphFunctionHost")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct URigVMMemoryStorageGeneratorClass {
     __padding_end: [u8; 688],
 }
-impl URigVMMemoryStorageGeneratorClass {}
+impl URigVMMemoryStorageGeneratorClass {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("URigVMMemoryStorageGeneratorClass")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct URigVMMemoryStorage {
     __padding_end: [u8; 48],
 }
-impl URigVMMemoryStorage {}
+impl URigVMMemoryStorage {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("URigVMMemoryStorage")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct URigVMNativized {
     __padding_end: [u8; 1360],
 }
-impl URigVMNativized {}
+impl URigVMNativized {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("URigVMNativized")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct URigVMUserWorkflowOptions {
     #[doc(hidden)]
@@ -3963,22 +4607,86 @@ pub struct URigVMUserWorkflowOptions {
     pub workflow: FRigVMUserWorkflow,
     __padding_end: [u8; 24],
 }
-impl URigVMUserWorkflowOptions {}
+impl URigVMUserWorkflowOptions {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("URigVMUserWorkflowOptions")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(16))]
 pub struct URigVMHost {
     __padding_end: [u8; 1712],
 }
-impl URigVMHost {}
+impl URigVMHost {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("URigVMHost")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct URigVMEditorSettings {
     __padding_end: [u8; 112],
 }
-impl URigVMEditorSettings {}
+impl URigVMEditorSettings {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("URigVMEditorSettings")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct URigVMProjectSettings {
     __padding_end: [u8; 120],
 }
-impl URigVMProjectSettings {}
+impl URigVMProjectSettings {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("URigVMProjectSettings")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct FRigVMUserWorkflow_PerformDynamicDelegate {
     _opague: [u8; 32],

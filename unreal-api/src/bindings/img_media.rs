@@ -2,8 +2,71 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(clippy::non_camel_case_types)]
+#![allow(clippy::new_without_default)]
+#![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
+#[doc(hidden)]
+pub static mut U_IMG_MEDIA_SOURCE_SET_TOKENIZED_SEQUENCE_PATH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_IMG_MEDIA_SOURCE_SET_SEQUENCE_PATH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_IMG_MEDIA_SOURCE_REMOVE_TARGET_OBJECT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_IMG_MEDIA_SOURCE_GET_SEQUENCE_PATH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_IMG_MEDIA_SOURCE_GET_PROXIES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_IMG_MEDIA_SOURCE_ADD_TARGET_OBJECT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub fn initialize() {
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UImgMediaSource::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetTokenizedSequencePath"),
+            &raw mut U_IMG_MEDIA_SOURCE_SET_TOKENIZED_SEQUENCE_PATH,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetSequencePath"),
+            &raw mut U_IMG_MEDIA_SOURCE_SET_SEQUENCE_PATH,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("RemoveTargetObject"),
+            &raw mut U_IMG_MEDIA_SOURCE_REMOVE_TARGET_OBJECT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetSequencePath"),
+            &raw mut U_IMG_MEDIA_SOURCE_GET_SEQUENCE_PATH,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetProxies"),
+            &raw mut U_IMG_MEDIA_SOURCE_GET_PROXIES,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("AddTargetObject"),
+            &raw mut U_IMG_MEDIA_SOURCE_ADD_TARGET_OBJECT,
+        );
+    }
+}
 #[repr(C, align(8))]
 pub struct FMediaSourceColorSettings {
     pub encoding_override: EMediaSourceEncoding,
@@ -28,7 +91,23 @@ pub struct UImgMediaSource {
     pub sequence_path: crate::bindings::core_u_object::FDirectoryPath,
     __padding_end: [u8; 32],
 }
-impl UImgMediaSource {}
+impl UImgMediaSource {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UImgMediaSource")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(transparent)]
 pub struct EMediaSourceEncoding(pub u8);
 impl EMediaSourceEncoding {

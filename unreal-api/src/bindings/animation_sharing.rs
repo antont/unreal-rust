@@ -2,13 +2,109 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(clippy::non_camel_case_types)]
+#![allow(clippy::new_without_default)]
+#![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
+#[doc(hidden)]
+pub static mut U_ANIMATION_SHARING_STATE_PROCESSOR_PROCESS_ACTOR_STATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_ANIMATION_SHARING_STATE_PROCESSOR_GET_ANIMATION_STATE_ENUM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_ANIM_SHARING_STATE_INSTANCE_GET_INSTANCED_ACTORS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_ANIMATION_SHARING_MANAGER_REGISTER_ACTOR_WITH_SKELETON_BP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_ANIMATION_SHARING_MANAGER_GET_ANIMATION_SHARING_MANAGER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_ANIMATION_SHARING_MANAGER_CREATE_ANIMATION_SHARING_MANAGER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_ANIMATION_SHARING_MANAGER_ANIMATION_SHARING_ENABLED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub fn initialize() {
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UAnimationSharingStateProcessor::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ProcessActorState"),
+            &raw mut U_ANIMATION_SHARING_STATE_PROCESSOR_PROCESS_ACTOR_STATE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetAnimationStateEnum"),
+            &raw mut U_ANIMATION_SHARING_STATE_PROCESSOR_GET_ANIMATION_STATE_ENUM,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UAnimSharingStateInstance::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetInstancedActors"),
+            &raw mut U_ANIM_SHARING_STATE_INSTANCE_GET_INSTANCED_ACTORS,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UAnimationSharingManager::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("RegisterActorWithSkeletonBP"),
+            &raw mut U_ANIMATION_SHARING_MANAGER_REGISTER_ACTOR_WITH_SKELETON_BP,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetAnimationSharingManager"),
+            &raw mut U_ANIMATION_SHARING_MANAGER_GET_ANIMATION_SHARING_MANAGER,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("CreateAnimationSharingManager"),
+            &raw mut U_ANIMATION_SHARING_MANAGER_CREATE_ANIMATION_SHARING_MANAGER,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("AnimationSharingEnabled"),
+            &raw mut U_ANIMATION_SHARING_MANAGER_ANIMATION_SHARING_ENABLED,
+        );
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimationSharingStateProcessor {
     __padding_end: [u8; 96],
 }
-impl UAnimationSharingStateProcessor {}
+impl UAnimationSharingStateProcessor {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimationSharingStateProcessor")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(16))]
 pub struct UAnimSharingStateInstance {
     #[doc(hidden)]
@@ -19,7 +115,23 @@ pub struct UAnimSharingStateInstance {
     pub b_state_bool: bool,
     __padding_end: [u8; 23],
 }
-impl UAnimSharingStateInstance {}
+impl UAnimSharingStateInstance {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimSharingStateInstance")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(16))]
 pub struct UAnimSharingTransitionInstance {
     #[doc(hidden)]
@@ -30,7 +142,23 @@ pub struct UAnimSharingTransitionInstance {
     pub b_blend_bool: bool,
     __padding_end: [u8; 3],
 }
-impl UAnimSharingTransitionInstance {}
+impl UAnimSharingTransitionInstance {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimSharingTransitionInstance")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(16))]
 pub struct UAnimSharingAdditiveInstance {
     #[doc(hidden)]
@@ -41,19 +169,83 @@ pub struct UAnimSharingAdditiveInstance {
     pub b_state_bool: bool,
     __padding_end: [u8; 3],
 }
-impl UAnimSharingAdditiveInstance {}
+impl UAnimSharingAdditiveInstance {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimSharingAdditiveInstance")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimSharingInstance {
     __padding_end: [u8; 648],
 }
-impl UAnimSharingInstance {}
+impl UAnimSharingInstance {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimSharingInstance")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimationSharingManager {
     __padding_end: [u8; 584],
 }
-impl UAnimationSharingManager {}
+impl UAnimationSharingManager {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimationSharingManager")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAnimationSharingSetup {
     __padding_end: [u8; 416],
 }
-impl UAnimationSharingSetup {}
+impl UAnimationSharingSetup {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimationSharingSetup")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}

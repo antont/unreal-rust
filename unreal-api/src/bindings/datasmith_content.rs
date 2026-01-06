@@ -2,8 +2,84 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(clippy::non_camel_case_types)]
+#![allow(clippy::new_without_default)]
+#![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
+#[doc(hidden)]
+pub static mut U_DATASMITH_CONTENT_BLUEPRINT_LIBRARY_GET_DATASMITH_USER_DATA_VALUES_FOR_KEY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_DATASMITH_CONTENT_BLUEPRINT_LIBRARY_GET_DATASMITH_USER_DATA_VALUE_FOR_KEY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_DATASMITH_CONTENT_BLUEPRINT_LIBRARY_GET_DATASMITH_USER_DATA_KEYS_AND_VALUES_FOR_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_DATASMITH_CONTENT_BLUEPRINT_LIBRARY_GET_DATASMITH_USER_DATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_DATASMITH_CONTENT_BLUEPRINT_LIBRARY_GET_ALL_OBJECTS_AND_VALUES_FOR_KEY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_DATASMITH_CONTENT_BLUEPRINT_LIBRARY_GET_ALL_DATASMITH_USER_DATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut A_DATASMITH_IMPORTED_SEQUENCES_ACTOR_PLAY_LEVEL_SEQUENCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub fn initialize() {
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UDatasmithContentBlueprintLibrary::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetDatasmithUserDataValuesForKey"),
+            &raw mut U_DATASMITH_CONTENT_BLUEPRINT_LIBRARY_GET_DATASMITH_USER_DATA_VALUES_FOR_KEY,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetDatasmithUserDataValueForKey"),
+            &raw mut U_DATASMITH_CONTENT_BLUEPRINT_LIBRARY_GET_DATASMITH_USER_DATA_VALUE_FOR_KEY,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetDatasmithUserDataKeysAndValuesForValue"),
+            &raw mut U_DATASMITH_CONTENT_BLUEPRINT_LIBRARY_GET_DATASMITH_USER_DATA_KEYS_AND_VALUES_FOR_VALUE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetDatasmithUserData"),
+            &raw mut U_DATASMITH_CONTENT_BLUEPRINT_LIBRARY_GET_DATASMITH_USER_DATA,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetAllObjectsAndValuesForKey"),
+            &raw mut U_DATASMITH_CONTENT_BLUEPRINT_LIBRARY_GET_ALL_OBJECTS_AND_VALUES_FOR_KEY,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetAllDatasmithUserData"),
+            &raw mut U_DATASMITH_CONTENT_BLUEPRINT_LIBRARY_GET_ALL_DATASMITH_USER_DATA,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = ADatasmithImportedSequencesActor::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("PlayLevelSequence"),
+            &raw mut A_DATASMITH_IMPORTED_SEQUENCES_ACTOR_PLAY_LEVEL_SEQUENCE,
+        );
+    }
+}
 #[repr(C, align(4))]
 pub struct FDatasmithAssetImportOptions {
     __padding_end: [u8; 12],
@@ -57,7 +133,23 @@ impl FDatasmithRetessellationOptions {}
 pub struct UDatasmithAdditionalData {
     __padding_end: [u8; 48],
 }
-impl UDatasmithAdditionalData {}
+impl UDatasmithAdditionalData {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDatasmithAdditionalData")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct ADatasmithAreaLightActor {
     #[doc(hidden)]
@@ -81,7 +173,23 @@ pub struct ADatasmithAreaLightActor {
     pub spotlight_outer_angle: f32,
     __padding_end: [u8; 4],
 }
-impl ADatasmithAreaLightActor {}
+impl ADatasmithAreaLightActor {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ADatasmithAreaLightActor")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UDatasmithAssetImportData {
     #[doc(hidden)]
@@ -89,72 +197,296 @@ pub struct UDatasmithAssetImportData {
     pub asset_import_options: FDatasmithAssetImportOptions,
     __padding_end: [u8; 52],
 }
-impl UDatasmithAssetImportData {}
+impl UDatasmithAssetImportData {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDatasmithAssetImportData")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UDatasmithStaticMeshImportData {
     __padding_end: [u8; 168],
 }
-impl UDatasmithStaticMeshImportData {}
+impl UDatasmithStaticMeshImportData {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDatasmithStaticMeshImportData")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UDatasmithStaticMeshCADImportData {
     __padding_end: [u8; 264],
 }
-impl UDatasmithStaticMeshCADImportData {}
+impl UDatasmithStaticMeshCADImportData {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDatasmithStaticMeshCADImportData")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UDatasmithSceneImportData {
     __padding_end: [u8; 152],
 }
-impl UDatasmithSceneImportData {}
+impl UDatasmithSceneImportData {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDatasmithSceneImportData")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UDatasmithTranslatedSceneImportData {
     __padding_end: [u8; 168],
 }
-impl UDatasmithTranslatedSceneImportData {}
+impl UDatasmithTranslatedSceneImportData {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDatasmithTranslatedSceneImportData")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UDatasmithCADImportSceneData {
     __padding_end: [u8; 184],
 }
-impl UDatasmithCADImportSceneData {}
+impl UDatasmithCADImportSceneData {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDatasmithCADImportSceneData")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UDatasmithMDLSceneImportData {
     __padding_end: [u8; 152],
 }
-impl UDatasmithMDLSceneImportData {}
+impl UDatasmithMDLSceneImportData {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDatasmithMDLSceneImportData")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UDatasmithGLTFSceneImportData {
     __padding_end: [u8; 224],
 }
-impl UDatasmithGLTFSceneImportData {}
+impl UDatasmithGLTFSceneImportData {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDatasmithGLTFSceneImportData")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UDatasmithStaticMeshGLTFImportData {
     __padding_end: [u8; 184],
 }
-impl UDatasmithStaticMeshGLTFImportData {}
+impl UDatasmithStaticMeshGLTFImportData {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDatasmithStaticMeshGLTFImportData")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UDatasmithFBXSceneImportData {
     __padding_end: [u8; 184],
 }
-impl UDatasmithFBXSceneImportData {}
+impl UDatasmithFBXSceneImportData {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDatasmithFBXSceneImportData")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UDatasmithDeltaGenAssetImportData {
     __padding_end: [u8; 160],
 }
-impl UDatasmithDeltaGenAssetImportData {}
+impl UDatasmithDeltaGenAssetImportData {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDatasmithDeltaGenAssetImportData")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UDatasmithDeltaGenSceneImportData {
     __padding_end: [u8; 256],
 }
-impl UDatasmithDeltaGenSceneImportData {}
+impl UDatasmithDeltaGenSceneImportData {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDatasmithDeltaGenSceneImportData")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UDatasmithVREDAssetImportData {
     __padding_end: [u8; 160],
 }
-impl UDatasmithVREDAssetImportData {}
+impl UDatasmithVREDAssetImportData {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDatasmithVREDAssetImportData")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UDatasmithVREDSceneImportData {
     __padding_end: [u8; 280],
 }
-impl UDatasmithVREDSceneImportData {}
+impl UDatasmithVREDSceneImportData {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDatasmithVREDSceneImportData")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UDatasmithAssetUserData {
     #[doc(hidden)]
@@ -162,17 +494,65 @@ pub struct UDatasmithAssetUserData {
     pub meta_data: TMap<FName, FString>,
     __padding_end: [u8; 80],
 }
-impl UDatasmithAssetUserData {}
+impl UDatasmithAssetUserData {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDatasmithAssetUserData")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UDatasmithContentBlueprintLibrary {
     __padding_end: [u8; 48],
 }
-impl UDatasmithContentBlueprintLibrary {}
+impl UDatasmithContentBlueprintLibrary {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDatasmithContentBlueprintLibrary")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UDatasmithCustomActionBase {
     __padding_end: [u8; 56],
 }
-impl UDatasmithCustomActionBase {}
+impl UDatasmithCustomActionBase {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDatasmithCustomActionBase")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct ADatasmithImportedSequencesActor {
     #[doc(hidden)]
@@ -181,19 +561,67 @@ pub struct ADatasmithImportedSequencesActor {
         UPtr<crate::bindings::level_sequence::ULevelSequence>,
     >,
 }
-impl ADatasmithImportedSequencesActor {}
+impl ADatasmithImportedSequencesActor {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ADatasmithImportedSequencesActor")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UDatasmithOptionsBase {
     __padding_end: [u8; 48],
 }
-impl UDatasmithOptionsBase {}
+impl UDatasmithOptionsBase {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDatasmithOptionsBase")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UDatasmithCommonTessellationOptions {
     #[doc(hidden)]
     __padding_48: [u8; 48],
     pub options: FDatasmithTessellationOptions,
 }
-impl UDatasmithCommonTessellationOptions {}
+impl UDatasmithCommonTessellationOptions {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDatasmithCommonTessellationOptions")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UDatasmithImportOptions {
     #[doc(hidden)]
@@ -205,97 +633,401 @@ pub struct UDatasmithImportOptions {
     pub source_uri: FString,
     __padding_end: [u8; 24],
 }
-impl UDatasmithImportOptions {}
+impl UDatasmithImportOptions {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDatasmithImportOptions")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UDatasmithScene {
     __padding_end: [u8; 736],
 }
-impl UDatasmithScene {}
+impl UDatasmithScene {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDatasmithScene")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct ADatasmithSceneActor {
     __padding_end: [u8; 1232],
 }
-impl ADatasmithSceneActor {}
+impl ADatasmithSceneActor {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ADatasmithSceneActor")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UDatasmithObjectTemplate {
     __padding_end: [u8; 56],
 }
-impl UDatasmithObjectTemplate {}
+impl UDatasmithObjectTemplate {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDatasmithObjectTemplate")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UDatasmithActorTemplate {
     __padding_end: [u8; 216],
 }
-impl UDatasmithActorTemplate {}
+impl UDatasmithActorTemplate {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDatasmithActorTemplate")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UDatasmithAreaLightActorTemplate {
     __padding_end: [u8; 208],
 }
-impl UDatasmithAreaLightActorTemplate {}
+impl UDatasmithAreaLightActorTemplate {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDatasmithAreaLightActorTemplate")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UDatasmithCineCameraActorTemplate {
     __padding_end: [u8; 112],
 }
-impl UDatasmithCineCameraActorTemplate {}
+impl UDatasmithCineCameraActorTemplate {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDatasmithCineCameraActorTemplate")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(16))]
 pub struct UDatasmithCineCameraComponentTemplate {
     __padding_end: [u8; 160],
 }
-impl UDatasmithCineCameraComponentTemplate {}
+impl UDatasmithCineCameraComponentTemplate {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDatasmithCineCameraComponentTemplate")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UDatasmithDecalComponentTemplate {
     __padding_end: [u8; 96],
 }
-impl UDatasmithDecalComponentTemplate {}
+impl UDatasmithDecalComponentTemplate {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDatasmithDecalComponentTemplate")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UDatasmithLandscapeTemplate {
     __padding_end: [u8; 72],
 }
-impl UDatasmithLandscapeTemplate {}
+impl UDatasmithLandscapeTemplate {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDatasmithLandscapeTemplate")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UDatasmithLightComponentTemplate {
     __padding_end: [u8; 112],
 }
-impl UDatasmithLightComponentTemplate {}
+impl UDatasmithLightComponentTemplate {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDatasmithLightComponentTemplate")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UDatasmithMaterialInstanceTemplate {
     __padding_end: [u8; 424],
 }
-impl UDatasmithMaterialInstanceTemplate {}
+impl UDatasmithMaterialInstanceTemplate {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDatasmithMaterialInstanceTemplate")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UDatasmithPointLightComponentTemplate {
     __padding_end: [u8; 72],
 }
-impl UDatasmithPointLightComponentTemplate {}
+impl UDatasmithPointLightComponentTemplate {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDatasmithPointLightComponentTemplate")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(16))]
 pub struct UDatasmithPostProcessVolumeTemplate {
     __padding_end: [u8; 144],
 }
-impl UDatasmithPostProcessVolumeTemplate {}
+impl UDatasmithPostProcessVolumeTemplate {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDatasmithPostProcessVolumeTemplate")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(16))]
 pub struct UDatasmithSceneComponentTemplate {
     __padding_end: [u8; 304],
 }
-impl UDatasmithSceneComponentTemplate {}
+impl UDatasmithSceneComponentTemplate {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDatasmithSceneComponentTemplate")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UDatasmithSkyLightComponentTemplate {
     __padding_end: [u8; 72],
 }
-impl UDatasmithSkyLightComponentTemplate {}
+impl UDatasmithSkyLightComponentTemplate {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDatasmithSkyLightComponentTemplate")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UDatasmithSpotLightComponentTemplate {
     __padding_end: [u8; 64],
 }
-impl UDatasmithSpotLightComponentTemplate {}
+impl UDatasmithSpotLightComponentTemplate {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDatasmithSpotLightComponentTemplate")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UDatasmithStaticMeshComponentTemplate {
     __padding_end: [u8; 80],
 }
-impl UDatasmithStaticMeshComponentTemplate {}
+impl UDatasmithStaticMeshComponentTemplate {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDatasmithStaticMeshComponentTemplate")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UDatasmithStaticMeshTemplate {
     __padding_end: [u8; 176],
 }
-impl UDatasmithStaticMeshTemplate {}
+impl UDatasmithStaticMeshTemplate {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDatasmithStaticMeshTemplate")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(transparent)]
 pub struct EDatasmithImportLightmapMin(pub u8);
 impl EDatasmithImportLightmapMin {

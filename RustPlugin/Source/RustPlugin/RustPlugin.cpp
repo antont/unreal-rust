@@ -133,6 +133,7 @@ void FPlugin::CallEntryPoints()
 	if (Bindings(CreateBindings(), &Rust))
 	{
 		RetrieveReflectionData();
+		Rust.initialize_modules();
 	}
 	else
 	{
@@ -292,10 +293,13 @@ TSharedRef<SDockTab> FRustPluginModule::OnSpawnPluginTab(const FSpawnTabArgs& Sp
 		[
 			// Put your tab content here!
 			SNew(SBox)
-                    .HAlign(HAlign_Center)
-                    .VAlign(VAlign_Center)
-			[SNew(STextBlock)
-				.Text(WidgetText)]];
+			.HAlign(HAlign_Center)
+			.VAlign(VAlign_Center)
+			[
+				SNew(STextBlock)
+				.Text(WidgetText)
+			]
+		];
 }
 
 void FRustPluginModule::PluginButtonClicked()

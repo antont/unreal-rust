@@ -2,8 +2,227 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(clippy::non_camel_case_types)]
+#![allow(clippy::new_without_default)]
+#![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
+#[doc(hidden)]
+pub static mut U_META_HUMAN_ASSET_REPORT_SET_WARNINGS_AS_ERRORS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_META_HUMAN_ASSET_REPORT_SET_VERBOSE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_META_HUMAN_ASSET_REPORT_SET_SUBJECT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_META_HUMAN_ASSET_REPORT_SET_SILENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_META_HUMAN_ASSET_REPORT_HAS_WARNINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_META_HUMAN_ASSET_REPORT_GET_REPORT_RESULT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_META_HUMAN_ASSET_REPORT_GENERATE_RICH_TEXT_REPORT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_META_HUMAN_ASSET_REPORT_GENERATE_RAW_REPORT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_META_HUMAN_ASSET_REPORT_GENERATE_JSON_REPORT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_META_HUMAN_ASSET_REPORT_GENERATE_HTML_REPORT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_META_HUMAN_ASSET_REPORT_ADD_WARNING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_META_HUMAN_ASSET_REPORT_ADD_VERBOSE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_META_HUMAN_ASSET_REPORT_ADD_INFO: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_META_HUMAN_ASSET_REPORT_ADD_ERROR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_META_HUMAN_ASSET_MANAGER_UPDATE_ASSET_DETAILS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_META_HUMAN_ASSET_MANAGER_UPDATE_ASSET_DEPENDENCIES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_META_HUMAN_ASSET_MANAGER_IS_ASSET_OF_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_META_HUMAN_ASSET_MANAGER_FIND_ASSETS_FOR_PACKAGING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_META_HUMAN_ASSET_MANAGER_CREATE_ARCHIVE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_META_HUMAN_VERIFICATION_RULE_BASE_VERIFY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_META_HUMAN_VERIFICATION_RULE_COLLECTION_APPLY_ALL_RULES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_META_HUMAN_VERIFICATION_RULE_COLLECTION_ADD_VERIFICATION_RULE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub fn initialize() {
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UMetaHumanAssetReport::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetWarningsAsErrors"),
+            &raw mut U_META_HUMAN_ASSET_REPORT_SET_WARNINGS_AS_ERRORS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetVerbose"),
+            &raw mut U_META_HUMAN_ASSET_REPORT_SET_VERBOSE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetSubject"),
+            &raw mut U_META_HUMAN_ASSET_REPORT_SET_SUBJECT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetSilent"),
+            &raw mut U_META_HUMAN_ASSET_REPORT_SET_SILENT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("HasWarnings"),
+            &raw mut U_META_HUMAN_ASSET_REPORT_HAS_WARNINGS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetReportResult"),
+            &raw mut U_META_HUMAN_ASSET_REPORT_GET_REPORT_RESULT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GenerateRichTextReport"),
+            &raw mut U_META_HUMAN_ASSET_REPORT_GENERATE_RICH_TEXT_REPORT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GenerateRawReport"),
+            &raw mut U_META_HUMAN_ASSET_REPORT_GENERATE_RAW_REPORT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GenerateJsonReport"),
+            &raw mut U_META_HUMAN_ASSET_REPORT_GENERATE_JSON_REPORT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GenerateHtmlReport"),
+            &raw mut U_META_HUMAN_ASSET_REPORT_GENERATE_HTML_REPORT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("AddWarning"),
+            &raw mut U_META_HUMAN_ASSET_REPORT_ADD_WARNING,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("AddVerbose"),
+            &raw mut U_META_HUMAN_ASSET_REPORT_ADD_VERBOSE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("AddInfo"),
+            &raw mut U_META_HUMAN_ASSET_REPORT_ADD_INFO,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("AddError"),
+            &raw mut U_META_HUMAN_ASSET_REPORT_ADD_ERROR,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UMetaHumanAssetManager::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("UpdateAssetDetails"),
+            &raw mut U_META_HUMAN_ASSET_MANAGER_UPDATE_ASSET_DETAILS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("UpdateAssetDependencies"),
+            &raw mut U_META_HUMAN_ASSET_MANAGER_UPDATE_ASSET_DEPENDENCIES,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("IsAssetOfType"),
+            &raw mut U_META_HUMAN_ASSET_MANAGER_IS_ASSET_OF_TYPE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("FindAssetsForPackaging"),
+            &raw mut U_META_HUMAN_ASSET_MANAGER_FIND_ASSETS_FOR_PACKAGING,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("CreateArchive"),
+            &raw mut U_META_HUMAN_ASSET_MANAGER_CREATE_ARCHIVE,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UMetaHumanVerificationRuleBase::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("Verify"),
+            &raw mut U_META_HUMAN_VERIFICATION_RULE_BASE_VERIFY,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UMetaHumanVerificationRuleCollection::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ApplyAllRules"),
+            &raw mut U_META_HUMAN_VERIFICATION_RULE_COLLECTION_APPLY_ALL_RULES,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("AddVerificationRule"),
+            &raw mut U_META_HUMAN_VERIFICATION_RULE_COLLECTION_ADD_VERIFICATION_RULE,
+        );
+    }
+}
 #[repr(C, align(8))]
 pub struct FMetaHumanAssetReportItem {
     pub message: FText,
@@ -86,72 +305,296 @@ impl FMetaHumanVerificationOptions {}
 pub struct UMetaHumanPackageFactory {
     __padding_end: [u8; 136],
 }
-impl UMetaHumanPackageFactory {}
+impl UMetaHumanPackageFactory {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMetaHumanPackageFactory")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMetaHumanAssetReport {
     __padding_end: [u8; 120],
 }
-impl UMetaHumanAssetReport {}
+impl UMetaHumanAssetReport {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMetaHumanAssetReport")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMetaHumanAssetManager {
     __padding_end: [u8; 48],
 }
-impl UMetaHumanAssetManager {}
+impl UMetaHumanAssetManager {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMetaHumanAssetManager")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMetaHumanVerificationRuleBase {
     __padding_end: [u8; 48],
 }
-impl UMetaHumanVerificationRuleBase {}
+impl UMetaHumanVerificationRuleBase {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMetaHumanVerificationRuleBase")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMetaHumanVerificationRuleCollection {
     __padding_end: [u8; 64],
 }
-impl UMetaHumanVerificationRuleCollection {}
+impl UMetaHumanVerificationRuleCollection {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMetaHumanVerificationRuleCollection")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UVerifyMetaHumanCharacter {
     __padding_end: [u8; 48],
 }
-impl UVerifyMetaHumanCharacter {}
+impl UVerifyMetaHumanCharacter {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UVerifyMetaHumanCharacter")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UVerifyMetaHumanGroom {
     __padding_end: [u8; 48],
 }
-impl UVerifyMetaHumanGroom {}
+impl UVerifyMetaHumanGroom {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UVerifyMetaHumanGroom")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UVerifyMetaHumanOutfitClothing {
     __padding_end: [u8; 48],
 }
-impl UVerifyMetaHumanOutfitClothing {}
+impl UVerifyMetaHumanOutfitClothing {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UVerifyMetaHumanOutfitClothing")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UVerifyMetaHumanPackageSource {
     __padding_end: [u8; 48],
 }
-impl UVerifyMetaHumanPackageSource {}
+impl UVerifyMetaHumanPackageSource {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UVerifyMetaHumanPackageSource")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UVerifyMetaHumanSkeletalClothing {
     __padding_end: [u8; 48],
 }
-impl UVerifyMetaHumanSkeletalClothing {}
+impl UVerifyMetaHumanSkeletalClothing {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UVerifyMetaHumanSkeletalClothing")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UVerifyObjectValid {
     __padding_end: [u8; 48],
 }
-impl UVerifyObjectValid {}
+impl UVerifyObjectValid {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UVerifyObjectValid")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMetaHumanCharacterTypesVerificationExtensionBase {
     __padding_end: [u8; 48],
 }
-impl UMetaHumanCharacterTypesVerificationExtensionBase {}
+impl UMetaHumanCharacterTypesVerificationExtensionBase {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMetaHumanCharacterTypesVerificationExtensionBase")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMetaHumanCloudServicesSettings {
     __padding_end: [u8; 264],
 }
-impl UMetaHumanCloudServicesSettings {}
+impl UMetaHumanCloudServicesSettings {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMetaHumanCloudServicesSettings")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMetaHumanSDKSettings {
     __padding_end: [u8; 176],
 }
-impl UMetaHumanSDKSettings {}
+impl UMetaHumanSDKSettings {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMetaHumanSDKSettings")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(transparent)]
 pub struct EMetaHumanAssetType(pub u8);
 impl EMetaHumanAssetType {

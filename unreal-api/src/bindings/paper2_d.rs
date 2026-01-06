@@ -2,8 +2,648 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(clippy::non_camel_case_types)]
+#![allow(clippy::new_without_default)]
+#![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
+#[doc(hidden)]
+pub static mut U_PAPER_FLIPBOOK_IS_VALID_KEY_FRAME_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_PAPER_FLIPBOOK_GET_TOTAL_DURATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_PAPER_FLIPBOOK_GET_SPRITE_AT_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_PAPER_FLIPBOOK_GET_SPRITE_AT_FRAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_PAPER_FLIPBOOK_GET_NUM_KEY_FRAMES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_PAPER_FLIPBOOK_GET_NUM_FRAMES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_PAPER_FLIPBOOK_GET_KEY_FRAME_INDEX_AT_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_PAPER_FLIPBOOK_COMPONENT_STOP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_PAPER_FLIPBOOK_COMPONENT_SET_SPRITE_COLOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_PAPER_FLIPBOOK_COMPONENT_SET_PLAY_RATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_PAPER_FLIPBOOK_COMPONENT_SET_PLAYBACK_POSITION_IN_FRAMES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_PAPER_FLIPBOOK_COMPONENT_SET_PLAYBACK_POSITION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_PAPER_FLIPBOOK_COMPONENT_SET_NEW_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_PAPER_FLIPBOOK_COMPONENT_SET_LOOPING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_PAPER_FLIPBOOK_COMPONENT_SET_FLIPBOOK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_PAPER_FLIPBOOK_COMPONENT_REVERSE_FROM_END: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_PAPER_FLIPBOOK_COMPONENT_REVERSE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_PAPER_FLIPBOOK_COMPONENT_PLAY_FROM_START: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_PAPER_FLIPBOOK_COMPONENT_PLAY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_PAPER_FLIPBOOK_COMPONENT_ON_REP_SOURCE_FLIPBOOK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_PAPER_FLIPBOOK_COMPONENT_IS_REVERSING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_PAPER_FLIPBOOK_COMPONENT_IS_PLAYING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_PAPER_FLIPBOOK_COMPONENT_IS_LOOPING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_PAPER_FLIPBOOK_COMPONENT_GET_SPRITE_COLOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_PAPER_FLIPBOOK_COMPONENT_GET_PLAY_RATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_PAPER_FLIPBOOK_COMPONENT_GET_PLAYBACK_POSITION_IN_FRAMES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_PAPER_FLIPBOOK_COMPONENT_GET_PLAYBACK_POSITION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_PAPER_FLIPBOOK_COMPONENT_GET_FLIPBOOK_LENGTH_IN_FRAMES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_PAPER_FLIPBOOK_COMPONENT_GET_FLIPBOOK_LENGTH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_PAPER_FLIPBOOK_COMPONENT_GET_FLIPBOOK_FRAMERATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_PAPER_FLIPBOOK_COMPONENT_GET_FLIPBOOK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_PAPER_GROUPED_SPRITE_COMPONENT_UPDATE_INSTANCE_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_PAPER_GROUPED_SPRITE_COMPONENT_UPDATE_INSTANCE_COLOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_PAPER_GROUPED_SPRITE_COMPONENT_SORT_INSTANCES_ALONG_AXIS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_PAPER_GROUPED_SPRITE_COMPONENT_REMOVE_INSTANCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_PAPER_GROUPED_SPRITE_COMPONENT_GET_INSTANCE_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_PAPER_GROUPED_SPRITE_COMPONENT_GET_INSTANCE_COUNT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_PAPER_GROUPED_SPRITE_COMPONENT_CLEAR_INSTANCES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_PAPER_GROUPED_SPRITE_COMPONENT_ADD_INSTANCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_PAPER_SPRITE_BLUEPRINT_LIBRARY_MAKE_BRUSH_FROM_SPRITE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_PAPER_SPRITE_COMPONENT_SET_SPRITE_COLOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_PAPER_SPRITE_COMPONENT_SET_SPRITE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_PAPER_SPRITE_COMPONENT_GET_SPRITE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_PAPER_TILE_MAP_COMPONENT_SET_TILE_MAP_COLOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_PAPER_TILE_MAP_COMPONENT_SET_TILE_MAP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_PAPER_TILE_MAP_COMPONENT_SET_TILE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_PAPER_TILE_MAP_COMPONENT_SET_LAYER_COLOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_PAPER_TILE_MAP_COMPONENT_SET_LAYER_COLLISION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_PAPER_TILE_MAP_COMPONENT_SET_DEFAULT_COLLISION_THICKNESS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_PAPER_TILE_MAP_COMPONENT_RESIZE_MAP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_PAPER_TILE_MAP_COMPONENT_REBUILD_COLLISION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_PAPER_TILE_MAP_COMPONENT_OWNS_TILE_MAP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_PAPER_TILE_MAP_COMPONENT_MAKE_TILE_MAP_EDITABLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_PAPER_TILE_MAP_COMPONENT_GET_TILE_POLYGON: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_PAPER_TILE_MAP_COMPONENT_GET_TILE_MAP_COLOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_PAPER_TILE_MAP_COMPONENT_GET_TILE_CORNER_POSITION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_PAPER_TILE_MAP_COMPONENT_GET_TILE_CENTER_POSITION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_PAPER_TILE_MAP_COMPONENT_GET_TILE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_PAPER_TILE_MAP_COMPONENT_GET_MAP_SIZE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_PAPER_TILE_MAP_COMPONENT_GET_LAYER_COLOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_PAPER_TILE_MAP_COMPONENT_CREATE_NEW_TILE_MAP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_PAPER_TILE_MAP_COMPONENT_ADD_NEW_LAYER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_PAPER_TERRAIN_COMPONENT_SET_TERRAIN_COLOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_TILE_MAP_BLUEPRINT_LIBRARY_MAKE_TILE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_TILE_MAP_BLUEPRINT_LIBRARY_GET_TILE_USER_DATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_TILE_MAP_BLUEPRINT_LIBRARY_GET_TILE_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_TILE_MAP_BLUEPRINT_LIBRARY_BREAK_TILE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub fn initialize() {
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UPaperFlipbook::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("IsValidKeyFrameIndex"),
+            &raw mut U_PAPER_FLIPBOOK_IS_VALID_KEY_FRAME_INDEX,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetTotalDuration"),
+            &raw mut U_PAPER_FLIPBOOK_GET_TOTAL_DURATION,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetSpriteAtTime"),
+            &raw mut U_PAPER_FLIPBOOK_GET_SPRITE_AT_TIME,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetSpriteAtFrame"),
+            &raw mut U_PAPER_FLIPBOOK_GET_SPRITE_AT_FRAME,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetNumKeyFrames"),
+            &raw mut U_PAPER_FLIPBOOK_GET_NUM_KEY_FRAMES,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetNumFrames"),
+            &raw mut U_PAPER_FLIPBOOK_GET_NUM_FRAMES,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetKeyFrameIndexAtTime"),
+            &raw mut U_PAPER_FLIPBOOK_GET_KEY_FRAME_INDEX_AT_TIME,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UPaperFlipbookComponent::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("Stop"),
+            &raw mut U_PAPER_FLIPBOOK_COMPONENT_STOP,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetSpriteColor"),
+            &raw mut U_PAPER_FLIPBOOK_COMPONENT_SET_SPRITE_COLOR,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetPlayRate"),
+            &raw mut U_PAPER_FLIPBOOK_COMPONENT_SET_PLAY_RATE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetPlaybackPositionInFrames"),
+            &raw mut U_PAPER_FLIPBOOK_COMPONENT_SET_PLAYBACK_POSITION_IN_FRAMES,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetPlaybackPosition"),
+            &raw mut U_PAPER_FLIPBOOK_COMPONENT_SET_PLAYBACK_POSITION,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetNewTime"),
+            &raw mut U_PAPER_FLIPBOOK_COMPONENT_SET_NEW_TIME,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetLooping"),
+            &raw mut U_PAPER_FLIPBOOK_COMPONENT_SET_LOOPING,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetFlipbook"),
+            &raw mut U_PAPER_FLIPBOOK_COMPONENT_SET_FLIPBOOK,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ReverseFromEnd"),
+            &raw mut U_PAPER_FLIPBOOK_COMPONENT_REVERSE_FROM_END,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("Reverse"),
+            &raw mut U_PAPER_FLIPBOOK_COMPONENT_REVERSE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("PlayFromStart"),
+            &raw mut U_PAPER_FLIPBOOK_COMPONENT_PLAY_FROM_START,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("Play"),
+            &raw mut U_PAPER_FLIPBOOK_COMPONENT_PLAY,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("OnRep_SourceFlipbook"),
+            &raw mut U_PAPER_FLIPBOOK_COMPONENT_ON_REP_SOURCE_FLIPBOOK,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("IsReversing"),
+            &raw mut U_PAPER_FLIPBOOK_COMPONENT_IS_REVERSING,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("IsPlaying"),
+            &raw mut U_PAPER_FLIPBOOK_COMPONENT_IS_PLAYING,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("IsLooping"),
+            &raw mut U_PAPER_FLIPBOOK_COMPONENT_IS_LOOPING,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetSpriteColor"),
+            &raw mut U_PAPER_FLIPBOOK_COMPONENT_GET_SPRITE_COLOR,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetPlayRate"),
+            &raw mut U_PAPER_FLIPBOOK_COMPONENT_GET_PLAY_RATE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetPlaybackPositionInFrames"),
+            &raw mut U_PAPER_FLIPBOOK_COMPONENT_GET_PLAYBACK_POSITION_IN_FRAMES,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetPlaybackPosition"),
+            &raw mut U_PAPER_FLIPBOOK_COMPONENT_GET_PLAYBACK_POSITION,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetFlipbookLengthInFrames"),
+            &raw mut U_PAPER_FLIPBOOK_COMPONENT_GET_FLIPBOOK_LENGTH_IN_FRAMES,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetFlipbookLength"),
+            &raw mut U_PAPER_FLIPBOOK_COMPONENT_GET_FLIPBOOK_LENGTH,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetFlipbookFramerate"),
+            &raw mut U_PAPER_FLIPBOOK_COMPONENT_GET_FLIPBOOK_FRAMERATE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetFlipbook"),
+            &raw mut U_PAPER_FLIPBOOK_COMPONENT_GET_FLIPBOOK,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UPaperGroupedSpriteComponent::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("UpdateInstanceTransform"),
+            &raw mut U_PAPER_GROUPED_SPRITE_COMPONENT_UPDATE_INSTANCE_TRANSFORM,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("UpdateInstanceColor"),
+            &raw mut U_PAPER_GROUPED_SPRITE_COMPONENT_UPDATE_INSTANCE_COLOR,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SortInstancesAlongAxis"),
+            &raw mut U_PAPER_GROUPED_SPRITE_COMPONENT_SORT_INSTANCES_ALONG_AXIS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("RemoveInstance"),
+            &raw mut U_PAPER_GROUPED_SPRITE_COMPONENT_REMOVE_INSTANCE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetInstanceTransform"),
+            &raw mut U_PAPER_GROUPED_SPRITE_COMPONENT_GET_INSTANCE_TRANSFORM,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetInstanceCount"),
+            &raw mut U_PAPER_GROUPED_SPRITE_COMPONENT_GET_INSTANCE_COUNT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ClearInstances"),
+            &raw mut U_PAPER_GROUPED_SPRITE_COMPONENT_CLEAR_INSTANCES,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("AddInstance"),
+            &raw mut U_PAPER_GROUPED_SPRITE_COMPONENT_ADD_INSTANCE,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UPaperSpriteBlueprintLibrary::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("MakeBrushFromSprite"),
+            &raw mut U_PAPER_SPRITE_BLUEPRINT_LIBRARY_MAKE_BRUSH_FROM_SPRITE,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UPaperSpriteComponent::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetSpriteColor"),
+            &raw mut U_PAPER_SPRITE_COMPONENT_SET_SPRITE_COLOR,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetSprite"),
+            &raw mut U_PAPER_SPRITE_COMPONENT_SET_SPRITE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetSprite"),
+            &raw mut U_PAPER_SPRITE_COMPONENT_GET_SPRITE,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UPaperTileMapComponent::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetTileMapColor"),
+            &raw mut U_PAPER_TILE_MAP_COMPONENT_SET_TILE_MAP_COLOR,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetTileMap"),
+            &raw mut U_PAPER_TILE_MAP_COMPONENT_SET_TILE_MAP,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetTile"),
+            &raw mut U_PAPER_TILE_MAP_COMPONENT_SET_TILE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetLayerColor"),
+            &raw mut U_PAPER_TILE_MAP_COMPONENT_SET_LAYER_COLOR,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetLayerCollision"),
+            &raw mut U_PAPER_TILE_MAP_COMPONENT_SET_LAYER_COLLISION,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetDefaultCollisionThickness"),
+            &raw mut U_PAPER_TILE_MAP_COMPONENT_SET_DEFAULT_COLLISION_THICKNESS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("ResizeMap"),
+            &raw mut U_PAPER_TILE_MAP_COMPONENT_RESIZE_MAP,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("RebuildCollision"),
+            &raw mut U_PAPER_TILE_MAP_COMPONENT_REBUILD_COLLISION,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("OwnsTileMap"),
+            &raw mut U_PAPER_TILE_MAP_COMPONENT_OWNS_TILE_MAP,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("MakeTileMapEditable"),
+            &raw mut U_PAPER_TILE_MAP_COMPONENT_MAKE_TILE_MAP_EDITABLE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetTilePolygon"),
+            &raw mut U_PAPER_TILE_MAP_COMPONENT_GET_TILE_POLYGON,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetTileMapColor"),
+            &raw mut U_PAPER_TILE_MAP_COMPONENT_GET_TILE_MAP_COLOR,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetTileCornerPosition"),
+            &raw mut U_PAPER_TILE_MAP_COMPONENT_GET_TILE_CORNER_POSITION,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetTileCenterPosition"),
+            &raw mut U_PAPER_TILE_MAP_COMPONENT_GET_TILE_CENTER_POSITION,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetTile"),
+            &raw mut U_PAPER_TILE_MAP_COMPONENT_GET_TILE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetMapSize"),
+            &raw mut U_PAPER_TILE_MAP_COMPONENT_GET_MAP_SIZE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetLayerColor"),
+            &raw mut U_PAPER_TILE_MAP_COMPONENT_GET_LAYER_COLOR,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("CreateNewTileMap"),
+            &raw mut U_PAPER_TILE_MAP_COMPONENT_CREATE_NEW_TILE_MAP,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("AddNewLayer"),
+            &raw mut U_PAPER_TILE_MAP_COMPONENT_ADD_NEW_LAYER,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UPaperTerrainComponent::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetTerrainColor"),
+            &raw mut U_PAPER_TERRAIN_COMPONENT_SET_TERRAIN_COLOR,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UTileMapBlueprintLibrary::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("MakeTile"),
+            &raw mut U_TILE_MAP_BLUEPRINT_LIBRARY_MAKE_TILE,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetTileUserData"),
+            &raw mut U_TILE_MAP_BLUEPRINT_LIBRARY_GET_TILE_USER_DATA,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetTileTransform"),
+            &raw mut U_TILE_MAP_BLUEPRINT_LIBRARY_GET_TILE_TRANSFORM,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("BreakTile"),
+            &raw mut U_TILE_MAP_BLUEPRINT_LIBRARY_BREAK_TILE,
+        );
+    }
+}
 #[repr(C, align(4))]
 pub struct FIntMargin {
     pub left: i32,
@@ -42,7 +682,23 @@ pub struct APaperCharacter {
     pub sprite: UPtr<UPaperFlipbookComponent>,
     __padding_end: [u8; 8],
 }
-impl APaperCharacter {}
+impl APaperCharacter {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("APaperCharacter")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UPaperFlipbook {
     #[doc(hidden)]
@@ -54,14 +710,46 @@ pub struct UPaperFlipbook {
     pub collision_source: EFlipbookCollisionMode,
     __padding_end: [u8; 7],
 }
-impl UPaperFlipbook {}
+impl UPaperFlipbook {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPaperFlipbook")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct APaperFlipbookActor {
     #[doc(hidden)]
     __padding_1136: [u8; 1136],
     pub render_component: UPtr<UPaperFlipbookComponent>,
 }
-impl APaperFlipbookActor {}
+impl APaperFlipbookActor {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("APaperFlipbookActor")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(16))]
 pub struct UPaperFlipbookComponent {
     #[doc(hidden)]
@@ -69,24 +757,88 @@ pub struct UPaperFlipbookComponent {
     pub sprite_color: crate::bindings::core_u_object::FLinearColor,
     __padding_end: [u8; 40],
 }
-impl UPaperFlipbookComponent {}
+impl UPaperFlipbookComponent {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPaperFlipbookComponent")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct APaperGroupedSpriteActor {
     #[doc(hidden)]
     __padding_1136: [u8; 1136],
     pub render_component: UPtr<UPaperGroupedSpriteComponent>,
 }
-impl APaperGroupedSpriteActor {}
+impl APaperGroupedSpriteActor {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("APaperGroupedSpriteActor")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(16))]
 pub struct UPaperGroupedSpriteComponent {
     __padding_end: [u8; 1632],
 }
-impl UPaperGroupedSpriteComponent {}
+impl UPaperGroupedSpriteComponent {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPaperGroupedSpriteComponent")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UPaperRuntimeSettings {
     __padding_end: [u8; 56],
 }
-impl UPaperRuntimeSettings {}
+impl UPaperRuntimeSettings {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPaperRuntimeSettings")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UPaperSprite {
     #[doc(hidden)]
@@ -95,24 +847,88 @@ pub struct UPaperSprite {
     pub alternate_material: UPtr<crate::bindings::engine::UMaterialInterface>,
     __padding_end: [u8; 248],
 }
-impl UPaperSprite {}
+impl UPaperSprite {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPaperSprite")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct APaperSpriteActor {
     #[doc(hidden)]
     __padding_1136: [u8; 1136],
     pub render_component: UPtr<UPaperSpriteComponent>,
 }
-impl APaperSpriteActor {}
+impl APaperSpriteActor {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("APaperSpriteActor")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UPaperSpriteAtlas {
     __padding_end: [u8; 160],
 }
-impl UPaperSpriteAtlas {}
+impl UPaperSpriteAtlas {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPaperSpriteAtlas")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UPaperSpriteBlueprintLibrary {
     __padding_end: [u8; 48],
 }
-impl UPaperSpriteBlueprintLibrary {}
+impl UPaperSpriteBlueprintLibrary {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPaperSpriteBlueprintLibrary")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(16))]
 pub struct UPaperSpriteComponent {
     #[doc(hidden)]
@@ -123,7 +939,23 @@ pub struct UPaperSpriteComponent {
     pub sprite_color: crate::bindings::core_u_object::FLinearColor,
     __padding_end: [u8; 8],
 }
-impl UPaperSpriteComponent {}
+impl UPaperSpriteComponent {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPaperSpriteComponent")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UPaperTileLayer {
     #[doc(hidden)]
@@ -137,7 +969,23 @@ pub struct UPaperTileLayer {
     pub layer_color: crate::bindings::core_u_object::FLinearColor,
     __padding_end: [u8; 52],
 }
-impl UPaperTileLayer {}
+impl UPaperTileLayer {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPaperTileLayer")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UPaperTileMap {
     #[doc(hidden)]
@@ -158,14 +1006,46 @@ pub struct UPaperTileMap {
     pub projection_mode: ETileMapProjectionMode,
     __padding_end: [u8; 114],
 }
-impl UPaperTileMap {}
+impl UPaperTileMap {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPaperTileMap")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct APaperTileMapActor {
     #[doc(hidden)]
     __padding_1136: [u8; 1136],
     pub render_component: UPtr<UPaperTileMapComponent>,
 }
-impl APaperTileMapActor {}
+impl APaperTileMapActor {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("APaperTileMapActor")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(16))]
 pub struct UPaperTileMapComponent {
     #[doc(hidden)]
@@ -173,7 +1053,23 @@ pub struct UPaperTileMapComponent {
     pub tile_map: UPtr<UPaperTileMap>,
     __padding_end: [u8; 16],
 }
-impl UPaperTileMapComponent {}
+impl UPaperTileMapComponent {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPaperTileMapComponent")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UPaperTileSet {
     #[doc(hidden)]
@@ -187,19 +1083,67 @@ pub struct UPaperTileSet {
     pub drawing_offset: crate::bindings::core_u_object::FIntPoint,
     __padding_end: [u8; 80],
 }
-impl UPaperTileSet {}
+impl UPaperTileSet {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPaperTileSet")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMaterialExpressionSpriteTextureSampler {
     __padding_end: [u8; 656],
 }
-impl UMaterialExpressionSpriteTextureSampler {}
+impl UMaterialExpressionSpriteTextureSampler {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMaterialExpressionSpriteTextureSampler")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct APaperTerrainActor {
     #[doc(hidden)]
     __padding_1152: [u8; 1152],
     pub render_component: UPtr<UPaperTerrainComponent>,
 }
-impl APaperTerrainActor {}
+impl APaperTerrainActor {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("APaperTerrainActor")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(16))]
 pub struct UPaperTerrainComponent {
     #[doc(hidden)]
@@ -212,22 +1156,86 @@ pub struct UPaperTerrainComponent {
     pub terrain_color: crate::bindings::core_u_object::FLinearColor,
     __padding_end: [u8; 48],
 }
-impl UPaperTerrainComponent {}
+impl UPaperTerrainComponent {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPaperTerrainComponent")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UPaperTerrainMaterial {
     __padding_end: [u8; 80],
 }
-impl UPaperTerrainMaterial {}
+impl UPaperTerrainMaterial {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPaperTerrainMaterial")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(16))]
 pub struct UPaperTerrainSplineComponent {
     __padding_end: [u8; 2192],
 }
-impl UPaperTerrainSplineComponent {}
+impl UPaperTerrainSplineComponent {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPaperTerrainSplineComponent")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UTileMapBlueprintLibrary {
     __padding_end: [u8; 48],
 }
-impl UTileMapBlueprintLibrary {}
+impl UTileMapBlueprintLibrary {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTileMapBlueprintLibrary")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct FPaperFlipbookComponent_OnFinishedPlaying {
     _opague: [u8; 24],

@@ -2,15 +2,85 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(clippy::non_camel_case_types)]
+#![allow(clippy::new_without_default)]
+#![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
+#[doc(hidden)]
+pub static mut U_CABLE_COMPONENT_SET_ATTACH_END_TO_COMPONENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CABLE_COMPONENT_SET_ATTACH_END_TO: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CABLE_COMPONENT_GET_CABLE_PARTICLE_LOCATIONS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CABLE_COMPONENT_GET_ATTACHED_COMPONENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CABLE_COMPONENT_GET_ATTACHED_ACTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub fn initialize() {
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UCableComponent::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetAttachEndToComponent"),
+            &raw mut U_CABLE_COMPONENT_SET_ATTACH_END_TO_COMPONENT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("SetAttachEndTo"),
+            &raw mut U_CABLE_COMPONENT_SET_ATTACH_END_TO,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetCableParticleLocations"),
+            &raw mut U_CABLE_COMPONENT_GET_CABLE_PARTICLE_LOCATIONS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetAttachedComponent"),
+            &raw mut U_CABLE_COMPONENT_GET_ATTACHED_COMPONENT,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetAttachedActor"),
+            &raw mut U_CABLE_COMPONENT_GET_ATTACHED_ACTOR,
+        );
+    }
+}
 #[repr(C, align(8))]
 pub struct ACableActor {
     #[doc(hidden)]
     __padding_1136: [u8; 1136],
     pub cable_component: UPtr<UCableComponent>,
 }
-impl ACableActor {}
+impl ACableActor {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ACableActor")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(16))]
 pub struct UCableComponent {
     #[doc(hidden)]
@@ -41,4 +111,20 @@ pub struct UCableComponent {
     pub b_teleport_after_reattach: bool,
     __padding_end: [u8; 307],
 }
-impl UCableComponent {}
+impl UCableComponent {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UCableComponent")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}

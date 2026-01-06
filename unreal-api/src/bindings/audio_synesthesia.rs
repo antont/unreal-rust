@@ -2,8 +2,235 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(clippy::non_camel_case_types)]
+#![allow(clippy::new_without_default)]
+#![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
+#[doc(hidden)]
+pub static mut U_CONSTANT_Q_ANALYZER_GET_NUM_CENTER_FREQUENCIES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CONSTANT_Q_ANALYZER_GET_CENTER_FREQUENCIES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CONSTANT_QNRT_GET_NORMALIZED_CHANNEL_CONSTANT_Q_AT_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_CONSTANT_QNRT_GET_CHANNEL_CONSTANT_Q_AT_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut ULKFSNRT_GET_LOUDNESS_DATA_FOR_CHANNEL_AT_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut ULKFSNRT_GET_LOUDNESS_DATA_FOR_CHANNEL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut ULKFSNRT_GET_LOUDNESS_DATA_AT_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut ULKFSNRT_GET_LOUDNESS_DATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut ULKFSNRT_GET_LOUDNESS_AT_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut ULKFSNRT_GET_INTEGRATED_LOUDNESS_FOR_CHANNEL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut ULKFSNRT_GET_INTEGRATED_LOUDNESS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut ULKFSNRT_GET_GATED_LOUDNESS_FOR_CHANNEL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut ULKFSNRT_GET_GATED_LOUDNESS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut ULKFSNRT_GET_CHANNEL_LOUDNESS_AT_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_LOUDNESS_NRT_GET_NORMALIZED_LOUDNESS_AT_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_LOUDNESS_NRT_GET_NORMALIZED_CHANNEL_LOUDNESS_AT_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_LOUDNESS_NRT_GET_LOUDNESS_AT_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_LOUDNESS_NRT_GET_CHANNEL_LOUDNESS_AT_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_ONSET_NRT_GET_NORMALIZED_CHANNEL_ONSETS_BETWEEN_TIMES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_ONSET_NRT_GET_CHANNEL_ONSETS_BETWEEN_TIMES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SYNESTHESIA_SPECTRUM_ANALYZER_GET_NUM_CENTER_FREQUENCIES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+#[doc(hidden)]
+pub static mut U_SYNESTHESIA_SPECTRUM_ANALYZER_GET_CENTER_FREQUENCIES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub fn initialize() {
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UConstantQAnalyzer::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetNumCenterFrequencies"),
+            &raw mut U_CONSTANT_Q_ANALYZER_GET_NUM_CENTER_FREQUENCIES,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetCenterFrequencies"),
+            &raw mut U_CONSTANT_Q_ANALYZER_GET_CENTER_FREQUENCIES,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UConstantQNRT::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetNormalizedChannelConstantQAtTime"),
+            &raw mut U_CONSTANT_QNRT_GET_NORMALIZED_CHANNEL_CONSTANT_Q_AT_TIME,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetChannelConstantQAtTime"),
+            &raw mut U_CONSTANT_QNRT_GET_CHANNEL_CONSTANT_Q_AT_TIME,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = ULKFSNRT::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetLoudnessDataForChannelAtTime"),
+            &raw mut ULKFSNRT_GET_LOUDNESS_DATA_FOR_CHANNEL_AT_TIME,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetLoudnessDataForChannel"),
+            &raw mut ULKFSNRT_GET_LOUDNESS_DATA_FOR_CHANNEL,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetLoudnessDataAtTime"),
+            &raw mut ULKFSNRT_GET_LOUDNESS_DATA_AT_TIME,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetLoudnessData"),
+            &raw mut ULKFSNRT_GET_LOUDNESS_DATA,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetLoudnessAtTime"),
+            &raw mut ULKFSNRT_GET_LOUDNESS_AT_TIME,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetIntegratedLoudnessForChannel"),
+            &raw mut ULKFSNRT_GET_INTEGRATED_LOUDNESS_FOR_CHANNEL,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetIntegratedLoudness"),
+            &raw mut ULKFSNRT_GET_INTEGRATED_LOUDNESS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetGatedLoudnessForChannel"),
+            &raw mut ULKFSNRT_GET_GATED_LOUDNESS_FOR_CHANNEL,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetGatedLoudness"),
+            &raw mut ULKFSNRT_GET_GATED_LOUDNESS,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetChannelLoudnessAtTime"),
+            &raw mut ULKFSNRT_GET_CHANNEL_LOUDNESS_AT_TIME,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = ULoudnessNRT::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetNormalizedLoudnessAtTime"),
+            &raw mut U_LOUDNESS_NRT_GET_NORMALIZED_LOUDNESS_AT_TIME,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetNormalizedChannelLoudnessAtTime"),
+            &raw mut U_LOUDNESS_NRT_GET_NORMALIZED_CHANNEL_LOUDNESS_AT_TIME,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetLoudnessAtTime"),
+            &raw mut U_LOUDNESS_NRT_GET_LOUDNESS_AT_TIME,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetChannelLoudnessAtTime"),
+            &raw mut U_LOUDNESS_NRT_GET_CHANNEL_LOUDNESS_AT_TIME,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = UOnsetNRT::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetNormalizedChannelOnsetsBetweenTimes"),
+            &raw mut U_ONSET_NRT_GET_NORMALIZED_CHANNEL_ONSETS_BETWEEN_TIMES,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetChannelOnsetsBetweenTimes"),
+            &raw mut U_ONSET_NRT_GET_CHANNEL_ONSETS_BETWEEN_TIMES,
+        );
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        let class_ptr = USynesthesiaSpectrumAnalyzer::static_class();
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetNumCenterFrequencies"),
+            &raw mut U_SYNESTHESIA_SPECTRUM_ANALYZER_GET_NUM_CENTER_FREQUENCIES,
+        );
+        (bindings
+            .core_fns
+            .find_function_by_name)(
+            class_ptr,
+            unreal_ffi::Utf8Str::from("GetCenterFrequencies"),
+            &raw mut U_SYNESTHESIA_SPECTRUM_ANALYZER_GET_CENTER_FREQUENCIES,
+        );
+    }
+}
 #[repr(C, align(8))]
 pub struct FConstantQResults {
     pub time_seconds: f32,
@@ -37,17 +264,65 @@ impl FSynesthesiaSpectrumResults {}
 pub struct UAudioSynesthesiaSettings {
     __padding_end: [u8; 48],
 }
-impl UAudioSynesthesiaSettings {}
+impl UAudioSynesthesiaSettings {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAudioSynesthesiaSettings")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAudioSynesthesiaNRTSettings {
     __padding_end: [u8; 80],
 }
-impl UAudioSynesthesiaNRTSettings {}
+impl UAudioSynesthesiaNRTSettings {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAudioSynesthesiaNRTSettings")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UAudioSynesthesiaNRT {
     __padding_end: [u8; 232],
 }
-impl UAudioSynesthesiaNRT {}
+impl UAudioSynesthesiaNRT {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAudioSynesthesiaNRT")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UConstantQSettings {
     #[doc(hidden)]
@@ -64,7 +339,23 @@ pub struct UConstantQSettings {
     pub cqt_normalization: EConstantQNormalizationEnum,
     pub noise_floor_db: f32,
 }
-impl UConstantQSettings {}
+impl UConstantQSettings {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UConstantQSettings")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UConstantQAnalyzer {
     #[doc(hidden)]
@@ -72,7 +363,23 @@ pub struct UConstantQAnalyzer {
     pub settings: UPtr<UConstantQSettings>,
     __padding_end: [u8; 112],
 }
-impl UConstantQAnalyzer {}
+impl UConstantQAnalyzer {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UConstantQAnalyzer")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UConstantQNRTSettings {
     #[doc(hidden)]
@@ -89,14 +396,46 @@ pub struct UConstantQNRTSettings {
     pub cqt_normalization: EConstantQNormalizationEnum,
     pub noise_floor_db: f32,
 }
-impl UConstantQNRTSettings {}
+impl UConstantQNRTSettings {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UConstantQNRTSettings")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UConstantQNRT {
     #[doc(hidden)]
     __padding_232: [u8; 232],
     pub settings: UPtr<UConstantQNRTSettings>,
 }
-impl UConstantQNRT {}
+impl UConstantQNRT {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UConstantQNRT")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct ULKFSSettings {
     #[doc(hidden)]
@@ -108,7 +447,23 @@ pub struct ULKFSSettings {
     pub integrated_loudness_duration: f32,
     __padding_end: [u8; 4],
 }
-impl ULKFSSettings {}
+impl ULKFSSettings {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULKFSSettings")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct ULKFSAnalyzer {
     #[doc(hidden)]
@@ -116,7 +471,23 @@ pub struct ULKFSAnalyzer {
     pub settings: UPtr<ULKFSSettings>,
     __padding_end: [u8; 224],
 }
-impl ULKFSAnalyzer {}
+impl ULKFSAnalyzer {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULKFSAnalyzer")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct ULKFSNRTSettings {
     #[doc(hidden)]
@@ -126,14 +497,42 @@ pub struct ULKFSNRTSettings {
     pub short_term_loudness_duration: f32,
     __padding_end: [u8; 4],
 }
-impl ULKFSNRTSettings {}
+impl ULKFSNRTSettings {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULKFSNRTSettings")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct ULKFSNRT {
     #[doc(hidden)]
     __padding_232: [u8; 232],
     pub settings: UPtr<ULKFSNRTSettings>,
 }
-impl ULKFSNRT {}
+impl ULKFSNRT {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS.wait().name_to_ptr.get("ULKFSNRT").unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct ULoudnessSettings {
     #[doc(hidden)]
@@ -145,7 +544,23 @@ pub struct ULoudnessSettings {
     pub noise_floor_db: f32,
     pub expected_max_loudness: f32,
 }
-impl ULoudnessSettings {}
+impl ULoudnessSettings {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULoudnessSettings")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct ULoudnessAnalyzer {
     #[doc(hidden)]
@@ -153,7 +568,23 @@ pub struct ULoudnessAnalyzer {
     pub settings: UPtr<ULoudnessSettings>,
     __padding_end: [u8; 96],
 }
-impl ULoudnessAnalyzer {}
+impl ULoudnessAnalyzer {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULoudnessAnalyzer")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct ULoudnessNRTSettings {
     #[doc(hidden)]
@@ -165,14 +596,46 @@ pub struct ULoudnessNRTSettings {
     pub noise_floor_db: f32,
     __padding_end: [u8; 4],
 }
-impl ULoudnessNRTSettings {}
+impl ULoudnessNRTSettings {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULoudnessNRTSettings")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct ULoudnessNRT {
     #[doc(hidden)]
     __padding_232: [u8; 232],
     pub settings: UPtr<ULoudnessNRTSettings>,
 }
-impl ULoudnessNRT {}
+impl ULoudnessNRT {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULoudnessNRT")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMeterSettings {
     #[doc(hidden)]
@@ -184,7 +647,23 @@ pub struct UMeterSettings {
     pub peak_hold_time: i32,
     pub clipping_threshold: f32,
 }
-impl UMeterSettings {}
+impl UMeterSettings {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMeterSettings")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UMeterAnalyzer {
     #[doc(hidden)]
@@ -192,7 +671,23 @@ pub struct UMeterAnalyzer {
     pub settings: UPtr<UMeterSettings>,
     __padding_end: [u8; 224],
 }
-impl UMeterAnalyzer {}
+impl UMeterAnalyzer {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMeterAnalyzer")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UOnsetNRTSettings {
     #[doc(hidden)]
@@ -204,14 +699,46 @@ pub struct UOnsetNRTSettings {
     pub maximum_frequency: f32,
     __padding_end: [u8; 4],
 }
-impl UOnsetNRTSettings {}
+impl UOnsetNRTSettings {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOnsetNRTSettings")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UOnsetNRT {
     #[doc(hidden)]
     __padding_232: [u8; 232],
     pub settings: UPtr<UOnsetNRTSettings>,
 }
-impl UOnsetNRT {}
+impl UOnsetNRT {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOnsetNRT")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct USynesthesiaSpectrumAnalysisSettings {
     #[doc(hidden)]
@@ -222,7 +749,23 @@ pub struct USynesthesiaSpectrumAnalysisSettings {
     pub window_type: crate::bindings::engine::EFFTWindowType,
     pub b_downmix_to_mono: bool,
 }
-impl USynesthesiaSpectrumAnalysisSettings {}
+impl USynesthesiaSpectrumAnalysisSettings {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USynesthesiaSpectrumAnalysisSettings")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct USynesthesiaSpectrumAnalyzer {
     #[doc(hidden)]
@@ -230,7 +773,23 @@ pub struct USynesthesiaSpectrumAnalyzer {
     pub settings: UPtr<USynesthesiaSpectrumAnalysisSettings>,
     __padding_end: [u8; 112],
 }
-impl USynesthesiaSpectrumAnalyzer {}
+impl USynesthesiaSpectrumAnalyzer {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USynesthesiaSpectrumAnalyzer")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct FConstantQAnalyzer_OnConstantQResults {
     _opague: [u8; 24],

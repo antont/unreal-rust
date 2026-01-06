@@ -2,8 +2,12 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(clippy::non_camel_case_types)]
+#![allow(clippy::new_without_default)]
+#![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
+pub fn initialize() {}
 #[repr(C, align(4))]
 pub struct FBodyInstanceCore {
     #[doc(hidden)]
@@ -29,12 +33,44 @@ impl FPhysicalMaterialDamageModifier {}
 pub struct UDEPRECATED_PhysicalMaterialPropertyBase {
     __padding_end: [u8; 48],
 }
-impl UDEPRECATED_PhysicalMaterialPropertyBase {}
+impl UDEPRECATED_PhysicalMaterialPropertyBase {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDEPRECATED_PhysicalMaterialPropertyBase")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UBodySetupCore {
     __padding_end: [u8; 64],
 }
-impl UBodySetupCore {}
+impl UBodySetupCore {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBodySetupCore")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UChaosPhysicalMaterial {
     #[doc(hidden)]
@@ -48,7 +84,23 @@ pub struct UChaosPhysicalMaterial {
     pub sleeping_angular_velocity_threshold: f32,
     __padding_end: [u8; 4],
 }
-impl UChaosPhysicalMaterial {}
+impl UChaosPhysicalMaterial {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UChaosPhysicalMaterial")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UPhysicalMaterial {
     #[doc(hidden)]
@@ -73,12 +125,44 @@ pub struct UPhysicalMaterial {
     pub debug_color: crate::bindings::core_u_object::FLinearColor,
     __padding_end: [u8; 36],
 }
-impl UPhysicalMaterial {}
+impl UPhysicalMaterial {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPhysicalMaterial")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(C, align(8))]
 pub struct UPhysicsSettingsCore {
     __padding_end: [u8; 304],
 }
-impl UPhysicsSettingsCore {}
+impl UPhysicsSettingsCore {
+    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
+        *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPhysicsSettingsCore")
+            .unwrap()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            cdo
+        }
+    }
+}
 #[repr(transparent)]
 pub struct ESleepFamily(pub u8);
 impl ESleepFamily {
